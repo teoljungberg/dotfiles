@@ -10,10 +10,10 @@ directories=(
 
 # if --quiet is passed on as an argument, rsync doesnt display its process and
 # forks the process in the background
-if [ "$1" == '--quiet' ]; then
+if [ "$1" == '--quiet' -o "$1" == '-q' ]; then
     RSYNC_OPTS="-aPhz --partial --delete --quiet"
     QUIET=true
-else
+elif [ "$1" == '' -o "$1" == '-v' -o "$1" == '--verbose' ]; then
     RSYNC_OPTS="-aPvhz --progress --partial --delete"
 fi
 

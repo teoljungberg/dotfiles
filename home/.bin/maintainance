@@ -2,7 +2,7 @@
 
 echo "Updating Vim plugins.."
 cd ~/Dropbox/dotfiles
-git submodule -q foreach git pull origin master
+git submodule foreach git pull origin master
 cd ~
 
 echo "Updating, Updating and Pruning Homebrew.."
