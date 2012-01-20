@@ -1,0 +1,19 @@
+# For unstaged(*) and staged(+) values next to branch name in __git_ps1
+GIT_PS1_SHOWDIRTYSTATE="enabled"
+GIT_PS1_SHOWSTASHSTATE="enabled"
+GIT_PS1_SHOWUNTRACKEDFILES="enabled"
+GIT_PS1_SHOWUPSTREAM="auto"
+
+# Enclosing (\[\]) around colors to avoid word-wrap weirdo stuff(http://ubuntuforums.org/showthread.php?t=234232)
+if [ "$(whoami)" = "root" ]; then
+    PS1="\[$RED\]\u\[$NORMAL\] [ \[$CYAN\]\w\[$NORMAL\] ] \[$RED\]#\[$NORMAL\] " 
+elif [ -f ~/.linux ]; then
+    PS1="\[$PURPLE\]\u\[$NORMAL\] [ \[$CYAN\]\w\[$NORMAL\] ] > "
+else
+    PS1="\[$RED\]\u\[$NORMAL\] [ \[$CYAN\]\w\[$NORMAL\] ] > "
+fi
+export PS1
+
+# use solarized-like color
+#export CLICOLOR=1
+#export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD

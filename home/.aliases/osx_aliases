@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# ls
+alias ls='gls -F --color=always'
+
+# ls colors
+eval `gdircolors /Users/teo/.dircolors/dir_colors-dark` 
+
+# Applications
+alias te='open -a TextEdit'
+alias textual='open -a Textual'
+alias firefox="open -a Firefox"
+alias vlc='open -a VLC'
+alias brewup='brew update && brew upgrade -v && brew cleanup -v'
+alias todo='todo.sh -d /Users/teo/.todo.cfg'
+alias gvim="mvim"
+
+# mpd, ncmpcpp and mpc aliases
+alias player='ncmpcpp'
+alias mt="mpc toggle"
+alias mp="mpc play"
+alias mn="mpc next"
+alias mprev="mpc prev"
+alias ms="mpc search"
+alias msa="mpc search artist"
+alias mst="mpc search title"
+alias mpdk="mpd --kill"
+
+# Typos
+alias brweup='brewup'
