@@ -1,0 +1,3 @@
+#!/bin/sh -e
+curl -L https://raw.github.com/defunkt/gist/master/gist > ~/.bin/gist
+chmod +x ~/.bin/gist

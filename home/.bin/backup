@@ -1,0 +1,29 @@
+#!/bin/sh
+backup_location="/Volumes/Teo500GB/backup/"
+directories=(
+  Documents
+  Music
+  Pictures
+  Dropbox/code
+  Minecraft
+  Scripts
+)
+
+# if --quiet is passed on as an argument, rsync doesnt display its process and
+# forks the process in the background
+if [ "$1" == '--quiet' ]; then
+    RSYNC_OPTS="-aPhz --partial --delete --quiet"
+    QUIET=true
+else
+    RSYNC_OPTS="-aPvhz --progress --partial --delete"
+fi
+
+for directory in ${directories[@]}
+  do
+    if [ "$QUIET" == true ]; then
+        rsync $RSYNC_OPTS ~/$directory $backup_location
+    else
+        rsync $RSYNC_OPTS ~/$directory $backup_location 
+    fi 
+done
+echo 'backup completed'
