@@ -35,14 +35,16 @@
 
 "Keybindings
     "Leader bindings
-        "LEADER + s to save
-        noremap <Leader>s :update<CR>
+        "LEADER + w to save
+        noremap <Leader>w :update<CR>
         "LEADER + q quits all open panes
         noremap <Leader>q :qa!<CR>
         "LEADER + l shows/hides linenumbers
         noremap <Leader>l :set nu!<CR>
         "LEADER + n Toggles NERDTree
         noremap <LEADER>n :NERDTreeToggle<CR>
+        "LEADER + s opens up search and replace
+        noremap <LEADER>s :%s/
     
     "Sudo to write
     cmap w!! w !sudo tee % >/dev/null<CR>
