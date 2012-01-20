@@ -79,6 +79,7 @@ pip-log.txt
 # Secret things #
 #################
 private
+cache/*
 credentials.muttrc
 ~/.mutt/bodies/
 tmp
