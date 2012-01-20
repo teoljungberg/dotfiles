@@ -1,0 +1,54 @@
+#!/bin/bash
+# Handy 'tools'
+alias sym='ln -s'
+alias bp='bitpocket'
+
+# General aliases
+alias bitch,="sudo"
+alias ll='ls -l'
+alias la='ls -A'
+alias lr='ls -R'
+alias lx='ll -BX'
+alias l='ls'
+alias lm='la | more'
+alias lal="ls -Al"
+alias c='cd'
+alias cl='clear'
+alias pid='pidof'
+alias pik='pidof -k'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../../'
+alias q=".."
+
+# use vimpager instead of less
+export PAGER=~/.bin/vimpager
+alias less=$PAGER
+
+#
+## Git
+#
+alias git='hub'
+alias ga='git add'
+alias gp='git push'
+alias ugp='git push -f origin HEAD^:master'
+alias gpl='git pull'
+alias gd='git diff'
+alias gst='git status'
+
+# Commiting
+alias gc='git commit -v'
+alias gca='git commit -av'
+alias gcm='git commit -m'
+alias gcp='git commit -p'
+
+alias gs='git status -sb'
+
+alias gb='git branch -v'
+alias ggraph='git log --graph --pretty=oneline --abbrev-commit'
+alias glog='git log --oneline'
+alias gm='git merge'
+alias gco='git checkout'
+
+# Typo correctors
+alias kilall='killall'
