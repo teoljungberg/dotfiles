@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# ls
+alias ls="ls -F --color=always"
+
+# ls colors
+eval `dircolors ~/.dircolors/dir_colors-dark`
+
+# Applications
+alias db='dropbox'
+alias weechat='weechat-curses'
+alias bp='bitpocket'
+alias aur='pbget --aur-only'
