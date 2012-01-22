@@ -49,11 +49,6 @@
     cmap w!! w !sudo tee % >/dev/null<CR>
     
     "Movement
-        " Q takes you to the beginning of the file
-        "and Z to the end
-        noremap Q gg
-        noremap Z GG
-       
         "nicer to the hands
         inoremap jk <esc>
         
