@@ -9,8 +9,8 @@ if [ "$(whoami)" = "root" ]; then
     PS1="\[$RED\]\u\[$NORMAL\] [ \[$CYAN\]\w\[$NORMAL\] ] \[$RED\]#\[$NORMAL\] " 
 elif [ -f ~/.linux ]; then
     PS1="\[$PURPLE\]\u\[$NORMAL\] [ \[$CYAN\]\w\[$NORMAL\] ] > "
-else
-    PS1='\[$LIGHT_RED\]\w/\[$YELLOW\]$(__git_ps1 " (%s)") \[${NORMAL}\] > '
+elif [ -f ~/.osx ]; then
+    PS1='[ \[$CYAN\]\w\[$NORMAL\] ]\[$YELLOW\]$(__git_ps1 " (%s)") \[${NORMAL}\]> '
     # PS1="\[$RED\]\u\[$NORMAL\] [ \[$CYAN\]\w\[$NORMAL\] ] > "
 fi
 export PS1
