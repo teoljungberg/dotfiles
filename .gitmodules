@@ -31,3 +31,6 @@
 [submodule "home/.vim/bundle/vim-statline"]
 	path = home/.vim/bundle/vim-statline
 	url = https://github.com/millermedeiros/vim-statline
+[submodule "home/.vim/bundle/solarized"]
+	path = home/.vim/bundle/solarized
+	url = https://github.com/altercation/vim-colors-solarized

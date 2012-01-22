@@ -4,7 +4,7 @@
 alias ls='gls -F --color=always'
 
 # ls colors
-eval `gdircolors /Users/teo/.dircolors/dir_colors-dark` 
+eval `gdircolors ~/.dircolors/dir_colors-dark` 
 
 # Applications
 alias te='open -a TextEdit'
@@ -14,6 +14,10 @@ alias vlc='open -a VLC'
 alias brewup='brew update && brew upgrade -v && brew cleanup -v'
 alias todo='todo.sh -d /Users/teo/.todo.cfg'
 alias gvim="mvim"
+
+# Clipboard
+alias pbp="pbpaste"
+alias pbc="pbcopy"
 
 # mpd, ncmpcpp and mpc aliases
 alias player='ncmpcpp'
