@@ -23,7 +23,7 @@ if [ -f ~/.linux ]; then
 fi
 
 # Load git completion
-source ~/.bash/completion/git_v2
+source ~/.bash/completion/git
 
 # Load private scripts n' stuff
 source ~/.aliases/private
