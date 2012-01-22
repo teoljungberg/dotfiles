@@ -1,14 +1,8 @@
-# For unstaged(*) and staged(+) values next to branch name in __git_ps1
-export GIT_PS1_SHOWDIRTYSTATE="enabled"
-export GIT_PS1_SHOWSTASHSTATE="enabled"
-export GIT_PS1_SHOWUNTRACKEDFILES="enabled"
-export GIT_PS1_SHOWUPSTREAM="auto"
-
 # Enclosing (\[\]) around colors to avoid word-wrap weirdo stuff(http://ubuntuforums.org/showthread.php?t=234232)
 if [ "$(whoami)" = "root" ]; then
     PS1="\[$RED\]\u\[$NORMAL\] [ \[$CYAN\]\w\[$NORMAL\] ] \[$RED\]#\[$NORMAL\] " 
 elif [ -f ~/.linux ]; then
-    PS1="\[$PURPLE\]\u\[$NORMAL\] [ \[$CYAN\]\w\[$NORMAL\] ] > "
+    PS1='\[$PURPLE\][ \[$CYAN\]\w/\[$PURPLE\] ]\[$YELLOW\]$(__git_ps1 " (%s)") \[$NORMAL\]> ' 
 elif [ -f ~/.osx ]; then
     PS1='\[$LIGHT_RED\][ \[$CYAN\]\w/\[$LIGHT_RED\] ]\[$YELLOW\]$(__git_ps1 " (%s)") \[$NORMAL\]> ' 
     #PS1='\[$LIGHT_RED\]\u\[$NORMAL\] in \[$CYAN\]\w/\[$YELLOW\]$(__git_ps1 " (%s)") \[${NORMAL}\]> ' 
