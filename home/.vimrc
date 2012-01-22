@@ -44,10 +44,6 @@
         noremap <LEADER>n :NERDTreeToggle<CR>
         "LEADER + s opens up search and replace
         noremap <LEADER>s :%s/
-        "LEADER + c to copy selection
-        noremap <LEADER>c :.!pbcopy<CR>
-        "LEADER + p to paste
-        noremap <LEADER>p :r !pbpaste<CR>
 
     "Sudo to write
     cmap w!! w !sudo tee % >/dev/null<CR>
