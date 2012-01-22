@@ -28,6 +28,7 @@ alias less=$PAGER
 #
 ## Git
 #
+alias g="git"
 alias git='hub'
 alias ga='git add'
 alias gp='git push'
@@ -49,6 +50,14 @@ alias ggraph='git log --graph --pretty=oneline --abbrev-commit'
 alias glog='git log --oneline'
 alias gm='git merge'
 alias gco='git checkout'
+
+# Standalone aliases
+alias st="status"
+alias stat="status"
+alias co="checkout"
+alias cm="commit -m"
+alias po="push origin"
+alias fo="fetch origin"
 
 # Typo correctors
 alias kilall='killall'
