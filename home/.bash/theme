@@ -10,7 +10,8 @@ if [ "$(whoami)" = "root" ]; then
 elif [ -f ~/.linux ]; then
     PS1="\[$PURPLE\]\u\[$NORMAL\] [ \[$CYAN\]\w\[$NORMAL\] ] > "
 else
-    PS1="\[$RED\]\u\[$NORMAL\] [ \[$CYAN\]\w\[$NORMAL\] ] > "
+    PS1='\[$LIGHT_RED\]\w/\[$YELLOW\]$(__git_ps1 " (%s)") \[${NORMAL}\] > '
+    # PS1="\[$RED\]\u\[$NORMAL\] [ \[$CYAN\]\w\[$NORMAL\] ] > "
 fi
 export PS1
 

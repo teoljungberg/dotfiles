@@ -22,6 +22,9 @@ if [ -f ~/.linux ]; then
     source ~/.aliases/linux_aliases
 fi
 
+# Load git completion
+source ~/.bash/completion/git
+
 # Load private scripts n' stuff
 source ~/.aliases/private
 
