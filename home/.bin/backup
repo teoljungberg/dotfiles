@@ -6,12 +6,13 @@ directories=(
   Pictures
   Minecraft
   Scripts
+  src
 )
 
 if [ "$1" == '--quiet' -o "$1" == '-q' ]; then
-    RSYNC_OPTS="-aPhz --partial --delete --quiet"
+    RSYNC_OPTS="-aLPhz --partial --delete --quiet"
 elif [ "$1" == '' -o "$1" == '--verbose' -o "$1" == '-v' ]; then
-    RSYNC_OPTS="-aPvhz --progress --partial --delete"
+    RSYNC_OPTS="-aLPvhz --progress --partial --delete"
 fi 
 
 # if --quiet is passed on as an argument, rsync doesnt show the process of the

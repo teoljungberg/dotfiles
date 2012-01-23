@@ -21,7 +21,7 @@ echo 'Updating Hub'
 ~/.bin/latest-hub
 
 echo "Taking out the trash.."
-sudo rm -Rf ~/.Trash/*
+rm -rf ~/.Trash/*
 
 echo "Backing up"
 backup --quiet
