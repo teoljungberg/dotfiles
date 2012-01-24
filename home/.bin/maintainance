@@ -8,6 +8,11 @@ cd ~
 echo "Updating, Updating and Pruning Homebrew.."
 brew update && brew upgrade -v && brew cleanup -v
 
+echo "Updating Homebrew repository"
+cd ~/git/homebrew/
+git pull upstream master
+cd ~
+
 echo "Removing Homebrew cache.."
 rm -rfv ~/Library/Caches/Homebrew/*
 
