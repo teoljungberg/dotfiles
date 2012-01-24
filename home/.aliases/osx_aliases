@@ -14,6 +14,7 @@ alias vlc='open -a VLC'
 alias brewup='brew update && brew upgrade -v && brew cleanup -v'
 alias todo='todo.sh -d /Users/teo/.todo.cfg'
 alias gvim="mvim"
+alias m="mvim"
 
 # Clipboard
 alias pbp="pbpaste"
