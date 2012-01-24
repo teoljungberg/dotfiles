@@ -1,4 +1,5 @@
 #!/bin/bash
+# A handy little application for extracting archives
 if [ -f $1 ]; then
     case $1 in
     *.tar.bz2)  tar -jxvf $1        ;;
