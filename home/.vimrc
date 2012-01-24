@@ -77,9 +77,8 @@
     nnoremap ; :
 
     "easier to type
-        " to comment out lines with tpope/vim-commentary, § is alot easier to hit than \ on a swedish
-        " keyboard
-        nnoremap § \
+        " - is closer and easier to type than \
+        nnoremap - /
 
 " swap and tmp files
 "set backupdir=~/.vim/tmp/
