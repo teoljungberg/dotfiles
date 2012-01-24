@@ -29,4 +29,4 @@ echo "Taking out the trash.."
 rm -rf ~/.Trash/*
 
 echo "Backing up"
-backup --quiet
+backup 
