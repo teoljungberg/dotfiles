@@ -1,6 +1,6 @@
 #!/bin/sh -e
 # Usage: latest-hub
 # Grabs the latest standalone version of Chris Wanstrath's hub
-# and puts its in your HOME/bin.
+# and puts its in your HOME/.bin.
 curl http://defunkt.io/hub/standalone -Lo ~/.bin/hub
 chmod 755 ~/.bin/hub
