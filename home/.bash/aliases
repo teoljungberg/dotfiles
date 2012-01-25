@@ -36,7 +36,7 @@ alias ugp='git push -f origin HEAD^:master'
 alias gpl='git pull'
 alias gd='git diff'
 alias gst='git status'
-
+alias gtree="git log --graph --decorate --pretty=oneline --abbrev-commit"
 # Commiting
 alias gc='git commit -v'
 alias gca='git commit -av'
@@ -46,7 +46,6 @@ alias gcp='git commit -p'
 alias gs='git status -sb'
 
 alias gb='git branch -v'
-alias ggraph='git log --graph --pretty=oneline --abbrev-commit'
 alias glog='git log --oneline'
 alias gm='git merge'
 alias gco='git checkout'
