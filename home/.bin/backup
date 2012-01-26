@@ -1,5 +1,8 @@
 #!/bin/bash
+
+# this speaks for itself
 backup_location="/Volumes/Teo500GB/backup/"
+# directories to backup. recursive, implied to be in home (~)
 directories=(
   Documents
   Music
@@ -9,16 +12,16 @@ directories=(
   src
 )
 
+# if --quiet is passed on as an argument, rsync doesnt show the process of the
+# backup
 if [ "$1" == '--quiet' -o "$1" == '-q' ]; then
     RSYNC_OPTS="-aLPhz --partial --delete --quiet"
 elif [ "$1" == '' -o "$1" == '--verbose' -o "$1" == '-v' ]; then
     RSYNC_OPTS="-aLPvhz --progress --partial --delete"
 fi 
-
-# if --quiet is passed on as an argument, rsync doesnt show the process of the
-# backup
+# BACKUP COMMENCE
 for directory in ${directories[@]}
   do
-      rsync $RSYNC_OPTS $directory $backup_location
+      rsync $RSYNC_OPTS ~/$directory $backup_location
 done
 echo 'backup completed'
