@@ -4,29 +4,37 @@ echo "Updating Vim plugins.."
 cd ~/Dropbox/dotfiles
 git submodule foreach git pull origin master
 cd ~
+echo ''
 
 echo "Updating, Updating and Pruning Homebrew.."
 brew update && brew upgrade -v && brew cleanup -v
+echo ''
 
 echo "Updating Homebrew repository"
 cd ~/git/homebrew/
 git pull upstream master
 cd ~
+echo ''
 
 echo "Removing Homebrew cache.."
 rm -rfv ~/Library/Caches/Homebrew/*
+echo ''
 
 echo 'Updating Gist'
 ~/.bin/latest-gist
+echo ''
 
 echo 'Updating Ack'
 ~/.bin/latest-ack
+echo ''
 
 echo 'Updating Hub'
 ~/.bin/latest-hub
+echo ''
 
 echo "Taking out the trash.."
 rm -rf ~/.Trash/*
+echo ''
 
 echo "Backing up"
 backup 

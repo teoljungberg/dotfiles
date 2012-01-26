@@ -22,6 +22,8 @@ fi
 # BACKUP COMMENCE
 for directory in ${directories[@]}
   do
+      echo 'backing up' $directory
       rsync $RSYNC_OPTS ~/$directory $backup_location
+      echo ''
 done
 echo 'backup completed'
