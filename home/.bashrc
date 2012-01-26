@@ -25,6 +25,11 @@ fi
 # Load git completion
 source ~/.bash/completion/git
 
+# Load brew commpletion
+if [ -f ~/.osx ]; then
+    source ~/.bash/completion/brew_bash
+fi
+
 # Load private scripts n' stuff
 source ~/.aliases/private
 
