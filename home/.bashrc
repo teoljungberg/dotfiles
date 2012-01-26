@@ -1,5 +1,5 @@
 # Load colors
-. ~/.bash/colors
+source ~/.bash/colors
 
 # Setting up editor 
 export EDITOR=vim
@@ -27,11 +27,13 @@ source ~/.bash/completion/git
 
 # Load brew commpletion
 if [ -f ~/.osx ]; then
-    source ~/.bash/completion/brew_bash
+    source ~/.bash/completion/brew
 fi
 
 # Load private scripts n' stuff
-source ~/.aliases/private
+if [ -f ~/.aliases/private ]; then
+    source ~/.aliases/private
+fi
 
 # Load aliases at end to not conflict with anything
 source ~/.bash/aliases
