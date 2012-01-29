@@ -34,6 +34,6 @@
 [submodule "home/.vim/bundle/solarized"]
 	path = home/.vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized
-[submodule "/Users/teo/Dropbox/dotfiles/home/.vim/bundle/fugitive"]
-	path = /Users/teo/Dropbox/dotfiles/home/.vim/bundle/fugitive
+[submodule "home/.vim/bundle/fugitive"]
+	path = home/.vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive/
