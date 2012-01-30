@@ -36,8 +36,8 @@
     "Leader bindings
         "LEADER + w to save
         noremap <Leader>w :update<CR>
-        "LEADER + q quits all open panes
-        noremap <Leader>q :qa!<CR>
+        "LEADER + q quits the open pane
+        noremap <Leader>q :q!<CR>
         "LEADER + l shows/hides linenumbers
         noremap <Leader>l :set nu!<CR>
         "LEADER + n Toggles NERDTree
@@ -49,7 +49,6 @@
     cmap w!! w !sudo tee % >/dev/null<CR>
     
     "Movement
-        
         " moving between buffers/panes
         map <C-J> <C-W>j
         map <C-K> <C-W>k
@@ -76,7 +75,7 @@
 
     "easier to type
         " - is closer and easier to type than \
-        nnoremap - /
+        " nnoremap - /
 
 " swap and tmp files
 "set backupdir=~/.vim/tmp/

@@ -30,6 +30,11 @@ if [ -f ~/.osx ]; then
     source ~/.bash/completion/brew
 fi
 
+# Load bash completion
+if [ -f /etc/bash_completion ]; then
+    source /etc/bash_completion
+fi
+
 # Load private scripts n' stuff
 if [ -f ~/.aliases/private ]; then
     source ~/.aliases/private

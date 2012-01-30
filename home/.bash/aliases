@@ -28,8 +28,8 @@ alias less=$PAGER
 #
 ## Git
 #
-alias g="git"
 alias git='hub'
+alias g='git'
 alias ga='git add'
 alias gp='git push'
 alias ugp='git push -f origin HEAD^:master'
