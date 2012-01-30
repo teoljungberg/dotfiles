@@ -49,8 +49,6 @@
     cmap w!! w !sudo tee % >/dev/null<CR>
     
     "Movement
-        "nicer to the hands
-        inoremap jk <esc>
         
         " moving between buffers/panes
         map <C-J> <C-W>j

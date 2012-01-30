@@ -15,7 +15,6 @@ alias lal="ls -Al"
 alias d='cd'
 alias cl='clear'
 alias pid='pidof'
-alias pik='pidof -k'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../../'
@@ -38,6 +37,7 @@ alias gpl='git pull'
 alias gd='git diff'
 alias gst='git status'
 alias gtree="git log --graph --decorate --pretty=oneline --abbrev-commit"
+
 # Commiting
 alias gc='git commit -v'
 alias gca='git commit -av'
