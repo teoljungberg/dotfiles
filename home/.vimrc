@@ -1,9 +1,10 @@
 "General settings
-    filetype off
     call pathogen#infect()
-    set nocompatible
-    syntax on
+    call pathogen#helptags()
     filetype plugin indent on
+    syntax on
+    set nocompatible " IMproved
+    syntax on
     set hidden
     set t_Co=256
     set autoread
@@ -57,11 +58,17 @@
         map <C-K> <C-W>k
         
         "disable arrow keys in normal and visualmode, but keeping them in insertmode
+        " normalmode
         nnoremap <up> <nop>
         nnoremap <down> <nop>
         nnoremap <left> <nop>
         nnoremap <right> <nop>
-        
+        " visualmode
+        vnoremap <up> <nop>
+        vnoremap <down> <nop>
+        vnoremap <left> <nop>
+        vnoremap <right> <nop>
+
         " Bashery movements
         inoremap <c-a> <esc>I
         inoremap <c-e> <esc>A
@@ -74,16 +81,16 @@
     nnoremap ; :
 
     "easier to type
-        " - is closer and easier to type than \
-        " nnoremap - /
+    " - is closer and easier to type than \
+    " nnoremap - /
 
 " swap and tmp files
-"set backupdir=~/.vim/tmp/
-"set directory=~/.vim/tmp/
+    "set backupdir=~/.vim/tmp/
+    "set directory=~/.vim/tmp/
 
 " disables the creating of the swap and tmp files
-set noswapfile
-set nobackup
+    set noswapfile
+    set nobackup
 set nowritebackup
 
 "Default intendation settings
