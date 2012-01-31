@@ -34,3 +34,4 @@ alias mpdk="mpd --kill"
 
 # Typos
 alias brweup='brewup'
+alias brwe="brew"
