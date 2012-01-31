@@ -79,8 +79,5 @@ pip-log.txt
 # Secret things #
 #################
 private
-~/.mutt/cache/
-~/.mutt/bodies/
-*credentials*
 tmp
 pyssh.py
