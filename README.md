@@ -1,5 +1,5 @@
-# Metamorfos's Dotfiles
-These dotfiles are heavily inspired by [Sirupsen](https://github.com/Sirupsen)  
+# Metamorfos' Dotfiles
+These dotfiles are heavily inspired by [Sirupsen](/Sirupsen)  
 The files are based upon his and modified to my liking. Go check out his and be amazed [Sirupsen/dotfiles](http://github.com/Sirupsen/dotfiles/)
 
 ## Software
@@ -10,11 +10,13 @@ The files are based upon his and modified to my liking. Go check out his and be 
     - [iTerm2](http://www.iterm2.com/)
 * Shell
     - `bash`
+* Font
+    - `monaco`
 * Text editor
     - `vim`
-    - [MacVim](https://github.com/b4winckler/macvim)
+    - [MacVim](b4winckler/macvim)
 * Colorscheme 
-    - [Solarized](https://github.com/altercation/solarized)
+    - [Solarized](altercation/solarized)
 * Misc
     - [F.lux](http://stereopsis.com/flux/)
     - [Alfred](http://alfredapp.com)
@@ -51,7 +53,7 @@ Check out [homesick](http://github.com/technicalpickles/homesick) for more
 details about the project. I friggin love it!
 	
 ## PS1 Format
-`username [pwd] > command`
+`[pwd] > command`
 
 ## Screenshots
 Who doesn't love them?
