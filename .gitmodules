@@ -58,3 +58,6 @@
 [submodule "home/.vim/bundle/statline"]
 	path = home/.vim/bundle/statline
 	url = https://github.com/millermedeiros/vim-statline
+[submodule "home/.vim/bundle/ruby"]
+	path = home/.vim/bundle/ruby
+	url = https://github.com/vim-ruby/vim-ruby
