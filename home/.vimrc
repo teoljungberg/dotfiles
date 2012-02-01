@@ -4,7 +4,6 @@
     filetype plugin indent on
     syntax on
     set nocompatible " IMproved
-    syntax on
     set hidden
     set t_Co=256
     set autoread
@@ -80,46 +79,37 @@
     "my fingers sometimes slip
     nnoremap ; :
 
-    "easier to type
-    " - is closer and easier to type than \
-    " nnoremap - /
-
-" swap and tmp files
-    "set backupdir=~/.vim/tmp/
-    "set directory=~/.vim/tmp/
-
 " disables the creating of the swap and tmp files
     set noswapfile
     set nobackup
-set nowritebackup
+    set nowritebackup
 
 "Default intendation settings
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-set expandtab 
-set autoindent
+    set shiftwidth=4
+    set tabstop=4
+    set softtabstop=4
+    set expandtab 
+    set autoindent
 
 "Foldsettings
-set foldmethod=indent
-set foldnestmax=3
-set nofoldenable
-
-set smartcase                                
-set ignorecase
-set gdefault
+    set smartcase                                
+    set ignorecase
+    set gdefault
 
 " Wraps
-    set wrap "dont wraplines
-    set linebreak "wrap lines at convenient places
-    set textwidth=79
+    set wrap 
+    set linebreak 
+    set textwidth=80
 
 "Search settings
-    set incsearch "find next match
-    set hlsearch "highlight search result
+    set incsearch 
+    set hlsearch 
     set showmatch
     set ignorecase
-    nnoremap <leader><space> :noh<cr> 
+    nnoremap <LEADER><space> :noh<CR>  
+    set smartcase                                
+    set ignorecase
+    set gdefault
 
     " Keep search matches in the middle of the window and pulse the line when
     " moving
