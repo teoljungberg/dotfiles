@@ -19,12 +19,12 @@
     set number
     command Light :set background=light
     command Dark :set background=dark
-    set scrolloff=3
+    set scrolloff=4
 
 "Plugins
     "NERDTree
     let NERDTreeChDirMode = 1
-    let g:nerdtreewinsize = 20
+    let g:nerdtreewinsize = 25
     let NERDTreeHighlightCursorline=1
     
     "Gist
@@ -87,7 +87,7 @@
 "Default intendation settings
     set shiftwidth=4
     set tabstop=4
-    set softtabstop=4
+    set softtabstop=5
     set expandtab 
     set autoindent
 
