@@ -10,6 +10,7 @@
     set history=1000
     set encoding=utf-8
     let mapleader=","
+    set backspace=indent,eol,start
     au VimResized * exe
 
 "Visual thingys 
@@ -45,7 +46,7 @@
         "LEADER + s opens up search and replace
         noremap <LEADER>s :%s/
 
-    "Sudo to write
+    " sudo to write
     cmap w!! w !sudo tee % >/dev/null<CR>
     
     "Movement
@@ -56,7 +57,7 @@
         map <C-H> <C-W>h
         map <C-K> <C-W>k
         
-        "disable arrow keys in normal and visualmode, but keeping them in insertmode
+        " disable arrow keys in normal and visualmode, but keeping them in insertmode
         " normalmode
         nnoremap <up> <nop>
         nnoremap <down> <nop>
@@ -68,15 +69,15 @@
         vnoremap <left> <nop>
         vnoremap <right> <nop>
 
-        " Bashery movements
+        " bashery movements
         inoremap <c-a> <esc>I
         inoremap <c-e> <esc>A
 
-        "Same as above, just with H and L
+       " same as above, just with H and L
         noremap H ^
         noremap L g_
      
-    "my fingers sometimes slip
+    " my fingers sometimes slip
     nnoremap ; :
 
 " disables the creating of the swap and tmp files
@@ -84,24 +85,24 @@
     set nobackup
     set nowritebackup
 
-"Default intendation settings
+" sane intendation 
     set shiftwidth=4
     set tabstop=4
-    set softtabstop=5
+    set softtabstop=4
     set expandtab 
     set autoindent
 
-"Foldsettings
+" foldsettings
     set smartcase                                
     set ignorecase
     set gdefault
 
-" Wraps
+" wraps
     set wrap 
     set linebreak 
     set textwidth=80
 
-"Search settings
+" search 
     set incsearch 
     set hlsearch 
     set showmatch
