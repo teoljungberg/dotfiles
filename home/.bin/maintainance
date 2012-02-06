@@ -21,15 +21,18 @@ rm -rfv ~/Library/Caches/Homebrew/*
 echo ''
 
 echo 'Updating Gist'
-~/.bin/latest-gist
+curl -L https://raw.github.com/defunkt/gist/master/gist > ~/.bin/gist
+chmod +x ~/.bin/gist
 echo ''
 
 echo 'Updating Ack'
-~/.bin/latest-ack
+curl -L http://betterthangrep.com/ack-standalone > ~/.bin/ack
+chmod +x ~/.bin/ack
 echo ''
 
 echo 'Updating Hub'
-~/.bin/latest-hub
+curl http://defunkt.io/hub/standalone -lo ~/.bin/hub
+chmod 755 ~/.bin/hub
 echo ''
 
 echo "Taking out the trash.."

@@ -1,4 +1,0 @@
-#!/bin/sh -e
-# Downloads the latest version of ack
-curl -L http://betterthangrep.com/ack-standalone > ~/.bin/ack
-chmod +x ~/.bin/ack

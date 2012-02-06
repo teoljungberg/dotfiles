@@ -1,4 +1,0 @@
-#!/bin/sh -e
-# Downloads the latest version of gist
-curl -L https://raw.github.com/defunkt/gist/master/gist > ~/.bin/gist
-chmod +x ~/.bin/gist
