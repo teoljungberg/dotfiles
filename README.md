@@ -1,11 +1,11 @@
 # Metamorfos' Dotfiles
-These dotfiles are heavily inspired by [Sirupsen](/Sirupsen)  
-The files are based upon his and modified to my liking. Go check out his and be amazed [Sirupsen/dotfiles](http://github.com/Sirupsen/dotfiles/)
+These dotfiles are heavily inspired by [Sirupsen](Sirupsen)  
+The files are based upon his and modified to my liking. Go check out his and be amazed [Sirupsen/dotfiles](Sirupsen/dotfiles/)
 
 ## Software
 * OS
-    - Mac OS X Lion (desktop)
-    - Arch Linux (server)
+    - Mac OS X Lion 
+    - Arch Linux
 * Terminal
     - [iTerm2](http://www.iterm2.com/)
 * Shell
@@ -60,8 +60,8 @@ Who doesn't love them?
 
     $ ls -F --color=auto / 
 
-![](http://f.cl.ly/items/0S291q0C3a3N441C191Q/screenshot%202011-12-30%20kl.%2014.09.42.PNG)
+![](http://f.cl.ly/items/3x1t2U3t3Z410c33131Z/screenshot%202012-02-06%20kl.%2023.28.14.PNG)
 
 Plain `vim` session
 
-![](http://f.cl.ly/items/1U0X2u0W0C0R0Q1x083s/screenshot%202011-12-30%20kl.%2014.10.41.PNG)
+![](http://f.cl.ly/items/3x1t2U3t3Z410c33131Z/screenshot%202012-02-06%20kl.%2023.28.14.PNG)
