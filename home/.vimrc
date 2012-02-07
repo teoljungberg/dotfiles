@@ -79,6 +79,10 @@
      
     " my fingers sometimes slip
     nnoremap ; :
+   
+    " bashery removal
+    nnoremap <c-k> D
+    nnoremap <c-u> d0
 
 " disables the creating of the swap and tmp files
     set noswapfile
