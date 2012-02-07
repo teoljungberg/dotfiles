@@ -16,6 +16,7 @@ alias todo='todo.sh -d /Users/teo/.todo.cfg'
 alias gvim="mvim"
 alias m="mvim"
 alias M="mvim ."
+alias Finder="open -a Finder ."
 
 # Clipboard
 alias pbp="pbpaste"
