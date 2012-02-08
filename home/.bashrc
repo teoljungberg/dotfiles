@@ -1,14 +1,14 @@
 # the users PATH
 export PATH=/usr/local/bin:$PATH:~/.bin:/usr/local/sbin
 
+# Term
+export TERM=screen-256color
+
 # set editor
 export EDITOR=vim
 
 # load bash' colors
 source ~/.bash/colors
-
-# Term
-export TERM=screen-256color
 
 # Load PS1 theme including theme for ls
 source ~/.bash/theme
