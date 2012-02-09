@@ -1,6 +1,6 @@
 # Metamorfos' Dotfiles
-These dotfiles are heavily inspired by [Sirupsen](Sirupsen)  
-The files are based upon his and modified to my liking. Go check out his and be amazed [Sirupsen/dotfiles](Sirupsen/dotfiles/)
+These dotfiles are heavily inspired by [Sirupsen](/Sirupsen)  
+The files are based upon his and modified to my liking. Go check out his and be amazed [Sirupsen/dotfiles](/Sirupsen/dotfiles/)
 
 ## Software
 * OS
@@ -49,7 +49,7 @@ and on linux:
 
     $ touch ~/.linux
 
-Check out [homesick](http://github.com/technicalpickles/homesick) for more
+Check out [homesick](/technicalpickles/homesick) for more
 details about the project. I friggin love it!
 	
 ## PS1 Format
