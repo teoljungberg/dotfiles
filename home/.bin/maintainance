@@ -35,6 +35,10 @@ curl http://defunkt.io/hub/standalone -lo ~/.bin/hub
 chmod 755 ~/.bin/hub
 echo ''
 
+echo 'checkit dotfiles status'
+cd ~/git/dotfiles/
+git status
+
 echo "Taking out the trash.."
 rm -rf ~/.Trash/*
 echo ''
