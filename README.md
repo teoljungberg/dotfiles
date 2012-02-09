@@ -14,14 +14,14 @@ The files are based upon his and modified to my liking. Go check out his and be 
     - `monaco`
 * Text editor
     - `vim`
-    - [MacVim](b4winckler/macvim)
+    - [MacVim](/b4winckler/macvim)
 * Colorscheme 
-    - [Solarized](altercation/solarized)
+    - [Solarized](/altercation/solarized)
 * Misc
     - [F.lux](http://stereopsis.com/flux/)
     - [Alfred](http://alfredapp.com)
     - [Dropbox](http://db.tt/jy1BQci) *pst referal link pst*
-    - [Homebrew](http://mxcl.github.com/homebrew/)
+    - [Homebrew](/mcxl/homebrew/)
 
 ## How I store my dotfiles
 Here is how I sync my dotfiles across machines.
