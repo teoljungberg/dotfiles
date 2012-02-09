@@ -38,6 +38,7 @@ echo ''
 echo 'checkit dotfiles status'
 cd ~/git/dotfiles/
 git status
+echo ''
 
 echo "Taking out the trash.."
 rm -rf ~/.Trash/*
