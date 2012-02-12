@@ -10,6 +10,7 @@ directories=(
   Minecraft
   Scripts
   src
+  Books
 )
 
 # if --quiet is passed on as an argument, rsync doesnt show the process of the
