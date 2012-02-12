@@ -21,6 +21,7 @@ alias ....='cd ../../../'
 alias q=".."
 alias grep="grep --color=auto"
 alias reload="source ~/.bashrc"
+alias py="python2.7"
 
 # use vimpager instead of less
 export PAGER=~/.bin/vimpager
