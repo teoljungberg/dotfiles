@@ -13,30 +13,19 @@ source ~/.bash/theme
 # set editor
 export EDITOR=vim
 
+# Load bash completion
+source /etc/bash_completion
+
 # Load git completion
 source ~/.bash/completion/git
-
-# Load brew commpletion for osx
-if [ -f ~/.osx ]; then
-    source ~/.bash/completion/brew
-fi
-
-# Load bash completion
-if [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion
-fi
 
 # Load aliases at end to not conflict with anything
 source ~/.bash/aliases
 
-# For parting differnt OS specific aliases
+# For parting OS specifics
 if [ -f ~/.osx ]; then
     source ~/.aliases/osx_aliases
+    source ~/.bash/completion/brew
 elif [ -f ~/.linux ]; then
     source ~/.aliases/linux_aliases
-fi
-
-# Load private aliases
-if [ -f ~/.aliases/private ]; then
-    source ~/.aliases/private
 fi
