@@ -34,17 +34,19 @@
     let g:gist_open_browser_after_post = 0
 
 "Keybindings
-    "Leader bindings
+    "LEADER bindings
         "LEADER + w to save
-        noremap <Leader>w :update<CR>
+        noremap <LEADER>w :update<CR>
         "LEADER + q quits the open pane
-        noremap <Leader>q :q!<CR>
+        noremap <LEADER>q :q!<CR>
         "LEADER + l shows/hides linenumbers
-        noremap <Leader>l :set nu!<CR>
+        noremap <LEADER>l :set nu!<CR>
         "LEADER + n Toggles NERDTree
         noremap <LEADER>n :NERDTreeToggle<CR>
         "LEADER + s opens up search and replace
         noremap <LEADER>s :%s/
+        "LEADER + f opens up search
+        noremap <LEADER>f /
 
     " sudo to write
     cmap w!! w !sudo tee % >/dev/null<CR>
