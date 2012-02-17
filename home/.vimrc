@@ -33,6 +33,8 @@
     let g:gist_detect_filetype = 1
     let g:gist_open_browser_after_post = 0
 
+    "Ack
+
 "Keybindings
     "LEADER bindings
         "LEADER + w to save
@@ -47,7 +49,9 @@
         noremap <LEADER>s :%s/
         "LEADER + f opens up search
         noremap <LEADER>f /
-
+        "LEADER + a open up ack
+        noremap <LEADER>a :Ack 
+        
     " sudo to write
     cmap w!! w !sudo tee % >/dev/null<CR>
     
