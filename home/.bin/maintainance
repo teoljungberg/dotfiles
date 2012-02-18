@@ -1,10 +1,6 @@
 #!/bin/bash
 
-echo "Updating Vim plugins.."
-cd ~/Dropbox/dotfiles
-git submodule foreach git pull origin master
-cd ~
-echo ''
+~/.bin/update_vim-plugins
 
 echo "Updating, Updating and Pruning Homebrew.."
 brew update && brew upgrade -v && brew cleanup -v
@@ -21,28 +17,16 @@ rm -rfv ~/Library/Caches/Homebrew/*
 echo ''
 
 echo 'Updating Gist'
-curl -L https://raw.github.com/defunkt/gist/master/gist > ~/.bin/gist
+curl -#L https://raw.github.com/defunkt/gist/master/gist > ~/.bin/gist
 chmod +x ~/.bin/gist
 echo ''
 
 echo 'Updating Ack'
-curl -L http://betterthangrep.com/ack-standalone > ~/.bin/ack
+curl -#L http://betterthangrep.com/ack-standalone > ~/.bin/ack
 chmod +x ~/.bin/ack
 echo ''
 
 echo 'Updating Hub'
-curl http://defunkt.io/hub/standalone -lo ~/.bin/hub
+curl -#L http://defunkt.io/hub/standalone -lo ~/.bin/hub
 chmod 755 ~/.bin/hub
 echo ''
-
-echo 'checkit dotfiles status'
-cd ~/git/dotfiles/
-git status
-echo ''
-
-echo "Taking out the trash.."
-rm -rf ~/.Trash/*
-echo ''
-
-echo "Backing up"
-backup 
