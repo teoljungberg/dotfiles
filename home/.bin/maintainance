@@ -21,12 +21,12 @@ curl -#L https://raw.github.com/defunkt/gist/master/gist > ~/.bin/gist
 chmod +x ~/.bin/gist
 echo ''
 
-echo 'Updating Ack'
-curl -#L http://betterthangrep.com/ack-standalone > ~/.bin/ack
-chmod +x ~/.bin/ack
-echo ''
-
 echo 'Updating Hub'
 curl -#L http://defunkt.io/hub/standalone -lo ~/.bin/hub
 chmod 755 ~/.bin/hub
+echo ''
+
+echo 'Updating Ack'
+curl -#L http://betterthangrep.com/ack-standalone > ~/.bin/ack
+chmod +x ~/.bin/ack
 echo ''
