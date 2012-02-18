@@ -1,0 +1,36 @@
+#!/bin/bash
+
+if [[ "$#" -lt 1 ]]; then
+	echo "Usage: $(basename "$0") [language] <name>"
+	exit 1
+fi
+
+if [[ -e "$2" ]]; then
+	echo "ERROR: "$2" already exists."
+	exit 1
+fi
+
+touch "$2"
+chmod u+x "$2"
+
+case "$1" in
+	("bash"|"sh")
+		echo -ne "#!/bin/bash\n\n" >> "$2"
+	;;
+	("ruby"|"rb")
+		echo -ne "#!/usr/bin/env ruby\n\n" >> "$2"
+	;;
+	("macruby"|"macrb")
+		echo -ne "#!/usr/bin/env macruby\n\n" >> "$2"
+	;;
+	("python"|"py")
+		echo -ne "#!/usr/bin/env python\n\n" >> "$2"
+	;;
+	("perl"|"pl")
+		echo -ne "#!/usr/bin/env perl\nuse strict;\nuse warnings;\n\n" >> "$2"
+	;;
+	(*)
+		echo -ne "#!/bin/bash\n\n" >> "$2"
+	;;
+esac
+

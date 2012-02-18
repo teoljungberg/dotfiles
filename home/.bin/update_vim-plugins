@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Updating Vim plugins.."
+cd ~/Dropbox/dotfiles
+git submodule foreach git pull origin master
+cd ~
+echo ''
+
+cd ~/git/dotfiles/
+git status
+echo ''
