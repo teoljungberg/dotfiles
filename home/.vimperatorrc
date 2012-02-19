@@ -1,0 +1,31 @@
+map <C-e> <Esc>$
+map <C-a> <Esc>0
+map <C-j> <C-w>j
+map <C-l> <C-w>l
+map <C-h> <C-w>h
+map <C-k> <C-w>k
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap ; :
+noremap H ^
+noremap L g_
+noremap ,q :qa!<Return>
+set "editor=/usr/local/bin/mvim -f"
+set history=1000
+
+set incsearch 
+set hlsearch 
+set ignorecase
+nnoremap <leader><space> :noh<cr> 
+
+" move faster
+nnoremap j 3j
+nnoremap k 3k
+
+nnoremap N Nzzzv
+nnoremap n nzzzv
+
+" cmd + f to search, i love it
+noremap <M-f> /
