@@ -1,4 +1,5 @@
 #!/bin/bash
+SPACES='\n\n\n'
 
 if [[ "$#" -lt 1 ]]; then
 	echo "Usage: $(basename "$0") [language] <name>"
@@ -15,22 +16,22 @@ chmod u+x "$2"
 
 case "$1" in
 	("bash"|"sh")
-		echo -ne "#!/bin/bash\n\n" >> "$2"
+		echo -ne "#!/bin/bash$SPACES" >> "$2"
 	;;
 	("ruby"|"rb")
-		echo -ne "#!/usr/bin/env ruby\n\n" >> "$2"
+		echo -ne "#!/usr/bin/env ruby$SPACES" >> "$2"
 	;;
 	("macruby"|"macrb")
-		echo -ne "#!/usr/bin/env macruby\n\n" >> "$2"
+		echo -ne "#!/usr/bin/env macruby$SPACES" >> "$2"
 	;;
 	("python"|"py")
-		echo -ne "#!/usr/bin/env python\n\n" >> "$2"
+		echo -ne "#!/usr/bin/env python$SPACES" >> "$2"
 	;;
 	("perl"|"pl")
-		echo -ne "#!/usr/bin/env perl\nuse strict;\nuse warnings;\n\n" >> "$2"
+		echo -ne "#!/usr/bin/env perl\nuse strict;\nuse warnings;$SPACES" >> "$2"
 	;;
 	(*)
-		echo -ne "#!/bin/bash\n\n" >> "$2"
+		echo -ne "#!/bin/bash$SPACES" >> "$2"
 	;;
 esac
 
