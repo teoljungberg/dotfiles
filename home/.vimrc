@@ -102,11 +102,6 @@
     set expandtab 
     set autoindent
 
-" foldsettings
-    set smartcase                                
-    set ignorecase
-    set gdefault
-
 " wraps
     set wrap 
     set linebreak 
