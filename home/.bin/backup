@@ -11,6 +11,7 @@ directories=(
   Scripts
   src
   Books
+  Dropbox/dotfiles
 )
 
 # if --quiet is passed on as an argument, rsync doesnt show the process of the
