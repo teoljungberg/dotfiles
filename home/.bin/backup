@@ -12,7 +12,6 @@ directories=(
   src
   Books
   Dropbox/dotfiles
-  Dropbox/backup/Alfred
 )
 
 # if --quiet is passed on as an argument, rsync doesnt show the process of the

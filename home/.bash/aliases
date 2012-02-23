@@ -22,12 +22,10 @@ alias q=".."
 alias grep="grep --color=auto"
 alias reload="source ~/.bashrc"
 alias py="python2.7"
-alias rb="ruby"
-alias vim="vim -p"
 
 # use vimpager instead of less
 export PAGER=~/.bin/vimpager
-#alias less=$PAGER
+alias less=$PAGER
 
 #
 ## Git

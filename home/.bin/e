@@ -1,4 +1,14 @@
 #!/bin/bash
+# Saxed from Holman@github and modified it to work nicer with bash
+# USAGE:
+#
+#   > e
+#   # => opens the current directory in your editor
+#
+#   > e .
+#   > e /usr/local
+#   # => opens the specified directory in your editor
+
 if [ "$1" = "" ]; then
     $EDITOR "."
 else
