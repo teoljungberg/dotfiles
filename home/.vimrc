@@ -33,8 +33,6 @@
     let g:gist_detect_filetype = 1
     let g:gist_open_browser_after_post = 0
 
-    "Ack
-
 "Keybindings
     "LEADER bindings
         "LEADER + w to save
