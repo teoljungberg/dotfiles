@@ -13,15 +13,9 @@
 [submodule "home/.vim/bundle/pasta"]
 	path = home/.vim/bundle/pasta
 	url = https://github.com/sickill/vim-pasta
-[submodule "home/.vim/bundle/gist"]
-	path = home/.vim/bundle/gist
-	url = https://github.com/mattn/gist-vim
 [submodule "home/.vim/bundle/ack.vim"]
 	path = home/.vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim
-[submodule "home/.vim/bundle/nerdtree"]
-	path = home/.vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree/
 [submodule "home/.vim/bundle/syntastic"]
 	path = home/.vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic
@@ -40,3 +34,9 @@
 [submodule "home/.vim/bundle/gundo.vim"]
 	path = home/.vim/bundle/gundo.vim
 	url = https://github.com/sjl/gundo.vim
+[submodule "home/.vim/bundle/gist"]
+	path = home/.vim/bundle/gist
+	url = https://github.com/mattn/gist-vim
+[submodule "home/.vim/bundle/nerdtree"]
+	path = home/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree/
