@@ -1,3 +1,5 @@
+set mapleader=","
+
 map <C-e> <Esc>$
 map <C-a> <Esc>0
 map <C-j> <C-w>j
@@ -8,17 +10,18 @@ nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
+
+" i have fat fingers...
 nnoremap ; :
-noremap H ^
-noremap L g_
-noremap ,q :qa!<Return>
+
 set "editor=/usr/local/bin/mvim -f"
 set history=1000
 
+" search
 set incsearch 
 set hlsearch 
 set ignorecase
-nnoremap <leader><space> :noh<cr> 
+nnoremap <leader><space> <esc>:noh<cr> 
 
 " move faster
 nnoremap j 3j
@@ -29,3 +32,7 @@ nnoremap n nzzzv
 
 " cmd + f to search, i love it
 noremap <M-f> /
+
+" Switch tabs with J and K
+nnoremap J :tn<CR>
+nnoremap K :tp<CR>
