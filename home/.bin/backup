@@ -26,8 +26,10 @@ fi
 # BACKUP COMMENCE
 for directory in ${directories[@]}
   do
+    if [ "$1" == '' -o "$1" == '--verbose' -o "$1" == '-v' ]; then
       echo 'backing up' $directory
-      rsync $RSYNC_OPTS ~/$directory $backup_location
       echo ''
+    fi
+    rsync $RSYNC_OPTS ~/$directory $backup_location
 done
 echo 'backup completed'
