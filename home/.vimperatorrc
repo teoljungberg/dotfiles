@@ -24,8 +24,18 @@ nnoremap <leader><space> :noh<cr>
 nnoremap j 3j
 nnoremap k 3k
 
+" keep results in the center of the screen
 nnoremap N Nzzzv
 nnoremap n nzzzv
 
 " cmd + f to search, i love it
 noremap <M-f> /
+
+" back and forward in history
+nnoremap H :back<CR>
+nnoremap L :forward<CR>
+
+" mac bindings
+  noremap <M-l> :open 
+  noremap <M-f> /
+  noremap <M-k> :open google 
