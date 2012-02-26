@@ -1,12 +1,11 @@
 #!/bin/bash
 
-SAVE_LOCATION="/Volumes/Teo500GB/backup"
+SAVE_LOCATION="/Volumes/Teo500GB/backup/snapshots"
 
 if [ -d $SAVE_LOCATION ]; then
-    if [ -d $1 ]; then
-        cd $1
-        tar cvf $SAVE_LOCATION/snapshot_`basename $1`-`date +%d.%m.%y`.tar .
-    elif [ -f $1 ]; then
+    if [[ -d $1 ]]; then
+        cd "$1" && tar cvf $SAVE_LOCATION/snapshot_`basename "$1"`-`date +%d.%m.%y`.tar .
+    elif [ -f "$1" ]; then
         tar cvf $SAVE_LOCATION/snapshot_`basename $1`-`date +%d.%m.%y`.tar $1
     else
         echo 'the input is not a file'
