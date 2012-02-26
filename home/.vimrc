@@ -14,9 +14,7 @@
     au VimResized * exe
 
 "Visual thingys 
-    set background=dark
     colo solarized
-    set guifont=Monaco:h12
     set number
     command Light :set background=light
     command Dark :set background=dark

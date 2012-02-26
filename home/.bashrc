@@ -11,7 +11,7 @@ source ~/.bash/colors
 source ~/.bash/theme
 
 # set editor
-export EDITOR=vim
+export EDITOR="mvim -f"
 
 # Load bash completion
 source /etc/bash_completion
