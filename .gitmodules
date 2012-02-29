@@ -28,9 +28,6 @@
 [submodule "home/.vim/bundle/ruby"]
 	path = home/.vim/bundle/ruby
 	url = https://github.com/vim-ruby/vim-ruby
-[submodule "home/.vim/bundle/gundo.vim"]
-	path = home/.vim/bundle/gundo.vim
-	url = https://github.com/sjl/gundo.vim
 [submodule "home/.vim/bundle/gist"]
 	path = home/.vim/bundle/gist
 	url = https://github.com/mattn/gist-vim
