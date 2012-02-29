@@ -9,14 +9,9 @@ eval `gdircolors ~/.dircolors/dir_colors-dark`
 # Applications
 alias te='open -a TextEdit'
 alias textual='open -a Textual'
-alias firefox="open -a Firefox"
+alias aurora="open -a Aurora"
 alias vlc='open -a VLC'
 alias brewup='brew update && brew upgrade -v && brew cleanup -v'
-alias todo='todo.sh -d /Users/teo/.todo.cfg'
-alias gvim="mvim"
-alias m="mvim"
-alias M="mvim ."
-alias Finder="open -a Finder ."
 
 # Clipboard
 alias pbp="pbpaste"
