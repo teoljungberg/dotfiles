@@ -1,19 +1,5 @@
-map <C-e> <Esc>$
-map <C-a> <Esc>0
-map <C-j> <C-w>j
-map <C-l> <C-w>l
-map <C-h> <C-w>h
-map <C-k> <C-w>k
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
-nnoremap ; :
-noremap H ^
-noremap L g_
-noremap ,q :qa!<Return>
 set "editor=/usr/local/bin/mvim -f"
-set history=1000
+nnoremap ; :
 
 set incsearch 
 set hlsearch 
@@ -28,14 +14,15 @@ nnoremap k 3k
 nnoremap N Nzzzv
 nnoremap n nzzzv
 
-" cmd + f to search, i love it
-noremap <M-f> /
-
-" back and forward in history
 nnoremap H :back<CR>
 nnoremap L :forward<CR>
+nnoremap J :previous<CR>
+nnoremap K :next<CR>
 
-" mac bindings
-  noremap <M-l> :open 
-  noremap <M-f> /
-  noremap <M-k> :open google 
+noremap <M-l> :open 
+noremap <M-f> /
+noremap <M-k> :open google 
+noremap <M-h> :open google.com<CR>
+
+inoremap <C-e> <Esc>$
+inoremap <C-a> <Esc>0
