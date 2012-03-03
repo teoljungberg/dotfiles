@@ -75,9 +75,13 @@
         inoremap <c-a> <esc>I
         inoremap <c-e> <esc>A
 
-       " same as above, just with H and L
+        " same as above, just with H and L
         noremap H ^
         noremap L g_
+
+        " move between tabs
+        nnoremap J :tabprevious<CR>
+        nnoremap K :tabnext<CR>
 
     " my fingers sometimes slip
     nnoremap ; :A

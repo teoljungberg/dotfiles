@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Handy 'tools'
 alias sym='ln -s'
 alias bp='bitpocket'
@@ -27,39 +28,24 @@ alias py="python2.7"
 export PAGER=~/.bin/vimpager
 alias less=$PAGER
 
-#
-## Git
-#
+# Git
 alias git='hub'
 alias g='git'
 alias ga='git add'
 alias gp='git push'
-alias ugp='git push -f origin HEAD^:master'
 alias gpl='git pull'
 alias gd='git diff'
-alias gst='git status'
-alias gtree="git log --graph --decorate --pretty=oneline --abbrev-commit"
-
-# Commiting
-alias gc='git commit -v'
-alias gca='git commit -av'
-alias gcm='git commit -m'
-alias gcp='git commit -p'
-
 alias gs='git status -sb'
-
 alias gb='git branch -v'
 alias glog='git log --oneline'
 alias gm='git merge'
 alias gco='git checkout'
 
-# Standalone aliases
-alias st="status"
-alias stat="status"
-alias co="checkout"
-alias cm="commit -m"
-alias po="push origin"
-alias fo="fetch origin"
+## Commiting
+alias gc='git commit -v'
+alias gca='git commit -av'
+alias gcm='git commit -m'
+alias gcp='git commit -p'
 
 # Typo correctors
 alias kilall='killall'
