@@ -23,6 +23,7 @@ noremap <M-l> :open
 noremap <M-f> /
 noremap <M-k> :open google 
 noremap <M-h> :open google.com<CR>
+noremap <M-t> :tabnew 
 
 inoremap <C-e> <Esc>$
 inoremap <C-a> <Esc>0

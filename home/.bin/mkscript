@@ -34,4 +34,3 @@ case "$1" in
 		echo -ne "#!/bin/bash$SPACES" >> "$2"
 	;;
 esac
-

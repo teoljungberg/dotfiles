@@ -31,8 +31,6 @@
     let g:gist_detect_filetype = 1
     let g:gist_open_browser_after_post = 0
 
-    "Ack
-
 "Keybindings
     "LEADER bindings
         "LEADER + w to save
@@ -80,9 +78,9 @@
        " same as above, just with H and L
         noremap H ^
         noremap L g_
-     
+
     " my fingers sometimes slip
-    nnoremap ; :
+    nnoremap ; :A
    
     " bashery removal
     nnoremap <c-k> D
@@ -116,7 +114,6 @@
     set gdefault
 
     " Keep search matches in the middle of the window and pulse the line when
-    " moving
-    " " to them.
+    " moving to them.
     nnoremap n nzzzv
     nnoremap N Nzzzv
