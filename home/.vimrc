@@ -57,7 +57,6 @@
         map <C-K> <C-W>k
         map <C-L> <C-W>l
         map <C-H> <C-W>h
-        map <C-K> <C-W>k
         
         " disable arrow keys in normal and visualmode, but keeping them in insertmode
         " normalmode
@@ -82,14 +81,10 @@
         " move between tabs
         nnoremap J :tp<CR>
         nnoremap K :tn<CR>
-
+        
     " my fingers sometimes slip
-    nnoremap ; :A
+    nnoremap ; :
    
-    " bashery removal
-    nnoremap <c-k> D
-    nnoremap <c-u> d0
-
 " disables the creating of the swap and tmp files
     set noswapfile
     set nobackup
