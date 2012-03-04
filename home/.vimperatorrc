@@ -16,8 +16,8 @@ nnoremap n nzzzv
 
 nnoremap H :back<CR>
 nnoremap L :forward<CR>
-nnoremap J :previous<CR>
-nnoremap K :next<CR>
+nnoremap J :tabp<CR>
+nnoremap K :tabn<CR>
 
 noremap <M-l> :open 
 noremap <M-f> /

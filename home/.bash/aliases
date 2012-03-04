@@ -23,6 +23,7 @@ alias q=".."
 alias grep="grep --color=auto"
 alias reload="source ~/.bashrc"
 alias py="python2.7"
+alias rb="ruby"
 
 # use vimpager instead of less
 export PAGER=~/.bin/vimpager

@@ -80,8 +80,8 @@
         noremap L g_
 
         " move between tabs
-        nnoremap J :tabprevious<CR>
-        nnoremap K :tabnext<CR>
+        nnoremap J :tp<CR>
+        nnoremap K :tn<CR>
 
     " my fingers sometimes slip
     nnoremap ; :A
