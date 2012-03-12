@@ -4,6 +4,9 @@ export TERM=screen-256color
 # the users PATH
 export PATH=/usr/local/bin:$PATH:~/.bin:/usr/local/sbin
 
+# functions
+source ~/.bash/functions
+
 # load bash' colors
 source ~/.bash/colors
 
@@ -23,9 +26,9 @@ source ~/.bash/completion/git
 source ~/.bash/aliases
 
 # For parting OS specifics
-if [ -f ~/.osx ]; then
+if [ $platform = 'darwin' ]; then
     source ~/.aliases/osx_aliases
     source ~/.bash/completion/brew
-elif [ -f ~/.linux ]; then
+elif [ $platform = 'linux' ]; then
     source ~/.aliases/linux_aliases
 fi

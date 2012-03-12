@@ -6,24 +6,23 @@ alias bp='bitpocket'
 
 # General aliases
 alias bitch,="sudo"
-alias ll='ls -l'
-alias la='ls -A'
-alias lr='ls -R'
-alias lx='ll -BX'
-alias l='ls'
-alias lm='la | more'
-alias lal="ls -Al"
-alias d='cd'
-alias cl='clear'
-alias pid='pidof'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../../'
-alias q=".."
+alias rm="rm -i"
+alias mv="mv -i"
 alias grep="grep --color=auto"
 alias reload="source ~/.bashrc"
 alias py="python2.7"
 alias rb="ruby"
+
+## ls
+alias l='ls'
+alias ll='ls -l'
+alias la='ls -A'
+alias lal="ls -Al"
+alias d='cd'
+alias cl='clear'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../../'
 
 # use vimpager instead of less
 export PAGER=~/.bin/vimpager
@@ -31,7 +30,6 @@ alias less=$PAGER
 
 # Git
 alias git='hub'
-alias g='git'
 alias ga='git add'
 alias gp='git push'
 alias gpl='git pull'
