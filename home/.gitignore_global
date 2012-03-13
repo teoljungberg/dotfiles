@@ -79,5 +79,4 @@ pip-log.txt
 # Secret things #
 #################
 private
-tmp
-pyssh.py
+connect_to_wifi
