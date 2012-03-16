@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# ls
-alias ls='gls -F --color=always'
-
-# ls colors
-eval `gdircolors ~/.dircolors/dir_colors-dark` 
-
 # Applications
 alias te='open -a TextEdit'
 alias vlc='open -a VLC'

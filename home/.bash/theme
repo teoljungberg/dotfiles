@@ -9,5 +9,5 @@ fi
 export PS1
 
 # use solarized-like color
-#export CLICOLOR=1
-#export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+export CLICOLOR=1
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD

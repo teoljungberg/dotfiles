@@ -78,10 +78,6 @@
         noremap H ^
         noremap L g_
 
-        " move between tabs
-        nnoremap J :tp<CR>
-        nnoremap K :tn<CR>
-        
     " my fingers sometimes slip
     nnoremap ; :
    
