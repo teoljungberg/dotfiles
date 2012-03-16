@@ -2,7 +2,7 @@
 
 if [  "$1" = "" ]
 then
-  mv `pwd`/* ~/.Trash/
+  mv -f `pwd`/* ~/.Trash/
 else
-  mv $1 ~/.Trash/
+  mv -f $1 ~/.Trash/
 fi

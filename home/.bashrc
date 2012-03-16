@@ -2,7 +2,7 @@
 export TERM=screen-256color
 
 # the users PATH
-export PATH=/usr/local/bin:$PATH:~/.bin:/usr/local/sbin
+export PATH=/usr/local/bin:$PATH:~/.bin:~/bin:/usr/local/sbin
 
 # functions
 source ~/.bash/functions
