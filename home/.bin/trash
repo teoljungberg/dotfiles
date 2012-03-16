@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [  "$1" = "" ]
+then
+  mv `pwd`/* ~/.Trash/
+else
+  mv $1 ~/.Trash/
+fi
