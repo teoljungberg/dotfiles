@@ -14,6 +14,7 @@ alias py="python2.7"
 alias rb="ruby"
 
 ## ls
+alias ls="ls -F"
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -A'
@@ -36,7 +37,6 @@ alias gpl='git pull'
 alias gd='git diff'
 alias gs='git status -sb'
 alias gb='git branch -v'
-alias glog='git log --oneline'
 alias gm='git merge'
 alias gco='git checkout'
 
