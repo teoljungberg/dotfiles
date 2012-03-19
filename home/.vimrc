@@ -15,6 +15,7 @@
 
 "Visual thingys 
     colo solarized
+    set background=dark
     set number
     command Light :set background=light
     command Dark :set background=dark
