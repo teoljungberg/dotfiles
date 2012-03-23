@@ -4,7 +4,7 @@
 alias ls="ls -F --color=always"
 
 # ls colors
-eval `dircolors ~/.dircolors/dir_colors-dark`
+eval `dircolors ~/.dircolors`
 
 # Applications
 alias db='dropbox'
