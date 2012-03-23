@@ -59,18 +59,6 @@
         map <C-L> <C-W>l
         map <C-H> <C-W>h
         
-        " disable arrow keys in normal and visualmode, but keeping them in insertmode
-        " normalmode
-        nnoremap <up> <nop>
-        nnoremap <down> <nop>
-        nnoremap <left> <nop>
-        nnoremap <right> <nop>
-        " visualmode
-        vnoremap <up> <nop>
-        vnoremap <down> <nop>
-        vnoremap <left> <nop>
-        vnoremap <right> <nop>
-
         " bashery movements
         inoremap <c-a> <esc>I
         inoremap <c-e> <esc>A
