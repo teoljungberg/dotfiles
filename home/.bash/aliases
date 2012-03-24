@@ -9,7 +9,7 @@ alias bitch,="sudo"
 alias rm="rm -i"
 alias mv="mv -i"
 alias grep="grep --color=auto"
-alias reload="source ~/.bashrc"
+alias reload!="source ~/.bashrc"
 alias py="python2.7"
 alias rb="ruby"
 
