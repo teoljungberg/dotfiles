@@ -4,9 +4,6 @@
 [submodule "home/.vim/bundle/commentary"]
 	path = home/.vim/bundle/commentary
 	url = https://github.com/tpope/vim-commentary
-[submodule "home/.vim/bundle/eunuch"]
-	path = home/.vim/bundle/eunuch
-	url = https://github.com/tpope/vim-eunuch
 [submodule "home/.vim/bundle/ack.vim"]
 	path = home/.vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim
@@ -22,9 +19,6 @@
 [submodule "home/.vim/bundle/solarized"]
 	path = home/.vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized
-[submodule "home/.vim/bundle/fugitive"]
-	path = home/.vim/bundle/fugitive
-	url = https://github.com/tpope/vim-fugitive
 [submodule "home/.vim/bundle/ruby"]
 	path = home/.vim/bundle/ruby
 	url = https://github.com/vim-ruby/vim-ruby
