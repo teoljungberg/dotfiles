@@ -7,19 +7,6 @@
 *.o
 *.so
 
-# Packages #
-############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-
 # Logs and databases #
 ######################
 *.log
@@ -51,22 +38,6 @@ Thumbs.db
 ####################
 *.py[co]
 
-# Packages
-*.egg
-*.egg-info
-dist
-build
-eggs
-parts
-bin
-var
-sdist
-develop-eggs
-.installed.cfg
-
-# Installer logs
-pip-log.txt
-
 # Unit test / coverage reports
 .coverage
 .tox
@@ -79,4 +50,3 @@ pip-log.txt
 # Secret things #
 #################
 private
-connect_to_wifi
