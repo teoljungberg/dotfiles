@@ -19,7 +19,7 @@
   set number
   command Light :set background=light
   command Dark :set background=dark
-  set scrolloff=2
+  set scrolloff=3
 
 "Plugins
   "NERDTree

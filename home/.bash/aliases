@@ -8,9 +8,8 @@ alias bp='bitpocket'
 alias bitch,="sudo"
 alias rm="rm -i"
 alias mv="mv -i"
-alias grep="grep --color=auto"
 alias reload!="source ~/.bashrc"
-alias py="python2.7"
+alias py="python"
 alias rb="ruby"
 
 ## ls
@@ -35,7 +34,7 @@ alias ga='git add'
 alias gp='git push'
 alias gpl='git pull'
 alias gd='git diff'
-alias gs='git status -sb'
+alias gs='git status'
 alias gb='git branch -v'
 alias gm='git merge'
 alias gco='git checkout'
