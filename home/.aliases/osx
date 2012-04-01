@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# EDITOR
+export EDITOR=mvim
+
 # Applications
 alias te='open -a TextEdit'
 alias vlc='open -a VLC'
