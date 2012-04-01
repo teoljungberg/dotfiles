@@ -24,8 +24,8 @@ source ~/.bash/aliases
 
 # For parting OS specifics
 if [ $platform = 'darwin' ]; then
-    source ~/.aliases/osx_aliases
+    source ~/.aliases/osx
     source ~/.bash/completion/brew
 elif [ $platform = 'linux' ]; then
-    source ~/.aliases/linux_aliases
+    source ~/.aliases/linux
 fi
