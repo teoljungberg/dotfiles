@@ -13,9 +13,6 @@ source ~/.bash/colors
 # Load PS1 theme including theme for ls
 source ~/.bash/theme
 
-# set editor
-export EDITOR=vim
-
 # Load bash completion
 source /etc/bash_completion
 

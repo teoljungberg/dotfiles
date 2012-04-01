@@ -8,7 +8,6 @@ alias bp='bitpocket'
 alias bitch,="sudo"
 alias rm="rm -i"
 alias mv="mv -i"
-alias reload!="source ~/.bashrc"
 alias py="python"
 alias rb="ruby"
 
