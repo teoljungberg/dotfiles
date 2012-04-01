@@ -3,5 +3,5 @@
 if [ "$1" = "" ]; then
     open -a Finder "."
 else
-    open -a Finder $1 
+    open -a Finder "$1" 
 fi
