@@ -30,11 +30,13 @@ alias less=$PAGER
 
 # Git
 alias git='hub'
+alias g='git'
 alias ga='git add'
 alias gp='git push'
 alias gpl='git pull'
 alias gd='git diff'
-alias gs='git status'
+alias gst='git status -s'
+alias gs='gst'
 alias gb='git branch -v'
 alias gm='git merge'
 alias gco='git checkout'
