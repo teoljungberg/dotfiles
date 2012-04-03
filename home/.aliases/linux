@@ -2,6 +2,7 @@
 
 # EDITOR
 export EDITOR=vim
+
 # ls
 alias ls="ls -F --color=always"
 
@@ -9,4 +10,3 @@ alias ls="ls -F --color=always"
 alias db='dropbox'
 alias weechat='weechat-curses'
 alias bp='bitpocket'
-alias aur='pbget --aur-only'
