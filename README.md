@@ -1,21 +1,21 @@
 ## Software
 * OS
-    - Mac OS X Lion (desktop)
-    - Arch Linux (server)
+  - Mac OS X Lion (desktop)
+  - Arch Linux (server)
 * Terminal
-    - [iTerm2](http://www.iterm2.com/)
+  - [iTerm2](http://www.iterm2.com/)
 * Shell
-    - `bash`
+  - `bash`
 * Text editor
-    - `vim`
-    - [MacVim](/b4winckler/macvim)
+  - `vim`
+  - [MacVim](/b4winckler/macvim)
 * Colorscheme 
-    - [Solarized](/altercation/solarized)
+  - [Solarized](/altercation/solarized)
 * Misc
-    - [F.lux](http://stereopsis.com/flux/)
-    - [Alfred](http://alfredapp.com)
-    - [Dropbox](http://db.tt/jy1BQci) *pst referal link pst*
-    - [Homebrew](/mxcl/homebrew/)
+  - [F.lux](http://stereopsis.com/flux/)
+  - [Alfred](http://alfredapp.com)
+  - [Dropbox](http://db.tt/jy1BQci) *pst referal link pst*
+  - [Homebrew](/mxcl/homebrew/)
 
 ## How I store my dotfiles
 Here is how I sync my dotfiles across machines.
@@ -23,35 +23,35 @@ Here is how I sync my dotfiles across machines.
 They're all in `~/Dropbox/dotfiles`
 And I use `homesick` to perform the symlinking
 
-    $ ln -s ~/Dropbox/dotfiles ~/.homesick/repos/dotfiles
+  $ ln -s ~/Dropbox/dotfiles ~/.homesick/repos/dotfiles
 
 Perform the symlinking 
 
-    $ homesick symlink dotfiles
+  $ homesick symlink dotfiles
 
-Since I use two differnt platforms I have aliases that doesn't match
+Since I use two differnt OS' I have aliases that doesn't match
 Therefore I have divided them into `osx` and `linux` under `~/aliases`
-If the file `~/.osx` exists, bash loads the OS X specific aliases
+If the file `~/.osx` exists, bash loads the OS X specific aliases.
 The same goes for `~/.linux`
 
 If you are on a mac
 
-    $ touch ~/.osx
+  $ touch ~/.osx
 
 and on linux:
 
-    $ touch ~/.linux
+  $ touch ~/.linux
 
 Check out [homesick](/technicalpickles/homesick) for more
-details about the project. I friggin love it!
+details about the project.
 	
 ## PS1 Format
-`[pwd] > command`
+`[ pwd ] > command`
 
 ## Screenshots
 Who doesn't love them?
 
-    $ ls -FG / 
+  $ ls -FG / 
 
 ![](http://f.cl.ly/items/0S291q0C3a3N441C191Q/screenshot%202011-12-30%20kl.%2014.09.42.PNG)
 

@@ -7,7 +7,7 @@ export EDITOR=mvim
 alias te='open -a TextEdit'
 alias firefox='open -a Firefox'
 alias vlc='open -a VLC'
-alias brewup='brew update && brew upgrade -v && brew cleanup -v'
+alias brewup='brew update --rebase && brew upgrade -v && brew cleanup -v'
 
 # Clipboard
 alias pbp="pbpaste"
