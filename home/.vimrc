@@ -17,8 +17,6 @@
   colo solarized
   set background=dark
   set number
-  command Light :set background=light
-  command Dark :set background=dark
   set scrolloff=3
 
 "Plugins

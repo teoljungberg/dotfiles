@@ -26,7 +26,7 @@ alias ...='cd ../..'
 alias ....='cd ../../../'
 
 # use vimpager instead of less
-export PAGER=~/.bin/vimpager
+export PAGER=vimpager
 alias less=$PAGER
 
 # Git
