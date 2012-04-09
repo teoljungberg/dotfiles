@@ -10,6 +10,7 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias py="python"
 alias rb="ruby"
+alias curdate='date +%d.%m.%y\ %H:%M'
 
 ## ls
 alias ls="ls -F"
