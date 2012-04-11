@@ -29,3 +29,7 @@ if [ $platform = 'darwin' ]; then
 elif [ $platform = 'linux' ]; then
     source ~/.aliases/linux
 fi
+
+# rbebv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

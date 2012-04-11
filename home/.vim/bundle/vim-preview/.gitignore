@@ -1,0 +1,5 @@
+*.rdoc
+*.md
+*.textile
+*.swp
+/doc/tags
