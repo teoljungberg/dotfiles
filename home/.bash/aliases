@@ -14,9 +14,9 @@ alias curdate='date +%d.%m.%y\ %H:%M'
 
 ## ls
 alias ls="ls -F"
-alias l='ls'
+alias l='ls -1'
 alias ll='ls -l'
-alias l1='ls -1'
+alias l1='l'
 alias la='ls -A'
 alias lal="ls -Al"
 alias d='cd'
