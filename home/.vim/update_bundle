@@ -13,7 +13,8 @@ git_bundles = [
   "git://github.com/scrooloose/syntastic.git",
   "git://github.com/mattn/webapi-vim",
   "git://github.com/greyblake/vim-preview.git",
-  "git://github.com/wincent/Command-T.git"
+  "git://github.com/wincent/Command-T.git",
+  "git://github.com/sjl/vitality.vim.git"
 ]
 
 require 'fileutils'
@@ -31,3 +32,4 @@ git_bundles.each do |url|
   `git clone #{url} #{dir}`
   FileUtils.rm_rf(File.join(dir, ".git"))
 end
+system("update_command-t")
