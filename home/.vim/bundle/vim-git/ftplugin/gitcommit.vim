@@ -1,6 +1,7 @@
 " Vim filetype plugin
 " Language:	git commit file
 " Maintainer:	Tim Pope <vimNOSPAM@tpope.org>
+" Last Change:	2012 April 7
 
 " Only do this when not done yet for this buffer
 if (exists("b:did_ftplugin"))
@@ -10,7 +11,7 @@ endif
 runtime! ftplugin/git.vim
 let b:did_ftplugin = 1
 
-set nomodeline
+setlocal nomodeline
 
 let b:undo_ftplugin = 'setl modeline<'
 
