@@ -4,6 +4,7 @@
   filetype plugin indent on
   syntax on
   set nocompatible " IMproved
+  set clipboard=unnamed
   set hidden
   set t_Co=256
   set autoread
