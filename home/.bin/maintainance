@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Updating, Updating and Pruning Homebrew.."
-brew update && brew upgrade -v && brew cleanup -v
+brew update --rebase && brew upgrade -v && brew cleanup -v
 echo ''
 
 echo "Removing Homebrew cache.."
