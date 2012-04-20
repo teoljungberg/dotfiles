@@ -1,12 +1,10 @@
 #!/usr/bin/env ruby
 
 git_bundles = [
-  "git://github.com/tpope/vim-commentary.git",
   "git://github.com/mattn/gist-vim.git",
   "git://github.com/tpope/vim-git.git",
   "git://github.com/tpope/vim-markdown.git",
   "git://github.com/scrooloose/nerdtree.git",
-  "git://github.com/sickill/vim-pasta.git",
   "git://github.com/vim-ruby/vim-ruby.git",
   "git://github.com/altercation/vim-colors-solarized.git",
   "git://github.com/millermedeiros/vim-statline.git",
@@ -14,7 +12,10 @@ git_bundles = [
   "git://github.com/mattn/webapi-vim",
   "git://github.com/greyblake/vim-preview.git",
   "git://github.com/wincent/Command-T.git",
-  "git://github.com/sjl/vitality.vim.git"
+  "git://github.com/scrooloose/nerdcommenter.git",
+  "git://github.com/tpope/vim-surround.git",
+  "git://github.com/tpope/vim-repeat.git",
+  "git://github.com/sjl/vitality.vim"
 ]
 
 require 'fileutils'
@@ -32,4 +33,3 @@ git_bundles.each do |url|
   `git clone #{url} #{dir}`
   FileUtils.rm_rf(File.join(dir, ".git"))
 end
-system("update_command-t")
