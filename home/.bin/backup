@@ -5,6 +5,7 @@ backup_location="/Volumes/Teo500GB/backup/"
 
 # directories to backup. recursive, implied to be in home (~)
 directories=(
+  git
   Documents
   Music
   Pictures
@@ -13,7 +14,6 @@ directories=(
   src
   Books
   Dropbox/dotfiles
-  git
 )
 
 # if --quiet is passed on as an argument, rsync doesnt show the process of the
