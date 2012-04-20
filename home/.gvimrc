@@ -1,14 +1,18 @@
-set clipboard=unnamed
+colo solarized
 set background=light
+set anti
 set guifont=Monaco:h12
+set clipboard=unnamed
 
-" Command + t to :CommandT
+" Command(forntidslämning) + t to :CommandT
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
   map <D-t> :CommandT<CR>
 endif
 
+" Open Command+T in a new tab
 let g:CommandTAcceptSelectionTabMap='<CR>'
+
 " C-TAB and C-SHIFT-TAB cycle tabs forward and backward
 nmap <c-tab> :tabnext<cr>
 imap <c-tab> <c-o>:tabnext<cr>
