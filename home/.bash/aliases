@@ -4,6 +4,9 @@
 alias sym='ln -s'
 alias bp='bitpocket'
 
+# applications
+alias tmux="TERM=screen-256color-bce tmux"
+
 # General aliases
 alias bitch,="sudo"
 alias rm="rm -i"
@@ -12,7 +15,7 @@ alias py="python"
 alias rb="ruby"
 alias curdate='date +%d.%m.%y\ %H:%M'
 
-## ls
+# ls
 alias ls="ls -F"
 alias l='ls -1'
 alias ll='ls -l'
