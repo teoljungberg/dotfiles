@@ -1,8 +1,9 @@
 set "editor=/usr/local/bin/mvim -f"
 nnoremap ; :
+set mapleader=','
 
 set incsearch 
-set hlsearch 
+set hlfind
 set ignorecase
 nnoremap <leader><space> :noh<cr> 
 
@@ -20,6 +21,3 @@ noremap <M-f> /
 noremap <M-k> :open google 
 noremap <M-h> :open google.com<CR>
 noremap <M-t> :tabnew 
-
-inoremap <C-e> <Esc>$
-inoremap <C-a> <Esc>0
