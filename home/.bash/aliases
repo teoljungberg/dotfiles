@@ -30,7 +30,6 @@ alias ....='cd ../../../'
 
 # use vimpager instead of less
 export PAGER=vimpager
-alias less=$PAGER
 
 # Git
 alias git='hub'
