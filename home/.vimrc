@@ -65,6 +65,10 @@
     noremap H ^
     noremap L g_
 
+    " Moving between tabs
+    noremap J :tabprevious<CR>
+    noremap K :tabnext<CR>
+
   " my fingers sometimes slip
   nnoremap ; :
    
