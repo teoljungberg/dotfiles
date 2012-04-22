@@ -3,6 +3,7 @@ set background=light
 set anti
 set guifont=Monaco:h12
 set clipboard=unnamed
+set lines=45 columns=120
 
 " Command(forntidslämning) + t to :CommandT
 if has("gui_macvim")
