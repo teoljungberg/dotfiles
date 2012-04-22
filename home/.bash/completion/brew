@@ -447,3 +447,4 @@ _brew_to_completion ()
 }
 
 complete -o bashdefault -o default -F _brew brew
+complete -o bashdefault -o default -F _brew brwe
