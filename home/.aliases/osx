@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # EDITOR
-export EDITOR=mvim
+export EDITOR=vim
 
 # 'Applications'
 alias te='open -a TextEdit'
