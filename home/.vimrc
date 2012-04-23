@@ -94,10 +94,9 @@
   set hlsearch 
   set showmatch
   set ignorecase
-  nnoremap <LEADER><space> :noh<CR>  
   set smartcase                                
-  set ignorecase
   set gdefault
+  nnoremap <LEADER><space> :noh<CR>  
 
   " Keep search matches in the middle of the window and pulse the line when
   " moving to them.
