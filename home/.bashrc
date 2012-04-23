@@ -10,19 +10,19 @@ source ~/.bash/functions
 # load bash' colors
 source ~/.bash/colors
 
-# Load PS1 theme including theme for ls
+# PS1 including ls colors
 source ~/.bash/theme
 
-# Load bash completion
+# bash completion
 source /etc/bash_completion
 
-# Load git completion
+# git completion
 source ~/.bash/completion/git
 
-# Load aliases at end to not conflict with anything
+# aliases at end to not conflict with anything
 source ~/.bash/aliases
 
-# For parting OS specifics
+# parting OS specifics
 if [ $platform = 'darwin' ]; then
     source ~/.aliases/osx
     source ~/.bash/completion/brew
