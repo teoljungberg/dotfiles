@@ -5,25 +5,27 @@ backup_location="/Volumes/Teo500GB/backup/"
 
 # directories to backup. recursive, implied to be in home (~)
 directories=(
-  git
-  Documents
-  Music
-  Pictures
-  Minecraft
-  Scripts
-  src
-  Books
+git
+Documents
+Music
+Pictures
+Minecraft
+Scripts
+src
+Books
 )
 
 # if --quiet is passed on as an argument, rsync doesnt show the process of the
 # backup
-if [ "$1" == '--quiet' -o "$1" == '-q' ]; then
-    RSYNC_OPTS="-aLPhz --partial --delete --quiet"
-    is_quiet=true
-elif [ "$1" == '' -o "$1" == '--verbose' -o "$1" == '-v' ]; then
-    RSYNC_OPTS="-aLPhz --progress --partial --delete --verbose"
+if [ "$1" == '--quiet' -o "$1" == '-q' ]
+then
+  RSYNC_OPTS="-aLPhz --partial --delete --quiet"
+  is_quiet=true
+elif [ "$1" == '' -o "$1" == '--verbose' -o "$1" == '-v' ]
+then
+  RSYNC_OPTS="-aLPhz --progress --partial --delete --verbose"
 fi
- 
+
 # BACKUP COMMENCE
 for directory in ${directories[@]}
 do
@@ -36,4 +38,3 @@ do
     echo ''
   fi
 done
-echo 'backup completed'
