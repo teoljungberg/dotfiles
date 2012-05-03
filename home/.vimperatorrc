@@ -1,6 +1,7 @@
 set "editor=/usr/local/bin/mvim -f"
 nnoremap ; :
 let mapleader = ","
+inoremap <C-k> <CR>Di 
 
 set incsearch 
 set hlsearch
