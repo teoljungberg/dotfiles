@@ -32,6 +32,10 @@
   let g:gist_open_browser_after_post = 0
   let g:gist_show_privates = 1
 
+  " Command-T
+  let g:CommandTAcceptSelectionTabMap = '<CR>'
+  let g:CommandTMaxHeight = 15
+
 "Keybindings
   "LEADER bindings
     "LEADER + w to save
@@ -60,6 +64,9 @@
     " bashery movements
     inoremap <c-a> <esc>I
     inoremap <c-e> <esc>A
+
+    " bashery removal in commandmode
+    cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
     " same as above, just with H and L
     noremap H ^

@@ -32,3 +32,10 @@ nmap <d-6> 6gt
 nmap <d-7> 7gt
 nmap <d-8> 8gt
 nmap <d-9> 9gt
+
+" Remove all the UI cruft
+set go-=T
+set go-=l
+set go-=L
+set go-=r
+set go-=R
