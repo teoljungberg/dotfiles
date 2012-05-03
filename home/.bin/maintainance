@@ -2,22 +2,22 @@
 
 echo "Updating, Updating and Pruning Homebrew.."
 brew update --rebase && brew upgrade -v && brew cleanup -v
-echo ''
+echo 
 
 echo "Removing Homebrew cache.."
 rm -rfv ~/Library/Caches/Homebrew/*
-echo ''
+echo 
 
 echo 'Taking out the trash'
 rm -rfv ~/.Trash/*
-echo ''
+echo 
 
 echo 'Updating Gist'
 curl -#L https://raw.github.com/defunkt/gist/master/gist > ~/.bin/gist
 chmod +x ~/.bin/gist
-echo ''
+echo 
 
 echo 'Updating Hub'
 curl -#L http://defunkt.io/hub/standalone -lo ~/.bin/hub
 chmod 755 ~/.bin/hub
-echo ''
+echo 

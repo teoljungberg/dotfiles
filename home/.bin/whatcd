@@ -1,3 +1,0 @@
-#!/bin/bash
-# searches what.cd for an artist
-open https://ssl.what.cd/artist.php?artistname="$1"
