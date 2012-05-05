@@ -3,6 +3,8 @@
 # EDITOR
 export EDITOR=vim
 
+eval `dircolors ~/.dircolors`
+
 # ls
 alias ls="ls -F --color=always"
 
