@@ -19,7 +19,7 @@
   set background=dark
   set number
   set scrolloff=3
-
+  
 "Plugins
   "NERDTree
   let NERDTreeChDirMode = 1
