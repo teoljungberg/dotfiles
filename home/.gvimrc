@@ -14,14 +14,6 @@ endif
 " Open Command+T in a new tab
 let g:CommandTAcceptSelectionTabMap='<CR>'
 
-" C-TAB and C-SHIFT-TAB cycle tabs forward and backward
-noremap <c-tab> :tabnext<cr>
-imap <c-tab> <c-o>:tabnext<cr>
-vmap <c-tab> <c-o>:tabnext<cr>
-noremap <c-s-tab> :tabprevious<cr>
-imap <c-s-tab> <c-o>:tabprevious<cr>
-vmap <c-s-tab> <c-o>:tabprevious<cr>
-
 " C-# switches to tab
 noremap <d-1> 1gt
 noremap <d-2> 2gt
@@ -35,7 +27,3 @@ noremap <d-9> 9gt
 
 " Remove all the UI cruft
 set go-=T
-set go-=l
-set go-=L
-set go-=r
-set go-=R
