@@ -14,19 +14,15 @@ endif
 " Open Command+T in a new tab
 let g:CommandTAcceptSelectionTabMap='<CR>'
 
-<<<<<<< HEAD
 " C-TAB and C-SHIFT-TAB cycle tabs forward and backward
-noremap <d-tab> :tabnext<cr>
-imap <d-tab> <c-o>:tabnext<cr>
-vmap <d-tab> <c-o>:tabnext<cr>
-noremap <d-s-tab> :tabprevious<cr>
-imap <d-s-tab> <c-o>:tabprevious<cr>
-vmap <d-s-tab> <c-o>:tabprevious<cr>
+noremap <c-tab> :tabnext<cr>
+imap <c-tab> <c-o>:tabnext<cr>
+vmap <c-tab> <c-o>:tabnext<cr>
+noremap <c-s-tab> :tabprevious<cr>
+imap <c-s-tab> <c-o>:tabprevious<cr>
+vmap <c-s-tab> <c-o>:tabprevious<cr>
 
 " M-# switches to tab
-=======
-" C-# switches to tab
->>>>>>> f9848dc280e34681335f9dddedd0dcf90bbfa996
 noremap <d-1> 1gt
 noremap <d-2> 2gt
 noremap <d-3> 3gt
