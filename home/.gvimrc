@@ -14,6 +14,7 @@ endif
 " Open Command+T in a new tab
 let g:CommandTAcceptSelectionTabMap='<CR>'
 
+<<<<<<< HEAD
 " C-TAB and C-SHIFT-TAB cycle tabs forward and backward
 noremap <d-tab> :tabnext<cr>
 imap <d-tab> <c-o>:tabnext<cr>
@@ -23,6 +24,9 @@ imap <d-s-tab> <c-o>:tabprevious<cr>
 vmap <d-s-tab> <c-o>:tabprevious<cr>
 
 " M-# switches to tab
+=======
+" C-# switches to tab
+>>>>>>> f9848dc280e34681335f9dddedd0dcf90bbfa996
 noremap <d-1> 1gt
 noremap <d-2> 2gt
 noremap <d-3> 3gt
@@ -35,7 +39,3 @@ noremap <d-9> 9gt
 
 " Remove all the UI cruft
 set go-=T
-set go-=l
-set go-=L
-set go-=r
-set go-=R
