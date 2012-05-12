@@ -26,7 +26,7 @@ export PAGER=vimpager
 # Git
 alias git='hub'
 alias g='hub'
-alias gst='git status -s'
+alias gs='git status -s'
 
 # completions
 alias ga='git add'
@@ -50,4 +50,4 @@ alias gca='git commit -av'
 alias gcm='git commit -m'
 alias gcp='git commit -p'
 
-alias todo="vim ~/Dropbox/tasks/tasks.txt"
+alias todo="vim ~/Dropbox/tasks/todo.txt"
