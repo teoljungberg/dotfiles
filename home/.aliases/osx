@@ -1,11 +1,10 @@
 #!/bin/bash
 
 # EDITOR
-export EDITOR=vim
+export EDITOR=mvim
 
 # 'Applications'
 alias te='open -a TextEdit'
-alias firefox='open -a Firefox'
 alias vlc='open -a VLC'
 alias brewup='brew update --rebase && brew upgrade -v && brew cleanup -v'
 
@@ -14,5 +13,5 @@ alias pbp="pbpaste"
 alias pbc="pbcopy"
 
 # Typos
-alias brwe="brew"
 alias brweup='brewup'
+alias brwe='brew'
