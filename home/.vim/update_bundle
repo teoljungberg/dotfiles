@@ -25,7 +25,7 @@ bundles_dir = File.join(File.dirname(__FILE__), "bundle")
 FileUtils.cd(bundles_dir)
 
 puts "trashing everything (lookout!)"
-Dir["*"].each {|dir| FileUtils.rm_rf dir }
+Dir["*"].each { |dir| FileUtils.rm_rf dir }
 
 git_bundles.each do |url|
   dir = url.split('/').last.sub(/\.git$/, '')
