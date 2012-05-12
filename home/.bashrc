@@ -1,29 +1,31 @@
-# Term
-export TERM=screen-256color
+#!/bin/bash 
+
+. ~/.bash/colors
+. ~/.bash/functions
+
+# path
 export PATH=/usr/local/bin:$PATH:~/.bin:~/bin:/usr/local/sbin
 
 # bash
-. ~/.bash/functions
-. ~/.bash/colors
-. ~/.bash/theme
+. /etc/bash_completion
 
 # completion
-. `brew --prefix`/etc/bash_completion
-. ~/.bash/completion/brew
 . ~/.bash/completion/git
 . ~/.bash/completion/hub
+. ~/.bash/completion/brew
+
+# term
+export TERM=screen-256color
+
+# theme
+. ~/.bash/theme
 
 # load aliases at end to not conflict with anything
 . ~/.bash/aliases
 
 # parting OS specifics
 if [ $platform = 'darwin' ]; then
-    . ~/.aliases/osx
-    . ~/.bash/completion/brew
+  . ~/.aliases/osx
 elif [ $platform = 'linux' ]; then
-    . ~/.aliases/linux
+  . ~/.aliases/linux
 fi
-
-# rbebv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
