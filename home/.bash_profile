@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# source .bashrc
 if [ -f ~/.bashrc ]; then
-    source ~/.bashrc
+  . ~/.bashrc
 fi
+
+# rbebv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
