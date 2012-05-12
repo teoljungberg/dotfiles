@@ -1,17 +1,25 @@
 #!/bin/bash
 
+# Handy 'tools'
+alias sym='ln -s'
+alias bp='bitpocket'
+
+# applications
+alias tmux="TERM=screen-256color-bce tmux"
+
 # General aliases
 alias bitch,="sudo"
 alias rm="rm -i"
 alias mv="mv -i"
 alias py="python"
 alias rb="ruby"
-alias kilall='killall'
+alias curdate='date +%d.%m.%y\ %H:%M'
 
 # ls
 alias ls="ls -F"
 alias l='ls -1'
 alias ll='ls -l'
+alias l1='l'
 alias la='ls -A'
 alias lal="ls -Al"
 alias d='cd'
@@ -25,24 +33,16 @@ export PAGER=vimpager
 
 # Git
 alias git='hub'
-alias g='hub'
-alias gs='git status -s'
-
-# completions
+alias g='git'
 alias ga='git add'
 alias gp='git push'
 alias gpl='git pull'
 alias gd='git diff'
+alias gst='git status -s'
+alias gs='gst'
 alias gb='git branch -v'
 alias gm='git merge'
 alias gco='git checkout'
-
-complete -o default -o nospace -F _git_push gp
-complete -o default -o nospace -F _git_pull gpl
-complete -o default -o nospace -F _git_diff gd
-complete -o default -o nospace -F _git_branch gb
-complete -o default -o nospace -F _git_merge gm
-complete -o default -o nospace -F _git_checkout gco
 
 ## Commiting
 alias gc='git commit -v'
@@ -50,4 +50,5 @@ alias gca='git commit -av'
 alias gcm='git commit -m'
 alias gcp='git commit -p'
 
-alias todo="vim ~/Dropbox/tasks/todo.txt"
+# Typo correctors
+alias kilall='killall'

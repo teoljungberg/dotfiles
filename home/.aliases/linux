@@ -3,11 +3,10 @@
 # EDITOR
 export EDITOR=vim
 
-eval `dircolors ~/.dircolors`
-
 # ls
 alias ls="ls -F --color=always"
 
 # Applications
+alias db='dropbox'
 alias weechat='weechat-curses'
 alias bp='bitpocket'

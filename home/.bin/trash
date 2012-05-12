@@ -2,8 +2,7 @@
 
 if [  "$1" = "" ]
 then
-  echo "specify a file to be Trashed"
-  exit 1
+  mv -f `pwd`/* ~/.Trash/
 else
   mv -f "$1" ~/.Trash/
 fi

@@ -1,6 +1,7 @@
 set "editor=/usr/local/bin/mvim -f"
 nnoremap ; :
 let mapleader = ","
+inoremap <C-k> <CR>Di 
 
 set incsearch 
 set hlsearch
@@ -13,10 +14,13 @@ nnoremap k 3k
 
 nnoremap H :back<CR>
 nnoremap L :forward<CR>
+nnoremap J :tabp<CR>
+nnoremap K :tabn<CR>
 
 noremap <M-l> :open 
 noremap <M-f> /
 noremap <M-k> :open google 
+noremap <M-h> :open google.com<CR>
 noremap <M-t> :tabnew 
 
 noremap <leader>f /

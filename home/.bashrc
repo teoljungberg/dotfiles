@@ -1,33 +1,33 @@
-#!/bin/bash 
-
-. ~/.bash/colors
-. ~/.bash/functions
-
-# completion
-. /etc/bash_completion
-
-# path
-export PATH=/usr/local/bin:$PATH:~/.bin:~/bin:/usr/local/sbin
-
-# completion
-. ~/.bash/completion/git
-. ~/.bash/completion/hub
-. ~/.bash/completion/brew
-
-# term
+# Term
 export TERM=screen-256color
 
-# theme
-. ~/.bash/theme
+# the users PATH
+export PATH=/usr/local/bin:$PATH:~/.bin:~/bin:/usr/local/sbin
 
-# load aliases at end to not conflict with anything
-. ~/.bash/aliases
+# functions
+source ~/.bash/functions
+
+# load bash' colors
+source ~/.bash/colors
+
+# PS1 including ls colors
+source ~/.bash/theme
+
+# bash completion
+source /etc/bash_completion
+
+# git completion
+source ~/.bash/completion/git
+
+# aliases at end to not conflict with anything
+source ~/.bash/aliases
 
 # parting OS specifics
 if [ $platform = 'darwin' ]; then
-  . ~/.bash/osx
+    source ~/.aliases/osx
+    source ~/.bash/completion/brew
 elif [ $platform = 'linux' ]; then
-  . ~/.bash/linux
+    source ~/.aliases/linux
 fi
 
 # rbebv
