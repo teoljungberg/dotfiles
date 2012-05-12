@@ -6,7 +6,6 @@
   set nocompatible " IMproved
   set clipboard=unnamed
   set hidden
-  set t_Co=256
   set autoread
   set history=1000
   set encoding=utf-8
@@ -15,11 +14,12 @@
   au VimResized * exe
 
 "Visual thingys 
+  set t_Co=256
   colo solarized
   set background=dark
   set number
   set scrolloff=3
-
+  
 "Plugins
   "NERDTree
   let NERDTreeChDirMode = 1
@@ -38,32 +38,27 @@
 
 "Keybindings
   "LEADER bindings
-    "LEADER + w to save
-    noremap <LEADER>w :update<CR>
-    "LEADER + q quits the open pane
     noremap <LEADER>q :q!<CR>
-    "LEADER + l shows/hides linenumbers
     noremap <LEADER>l :set nu!<CR>
-    "LEADER + n Toggles NERDTree
     noremap <LEADER>n :NERDTreeToggle<CR>
-    "LEADER + s opens up search and replace
     noremap <LEADER>s :%s/
-    "LEADER + f opens up search
     noremap <LEADER>f /
       
   " sudo to write
   cmap w!! w !sudo tee % >/dev/null<CR>
   
   "Movement
-    " moving between buffers/panes
+    " buffers/panes
     map <C-J> <C-W>j
     map <C-K> <C-W>k
     map <C-L> <C-W>l
     map <C-H> <C-W>h
       
-    " bashery movements
+    " bashery 
     inoremap <c-a> <esc>I
     inoremap <c-e> <esc>A
+    cnoremap <c-a> <home>
+    cnoremap <c-e> <end>
 
     " bashery removal in commandmode
     cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
@@ -72,14 +67,16 @@
     noremap H ^
     noremap L g_
 
-    " Moving between tabs
-    noremap J :tabprevious<CR>
-    noremap K :tabnext<CR>
+    " matching brackets and such
+    noremap <tab> %
+
+    " make D behave
+    nnoremap D d$
 
   " my fingers sometimes slip
   nnoremap ; :
    
-" disables the creating of the swap and tmp files
+" no swap or backup 
   set noswapfile
   set nobackup
   set nowritebackup
@@ -105,7 +102,6 @@
   set gdefault
   nnoremap <LEADER><space> :noh<CR>  
 
-  " Keep search matches in the middle of the window and pulse the line when
-  " moving to them.
+  " keep search matches in the middle
   nnoremap n nzzzv
   nnoremap N Nzzzv

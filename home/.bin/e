@@ -1,4 +1,6 @@
 #!/bin/bash
+# a hotkey to the user defined editor
+
 if [ "$1" = "" ]; then
     $EDITOR "."
 else

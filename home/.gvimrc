@@ -5,7 +5,7 @@ set guifont=Monaco:h12
 set clipboard=unnamed
 set lines=45 columns=120
 
-" Command(forntidslämning) + t to :CommandT
+" Command + t to :CommandT
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
   map <D-t> :CommandT<CR>
@@ -22,7 +22,7 @@ noremap <c-s-tab> :tabprevious<cr>
 imap <c-s-tab> <c-o>:tabprevious<cr>
 vmap <c-s-tab> <c-o>:tabprevious<cr>
 
-" C-# switches to tab
+" M-# switches to tab
 noremap <d-1> 1gt
 noremap <d-2> 2gt
 noremap <d-3> 3gt
@@ -35,7 +35,3 @@ noremap <d-9> 9gt
 
 " Remove all the UI cruft
 set go-=T
-set go-=l
-set go-=L
-set go-=r
-set go-=R

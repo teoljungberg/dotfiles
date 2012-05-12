@@ -35,6 +35,6 @@ do
   else
     echo 'backing up' $directory
     rsync $RSYNC_OPTS ~/$directory $backup_location
-    echo ''
+    echo 
   fi
 done
