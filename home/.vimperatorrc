@@ -1,4 +1,5 @@
 set "editor=/usr/local/bin/mvim -f"
+set gui=nonavigation,nobookmarks,nomenu,noaddons,nomenu
 nnoremap ; :
 let mapleader = ","
 
