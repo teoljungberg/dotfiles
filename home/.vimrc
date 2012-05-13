@@ -11,7 +11,6 @@
   set encoding=utf-8
   let mapleader=","
   set backspace=indent,eol,start
-  au VimResized * exe
 
 "Visual thingys 
   set t_Co=256
@@ -19,6 +18,7 @@
   set background=dark
   set number
   set scrolloff=3
+  call togglebg#map("<F5>")
   
 "Plugins
   "NERDTree
@@ -38,11 +38,11 @@
 
 "Keybindings
   "LEADER bindings
-    noremap <LEADER>q :q!<CR>
-    noremap <LEADER>l :set nu!<CR>
-    noremap <LEADER>n :NERDTreeToggle<CR>
-    noremap <LEADER>s :%s/
-    noremap <LEADER>f /
+  noremap <LEADER>q :q!<CR>
+  noremap <LEADER>l :set nu!<CR>
+  noremap <LEADER>n :NERDTreeToggle<CR>
+  noremap <LEADER>s :%s/
+  noremap <LEADER>f /
       
   " sudo to write
   cmap w!! w !sudo tee % >/dev/null<CR>
@@ -59,7 +59,9 @@
     inoremap <c-e> <esc>A
     cnoremap <c-a> <home>
     cnoremap <c-e> <end>
-
+    vnoremap <c-a> ^
+    vnoremap <c-e> g_
+    
     " bashery removal in commandmode
     cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
