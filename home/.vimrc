@@ -11,6 +11,7 @@
   set encoding=utf-8
   let mapleader=","
   set backspace=indent,eol,start
+  let vimpager_use_gvim = 1
 
 "Visual thingys 
   set t_Co=256
