@@ -15,7 +15,7 @@ export PATH=/usr/local/bin:$PATH:~/.bin:~/bin:/usr/local/sbin
 . ~/.bash/completion/brew
 
 # term
-export TERM=screen-256color
+#export TERM=screen-256color
 
 # theme
 . ~/.bash/theme
