@@ -12,7 +12,6 @@ export PATH=/usr/local/bin:$PATH:~/.bin:~/bin:/usr/local/sbin
 # completion
 . ~/.bash/completion/git
 . ~/.bash/completion/hub
-. ~/.bash/completion/brew
 
 # term
 #export TERM=screen-256color
@@ -26,6 +25,7 @@ export PATH=/usr/local/bin:$PATH:~/.bin:~/bin:/usr/local/sbin
 # parting OS specifics
 if [ $platform = 'darwin' ]; then
   . ~/.bash/osx
+  . ~/.bash/completion/brew
 elif [ $platform = 'linux' ]; then
   . ~/.bash/linux
 fi
@@ -33,3 +33,4 @@ fi
 # rbebv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
