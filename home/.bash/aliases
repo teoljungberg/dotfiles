@@ -4,6 +4,7 @@
 alias bitch,="sudo"
 alias rm="rm -i"
 alias mv="mv -i"
+alias cp="cp -i"
 alias py="python"
 alias rb="ruby"
 alias kilall='killall'
