@@ -8,3 +8,4 @@ fi
 # rbebv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
