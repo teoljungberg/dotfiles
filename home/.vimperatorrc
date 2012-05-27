@@ -1,12 +1,12 @@
 set "editor=/usr/local/bin/mvim -f"
-set gui=nonavigation,nobookmarks,nomenu,noaddons,nomenu
+set gui=nonavigation,nobookmarks,nomenu,noaddons
 nnoremap ; :
 let mapleader = ","
 
 set incsearch 
 set hlsearch
 set ignorecase
-nnoremap <leader><space> :noh<cr> 
+nnoremap <leader><space> :nohlsearch<cr> 
 
 " move faster
 nnoremap j 3j
@@ -22,3 +22,4 @@ noremap <M-t> :tabnew
 
 noremap <leader>f /
 noremap <leader>r :source ~/.vimperatorrc<CR>
+
