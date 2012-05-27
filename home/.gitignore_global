@@ -34,15 +34,7 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# Python Specifics #
-####################
-*.py[co]
-
-# Unit test / coverage reports #
-################################
-.coverage
-.tox
-
 # Secret things #
 #################
 private
+
