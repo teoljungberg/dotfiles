@@ -13,11 +13,16 @@ export PATH=/usr/local/bin:$PATH:~/.bin:~/bin:/usr/local/sbin
 . ~/.bash/completion/git
 . ~/.bash/completion/hub
 
-# term
-#export TERM=screen-256color
-
 # theme
 . ~/.bash/theme
+
+# opens up an ssh connection in a new tmux window if inside tmux 
+case "$TERM" in
+  screen-*)
+    alias nssh=/usr/bin/ssh "$@"
+    alias ssh="tmux_ssh"
+    ;;
+esac
 
 # load aliases at end to not conflict with anything
 . ~/.bash/aliases

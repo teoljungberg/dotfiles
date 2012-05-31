@@ -37,3 +37,7 @@ extract () {
   fi
 }
 
+tmux_ssh () {
+  tmux new-window -n $1 "/usr/bin/ssh $*"
+}
+
