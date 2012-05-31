@@ -17,11 +17,11 @@ directories=(
 
 # if --quiet is passed on as an argument, rsync doesnt show the process of the
 # backup
-if [ "$1" == '--quiet' -o "$1" == '-q' ]
+if [ "$1" == '-q' ]
 then
   RSYNC_OPTS="-aLPhz --partial --delete --quiet"
   is_quiet=true
-elif [ "$1" == '' -o "$1" == '--verbose' -o "$1" == '-v' ]
+elif [ "$1" == '' -o "$1" == '-v' ]
 then
   RSYNC_OPTS="-aLPhz --progress --partial --delete --verbose"
 fi
