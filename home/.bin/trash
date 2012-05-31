@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [  "$1" = "" ]
-then
-  echo "specify a file to be Trashed"
-  exit 1
-else
-  mv -f "$1" ~/.Trash/
-fi

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ `whoami` = 'root' ]; then
-  sudo osascript -e 'tell app "Finder" to sleep'
-else
-  echo 'run the script as root'
-fi
