@@ -16,7 +16,6 @@ set backspace=indent,eol,start
 set t_Co=256
 colo solarized
 set background=dark
-set number
 set scrolloff=3
 
 "Plugins
@@ -39,18 +38,14 @@ set scrolloff=3
   " NERDcommenter
   map cc <leader>c<space>
 
-  " Solarized
-  call togglebg#map("<F6>")
-
-  " matchit
-  runtime macros/matchit.vim
+  " solarized
+  call togglebg#map("<F5>")
 
 "Keybindings
   "LEADER bindings
   noremap <leader>q :q!<cr>
   noremap <leader>l :set nu!<cr>
-  noremap <leader>s :%s/
-  noremap <leader>f /
+  noremap <leader>sr :%s/
   noremap <leader>ev :tabe ~/.vimrc<cr>
   noremap <leader>sv :vsplit<cr>
   noremap <leader>sp :split<cr>
@@ -99,7 +94,7 @@ set scrolloff=3
     
     " my fingers sometimes slip
     nnoremap ; :
- 
+
 " no swap or backup 
 set noswapfile
 set nobackup
