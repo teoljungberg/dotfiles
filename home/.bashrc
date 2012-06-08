@@ -3,8 +3,8 @@
 . ~/.bash/colors
 . ~/.bash/functions
 
-# completion
-. /etc/bash_completion
+# editor
+export EDITOR=vim
 
 # path
 export PATH=/usr/local/bin:$PATH:~/.bin:~/bin:/usr/local/sbin
