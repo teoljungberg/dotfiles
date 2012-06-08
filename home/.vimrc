@@ -4,7 +4,7 @@ call pathogen#helptags()
 filetype plugin indent on
 syntax on
 set nocompatible " IMproved
-set clipboard=unnamed
+"set clipboard=unnamed
 set hidden
 set autoread
 set history=1000
@@ -41,20 +41,25 @@ set scrolloff=3
   " solarized
   call togglebg#map("<F5>")
 
+  " syntastic
+  let g:syntastic_mode_map = { "mode": "passive" }
+
 "Keybindings
   "LEADER bindings
   noremap <leader>q :q!<cr>
   noremap <leader>l :set nu!<cr>
-  noremap <leader>sr :%s/
+  noremap <leader>sr :%s//<left>
   noremap <leader>ev :tabe ~/.vimrc<cr>
   noremap <leader>sv :vsplit<cr>
   noremap <leader>sp :split<cr>
+  nnoremap <LEADER><space> :nohls<cr>  
       
   " sudo to write
   cmap w!! w !sudo tee % >/dev/null<cr>
 
   " unbind
   noremap K <nop>
+  noremap J <nop>
 
 "movement
   " buffers/panes
@@ -119,7 +124,6 @@ set showmatch
 set ignorecase
 set smartcase                                
 set gdefault
-nnoremap <LEADER><space> :nohlsearch<cr>  
 
 " open a quickfix window for the last search.
 nnoremap <silent> <LEADER>? :execute 'vimgrep /'.@/.'/g %'<cr>:copen<cr>
