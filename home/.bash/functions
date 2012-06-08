@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Platform information
 platform='unknown'
 unamestr=`uname`
@@ -9,13 +7,8 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='darwin'
 fi
 
-mkcd () {
-  mkdir -p $1
-  cd $1
-}
-
 tarit () {
-  tar cvzf temp.tgz $1
+  tar cvzf temp.tgz "$1"
 }
 
 extract () {
