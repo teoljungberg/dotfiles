@@ -17,24 +17,29 @@ directories=(
 
 # if --quiet is passed on as an argument, rsync doesnt show the process of the
 # backup
-if [ "$1" == '-q' ]
+if [ -d $backup_location ]
 then
-  RSYNC_OPTS="-aLPhz --partial --delete --quiet"
-  is_quiet=true
-elif [ "$1" == '' -o "$1" == '-v' ]
-then
-  RSYNC_OPTS="-aLPhz --progress --partial --delete --verbose"
-fi
-
-# BACKUP COMMENCE
-for directory in ${directories[@]}
-do
-  if $is_quiet 
+  if [ "$1" == '-q' ]
   then
-    rsync $RSYNC_OPTS ~/$directory $backup_location
-  else
-    echo 'backing up' $directory
-    rsync $RSYNC_OPTS ~/$directory $backup_location
-    echo 
+    RSYNC_OPTS="-aLPhz --partial --delete --quiet"
+    is_quiet=true
+  elif [ "$1" == '' -o "$1" == '-v' ]
+  then
+    RSYNC_OPTS="-aLPhz --progress --partial --delete --verbose"
   fi
-done
+
+  # BACKUP COMMENCE
+  for directory in ${directories[@]}
+  do
+    if $is_quiet 
+    then
+      rsync $RSYNC_OPTS ~/$directory $backup_location
+    else
+      echo 'backing up' $directory
+      rsync $RSYNC_OPTS ~/$directory $backup_location
+      echo 
+    fi
+  done
+else
+  echo "$backup_location is not present"
+fi
