@@ -41,8 +41,10 @@ set scrolloff=3
   " solarized
   call togglebg#map("<F5>")
 
-  " syntastic
-  let g:syntastic_mode_map = { "mode": "passive" }
+  " Ack
+  nnoremap <leader>a :Ack!<space>
+  nnoremap <silent> <leader>/ :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
+
 
 "Keybindings
   "LEADER bindings
@@ -101,9 +103,9 @@ set scrolloff=3
     nnoremap ; :
 
 " no swap or backup 
-set noswapfile
-set nobackup
 set nowritebackup
+set nobackup
+set noswapfile
 
 " sane intendation 
 set shiftwidth=2
