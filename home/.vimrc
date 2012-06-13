@@ -4,7 +4,7 @@ call pathogen#helptags()
 filetype plugin indent on
 syntax on
 set nocompatible " IMproved
-"set clipboard=unnamed
+set clipboard=unnamed
 set hidden
 set autoread
 set history=1000
