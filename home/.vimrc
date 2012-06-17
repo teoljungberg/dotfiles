@@ -5,24 +5,27 @@ filetype plugin indent on
 syntax on
 set nocompatible " IMproved
 set clipboard=unnamed
-set hidden
 set autoread
 set history=1000
 set encoding=utf-8
 let mapleader=","
 set backspace=indent,eol,start
+au FocusLost * :silent! wall " Save when losing focus
+au VimResized * :wincmd = " Resize splits when the window is resized
 
 "Visual thingys 
 set t_Co=256
 colo solarized
 set background=dark
 set scrolloff=3
+set showmatch
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 "Plugins
   "NERDTree
   noremap <leader>n :NERDTreeToggle<cr>
   let NERDTreeChDirMode = 1
-  let g:nerdtreewinsize = 25
+  let g:NERDTreeWinSize = 25
   let NERDTreeHighlightCursorline=1
 
   "Gist
@@ -34,24 +37,25 @@ set scrolloff=3
   " Command-T
   let g:CommandTAcceptSelectionTabMap = '<CR>'
   let g:CommandTMaxHeight = 15
+  noremap <c-t> :CommandT<CR>
+  noremap <leader>t :CommandT<CR>
 
   " NERDcommenter
   map cc <leader>c<space>
 
-  " solarized
+  " Solarized
   call togglebg#map("<F5>")
 
-  " Ack
-  nnoremap <leader>a :Ack!<space>
-  nnoremap <silent> <leader>/ :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
-
+  " Fugitive
+  nnoremap <leader>gs :Gstatus<CR>
+  nnoremap <leader>gc :Gcommit<CR>
 
 "Keybindings
   "LEADER bindings
   noremap <leader>q :q!<cr>
   noremap <leader>l :set nu!<cr>
   noremap <leader>sr :%s//<left>
-  noremap <leader>ev :tabe ~/.vimrc<cr>
+  noremap <leader>ev :vsplit ~/.vimrc<cr>
   noremap <leader>sv :vsplit<cr>
   noremap <leader>sp :split<cr>
   nnoremap <LEADER><space> :nohls<cr>  
@@ -75,8 +79,6 @@ set scrolloff=3
   inoremap <c-e> <esc>A
   cnoremap <c-a> <home>
   cnoremap <c-e> <end>
-  vnoremap <c-a> ^
-  vnoremap <c-e> g_
   
   " bashery removal in commandmode
   cnoremap <c-k> <c-\>estrpart(getcmdline(), 0, getcmdpos()-1)<cr>
@@ -97,7 +99,6 @@ set scrolloff=3
     command! -bang Wq wq<bang>
     command! -bang WQ wq<bang>
     command! -bang W w<bang>
-    cnoremap q1 q!
     
     " my fingers sometimes slip
     nnoremap ; :
@@ -122,7 +123,6 @@ set textwidth=79
 " search 
 set incsearch 
 set hlsearch 
-set showmatch
 set ignorecase
 set smartcase                                
 set gdefault
