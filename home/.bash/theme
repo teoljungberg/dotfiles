@@ -1,8 +1,9 @@
 # Enclosing (\[\]) around colors to avoid word-wrap weirdo stuff(http://ubuntuforums.org/showthread.php?t=234232)
 if [ -f ~/.linux ]; then
-  PS1='\[$BLUE\][ \[$CYAN\]\w\[$BLUE\] ]\[$YELLOW\]$(__git_ps1 " (%s)") \[$NORMAL\]> ' 
+  PS1='\[$BLUE\][ \[$CYAN\]\w\[$BLUE\] ]\[$YELLOW\]$(__git_ps1 " (%s)") \[$NORMAL\]\$ ' 
 elif [ -f ~/.osx ]; then
-  PS1='\[$PURPLE\][ \[$CYAN\]\w\[$PURPLE\] ]\[$YELLOW\]$(__git_ps1 " (%s)") \[$NORMAL\]> ' 
+  PS1='\[$PURPLE\][ \[$CYAN\]\w\[$PURPLE\] ]\[$YELLOW\]$(__git_ps1 " (%s)") \[$NORMAL\]\$ ' 
+
   # use solarized-like color
   export CLICOLOR=1
   export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
