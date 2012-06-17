@@ -2,7 +2,7 @@
 
 # General aliases
 alias bitch,="sudo"
-alias rm="rm -I"
+alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
 alias py="python"
