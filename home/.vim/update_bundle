@@ -13,8 +13,6 @@ git_bundles = [
   "git://github.com/tpope/vim-fugitive.git",
   "git://github.com/tpope/vim-surround.git",
   "git://github.com/tpope/vim-repeat.git",
-  "git://github.com/sjl/vitality.vim",
-  "https://github.com/mileszs/ack.vim"
 ]
 
 require 'fileutils'
