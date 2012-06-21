@@ -10,8 +10,6 @@ set history=1000
 set encoding=utf-8
 let mapleader=","
 set backspace=indent,eol,start
-au FocusLost * :silent! wall " Save when losing focus
-au VimResized * :wincmd = " Resize splits when the window is resized
 
 "Visual thingys 
 set t_Co=256
@@ -35,9 +33,7 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
   let g:gist_show_privates = 1
 
   " Command-T
-  let g:CommandTAcceptSelectionTabMap = '<CR>'
   let g:CommandTMaxHeight = 15
-  noremap <c-t> :CommandT<CR>
   noremap <leader>t :CommandT<CR>
 
   " NERDcommenter

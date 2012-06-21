@@ -11,9 +11,6 @@ if has("gui_macvim")
   map <D-t> :CommandT<CR>
 endif
 
-" Open Command+T in a new tab
-let g:CommandTAcceptSelectionTabMap='<CR>'
-
 " M-# switches to tab
 noremap <d-1> 1gt
 noremap <d-2> 2gt
