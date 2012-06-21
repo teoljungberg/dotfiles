@@ -10,7 +10,6 @@ directories=(
   Music
   Pictures
   Minecraft
-  Scripts
   src
   Books
 )
@@ -43,3 +42,4 @@ then
 else
   echo "$backup_location is not present"
 fi
+
