@@ -6,6 +6,9 @@
 # editor
 export EDITOR=vim
 
+# dont shot dupes in histroy
+export HISTCONTROL=ignoredups
+
 # path
 export PATH=/usr/local/bin:$PATH:~/.bin:~/bin:/usr/local/sbin
 
