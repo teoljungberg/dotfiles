@@ -1,7 +1,7 @@
 colo solarized
 set background=light
 set anti
-set guifont=Inconsolata:h13
+set guifont=Inconsolata:h14
 set clipboard=unnamed
 set lines=45 columns=120
 
