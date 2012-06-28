@@ -21,7 +21,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../../'
 
-# use vimpager instead of less
+# use vimpager as a pager
 export PAGER=vimpager
 
 # Git
