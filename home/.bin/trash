@@ -1,0 +1,13 @@
+#!/bin/bash
+# trash: moves a file to the Trash
+#
+# Usage:
+# trash foo
+
+if [ "$1" == '' ]
+then
+  echo 'enter a path/file to move to the trash'
+  exit 0
+else
+  mv -fv "$1" ~/.Trash/
+fi
