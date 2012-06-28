@@ -29,32 +29,10 @@ Perform the symlinking
 
   $ homesick symlink dotfiles
 
-Since I use two differnt OS' I have aliases that doesn't match
-Therefore I have divided them into `osx` and `linux` under `~/aliases`
-If the file `~/.osx` exists, bash loads the OS X specific aliases.
-The same goes for `~/.linux`
-
-If you are on a mac
-
-  $ touch ~/.osx
-
-and on linux:
-
-  $ touch ~/.linux
-
+Voila!
 Check out [homesick](/technicalpickles/homesick) for more
 details about the project.
 	
 ## PS1 Format
-`[ pwd ] > command`
+`[ pwd ] $ command`
 
-## Screenshots
-Who doesn't love them?
-
-  $ ls -FG / 
-
-![](http://f.cl.ly/items/0S291q0C3a3N441C191Q/screenshot%202011-12-30%20kl.%2014.09.42.PNG)
-
-Plain `vim` session
-
-![](http://f.cl.ly/items/1U0X2u0W0C0R0Q1x083s/screenshot%202011-12-30%20kl.%2014.10.41.PNG)

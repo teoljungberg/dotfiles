@@ -8,7 +8,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 tarit () {
-  tar cvzf temp.tgz "$1"
+  tar cvzf "$1".tgz "$1"
 }
 
 extract () {
