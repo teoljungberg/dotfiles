@@ -1,7 +1,7 @@
 "=============================================================================
 " File: gist.vim
 " Author: Yasuhiro Matsumoto <mattn.jp@gmail.com>
-" Last Change: 28-May-2012.
+" Last Change: 22-Jun-2012.
 " Version: 6.7
 " WebPage: http://github.com/mattn/gist-vim
 " License: BSD
@@ -65,6 +65,9 @@ endfunction
 
 function! s:format_gist(gist)
   let files = sort(keys(a:gist.files))
+  if empty(files)
+    return ""
+  endif
   let file = a:gist.files[files[0]]
   if has_key(file, "content")
     let code = file.content
@@ -75,7 +78,7 @@ function! s:format_gist(gist)
   return printf("gist: %s %s%s", a:gist.id, type(a:gist.description)==0?"": a:gist.description, code)
 endfunction
 
-" Note: A colon in the file name has side effects on Windows due to NTFS Alternate Data Streams; avoid it. 
+" Note: A colon in the file name has side effects on Windows due to NTFS Alternate Data Streams; avoid it.
 let s:bufprefix = 'gist' . (has('unix') ? ':' : '_')
 function! s:GistList(gistls, page)
   if a:gistls == '-all'
@@ -122,7 +125,7 @@ function! s:GistList(gistls, page)
     return
   endif
 
-  let lines = map(content, 's:format_gist(v:val)')
+  let lines = map(filter(content, '!empty(v:val.files)'), 's:format_gist(v:val)')
   call setline(1, split(join(lines, "\n"), "\n"))
 
   $put='more...'
@@ -183,6 +186,11 @@ function! s:GistGet(gistid, clipboard)
       let num_file = len(keys(gist.files))
     else
       let num_file = 1
+    endif
+    if num_file > len(keys(gist.files))
+      redraw
+      echohl ErrorMsg | echomsg 'Gist not found' | echohl None
+      return
     endif
     for n in range(num_file)
       try
@@ -444,7 +452,7 @@ function! gist#Gist(count, line1, line2, ...)
   if bufname =~ bufnamemx
     let gistidbuf = matchstr(bufname, bufnamemx)
   else
-    let gistidbuf = matchstr(join(getline(a:line1, a:line2), "\n"), '\(GistID:\s*\)\@<=\S\+')
+    let gistidbuf = matchstr(join(getline(a:line1, a:line2), "\n"), 'GistID:\s*\zs\w\+')
   endif
 
   let args = (a:0 > 0) ? s:shellwords(a:1) : []
