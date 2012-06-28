@@ -16,7 +16,6 @@ set t_Co=256
 colo solarized
 set background=dark
 set scrolloff=3
-set showmatch
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 "Plugins
@@ -54,11 +53,20 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
   noremap <leader>ev :vsplit ~/.vimrc<cr>
   noremap <leader>sv :vsplit<cr>
   noremap <leader>sp :split<cr>
-  nnoremap <LEADER><space> :nohls<cr>  
+  noremap <LEADER><space> :nohls<cr>  
+  noremap <leader>pm :!markdown % \|browser<cr>
       
   " sudo to write
   cmap w!! w !sudo tee % >/dev/null<cr>
 
+  " typos
+    " commandmode
+    command! -bang Q q<bang>
+    command! -bang W w<bang>
+    
+    " my fingers sometimes slip
+    nnoremap ; :
+ 
   " unbind
   noremap K <nop>
   noremap J <nop>
@@ -70,14 +78,14 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
   map <c-l> <c-w>l
   map <c-h> <c-w>h
     
-  " bashery 
+  " heresy 
   inoremap <c-a> <esc>I
   inoremap <c-e> <esc>A
-  cnoremap <c-a> <home>
-  cnoremap <c-e> <end>
-  
-  " bashery removal in commandmode
-  cnoremap <c-k> <c-\>estrpart(getcmdline(), 0, getcmdpos()-1)<cr>
+
+    " ..comandline
+    cnoremap <c-a> <home>
+    cnoremap <c-e> <end>
+    cnoremap <c-k> <c-\>estrpart(getcmdline(), 0, getcmdpos()-1)<cr>
 
   " true-er vim movement
   noremap H ^
@@ -85,19 +93,6 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
   " matching brackets
   noremap <tab> %
-
-  " make d behave
-  nnoremap D d$
-
-  " typos
-    " commandmode
-    command! -bang Q q<bang>
-    command! -bang Wq wq<bang>
-    command! -bang WQ wq<bang>
-    command! -bang W w<bang>
-    
-    " my fingers sometimes slip
-    nnoremap ; :
 
 " no swap or backup 
 set nowritebackup
@@ -122,9 +117,6 @@ set hlsearch
 set ignorecase
 set smartcase                                
 set gdefault
-
-" open a quickfix window for the last search.
-nnoremap <silent> <LEADER>? :execute 'vimgrep /'.@/.'/g %'<cr>:copen<cr>
 
 " keep search matches in the middle
 nnoremap n nzzzv
