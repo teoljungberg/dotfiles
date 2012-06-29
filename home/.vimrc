@@ -115,7 +115,7 @@ set linebreak
 set textwidth=79
 
 " search 
-noremap f /
+nnoremap f /
 set incsearch 
 set hlsearch 
 set ignorecase
