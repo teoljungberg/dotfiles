@@ -16,7 +16,7 @@ set t_Co=256
 colo solarized
 set background=dark
 set scrolloff=3
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set laststatus=2
 
 "Plugins
   "NERDTree
@@ -44,6 +44,9 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
   " Fugitive
   nnoremap <leader>gs :Gstatus<CR>
   nnoremap <leader>gc :Gcommit<CR>
+  
+  " Powerline
+  let g:Powerline_symbols = 'fancy'
 
 "Keybindings
   "LEADER bindings
@@ -54,7 +57,7 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
   noremap <leader>sv :vsplit<cr>
   noremap <leader>sp :split<cr>
   noremap <LEADER><space> :nohls<cr>  
-  noremap <leader>pm :!markdown % \|browser<cr>
+  noremap <leader>pm :!markdown % \| browser<cr>
       
   " sudo to write
   cmap w!! w !sudo tee % >/dev/null<cr>
@@ -79,8 +82,8 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
   map <c-h> <c-w>h
     
   " heresy 
-  inoremap <c-a> <esc>I
-  inoremap <c-e> <esc>A
+  inoremap <c-a> <home>
+  inoremap <c-e> <end>
 
     " ..comandline
     cnoremap <c-a> <home>
@@ -112,6 +115,7 @@ set linebreak
 set textwidth=79
 
 " search 
+noremap f /
 set incsearch 
 set hlsearch 
 set ignorecase
