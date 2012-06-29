@@ -1,7 +1,7 @@
 colo solarized
 set background=light
 set anti
-set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 14
+set guifont=Inconsolata-dz\ for\ Powerline:h12
 "set guifont=Inconsolata:h14
 set clipboard=unnamed
 set lines=45 columns=120
