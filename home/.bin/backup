@@ -5,12 +5,10 @@ backup_location="/Volumes/Teo500GB/backup/"
 
 # directories to backup. recursive, implied to be in home (~)
 directories=(
-  git
   Documents
   Music
   Pictures
   Minecraft
-  src
   Books
 )
 
