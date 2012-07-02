@@ -28,12 +28,12 @@ set expandtab
 set autoindent
 set smartindent 
 
-nnoremap f / "search
-set incsearch 
+set incsearch " search 
 set hlsearch 
 set ignorecase
 set smartcase                                
 set gdefault
+nnoremap f /
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
@@ -72,9 +72,6 @@ nnoremap N Nzzzv
   noremap <leader>q :q!<cr>
   noremap <leader>l :set nu!<cr>
   noremap <leader>sr :%s//<left>
-  noremap <leader>ev :vsplit ~/.vimrc<cr>
-  noremap <leader>sv :vsplit<cr>
-  noremap <leader>sp :split<cr>
   noremap <LEADER><space> :nohls<cr>  
   noremap <leader>pm :!markdown % \| browser<cr>
       
