@@ -1,8 +1,8 @@
-"General settings
-call pathogen#infect()
+call pathogen#infect() " pathogen
 call pathogen#helptags()
 filetype plugin indent on
 syntax on
+
 set nocompatible " IMproved
 set clipboard=unnamed
 set autoread
@@ -11,12 +11,31 @@ set encoding=utf-8
 let mapleader=","
 set backspace=indent,eol,start
 
-"Visual thingys 
-set t_Co=256
-colo solarized
+set t_Co=256 " visuals
+colo solarized 
 set background=dark
 set scrolloff=3
 set laststatus=2
+
+set nowritebackup " no backups
+set nobackup
+set noswapfile
+
+set shiftwidth=2 " intendation
+set tabstop=2
+set softtabstop=2
+set expandtab 
+set autoindent
+set smartindent 
+
+nnoremap f / "search
+set incsearch 
+set hlsearch 
+set ignorecase
+set smartcase                                
+set gdefault
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 "Plugins
   "NERDTree
@@ -96,33 +115,3 @@ set laststatus=2
 
   " matching brackets
   noremap <tab> %
-
-" no swap or backup 
-set nowritebackup
-set nobackup
-set noswapfile
-
-" sane intendation 
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
-set expandtab 
-set autoindent
-
-" wraps
-set wrap 
-set linebreak 
-set textwidth=79
-
-" search 
-nnoremap f /
-set incsearch 
-set hlsearch 
-set ignorecase
-set smartcase                                
-set gdefault
-
-" keep search matches in the middle
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
