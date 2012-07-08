@@ -73,6 +73,7 @@ nnoremap N Nzzzv
   noremap <leader>q :q!<cr>
   noremap <leader>l :set nu!<cr>
   noremap <leader>sr :%s//<left>
+  noremap <leader>ev :vsplit ~/.vimrc<cr>
   noremap <LEADER><space> :nohls<cr>  
   noremap <leader>pm :!markdown % \| browser<cr>
       
@@ -99,8 +100,8 @@ nnoremap N Nzzzv
   map <c-h> <c-w>h
     
   " heresy 
-  inoremap <c-a> <home>
-  inoremap <c-e> <end>
+  inoremap <c-a> <esc>^i
+  inoremap <c-e> <esc>A
 
     " ..comandline
     cnoremap <c-a> <home>
