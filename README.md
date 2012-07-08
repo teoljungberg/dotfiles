@@ -5,7 +5,7 @@
 * Terminal
   - [iTerm2](http://www.iterm2.com/)
 * Shell
-  - `bash`
+  - `zsh`
 * Text editor
   - `vim`
   - [MacVim](/b4winckler/macvim)
@@ -23,16 +23,16 @@ Here is how I sync my dotfiles across machines.
 They're all in `~/Dropbox/dotfiles`
 And I use `homesick` to perform the symlinking
 
-  $ ln -s ~/Dropbox/dotfiles ~/.homesick/repos/dotfiles
+  % ln -s ~/Dropbox/dotfiles ~/.homesick/repos/dotfiles
 
 Perform the symlinking 
 
-  $ homesick symlink dotfiles
+  % homesick symlink dotfiles
 
 Voila!
 Check out [homesick](/technicalpickles/homesick) for more
 details about the project.
 	
 ## PS1 Format
-`[ pwd ] $ command`
+`[ pwd ] % command`
 
