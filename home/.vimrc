@@ -4,7 +4,6 @@ filetype plugin indent on
 syntax on
 
 set nocompatible " IMproved
-set clipboard=unnamed
 set autoread
 set history=1000
 set encoding=utf-8
