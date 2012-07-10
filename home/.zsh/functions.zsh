@@ -30,3 +30,7 @@ tmux_ssh () {
 trash () {
   mv -fv $@ ~/.Trash
 }
+
+function manpdf () { 
+  man -t $@ | open -f -a Preview
+}
