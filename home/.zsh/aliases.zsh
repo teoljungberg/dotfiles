@@ -16,7 +16,6 @@ alias l='ls -1'
 alias ll='ls -l'
 alias la='ls -A'
 alias lal="ls -Al"
-alias d='cd'
 alias cl='clear'
 alias ..='cd ..'
 alias ...='cd ../..'
