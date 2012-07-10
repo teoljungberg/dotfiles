@@ -23,11 +23,11 @@ Here is how I sync my dotfiles across machines.
 They're all in `~/Dropbox/dotfiles`
 And I use `homesick` to perform the symlinking
 
-  % ln -s ~/Dropbox/dotfiles ~/.homesick/repos/dotfiles
+    $ ln -s ~/Dropbox/dotfiles ~/.homesick/repos/dotfiles
 
 Perform the symlinking 
 
-  % homesick symlink dotfiles
+    $ homesick symlink dotfiles
 
 Voila!
 Check out [homesick](/technicalpickles/homesick) for more
