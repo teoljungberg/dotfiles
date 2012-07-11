@@ -4,6 +4,3 @@ export HOMEBREW_EDITOR="$EDITOR"
 
 export PAGER="vimpager"
 export GIT_PAGER="less"
-
-export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='1;32'
