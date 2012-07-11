@@ -2,7 +2,7 @@ export EDITOR='vim'
 export VISUAL="$EDITOR"
 export HOMEBREW_EDITOR="$EDITOR"
 
-export PAGER="less"
+export PAGER="vimpager"
 export GIT_PAGER="less"
 
 export GREP_OPTIONS='--color=auto'
