@@ -76,6 +76,7 @@ nnoremap N Nzzzv
   noremap <leader>ev :vsplit ~/.vimrc<cr>
   noremap <LEADER><space> :nohls<cr>  
   noremap <leader>pm :!markdown % \| browser<cr>
+  noremap <leader>v V`]
       
   " sudo to write
   cmap w!! w !sudo tee % >/dev/null<cr>
