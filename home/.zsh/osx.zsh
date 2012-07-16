@@ -1,8 +1,4 @@
-# 'Applications'
-alias te='open -a TextEdit'
 alias brewup='brew update --rebase && brew upgrade -v && brew cleanup -v'
-
-# Clipboard
 alias pbp="pbpaste"
 alias pbc="pbcopy"
 
