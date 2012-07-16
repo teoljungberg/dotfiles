@@ -108,7 +108,7 @@ function! fugitive#extract_git_dir(path) abort
   if s:shellslash(a:path) =~# '^fugitive://.*//'
     return matchstr(s:shellslash(a:path), '\C^fugitive://\zs.\{-\}\ze//')
   endif
-  let root = s:shellslash(simplify(fnamemodify(resolve(a:path), ':p:s?[\/]$??')))
+  let root = s:shellslash(simplify(fnamemodify(a:path, ':p:s?[\/]$??')))
   let previous = ""
   while root !=# previous
     let dir = s:sub(root, '[\/]$', '') . '/.git'
@@ -2175,7 +2175,10 @@ augroup fugitive_files
   autocmd BufWriteCmd fugitive://**//[0-3]/**          exe s:BufWriteIndexFile()
   autocmd BufReadCmd  fugitive://**//[0-9a-f][0-9a-f]* exe s:BufReadObject()
   autocmd FileReadCmd fugitive://**//[0-9a-f][0-9a-f]* exe s:FileRead()
-  autocmd FileType git       call s:JumpInit()
+  autocmd FileType git
+        \ if exists('b:git_dir') |
+        \  call s:JumpInit() |
+        \ endif
 augroup END
 
 " }}}1
