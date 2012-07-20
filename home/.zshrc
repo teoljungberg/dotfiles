@@ -1,5 +1,5 @@
 # Enviorment
-PATH=/usr/local/bin:$PATH:~/.bin:~/bin/:/usr/local/sbin
+PATH=/usr/local/bin:$PATH:~/.bin:~/bin:/usr/local/sbin
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -20,8 +20,3 @@ autoload -U promptinit && promptinit
 
 # load up the configs inside ~/.zsh/*
 for config_file ($HOME/.zsh/**/*.zsh) source $config_file
-
-# rbebv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-

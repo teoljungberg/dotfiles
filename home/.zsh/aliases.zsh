@@ -24,3 +24,12 @@ alias ....='cd ../../../'
 # use vimpager as a pager
 export PAGER=vimpager
 
+# zmv ftw
+autoload -U zmv
+
+# alias for zmv for no quotes
+# mmv *.c.orig orig/*.c
+alias mmv='noglob zmv -W'
+
+# uniq + sort = uniqsort
+alias uniqsort="sort $* | uniq -u | sort"
