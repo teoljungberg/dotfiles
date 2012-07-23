@@ -10,6 +10,8 @@ set history=1000
 set encoding=utf-8
 let mapleader=","
 set backspace=indent,eol,start
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+
 
 set t_Co=256 " visuals
 colo solarized 
