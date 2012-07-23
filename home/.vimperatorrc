@@ -17,11 +17,14 @@ nnoremap L :forward<CR>
 
 noremap <M-l> :open 
 inoremap <M-l> <esc>:open 
+cnoremap <M-l> <esc>:open 
 noremap <M-f> /
 inoremap <M-f> <esc>/
+cnoremap <M-f> <esc>/
 noremap <M-k> :open google 
 noremap <M-t> :tabnew 
 inoremap <M-t> <esc>:tabnew 
+cnoremap <M-t> <esc>:tabnew 
 
 noremap <leader>f /
 noremap <leader>r :source ~/.vimperatorrc<CR>
