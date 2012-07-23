@@ -9,6 +9,7 @@ alias py="python"
 alias rb="ruby"
 alias kilall='killall'
 alias reload='source ~/.zshrc'
+alias t='todo'
 
 # ls
 alias ls="ls -GF"
