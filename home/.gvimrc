@@ -7,7 +7,7 @@ set lines=45 columns=120
 " Command + t to :CommandT
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
-  map <D-t> :CommandT<CR>
+  map <D-t> :CtrlP<CR>
 endif
 
 " M-# switches to tab
