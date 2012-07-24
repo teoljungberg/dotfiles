@@ -12,7 +12,6 @@ let mapleader=","
 set backspace=indent,eol,start
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
-
 set t_Co=256 " visuals
 colo solarized 
 set background=dark
@@ -43,9 +42,10 @@ nnoremap N Nzzzv
 "Plugins
   "NERDTree
   noremap <leader>n :NERDTreeToggle<cr>
-  let NERDTreeChDirMode = 1
   let g:NERDTreeWinSize = 25
-  let NERDTreeHighlightCursorline=1
+  let NERDTreeChDirMode = 1
+  let NERDCristmasTree = 1
+  let NERDTreeMinimalUI = 1
 
   "Gist
   let g:gist_clip_command = 'pbcopy'
