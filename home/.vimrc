@@ -53,20 +53,12 @@ nnoremap N Nzzzv
   let g:gist_open_browser_after_post = 0
   let g:gist_show_privates = 1
 
-  " Command-T
-  let g:CommandTMaxHeight = 15
-  noremap <leader>t :CommandT<CR>
-
   " CtrlP
-  let g:ctrlp_dont_split = 'NERD_tree_2'
-  let g:ctrlp_jump_to_buffer = 0
+  let g:ctrlp_reuse_window = 'NERD_tree_2'
   let g:ctrlp_map = '<leader>,'
-  let g:ctrlp_working_path_mode = 0
+  let g:ctrlp_working_path_mode = 1
   let g:ctrlp_match_window_reversed = 1
-  let g:ctrlp_split_window = 0
   let g:ctrlp_max_height = 20
-  let g:ctrlp_extensions = ['tag']
-
 
   " NERDcommenter
   map cc <leader>c<space>
