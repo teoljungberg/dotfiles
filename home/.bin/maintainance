@@ -5,7 +5,7 @@ brew update --rebase && brew upgrade -v && brew cleanup -v
 echo 
 
 echo "Removing Homebrew cache.."
-rm -rfv ~/Library/Caches/Homebrew/*
+rm -rfv /Library/Caches/Homebrew/*
 echo 
 
 echo 'Taking out the trash'
