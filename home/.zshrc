@@ -8,15 +8,15 @@ SAVEHIST=10000
 bindkey -e
 
 # completion
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
 # movement
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
 # colors and prompt
-autoload -U colors && colors
-autoload -U promptinit && promptinit
+autoload -Uz colors && colors
+autoload -Uz promptinit && promptinit
 
 # load up the configs inside ~/.zsh/*
 for config_file ($HOME/.zsh/**/*.zsh) source $config_file
