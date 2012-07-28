@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # Usage: 
 #    reminder "Leave to catch the bus" 14:20

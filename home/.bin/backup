@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # this speaks for itself
 backup_location="/Volumes/Teo500GB/backup/"
@@ -7,7 +7,6 @@ backup_location="/Volumes/Teo500GB/backup/"
 directories=(
   Music
   Pictures
-  Minecraft
   Books
 )
 

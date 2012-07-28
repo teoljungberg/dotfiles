@@ -1,2 +1,2 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 pmset -g batt | grep Internal | awk '{print $5":", $4}' | sed 's/;//'
