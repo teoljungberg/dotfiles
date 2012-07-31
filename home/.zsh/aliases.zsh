@@ -10,7 +10,7 @@ alias rb="ruby"
 alias kilall='killall'
 alias reload='source ~/.zshrc'
 alias t='todo'
-alias ev='vim ~/.vimrc'
+alias lart='ls -1Art'
 
 # ls
 alias ls="ls -GF"
