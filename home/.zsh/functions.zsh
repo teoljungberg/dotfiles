@@ -1,7 +1,7 @@
 #!/bin/sh
 
 tarit () {
-  tar cvzf "$1".tgz "$1"
+  tar cvzf tmp.tgz $@
 }
 
 extract () {
