@@ -7,6 +7,9 @@ SAVEHIST=10000
 # because vi-mode sucks
 bindkey -e
 
+# use vimpager as a pager
+export PAGER=vimpager
+
 # completion
 autoload -Uz compinit && compinit
 

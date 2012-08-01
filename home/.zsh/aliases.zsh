@@ -11,6 +11,7 @@ alias kilall='killall'
 alias reload='source ~/.zshrc'
 alias t='todo'
 alias lart='ls -1Art'
+alias fn='find . -name'
 
 # ls
 alias ls="ls -GF"
@@ -27,9 +28,6 @@ alias l1='tree --dirsfirst -ChFL 1'
 alias l2='tree --dirsfirst -ChFL 2'
 alias l3='tree --dirsfirst -ChFL 3'
 alias l4='tree --dirsfirst -ChFL 4'
-
-# use vimpager as a pager
-export PAGER=vimpager
 
 # zmv ftw
 autoload -U zmv
