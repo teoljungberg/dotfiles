@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Removes the formula and the dependencies for the formula
 # (if the dependencie(s) are not used by any other formulae)
