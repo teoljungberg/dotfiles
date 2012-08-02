@@ -73,9 +73,6 @@ nnoremap N Nzzzv
   " Powerline
   let g:Powerline_symbols = 'fancy'
 
-  " Ack
-  nnoremap <leader>a :Ack 
-
 "Keybindings
   "LEADER bindings
   noremap <leader>q :q!<cr>
