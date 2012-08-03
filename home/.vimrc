@@ -106,7 +106,7 @@ nnoremap N Nzzzv
   map <c-h> <c-w>h
     
   " heresy 
-  inoremap <c-a> <esc>^i
+  inoremap <c-a> <esc>I
   inoremap <c-e> <esc>A
 
     " ..comandline
