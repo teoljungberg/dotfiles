@@ -12,3 +12,6 @@ echo 'Taking out the trash'
 rm -rfv ~/.Trash/*
 echo 
 
+echo 'Emptying the Desktop from Screen Shots'
+rm -rfv ~/Desktop/*Screen\ Shot*.png
+echo
