@@ -9,8 +9,9 @@ alias py="python"
 alias rb="ruby"
 alias cl='clear'
 alias reload='source ~/.zshrc'
-alias t='todo'
+alias t='rubdo'
 alias kilall='killall'
+alias tm='tmux -u2'
 
 # Quick Editing
 alias ev="$EDITOR ~/.vimrc"
@@ -24,7 +25,6 @@ alias ll='ls -l'
 alias la='ls -A'
 alias lal="ls -Al"
 alias lart='ls -1Art'
-alias tree='tree -ChFl'
 alias l1='tree --dirsfirst -ChFL 1'
 alias l2='tree --dirsfirst -ChFL 2'
 alias l3='tree --dirsfirst -ChFL 3'
