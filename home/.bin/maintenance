@@ -1,17 +1,28 @@
-#!/bin/sh
+#!/usr/bin/env ruby
 
-echo "Updating, Updating and Pruning Homebrew.."
-brew update --rebase && brew upgrade -v && brew cleanup -v
-echo 
+require 'colored'
 
-echo "Removing Homebrew cache.."
-rm -rfv /Library/Caches/Homebrew/*
-echo 
+def header(header)
+  puts "---> ".blue + "#{header}"
+end
 
-echo 'Taking out the trash'
-rm -rfv ~/.Trash/*
-echo 
+def cmd(cmd)
+  puts "\t$ #{cmd}".green
+  system cmd
+end
 
-echo 'Emptying the Desktop from Screen Shots'
-rm -rfv ~/Desktop/*Screen\ Shot*.png
-echo
+header "Updating Vim plugins"
+cmd "ruby ~/.vim/update_bundle"
+
+header "Updating Homebrew"
+cmd "brew update --rebase && brew upgrade -v && brew cleanup -v"
+
+header "Removing Homebrew cache"
+cmd "rm -rf ~/Library/Caches/Homebrew/*"
+
+header "Remove screenshots from desktop"
+cmd "rm -rfv ~/Desktop/*Screen\ Shot*.png"
+
+header "Taking out the trash"
+cmd "rm -Rf ~/.Trash/*"
+
