@@ -71,6 +71,7 @@ let [s:pref, s:opts, s:new_opts] = ['g:ctrlp_', {
 	\ 'max_height':            ['s:mxheight', 10],
 	\ 'max_history':           ['s:maxhst', exists('+hi') ? &hi : 20],
 	\ 'mruf_default_order':    ['s:mrudef', 0],
+	\ 'open_func':             ['s:openfunc', {}],
 	\ 'open_multi':            ['s:opmul', '1v'],
 	\ 'open_new_file':         ['s:newfop', 'v'],
 	\ 'prompt_mappings':       ['s:urprtmaps', 0],
@@ -82,7 +83,7 @@ let [s:pref, s:opts, s:new_opts] = ['g:ctrlp_', {
 	\ 'use_caching':           ['s:caching', 1],
 	\ 'use_migemo':            ['s:migemo', 0],
 	\ 'user_command':          ['s:usrcmd', ''],
-	\ 'working_path_mode':     ['s:pathmode', 2],
+	\ 'working_path_mode':     ['s:pathmode', 'rc'],
 	\ }, {
 	\ 'open_multiple_files':   's:opmul',
 	\ 'regexp':                's:regexp',
@@ -353,26 +354,25 @@ fu! s:lsCmd()
 	if type(cmd) == 1
 		retu cmd
 	elsei type(cmd) == 3 && len(cmd) >= 2 && cmd[:1] != ['', '']
-		" Find a repo root
-		cal s:findroot(s:dyncwd, cmd[0], 0, 1)
-		if !exists('s:vcsroot')
-			" Try the secondary_command
+		if s:findroot(s:dyncwd, cmd[0], 0, 1) == []
 			retu len(cmd) == 3 ? cmd[2] : ''
 		en
-		unl s:vcsroot
 		let s:vcscmd = s:lash == '\' ? 1 : 0
 		retu cmd[1]
 	elsei type(cmd) == 4 && has_key(cmd, 'types')
-		for key in sort(keys(cmd['types']), 's:compval')
-			cal s:findroot(s:dyncwd, cmd['types'][key][0], 0, 1)
-			if exists('s:vcsroot') | brea | en
+		let [markrs, cmdtypes] = [[], values(cmd['types'])]
+		for pair in cmdtypes
+			cal add(markrs, pair[0])
 		endfo
-		if !exists('s:vcsroot')
+		let fndroot = s:findroot(s:dyncwd, markrs, 0, 1)
+		if fndroot == []
 			retu has_key(cmd, 'fallback') ? cmd['fallback'] : ''
 		en
-		unl s:vcsroot
+		for pair in cmdtypes
+			if pair[0] == fndroot[0] | brea | en
+		endfo
 		let s:vcscmd = s:lash == '\' ? 1 : 0
-		retu cmd['types'][key][1]
+		retu pair[1]
 	en
 endf
 " - Buffers {{{1
@@ -812,30 +812,26 @@ fu! s:PrtSwitcher()
 	unl s:force
 endf
 " - SetWD() {{{1
-fu! s:SetWD(...)
-	let pathmode = s:wpmode
+fu! s:SetWD(args)
 	let [s:crfilerel, s:dyncwd] = [fnamemodify(s:crfile, ':.'), getcwd()]
-	if a:0 && strlen(a:1) | if type(a:1)
-		cal ctrlp#setdir(a:1) | retu
-	el
-		let pathmode = a:1
-	en | en
-	if a:0 < 2
-		if s:crfile =~ '^.\+://' || !pathmode | retu | en
+	let pmode = has_key(a:args, 'mode') ? a:args['mode'] : s:wpmode
+	if has_key(a:args, 'dir') && a:args['dir'] != ''
+		cal ctrlp#setdir(a:args['dir']) | retu
+	en
+	if s:crfile =~ '^.\+://' | retu | en
+	if pmode =~ 'c' || ( !type(pmode) && pmode )
 		if exists('+acd') | let [s:glb_acd, &acd] = [&acd, 0] | en
 		cal ctrlp#setdir(s:crfpath)
 	en
-	if pathmode == 1 | retu | en
-	let markers = ['.git', '.hg', '.svn', '.bzr', '_darcs']
-	if type(s:rmarkers) == 3 && !empty(s:rmarkers)
-		cal extend(markers, s:rmarkers, 0)
-		let markers = reverse(filter(reverse(markers), 'count(markers, v:val) == 1'))
+	if pmode =~ 'r' || pmode == 2
+		let markers = ['.git', '.hg', '.svn', '.bzr', '_darcs']
+		let spath = pmode =~ 'd' ? s:dyncwd : pmode =~ 'w' ? s:cwd : s:crfpath
+		if type(s:rmarkers) == 3 && !empty(s:rmarkers)
+			if s:findroot(spath, s:rmarkers, 0, 0) != [] | retu | en
+			cal filter(markers, 'index(s:rmarkers, v:val) < 0')
+		en
+		cal s:findroot(spath, markers, 0, 0)
 	en
-	for marker in markers
-		cal s:findroot(s:dyncwd, marker, 0, 0)
-		if exists('s:foundroot') | brea | en
-	endfo
-	unl! s:foundroot
 endf
 " * AcceptSelection() {{{1
 fu! ctrlp#acceptfile(mode, line, ...)
@@ -882,7 +878,7 @@ fu! s:SpecInputs(str)
 		cal s:PrtClear()
 		retu 1
 	elsei a:str == s:lash && s:spi
-		cal s:SetWD(2, 0)
+		cal s:SetWD({ 'mode': 'rd' })
 		cal ctrlp#setlines()
 		cal s:PrtClear()
 		retu 1
@@ -909,7 +905,11 @@ fu! s:AcceptSelection(mode)
 	en
 	if empty(line) | retu | en
 	" Do something with it
-	let actfunc = s:itemtype < 3 ? 'ctrlp#acceptfile' : s:getextvar('accept')
+	if s:openfunc != {} && has_key(s:openfunc, s:ctype)
+		let actfunc = s:openfunc[s:ctype]
+	el
+		let actfunc = s:itemtype < 3 ? 'ctrlp#acceptfile' : s:getextvar('accept')
+	en
 	cal call(actfunc, [a:mode, line])
 endf
 " - CreateNewFile() {{{1
@@ -1008,6 +1008,8 @@ fu! s:OpenMulti(...)
 			endfo
 			cal s:remarksigns()
 			retu s:BuildPrompt(0)
+		elsei !has_marked && md == 'x'
+			retu call(s:openfunc[s:ctype], [md, line])
 		en
 		if md =~ '\v^c(ancel)?$' | retu | en
 		let nr = nr == '0' ? ( nopt ? '' : '1' ) : nr
@@ -1185,16 +1187,16 @@ fu! ctrlp#statusline()
 	let max = len(tps) - 1
 	let nxt = tps[s:walker(max, s:itemtype,  1)][1]
 	let prv = tps[s:walker(max, s:itemtype, -1)][1]
-	let item = tps[s:itemtype][0]
+	let s:ctype = tps[s:itemtype][0]
 	let focus   = s:Focus() ? 'prt'  : 'win'
 	let byfname = s:byfname ? 'file' : 'path'
 	let marked  = s:opmul != '0' ?
 		\ exists('s:marked') ? ' <'.s:dismrk().'>' : ' <->' : ''
 	if s:status != {}
-		let args = [focus, byfname, s:regexp, prv, item, nxt, marked]
+		let args = [focus, byfname, s:regexp, prv, s:ctype, nxt, marked]
 		let &l:stl = call(s:status['main'], args)
 	el
-		let item    = '%#CtrlPMode1# '.item.' %*'
+		let item    = '%#CtrlPMode1# '.s:ctype.' %*'
 		let focus   = '%#CtrlPMode2# '.focus.' %*'
 		let byfname = '%#CtrlPMode1# '.byfname.' %*'
 		let regex   = s:regexp  ? '%#CtrlPMode2# regex %*' : ''
@@ -1216,7 +1218,8 @@ fu! ctrlp#progress(enum, ...)
 		\ : '%#CtrlPStats# '.a:enum.' %* '.txt.'%=%<%#CtrlPMode2# %{getcwd()} %*'
 	redraws
 endf
-" Paths {{{2
+" *** Paths {{{2
+" Line formatting {{{3
 fu! s:formatline(str)
 	let cond = s:ispath && ( s:winw - 4 ) < s:strwidth(a:str)
 	retu '> '.( cond ? s:pathshorten(a:str) : a:str )
@@ -1226,7 +1229,7 @@ fu! s:pathshorten(str)
 	retu matchstr(a:str, '^.\{9}').'...'
 		\ .matchstr(a:str, '.\{'.( s:winw - 16 ).'}$')
 endf
-
+" Directory completion {{{3
 fu! s:dircompl(be, sd)
 	if a:sd == '' | retu [] | en
 	let [be, sd] = a:be == '' ? [s:dyncwd, a:sd] : [a:be, a:be.s:lash(a:be).a:sd]
@@ -1249,7 +1252,7 @@ fu! s:findcommon(items, seed)
 	endfo
 	retu cmn
 endf
-
+" Misc {{{3
 fu! s:headntail(str)
 	let parts = split(a:str, '[\/]\ze[^\/]\+[\/:]\?$')
 	retu len(parts) == 1 ? ['', parts[0]] : len(parts) == 2 ? parts : []
@@ -1307,7 +1310,7 @@ fu! ctrlp#rmbasedir(items)
 	en
 	retu a:items
 endf
-
+" Working directory {{{3
 fu! s:getparent(item)
 	let parent = substitute(a:item, '[\/][^\/]\+[\/:]\?$', '', '')
 	if parent == '' || parent !~ '[\/]'
@@ -1317,20 +1320,34 @@ fu! s:getparent(item)
 endf
 
 fu! s:findroot(curr, mark, depth, type)
-	let [depth, notfound] = [a:depth + 1, empty(s:glbpath(a:curr, a:mark, 1))]
-	if !notfound || depth > s:maxdepth
-		if notfound | cal ctrlp#setdir(s:cwd) | en
-		if a:type && depth <= s:maxdepth
-			let s:vcsroot = a:curr
-		elsei !a:type && !notfound
-			cal ctrlp#setdir(a:curr) | let s:foundroot = 1
-		en
+	let [depth, fnd] = [a:depth + 1, 0]
+	if type(a:mark) == 1
+		let fnd = s:glbpath(a:curr, a:mark, 1) != ''
+	elsei type(a:mark) == 3
+		for markr in a:mark
+			if s:glbpath(a:curr, markr, 1) != '' | let fnd = 1 | brea | en
+		endfo
+	en
+	if fnd
+		if !a:type | cal ctrlp#setdir(a:curr) | en
+		retu [exists('markr') ? markr : a:mark, a:curr]
+	elsei depth > s:maxdepth
+		cal ctrlp#setdir(s:cwd)
 	el
 		let parent = s:getparent(a:curr)
-		if parent != a:curr | cal s:findroot(parent, a:mark, depth, a:type) | en
+		if parent != a:curr
+			retu s:findroot(parent, a:mark, depth, a:type)
+		en
 	en
+	retu []
 endf
 
+fu! ctrlp#setdir(path, ...)
+	let cmd = a:0 ? a:1 : 'lc!'
+	sil! exe cmd ctrlp#fnesc(a:path)
+	let [s:crfilerel, s:dyncwd] = [fnamemodify(s:crfile, ':.'), getcwd()]
+endf
+" Fallbacks {{{3
 fu! s:glbpath(...)
 	let cond = v:version > 702 || ( v:version == 702 && has('patch051') )
 	retu call('globpath', cond ? a:000 : a:000[:1])
@@ -1338,12 +1355,6 @@ endf
 
 fu! ctrlp#fnesc(path)
 	retu exists('*fnameescape') ? fnameescape(a:path) : escape(a:path, " %#*?|<\"\n")
-endf
-
-fu! ctrlp#setdir(path, ...)
-	let cmd = a:0 ? a:1 : 'lc!'
-	sil! exe cmd ctrlp#fnesc(a:path)
-	let [s:crfilerel, s:dyncwd] = [fnamemodify(s:crfile, ':.'), getcwd()]
 endf
 
 fu! ctrlp#setlcdir()
@@ -1561,6 +1572,10 @@ fu! s:argmaps(md, i)
 		\ ['Create a New File', '/[r]eplace', ['r']],
 		\ ['Open Selected', '/[r]eplace/h[i]dden? Mark [a]ll', ['r', 'i', 'a']],
 		\ ]
+	if a:i == 2 && s:openfunc != {} && has_key(s:openfunc, s:ctype)
+		let roh[2][1] = '/[r]eplace/h[i]dden/e[x]ternal? Mark [a]ll'
+		let roh[2][2] = ['r', 'i', 'x', 'a']
+	en
 	let str = roh[a:i][0].': [t]ab/[v]ertical/[h]orizontal'.roh[a:i][1].'? '
 	retu s:choices(str, ['t', 'v', 'h'] + roh[a:i][2], 's:argmaps', [a:md, a:i])
 endf
@@ -1901,7 +1916,7 @@ fu! ctrlp#init(type, ...)
 	let [s:matches, s:init] = [1, 1]
 	cal ctrlp#reset()
 	noa cal s:Open()
-	cal s:SetWD(a:0 ? a:1 : '')
+	cal s:SetWD(a:0 ? a:1 : {})
 	cal s:MapKeys()
 	cal ctrlp#syntax()
 	cal ctrlp#setlines(s:settype(a:type))
