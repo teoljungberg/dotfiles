@@ -15,7 +15,13 @@ header "Updating Vim plugins"
 cmd "cd ~/.homesick/repos/dotfiles && git submodule --quiet foreach git pull origin master"
 
 header "Updating Homebrew"
-cmd "brew update --rebase && brew upgrade -v && brew cleanup -v"
+cmd "brew update --rebase"
+
+header "Upgrading Homebrew"
+cmd "brew upgrade -v"
+
+header "Let Homebrew clean up"
+cmd "brew cleanup -v"
 
 header "Removing Homebrew cache"
 cmd "rm -rf ~/Library/Caches/Homebrew/*"
