@@ -3,11 +3,11 @@
 require 'colored'
 
 def header(header)
-  puts "---> ".blue + "#{header}"
+  puts "--> ".blue + "#{header}"
 end
 
 def cmd(cmd)
-  puts "\t$ #{cmd}".green
+  puts "    $ #{cmd}".green
   system cmd
 end
 
@@ -24,5 +24,5 @@ header "Remove screenshots from desktop"
 cmd "rm -rfv ~/Desktop/*Screen\ Shot*.png"
 
 header "Taking out the trash"
-cmd "rm -Rf ~/.Trash/*"
+cmd "rm -rf ~/.Trash/*"
 
