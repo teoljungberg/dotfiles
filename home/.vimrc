@@ -72,6 +72,8 @@ nnoremap N Nzzzv
   
   " Powerline
   let g:Powerline_symbols = 'fancy'
+  let g:Powerline_mode_n ='N'
+  let g:Powerline_mode_i ='I'
 
 "Keybindings
   "LEADER bindings
