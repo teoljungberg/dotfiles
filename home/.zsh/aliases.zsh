@@ -11,7 +11,6 @@ alias cl='clear'
 alias reload='source ~/.zshrc'
 alias t='rubdo'
 alias kilall='killall'
-alias tm='tmux -u2'
 
 # Quick Editing
 alias ev="$EDITOR ~/.vimrc"
