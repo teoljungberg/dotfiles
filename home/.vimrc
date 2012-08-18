@@ -35,7 +35,6 @@ set hlsearch
 set ignorecase
 set smartcase                                
 set gdefault
-nnoremap f /
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
