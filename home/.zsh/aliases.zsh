@@ -5,17 +5,15 @@ alias bitch,="sudo"
 alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
-alias py="python"
 alias rb="ruby"
-alias cl='clear'
 alias reload='source ~/.zshrc'
 alias t='rubdo'
 alias kilall='killall'
 
 # Quick Editing
-alias ev="$EDITOR ~/.vimrc"
-alias et="$EDITOR ~/.tmux.conf"
-alias ez="$EDITOR ~/.zsh"
+alias ev="$HOME/.bin/e ~/.vimrc"
+alias et="$HOME/.bin/e ~/.tmux.conf"
+alias ez="$HOME/.bin/e ~/.zsh"
 
 # listing
 alias ls="ls -GF"
