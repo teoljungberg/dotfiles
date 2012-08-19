@@ -54,8 +54,9 @@ nnoremap N Nzzzv
 
   " CtrlP
   let g:ctrlp_reuse_window = 'NERD_tree_2'
+  let g:ctrlp_custom_ignore = ''
   let g:ctrlp_map = '<leader>,'
-  let g:ctrlp_working_path_mode = 1
+  let g:ctrlp_working_path_mode = 'cr'
   let g:ctrlp_match_window_reversed = 1
   let g:ctrlp_max_height = 20
 
@@ -73,6 +74,9 @@ nnoremap N Nzzzv
   let g:Powerline_symbols = 'fancy'
   let g:Powerline_mode_n ='N'
   let g:Powerline_mode_i ='I'
+  let g:Powerline_mode_v ='V'
+  let g:Powerline_mode_V ='V-L'
+  let g:Powerline_mode_cv ='V-C'
 
 "Keybindings
   "LEADER bindings
