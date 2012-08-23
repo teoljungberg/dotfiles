@@ -4,12 +4,6 @@ set anti
 set guifont=Inconsolata-dz\ for\ Powerline:h12
 set lines=45 columns=120
 
-" Command + t to :CommandT
-if has("gui_macvim")
-  macmenu &File.New\ Tab key=<nop>
-  map <D-t> :CtrlP<CR>
-endif
-
 " M-# switches to tab
 noremap <d-1> 1gt
 noremap <d-2> 2gt
@@ -23,4 +17,3 @@ noremap <d-9> 9gt
 
 " Remove all the UI cruft
 set go-=T
-
