@@ -24,10 +24,10 @@ header "Let Homebrew clean up"
 cmd "brew cleanup -v"
 
 header "Removing Homebrew cache"
-cmd "rm -rf ~/Library/Caches/Homebrew/*"
+cmd "rm -rf #{File.expand_path('/Library/Caches/Homebrew/*')}"
 
 header "Remove screenshots from desktop"
-cmd "rm -rfv ~/Desktop/*Screen\ Shot*.png"
+cmd "rm -rfv #{File.expand_path('~/Desktop/Screen\ Shot*.png')}"
 
 header "Taking out the trash"
 cmd "rm -rf ~/.Trash/*"
