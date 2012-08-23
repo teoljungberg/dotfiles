@@ -1,8 +1,5 @@
 # Enviorment
-PATH=/usr/local/bin:$PATH:~/.bin:~/bin:/usr/local/sbin
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+PATH=/usr/local/bin:$PATH:$HOME/.bin:$HOME/bin:/usr/local/sbin
 
 # because vi-mode sucks, sorry vim
 bindkey -e
