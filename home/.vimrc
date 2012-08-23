@@ -33,7 +33,7 @@ set wrap
 set incsearch " search 
 set hlsearch 
 set ignorecase
-set smartcase                                
+set smartcase
 set gdefault
 nnoremap n nzzzv
 nnoremap N Nzzzv
