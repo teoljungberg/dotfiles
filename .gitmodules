@@ -40,6 +40,3 @@
 [submodule "home/.vim/bundle/ctrlp.vim"]
 	path = home/.vim/bundle/ctrlp.vim
 	url = git://github.com/kien/ctrlp.vim.git
-[submodule "home/.vim/bundle/dwm.vim"]
-	path = home/.vim/bundle/dwm.vim
-	url = git://github.com/spolu/dwm.vim.git
