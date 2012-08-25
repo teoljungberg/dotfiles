@@ -17,3 +17,7 @@ noremap <d-9> 9gt
 
 " Remove all the UI cruft
 set go-=T
+
+" To behave like a true Mac app, swiping!
+noremap <SwipeLeft> gT
+noremap <SwipeRight> gt
