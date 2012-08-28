@@ -22,17 +22,33 @@
 Here is how I sync my dotfiles across machines.
 
 They're all in `~/Dropbox/config/dotfiles`
-And I use `homesick` to perform the symlinking
+And I use [homesick][homesick_home] to perform the symlinking
 
-    $ ln -s ~/Dropbox/config/dotfiles ~/.homesick/repos/dotfiles
+### Method 1
+If this is your first time using homesick, 
 
-Perform the symlinking 
+```bash
+$ mkdir -p ~/.homesick/repos
+```
 
-    $ homesick symlink dotfiles
+then
+
+```bash
+$ ln -s ~/Dropbox/config/dotfiles ~/.homesick/repos/dotfiles
+$ homesick symlink dotfiles
+```
+
+### Method 2
+or you can do it with plain [homesick][homesick_home]
+
+```bash
+$ homesick clone metamorfos/dotfiles
+$ homesick symlink metamorfos/dotfiles
+```
 
 Voila!
 
-Check out [homesick](/technicalpickles/homesick) for more
+Check out [homesick][homesick_home] for more
 details about the project.
 	
 ## Screenshots
@@ -46,3 +62,5 @@ As complicated as a prompt need to be
 
 `tmux` hacking session
 ![](http://f.cl.ly/items/2x2H163n0y0m2o3h2b1z/Screen%20Shot%202012-08-19%20at%2020.25.29.png)
+
+[homesick_home]:http://github.com/technicalpickles/homesick
