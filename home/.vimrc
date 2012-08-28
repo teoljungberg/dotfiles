@@ -10,7 +10,7 @@ set history=1000
 set encoding=utf-8
 let mapleader=","
 set backspace=indent,eol,start
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*DS_Store*,*.dropbox*,*Icon*
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 set t_Co=256 " visuals
 colo solarized 
@@ -53,8 +53,7 @@ nnoremap N Nzzzv
   let g:gist_show_privates = 1
 
   " CtrlP
-  let g:ctrlp_reuse_window = 'NERD_tree_2'
-  let g:ctrlp_custom_ignore = ''
+  let g:ctrlp_custom_ignore = '*DS_Store*,*.dropbox*,*Icon*'
   let g:ctrlp_map = '<leader>,'
   let g:ctrlp_working_path_mode = 'cr'
   let g:ctrlp_match_window_reversed = 1
@@ -80,12 +79,9 @@ nnoremap N Nzzzv
 
 "Keybindings
   "LEADER bindings
-  noremap <leader>q :q!<cr>
-  noremap <leader>l :set nu!<cr>
-  noremap <leader>sr :%s//<left>
+  noremap <leader>s :%s//<left>
   noremap <leader>ev :vsplit ~/.vimrc<cr>
   noremap <LEADER><space> :nohls<cr>  
-  noremap <leader>pm :!markdown % \| browser<cr>
   noremap <leader>v V`]
       
   " sudo to write
@@ -110,11 +106,11 @@ nnoremap N Nzzzv
   map <c-l> <c-w>l
   map <c-h> <c-w>h
     
-  " heresy 
+  " emacs movement in insert mode 
   inoremap <c-a> <esc>I
   inoremap <c-e> <esc>A
 
-    " ..comandline
+    " ...and for the commandline too
     cnoremap <c-a> <home>
     cnoremap <c-e> <end>
     cnoremap <c-k> <c-\>estrpart(getcmdline(), 0, getcmdpos()-1)<cr>
