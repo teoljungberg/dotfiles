@@ -6,6 +6,7 @@ set incsearch
 set hlsearch
 set ignorecase
 nnoremap ,, :nohlsearch<cr> 
+nmap gI 2gi
 
 " move faster
 nnoremap j 3j
