@@ -10,11 +10,6 @@ alias reload='source ~/.zshrc'
 alias t='rubdo'
 alias kilall='killall'
 
-# Quick Editing
-alias ev="$HOME/.bin/e ~/.vimrc"
-alias et="$HOME/.bin/e ~/.tmux.conf"
-alias ez="$HOME/.bin/e ~/.zsh"
-
 # listing
 alias ls="ls -GF"
 alias l='ls -1'

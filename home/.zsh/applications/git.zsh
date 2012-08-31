@@ -24,10 +24,9 @@ compdef _git gcm=git-commit
 
 alias gco='git checkout'
 compdef _git gco=git-checkout
-alias gpl='git pull'
+alias gpl='git pull --rebase'
 compdef _git gpl=git-pull
 alias gb='git branch'
 compdef _git gb=git-branch
 alias ga='git add'
 compdef _git ga=git-add
-
