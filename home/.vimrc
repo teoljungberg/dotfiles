@@ -43,7 +43,6 @@ nnoremap N Nzzzv
   noremap <leader>n :NERDTreeToggle<cr>
   let g:NERDTreeWinSize = 25
   let NERDTreeChDirMode = 1
-  let NERDCristmasTree = 1
   let NERDTreeMinimalUI = 1
 
   "Gist
@@ -57,7 +56,7 @@ nnoremap N Nzzzv
   let g:ctrlp_map = '<leader>,'
   let g:ctrlp_working_path_mode = 'cr'
   let g:ctrlp_match_window_reversed = 1
-  let g:ctrlp_max_height = 20
+  let g:ctrlp_max_height = 15
 
   " NERDcommenter
   map cc <leader>c<space>
@@ -91,6 +90,7 @@ nnoremap N Nzzzv
     " commandmode
     command! -bang Q q<bang>
     command! -bang W w<bang>
+    command! -bang WQ wq<bang>
     
     " my fingers sometimes slip
     nnoremap ; :
@@ -100,7 +100,7 @@ nnoremap N Nzzzv
   noremap J <nop>
 
 "movement
-  " buffers/panes
+  " between panes
   map <c-j> <c-w>j
   map <c-k> <c-w>k
   map <c-l> <c-w>l
@@ -110,12 +110,12 @@ nnoremap N Nzzzv
   inoremap <c-a> <esc>I
   inoremap <c-e> <esc>A
 
-    " ...and for the commandline too
+    " ...and for the commandline
     cnoremap <c-a> <home>
     cnoremap <c-e> <end>
     cnoremap <c-k> <c-\>estrpart(getcmdline(), 0, getcmdpos()-1)<cr>
 
-  " true-er vim movement
+  " easier to type
   noremap H ^
   noremap L g_
 
