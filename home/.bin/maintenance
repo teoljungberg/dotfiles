@@ -24,4 +24,4 @@ header "Let Homebrew clean up"
 cmd "brew cleanup -v"
 
 header "Running maid scripts"
-cmd "maid"
+cmd "maid clean"
