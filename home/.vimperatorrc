@@ -15,17 +15,17 @@ nnoremap k 3k
 nnoremap H :back<CR>
 nnoremap L :forward<CR>
 
+" cmd + l for opening
 noremap <M-l> :open 
 inoremap <M-l> <esc>:open 
 cnoremap <M-l> <esc>:open 
+
+" cmd + f for search
 noremap <M-f> /
 inoremap <M-f> <esc>/
 cnoremap <M-f> <esc>/
-noremap <M-k> :open google 
+
+" cmd + t for tabs
 noremap <M-t> :tabnew 
 inoremap <M-t> <esc>:tabnew 
 cnoremap <M-t> <esc>:tabnew 
-
-noremap <leader>f /
-noremap <leader>r :source ~/.vimperatorrc<CR>
-
