@@ -1,4 +1,3 @@
-setopt auto_cd # lazy directory navigation
 setopt globdots
 setopt nobeep
 setopt no_bg_nice # don't nice background tasks

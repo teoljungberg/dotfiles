@@ -1,11 +1,5 @@
-# Enviorment
-PATH=/usr/local/bin:$PATH:$HOME/.bin:$HOME/bin:/usr/local/sbin
-
 # because vi-mode sucks, sorry vim
 bindkey -e
-
-# use vimpager as a pager
-export PAGER=vimpager
 
 # completion
 autoload -Uz compinit && compinit
