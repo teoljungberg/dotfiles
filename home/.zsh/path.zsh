@@ -1,7 +1,14 @@
-if [ -d /usr/local/Cellar ]; then # high priority
+# high priority
+if [ -d /usr/local/Cellar ]; then
   PATH="/usr/local/bin:$PATH"
-elif [ -d "$HOME/.bin" ]; then # low priority
+fi
+
+# low priority
+if [ -d "$HOME/.bin" ]; then
   PATH="$PATH:$HOME/.bin"
-elif [ -d "$HOME/bin" ]; then # ^^
+fi
+
+# ^^
+if [ -d "$HOME/bin" ]; then
   PATH="$PATH:$HOME/bin"
 fi
