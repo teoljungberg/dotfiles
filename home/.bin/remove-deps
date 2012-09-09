@@ -1,0 +1,3 @@
+#!/bin/bash
+
+brew rm $(join <(brew leaves) <(brew deps $1))
