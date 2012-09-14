@@ -1,5 +1,5 @@
 set "editor=/usr/local/bin/mvim -f"
-set gui=navigation,nobookmarks,nomenu,noaddons
+set gui=nonavigation,nobookmarks,nomenu,noaddons
 nnoremap ; :
 
 set incsearch 
@@ -14,6 +14,9 @@ nnoremap k 3k
 
 nnoremap H :back<CR>
 nnoremap L :forward<CR>
+nnoremap <c-h> gT
+nnoremap <c-l> gt
+
 
 " cmd + l for opening
 noremap <M-l> :open 
