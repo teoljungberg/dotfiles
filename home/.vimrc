@@ -13,7 +13,7 @@ set backspace=indent,eol,start
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 set t_Co=256 " visuals
-colo solarized 
+colo solarized
 set background=dark
 set scrolloff=3
 set laststatus=2
@@ -25,13 +25,13 @@ set noswapfile
 set shiftwidth=2 " intendation
 set tabstop=2
 set softtabstop=2
-set expandtab 
+set expandtab
 set autoindent
-set smartindent 
+set smartindent
 set wrap
 
-set incsearch " search 
-set hlsearch 
+set incsearch " search
+set hlsearch
 set ignorecase
 set smartcase
 set gdefault
@@ -80,7 +80,7 @@ nnoremap N Nzzzv
   "LEADER bindings
   noremap <leader>s :%s//<left>
   noremap <leader>ev :vsplit ~/.vimrc<cr>
-  noremap <LEADER><space> :nohls<cr>  
+  noremap <LEADER><space> :nohls<cr>
   noremap <leader>v V`]
       
   " sudo to write
@@ -106,7 +106,7 @@ nnoremap N Nzzzv
   map <c-l> <c-w>l
   map <c-h> <c-w>h
     
-  " emacs movement in insert mode 
+  " emacs movement in insert mode
   inoremap <c-a> <esc>I
   inoremap <c-e> <esc>A
 
