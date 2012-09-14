@@ -3,6 +3,7 @@ set background=light
 set anti
 set guifont=Inconsolata-dz\ for\ Powerline:h12
 set lines=45 columns=120
+set go-=r
 
 " M-# switches to tab
 noremap <d-1> 1gt
