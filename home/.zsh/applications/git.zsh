@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# Git
-alias git=hub
-compdef hub=git
+# got hub?
+eval "$(hub alias -s)"
 
+# aliases with completion
 alias g='git'
 compdef g=git
 alias gs='git status -sb'
