@@ -19,27 +19,7 @@
   - [Moom](http://manytricks.com/moom/)
 
 ## How I store my dotfiles
-Here is how I sync my dotfiles across machines.
-
-They're all in `~/Dropbox/config/dotfiles`
-And I use [homesick][homesick_home] to perform the symlinking
-
-### Method 1
-If this is your first time using homesick, 
-
-```bash
-$ mkdir -p ~/.homesick/repos
-```
-
-then
-
-```bash
-$ ln -s ~/Dropbox/config/dotfiles ~/.homesick/repos/dotfiles
-$ homesick symlink dotfiles
-```
-
-### Method 2
-or you can do it with plain [homesick][homesick_home]
+I use [homesick][homesick_home] to perform the symlinking
 
 ```bash
 $ homesick clone metamorfos/dotfiles
@@ -48,9 +28,6 @@ $ homesick symlink metamorfos/dotfiles
 
 Voila!
 
-Check out [homesick][homesick_home] for more
-details about the project.
-	
 ## Screenshots
 Because, everybody loves them!
 
