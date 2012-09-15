@@ -5,7 +5,6 @@ syntax on
 
 set nocompatible " IMproved
 set clipboard=unnamed
-set autoread
 set history=1000
 set encoding=utf-8
 let mapleader=","
@@ -52,6 +51,7 @@ nnoremap N Nzzzv
   let g:gist_show_privates = 1
 
   " CtrlP
+  let g:ctrlp_show_hidden = 1
   let g:ctrlp_custom_ignore = '*DS_Store*,*.dropbox*,*Icon*'
   let g:ctrlp_map = '<leader>,'
   let g:ctrlp_working_path_mode = 'cr'
