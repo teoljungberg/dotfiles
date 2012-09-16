@@ -36,7 +36,7 @@
 	url = git://github.com/tpope/vim-endwise.git
 [submodule "home/.vim/bundle/vim-powerline"]
 	path = home/.vim/bundle/vim-powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
+	url = git://github.com/lokaltog/vim-powerline.git
 [submodule "home/.vim/bundle/ctrlp.vim"]
 	path = home/.vim/bundle/ctrlp.vim
 	url = git://github.com/kien/ctrlp.vim.git
