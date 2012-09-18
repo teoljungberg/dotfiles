@@ -67,7 +67,7 @@ nnoremap N Nzzzv
 
   " Fugitive
   nnoremap <leader>gs :Gstatus<CR>
-  nnoremap <leader>gc :Gcommit<CR>
+  nnoremap <leader>gc :Gcommit -v<CR>
   
   " Powerline
   let g:Powerline_symbols = 'fancy'
