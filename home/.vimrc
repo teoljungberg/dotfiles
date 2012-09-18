@@ -1,4 +1,5 @@
-call pathogen#infect() " pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim " pathogen
+call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
 syntax on
@@ -16,6 +17,7 @@ colo solarized
 set background=dark
 set scrolloff=3
 set laststatus=2
+set ttyfast
 
 set nowritebackup " no backups
 set nobackup
@@ -28,6 +30,7 @@ set expandtab
 set autoindent
 set smartindent
 set wrap
+set linebreak
 
 set incsearch " search
 set hlsearch
@@ -48,7 +51,6 @@ nnoremap N Nzzzv
   let g:gist_clip_command = 'pbcopy'
   let g:gist_detect_filetype = 1
   let g:gist_open_browser_after_post = 0
-  let g:gist_show_privates = 1
 
   " CtrlP
   let g:ctrlp_show_hidden = 1
@@ -56,7 +58,6 @@ nnoremap N Nzzzv
   let g:ctrlp_map = '<leader>,'
   let g:ctrlp_working_path_mode = 'cr'
   let g:ctrlp_match_window_reversed = 1
-  let g:ctrlp_max_height = 15
 
   " NERDcommenter
   map cc <leader>c<space>
@@ -118,6 +119,3 @@ nnoremap N Nzzzv
   " easier to type
   noremap H ^
   noremap L g_
-
-  " matching brackets
-  noremap <tab> %
