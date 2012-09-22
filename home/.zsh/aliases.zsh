@@ -8,6 +8,7 @@ alias cp="cp -i"
 alias rb="ruby"
 alias reload='source ~/.zshrc'
 alias t='rubdo'
+alias f='finder'
 alias kilall='killall'
 
 # listing
