@@ -7,7 +7,7 @@ def header(header)
 end
 
 def cmd(cmd)
-  puts "    $ #{cmd}".green
+  puts "    % #{cmd}".green
   system cmd
 end
 
