@@ -7,9 +7,12 @@ alias mv="mv -i"
 alias cp="cp -i"
 alias rb="ruby"
 alias reload='source ~/.zshrc'
+alias kilall='killall'
+
+# small application aliases
 alias t='rubdo'
 alias f='finder'
-alias kilall='killall'
+alias j='z'
 
 # listing
 alias ls="ls -GF"
