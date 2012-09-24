@@ -7,5 +7,5 @@ case "$TERM" in
     ;;
 esac
 
-alias tmux_to_clip='tmux save-buffer -| pbcopy'
-alias tmux_from_clip='tmux set-buffer "$(pbpaste)"'
+alias tmux-to-clip='tmux save-buffer -| pbcopy'
+alias tmux-from-clip='tmux set-buffer "$(pbpaste)"'
