@@ -11,7 +11,6 @@ alias kilall='killall'
 
 # small application aliases
 alias t='rubdo'
-alias f='finder'
 
 # listing
 alias ls="ls -GF"
