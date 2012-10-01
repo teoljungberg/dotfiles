@@ -1,6 +1,0 @@
-#!/bin/bash
-#
-# Removes the the dependencies a formula
-# 
-
-brew rm $(join <(brew leaves) <(brew deps $1))
