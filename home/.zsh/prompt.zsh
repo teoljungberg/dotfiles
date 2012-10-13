@@ -1,19 +1,15 @@
 #!/bin/sh
 
-autoload -Uz vcs_info
-zstyle ':vcs_info:*:prompt:*' formats "$VCSPROMPT" "[%b]"
-
-precmd() {
-  vcs_info 'prompt'
-
-  if [ -n vcs_info_msg_0_ ]; then
-    RPROMPT="${vcs_info_msg_1_}"
-  else
-    RPROMPT=""
-  fi
+git_branch() {
+  BRANCH_REFS=$(git symbolic-ref HEAD 2>/dev/null) || return
+  GIT_BRANCH="${BRANCH_REFS#refs/heads/}"
+  [ -n "$GIT_BRANCH" ] && echo "($GIT_BRANCH) "
 }
 
-PROMPT="%{$fg[magenta]%}[%{$fg[cyan]%} %~ %{$fg[magenta]%}]%{$reset_color%} %# "
+function precmd() {
+  export PROMPT="%{$fg[magenta]%}[%{$fg[cyan]%} %~ %{$fg[magenta]%}]%{$fg[yellow]%} $(git_branch)%{$reset_color%}%# "
+}
+
 
 # use solarized-like color for ls
 export CLICOLOR=1
