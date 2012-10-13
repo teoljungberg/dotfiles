@@ -20,7 +20,6 @@ alias ....='cd ../../../'
 
 # small application aliases
 alias t='rubdo'
-alias diff='colordiff -u'
 alias pbp="pbpaste"
 alias pbc="pbcopy"
 alias brewup='brew update --rebase && brew upgrade -v && brew cleanup -v'
@@ -30,4 +29,3 @@ alias kilall="killall"
 compdef kilall=killall
 alias brwe="brew"
 compdef brwe=brew
-
