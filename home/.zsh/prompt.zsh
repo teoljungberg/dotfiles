@@ -7,7 +7,7 @@ git_branch() {
 }
 
 function precmd() {
-  export PROMPT="%{$fg[magenta]%}[%{$fg[cyan]%} %~ %{$fg[magenta]%}]%{$fg[yellow]%} $(git_branch)%{$reset_color%}%# "
+  export PROMPT="%{$fg[cyan]%} %~ %{$fg[yellow]%}$(git_branch)%{$reset_color%}%# "
 }
 
 

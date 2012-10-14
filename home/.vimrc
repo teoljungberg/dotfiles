@@ -54,7 +54,6 @@ nnoremap N Nzzzv
 
   " CtrlP
   let g:ctrlp_show_hidden = 1
-  let g:ctrlp_custom_ignore = '*DS_Store*,*.dropbox*,*Icon*'
   let g:ctrlp_map = '<leader>,'
   let g:ctrlp_working_path_mode = 'cr'
   let g:ctrlp_match_window_reversed = 1
