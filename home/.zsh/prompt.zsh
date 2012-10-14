@@ -6,10 +6,9 @@ git_branch() {
   [ -n "$GIT_BRANCH" ] && echo "($GIT_BRANCH) "
 }
 
-function precmd() {
-  export PROMPT="%{$fg[cyan]%} %~ %{$fg[yellow]%}$(git_branch)%{$reset_color%}%# "
+function precmd {
+PROMPT="%{$fg[magenta]%}[%{$fg[cyan]%} %~ %{$fg[magenta]%}] %{$fg[yellow]%}$(git_branch)%{$reset_color%}%# "
 }
-
 
 # use solarized-like color for ls
 export CLICOLOR=1
