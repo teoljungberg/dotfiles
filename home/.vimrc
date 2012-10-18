@@ -16,8 +16,9 @@ set t_Co=256 " visuals
 colo solarized
 set background=dark
 set scrolloff=3
-set laststatus=2
+set laststatus=1
 set ttyfast
+set statusline=%<%f\ %m\ %{fugitive#statusline()}%=%-14.(%l:%c%V%)
 
 set nowritebackup " no backups
 set nobackup
@@ -67,14 +68,6 @@ nnoremap N Nzzzv
   " Fugitive
   nnoremap <leader>gs :Gstatus<CR>
   nnoremap <leader>gc :Gcommit -v<CR>
-  
-  " Powerline
-  let g:Powerline_symbols = 'fancy'
-  let g:Powerline_mode_n ='n'
-  let g:Powerline_mode_i ='i'
-  let g:Powerline_mode_v ='v'
-  let g:Powerline_mode_V ='v-l'
-  let g:Powerline_mode_cv ='v-c'
 
 "Keybindings
   "LEADER bindings
