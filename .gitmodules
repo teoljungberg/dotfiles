@@ -16,9 +16,6 @@
 [submodule "home/.vim/bundle/markdown"]
 	path = home/.vim/bundle/markdown
 	url = git://github.com/tpope/vim-markdown.git
-[submodule "home/.vim/bundle/git"]
-	path = home/.vim/bundle/git
-	url = git://github.com/tpope/vim-git.git
 [submodule "home/.vim/bundle/repeat"]
 	path = home/.vim/bundle/repeat
 	url = git://github.com/tpope/vim-repeat.git
@@ -40,3 +37,6 @@
 [submodule "home/.vim/bundle/surround"]
 	path = home/.vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "home/.vim/bundle/git"]
+	path = home/.vim/bundle/git
+	url = git://github.com/tpope/vim-git.git
