@@ -40,3 +40,6 @@
 [submodule "home/.vim/bundle/git"]
 	path = home/.vim/bundle/git
 	url = git://github.com/tpope/vim-git.git
+[submodule "home/.vim/bundle/supertab"]
+	path = home/.vim/bundle/supertab
+	url = git://github.com/ervandew/supertab.git
