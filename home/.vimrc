@@ -16,9 +16,8 @@ set t_Co=256 " visuals
 colo solarized
 set background=dark
 set scrolloff=3
-set laststatus=1
 set ttyfast
-set statusline=%<%f\ %m\ %{fugitive#statusline()}%=%-14.(%l:%c%V%)
+set statusline=%<%f\ %y\ %m%r\ %{fugitive#statusline()}%=%-10.(%l:%c%V%)
 
 set nowritebackup " no backups
 set nobackup
