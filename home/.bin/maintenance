@@ -23,8 +23,8 @@ cmd "brew upgrade -v"
 header "Let Homebrew clean up"
 cmd "brew cleanup -v"
 
-header "Removing Homebrew cache"
-cmd "rm -rfv /Library/Caches/Homebrew/*"
-
 header "Running maid scripts"
 cmd "maid clean"
+
+header "Cleaning trash"
+cmd "rm -rfv #{File.expand_path('~/.Trash/*')}"
