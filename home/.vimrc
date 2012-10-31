@@ -17,7 +17,7 @@ colo solarized
 set background=dark
 set scrolloff=3
 set ttyfast
-set statusline=%<%f\ %y\ %m%r\ %{fugitive#statusline()}%=%-10.(%l:%c%V%)
+set statusline=%<%f\ %y\ %m%r\ %{fugitive#statusline()}%=%-8.(%l:%c%V%)
 
 set nowritebackup " no backups
 set nobackup
@@ -78,14 +78,8 @@ nnoremap N Nzzzv
   " sudo to write
   cmap w!! w !sudo tee % >/dev/null<cr>
 
-  " typos
-    " commandmode
-    command! -bang Q q<bang>
-    command! -bang W w<bang>
-    command! -bang WQ wq<bang>
-    
-    " my fingers sometimes slip
-    nnoremap ; :
+  " my fingers sometimes slip
+  nnoremap ; :
  
   " unbind
   noremap K <nop>
