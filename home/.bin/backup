@@ -9,6 +9,7 @@ directories=(
   Pictures
   Books
 )
+RSYNC_OPTS="-aLPhz --partial --delete --log-file=$backup_location/`date +d+m+y`.log"
 
 # if --quiet is passed on as an argument, rsync doesnt show the process of the
 # backup
@@ -16,11 +17,11 @@ if [ -d $backup_location ]
 then
   if [ "$1" == '-q' ]
   then
-    RSYNC_OPTS="-aLPhz --partial --delete --quiet"
     is_quiet=true
+    ADDITIONAL_OPTS='--quiet'
   elif [ "$1" == '' -o "$1" == '-v' ]
   then
-    RSYNC_OPTS="-aLPhz --progress --partial --delete --verbose"
+    ADDITIONAL_OPTS='--verbose'
   fi
 
   # BACKUP COMMENCE
@@ -28,10 +29,10 @@ then
   do
     if $is_quiet 
     then
-      rsync $RSYNC_OPTS ~/$directory $backup_location
+      rsync $RSYNC_OPTS $ADDITIONAL_OPTS ~/$directory $backup_location
     else
       echo 'backing up' $directory
-      rsync $RSYNC_OPTS ~/$directory $backup_location
+      rsync $RSYNC_OPTS $ADDITIONAL_OPTS ~/$directory $backup_location
       echo 
     fi
   done
