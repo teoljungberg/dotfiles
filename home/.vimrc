@@ -57,6 +57,7 @@ nnoremap N Nzzzv
   let g:ctrlp_map = '<leader>,'
   let g:ctrlp_working_path_mode = 'cr'
   let g:ctrlp_match_window_reversed = 1
+  noremap <leader>. :CtrlPTag<cr>
 
   " NERDcommenter
   map cc <leader>c<space>

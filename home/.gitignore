@@ -2,13 +2,14 @@
 #####################
 Vagrantfile
 .vagrant
+tags
 
 # Ruby #
 ########
 pkg
 .gem
 rdoc
-test
+test*
 
 # Logs and databases #
 ######################
