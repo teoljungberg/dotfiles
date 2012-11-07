@@ -59,6 +59,10 @@ nnoremap N Nzzzv
   let g:ctrlp_match_window_reversed = 1
   noremap <leader>. :CtrlPTag<cr>
 
+  " Ack
+  noremap <leader>a :Ack 
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+
   " NERDcommenter
   map cc <leader>c<space>
 
