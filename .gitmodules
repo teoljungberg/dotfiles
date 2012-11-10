@@ -49,6 +49,3 @@
 [submodule "home/.vim/bundle/ack"]
 	path = home/.vim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
-[submodule "home/.vim/bundle/rails"]
-	path = home/.vim/bundle/rails
-	url = git://github.com/tpope/vim-rails.git
