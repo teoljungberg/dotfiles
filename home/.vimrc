@@ -61,7 +61,7 @@ nnoremap N Nzzzv
 
   " Ack
   noremap <leader>a :Ack 
-  let g:ackprg = 'ag --nogroup --nocolor --column'
+  let g:ackprg = 'ag -S --nogroup --nocolor --column'
 
   " NERDcommenter
   map cc <leader>c<space>
