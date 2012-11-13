@@ -85,6 +85,7 @@ nnoremap N Nzzzv
 
   " my fingers sometimes slip
   nnoremap ; :
+  command! W w
  
   " unbind
   noremap K <nop>
