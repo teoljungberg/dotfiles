@@ -19,6 +19,10 @@ alias gcm='git commit -m'
 
 alias gco='git checkout'
 compdef _git gco=git-checkout
+alias gnd='git checkout -b'
+compdef _git gnb=git-checkout
+alias gdb='git branch -D'
+compdef _git gdb=git-branch
 alias go='git checkout'
 compdef _git go=git-checkout
 alias gpl='git pull --rebase'
