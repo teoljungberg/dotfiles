@@ -40,73 +40,66 @@ set gdefault
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-"Plugins
-  "NERDTree
-  noremap <leader>n :NERDTreeToggle<cr>
-  let g:NERDTreeWinSize = 25
-  let NERDTreeChDirMode = 1
-  let NERDTreeMinimalUI = 1
+" NERDTree
+noremap <leader>n :NERDTreeToggle<cr>
+let NERDTreeChDirMode = 1
+let NERDTreeMinimalUI = 1
 
-  "Gist
-  let g:gist_clip_command = 'pbcopy'
-  let g:gist_detect_filetype = 1
-  let g:gist_open_browser_after_post = 0
+" Gist
+let g:gist_clip_command = 'pbcopy'
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 0
 
-  " CtrlP
-  let g:ctrlp_show_hidden = 1
-  let g:ctrlp_map = '<leader>,'
-  let g:ctrlp_working_path_mode = 'cr'
-  let g:ctrlp_match_window_reversed = 1
-  noremap <leader>. :CtrlPTag<cr>
+" CtrlP
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_map = '<leader>,'
+let g:ctrlp_working_path_mode = 'cr'
+noremap <leader>. :CtrlPTag<cr>
 
-  " Ack
-  noremap <leader>a :Ack 
-  let g:ackprg = 'ag -S --nogroup --nocolor --column'
+" Ack
+noremap <leader>a :Ack 
+let g:ackprg = 'ag -S --nogroup --nocolor --column'
 
-  " NERDcommenter
-  map cc <leader>c<space>
+" NERDcommenter
+map cc <leader>c<space>
 
-  " Solarized
-  call togglebg#map("<F5>")
+" Solarized
+call togglebg#map("<F5>")
 
-  " Fugitive
-  nnoremap <leader>gs :Gstatus<CR>
-  nnoremap <leader>gc :Gcommit -v<CR>
+" Fugitive
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit -v<CR>
 
-"Keybindings
-  "LEADER bindings
-  noremap <leader>s :%s//<left>
-  noremap <leader>ev :vsplit ~/.vimrc<cr>
-  noremap <LEADER><space> :nohls<cr>
-  noremap <leader>v V`]
-      
-  " sudo to write
-  cmap w!! w !sudo tee % >/dev/null<cr>
-
-  " my fingers sometimes slip
-  nnoremap ; :
-  command! W w
- 
-  " unbind
-  noremap K <nop>
-  noremap J <nop>
-
-"movement
-  " between panes
-  map <c-j> <c-w>j
-  map <c-k> <c-w>k
-  map <c-l> <c-w>l
-  map <c-h> <c-w>h
+"LEADER bindings
+noremap <leader>s :%s//<left>
+noremap <leader>ev :vsplit ~/.vimrc<cr>
+noremap <LEADER><space> :nohls<cr>
+noremap <leader>v V`]
     
-  " emacs movement in insert mode
-  inoremap <c-a> <esc>I
-  inoremap <c-e> <esc>A
+" sudo to write
+cmap w!! w !sudo tee % >/dev/null<cr>
 
-    " ...and for the commandline
-    cnoremap <c-a> <home>
-    cnoremap <c-e> <end>
-    cnoremap <c-k> <c-\>estrpart(getcmdline(), 0, getcmdpos()-1)<cr>
+" my fingers sometimes slip
+nnoremap ; :
+command! W w
 
-  " easier to type
-  noremap H ^
-  noremap L g_
+" easier to type
+noremap H ^
+noremap L g_
+
+" unbind
+noremap K <nop>
+noremap J <nop>
+
+" move between panes
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+  
+" emacs movement in insert/command mode
+inoremap <c-a> <esc>I
+inoremap <c-e> <esc>A
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+cnoremap <c-k> <c-\>estrpart(getcmdline(), 0, getcmdpos()-1)<cr>
