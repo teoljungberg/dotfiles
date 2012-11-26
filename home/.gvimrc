@@ -19,7 +19,3 @@ noremap <d-6> 6gt
 noremap <d-7> 7gt
 noremap <d-8> 8gt
 noremap <d-9> 9gt
-
-" To behave like a true Mac app, swiping!
-noremap <SwipeLeft> gT
-noremap <SwipeRight> gt
