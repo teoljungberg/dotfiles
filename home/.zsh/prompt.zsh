@@ -46,57 +46,57 @@ fish_prompt() {
         return 0
         ;;
       -l|--last) lastfull=1 ;;
-    -s|--short) short=1 ;;
-  -t|--tilde) tilde=1 ;;
--T|--nameddirs)
-  tilde=1
-  named=1
-  ;;
-  esac
-  shift
-done
+      -s|--short) short=1 ;;
+      -t|--tilde) tilde=1 ;;
+      -T|--nameddirs)
+        tilde=1
+        named=1
+      ;;
+    esac
+    shift
+  done
 
-typeset -a tree expn
-typeset result part dir=${1-$PWD}
-typeset -i i
+  typeset -a tree expn
+  typeset result part dir=${1-$PWD}
+  typeset -i i
 
-[[ -d $dir ]] || return 0
+  [[ -d $dir ]] || return 0
 
-if (( named )) {
-  for part in ${(k)nameddirs}; {
-    [[ $dir == ${nameddirs[$part]}(/*|) ]] && dir=${dir/${nameddirs[$part]}/\~$part}
-  }
-}
-(( tilde )) && dir=${dir/$HOME/\~}
-tree=(${(s:/:)dir})
-(
-unfunction chpwd 2> /dev/null
-if [[ $tree[1] == \~* ]] {
-  cd ${~tree[1]}
-  result=$tree[1]
-  shift tree
-} else {
-cd /
-  }
-  for dir in $tree; {
-    if (( lastfull && $#tree == 1 )) {
-      result+="/$tree"
-      break
+  if (( named )) {
+    for part in ${(k)nameddirs}; {
+      [[ $dir == ${nameddirs[$part]}(/*|) ]] && dir=${dir/${nameddirs[$part]}/\~$part}
     }
-    expn=(a b)
-    part=''
-    i=0
-    until [[ (( ${#expn} == 1 )) || $dir = $expn || $i -gt 99 ]]  do
-      (( i++ ))
-      part+=$dir[$i]
-      expn=($(echo ${part}*(-/)))
-      (( short )) && break
-    done
-    result+="/$part"
-    cd $dir
-    shift tree
   }
-  echo ${result:-/}
+  (( tilde )) && dir=${dir/$HOME/\~}
+  tree=(${(s:/:)dir})
+  (
+  unfunction chpwd 2> /dev/null
+  if [[ $tree[1] == \~* ]] {
+    cd ${~tree[1]}
+    result=$tree[1]
+    shift tree
+  } else {
+  cd /
+    }
+    for dir in $tree; {
+      if (( lastfull && $#tree == 1 )) {
+        result+="/$tree"
+        break
+      }
+      expn=(a b)
+      part=''
+      i=0
+      until [[ (( ${#expn} == 1 )) || $dir = $expn || $i -gt 99 ]]  do
+        (( i++ ))
+        part+=$dir[$i]
+        expn=($(echo ${part}*(-/)))
+        (( short )) && break
+      done
+      result+="/$part"
+      cd $dir
+      shift tree
+    }
+    echo ${result:-/}
   )
 }
 
