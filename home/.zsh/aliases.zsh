@@ -22,7 +22,6 @@ alias ....='cd ../../../'
 alias t='rubdo'
 alias pbp="pbpaste"
 alias pbc="pbcopy"
-alias brewup='brew update --rebase && brew upgrade -v && brew cleanup -v'
 
 # Typos
 alias kilall="killall"

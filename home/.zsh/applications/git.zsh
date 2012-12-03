@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# got hub?
-eval "$(hub alias -s)"
-
 # aliases with completion
 alias g='git'
 compdef g=git
