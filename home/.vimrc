@@ -44,6 +44,7 @@ nnoremap N Nzzzv
 noremap <leader>n :NERDTreeToggle<cr>
 let NERDTreeChDirMode = 1
 let NERDTreeMinimalUI = 1
+let NERDTreeWinPos = 'right'
 
 " Gist
 let g:gist_clip_command = 'pbcopy'
@@ -69,6 +70,7 @@ call togglebg#map("<F5>")
 " Fugitive
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v<CR>
+nnoremap <leader>gd :Gdiff<CR>
 
 "LEADER bindings
 noremap <leader>s :%s//<left>
