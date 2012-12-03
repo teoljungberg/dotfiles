@@ -3,6 +3,7 @@
 Vagrantfile
 .vagrant
 tags
+.rake_tasks
 
 # Ruby #
 ########
