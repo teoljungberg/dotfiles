@@ -55,7 +55,10 @@ let g:gist_open_browser_after_post = 0
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_map = '<leader>,'
 let g:ctrlp_working_path_mode = 'cr'
+let g:ctrlp_clear_cache_on_exit = 0
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 noremap <leader>. :CtrlPTag<cr>
+noremap <leader>b :CtrlPBuffer<cr>
 
 " Ack
 noremap <leader>a :Ack 
@@ -70,7 +73,6 @@ call togglebg#map("<F5>")
 " Fugitive
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v<CR>
-nnoremap <leader>gd :Gdiff<CR>
 
 "LEADER bindings
 noremap <leader>s :%s//<left>
