@@ -12,7 +12,7 @@ def cmd(cmd)
 end
 
 header "Updating Vim plugins"
-cmd "cd ~/.homesick/repos/dotfiles && git submodule --quiet foreach git pull origin master"
+cmd "vim +BundleInstall +qall"
 
 header "Updating Homebrew"
 cmd "brew update --rebase"

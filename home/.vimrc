@@ -1,10 +1,8 @@
-runtime bundle/pathogen/autoload/pathogen.vim " pathogen
-call pathogen#infect()
-call pathogen#helptags()
-filetype plugin indent on
-syntax on
-
 set nocompatible " IMproved
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+syntax on
 set clipboard=unnamed
 set history=1000
 set encoding=utf-8
@@ -12,11 +10,33 @@ let mapleader=","
 set backspace=indent,eol,start
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
+" plugins
+Bundle 'gmarik/vundle'
+Bundle 'mileszs/ack.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-surround'
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'ervandew/supertab'
+
 set t_Co=256 " visuals
 colo solarized
 set background=dark
 set scrolloff=3
 set ttyfast
+filetype plugin indent on
 set statusline=%<%f\ %y\ %m%r\ %{fugitive#statusline()}%=%-8.(%l:%c%V%)
 
 set nowritebackup " no backups
