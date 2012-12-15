@@ -2,7 +2,6 @@ set nocompatible " IMproved
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-syntax on
 set clipboard=unnamed
 set history=1000
 set encoding=utf-8
@@ -35,6 +34,7 @@ colo solarized
 set background=dark
 set scrolloff=3
 set ttyfast
+syntax on
 filetype plugin indent on
 set statusline=%<%f\ %y\ %m%r\ %{fugitive#statusline()}%=%-8.(%l:%c%V%)
 
@@ -75,7 +75,7 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_map = '<leader>,'
 let g:ctrlp_working_path_mode = 'cr'
 let g:ctrlp_clear_cache_on_exit = 0
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,*/log/*,*/vendor/*
 noremap <leader>. :CtrlPTag<cr>
 noremap <leader>b :CtrlPBuffer<cr>
 
@@ -83,8 +83,8 @@ noremap <leader>b :CtrlPBuffer<cr>
 noremap <leader>a :Ack 
 let g:ackprg = 'ag -S --nogroup --nocolor --column'
 
-" NERDcommenter
-map cc <leader>c<space>
+" Commentary
+map cc gcc
 
 " Solarized
 call togglebg#map("<F5>")
