@@ -113,4 +113,3 @@ function precmd {
 # use solarized-like color for ls
 export CLICOLOR=1
 export LSCOLORS=gxfxbEaEcxxEhEhBaDaCaD
-

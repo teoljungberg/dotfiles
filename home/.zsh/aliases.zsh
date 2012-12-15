@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # General aliases
-alias bitch,="sudo"
 alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
 alias rb="ruby"
+alias grep="grep --color=auto"
 alias reload='source ~/.zshrc'
 
 # listing
