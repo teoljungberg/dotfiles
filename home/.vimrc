@@ -50,6 +50,9 @@ set autoindent
 set smartindent
 set wrap
 set linebreak
+autocmd FileType html setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType javascript setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType css setlocal expandtab shiftwidth=4 softtabstop=4
 
 set incsearch " search
 set hlsearch
