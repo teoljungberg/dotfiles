@@ -101,7 +101,7 @@ noremap <leader>s :%s//<left>
 noremap <leader>ev :vsplit ~/.vimrc<cr>
 noremap <LEADER><space> :nohls<cr>
 noremap <leader>v V`]
-    
+
 " sudo to write
 cmap w!! w !sudo tee % >/dev/null<cr>
 
@@ -116,6 +116,10 @@ noremap L g_
 " unbind
 noremap K <nop>
 noremap J <nop>
+
+" Let's be reasonable, shall we?
+nmap k gk
+nmap j gj
 
 " move between panes
 map <c-j> <c-w>j
