@@ -31,12 +31,6 @@ trash () {
   mv -fv $@ ~/.Trash
 }
 
-manpdf () { 
+manpdf () {
   man -t $@ | open -f -a Preview
-}
-
-solr () {
-  cd ~/dev/solr
-  ./start.sh $1
-  cd -
 }

@@ -27,13 +27,13 @@ then
   # BACKUP COMMENCE
   for directory in ${directories[@]}
   do
-    if $is_quiet 
+    if $is_quiet
     then
       rsync $RSYNC_OPTS $ADDITIONAL_OPTS ~/$directory $backup_location
     else
       echo 'backing up' $directory
       rsync $RSYNC_OPTS $ADDITIONAL_OPTS ~/$directory $backup_location
-      echo 
+      echo
     fi
   done
 else

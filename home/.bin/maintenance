@@ -11,9 +11,6 @@ def cmd(cmd)
   system cmd
 end
 
-header "Updating Vim plugins"
-cmd "vim +BundleUpdate +qall"
-
 header "Updating Homebrew"
 cmd "brew update --rebase"
 
