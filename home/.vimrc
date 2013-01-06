@@ -22,6 +22,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-sleuth'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'scrooloose/nerdtree'
@@ -42,28 +43,30 @@ set nowritebackup " no backups
 set nobackup
 set noswapfile
 
-set shiftwidth=2 " intendation
-set tabstop=2
-set softtabstop=2
 set expandtab
 set autoindent
 set smartindent
 set wrap
 set linebreak
-autocmd FileType html setlocal expandtab shiftwidth=4 softtabstop=4
-autocmd FileType javascript setlocal expandtab shiftwidth=4 softtabstop=4
-autocmd FileType css setlocal expandtab shiftwidth=4 softtabstop=4
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 set incsearch " search
 set hlsearch
 set ignorecase
 set smartcase
 set gdefault
-nnoremap n nzzzv
-nnoremap N Nzzzv
+noremap n nzzzv
+noremap N Nzzzv
+noremap * *<c-o>
+
+" for running tests inside vim
+source ~/.vim/test_functions.vim
+noremap <leader>tl :call RunCurrentLineInTest()<cr>
+noremap <leader>tt :call RunCurrentTest()<cr>
 
 " NERDTree
-noremap <leader>n :NERDTreeToggle<cr>
+noremap <silent> <leader>n :NERDTreeToggle<cr>
 let NERDTreeChDirMode = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeWinPos = 'right'
@@ -96,11 +99,16 @@ call togglebg#map("<F5>")
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v<CR>
 
+" Rails
+noremap <leader>m :Rmodel 
+noremap <leader>c :Rcontroller 
+noremap <leader>v :Rview 
+
 "LEADER bindings
 noremap <leader>s :%s//<left>
 noremap <leader>ev :vsplit ~/.vimrc<cr>
-noremap <LEADER><space> :nohls<cr>
-noremap <leader>v V`]
+noremap <silent> <leader><space> :nohls<cr>call clearmatches()<cr>
+noremap <leader>V V`]
 
 " sudo to write
 cmap w!! w !sudo tee % >/dev/null<cr>
@@ -126,7 +134,7 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
-  
+
 " emacs movement in insert/command mode
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
