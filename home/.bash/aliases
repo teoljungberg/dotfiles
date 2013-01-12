@@ -1,0 +1,49 @@
+#! /bin/bash
+
+# General aliases
+alias bitch,="sudo"
+alias rm="rm -i"
+alias mv="mv -i"
+alias cp="cp -i"
+alias rb="ruby"
+alias reload='source ~/.bashrc'
+alias t='rubdo'
+alias kilall='killall'
+
+alias ls="ls -GF"
+alias l='ls -1'
+alias ll='ls -l'
+alias la='ls -A'
+alias lal="ls -Al"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../../'
+
+# Git
+hub --help > /dev/null 2>&1 && alias git='hub'
+alias g='git'
+complete -o default -o nospace -F _git g
+
+# Commiting
+alias gp='git push'
+complete -o default -o nospace -F _git_push gp
+
+alias gd='git diff'
+complete -o default -o nospace -F _git_diff gd
+
+alias ga='git add'
+alias gc='git commit -v'
+alias gca='git commit -av'
+
+alias gs='git status -sb'
+
+alias gb='git branch -v'
+complete -o default -o nospace -F _git_branch gb
+
+alias gco='git checkout'
+complete -o default -o nospace -F _git_checkout gco
+alias go="git checkout"
+complete -o default -o nospace -F _git_checkout go
+
+alias tmux_to_clip='tmux save-buffer - | pbcopy'
+alias tmux_from_clip='tmux set-buffer "$(pbpaste)"'
