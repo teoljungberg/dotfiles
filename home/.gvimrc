@@ -1,7 +1,7 @@
 colo solarized
-set background=light
+set background=dark
 set anti
-set guifont=Inconsolata-dz:h13
+set guifont=Source\ Code\ Pro:h13
 set laststatus=2
 set lines=45 columns=120
 set go-=T
@@ -10,6 +10,9 @@ set go-=L
 set go-=r
 set go-=R
 set go-=e
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 " M-# switches to tab
 noremap <d-1> 1gt

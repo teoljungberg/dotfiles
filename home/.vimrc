@@ -11,7 +11,6 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 " plugins
 Bundle 'gmarik/vundle'
-Bundle 'mileszs/ack.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
@@ -29,6 +28,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
+Bundle 'epmatsw/ag.vim'
 
 set t_Co=256 " visuals
 colo solarized
@@ -85,9 +85,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,*/log/*,*/vendor/*
 noremap <leader>. :CtrlPTag<cr>
 noremap <leader>b :CtrlPBuffer<cr>
 
-" Ack
-noremap <leader>a :Ack 
-let g:ackprg = 'ag -S --nogroup --nocolor --column'
+" Ag
+noremap <leader>a :Ag 
+let g:agprg="ag -S --nocolor --nogroup --column"
 
 " Commentary
 map cc gcc
