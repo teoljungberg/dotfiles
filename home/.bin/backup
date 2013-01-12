@@ -9,7 +9,7 @@ directories=(
   Pictures
   Books
 )
-RSYNC_OPTS="-aLPhz --partial --delete --log-file=$backup_location/`date +d+m+y`.log"
+RSYNC_OPTS="-aLP --delete --log-file=$backup_location/`date +d+m+y`.log"
 
 # if --quiet is passed on as an argument, rsync doesnt show the process of the
 # backup
