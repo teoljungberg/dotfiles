@@ -1,7 +1,7 @@
 colo solarized
 set background=dark
 set anti
-set guifont=Source\ Code\ Pro:h13
+set guifont=Inconsolata-dz:h18
 set laststatus=2
 set lines=45 columns=120
 set go-=T
@@ -10,6 +10,7 @@ set go-=L
 set go-=r
 set go-=R
 set go-=e
+autocmd FocusLost * silent! wall
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -24,3 +25,4 @@ noremap <d-6> 6gt
 noremap <d-7> 7gt
 noremap <d-8> 8gt
 noremap <d-9> 9gt
+

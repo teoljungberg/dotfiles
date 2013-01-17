@@ -60,11 +60,6 @@ noremap n nzzzv
 noremap N Nzzzv
 noremap * *<c-o>
 
-" for running tests inside vim
-source ~/.vim/test_functions.vim
-noremap <leader>tl :call RunCurrentLineInTest()<cr>
-noremap <leader>tt :call RunCurrentTest()<cr>
-
 " NERDTree
 noremap <silent> <leader>n :NERDTreeToggle<cr>
 let NERDTreeChDirMode = 1
@@ -86,7 +81,7 @@ noremap <leader>. :CtrlPTag<cr>
 noremap <leader>b :CtrlPBuffer<cr>
 
 " Ag
-noremap <leader>a :Ag 
+noremap <leader>a :Ag<space>
 let g:agprg="ag -S --nocolor --nogroup --column"
 
 " Commentary
@@ -100,9 +95,9 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v<CR>
 
 " Rails
-noremap <leader>m :Rmodel 
-noremap <leader>c :Rcontroller 
-noremap <leader>v :Rview 
+noremap <leader>m :Rmodel<space>
+noremap <leader>c :Rcontroller<space>
+noremap <leader>v :Rview<space>
 
 "LEADER bindings
 noremap <leader>s :%s//<left>
@@ -141,3 +136,4 @@ inoremap <c-e> <esc>A
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 cnoremap <c-k> <c-\>estrpart(getcmdline(), 0, getcmdpos()-1)<cr>
+
