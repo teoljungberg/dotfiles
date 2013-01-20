@@ -39,6 +39,7 @@ set ttyfast
 syntax on
 filetype plugin indent on
 set statusline=%<%f\ %y\ %m%r\ %{fugitive#statusline()}%=%-8.(%l:%c%V%)
+set list listchars=tab:>-,trail:.,extends:>
 
 set nowritebackup " no backups
 set nobackup
@@ -49,8 +50,6 @@ set autoindent
 set smartindent
 set wrap
 set linebreak
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
 
 set incsearch " search
 set hlsearch
