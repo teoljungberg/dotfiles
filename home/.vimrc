@@ -18,6 +18,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-commentary'
@@ -75,7 +76,6 @@ let g:gist_open_browser_after_post = 0
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_map = '<leader>,'
 let g:ctrlp_working_path_mode = 'cr'
-let g:ctrlp_clear_cache_on_exit = 0
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,*/log/*,*/vendor/*
 noremap <leader>. :CtrlPTag<cr>
 noremap <leader>b :CtrlPBuffer<cr>
