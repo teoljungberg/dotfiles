@@ -8,6 +8,8 @@ set encoding=utf-8
 let mapleader=","
 set backspace=indent,eol,start
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+set showcmd
+set wildmenu
 
 " plugins
 Bundle 'gmarik/vundle'
@@ -39,7 +41,8 @@ set ttyfast
 syntax on
 filetype plugin indent on
 set statusline=%<%f\ %y\ %m%r\ %{fugitive#statusline()}%=%-8.(%l:%c%V%)
-set list listchars=tab:>-,trail:.,extends:>
+set list
+set listchars=tab:>-,trail:.,extends:>,precedes:❮
 
 set nowritebackup " no backups
 set nobackup
