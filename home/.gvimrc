@@ -12,9 +12,6 @@ set go-=R
 set go-=e
 autocmd FocusLost * silent! wall
 
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-
 " M-# switches to tab
 noremap <d-1> 1gt
 noremap <d-2> 2gt
