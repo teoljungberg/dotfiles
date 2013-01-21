@@ -75,9 +75,14 @@ let g:gist_open_browser_after_post = 0
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_map = '<leader>,'
 let g:ctrlp_working_path_mode = 'cr'
+let g:ctrlp_max_files = 10000
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,*/log/*,*/vendor/*
 noremap <leader>. :CtrlPTag<cr>
 noremap <leader>b :CtrlPBuffer<cr>
+let g:ctrlp_user_command = {
+                        \ 'types': { 1: ['.git/', 'cd %s && git ls-files'] },
+                        \ 'fallback': 'find %s -type f | head -' . g:ctrlp_max_files
+                        \ }
 
 " Ag
 noremap <leader>a :Ag<space>
