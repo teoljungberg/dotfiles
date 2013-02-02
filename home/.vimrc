@@ -42,17 +42,22 @@ syntax on
 filetype plugin indent on
 set statusline=%<%f\ %y\ %m%r\ %{fugitive#statusline()}%=%-8.(%l:%c%V%)
 set list
-set listchars=tab:>-,trail:.,extends:>,precedes:❮
+set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 
-set nowritebackup " no backups
-set nobackup
-set noswapfile
+set directory=~/.cache/vim/swap
+set backupdir=~/.cache/vim/backup
+set undodir=~/.cache/vim/undo
 
-set expandtab
 set autoindent
 set smartindent
 set wrap
 set linebreak
+
+" foldings
+nnoremap Z mzzMzvzz15<c-e>`z
+nnoremap zO zCzO
+nnoremap <Space> za
+vnoremap <Space> za
 
 set incsearch " search
 set hlsearch
@@ -62,6 +67,11 @@ set gdefault
 noremap n nzzzv
 noremap N Nzzzv
 noremap * *<c-o>
+
+" Run current spec file
+nnoremap <leader>tt :!bundle exec rspec %<cr>
+" Run spec under current line
+nnoremap <leader>tl :!bundle exec rspec %:<c-r>=line('.')<cr><cr>
 
 " NERDTree
 noremap <silent> <leader>n :NERDTreeToggle<cr>
@@ -79,7 +89,7 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_map = '<leader>,'
 let g:ctrlp_working_path_mode = 'cr'
 let g:ctrlp_max_files = 10000
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,*/log/*,*/vendor/*
+set wildignore+=*/tmp/*,*/log/*,*/vendor/*
 noremap <leader>. :CtrlPTag<cr>
 noremap <leader>b :CtrlPBuffer<cr>
 let g:ctrlp_user_command = {
@@ -89,6 +99,7 @@ let g:ctrlp_user_command = {
 
 " Ag
 noremap <leader>a :Ag<space>
+noremap <leader>? :AgFromSearch<cr>
 let g:agprg="ag -S --nocolor --nogroup --column"
 
 " Commentary
@@ -100,11 +111,6 @@ call togglebg#map("<F5>")
 " Fugitive
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v<CR>
-
-" Rails
-noremap <leader>m :Rmodel<space>
-noremap <leader>c :Rcontroller<space>
-noremap <leader>v :Rview<space>
 
 "LEADER bindings
 noremap <leader>s :%s//<left>
