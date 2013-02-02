@@ -24,4 +24,4 @@ header "Running maid scripts"
 cmd "maid clean"
 
 header "Cleaning trash"
-cmd "rm -rfv #{File.expand_path('~/.Trash/*')}"
+cmd "rm -rf #{File.expand_path('~/.Trash/*')}"
