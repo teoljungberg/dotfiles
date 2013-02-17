@@ -1,5 +1,6 @@
 # alias
 alias be="bundle exec"
+alias testbot='bundle exec rake testbot:rspec 2>&1 | tee tmp/output.txt | grep "^\(Finished.*\.$\|rspec\|\d\+ examples\)"'
 
 # FASTER
 export RUBY_HEAP_MIN_SLOTS=1000000
