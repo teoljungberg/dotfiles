@@ -8,6 +8,7 @@ directories=(
   Music
   Pictures
   Books
+  Work
 )
 RSYNC_OPTS="-aLP --delete --log-file=$backup_location/`date +d+m+y`.log"
 
