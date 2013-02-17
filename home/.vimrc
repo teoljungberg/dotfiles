@@ -7,7 +7,6 @@ set history=1000
 set encoding=utf-8
 let mapleader=","
 set backspace=indent,eol,start
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set showcmd
 set wildmenu
 
@@ -38,9 +37,10 @@ colo solarized
 set background=dark
 set scrolloff=3
 set ttyfast
+set ttyscroll=3
 syntax on
 filetype plugin indent on
-set statusline=%<%f\ %y\ %m%r\ %{fugitive#statusline()}%=%-8.(%l:%c%V%)
+set statusline=%<%F\ %y\ %m%r\ %{fugitive#statusline()}%=%-8.(%l:%c%V%)
 set list
 set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 
@@ -50,14 +50,8 @@ set undodir=~/.cache/vim/undo
 
 set autoindent
 set smartindent
-set wrap
+set nowrap
 set linebreak
-
-" foldings
-nnoremap Z mzzMzvzz15<c-e>`z
-nnoremap zO zCzO
-nnoremap <Space> za
-vnoremap <Space> za
 
 set incsearch " search
 set hlsearch
@@ -89,17 +83,19 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_map = '<leader>,'
 let g:ctrlp_working_path_mode = 'cr'
 let g:ctrlp_max_files = 10000
-set wildignore+=*/tmp/*,*/log/*,*/vendor/*
+let g:ctrlp_custom_ignore = {
+                  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+                  \ }
 noremap <leader>. :CtrlPTag<cr>
 noremap <leader>b :CtrlPBuffer<cr>
+noremap <leader>m :CtrlPMRUFiles<cr>
 let g:ctrlp_user_command = {
-                        \ 'types': { 1: ['.git/', 'cd %s && git ls-files'] },
-                        \ 'fallback': 'find %s -type f | head -' . g:ctrlp_max_files
-                        \ }
+                  \ 'types': { 1: ['.git/', 'cd %s && git ls-files'] },
+                  \ 'fallback': 'find %s -type f | head -' . g:ctrlp_max_files
+                  \ }
 
 " Ag
 noremap <leader>a :Ag<space>
-noremap <leader>? :AgFromSearch<cr>
 let g:agprg="ag -S --nocolor --nogroup --column"
 
 " Commentary
@@ -109,33 +105,32 @@ map cc gcc
 call togglebg#map("<F5>")
 
 " Fugitive
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gc :Gcommit -v<CR>
+noremap <leader>gs :Gstatus<CR>
+noremap <leader>gc :Gcommit -v<CR>
+noremap <leader>gp :Git! push<CR>
 
 "LEADER bindings
 noremap <leader>s :%s//<left>
 noremap <leader>ev :vsplit ~/.vimrc<cr>
 noremap <silent> <leader><space> :nohls<cr>call clearmatches()<cr>
-noremap <leader>V V`]
+noremap <leader>v V`]
 
 " sudo to write
 cmap w!! w !sudo tee % >/dev/null<cr>
 
 " my fingers sometimes slip
-nnoremap ; :
 command! W w
 
-" easier to type
+" easier to move
 noremap H ^
 noremap L g_
 
-" unbind
-noremap K <nop>
-noremap J <nop>
+" Split lines
+noremap K r<cr>
 
 " Let's be reasonable, shall we?
-nmap k gk
-nmap j gj
+" noremap k gk
+" noremap j gj
 
 " move between panes
 map <c-j> <c-w>j
