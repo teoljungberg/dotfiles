@@ -83,6 +83,9 @@ let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 0
 
 " CtrlP
+noremap <leader>. :CtrlPTag<cr>
+noremap <leader>b :CtrlPBuffer<cr>
+noremap <leader>m :CtrlPMRUFiles<cr>
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_map = '<leader>,'
 let g:ctrlp_working_path_mode = 'cr'
@@ -90,9 +93,6 @@ let g:ctrlp_max_files = 10000
 let g:ctrlp_custom_ignore = {
                   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
                   \ }
-noremap <leader>. :CtrlPTag<cr>
-noremap <leader>b :CtrlPBuffer<cr>
-noremap <leader>m :CtrlPMRUFiles<cr>
 let g:ctrlp_user_command = {
                   \ 'types': { 1: ['.git/', 'cd %s && git ls-files'] },
                   \ 'fallback': 'find %s -type f | head -' . g:ctrlp_max_files
