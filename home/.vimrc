@@ -112,7 +112,6 @@ noremap <leader>gp :Git! push<CR>
 "LEADER bindings
 noremap <leader>s :%s//<left>
 noremap <leader>ev :vsplit ~/.vimrc<cr>
-noremap <silent> <leader><space> :nohls<cr>call clearmatches()<cr>
 noremap <leader>v V`]
 
 " sudo to write
