@@ -12,8 +12,9 @@ set wildmenu
 
 " plugins
 Bundle 'gmarik/vundle'
-Bundle 'kchmck/vim-coffee-script'
+Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
@@ -26,18 +27,19 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-sleuth'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'ervandew/supertab'
 Bundle 'epmatsw/ag.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'ervandew/supertab'
+Bundle 'metamorfos/vim-unimpaired'
+Bundle 'Sirupsen/vim-execrus'
+runtime macros/matchit.vim
 
 set t_Co=256 " visuals
 colo solarized
 set background=dark
 set scrolloff=3
 set ttyfast
-set ttyscroll=3
 syntax on
 filetype plugin indent on
 set statusline=%<%F\ %y\ %m%r\ %{fugitive#statusline()}%=%-8.(%l:%c%V%)
