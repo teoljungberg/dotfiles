@@ -116,7 +116,7 @@ noremap <leader>gc :Gcommit -v<CR>
 noremap <C-E> :call g:Execrus()<CR>
 
 "LEADER bindings
-noremap <leader>s :%s//<left>
+noremap <leader>sr :%s//<left>
 noremap <leader>ev :vsplit ~/.vimrc<cr>
 noremap <leader>v V`]
 
