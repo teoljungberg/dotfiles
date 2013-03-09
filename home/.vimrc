@@ -125,6 +125,9 @@ cmap w!! w !sudo tee % >/dev/null<cr>
 
 " my fingers sometimes slip
 command! W w
+command! Q q
+command! Wq wq
+command! Wqa wqa
 
 " easier to move
 noremap H ^
@@ -132,6 +135,9 @@ noremap L g_
 
 " Split lines
 noremap K r<cr>
+
+" Unmappings
+noremap Q <Nop>
 
 " Let's be reasonable, shall we?
 " noremap k gk
