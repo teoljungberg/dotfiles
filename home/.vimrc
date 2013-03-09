@@ -62,12 +62,14 @@ set smartcase
 set gdefault
 noremap n nzzzv
 noremap N Nzzzv
-noremap * *<c-o>
 
 " Run current spec file
 nnoremap <leader>tt :!bundle exec rspec %<cr>
 " Run spec under current line
 nnoremap <leader>tl :!bundle exec rspec %:<c-r>=line('.')<cr><cr>
+" ..with spring
+nnoremap <leader>st :!spring rspec %<cr>
+nnoremap <leader>sl :!spring rspec %:<c-r>=line('.')<cr><cr>
 
 " NERDTree
 noremap <silent> <leader>n :NERDTreeToggle<cr>
