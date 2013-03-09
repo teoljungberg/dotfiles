@@ -111,7 +111,6 @@ call togglebg#map("<F5>")
 " Fugitive
 noremap <leader>gs :Gstatus<CR>
 noremap <leader>gc :Gcommit -v<CR>
-noremap <leader>gp :Git! push<CR>
 
 "LEADER bindings
 noremap <leader>s :%s//<left>
