@@ -112,6 +112,9 @@ call togglebg#map("<F5>")
 noremap <leader>gs :Gstatus<CR>
 noremap <leader>gc :Gcommit -v<CR>
 
+" Execrus
+noremap <C-E> :call g:Execrus()<CR>
+
 "LEADER bindings
 noremap <leader>s :%s//<left>
 noremap <leader>ev :vsplit ~/.vimrc<cr>
