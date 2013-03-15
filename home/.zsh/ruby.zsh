@@ -1,4 +1,10 @@
 # alias
+# chruby
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+chruby 1.9.3
+export RUBY_CONFIGURE_OPTS="--with-readline-dir=$(brew --prefix readline) $RUBY_CONFIGURE_OPTS" # build rubies with readline
+
 alias be="bundle exec"
 alias testbot='bundle exec rake testbot:rspec 2>&1 | tee tmp/output.txt | grep "^\(Finished.*\.$\|rspec\|\d\+ examples\)"'
 
