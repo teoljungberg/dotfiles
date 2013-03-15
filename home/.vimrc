@@ -141,8 +141,8 @@ noremap K r<cr>
 noremap Q <Nop>
 
 " Let's be reasonable, shall we?
-" noremap k gk
-" noremap j gj
+noremap k gk
+noremap j gj
 
 " move between panes
 map <c-j> <c-w>j
