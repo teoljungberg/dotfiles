@@ -63,7 +63,11 @@ set gdefault
 noremap n nzzzv
 noremap N Nzzzv
 
-" spring testing
+" Run current spec file
+nnoremap <leader>tt :!bundle exec rspec %<cr>
+" Run spec under current line
+nnoremap <leader>tl :!bundle exec rspec %:<c-r>=line('.')<cr><cr>
+" ..with spring
 nnoremap <leader>st :!spring rspec %<cr>
 nnoremap <leader>sl :!spring rspec %:<c-r>=line('.')<cr><cr>
 
@@ -110,7 +114,7 @@ noremap <leader>gc :Gcommit -v<CR>
 
 " Execrus
 noremap <C-E> :call g:Execrus()<CR>
-noremap <C-T> :call g:Execrus('walrus')<CR>
+noremap <C-T> :call g:Execrus('alternative')<CR>
 
 "LEADER bindings
 noremap <leader>sr :%s//<left>
