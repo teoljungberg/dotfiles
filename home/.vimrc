@@ -38,7 +38,7 @@ runtime macros/matchit.vim
 
 set t_Co=256 " visuals
 colo solarized
-set background=dark
+set background=light
 set scrolloff=3
 set ttyfast
 syntax on
