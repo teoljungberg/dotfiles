@@ -33,6 +33,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'ervandew/supertab'
 Bundle 'metamorfos/vim-unimpaired'
 Bundle 'Sirupsen/vim-execrus'
+Bundle 'Lokaltog/vim-powerline'
 runtime macros/matchit.vim
 
 set t_Co=256 " visuals
@@ -42,7 +43,6 @@ set scrolloff=3
 set ttyfast
 syntax on
 filetype plugin indent on
-set statusline=%<%F\ %y\ %m%r\ %{fugitive#statusline()}%=%-8.(%l:%c%V%)
 set list
 set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 
