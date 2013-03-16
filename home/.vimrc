@@ -34,6 +34,7 @@ Bundle 'ervandew/supertab'
 Bundle 'metamorfos/vim-unimpaired'
 Bundle 'Sirupsen/vim-execrus'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'sjl/vitality.vim'
 runtime macros/matchit.vim
 
 set t_Co=256 " visuals
@@ -62,6 +63,8 @@ set smartcase
 set gdefault
 noremap n nzzzv
 noremap N Nzzzv
+
+au FocusLost * silent! wa " save on lost focus
 
 " Run current spec file
 nnoremap <leader>tt :!bundle exec rspec %<cr>
