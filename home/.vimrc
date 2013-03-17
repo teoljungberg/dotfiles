@@ -90,7 +90,7 @@ noremap <leader>. :CtrlPTag<cr>
 noremap <leader>b :CtrlPBuffer<cr>
 noremap <leader>m :CtrlPMRUFiles<cr>
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_map = '<leader>,'
+let g:ctrlp_map = '<leader><leader>'
 let g:ctrlp_working_path_mode = 'cr'
 let g:ctrlp_max_files = 10000
 let g:ctrlp_custom_ignore = {
