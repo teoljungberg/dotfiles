@@ -66,11 +66,7 @@ noremap N Nzzzv
 
 au FocusLost * silent! wa " save on lost focus
 
-" Run current spec file
-nnoremap <leader>tt :!bundle exec rspec %<cr>
-" Run spec under current line
-nnoremap <leader>tl :!bundle exec rspec %:<c-r>=line('.')<cr><cr>
-" ..with spring
+" Running specs with spring
 nnoremap <leader>st :!spring rspec %<cr>
 nnoremap <leader>sl :!spring rspec %:<c-r>=line('.')<cr><cr>
 
