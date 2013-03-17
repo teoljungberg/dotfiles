@@ -1,9 +1,3 @@
-# chruby
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-chruby 1.9.3
-export RUBY_CONFIGURE_OPTS="--with-readline-dir=$(brew --prefix readline) $RUBY_CONFIGURE_OPTS" # build rubies with readline
-
 # aliases
 alias be="bundle exec"
 alias rake="be rake"
