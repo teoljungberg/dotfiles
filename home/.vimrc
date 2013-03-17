@@ -66,6 +66,9 @@ noremap N Nzzzv
 
 au FocusLost * silent! wa " save on lost focus
 
+set mouse=a " Enable mouse use in all modes
+set ttymouse=xterm2
+
 " Running specs with spring
 nnoremap <leader>st :!spring rspec %<cr>
 nnoremap <leader>sl :!spring rspec %:<c-r>=line('.')<cr><cr>
