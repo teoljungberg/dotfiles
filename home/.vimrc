@@ -108,9 +108,6 @@ let g:ctrlp_user_command = {
 noremap <leader>a :Ag<space>
 let g:agprg="ag -S --nocolor --nogroup --column"
 
-" Commentary
-map cc gcc
-
 " Solarized
 call togglebg#map("<F5>")
 
