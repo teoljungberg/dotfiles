@@ -138,6 +138,9 @@ command! Wqa wqa
 noremap H ^
 noremap L g_
 
+" Yank 'til end of line
+noremap Y yg_
+
 " Split lines
 noremap K r<cr>
 
