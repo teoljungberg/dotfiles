@@ -47,6 +47,10 @@ filetype plugin indent on
 set list
 set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 
+" rspec syntax
+autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let around
+highlight def link rubyRspec Function
+
 set directory=~/.cache/vim/swap
 set backupdir=~/.cache/vim/backup
 set undodir=~/.cache/vim/undo
