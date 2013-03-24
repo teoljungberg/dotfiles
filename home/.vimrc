@@ -114,6 +114,7 @@ call togglebg#map("<F5>")
 " Fugitive
 noremap <leader>gs :Gstatus<CR>
 au BufWinEnter */index if &ft == 'gitcommit' | wincmd H | endif
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " Execrus
 noremap <C-E> :call g:Execrus()<CR>
