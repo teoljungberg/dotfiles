@@ -12,7 +12,6 @@ set wildmenu
 
 " plugins
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'Sirupsen/vim-execrus'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'epmatsw/ag.vim'
@@ -44,6 +43,7 @@ set scrolloff=3
 set ttyfast
 syntax on
 filetype plugin indent on
+set statusline=%<%F\ %y\ %m%r\ %{fugitive#statusline()}%=%-8.(%l:%c%V%)
 set list
 set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 
