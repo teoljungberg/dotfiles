@@ -22,7 +22,6 @@ Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'metamorfos/vim-unimpaired'
 Bundle 'scrooloose/nerdtree'
-Bundle 'sjl/vitality.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
@@ -67,8 +66,6 @@ set smartcase
 set gdefault
 noremap n nzzzv
 noremap N Nzzzv
-
-au FocusLost * silent! wa " save on lost focus
 
 set mouse=a " Enable mouse use in all modes
 set ttymouse=xterm2
