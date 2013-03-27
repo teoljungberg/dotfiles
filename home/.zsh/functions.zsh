@@ -31,6 +31,10 @@ trash () {
   mv -fv $@ ~/.Trash
 }
 
-manpdf () {
-  man -t $@ | open -f -a Preview
+be() {
+  if [[ -a Gemfile ]]; then
+    bundle exec $*
+  else
+    command $*
+  fi
 }

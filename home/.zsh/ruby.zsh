@@ -1,5 +1,4 @@
 # aliases
-alias be="bundle exec"
 alias rake="be rake"
 alias cap="be cap"
 alias testbot='bundle exec rake testbot:rspec 2>&1 | tee tmp/output.txt | grep "^\(Finished.*\.$\|rspec\|\d\+ examples\)"'
