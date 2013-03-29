@@ -158,3 +158,6 @@ cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 cnoremap <c-k> <c-\>estrpart(getcmdline(), 0, getcmdpos()-1)<cr>
 
+" macros
+let @l='^xilet(:ea)f=xxvg_S{^'
+
