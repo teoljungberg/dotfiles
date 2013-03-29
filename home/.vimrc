@@ -114,6 +114,10 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 noremap <C-E> :call g:Execrus()<CR>
 noremap <C-T> :call g:Execrus('alternative')<CR>
 
+" Powerline
+let g:Powerline_colorscheme = 'solarized'
+let g:Powerline_theme = 'solarized256'
+
 "LEADER bindings
 noremap <leader>sr :%s//<left>
 noremap <leader>ev :vsplit ~/.vimrc<cr>
