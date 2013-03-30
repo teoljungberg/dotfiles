@@ -20,10 +20,9 @@
   </tr>
 </table>
 
-## How I store my dotfiles
-I use [homesick][homesick_home] to perform the symlinking(see usage in below)
 
 ## Setup
+I use [homesick][homesick_home] to perform the symlinking
 
 ```bash
 $ homesick clone metamorfos/dotfiles
