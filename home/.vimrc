@@ -116,7 +116,7 @@ noremap <C-T> :call g:Execrus('alternative')<CR>
 
 " Powerline
 let g:Powerline_colorscheme = 'solarized'
-let g:Powerline_theme = 'solarized256'
+let g:Powerline_theme = 'solarized16'
 
 "LEADER bindings
 noremap <leader>sr :%s//<left>
