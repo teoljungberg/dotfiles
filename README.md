@@ -5,6 +5,7 @@
     <th> Terminal </th>
     <th> Shell </th>
     <th> Editor </th>
+    <th> Colorscheme </th>
     <th> Version control </th>
     <th> Multiplexer </th>
   </tr>
@@ -13,6 +14,7 @@
     <td> iTerm 2 </td>
     <td> zsh </td>
     <td> vim </td>
+    <td> Solarized Light </td>
     <td> git </td>
     <td> tmux </td>
   </tr>
