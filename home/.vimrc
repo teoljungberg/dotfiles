@@ -129,6 +129,7 @@ cmap w!! w !sudo tee % >/dev/null<cr>
 " my fingers sometimes slip
 command! W w
 command! Q q
+command! Qa qa
 command! Wq wq
 command! Wqa wqa
 
