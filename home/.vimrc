@@ -62,6 +62,11 @@ set smartindent
 set nowrap
 set linebreak
 
+" foldings
+nnoremap za <space>
+vnoremap za <space>
+nnoremap zO zCzO
+
 set incsearch " search
 set hlsearch
 set ignorecase
