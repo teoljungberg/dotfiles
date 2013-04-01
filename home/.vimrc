@@ -70,10 +70,6 @@ set gdefault
 noremap n nzzzv
 noremap N Nzzzv
 
-" Running specs with spring
-nnoremap <leader>st :!spring rspec %<cr>
-nnoremap <leader>sl :!spring rspec %:<c-r>=line('.')<cr><cr>
-
 " NERDTree
 noremap <silent> <leader>n :NERDTreeToggle<cr>
 let NERDTreeChDirMode = 1
@@ -114,8 +110,8 @@ au BufWinEnter */index if &ft == 'gitcommit' | wincmd H | endif
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " Execrus
-noremap <C-E> :call g:Execrus()<CR>
-noremap <C-T> :call g:Execrus('alternative')<CR>
+noremap <leader>t :call g:Execrus()<CR>
+noremap <leader>l :call g:Execrus('alternative')<CR>
 
 " Powerline
 let g:Powerline_colorscheme = 'solarized'
