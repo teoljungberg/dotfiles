@@ -141,6 +141,9 @@ command! Wqa wqa
 noremap H ^
 noremap L g_
 
+" jump to tag
+noremap <leader>j <C-]>
+
 " Yank 'til end of line
 noremap Y yg_
 
