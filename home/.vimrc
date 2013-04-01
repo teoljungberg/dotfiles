@@ -33,6 +33,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-rsi'
 Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
@@ -157,13 +158,6 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
-
-" emacs movement in insert/command mode
-inoremap <c-a> <esc>I
-inoremap <c-e> <esc>A
-cnoremap <c-a> <home>
-cnoremap <c-e> <end>
-cnoremap <c-k> <c-\>estrpart(getcmdline(), 0, getcmdpos()-1)<cr>
 
 " macros
 let @l='^xilet(:ea)f=xxvg_S{^'
