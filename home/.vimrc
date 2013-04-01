@@ -9,6 +9,7 @@ let mapleader=","
 set backspace=indent,eol,start
 set showcmd
 set wildmenu
+set textwidth=80
 
 " plugins
 Bundle 'gmarik/vundle'
