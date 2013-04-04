@@ -114,9 +114,6 @@ noremap <leader>gs :Gstatus<CR>
 au BufWinEnter */index if &ft == 'gitcommit' | wincmd H | endif
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" Execrus
-noremap <leader>t :call g:Execrus()<CR>
-noremap <leader>l :call g:Execrus('alternative')<CR>
 
 " Powerline
 let g:Powerline_colorscheme = 'solarized'
