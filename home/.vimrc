@@ -119,8 +119,9 @@ call togglebg#map("<F5>")
 " Fugitive
 noremap <leader>gs :Gstatus<CR>
 au BufWinEnter */index if &ft == 'gitcommit' | wincmd H | endif
-autocmd BufReadPost fugitive://*,*.fugitiveblame set bufhidden=delete
 au FileType gitcommit set textwidth=50
+au BufReadPost fugitive://* set bufhidden=delete
+au BufReadPost *.fugitiveblame set bufhidden=delete
 
 " Powerline
 let g:Powerline_colorscheme = 'solarized'
