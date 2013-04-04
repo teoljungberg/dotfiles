@@ -26,6 +26,7 @@ Bundle 'metamorfos/vim-unimpaired'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-capslock'
 Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
@@ -74,6 +75,9 @@ set smartcase
 set gdefault
 noremap n nzzzv
 noremap N Nzzzv
+
+set mouse=a " Enable mouse use in all modes
+set ttymouse=xterm2
 
 " NERDTree
 noremap <silent> <leader>n :NERDTreeToggle<cr>
