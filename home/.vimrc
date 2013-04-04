@@ -9,12 +9,12 @@ let mapleader=","
 set backspace=indent,eol,start
 set showcmd
 set wildmenu
+set hidden
 set textwidth=80
 
 " plugins
 Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'Sirupsen/vim-execrus'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'epmatsw/ag.vim'
 Bundle 'ervandew/supertab'
