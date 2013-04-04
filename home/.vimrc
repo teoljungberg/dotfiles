@@ -35,6 +35,7 @@ Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-rbenv'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-rsi'
 Bundle 'tpope/vim-sleuth'
@@ -56,9 +57,9 @@ set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let around
 highlight def link rubyRspec Function
 
-set directory=~/.cache/vim/swap
-set backupdir=~/.cache/vim/backup
-set undodir=~/.cache/vim/undo
+set directory=~/.cache/vim/swap//
+set backupdir=~/.cache/vim/backup//
+set undodir=~/.cache/vim/undo//
 
 set autoindent
 set smartindent
