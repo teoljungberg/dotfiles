@@ -15,6 +15,7 @@ set backupskip=/tmp/*,/private/tmp/*
 
 " plugins
 Bundle 'gmarik/vundle'
+
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'epmatsw/ag.vim'
