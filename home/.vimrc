@@ -11,6 +11,7 @@ set showcmd
 set wildmenu
 set hidden
 set textwidth=80
+set backupskip=/tmp/*,/private/tmp/*
 
 " plugins
 Bundle 'gmarik/vundle'
