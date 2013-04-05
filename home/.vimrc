@@ -11,7 +11,6 @@ set showcmd
 set wildmenu
 set hidden
 set textwidth=80
-set backupskip=/tmp/*,/private/tmp/*
 
 " plugins
 Bundle 'gmarik/vundle'
@@ -53,10 +52,7 @@ filetype plugin indent on
 set list
 set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 
-" rspec syntax
-autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let around
-highlight def link rubyRspec Function
-
+set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.cache/vim/swap//
 set backupdir=~/.cache/vim/backup//
 set undodir=~/.cache/vim/undo//
@@ -66,11 +62,6 @@ set smartindent
 set nowrap
 set linebreak
 
-" foldings
-nnoremap za <space>
-vnoremap za <space>
-nnoremap zO zCzO
-
 set incsearch " search
 set hlsearch
 set ignorecase
@@ -78,9 +69,6 @@ set smartcase
 set gdefault
 noremap n nzzzv
 noremap N Nzzzv
-
-set mouse=a " Enable mouse use in all modes
-set ttymouse=xterm2
 
 " NERDTree
 noremap <silent> <leader>n :NERDTreeToggle<cr>
@@ -94,7 +82,6 @@ let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 0
 
 " CtrlP
-noremap <leader>. :CtrlPTag<cr>
 noremap <leader>b :CtrlPBuffer<cr>
 noremap <leader>m :CtrlPMRUFiles<cr>
 let g:ctrlp_map = '<leader><leader>'
@@ -121,7 +108,6 @@ noremap <leader>gs :Gstatus<CR>
 au BufWinEnter */index if &ft == 'gitcommit' | wincmd H | endif
 au FileType gitcommit set textwidth=50
 au BufReadPost fugitive://* set bufhidden=delete
-au BufReadPost *.fugitiveblame set bufhidden=delete
 
 " Powerline
 let g:Powerline_colorscheme = 'solarized'
@@ -138,25 +124,19 @@ cmap w!! w !sudo tee % >/dev/null<cr>
 " my fingers sometimes slip
 command! W w
 command! Q q
-command! Qa qa
-command! Wq wq
 command! Wqa wqa
 
 " easier to move
 noremap H ^
 noremap L g_
 
-" jump to tag
-noremap <leader>j <C-]>
-
-" Yank 'til end of line
+" Saner opptions
 noremap Y yg_
-
-" Split lines
-noremap K r<cr>
+noremap C cg_
 
 " Unmappings
 noremap Q <Nop>
+noremap K <Nop>
 
 " Let's be reasonable, shall we?
 noremap k gk
