@@ -7,7 +7,7 @@ git_branch() {
 }
 
 function precmd {
-  PROMPT="%{$fg[magenta]%} %~ %{$fg[yellow]%}$(git_branch)%{$reset_color%}%# "
+  PROMPT=" %c %{$fg[cyan]%}$(git_branch)%{$reset_color%}%# "
 }
 
 # use solarized-like color for ls
