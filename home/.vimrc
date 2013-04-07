@@ -130,9 +130,8 @@ command! Wqa wqa
 noremap H ^
 noremap L g_
 
-" Saner opptions
+" Saner options
 noremap Y yg_
-noremap C cg_
 
 " Unmappings
 noremap Q <Nop>
