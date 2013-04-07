@@ -47,6 +47,7 @@ colo solarized
 set background=light
 set scrolloff=3
 set ttyfast
+set laststatus=2
 syntax on
 filetype plugin indent on
 set list
