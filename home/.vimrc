@@ -11,6 +11,8 @@ set showcmd
 set wildmenu
 set hidden
 set textwidth=80
+set ttimeout
+set ttimeoutlen=50
 
 " plugins
 Bundle 'gmarik/vundle'
@@ -28,13 +30,13 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-capslock'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-rsi'
 Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
