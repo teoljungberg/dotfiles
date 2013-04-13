@@ -147,6 +147,3 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
-" macros
-let @l='^xilet(:ea)f=xxvg_S{^'
-
