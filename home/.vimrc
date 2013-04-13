@@ -64,7 +64,6 @@ set nowrap
 set linebreak
 
 set incsearch " search
-set hlsearch
 set ignorecase
 set smartcase
 set gdefault
