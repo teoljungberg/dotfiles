@@ -69,6 +69,8 @@ set smartcase
 set gdefault
 noremap n nzzzv
 noremap N Nzzzv
+noremap * *zzzv
+noremap # #zzzv
 
 " NERDTree
 noremap <silent> <leader>n :NERDTreeToggle<cr>
