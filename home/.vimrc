@@ -130,6 +130,9 @@ command! Wqa wqa
 noremap H ^
 noremap L g_
 
+" find backwards
+noremap - ,
+
 " Saner options
 noremap Y yg_
 
