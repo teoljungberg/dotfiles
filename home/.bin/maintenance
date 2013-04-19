@@ -18,7 +18,7 @@ header "Upgrading Homebrew"
 cmd "brew upgrade -v"
 
 header "Let Homebrew clean up"
-cmd "brew cleanup -v"
+cmd "brew cleanup"
 
 header "Running maid scripts"
 cmd "maid clean"
