@@ -3,7 +3,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 set clipboard=unnamed
-set history=1000
+set history=100
 set encoding=utf-8
 let mapleader=","
 set backspace=indent,eol,start
