@@ -11,7 +11,6 @@ tags
 pkg
 .gem
 rdoc
-test*
 
 # Logs and databases #
 ######################
