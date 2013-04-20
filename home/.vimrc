@@ -109,6 +109,10 @@ au BufWinEnter */index if &ft == 'gitcommit' | wincmd H | endif
 au FileType gitcommit set textwidth=50
 au BufReadPost fugitive://* set bufhidden=delete
 
+" Dispatch
+noremap <leader>t :Dispatch <up><cr>
+noremap <leader>l :Dispatch <up>:<c-r>=line('.')<cr><cr>
+
 "LEADER bindings
 noremap <leader>sr :%s//<left>
 noremap <leader>ev :vsplit ~/.vimrc<cr>
