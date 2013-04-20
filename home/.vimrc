@@ -17,7 +17,6 @@ set ttimeoutlen=50
 " plugins
 Bundle 'gmarik/vundle'
 
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'epmatsw/ag.vim'
 Bundle 'ervandew/supertab'
@@ -51,6 +50,7 @@ syntax on
 filetype plugin indent on
 set list
 set listchars=tab:>-,trail:.,extends:❯,precedes:❮
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.cache/vim/swap//
@@ -108,10 +108,6 @@ noremap <leader>gs :Gstatus<CR>
 au BufWinEnter */index if &ft == 'gitcommit' | wincmd H | endif
 au FileType gitcommit set textwidth=50
 au BufReadPost fugitive://* set bufhidden=delete
-
-" Powerline
-let g:Powerline_colorscheme = 'solarized'
-let g:Powerline_theme = 'solarized16'
 
 "LEADER bindings
 noremap <leader>sr :%s//<left>
