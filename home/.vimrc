@@ -125,7 +125,7 @@ command! W w
 command! Q q
 command! Wqa wqa
 
-" easier to move
+" convenience mappings
 noremap H ^
 noremap L g_
 inoremap <tab> <c-p>
