@@ -19,7 +19,6 @@ Bundle 'gmarik/vundle'
 
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'epmatsw/ag.vim'
-Bundle 'ervandew/supertab'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/gist-vim'
@@ -129,6 +128,7 @@ command! Wqa wqa
 " easier to move
 noremap H ^
 noremap L g_
+inoremap <tab> <c-p>
 
 " find backwards
 noremap - ,
