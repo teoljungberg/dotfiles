@@ -130,6 +130,12 @@ noremap H ^
 noremap L g_
 inoremap <tab> <c-p>
 
+" emacs movement
+inoremap <c-e> <esc>A
+inoremap <c-a> <esc>I
+cnoremap <c-e> <end>
+cnoremap <c-a> <home>
+
 " find backwards
 noremap - ,
 
