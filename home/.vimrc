@@ -8,6 +8,7 @@ set encoding=utf-8
 let mapleader=","
 set backspace=indent,eol,start
 set showcmd
+set ruler
 set wildmenu
 set hidden
 set textwidth=80
