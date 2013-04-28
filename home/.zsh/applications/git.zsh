@@ -20,3 +20,7 @@ alias gco='git checkout'
 compdef _git gco=git-checkout
 alias go='git checkout'
 compdef _git go=git-checkout
+
+function gci {
+  git commit -m "$*"
+}
