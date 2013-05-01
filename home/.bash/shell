@@ -1,8 +1,0 @@
-#!/bin/bash
-
-set -o notify # Notify immediatly on bg job completion
-
-shopt -s nocaseglob # Case insensitive autocompletion
-export EDITOR=/usr/local/bin/vim # Vim as default editor
-
-export PAGER=vimpager # Setting pager to the vimpager in bin

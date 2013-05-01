@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# fishlike prompt
-# PROMPT_COMMAND='CurDir=`pwd|sed -e "s!$HOME!~!"|sed -Ee "s!([^/])[^/]+/!\1/!g"`'
-
-# Enclosing (\[\]) around colors to avoid word-wrap weirdo stuff
-# (http://ubuntuforums.org/showthread.php?t=234232)
-export PS1='\[${PINK}\]\w\[${YELLOW}\]$(__git_ps1 " (%s)") \[${NORMAL}\]\$ '
-# export PS1="\[${PINK}\]\w\[${YELLOW}\]$(__git_ps1 ' (%s)') \[${NORMAL}\]\$ "
