@@ -135,7 +135,7 @@ command! Wqa wqa
 " convenience mappings
 noremap H ^
 noremap L g_
-inoremap <tab> <c-p>
+inoremap <tab> <c-n>
 
 " emacs movement
 inoremap <c-e> <esc>A
