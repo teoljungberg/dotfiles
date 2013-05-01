@@ -115,7 +115,7 @@ noremap <leader>l :Dispatch <up>:<c-r>=line('.')<cr><cr>
 
 "LEADER bindings
 noremap <leader>sr :%s//<left>
-noremap <leader>ev :vsplit ~/.vimrc<cr>
+noremap <leader>ev :tabe ~/.vimrc<cr>
 noremap <leader>v V`]
 
 " sudo to write
