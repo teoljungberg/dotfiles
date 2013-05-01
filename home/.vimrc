@@ -113,6 +113,9 @@ au BufReadPost fugitive://* set bufhidden=delete
 noremap <leader>t :Dispatch <up><cr>
 noremap <leader>l :Dispatch <up>:<c-r>=line('.')<cr><cr>
 
+" Markdown
+au FileType markdown,text set textwidth=71
+
 "LEADER bindings
 noremap <leader>sr :%s//<left>
 noremap <leader>ev :tabe ~/.vimrc<cr>
