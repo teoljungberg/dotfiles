@@ -52,6 +52,9 @@ set list
 set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" for writing in vim
+au FileType markdown,text set fo=crotqaw
+
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.cache/vim/swap//
 set backupdir=~/.cache/vim/backup//
