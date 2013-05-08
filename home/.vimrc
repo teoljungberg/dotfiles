@@ -3,13 +3,8 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 set clipboard=unnamed
-set history=100
 set encoding=utf-8
 let mapleader=","
-set backspace=indent,eol,start
-set showcmd
-set ruler
-set wildmenu
 set hidden
 set textwidth=80
 set ttimeout
@@ -36,17 +31,13 @@ Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
-runtime macros/matchit.vim
 
-set t_Co=256 " visuals
-colo solarized
+colo solarized " visuals
 set background=light
-set scrolloff=3
-set ttyfast
-set laststatus=2
 syntax on
 filetype plugin indent on
 set list
@@ -57,17 +48,11 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 au FileType markdown,text set fo=crotqaw
 
 set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.cache/vim/swap//
-set backupdir=~/.cache/vim/backup//
-set undodir=~/.cache/vim/undo//
 
-set autoindent
 set smartindent
 set nowrap
-set linebreak
 
-set incsearch " search
-set ignorecase
+set ignorecase " search
 set smartcase
 set gdefault
 noremap n nzzzv
@@ -103,9 +88,6 @@ let g:ctrlp_user_command = {
 " Ag
 noremap <leader>a :Ag<space>
 let g:agprg="ag -S --nocolor --nogroup --column"
-
-" Solarized
-call togglebg#map("<F5>")
 
 " Fugitive
 noremap <leader>gs :Gstatus<CR>
@@ -146,9 +128,6 @@ cnoremap <c-a> <home>
 
 " find backwards
 noremap - ,
-
-" Saner options
-noremap Y yg_
 
 " Unmappings
 noremap Q <Nop>
