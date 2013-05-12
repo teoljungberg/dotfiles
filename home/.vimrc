@@ -110,7 +110,6 @@ au FileType markdown,text set textwidth=71
 
 "LEADER bindings
 noremap <leader>sr :%s//<left>
-noremap <leader>ev :tabe ~/.vimrc<cr>
 noremap <leader>v V`]
 
 " sudo to write
