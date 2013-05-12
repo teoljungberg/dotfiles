@@ -99,6 +99,12 @@ au BufReadPost fugitive://* set bufhidden=delete
 noremap <leader>t :Dispatch <up><cr>
 noremap <leader>l :Dispatch <up>:<c-r>=line('.')<cr><cr>
 
+" Rails
+noremap <leader>em :Emodel<space>
+noremap <leader>vm :Vmodel<space>
+noremap <leader>ec :Econtroller<space>
+noremap <leader>vc :Econtroller<space>
+
 " Markdown
 au FileType markdown,text set textwidth=71
 
