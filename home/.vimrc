@@ -25,6 +25,7 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-liquid'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
@@ -43,7 +44,7 @@ set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " for writing in vim
-au FileType markdown,text set fo=crotqaw
+au FileType markdown,text,liquid set fo=crotqaw textwidth=71
 
 set backupskip=/tmp/*,/private/tmp/*
 
@@ -103,9 +104,6 @@ noremap <leader>em :Emodel<space>
 noremap <leader>vm :Vmodel<space>
 noremap <leader>ec :Econtroller<space>
 noremap <leader>vc :Econtroller<space>
-
-" Markdown
-au FileType markdown,text set textwidth=71
 
 "LEADER bindings
 noremap <leader>sr :%s//<left>
