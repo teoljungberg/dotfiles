@@ -71,8 +71,7 @@ let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 0
 
 " CtrlP
-noremap <leader>b :CtrlPBuffer<cr>
-noremap <leader>m :CtrlPMRUFiles<cr>
+noremap <leader>m :CtrlPMRUFiles<CR>
 let g:ctrlp_map = '<leader><leader>'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files = 10000
