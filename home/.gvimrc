@@ -1,7 +1,7 @@
 colo solarized
-set background=light
+set background=dark
 set anti
-set guifont=Source\ Code\ Pro:h15.5
+set guifont=Source\ Code\ Pro:h13
 set laststatus=2
 set lines=45 columns=120
 set go-=T
