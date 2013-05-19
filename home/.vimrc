@@ -5,6 +5,7 @@ call vundle#rc()
 set clipboard=unnamed
 set encoding=utf-8
 let mapleader=","
+set hidden
 set textwidth=80
 set ttimeout
 set ttimeoutlen=50
