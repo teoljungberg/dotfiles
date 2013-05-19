@@ -36,6 +36,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
 
 colo solarized " visuals
+set t_Co=256
 set background=light
 syntax on
 filetype plugin indent on
