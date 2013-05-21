@@ -1,5 +1,5 @@
 colo solarized
-set background=dark
+set background=light
 set anti
 set guifont=Source\ Code\ Pro:h13
 set laststatus=2
