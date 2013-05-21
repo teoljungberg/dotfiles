@@ -4,6 +4,7 @@ set anti
 set guifont=Source\ Code\ Pro:h13
 set laststatus=2
 set lines=45 columns=120
+set shell=/bin/bash\ --login
 set go-=T
 set go-=l
 set go-=L
