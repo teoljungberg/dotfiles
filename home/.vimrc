@@ -28,7 +28,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-liquid'
 Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-sensible'
@@ -104,12 +103,6 @@ au BufReadPost fugitive://* set bufhidden=delete
 noremap <leader>t :Dispatch <up><cr>
 noremap <leader>l :Dispatch <up>:<c-r>=line('.')<cr><cr>
 noremap <leader>d :Dispatch<space>
-
-" Rails
-noremap <leader>em :Emodel<space>
-noremap <leader>vm :Vmodel<space>
-noremap <leader>ec :Econtroller<space>
-noremap <leader>vc :Econtroller<space>
 
 "LEADER bindings
 noremap <leader>sr :%s//<left>
