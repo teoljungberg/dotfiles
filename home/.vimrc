@@ -32,7 +32,6 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
 
@@ -50,6 +49,10 @@ au FileType markdown,text,liquid set fo=crotqaw textwidth=71
 
 set backupskip=/tmp/*,/private/tmp/*
 
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
 set smartindent
 set nowrap
 
