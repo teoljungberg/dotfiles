@@ -7,6 +7,7 @@ set encoding=utf-8
 let mapleader=","
 set hidden
 set textwidth=80
+set ttyfast
 set ttimeout
 set ttimeoutlen=50
 
