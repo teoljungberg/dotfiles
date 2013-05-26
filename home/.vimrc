@@ -134,10 +134,6 @@ noremap - ,
 noremap Q <Nop>
 noremap K <Nop>
 
-" Let's be reasonable, shall we?
-noremap k gk
-noremap j gj
-
 " move between panes
 map <c-j> <c-w>j
 map <c-k> <c-w>k
