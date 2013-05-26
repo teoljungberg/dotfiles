@@ -3,8 +3,13 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 set clipboard=unnamed
+set history=1000
 set encoding=utf-8
 let mapleader=","
+set backspace=indent,eol,start
+set showcmd
+set ruler
+set wildmenu
 set hidden
 set ttyfast
 set ttimeout
@@ -29,13 +34,15 @@ Bundle 'tpope/vim-liquid'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
+runtime macros/matchit.vim
 
 colo solarized " visuals
 set t_Co=256
 set background=dark
+set scrolloff=3
+set laststatus=2
 syntax on
 filetype plugin indent on
 set list
@@ -46,6 +53,9 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 au FileType markdown,text,liquid set fo=crotqaw
 
 set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.cache/vim/swap//
+set backupdir=~/.cache/vim/backup//
+set undodir=~/.cache/vim/undo//
 
 set tabstop=2
 set softtabstop=2
@@ -55,6 +65,7 @@ set smartindent
 set nowrap
 
 set ignorecase " search
+set incsearch
 set smartcase
 set gdefault
 noremap n nzzzv
@@ -116,6 +127,7 @@ noremap L g_
 command! W w
 command! Q q
 command! Wqa wqa
+noremap Y y$
 
 " emacs movement
 inoremap <c-e> <esc>A
