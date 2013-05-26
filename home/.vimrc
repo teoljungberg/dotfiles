@@ -6,7 +6,6 @@ set clipboard=unnamed
 set encoding=utf-8
 let mapleader=","
 set hidden
-set textwidth=80
 set ttyfast
 set ttimeout
 set ttimeoutlen=50
@@ -44,7 +43,7 @@ set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " for writing in vim
-au FileType markdown,text,liquid set fo=crotqaw textwidth=71
+au FileType markdown,text,liquid set fo=crotqaw
 
 set backupskip=/tmp/*,/private/tmp/*
 
@@ -96,7 +95,6 @@ noremap <leader>gs :Gstatus<CR>
 noremap <leader>gl :Dispatch git --no-pager log --oneline -15 <CR>
 noremap <leader>ge 0wyaw<c-w>k:Gedit <c-r>"<CR>
 au BufWinEnter .git/index if &ft == 'gitcommit' | wincmd H | endif
-au FileType gitcommit set textwidth=50
 au BufReadPost fugitive://* set bufhidden=delete
 
 " Dispatch
