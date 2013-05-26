@@ -110,14 +110,12 @@ noremap <leader>rl :s/\v\@([a-z_][a-zA-Z0-9_]*) \= (.+)/let(:\1) { \2 }<CR>
 " sudo to write
 cmap w!! w !sudo tee % >/dev/null<cr>
 
-" my fingers sometimes slip
-command! W w
-command! Q q
-command! Wqa wqa
-
 " convenience mappings
 noremap H ^
 noremap L g_
+command! W w
+command! Q q
+command! Wqa wqa
 
 " emacs movement
 inoremap <c-e> <esc>A
