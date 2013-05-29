@@ -5,7 +5,7 @@ alias ga='git add'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gcm='git commit -m'
-alias gl="git lg `$git_branch | sed -e 's/(//' -e 's/)//'` -15"
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset %Cgreen%an%Creset:%Creset %s %Creset' `$git_branch | sed -e 's/(//' -e 's/)//'` -15"
 alias gs='git status -sb'
 alias gb="git branch"
 
