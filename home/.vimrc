@@ -106,7 +106,7 @@ noremap <leader>d :Dispatch<space>
 "LEADER bindings
 noremap <leader>sr :%s//<left>
 noremap <leader>v V`]
-noremap <leader>rl :s/\v\@([a-z_][a-zA-Z0-9_]*) \= (.+)/let(:\1) { \2 }<CR>
+noremap <leader>p :s/\v([a-z_][a-zA-Z0-9_]*) \= (.+)/let(:\1) { \2 }<CR>
 
 " sudo to write
 cmap w!! w !sudo tee % >/dev/null<cr>
