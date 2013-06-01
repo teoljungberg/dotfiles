@@ -36,7 +36,7 @@ runtime macros/matchit.vim
 
 colo solarized " visuals
 set t_Co=256
-set background=dark
+set background=light
 set scrolloff=3
 set laststatus=2
 syntax on
