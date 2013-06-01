@@ -18,7 +18,6 @@ Bundle 'gmarik/vundle'
 
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'epmatsw/ag.vim'
-Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'metamorfos/vim-unimpaired'
@@ -32,6 +31,7 @@ Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'wincent/Command-T'
 runtime macros/matchit.vim
 
 colo solarized " visuals
@@ -78,18 +78,13 @@ let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 0
 
-" CtrlP
-noremap <leader>m :CtrlPMRUFiles<CR>
-let g:ctrlp_map = '<leader><leader>'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_max_files = 10000
-let g:ctrlp_custom_ignore = {
-                  \ 'dir':  '\v[\/]\.(git|hg|svn)$\|tmp\|log',
-                  \ }
-let g:ctrlp_user_command = {
-                  \ 'types': { 1: ['.git/', 'cd %s && git ls-files'] },
-                  \ 'fallback': 'find %s -type f | head -' . g:ctrlp_max_files
-                  \ }
+" Command-t
+noremap <leader><leader> :CommandT<CR>
+let g:CommandTMaxFiles=15000
+let g:CommandTMaxHeight=25
+let g:CommandTMatchWindowReverse=1
+let g:CommandTAlwaysShowDotFiles=1
+let g:CommandTCancelMap=['<ESC>', '<C-c>']
 
 " Ag
 noremap <leader>a :Ag<space>

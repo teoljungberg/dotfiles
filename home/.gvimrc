@@ -13,6 +13,11 @@ set go-=R
 set go-=e
 autocmd FocusLost * silent! wall
 
+if has("gui_macvim")
+  macmenu &File.New\ Tab key=<nop>
+  map <D-t> :CommandT<CR>
+endif
+
 " M-# switches to tab
 noremap <d-1> 1gt
 noremap <d-2> 2gt
