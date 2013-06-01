@@ -132,6 +132,9 @@ inoremap <c-a> <esc>I
 cnoremap <c-e> <end>
 cnoremap <c-a> <home>
 
+" jumps to the last known position in a file
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
 " find backwards
 noremap - ,
 
