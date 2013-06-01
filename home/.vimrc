@@ -7,8 +7,6 @@ set history=1000
 set encoding=utf-8
 let mapleader=","
 set backspace=indent,eol,start
-set showcmd
-set ruler
 set wildmenu
 set hidden
 set ttyfast
