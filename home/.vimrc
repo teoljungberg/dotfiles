@@ -22,7 +22,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'metamorfos/vim-unimpaired'
-Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-fugitive'
@@ -45,6 +44,10 @@ filetype plugin indent on
 set list
 set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+" Explore
+let g:netrw_browse_split=0
+let g:netrw_liststyle=3
 
 " for writing in vim
 au FileType markdown,text,liquid set fo=crotqaw
@@ -69,12 +72,6 @@ noremap n nzzzv
 noremap N Nzzzv
 noremap * *zzzv
 noremap # #zzzv
-
-" NERDTree
-noremap <silent> <leader>n :NERDTreeToggle<cr>
-let NERDTreeChDirMode = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeWinPos = 'right'
 
 " Gist
 let g:gist_clip_command = 'pbcopy'
