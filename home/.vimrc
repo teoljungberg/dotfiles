@@ -86,6 +86,7 @@ let g:CommandTMaxHeight=25
 let g:CommandTMatchWindowReverse=1
 let g:CommandTAlwaysShowDotFiles=1
 let g:CommandTCancelMap=['<ESC>', '<C-c>']
+set wildignore+=public/assets/**,vendor/**,log/**,tmp/**,Cellar/**
 
 " Ag
 noremap <leader>a :Ag<space>
