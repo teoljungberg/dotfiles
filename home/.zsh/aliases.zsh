@@ -12,13 +12,11 @@ alias ls="ls -GF"
 alias l='ls -1'
 alias ll='ls -l'
 alias la='ls -A'
-alias lal="ls -Al"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../../'
 
 # small application aliases
-alias t='rubdo'
 alias pbp="pbpaste"
 alias pbc="pbcopy"
 
@@ -27,3 +25,28 @@ alias kilall="killall"
 compdef kilall=killall
 alias brwe="brew"
 compdef brwe=brew
+
+# Git aliases
+alias ga='git add'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gcm='git commit -m'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset %Cgreen%an%Creset:%Creset %s %Creset' `$git_branch | sed -e 's/(//' -e 's/)//'` -15"
+alias gs='git status -sb'
+alias gb="git branch"
+
+# with completion
+alias g='git'
+compdef g=git
+alias gd='git diff'
+compdef _git gd=git-diff
+alias gdc='git diff --cached'
+compdef _git gd=git-diff
+alias gp='git push'
+compdef _git gp=git-push
+alias go='git checkout'
+compdef _git go=git-checkout
+
+function gci {
+  git commit -m "$*"
+}
