@@ -1,8 +1,6 @@
 ## Software
 <table>
   <tr>
-    <th> OS </th>
-    <th> Terminal </th>
     <th> Shell </th>
     <th> Editor </th>
     <th> Colorscheme </th>
@@ -10,8 +8,6 @@
     <th> Multiplexer </th>
   </tr>
   <tr>
-    <td> OS X Lion </td>
-    <td> iTerm 2 </td>
     <td> zsh </td>
     <td> vim </td>
     <td> Solarized Light </td>
