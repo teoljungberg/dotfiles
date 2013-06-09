@@ -96,7 +96,6 @@ let g:agprg="ag -S --nocolor --nogroup --column"
 noremap <leader>gs :Gstatus<CR>
 noremap <leader>gl :Dispatch git --no-pager log --oneline -15 <CR>
 noremap <leader>ge 0wyaw<c-w>k:Gedit <c-r>"<CR>
-au BufWinEnter .git/index if &ft == 'gitcommit' | wincmd H | endif
 au BufReadPost fugitive://* set bufhidden=delete
 
 " Dispatch
