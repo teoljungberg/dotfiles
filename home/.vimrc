@@ -46,6 +46,10 @@ set list
 set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" Mouse
+set mouse=nicr
+set mousefocus
+
 " Explore
 let g:netrw_browse_split=0
 let g:netrw_liststyle=3
