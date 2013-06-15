@@ -108,6 +108,10 @@ noremap <leader>t :Dispatch <up><cr>
 noremap <leader>l :Dispatch <up>:<c-r>=line('.')<cr><cr>
 noremap <leader>d :Dispatch<space>
 
+" Unimpaired
+map ( [
+map ) ]
+
 "LEADER bindings
 noremap <leader>sr :%s//<left>
 noremap <leader>v V`]
