@@ -46,7 +46,17 @@ alias gp='git push'
 compdef _git gp=git-push
 alias go='git checkout'
 compdef _git go=git-checkout
+alias branch='fuzzy_git_branch'
 
 function gci {
   git commit -m "$*"
+}
+
+function fuzzy_git_branch {
+  match="$(git branch | cut -b3- | grep "$1")"
+  if [[ -n "$match" ]]; then
+    git checkout "$match"
+  else
+    echo "Couldn't find branch matching '$1'." >&2
+  fi
 }
