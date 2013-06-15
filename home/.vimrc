@@ -16,7 +16,6 @@ set ttimeoutlen=50
 " plugins
 Bundle 'gmarik/vundle'
 
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'epmatsw/ag.vim'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
