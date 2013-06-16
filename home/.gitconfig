@@ -1,0 +1,50 @@
+[user]
+  name = Teo Ljungberg
+  email = teo.ljungberg@gmail.com
+[github]
+  user = teoljungberg
+[credential]
+  helper = osxkeychain
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+[alias]
+  amend = commit --amend
+  unstage = reset HEAD --
+  lg = log --graph --pretty=format:'%Cred%h%Creset %Cgreen%an%Creset:%C(yellow)%d%Creset %s %Cblue%cr %C(magenta)%Creset'
+  delete-remote-branch = push origin --delete
+  undeployed = !git log `git tag|grep production|tail -n 1`..HEAD
+  unpushed = !git log --oneline origin/`git symbolic-ref HEAD 2> /dev/null | awk -F"/" '{ print $3 }'`..
+  ctags = !.git/hooks/ctags
+[merge]
+  tool = vimdiff
+  ff = false
+[core]
+  editor = vim -f
+  excludesfile = ~/.gitignore
+  pager = less
+[push]
+  default = tracking
+[help]
+  autocorrect = 1
+[branch]
+  autosetuprebase = always
+[rerere]
+  enabled = true
+[init]
+  templatedir = ~/.git_template
+[git-pair]
+  pattern = dev+%name+%name@mynewsdesk.com
+  authors = Jonas Forsberg <jonas.forsberg@mynewsdesk.com>
+  authors = Kristian Hellquist <kristian.hellquist@mynewsdesk.com>
+  authors = Richard Johansson <richard.johansson@mynewsdesk.com>
+  authors = Martin Svalin <martin.svalin@mynewsdesk.com>
+  authors = Jan Andersson <jan.andersson@mynewsdesk.com>
+  authors = Markus Nordin <markus.nordin@mynewsdesk.com>
+  authors = Billskog <david.billskog@mynewsdesk.com>
+  authors = David Wennergren <david.wennergren@mynewsdesk.com>
+  authors = Hilla Duka <hilla.duka@mynewsdesk.com>
+  authors = Teo Ljungberg <teo.ljungberg@mynewsdesk.com>
+  authors = Li Berglund <li.berglund@mynewsdesk.com>
