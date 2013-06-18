@@ -39,15 +39,6 @@ be() {
   fi
 }
 
-fuzzy_git_branch() {
-  match="$(git branch | cut -b3- | grep "$1")"
-  if [[ -n "$match" ]]; then
-    git checkout "$match"
-  else
-    echo "Couldn't find branch matching '$1'." >&2
-  fi
-}
-
 gci() {
   git commit -m "$*"
 }
