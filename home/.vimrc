@@ -96,7 +96,6 @@ set wildignore+=**/.git/**,public/assets/**,vendor/**,log/**,tmp/**,Cellar/**,ap
 
 " Ag
 noremap <leader>a :Ag<space>
-let g:agprg="ag -S --nocolor --nogroup --column"
 
 " Fugitive
 noremap <leader>gs :Gstatus<CR>
