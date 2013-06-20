@@ -11,7 +11,7 @@
   branch = auto
   ui = true
 [alias]
-  amend = commit --amend
+  amend = commit -v --amend
   unstage = reset HEAD --
   lg = log --graph --pretty=format:'%Cred%h%Creset %Cgreen%an%Creset:%C(yellow)%d%Creset %s %Cblue%cr %C(magenta)%Creset'
   delete-remote-branch = push origin --delete
