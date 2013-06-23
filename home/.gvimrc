@@ -11,6 +11,7 @@ set go-=r
 set go-=R
 set go-=e
 autocmd FocusLost * silent! wall
+set shell=/usr/local/bin/zsh
 
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
