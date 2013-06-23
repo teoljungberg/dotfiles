@@ -18,10 +18,6 @@ export LESS="-F -X -R"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-autoload edit-command-line
-zle -N edit-command-line
-bindkey '^Xe' edit-command-line
-
 # Z
 source `brew --prefix`/etc/profile.d/z.sh
 
