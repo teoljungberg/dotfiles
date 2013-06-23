@@ -1,5 +1,5 @@
-# because vi-mode sucks, sorry vim
-bindkey -e
+# because vim rocks
+bindkey -v
 
 # completion
 autoload -Uz compinit && compinit
