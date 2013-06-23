@@ -13,6 +13,7 @@ set go-=e
 set autoread
 autocmd FocusLost * silent! wall
 set shell=/usr/local/bin/zsh
+set guicursor=a:blinkon0
 
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
