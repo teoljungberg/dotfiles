@@ -10,6 +10,7 @@ set go-=L
 set go-=r
 set go-=R
 set go-=e
+set autoread
 autocmd FocusLost * silent! wall
 set shell=/usr/local/bin/zsh
 
