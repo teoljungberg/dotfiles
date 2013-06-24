@@ -126,6 +126,8 @@ command! W w
 command! Q q
 command! Wqa wqa
 noremap Y y$
+noremap ö :
+noremap Ö :
 
 " emacs movement
 inoremap <c-e> <esc>A
