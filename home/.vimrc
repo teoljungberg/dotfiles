@@ -53,6 +53,7 @@ set mousefocus
 " Explore
 let g:netrw_browse_split=0
 let g:netrw_liststyle=3
+let g:netrw_banner=0
 
 " for writing in vim
 au FileType markdown,text,liquid set fo=crotqaw
