@@ -47,7 +47,7 @@ set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Mouse
-set mouse=nicr
+set mouse=n
 set mousefocus
 
 " Explore
