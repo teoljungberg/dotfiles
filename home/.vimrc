@@ -57,7 +57,7 @@ let g:netrw_liststyle=3
 let g:netrw_banner=0
 
 " for writing in vim
-au FileType markdown,text,liquid set fo=crotqaw
+au FileType markdown,text,liquid set fo=crotqaw nolist
 
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.cache/vim/swap//
