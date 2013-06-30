@@ -107,7 +107,6 @@ au BufReadPost fugitive://* set bufhidden=delete
 " Dispatch
 noremap <leader>t :Dispatch <up><cr>
 noremap <leader>l :Dispatch <up>:<c-r>=line('.')<cr><cr>
-noremap <leader>d :Dispatch<space>
 
 " Unimpaired
 map ( [
