@@ -6,6 +6,9 @@ fi
 # aliases
 alias cap="be cap"
 alias testbot='bundle exec rake testbot:rspec 2>&1 | tee tmp/output.txt | grep "^\(Finished.*\.$\|rspec\|\d\+ examples\)"'
+alias s='spring'
+alias sc='spring rails console'
+alias sr='spring rspec'
 
 # FASTER
 export RUBY_HEAP_MIN_SLOTS=1000000
