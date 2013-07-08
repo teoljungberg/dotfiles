@@ -48,9 +48,8 @@ set list
 set listchars=tab:>-,trail:.,extends:❯,precedes:❮
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-" Mouse
+" Mouse scrolling in normal mode
 set mouse=n
-set mousefocus
 
 " Explore
 let g:netrw_browse_split=0
