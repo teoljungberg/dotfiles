@@ -31,7 +31,7 @@ alias ga='git add'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gcm='git commit -m'
-alias gl="git log --graph --pretty=format:'%Cred%h%Creset %Cgreen%an%Creset:%Creset %s %Creset' `$git_branch | sed -e 's/(//' -e 's/)//'` -15"
+alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset: %s' -15 `git symbolic-ref HEAD 2> /dev/null | awk -F"/" '{ print $3 }'`"
 alias gs='git status -sb'
 alias gb="git branch"
 
