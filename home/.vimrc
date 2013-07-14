@@ -16,7 +16,6 @@ set ttimeoutlen=50
 " plugins
 Bundle 'gmarik/vundle'
 
-Bundle 'epmatsw/ag.vim'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'tpope/vim-commentary'
@@ -93,14 +92,12 @@ let g:CommandTAlwaysShowDotFiles=1
 let g:CommandTCancelMap=['<ESC>', '<C-c>']
 set wildignore+=public/assets/**,vendor/**,log/**,tmp/**,Cellar/**,app/assets/images/**
 
-" Ag
-noremap <leader>a :Ag<space>
-
 " Fugitive
 noremap <leader>gs :Gstatus<CR>
 noremap <leader>gl :Dispatch git --no-pager log --oneline -15 <CR>
 noremap <leader>ge 0wyaw<c-w>k:Gedit <c-r>"<CR>
 au BufReadPost fugitive://* set bufhidden=delete
+noremap <leader>gg :Ggrep<space>
 
 " Dispatch
 noremap <leader>t :Dispatch <up><cr>
