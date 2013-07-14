@@ -5,7 +5,7 @@ call vundle#rc()
 set clipboard=unnamed
 set history=1000
 set encoding=utf-8
-let mapleader=","
+let mapleader=" "
 set backspace=indent,eol,start
 set wildmenu
 set hidden
@@ -142,9 +142,6 @@ function! InsertTabWrapper()
 endfunction
 
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-
-" find backwards
-noremap - ,
 
 " Unmappings
 noremap Q <Nop>
