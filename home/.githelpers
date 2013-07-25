@@ -1,0 +1,12 @@
+#!/bin/sh
+
+HASH="%C(yellow)%h%C(reset)"
+REFS="%C(cyan)%d%C(reset)"
+SUBJECT="%s"
+RELATIVE_TIME="%C(bold)%cr"
+FORMAT="$HASH$REFS $SUBJECT $RELATIVE_TIME"
+
+pretty_git_log() {
+  git log --graph --pretty="tformat:${FORMAT}" $* |
+    less -FXRS
+}
