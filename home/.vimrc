@@ -158,7 +158,8 @@ function! RunTestFile(...)
   endif
 
   " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '_spec.rb$') != -1
+
+  let in_test_file = match(expand("%"), '\(_test.rb\|_spec.rb\)$') != -1
   if in_test_file
     call SetTestFile()
   elseif !exists("t:test_file")
@@ -172,19 +173,25 @@ function! RunNearestTest()
   call RunTestFile(":" . spec_line_number)
 endfunction
 
+" Set the spec file that tests will be run for.
 function! SetTestFile()
-  " Set the spec file that tests will be run for.
   let t:test_file=@%
 endfunction
 
+" Write the file and run tests for the given filename
 function! RunTests(filename)
-  " Write the file and run tests for the given filename
+  write
   let base_cmd = ":Dispatch "
-  if filereadable("config/application.rb")
-    exec base_cmd . "spring rspec " . a:filename
-  elseif filereadable("Gemfile")
-    exec base_cmd . "bundle exec rspec " . a:filename
-  else
-    exec base_cmd . "rspec " . a:filename
+
+  if match(a:filename, '_test.rb$') != -1
+    exec base_cmd . "ruby " . a:filename
+  elseif match(a:filename, '_spec.rb$') != -1
+    if filereadable("config/application.rb")
+      exec base_cmd . "spring rspec " . a:filename
+    elseif filereadable("Gemfile")
+      exec base_cmd . "bundle exec rspec " . a:filename
+    else
+      exec base_cmd . "rspec " . a:filename
+    endif
   endif
 endfunction
