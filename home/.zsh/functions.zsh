@@ -6,6 +6,12 @@ git_branch() {
   [ -n "$GIT_BRANCH" ] && echo "$GIT_BRANCH "
 }
 
+c() {
+  cd ~/code/$1
+}
+_c() { _files -W ~/code -/; }
+compdef _c c
+
 rename_tmux_window_to_current_dir() {
   if [ "$TERM" = "screen-256color" ]; then
     if [ "$PWD" != "$LPWD" ]; then
