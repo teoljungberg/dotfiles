@@ -99,10 +99,6 @@ noremap <leader>ge 0wyaw<c-w>k:Gedit <c-r>"<CR>
 au BufReadPost fugitive://* set bufhidden=delete
 noremap <leader>gg :Ggrep<space>
 
-" Dispatch
-noremap <leader>t :Dispatch <up><cr>
-noremap <leader>l :Dispatch <up>:<c-r>=line('.')<cr><cr>
-
 " Unimpaired
 map ( [
 map ) ]
@@ -150,3 +146,45 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+" Running tests
+map <leader>t :silent call RunTestFile()<cr>
+map <leader>l :silent call RunNearestTest()<cr>
+
+function! RunTestFile(...)
+  if a:0
+    let command_suffix = a:1
+  else
+    let command_suffix = ""
+  endif
+
+  " Run the tests for the previously-marked file.
+  let in_test_file = match(expand("%"), '_spec.rb$') != -1
+  if in_test_file
+    call SetTestFile()
+  elseif !exists("t:test_file")
+    return
+  endif
+  call RunTests(t:test_file . command_suffix)
+endfunction
+
+function! RunNearestTest()
+  let spec_line_number = line('.')
+  call RunTestFile(":" . spec_line_number)
+endfunction
+
+function! SetTestFile()
+  " Set the spec file that tests will be run for.
+  let t:test_file=@%
+endfunction
+
+function! RunTests(filename)
+  " Write the file and run tests for the given filename
+  let base_cmd = ":Dispatch "
+  if filereadable("config/application.rb")
+    exec base_cmd . "spring rspec " . a:filename
+  elseif filereadable("Gemfile")
+    exec base_cmd . "bundle exec rspec " . a:filename
+  else
+    exec base_cmd . "rspec " . a:filename
+  endif
+endfunction
