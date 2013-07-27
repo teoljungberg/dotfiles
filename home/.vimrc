@@ -90,7 +90,7 @@ let g:CommandTMaxHeight=30
 let g:CommandTMatchWindowReverse=1
 let g:CommandTAlwaysShowDotFiles=1
 let g:CommandTCancelMap=['<ESC>', '<C-c>']
-set wildignore+=public/assets/**,vendor/**,log/**,tmp/**,Cellar/**,app/assets/images/**
+set wildignore+=public/assets/**,vendor/**,log/**,tmp/**,Cellar/**,app/assets/images/**,_site/**
 
 " Fugitive
 noremap <leader>gs :Gstatus<CR>
