@@ -6,6 +6,11 @@ SUBJECT="%s"
 RELATIVE_TIME="%C(bold)%cr"
 FORMAT="$HASH$REFS $SUBJECT $RELATIVE_TIME"
 
+show_git_head() {
+  pretty_git_log -1
+  git show -p --pretty="tformat:"
+}
+
 pretty_git_log() {
   git log --graph --pretty="tformat:${FORMAT}" $*
 }
