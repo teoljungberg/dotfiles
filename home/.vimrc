@@ -86,7 +86,7 @@ let g:gist_open_browser_after_post = 0
 " Command-t
 noremap <leader><leader> :CommandT<CR>
 let g:CommandTMaxFiles=15000
-let g:CommandTMaxHeight=25
+let g:CommandTMaxHeight=30
 let g:CommandTMatchWindowReverse=1
 let g:CommandTAlwaysShowDotFiles=1
 let g:CommandTCancelMap=['<ESC>', '<C-c>']
