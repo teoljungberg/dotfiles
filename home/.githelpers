@@ -7,6 +7,5 @@ RELATIVE_TIME="%C(bold)%cr"
 FORMAT="$HASH$REFS $SUBJECT $RELATIVE_TIME"
 
 pretty_git_log() {
-  git log --graph --pretty="tformat:${FORMAT}" $* |
-    less -FXRS
+  git log --graph --pretty="tformat:${FORMAT}" $*
 }
