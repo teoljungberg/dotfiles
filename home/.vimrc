@@ -125,6 +125,18 @@ inoremap <c-a> <esc>I
 cnoremap <c-e> <end>
 cnoremap <c-a> <home>
 
+" remove trailing whitespace
+command! StripTrailingWhitespace :call RemovePattern('%s/\\s\\+$//e')
+function! RemovePattern(command)
+  let _s=@/
+  let l = line('.')
+  let c = col('.')
+  execute a:command
+  " restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
 " jumps to the last known position in a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
