@@ -159,8 +159,10 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 " Running tests
-map <leader>t :silent call RunTestFile()<cr>
-map <leader>l :silent call RunNearestTest()<cr>
+command! RunTestFile :call RunTestFile()
+command! RunNearestTest :call RunNearestTest()
+map <leader>t :RunTestFile<CR>
+map <leader>l :RunNearestTest<CR>
 
 function! RunTestFile(...)
   if a:0
