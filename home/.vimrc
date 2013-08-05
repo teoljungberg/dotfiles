@@ -12,6 +12,7 @@ set hidden
 set ttyfast
 set ttimeout
 set ttimeoutlen=50
+set t_te= t_ti=
 
 " plugins
 Bundle 'gmarik/vundle'
