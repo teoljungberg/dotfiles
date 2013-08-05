@@ -2,45 +2,27 @@
 #####################
 Vagrantfile
 .vagrant
-tags
 .rake_tasks
 .ruby-version
-
-# Ruby #
-########
-pkg
-.gem
-rdoc
 
 # Logs and databases #
 ######################
 *.log
-*.sql
 *.sqlite
 
 #   Temporary files    #
 # *looking at you vim* #
 ########################
 *~
-*.swp
-tmp
 .netrwhist
 .VimballRecord
 
 # OS generated files #
 ######################
 .DS_Store*
-Desktop.ini
-ehthumbs.db
 Icon?
-Thumbs.db
 
 # Files that might appear on external disk #
 ############################################
 .Spotlight-V100
 .Trashes
-
-# Secret things #
-#################
-private
-tmp
