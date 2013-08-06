@@ -17,6 +17,7 @@ export VISUAL="$EDITOR"
 export LESS="-F -X -R"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
+export GREP_OPTIONS="--color"
 
 # Z
 source `brew --prefix`/etc/profile.d/z.sh
