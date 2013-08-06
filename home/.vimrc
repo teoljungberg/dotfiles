@@ -86,6 +86,7 @@ let g:gist_open_browser_after_post = 0
 
 " Command-t
 noremap <leader><leader> :CommandT<CR>
+noremap <leader>f :CommandTFlush<CR>:CommandT<CR>
 let g:CommandTMaxFiles=15000
 let g:CommandTMaxHeight=30
 let g:CommandTMatchWindowReverse=1
