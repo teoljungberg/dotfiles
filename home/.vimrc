@@ -20,6 +20,7 @@ Bundle 'gmarik/vundle'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'teoljungberg/vim-grep'
+Bundle 'teoljungberg/vim-test'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-endwise'
@@ -104,6 +105,10 @@ au BufReadPost fugitive://* set bufhidden=delete
 " vim-grep
 noremap <leader>gg :Grep!<space>
 
+" vim-test
+noremap <leader>t :RunTestFile<CR>
+noremap <leader>l :RunNearestTest<CR>
+
 " Unimpaired
 map ( [
 map ) ]
@@ -162,55 +167,3 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
-
-" Running tests
-command! RunTestFile :call RunTestFile()
-command! RunNearestTest :call RunNearestTest()
-map <leader>t :RunTestFile<CR>
-map <leader>l :RunNearestTest<CR>
-
-function! RunTestFile(...)
-  if a:0
-    let command_suffix = a:1
-  else
-    let command_suffix = ""
-  endif
-
-  " Run the tests for the previously-marked file.
-
-  let in_test_file = match(expand("%"), '\(_test.rb\|_spec.rb\)$') != -1
-  if in_test_file
-    call SetTestFile()
-  elseif !exists("t:test_file")
-    return
-  endif
-  call RunTests(t:test_file . command_suffix)
-endfunction
-
-function! RunNearestTest()
-  let spec_line_number = line('.')
-  call RunTestFile(":" . spec_line_number)
-endfunction
-
-" Set the spec file that tests will be run for.
-function! SetTestFile()
-  let t:test_file=@%
-endfunction
-
-" Write the file and run tests for the given filename
-function! RunTests(filename)
-  write
-  let base_cmd = ":Dispatch "
-
-  if match(a:filename, '_test.rb$') != -1
-    exec base_cmd . "ruby " . a:filename
-  elseif match(a:filename, '_spec.rb$') != -1
-    if filereadable("config/application.rb")
-      exec base_cmd . "spring rspec " . a:filename
-    elseif filereadable("Gemfile")
-      exec base_cmd . "bundle exec rspec " . a:filename
-    else
-      exec base_cmd . "rspec " . a:filename
-    endif
-  endif
-endfunction
