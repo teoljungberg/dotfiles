@@ -19,6 +19,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
+Bundle 'teoljungberg/vim-grep'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-endwise'
@@ -99,7 +100,9 @@ noremap <leader>gs :Gstatus<CR>
 noremap <leader>gl :Dispatch git --no-pager log --oneline -15 <CR>
 noremap <leader>ge 0wyaw<c-w>k:Gedit <c-r>"<CR>
 au BufReadPost fugitive://* set bufhidden=delete
-noremap <leader>gg :Ggrep<space>
+
+" vim-grep
+noremap <leader>gg :Grep!<space>
 
 " Unimpaired
 map ( [
