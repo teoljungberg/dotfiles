@@ -2,8 +2,6 @@
 
 # General aliases
 alias rm="rm -i"
-alias mv="mv -i"
-alias cp="cp -i"
 alias reload='source ~/.zshrc'
 
 # listing
