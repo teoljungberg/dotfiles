@@ -3,7 +3,6 @@ setopt nobeep
 setopt no_bg_nice # don't nice background tasks
 setopt alwaystoend # when complete from middle, move cursor
 
-bindkey "^[[A" history-search-backward
 setopt append_history # adds history
 setopt extended_history # add timestamps to history
 setopt hist_expire_dups_first
