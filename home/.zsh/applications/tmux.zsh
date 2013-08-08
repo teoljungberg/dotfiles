@@ -6,5 +6,3 @@ case "$TERM" in
     alias ssh="tmux_ssh"
     ;;
 esac
-
-alias tcopy='tmux save-buffer -| pbcopy'
