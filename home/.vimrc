@@ -17,6 +17,7 @@ set t_te= t_ti=
 " plugins
 Bundle 'gmarik/vundle'
 
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'teoljungberg/vim-grep'
