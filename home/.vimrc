@@ -55,9 +55,6 @@ let g:netrw_browse_split=0
 let g:netrw_liststyle=3
 let g:netrw_banner=0
 
-" for writing in vim
-au FileType markdown,text,liquid set fo=crotqaw nolist
-
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.cache/vim/swap//
 set backupdir=~/.cache/vim/backup//
@@ -98,7 +95,6 @@ set wildignore+=public/assets/**,vendor/**,log/**,tmp/**,Cellar/**,app/assets/im
 noremap <leader>gs :Gstatus<CR>
 noremap <leader>gl :Dispatch git --no-pager log --oneline -15 <CR>
 noremap <leader>ge 0wyaw<c-w>k:Gedit <c-r>"<CR>
-au BufReadPost fugitive://* set bufhidden=delete
 
 " vim-grep
 noremap <leader>gg :Grep!<space>
@@ -133,6 +129,30 @@ inoremap <c-a> <esc>I
 cnoremap <c-e> <end>
 cnoremap <c-a> <home>
 
+" Unmappings
+noremap Q <Nop>
+noremap K <Nop>
+
+" move between panes
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+augroup vimrcEx
+  autocmd!
+  " jumps to the last known position in a file
+  autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
+
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+
+  " for writing in vim
+  autocmd FileType markdown,text,liquid set fo=crotqaw nolist
+augroup END
+
 " save last search, and cursor position.
 function! Preserve(command)
   let _s=@/
@@ -145,12 +165,6 @@ function! Preserve(command)
 endfunction
 command! StripTrailingWhitespace :call Preserve('%s/\\s\\+$//e')
 
-" jumps to the last known position in a file
-autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
 " Indent if we're at the beginning of a line. Else, do completion.
 function! InsertTabWrapper()
     let col = col('.') - 1
@@ -161,13 +175,3 @@ function! InsertTabWrapper()
     endif
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-
-" Unmappings
-noremap Q <Nop>
-noremap K <Nop>
-
-" move between panes
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
