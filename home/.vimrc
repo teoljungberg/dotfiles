@@ -149,7 +149,10 @@ endfunction
 command! StripTrailingWhitespace :call Preserve('%s/\\s\\+$//e')
 
 " jumps to the last known position in a file
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
 
 " Indent if we're at the beginning of a line. Else, do completion.
 function! InsertTabWrapper()
