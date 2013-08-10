@@ -136,9 +136,8 @@ inoremap <c-a> <esc>I
 cnoremap <c-e> <end>
 cnoremap <c-a> <home>
 
-" remove trailing whitespace
-command! StripTrailingWhitespace :call RemovePattern('%s/\\s\\+$//e')
-function! RemovePattern(command)
+" save last search, and cursor position.
+function! Preserve(command)
   let _s=@/
   let l = line('.')
   let c = col('.')
@@ -147,6 +146,7 @@ function! RemovePattern(command)
   let @/=_s
   call cursor(l, c)
 endfunction
+command! StripTrailingWhitespace :call Preserve('%s/\\s\\+$//e')
 
 " jumps to the last known position in a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
@@ -156,7 +156,6 @@ function! InsertTabWrapper()
   let col = col('.') - 1
   if !col || getline('.')[col - 1] !~ '\k' | return "\<tab>" | else | return "\<c-n>" | endif
 endfunction
-
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 " Unmappings
