@@ -1,6 +1,9 @@
-if [ -d "$HOME/.rbenv" ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
+if [ -r /usr/local/share/chruby/chruby.sh ]; then
+  source /usr/local/share/chruby/chruby.sh
+  source /usr/local/share/chruby/auto.sh
+  RUBIES=(~/.rubies/*)
+
+  chruby 2.0.0
 fi
 
 # aliases
