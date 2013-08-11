@@ -163,7 +163,7 @@ function! Preserve(command)
   let @/=_s
   call cursor(l, c)
 endfunction
-command! StripTrailingWhitespace :call Preserve('%s/\\s\\+$//e')
+command! StripTrailingWhitespace :call Preserve(':%s/\s\+$//e')
 
 " Indent if we're at the beginning of a line. Else, do completion.
 function! InsertTabWrapper()
