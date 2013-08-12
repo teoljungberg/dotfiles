@@ -123,6 +123,10 @@ command! Q q
 noremap Y y$
 noremap ö :
 
+" open files in directory of current file
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+
 " emacs movement
 inoremap <c-e> <esc>A
 inoremap <c-a> <esc>I
