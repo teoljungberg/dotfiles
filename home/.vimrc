@@ -47,7 +47,7 @@ set laststatus=2
 syntax on
 filetype plugin indent on
 set list
-set listchars=tab:>-,trail:.,extends:❯,precedes:❮
+set listchars=tab:>-,trail:.,extends:>,precedes:<
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Explore
