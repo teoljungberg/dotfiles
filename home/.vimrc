@@ -50,7 +50,7 @@ set list
 set listchars=tab:>-,trail:.,extends:>,precedes:<
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-" Explore
+" explore
 let g:netrw_browse_split=0
 let g:netrw_liststyle=3
 let g:netrw_banner=0
@@ -76,41 +76,41 @@ noremap N Nzzzv
 noremap * *zzzv
 noremap # #zzzv
 
-" Gist
+" gist
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 0
 
-" Command-t
-noremap <leader><leader> :CommandT<CR>
-noremap <leader>f :CommandTFlush<CR>:CommandT<CR>
+" command-t
+noremap <leader><leader> :CommandT<cr>
+noremap <leader>f :CommandTFlush<cr>:CommandT<cr>
 let g:CommandTMaxFiles=15000
 let g:CommandTMaxHeight=30
 let g:CommandTMatchWindowReverse=1
 let g:CommandTAlwaysShowDotFiles=1
-let g:CommandTCancelMap=['<ESC>', '<C-c>']
+let g:CommandTCancelMap=['<esc>', '<C-c>']
 set wildignore+=public/assets/**,vendor/**,log/**,tmp/**,Cellar/**,app/assets/images/**,_site/**
 
-" Fugitive
-noremap <leader>gs :Gstatus<CR>
-noremap <leader>gl :Dispatch git --no-pager log --oneline -15 <CR>
-noremap <leader>ge 0wyaw<c-w>k:Gedit <c-r>"<CR>
+" fugitive
+noremap <leader>gs :Gstatus<cr>
+noremap <leader>gl :Dispatch git --no-pager log --oneline -15 <cr>
+noremap <leader>ge 0wyaw<c-w>k:Gedit <c-r>"<cr>
 
 " vim-grep
 noremap <leader>gg :Grep!<space>
 
 " vim-test
-noremap <leader>t :RunTestFile<CR>
-noremap <leader>l :RunNearestTest<CR>
+noremap <leader>t :RunTestFile<cr>
+noremap <leader>l :RunNearestTest<cr>
 
 " Unimpaired
 map ( [
 map ) ]
 
-"LEADER bindings
+"leader bindings
 noremap <leader>sr :%s//<left>
 noremap <leader>v V`]
-noremap <leader>p :s/\v([a-z_][a-zA-Z0-9_]*) \= (.+)/let(:\1) { \2 }<CR>
+noremap <leader>p :s/\v([a-z_][a-zA-Z0-9_]*) \= (.+)/let(:\1) { \2 }<cr>
 
 " sudo to write
 cmap w!! w !sudo tee % >/dev/null<cr>
@@ -122,9 +122,11 @@ command! W w
 command! Q q
 noremap Y y$
 noremap ö :
+noremap Q <nop>
+noremap K <nop>
 
 " open files in directory of current file
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+cnoremap %% <c-r>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 
 " emacs movement
@@ -132,10 +134,6 @@ inoremap <c-e> <esc>A
 inoremap <c-a> <esc>I
 cnoremap <c-e> <end>
 cnoremap <c-a> <home>
-
-" Unmappings
-noremap Q <Nop>
-noremap K <Nop>
 
 " move between panes
 map <c-j> <c-w>j
@@ -171,13 +169,13 @@ function! Preserve(command)
 endfunction
 command! StripTrailingWhitespace :call Preserve(':%s/\s\+$//e')
 
-" Indent if we're at the beginning of a line. Else, do completion.
+" indent if we're at the beginning of a line. else, do completion.
 function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-n>"
-    endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-n>"
+  endif
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>

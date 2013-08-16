@@ -17,5 +17,5 @@ set guicursor=a:blinkon0
 
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
-  map <D-t> :CommandT<CR>
+  map <d-t> :CommandT<cr>
 endif
