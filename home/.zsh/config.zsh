@@ -19,9 +19,6 @@ export LC_ALL="en_US.UTF-8"
 export GREP_OPTIONS="--color"
 export HOMEBREW_NO_EMOJI=1
 
-# Z
-source `brew --prefix`/etc/profile.d/z.sh
-
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
