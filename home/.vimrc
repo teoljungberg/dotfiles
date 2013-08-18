@@ -81,8 +81,9 @@ let g:CommandTMaxFiles=15000
 let g:CommandTMaxHeight=30
 let g:CommandTMatchWindowReverse=1
 let g:CommandTAlwaysShowDotFiles=1
+let g:CommandTScanDotDirectories=1
 let g:CommandTCancelMap=['<esc>', '<C-c>']
-set wildignore+=public/assets/**,vendor/**,log/**,tmp/**,Cellar/**,app/assets/images/**,_site/**
+set wildignore+=.git/**,public/assets/**,vendor/**,log/**,tmp/**,Cellar/**,app/assets/images/**,_site/**,home/.vim/bundle/**,pkg/**
 
 " fugitive
 noremap <leader>gs :Gstatus<cr>
