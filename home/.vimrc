@@ -18,8 +18,6 @@ set t_te= t_ti=
 Bundle 'gmarik/vundle'
 
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
 Bundle 'teoljungberg/vim-grep'
 Bundle 'teoljungberg/vim-test'
 Bundle 'tpope/vim-commentary'
@@ -75,11 +73,6 @@ noremap n nzzzv
 noremap N Nzzzv
 noremap * *zzzv
 noremap # #zzzv
-
-" gist
-let g:gist_clip_command = 'pbcopy'
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 0
 
 " command-t
 noremap <leader><leader> :CommandT<cr>
