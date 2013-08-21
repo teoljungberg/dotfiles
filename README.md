@@ -14,7 +14,7 @@
     <td> Solarized Light </td>
     <td> git </td>
     <td> tmux </td>
-    <td> [Source Code Pro 14pt][source_code_pro] </td>
+    <td> <a href=http://blogs.adobe.com/typblography/2012/09/source-code-pro.html>Source Code Pro 14pt</a> </td>
   </tr>
 </table>
 
@@ -31,4 +31,3 @@ $ vim +BundleInstall +qall
 ```
 
 [homesick_home]:http://github.com/technicalpickles/homesick
-[source_code_pro]:http://blogs.adobe.com/typblography/2012/09/source-code-pro.html
