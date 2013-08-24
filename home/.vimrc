@@ -117,6 +117,7 @@ noremap Y y$
 noremap ö :
 noremap Q <nop>
 noremap K <nop>
+cnoremap <c-g> <c-f>
 
 " open files in directory of current file
 cnoremap %% <c-r>=expand('%:h').'/'<cr>
