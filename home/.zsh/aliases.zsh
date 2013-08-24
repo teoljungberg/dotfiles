@@ -27,7 +27,6 @@ compdef brwe=brew
 alias ga='git add'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
-alias gcm='git commit -m'
 alias gl="git l -15"
 alias gs='git status -sb'
 alias gb="git branch"
