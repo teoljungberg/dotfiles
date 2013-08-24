@@ -21,11 +21,11 @@ rename_tmux_window_to_current_dir() {
   fi
 }
 
-tarit () {
+tarit() {
   tar cvzf tmp.tgz $@
 }
 
-extract () {
+extract() {
   if [ -f $1 ]; then
     case $1 in
       *.tar.bz2)  tar -jxvf $1        ;;
@@ -44,11 +44,11 @@ extract () {
   fi
 }
 
-tmux_ssh () {
+tmux_ssh() {
   tmux new-window -n $1 "/usr/bin/ssh $*"
 }
 
-trash () {
+trash() {
   mv -fv $@ ~/.Trash
 }
 
