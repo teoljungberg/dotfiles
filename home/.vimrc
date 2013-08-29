@@ -113,6 +113,7 @@ noremap H ^
 noremap L g_
 command! W w
 command! Q q
+command! Wq wq
 noremap Y y$
 noremap ö :
 noremap Q <nop>
