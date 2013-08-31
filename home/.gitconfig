@@ -35,16 +35,5 @@
   enabled = true
 [init]
   templatedir = ~/.git_template
-[git-pair]
-  pattern = dev+%name+%name@mynewsdesk.com
-  authors = Jonas Forsberg <jonas.forsberg@mynewsdesk.com>
-  authors = Kristian Hellquist <kristian.hellquist@mynewsdesk.com>
-  authors = Richard Johansson <richard.johansson@mynewsdesk.com>
-  authors = Martin Svalin <martin.svalin@mynewsdesk.com>
-  authors = Jan Andersson <jan.andersson@mynewsdesk.com>
-  authors = Markus Nordin <markus.nordin@mynewsdesk.com>
-  authors = Billskog <david.billskog@mynewsdesk.com>
-  authors = David Wennergren <david.wennergren@mynewsdesk.com>
-  authors = Hilla Duka <hilla.duka@mynewsdesk.com>
-  authors = Teo Ljungberg <teo.ljungberg@mynewsdesk.com>
-  authors = Li Berglund <li.berglund@mynewsdesk.com>
+[grep]
+  linenumber = true
