@@ -174,3 +174,12 @@ function! InsertTabWrapper()
   endif
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+
+function! VSetSearch()
+  let temp = @@
+  normal! gvy
+  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+  let @@ = temp
+endfunction
+vnoremap * :call VSetSearch()<cr>//<cr>
+vnoremap # :call VSetSearch()<cr>??<cr>
