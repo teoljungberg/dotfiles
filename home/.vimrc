@@ -86,8 +86,6 @@ set wildignore+=.git/**,public/assets/**,vendor/**,log/**,tmp/**,Cellar/**,app/a
 
 " fugitive
 noremap <leader>gs :Gstatus<cr>
-noremap <leader>gl :Dispatch git --no-pager log --oneline -15 <cr>
-noremap <leader>ge 0wyaw<c-w>k:Gedit <c-r>"<cr>
 
 " vim-grep
 noremap <leader>gg :Grep!<space>
