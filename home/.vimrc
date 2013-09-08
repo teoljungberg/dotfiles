@@ -82,6 +82,8 @@ let g:CommandTMatchWindowReverse=1
 let g:CommandTAlwaysShowDotFiles=1
 let g:CommandTScanDotDirectories=1
 let g:CommandTCancelMap=['<esc>', '<C-c>']
+let g:CommandTSelectNextMap = ['<C-j>', '<ESC>OB']
+let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
 set wildignore+=.git/**,public/assets/**,vendor/**,log/**,tmp/**,Cellar/**,app/assets/images/**,_site/**,home/.vim/bundle/**,pkg/**
 
 " fugitive

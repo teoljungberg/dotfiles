@@ -1,6 +1,9 @@
 # because vim rocks
 bindkey -v
 
+# to make vim behave under xterm
+stty -ixon
+
 # completion
 autoload -Uz compinit && compinit
 
