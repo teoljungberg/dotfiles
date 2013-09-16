@@ -18,6 +18,8 @@ set t_te= t_ti=
 Bundle 'gmarik/vundle'
 
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'teoljungberg/vim-grep'
 Bundle 'teoljungberg/vim-test'
 Bundle 'tpope/vim-commentary'
