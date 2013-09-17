@@ -98,9 +98,13 @@ noremap <leader>gg :Grep!<space>
 noremap <leader>t :RunTestFile<cr>
 noremap <leader>l :RunNearestTest<cr>
 
-" Unimpaired
-map ( [
-map ) ]
+" unimpaired
+for s:c in map(range(65,90) + range(97,122),'nr2char(v:val)')
+  exec 'nmap ('.s:c.' ['.s:c
+  exec 'xmap ('.s:c.' ['.s:c
+  exec 'nmap )'.s:c.' ]'.s:c
+  exec 'xmap )'.s:c.' ]'.s:c
+endfor
 
 " surround
 let g:surround_{char2nr('%')} = "<% \r %>"
