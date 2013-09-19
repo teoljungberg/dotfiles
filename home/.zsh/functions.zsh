@@ -48,10 +48,6 @@ tmux_ssh() {
   tmux new-window -n $1 "/usr/bin/ssh $*"
 }
 
-trash() {
-  mv -fv $@ ~/.Trash
-}
-
 be() {
   if [[ -a Gemfile ]]; then
     bundle exec $*
