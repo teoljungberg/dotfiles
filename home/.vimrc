@@ -130,6 +130,7 @@ cnoremap <c-g> <c-f>
 " open files in directory of current file
 cnoremap %% <c-r>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
+map <leader>n :next %%
 
 " emacs movement
 inoremap <c-e> <esc>A
