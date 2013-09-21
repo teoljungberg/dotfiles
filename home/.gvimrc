@@ -12,7 +12,6 @@ set go-=R
 set go-=e
 set autoread
 autocmd FocusLost * silent! wall
-set shell=$SHELL\ -l
 set guicursor=a:blinkon0
 
 if has("gui_macvim")
