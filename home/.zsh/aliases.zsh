@@ -13,10 +13,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../../'
 
-# small application aliases
-alias pbp="pbpaste"
-alias pbc="pbcopy"
-
 # Typos
 alias kilall="killall"
 compdef kilall=killall
