@@ -7,7 +7,6 @@ if [ -r /usr/local/share/chruby/chruby.sh ]; then
 fi
 
 # aliases
-alias cap="be cap"
 alias s='spring'
 alias sc='spring rails console'
 
