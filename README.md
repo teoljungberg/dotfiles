@@ -26,8 +26,8 @@ I use [homesick][homesick_home] to perform the symlinking
 $ homesick clone metamorfos/dotfiles
 $ homesick symlink metamorfos/dotfiles
 $ mkdir -p ~/.cache/vim/{undo,backup,swap}
-$ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-$ vim +BundleInstall +qall
+$ git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+$ vim +NeoBundleInstall +qall
 ```
 
 [homesick_home]:http://github.com/technicalpickles/homesick
