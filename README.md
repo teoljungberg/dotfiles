@@ -1,20 +1,20 @@
 ## Software
 <table>
   <tr>
-    <th> Shell </th>
-    <th> Editor </th>
-    <th> Colorscheme </th>
-    <th> Version control </th>
-    <th> Multiplexer </th>
-    <th> Font </th>
+    <th>Shell</th>
+    <th>Editor</th>
+    <th>Colorscheme</th>
+    <th>Version control</th>
+    <th>Multiplexer</th>
+    <th>Font</th>
   </tr>
   <tr>
-    <td> zsh </td>
-    <td> vim </td>
-    <td> Solarized Light </td>
-    <td> git </td>
-    <td> tmux </td>
-    <td> <a href=http://blogs.adobe.com/typblography/2012/09/source-code-pro.html>Source Code Pro 14pt</a> </td>
+    <td>zsh</td>
+    <td>vim</td>
+    <td>Solarized Light</td>
+    <td>git</td>
+    <td>tmux</td>
+    <td><a href=http://blogs.adobe.com/typblography/2012/09/source-code-pro.html>Source Code Pro 14pt</a></td>
   </tr>
 </table>
 
