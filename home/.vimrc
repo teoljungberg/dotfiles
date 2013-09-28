@@ -158,7 +158,7 @@ augroup vimrcEx
   autocmd BufReadPost fugitive://* set bufhidden=delete
 
   " for writing in vim
-  autocmd FileType markdown,text,liquid set fo=crotqaw nolist
+  autocmd FileType markdown,text,liquid set fo=crotqaw
   autocmd FileType gitcommit,qf set nolist
   autocmd FileType help,gitcommit,qf map <silent> <buffer> q :q<CR>
 
