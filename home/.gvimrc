@@ -1,4 +1,3 @@
-colo solarized
 set background=light
 set anti
 set guifont=Source\ Code\ Pro:h14

@@ -11,7 +11,7 @@
   <tr>
     <td>zsh</td>
     <td>vim</td>
-    <td>Solarized Light</td>
+    <td>Solarized Dark</td>
     <td>git</td>
     <td>tmux</td>
     <td><a href=http://blogs.adobe.com/typblography/2012/09/source-code-pro.html>Source Code Pro 14pt</a></td>
