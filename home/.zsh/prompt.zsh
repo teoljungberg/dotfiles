@@ -1,7 +1,7 @@
 #!/bin/sh
 
 function precmd {
-  rename_tmux_window_to_current_dir
+  print -Pn "\e]2;%c\a"
   PROMPT="%c %{$fg[cyan]%}$(git_branch)%{$reset_color%}%# "
 }
 

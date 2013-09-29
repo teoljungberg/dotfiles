@@ -12,15 +12,6 @@ c() {
 _c() { _files -W ~/code -/; }
 compdef _c c
 
-rename_tmux_window_to_current_dir() {
-  if [ "$TERM" = "screen-256color" ]; then
-    if [ "$PWD" != "$LPWD" ]; then
-      LPWD="$PWD"
-      tmux rename-window ${PWD//*\//}
-    fi
-  fi
-}
-
 extract() {
   if [ -f $1 ]; then
     case $1 in
