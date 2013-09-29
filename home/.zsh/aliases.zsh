@@ -38,11 +38,3 @@ alias gp='git push'
 compdef _git gp=git-push
 alias go='git checkout'
 compdef _git go=git-checkout
-
-# tmux
-case "$TERM" in
-  screen-*)
-    alias nssh=/usr/bin/ssh "$@"
-    alias ssh="tmux_ssh"
-    ;;
-esac

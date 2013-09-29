@@ -31,10 +31,6 @@ extract() {
   fi
 }
 
-tmux_ssh() {
-  tmux new-window -n $1 "/usr/bin/ssh $*"
-}
-
 be() {
   if [[ -a Gemfile ]]; then
     bundle exec $*
