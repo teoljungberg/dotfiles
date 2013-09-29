@@ -21,10 +21,6 @@ rename_tmux_window_to_current_dir() {
   fi
 }
 
-tarit() {
-  tar cvzf tmp.tgz $@
-}
-
 extract() {
   if [ -f $1 ]; then
     case $1 in
