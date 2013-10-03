@@ -38,7 +38,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'wincent/Command-T'
+NeoBundle 'wincent/Command-T', { 'build' : { 'mac' : 'ruby ruby/command-t/extconf.rb && make -f ruby/command-t/Makefile' } }
 runtime macros/matchit.vim
 
 colo solarized " visuals
@@ -133,6 +133,7 @@ noremap Q <nop>
 noremap K <nop>
 cnoremap <c-g> <c-f>
 noremap g" /\v<<C-r>*><cr>
+vnoremap s "_c
 
 " open files in directory of current file
 cnoremap %% <c-r>=expand('%:h').'/'<cr>
