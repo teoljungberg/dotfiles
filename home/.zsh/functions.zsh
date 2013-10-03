@@ -31,7 +31,7 @@ extract() {
   fi
 }
 
-be() {
+b() {
   if [[ -a Gemfile ]]; then
     bundle exec $*
   else
