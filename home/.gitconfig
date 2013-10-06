@@ -15,7 +15,8 @@
   unstage = reset HEAD --
   delete-remote-branch = push origin --delete
 
-  l = !source ~/.githelpers && pretty_git_log
+  lg = !source ~/.githelpers && pretty_git_log
+  l = !source ~/.githelpers && short_git_log
   la = !git l --all
   undeployed = !git l `git tag|grep production|tail -n 1`..HEAD
   unpushed = !git l origin/`git symbolic-ref HEAD 2> /dev/null | awk -F"/" '{ print $3 }'`..
