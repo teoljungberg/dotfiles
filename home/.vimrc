@@ -109,7 +109,7 @@ map ) ]
 " surround
 let g:surround_{char2nr('%')} = "<% \r %>"
 let g:surround_{char2nr('=')} = "<%= \r %>"
-let g:surround_{char2nr('=')} = "<%- \r %>"
+let g:surround_{char2nr('-')} = "<%- \r %>"
 
 "leader bindings
 noremap <leader>sr :%s//<left>
