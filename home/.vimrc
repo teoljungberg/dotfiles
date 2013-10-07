@@ -51,6 +51,7 @@ filetype plugin indent on
 set list
 set listchars=tab:>-,trail:.,extends:>,precedes:<
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set winwidth=100
 
 " explore
 let g:netrw_browse_split=0
