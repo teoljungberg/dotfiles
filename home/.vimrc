@@ -163,10 +163,12 @@ augroup vimrcEx
 
   autocmd BufReadPost fugitive://* set bufhidden=delete
 
+  autocmd FileType help,gitcommit,qf map <silent> <buffer> q :q<CR>
+  autocmd BufEnter fugitive://* map <silent> <buffer> q :q<cr>
+
   " for writing in vim
   autocmd FileType markdown,text,liquid set fo=crotqaw
   autocmd FileType gitcommit,qf set nolist
-  autocmd FileType help,gitcommit,qf map <silent> <buffer> q :q<CR>
 
   autocmd FileType html,javascript,css,markdown,liquid set ai sw=4 sts=4 et
 augroup END
