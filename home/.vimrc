@@ -116,7 +116,6 @@ let g:surround_{char2nr('#')} = "#{\r}"
 "leader bindings
 noremap <leader>sr :%s//<left>
 noremap <leader>v V`]
-noremap <leader>p :s/\v([a-z_][a-zA-Z0-9_]*) \= (.+)/let(:\1) { \2 }<cr>
 
 " sudo to write
 cmap w!! w !sudo tee % >/dev/null<cr>
@@ -203,3 +202,8 @@ function! VSetSearch()
 endfunction
 vnoremap * :call VSetSearch()<cr>//<cr>
 vnoremap # :call VSetSearch()<cr>??<cr>
+
+function! PromoteToLet()
+  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+endfunction
+command! PromoteToLet :call PromoteToLet()
