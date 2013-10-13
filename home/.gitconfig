@@ -11,6 +11,7 @@
   branch = auto
   ui = true
 [alias]
+  aa = add --all
   amend = commit -v --amend
   unstage = reset HEAD --
   delete-remote-branch = push origin --delete

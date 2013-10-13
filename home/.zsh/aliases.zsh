@@ -20,7 +20,7 @@ alias brwe="brew"
 compdef brwe=brew
 
 # Git aliases
-alias ga='git add'
+alias ga='git aa'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gl="git l -15"
