@@ -14,6 +14,7 @@ set ttimeout
 set ttimeoutlen=50
 set t_te= t_ti=
 set splitright
+set tags=.git/tags
 
 " plugins
 NeoBundleFetch 'Shougo/neobundle.vim'
