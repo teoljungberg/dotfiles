@@ -74,6 +74,7 @@ set nowrap
 set ignorecase " search
 set incsearch
 set smartcase
+set gdefault
 noremap n nzzzv
 noremap N Nzzzv
 noremap * *zzzv
@@ -114,7 +115,7 @@ let g:surround_{char2nr('-')} = "<%- \r %>"
 let g:surround_{char2nr('#')} = "#{\r}"
 
 "leader bindings
-noremap <leader>sr :%s//g<left><left>
+noremap <leader>sr :%s//<left>
 noremap <leader>v V`]
 
 " sudo to write
