@@ -144,7 +144,6 @@ map <leader>n :next %%
 " emacs movement
 inoremap <c-e> <esc>A
 inoremap <c-a> <esc>I
-cnoremap <c-e> <end>
 cnoremap <c-a> <home>
 
 " move between panes
