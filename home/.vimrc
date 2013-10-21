@@ -103,7 +103,7 @@ noremap <leader>gg :Grep!<space>
 noremap <leader>t :RunTestFile<cr>
 noremap <leader>l :RunNearestTest<cr>
 
-" Unimpaired
+" unimpaired
 map ( [
 map ) ]
 

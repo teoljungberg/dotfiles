@@ -1,28 +1,28 @@
-# Development tools #
+# development tools #
 #####################
 Vagrantfile
 .vagrant
 .rake_tasks
 .ruby-version
 
-# Logs and databases #
+# logs and databases #
 ######################
 *.log
 *.sqlite
 
-#   Temporary files    #
+#   temporary files    #
 # *looking at you vim* #
 ########################
 *~
 .netrwhist
 .VimballRecord
 
-# OS generated files #
+# os generated files #
 ######################
 .DS_Store*
 Icon?
 
-# Files that might appear on external disk #
+# files that might appear on external disk #
 ############################################
 .Spotlight-V100
 .Trashes
