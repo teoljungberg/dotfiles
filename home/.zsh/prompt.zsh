@@ -1,8 +1,8 @@
 #!/bin/sh
 
 function precmd {
-  print -Pn "\e]2;%c\a"
-  print -Pn "\033]0;%c\007"
+  print -Pn "\e]2;%c\a" # tmux window
+  print -Pn "\033]0;%c\007" # iterm tab
   PROMPT="%c %{$fg[cyan]%}$(git_branch)%{$reset_color%}%# "
 }
 
