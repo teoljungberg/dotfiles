@@ -170,6 +170,8 @@ augroup vimrcEx
   autocmd FileType gitcommit,qf set nolist
 
   autocmd FileType html,javascript,css,markdown,liquid set ai sw=4 sts=4 et
+
+  autocmd FileType ruby imap <silent> <buffer> ö :
 augroup END
 
 " save last search, and cursor position.
