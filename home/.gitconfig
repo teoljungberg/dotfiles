@@ -15,6 +15,7 @@
   amend = commit -v --amend
   unstage = reset HEAD --
   delete-remote-branch = push origin --delete
+  reset-author = commit --amend --reset-author --no-edit
 
   lg = !source ~/.githelpers && pretty_git_log
   l = !source ~/.githelpers && short_git_log
