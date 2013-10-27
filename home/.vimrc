@@ -166,7 +166,7 @@ augroup vimrcEx
   autocmd FileType git map <silent> <buffer> q :bprev<CR>
 
   " for writing in vim
-  autocmd FileType markdown,text,liquid setlocal fo=crotqaw
+  autocmd FileType markdown,text,liquid setlocal fo=crotqaw comments=n:&gt;
   autocmd FileType gitcommit,qf setlocal nolist
 
   autocmd FileType html,javascript,css,markdown,liquid setlocal ai sw=4 sts=4 et
