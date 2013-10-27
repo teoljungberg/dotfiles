@@ -166,10 +166,10 @@ augroup vimrcEx
   autocmd FileType git map <silent> <buffer> q :bprev<CR>
 
   " for writing in vim
-  autocmd FileType markdown,text,liquid set fo=crotqaw
-  autocmd FileType gitcommit,qf set nolist
+  autocmd FileType markdown,text,liquid setlocal fo=crotqaw
+  autocmd FileType gitcommit,qf setlocal nolist
 
-  autocmd FileType html,javascript,css,markdown,liquid set ai sw=4 sts=4 et
+  autocmd FileType html,javascript,css,markdown,liquid setlocal ai sw=4 sts=4 et
 
   autocmd FileType ruby imap <silent> <buffer> ö :
 augroup END
