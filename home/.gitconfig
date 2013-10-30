@@ -15,6 +15,7 @@
   amend = commit -v --amend
   unstage = reset HEAD --
   reset-author = commit --amend --reset-author --no-edit
+  pr = pull --rebase
 
   lg = !source ~/.githelpers && pretty_git_log
   l = !source ~/.githelpers && short_git_log
