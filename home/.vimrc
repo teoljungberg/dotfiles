@@ -99,6 +99,7 @@ noremap <leader>gd :Gdiff<cr>
 
 " vim-grep
 noremap <leader>gg :Grep!<space>
+noremap <leader>ga :GrepAdd!<space>
 
 " vim-test
 noremap <leader>t :RunTestFile<cr>
