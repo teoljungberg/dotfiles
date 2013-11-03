@@ -20,11 +20,9 @@
 
 
 ## Setup
-I use [homesick][homesick_home] to perform the symlinking
+I use `linker.sh` to perform the symlinking
 
 ```bash
-$ homesick clone metamorfos/dotfiles
-$ homesick symlink metamorfos/dotfiles
 $ mkdir -p ~/.cache/vim/{undo,backup,swap}
 $ git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 $ vim +NeoBundleInstall +qall
