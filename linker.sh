@@ -7,7 +7,7 @@ function symlink {
 for file in home/.[^.]*; do
   path="$(pwd)/$file"
   base=$(basename $file)
-  target="$HOME/$(basename $file)"
+  target="$HOME/$base"
 
   if [[ -h $target && ($(readlink $target) == $path)]]; then
     echo "~/$base is symlinked to your dotfiles."
