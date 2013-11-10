@@ -12,7 +12,7 @@ for file in home/.[^.]*; do
   if [[ -h $target && ($(readlink $target) == $path)]]; then
     echo "~/$base is symlinked to your dotfiles."
   elif [[ -f $target && $(md5 $path) == $(md5 $target) ]]; then
-    echo "~/$base exists and was identical to your dotfile. Overriding with symlink."
+    echo "~/$base exists and is identical. Overriding"
     symlink $path $target
   elif [[ -a $target ]]; then
     read -p "~/$base exists and differs from your dotfile. Override? [yn]" -n 1
@@ -21,7 +21,7 @@ for file in home/.[^.]*; do
       symlink $path $target
     fi
   else
-    echo "~/$base does not exist. Symlinking to dotfile."
+    echo "~/$base does not exist. Symlinking"
     symlink $path $target
   fi
 done
