@@ -39,6 +39,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'wincent/Command-T', { 'build' : { 'mac' : 'ruby ruby/command-t/extconf.rb && make -f ruby/command-t/Makefile' } }
 runtime macros/matchit.vim
 
@@ -114,6 +115,12 @@ let g:surround_{char2nr('%')} = "<% \r %>"
 let g:surround_{char2nr('=')} = "<%= \r %>"
 let g:surround_{char2nr('c')} = "<%- \r %>"
 let g:surround_{char2nr('#')} = "#{\r}"
+
+" nerdtree
+noremap <silent> <leader>n :NERDTreeToggle<cr>
+let NERDTreeChDirMode=1
+let NERDTreeMinimalUI=1
+let NERDTreeWinPos='right'
 
 "leader bindings
 noremap <leader>sr :%s//<left>
