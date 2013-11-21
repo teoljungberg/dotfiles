@@ -165,7 +165,7 @@ augroup vimrcEx
   autocmd!
   " jumps to the last known position in a file
   autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
         \   exe "normal g`\"" |
         \ endif
 
