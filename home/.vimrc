@@ -138,6 +138,7 @@ command! Wq wq
 command! Wqa wqa
 noremap Y y$
 noremap ö :
+noremap Ö :
 noremap å <C-]>
 noremap Q <nop>
 noremap K <nop>
