@@ -124,6 +124,9 @@ let NERDTreeChDirMode=1
 let NERDTreeMinimalUI=1
 let NERDTreeWinPos='right'
 
+" dispatch
+noremap <silent> <leader>c :Copen!<cr>
+
 "leader bindings
 noremap <leader>sr :%s//<left>
 noremap <leader>v V`]
