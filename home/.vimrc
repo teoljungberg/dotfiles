@@ -25,6 +25,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'teoljungberg/vim-grep'
+NeoBundle 'teoljungberg/vim-visual-star-search'
 NeoBundle 'teoljungberg/vim-test'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-commentary'
@@ -182,40 +183,3 @@ augroup vimrcEx
 
   autocmd FileType ruby imap <silent> <buffer> ö :
 augroup END
-
-" save last search, and cursor position.
-function! Preserve(command)
-  let _s=@/
-  let l = line('.')
-  let c = col('.')
-  execute a:command
-  " restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
-endfunction
-command! StripTrailingWhitespace :call Preserve(':%s/\s\+$//e')
-
-" indent if we're at the beginning of a line. else, do completion.
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-n>"
-  endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-
-function! VSetSearch()
-  let temp = @@
-  normal! gvy
-  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-  let @@ = temp
-endfunction
-vnoremap * :call VSetSearch()<cr>//<cr>
-vnoremap # :call VSetSearch()<cr>??<cr>
-
-function! PromoteToLet()
-  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-endfunction
-command! PromoteToLet :call PromoteToLet()
