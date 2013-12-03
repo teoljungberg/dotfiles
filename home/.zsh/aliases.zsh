@@ -26,6 +26,7 @@ alias gca='git commit -v -a'
 alias gl="git l -15"
 alias gs='git status -sb'
 alias gb="git branch"
+alias gg="git grep"
 
 # with completion
 alias g='git'

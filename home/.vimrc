@@ -148,6 +148,7 @@ noremap Q <nop>
 noremap K <nop>
 cnoremap <c-g> <c-f>
 noremap g" /\v<<C-r>*><cr>
+noremap <leader>g" :Grep! "<C-r>*"<cr>
 vnoremap s "_c
 noremap S "_S
 
