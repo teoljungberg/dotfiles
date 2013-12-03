@@ -150,6 +150,7 @@ cnoremap <c-g> <c-f>
 noremap g" /\v<<C-r>*><cr>
 noremap <leader>g" :Grep! "<C-r>*"<cr>
 vnoremap s "_c
+noremap ' `
 
 " open files in directory of current file
 cnoremap %% <c-r>=expand('%:h').'/'<cr>
