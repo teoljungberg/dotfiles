@@ -135,8 +135,6 @@ noremap <leader>v V`]
 cmap w!! w !sudo tee % >/dev/null<cr>
 
 " convenience mappings
-noremap H ^
-noremap L g_
 command! W w
 command! Q q
 command! Wq wq
@@ -151,6 +149,7 @@ noremap g" /\v<<C-r>*><cr>
 noremap <leader>g" :Grep! "<C-r>*"<cr>
 vnoremap s "_c
 noremap ' `
+noremap 0 ^
 
 " open files in directory of current file
 cnoremap %% <c-r>=expand('%:h').'/'<cr>
