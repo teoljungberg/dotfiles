@@ -4,14 +4,11 @@ set rtp+=~/.vim/bundle/neobundle.vim
 call neobundle#rc(expand('~/.vim/bundle/'))
 set clipboard=unnamed
 set history=1000
-set encoding=utf-8
 let mapleader=" "
 set backspace=indent,eol,start
 set wildmenu
 set hidden
-set ttyfast
-set ttimeout
-set ttimeoutlen=50
+set ttimeout ttimeoutlen=50
 set t_te= t_ti=
 set splitright
 set tags=.git/tags,tags
@@ -47,7 +44,6 @@ runtime macros/matchit.vim
 
 colo solarized " visuals
 set t_Co=256
-set background=light
 set scrolljump=-50
 set laststatus=2
 syntax on

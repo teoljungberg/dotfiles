@@ -1,8 +1,5 @@
 colo solarized
-set background=light
-set anti
 set guifont=Inconsolata-dz:h14
-set laststatus=2
 set lines=45 columns=120
 set go-=T
 set go-=l
