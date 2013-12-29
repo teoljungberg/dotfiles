@@ -167,7 +167,7 @@ augroup vimrcEx
   autocmd FileType markdown,text,liquid setlocal fo=crotqaw comments=n:&gt;
   autocmd FileType gitcommit,qf,git setlocal nolist
 
-  autocmd FileType html,javascript,css,markdown,liquid setlocal ai sw=4 sts=4 et
+  autocmd FileType html,javascript,css,markdown,liquid setlocal sts=4 ts=4 sw=4
 
   autocmd FileType ruby imap <silent> <buffer> ö :
 augroup END
