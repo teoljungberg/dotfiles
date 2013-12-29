@@ -40,8 +40,8 @@ NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'wincent/Command-T', { 'build' : { 'mac' : 'ruby ruby/command-t/extconf.rb && make -f ruby/command-t/Makefile' } }
 runtime macros/matchit.vim
 
@@ -56,11 +56,6 @@ set list
 set listchars=tab:>-,trail:.,extends:>,precedes:<
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set winwidth=100
-
-" explore
-let g:netrw_browse_split=0
-let g:netrw_liststyle=3
-let g:netrw_banner=0
 
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.cache/vim/swap//
@@ -117,12 +112,6 @@ let g:surround_{char2nr('%')} = "<% \r %>"
 let g:surround_{char2nr('=')} = "<%= \r %>"
 let g:surround_{char2nr('c')} = "<%- \r %>"
 let g:surround_{char2nr('#')} = "#{\r}"
-
-" nerdtree
-noremap <silent> <leader>n :NERDTreeToggle<cr>
-let NERDTreeChDirMode=1
-let NERDTreeMinimalUI=1
-let NERDTreeWinPos='right'
 
 " dispatch
 noremap <silent> <leader>c :Copen!<cr>
