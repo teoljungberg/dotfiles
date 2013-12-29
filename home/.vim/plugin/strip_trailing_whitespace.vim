@@ -9,4 +9,3 @@ function! Preserve(command)
   call cursor(l, c)
 endfunction
 command! StripTrailingWhitespace :call Preserve(':%s/\s\+$//e')
-
