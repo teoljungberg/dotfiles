@@ -57,8 +57,8 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set winwidth=100
 
 set noswapfile
+set nobackup
 set backupskip=/tmp/*,/private/tmp/*
-set backupdir=~/.cache/vim/backup//
 set undodir=~/.cache/vim/undo//
 
 set smartindent
