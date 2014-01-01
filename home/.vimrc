@@ -11,7 +11,7 @@ set hidden
 set ttimeout ttimeoutlen=50
 set t_te= t_ti=
 set splitright
-set tags=.git/tags,tags
+set tags=.git/tags
 set shiftround
 
 " plugins
