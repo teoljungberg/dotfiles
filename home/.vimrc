@@ -110,11 +110,12 @@ let g:surround_{char2nr('c')} = "<%- \r %>"
 let g:surround_{char2nr('#')} = "#{\r}"
 
 " dispatch
-noremap <silent> <leader>c :Copen!<cr>
+noremap <silent> <leader>C :Copen!<cr>
 
 "leader bindings
 noremap <leader>sr :%s//<left>
 noremap <leader>v V`]
+noremap <silent> <leader>c :copen<cr>
 
 " sudo to write
 cmap w!! w !sudo tee % >/dev/null<cr>
