@@ -90,6 +90,7 @@ set wildignore+=.git/**,public/assets/**,vendor/**,log/**,tmp/**,Cellar/**,app/a
 noremap <leader>gs :Gstatus<cr>
 noremap <leader>gd :Gdiff<cr>
 noremap <leader>gi :Git<space>
+noremap <leader>gl :Glog -15 --<cr>
 
 " vim-grep
 noremap <leader>gg :Grep!<space>
