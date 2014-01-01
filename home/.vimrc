@@ -35,6 +35,7 @@ NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-vinegar'
@@ -58,10 +59,6 @@ set directory=~/.cache/vim/swap//
 set backupdir=~/.cache/vim/backup//
 set undodir=~/.cache/vim/undo//
 
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
 set smartindent
 set nowrap
 
@@ -166,8 +163,6 @@ augroup vimrcEx
   " for writing in vim
   autocmd FileType markdown,text,liquid setlocal fo=crotqaw comments=n:&gt;
   autocmd FileType gitcommit,qf,git setlocal nolist
-
-  autocmd FileType html,javascript,css,markdown,liquid setlocal sts=4 ts=4 sw=4
 
   autocmd FileType ruby imap <silent> <buffer> ö :
 augroup END
