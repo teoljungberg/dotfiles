@@ -13,6 +13,8 @@ set t_te= t_ti=
 set splitright
 set tags=.git/tags
 set shiftround
+set autoread
+set updatetime=2000
 
 " plugins
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -165,4 +167,6 @@ augroup vimrcEx
   autocmd FileType gitcommit,qf,git setlocal nolist
 
   autocmd FileType ruby imap <silent> <buffer> ö :
+
+  autocmd WinEnter,BufWinEnter,CursorHold * silent! checktime
 augroup END
