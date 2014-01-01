@@ -23,7 +23,7 @@
 I use `linker.sh` to perform the symlinking
 
 ```bash
-$ mkdir -p ~/.cache/vim/{undo,backup,swap}
+$ mkdir -p ~/.cache/vim/{undo,backup}
 $ git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 $ vim +NeoBundleInstall +qall
 ```

@@ -56,8 +56,8 @@ set listchars=tab:>-,trail:.,extends:>,precedes:<
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set winwidth=100
 
+set noswapfile
 set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.cache/vim/swap//
 set backupdir=~/.cache/vim/backup//
 set undodir=~/.cache/vim/undo//
 
