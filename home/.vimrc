@@ -106,7 +106,6 @@ map ) ]
 " surround
 let g:surround_{char2nr('%')} = "<% \r %>"
 let g:surround_{char2nr('=')} = "<%= \r %>"
-let g:surround_{char2nr('c')} = "<%- \r %>"
 let g:surround_{char2nr('#')} = "#{\r}"
 
 " dispatch
