@@ -83,7 +83,12 @@ let g:CommandTScanDotDirectories=1
 let g:CommandTCancelMap=['<esc>', '<C-c>']
 let g:CommandTSelectNextMap = ['<C-j>', '<ESC>OB']
 let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
-set wildignore+=.git/**,public/assets/**,vendor/**,tmp/**,Cellar/**,app/assets/images/**,_site/**,home/.vim/bundle/**,pkg/**,**/*.netrw*
+set wildignore+=.git/**
+set wildignore+=**/public/assets/**,**/app/assets/images/**
+set wildignore+=**/vendor/**
+set wildignore+=**/tmp/**,**/pkg/**
+set wildignore+=**/Cellar/**,**/home/.vim/bundle/**,**/_site/**
+set wildignore+=**/*.netrw*,**/*.DS_Store
 
 " fugitive
 noremap <leader>gs :Gstatus<cr>
