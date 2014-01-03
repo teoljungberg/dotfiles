@@ -162,7 +162,7 @@ augroup vimrcEx
   autocmd FileType help,gitcommit,qf map <silent> <buffer> q :q<CR>
 
   " for writing in vim
-  autocmd FileType markdown,text,liquid setlocal fo=crotqaw comments=n:&gt;
+  autocmd FileType markdown,text,liquid setlocal fo=crotqaw commentstring=\>%s
   autocmd FileType gitcommit,qf,git setlocal nolist
 
   autocmd FileType ruby imap <silent> <buffer> ö :
