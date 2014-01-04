@@ -157,8 +157,9 @@ map <c-h> <c-w>h
 augroup vimrcEx
   autocmd!
   " jumps to the last known position in a file
+  let blacklist = ['gitcommit', 'gitrebase']
   autocmd BufReadPost *
-        \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+        \ if index(blacklist, &ft) < 0 && line("'\"") > 0 && line("'\"") <= line("$") |
         \   exe "normal g`\"" |
         \ endif
 
