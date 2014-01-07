@@ -21,5 +21,5 @@ export RUBY_HEAP_FREE_MIN=500000
 # to install a shared gem:
 #       $ gem install bundler -i ~/.gem/shared
 if [ -d ~/.gem/shared ]; then
-  export GEM_PATH="$HOME/.gem/shared:$GEM_PATH"
+  export GEM_PATH="$GEM_PATH:$HOME/.gem/shared"
 fi
