@@ -120,6 +120,7 @@ noremap <silent> <leader>C :Copen!<cr>
 noremap <leader>sr :%s//<left>
 noremap <leader>v V`]
 noremap <silent> <leader>c :copen<cr>
+noremap <silent> <leader>o :only<cr>
 
 " sudo to write
 cmap w!! w !sudo tee % >/dev/null<cr>
