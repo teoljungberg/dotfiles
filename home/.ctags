@@ -1,4 +1,5 @@
 --regex-ruby=/(^|[:;])[ \t]*([A-Z][[:alnum:]_]+) *=/\2/c,class,constant/
+--regex-ruby=/^[ \t]*attr_(reader|writer|accessor) (:[a-z0-9_]+, )*:([a-z0-9_]+)/\3/A,attr/
 --exclude=*.min.js
 --exclude=jquery.*.js
 --exclude=jquery-*.js
