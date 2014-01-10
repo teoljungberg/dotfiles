@@ -173,7 +173,5 @@ augroup vimrcEx
   autocmd FileType markdown,text,liquid setlocal fo=crotqaw commentstring=\>%s
   autocmd FileType gitcommit,qf,git setlocal nolist
 
-  autocmd FileType ruby imap <silent> <buffer> ö :
-
   autocmd WinEnter,BufWinEnter,CursorHold * silent! checktime
 augroup END
