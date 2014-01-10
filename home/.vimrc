@@ -46,6 +46,7 @@ NeoBundle 'wincent/Command-T', { 'build' : { 'mac' : 'ruby ruby/command-t/extcon
 runtime macros/matchit.vim
 
 colo solarized " visuals
+set background=light
 set t_Co=256
 set scrolljump=-50
 set laststatus=2
