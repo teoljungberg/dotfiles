@@ -117,6 +117,9 @@ let g:surround_{char2nr('#')} = "#{\r}"
 " dispatch
 noremap <silent> <leader>C :Copen!<cr>
 
+" netrw
+let g:netrw_localrmdir = "rm -rf"
+
 "leader bindings
 noremap <leader>sr :%s//<left>
 noremap <leader>v V`]
