@@ -126,9 +126,6 @@ noremap <leader>v V`]
 noremap <silent> <leader>c :copen<cr>
 noremap <silent> <leader>o :only<cr>
 
-" sudo to write
-cmap w!! w !sudo tee % >/dev/null<cr>
-
 " convenience mappings
 command! W w
 command! Q q
