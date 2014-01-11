@@ -158,13 +158,6 @@ map <c-h> <c-w>h
 
 augroup vimrcEx
   autocmd!
-  " jumps to the last known position in a file
-  let blacklist = ['gitcommit', 'gitrebase']
-  autocmd BufReadPost *
-        \ if index(blacklist, &ft) < 0 && line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal g`\"" |
-        \ endif
-
   autocmd BufReadPost fugitive://* set bufhidden=delete
 
   autocmd FileType help,gitcommit,qf map <silent> <buffer> q :q<CR>
