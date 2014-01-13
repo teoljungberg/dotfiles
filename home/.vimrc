@@ -23,6 +23,7 @@ NeoBundle 'Shougo/vimproc', { 'build' : { 'mac' : 'make -f make_mac.mak' } }
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'teoljungberg/vim-grep'
 NeoBundle 'teoljungberg/vim-visual-star-search'
