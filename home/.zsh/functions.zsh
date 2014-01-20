@@ -42,3 +42,14 @@ b() {
 gci() {
   git commit -m "$*"
 }
+
+# No arguments: `git status`
+# With arguments: acts like `git`
+g() {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status -sb
+  fi
+}
+compdef g=git

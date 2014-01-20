@@ -24,13 +24,10 @@ alias ga='git aa'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gl="git l -15"
-alias gs='git status -sb'
 alias gb="git branch"
 alias gg="git grep"
 
 # with completion
-alias g='git'
-compdef g=git
 alias gd='git diff'
 compdef _git gd=git-diff
 alias gdc='git diff --cached'
