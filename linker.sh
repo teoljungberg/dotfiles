@@ -10,12 +10,12 @@ for file in home/.[^.]*; do
   target="$HOME/$base"
 
   if [[ -h $target && ($(readlink $target) == $path)]]; then
-    echo "~/$base is symlinked to $path"
+    echo "~/$base is symlinked to home/$base"
   elif [[ -f $target && $(md5 $path) == $(md5 $target) ]]; then
     echo "~/$base exists and is identical. Overriding"
     symlink $path $target
   elif [[ -a $target ]]; then
-    read -p "~/$base exists and differs from $path. Override? [yn]" -n 1
+    read -p "~/$base exists and differs from home/$base Override? [yn]" -n 1
 
     if [[ $REPLY =~ [yY]* ]]; then
       symlink $path $target
