@@ -141,6 +141,8 @@ cnoremap <c-g> <c-f>
 noremap g" /\v<<C-r>*><cr>
 noremap ' `
 noremap 0 ^
+command! -complete=tag -nargs=1 Tag tag <args>
+noremap gV V`]
 
 " open files in directory of current file
 cnoremap %% <c-r>=expand('%:p:h').'/'<cr>
