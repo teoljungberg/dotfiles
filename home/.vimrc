@@ -143,7 +143,7 @@ noremap ' `
 noremap 0 ^
 
 " open files in directory of current file
-cnoremap %% <c-r>=expand('%:h').'/'<cr>
+cnoremap %% <c-r>=expand('%:p:h').'/'<cr>
 map <leader>e :edit %%
 
 " emacs movement
