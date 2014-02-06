@@ -123,7 +123,6 @@ let g:netrw_localrmdir = "rm -rf"
 
 "leader bindings
 noremap <leader>sr :%s//<left>
-noremap <leader>v V`]
 noremap <silent> <leader>c :copen<cr>
 noremap <silent> <leader>o :only<cr>
 
