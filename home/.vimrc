@@ -36,6 +36,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-git'
 NeoBundle 'tpope/vim-liquid'
 NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-projectile'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-repeat'
@@ -113,6 +114,18 @@ let g:surround_{char2nr('#')} = "#{\r}"
 
 " dispatch
 noremap <silent> <leader>C :Copen!<cr>
+
+" projectile
+let g:projectiles = {
+      \   "*": {
+      \     "*.rb": {
+      \       "alternate": "%s_test.rb"
+      \     },
+      \     "*_test.rb": {
+      \       "alternate": "%s.rb"
+      \     }
+      \   }
+      \ }
 
 " netrw
 let g:netrw_localrmdir = "rm -rf"
