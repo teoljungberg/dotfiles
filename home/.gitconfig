@@ -26,6 +26,7 @@
 [merge]
   tool = vimdiff
   ff = false
+  conflictstyle = diff3
 [core]
   editor = vim -f
   excludesfile = ~/.gitignore
