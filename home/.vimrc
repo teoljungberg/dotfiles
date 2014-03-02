@@ -104,8 +104,8 @@ noremap <leader>t :RunTestFile<cr>
 noremap <leader>l :RunNearestTest<cr>
 
 " unimpaired
-map ( [
-map ) ]
+exec "nmap ( ["
+exec "nmap ) ]"
 
 " surround
 let g:surround_{char2nr('%')} = "<% \r %>"
