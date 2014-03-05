@@ -80,6 +80,7 @@ noremap # #zzzv
 " command-t
 noremap <leader><leader> :CommandT<cr>
 noremap <leader>f :CommandTFlush<cr>:CommandT<cr>
+noremap <leader>7 :CommandTTag<cr>
 let g:CommandTMaxHeight=30
 let g:CommandTMatchWindowReverse=1
 let g:CommandTAlwaysShowDotFiles=1
