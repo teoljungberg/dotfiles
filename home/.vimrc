@@ -163,6 +163,10 @@ noremap gV V`]
 cnoremap %% <c-r>=expand('%:p:h').'/'<cr>
 map <leader>e :edit %%
 
+" open tag in splits
+noremap <leader>] <c-w>v<c-]>
+noremap <leader>[ <c-w>s<c-]>
+
 " emacs movement
 inoremap <c-e> <esc>A
 inoremap <c-a> <esc>I
