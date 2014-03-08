@@ -110,6 +110,10 @@ noremap <leader>l :RunNearestTest<cr>
 exec "nmap ( ["
 exec "nmap ) ]"
 
+" bubbling text
+vmap <up> [egv
+vmap <down> ]egv
+
 " surround
 let g:surround_{char2nr('%')} = "<% \r %>"
 let g:surround_{char2nr('=')} = "<%= \r %>"
