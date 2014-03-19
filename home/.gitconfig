@@ -33,7 +33,7 @@
   excludesfile = ~/.gitignore
   pager = less
 [push]
-  default = tracking
+  default = simple
 [help]
   autocorrect = 1
 [branch]
