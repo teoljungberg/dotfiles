@@ -122,18 +122,6 @@ let g:surround_{char2nr('#')} = "#{\r}"
 " dispatch
 noremap <silent> <leader>C :Copen!<cr>
 
-" projectile
-let g:projectiles = {
-      \   "*": {
-      \     "*.rb": {
-      \       "alternate": "%s_test.rb"
-      \     },
-      \     "*_test.rb": {
-      \       "alternate": "%s.rb"
-      \     }
-      \   }
-      \ }
-
 " netrw
 let g:netrw_localrmdir = "rm -rf"
 
