@@ -42,6 +42,7 @@ NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-tbone'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'vim-ruby/vim-ruby'
@@ -125,6 +126,9 @@ noremap <leader>d :Dispatch <up><cr>
 
 " netrw
 let g:netrw_localrmdir = "rm -rf"
+
+" tbone
+command! Autotest :Tmux split-window -h 'RUBYOPT=-w autotest'
 
 "leader bindings
 noremap <leader>sr :%s//<left>
