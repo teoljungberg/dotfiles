@@ -134,6 +134,7 @@ command! Autotest :Tmux split-window -h 'RUBYOPT=-w autotest'
 noremap <leader>sr :%s//<left>
 noremap <silent> <leader>c :copen<cr>
 noremap <silent> <leader>o :only<cr>
+noremap <silent> <leader>k :ccl<cr>
 
 " convenience mappings
 command! W w
