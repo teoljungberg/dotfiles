@@ -1,5 +1,6 @@
 function! SwitchAssertion()
   let b:opposites = {'assert': 'refute', 'refute': 'assert' }
+  setlocal nogdefault
   :silent! s/\(assert\|refute\)/\="" . get(b:opposites, submatch(1))
 endfunction
 command! SwitchAssertion :call SwitchAssertion()
