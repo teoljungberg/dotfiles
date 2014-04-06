@@ -128,7 +128,8 @@ noremap <leader>d :Dispatch <up><cr>
 let g:netrw_localrmdir = "rm -rf"
 
 " tbone
-command! Autotest :Tmux split-window -h 'RUBYOPT=-w autotest'
+command! Autotest :Tmux split-window -h 'autotest'
+command! AutotestWithWarnings :Tmux split-window -h 'RUBYOPT=-w autotest'
 
 "leader bindings
 noremap <leader>sr :%s//<left>
