@@ -19,7 +19,7 @@ class Object
   end
 end
 
-def pbcopy(input)
+def pbcopy input
   str = input.to_s
   IO.popen('pbcopy', 'w') { |f| f << str }
   str
@@ -27,4 +27,8 @@ end
 
 def pbpaste
   `pbpaste`
+end
+
+def json_pp json
+  puts JSON.pretty_generate JSON.parse(json)
 end
