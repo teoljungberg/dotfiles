@@ -131,6 +131,9 @@ let g:netrw_localrmdir = "rm -rf"
 command! Autotest :Tmux split-window -h 'autotest'
 command! AutotestWithWarnings :Tmux split-window -h 'RUBYOPT=-w autotest'
 
+" projections
+noremap <c-w>a :A<cr>
+
 "leader bindings
 noremap <leader>sr :%s//<left>
 noremap <silent> <leader>c :copen<cr>
