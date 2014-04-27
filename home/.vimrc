@@ -134,7 +134,7 @@ command! AutotestWithWarnings :Tmux split-window -h 'RUBYOPT=-w autotest'
 " projections
 noremap <c-w>a :A<cr>
 
-"leader bindings
+" leader bindings
 noremap <leader>sr :%s//<left>
 noremap <silent> <leader>c :copen<cr>
 noremap <silent> <leader>o :only<cr>
@@ -151,11 +151,20 @@ noremap Ö :
 noremap Q <nop>
 noremap K <nop>
 cnoremap <c-g> <c-f>
-noremap g" /\v<<C-r>*><cr>
-noremap ' `
 noremap 0 ^
-command! -complete=tag -nargs=1 Tag tag <args>
+
+" re-select the last pasted text
 noremap gV V`]
+
+" search for what is in the clipboard
+noremap g" /\v<<C-r>*><cr>
+
+" swap ` and '
+noremap ' `
+noremap `  '
+
+" autocomplete Tag to tag
+command! -complete=tag -nargs=1 Tag tag <args>
 
 " open files in directory of current file
 cnoremap %% <c-r>=expand('%:p:h').'/'<cr>
