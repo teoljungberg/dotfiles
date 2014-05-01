@@ -12,6 +12,12 @@ c() {
 _c() { _files -W ~/code -/; }
 compdef _c c
 
+o() {
+  cd /opt/$1
+}
+_o() { _files -W /opt -/; }
+compdef _o o
+
 extract() {
   if [ -f $1 ]; then
     case $1 in
