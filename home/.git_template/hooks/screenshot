@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+file = "~/Dropbox/gitshots/#{Time.now.strftime("%d%m%y-%H%M%S")}.jpg"
+
+unless File.directory? File.expand_path("../../rebase-merge", __FILE__)
+  system "imagesnap -q -w 1 #{file} &"
+end
+
+exit 0
