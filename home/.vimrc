@@ -193,6 +193,7 @@ augroup vimrcEx
   autocmd FileType help,gitcommit,qf map <silent> <buffer> q :q<CR>
 
   autocmd FileType gitcommit,qf,git setlocal nolist
+  autocmd FileType gitcommit setlocal spell
 
   autocmd WinEnter,BufWinEnter,CursorHold * silent! checktime
 augroup END
