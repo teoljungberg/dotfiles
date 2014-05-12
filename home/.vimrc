@@ -142,10 +142,10 @@ noremap <silent> <leader>o :only<cr>
 noremap <silent> <leader>k :ccl<cr>
 
 " convenience mappings
-command! W w
-command! Q q
-command! Wq wq
-command! Wqa wqa
+command! -bang W w
+command! -bang Q q
+command! -bang Wq wq
+command! -bang Wqa wqa
 noremap Y y$
 noremap ö :
 noremap Ö :
