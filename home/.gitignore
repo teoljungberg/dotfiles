@@ -1,7 +1,6 @@
 Vagrantfile
 .vagrant
 .rake_tasks
-.ruby-version
 .env
 *.log
 *.sqlite
