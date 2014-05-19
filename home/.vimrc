@@ -121,7 +121,6 @@ let g:surround_{char2nr('=')} = "<%= \r %>"
 let g:surround_{char2nr('#')} = "#{\r}"
 
 " dispatch
-noremap <silent> <leader>C :Copen!<cr>
 noremap <leader>d :Dispatch <up><cr>
 
 " netrw
@@ -137,9 +136,7 @@ noremap <c-w>a :A<cr>
 
 " leader bindings
 noremap <leader>sr :%s//<left>
-noremap <silent> <leader>c :copen<cr>
 noremap <silent> <leader>o :only<cr>
-noremap <silent> <leader>k :ccl<cr>
 
 " convenience mappings
 command! -bang W w
