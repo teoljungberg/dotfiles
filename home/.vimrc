@@ -146,7 +146,6 @@ command! -bang Wqa wqa
 noremap Y y$
 noremap ö :
 noremap Ö :
-noremap Q <nop>
 noremap K <nop>
 cnoremap <c-g> <c-f>
 noremap 0 ^
