@@ -96,9 +96,16 @@ set wildignore+=**/Cellar/**,**/home/.vim/bundle/**,**/_site/**
 set wildignore+=**/*.netrw*,**/*.DS_Store
 
 " fugitive
-noremap <leader>gs :Gstatus<cr>
-noremap <leader>gd :Gdiff<cr>
-noremap <leader>gi :Git<space>
+fun! s:gm(short, cmd, ...)
+  let silent = a:cmd =~ '\w$' ? '<silent>' : ''
+  let cr = a:cmd =~ '\w$' ? '<cr>' : ''
+  let extra = a:0 ? a:1 : ''
+  exec "nmap" silent a:short ":" . a:cmd . cr . extra
+endfunction
+
+call s:gm('gs', 'Gstatus', '<c-n>')
+call s:gm('gd', 'Gdiff')
+call s:gm('gb', 'Gblame')
 
 " vim-grep
 noremap <leader>gg :Grep!<space>
