@@ -60,7 +60,6 @@ filetype plugin indent on
 set list
 set listchars=tab:>-,trail:.,extends:>,precedes:<
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-set winwidth=100
 
 set noswapfile
 set nobackup
