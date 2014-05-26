@@ -130,6 +130,7 @@ let g:surround_{char2nr('#')} = "#{\r}"
 
 " dispatch
 noremap <leader>d :Dispatch <up><cr>
+noremap <silent> gm :Dispatch!<cr>
 
 " netrw
 let g:netrw_localrmdir = "rm -rf"
