@@ -201,4 +201,7 @@ augroup vimrcEx
   autocmd FileType gitcommit setlocal spell
 
   autocmd WinEnter,BufWinEnter,CursorHold * silent! checktime
+
+  " autoload vimrc after save
+  autocmd BufWritePost $MYVIMRC,home/.vimrc let fn = expand("<afile>:p") | if fn !~ '://' | source `=fn` | endif
 augroup END
