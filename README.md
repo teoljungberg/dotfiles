@@ -14,7 +14,7 @@
     <td>Solarized Light</td>
     <td>git</td>
     <td>tmux</td>
-    <td><a href="http://www.levien.com/type/myfonts/inconsolata.html">Inconsolata</a> 14pt</td>
+    <td><a href="https://github.com/adobe/source-code-pro">Source Code Pro</a> 14pt</td>
   </tr>
 </table>
 
