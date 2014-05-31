@@ -150,6 +150,7 @@ noremap <leader>sr :%s//<left>
 " convenience mappings
 command! -bang W w
 command! -bang Q q
+command! -bang Qa qa
 command! -bang Wq wq
 command! -bang Wqa wqa
 noremap Y y$
