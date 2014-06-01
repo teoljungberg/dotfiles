@@ -63,7 +63,12 @@ set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set noswapfile
 set nobackup
 set backupskip=/tmp/*,/private/tmp/*
+
+" automatically create undodir if it doesn't exist
 set undodir=~/.cache/vim/undo//
+if !isdirectory(expand(&undodir))
+  call mkdir(expand(&undodir), "p")
+endif
 
 set smartindent
 set nowrap
