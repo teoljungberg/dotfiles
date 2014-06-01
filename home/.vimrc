@@ -27,7 +27,6 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'teoljungberg/vim-grep'
-NeoBundle 'teoljungberg/vim-test'
 NeoBundle 'teoljungberg/vim-visual-star-search'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-commentary'
@@ -111,10 +110,6 @@ vnoremap <silent> gb :Gbrowse<cr>
 " vim-grep
 cabbrev g Grep!
 cabbrev ga GrepAdd!
-
-" vim-test
-noremap <leader>t :RunTestFile<cr>
-noremap <leader>l :RunNearestTest<cr>
 
 " unimpaired
 exec "nmap ( ["
