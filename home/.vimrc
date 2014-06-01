@@ -109,8 +109,8 @@ call s:gm('gA', 'Gcommit --amend --no-edit')
 vnoremap <silent> gb :Gbrowse<cr>
 
 " vim-grep
-noremap <leader>gg :Grep!<space>
-noremap <leader>ga :GrepAdd!<space>
+cabbrev g Grep!
+cabbrev ga GrepAdd!
 
 " vim-test
 noremap <leader>t :RunTestFile<cr>
