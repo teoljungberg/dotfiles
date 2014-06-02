@@ -1,3 +1,5 @@
+let g:netrw_localrmdir = "rm -rf"
+
 map <buffer> § ~
 map <buffer> f /
 

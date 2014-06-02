@@ -82,68 +82,6 @@ noremap N Nzzzv
 noremap * *zzzv
 noremap # #zzzv
 
-" command-t
-noremap <leader><leader> :CommandT<cr>
-noremap <leader>f :CommandTFlush<cr>:CommandT<cr>
-noremap <leader>7 :CommandTTag<cr>
-let g:CommandTMaxHeight=30
-let g:CommandTMatchWindowReverse=1
-let g:CommandTAlwaysShowDotFiles=1
-let g:CommandTScanDotDirectories=1
-let g:CommandTCancelMap=['<esc>', '<C-c>']
-let g:CommandTSelectNextMap = ['<C-j>', '<ESC>OB']
-let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
-set wildignore+=.git/**
-set wildignore+=**/public/assets/**,**/app/assets/images/**,**/*.keep,**/vendor/cache/**,**/tmp/**,**/pkg/**,**/log/**
-set wildignore+=**/Cellar/**,**/home/.vim/bundle/**,**/_site/**
-set wildignore+=**/*.netrw*,**/*.DS_Store
-
-" fugitive
-fun! s:gm(short, cmd, ...)
-  let silent = a:cmd =~ '\w$' ? '<silent>' : ''
-  let cr = a:cmd =~ '\w$' ? '<cr>' : ''
-  let extra = a:0 ? a:1 : ''
-  exec "nmap" silent a:short ":" . a:cmd . cr . extra
-endfunction
-
-call s:gm('gs', 'Gstatus', '<c-n>')
-call s:gm('gd', 'Gdiff')
-call s:gm('gb', 'Gblame')
-call s:gm('gA', 'Gcommit --amend --no-edit')
-vnoremap <silent> gb :Gbrowse<cr>
-
-" vim-grep
-cabbrev g Grep!
-cabbrev ga GrepAdd!
-
-" unimpaired
-exec "nmap ( ["
-exec "nmap ) ]"
-
-" bubbling text
-vmap <up> [egv
-vmap <down> ]egv
-
-" surround
-let g:surround_{char2nr('%')} = "<% \r %>"
-let g:surround_{char2nr('=')} = "<%= \r %>"
-let g:surround_{char2nr('#')} = "#{\r}"
-
-" dispatch
-noremap <leader>d :Dispatch <up><cr>
-noremap <silent> gm :Dispatch!<cr>
-
-" netrw
-let g:netrw_localrmdir = "rm -rf"
-
-" tbone
-command! Autotest             :Tmux split-window -h 'autotest'
-command! AutotestWithWarnings :Tmux split-window -h 'RUBYOPT=-w autotest'
-command! Guard                :Tmux split-window -h 'bundle exec guard'
-
-" projections
-noremap <c-w>a :A<cr>
-
 " leader bindings
 noremap <leader>sr :%s//<left>
 
