@@ -144,6 +144,6 @@ augroup vimrcEx
 
   autocmd WinEnter,BufWinEnter,CursorHold * silent! checktime
 
-  " autoload vimrc after save
-  autocmd BufWritePost $MYVIMRC,home/.vimrc let fn = expand("<afile>:p") | if fn !~ '://' | source `=fn` | endif
+  " autosource vim-files on save
+  autocmd BufWritePost $MYVIMRC,home/.vimrc,*.vim let fn = expand("<afile>:p") | if fn !~ '://' | source `=fn` | endif
 augroup END
