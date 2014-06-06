@@ -1,4 +1,3 @@
-colo solarized
 set guifont=Source\ Code\ Pro:h14
 set lines=45 columns=120
 set go-=T
