@@ -104,9 +104,6 @@ noremap <silent> go :only<cr>
 " re-select the last pasted text
 noremap gV V`]
 
-" search for what is in the clipboard
-noremap g" /\v<<C-r>*><cr>
-
 " swap ` and '
 noremap ' `
 noremap `  '
