@@ -98,9 +98,6 @@ noremap K <nop>
 cnoremap <c-g> <c-f>
 noremap 0 ^
 
-" close all buffers except the active one
-noremap <silent> go :only<cr>
-
 " re-select the last pasted text
 noremap gV V`]
 
