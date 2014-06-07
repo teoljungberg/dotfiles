@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # General aliases
-alias rm="rm -i"
 alias reload='source ~/.zshrc'
 
 # listing
