@@ -13,7 +13,7 @@ elseif expand('%') =~# '_spec\.rb$'
     let b:dispatch = 'rspec %'
   endif
 else
-  let b:dispatch = 'ruby -wc %'
+  let b:dispatch = 'ruby -w %'
 endif
 
 let b:start = executable('pry') ? 'pry -r "%:p"' : 'irb -r "%:p"'
