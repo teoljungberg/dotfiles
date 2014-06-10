@@ -31,7 +31,5 @@ alias gd='git diff'
 compdef _git gd=git-diff
 alias gdc='git diff --cached'
 compdef _git gd=git-diff
-alias gp='git push'
-compdef _git gp=git-push
 alias go='git checkout'
 compdef _git go=git-checkout

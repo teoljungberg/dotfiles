@@ -6,6 +6,24 @@ git_branch() {
   [ -n "$GIT_BRANCH" ] && echo "$GIT_BRANCH "
 }
 
+git_origin_or_fork() {
+  if git remote 2>/dev/null | grep -iq teoljungberg; then
+    echo "teoljungberg"
+  else
+    echo "origin"
+  fi
+}
+
+# No arguments: `git push teoljungberg/origin CURRENT_BRANCH`
+# With arguments: acts like `git push`
+gp() {
+  if [[ $# > 0 ]]; then
+    git push $@
+  else
+    git push `git_origin_or_fork` `git_branch`
+  fi
+}
+
 c() {
   cd ~/code/$1
 }
