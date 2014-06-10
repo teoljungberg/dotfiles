@@ -10,3 +10,5 @@ call s:gm('gd', 'Gdiff')
 call s:gm('gb', 'Gblame')
 call s:gm('gA', 'Gcommit --amend --no-edit')
 vnoremap <silent> gb :Gbrowse<cr>
+
+cabbrev G Git
