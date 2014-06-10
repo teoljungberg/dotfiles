@@ -110,7 +110,7 @@ noremap `  '
 command! -complete=tag -nargs=1 Tag tag <args>
 
 " open files in directory of current file
-cnoremap %% <c-r>=expand('%:p:h').'/'<cr>
+cnoremap %% <c-r>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 
 " emacs movement
