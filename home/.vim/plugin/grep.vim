@@ -1,2 +1,2 @@
-noremap gr :Grep!<space>
+noremap gr :Grep<space>
 cabbrev ga GrepAdd!
