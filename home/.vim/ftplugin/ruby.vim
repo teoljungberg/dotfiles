@@ -1,5 +1,8 @@
 setlocal iskeyword+=?,!,=
 
+" includes can be slow
+set complete-=i
+
 " abbreviations
 iabbrev init def initialize
 
