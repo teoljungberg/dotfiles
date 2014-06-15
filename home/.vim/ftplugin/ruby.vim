@@ -4,7 +4,7 @@ setlocal iskeyword+=?,!,=
 set complete-=i
 
 " abbreviations
-iabbrev init def initialize
+iabbrev dinit def initialize
 
 " dispatch
 if expand('%') =~# '_test\.rb$'
