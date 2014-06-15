@@ -14,4 +14,4 @@ function! QuickfixToggle(...)
   endif
 endfunction
 nnoremap <silent> cq :call QuickfixToggle()<cr>
-nnoremap <silent> Q :call QuickfixToggle(1)<cr>
+nnoremap <silent> dq :call QuickfixToggle(1)<cr>
