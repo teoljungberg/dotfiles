@@ -1,2 +1,2 @@
 noremap <leader>d :Dispatch <up><cr>
-noremap <silent> gm :Dispatch!<cr>
+nnoremap <silent> d<cr> :Dispatch!<cr>
