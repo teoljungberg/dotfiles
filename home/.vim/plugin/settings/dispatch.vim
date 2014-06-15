@@ -1,2 +1,2 @@
-noremap <leader>d :Dispatch <up><cr>
 nnoremap <silent> d<cr> :Dispatch!<cr>
+nnoremap <silent> du :Dispatch!<space><up><cr>
