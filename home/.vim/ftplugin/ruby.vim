@@ -30,7 +30,12 @@ endfunction
 command! SwitchAssertion :call SwitchAssertion()
 
 function! ToggleTest()
-  let b:opposites = {'def test_': 'def ', 'def ': 'def test_' }
-  :silent! s/\(def test_\|def \)/\="" . get(b:opposites, submatch(1))
+  if expand('%') =~# '_test\.rb$'
+    let b:opposites = {'def test_': 'def ', 'def ': 'def test_' }
+    :silent! s/\(def test_\|def \)/\="" . get(b:opposites, submatch(1))
+  elseif expand('%') =~# '_spec\.rb$'
+    let b:opposites = {'it': 'xit', 'xit': 'it' }
+    :silent! s/\(it\|xit\)/\="" . get(b:opposites, submatch(1))
+  endif
 endfunction
 command! ToggleTest :call ToggleTest()
