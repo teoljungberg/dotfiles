@@ -8,7 +8,7 @@ iabbrev dinit def initialize
 
 " dispatch
 if expand('%') =~# '_test\.rb$'
-  let b:dispatch = 'ruby -w -I test:lib %'
+  let b:dispatch = 'ruby -I test:lib %'
 elseif expand('%') =~# '_spec\.rb$'
   if filereadable("Gemfile")
     let b:dispatch = 'bundle exec rspec %'
