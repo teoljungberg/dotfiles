@@ -1,4 +1,4 @@
-set nocompatible " IMproved
+set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/neobundle.vim
 call neobundle#rc(expand('~/.vim/bundle/'))
@@ -15,6 +15,7 @@ set tags=.git/tags
 set shiftround
 set autoread
 set updatetime=2000
+set nofoldenable
 
 " plugins
 NeoBundleFetch 'Shougo/neobundle.vim'
