@@ -19,7 +19,7 @@ else
   let b:dispatch = 'ruby -w %'
 endif
 
-let b:start = executable('pry') ? 'pry -r "%:p"' : 'irb -r "%:p"'
+let b:start = executable('pry') ? 'pry -I lib -r "%:p"' : 'irb -I lib -r "%:p"'
 
 " minitest
 function! SwitchAssertion()
