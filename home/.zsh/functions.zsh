@@ -20,7 +20,7 @@ gp() {
   if [[ $# > 0 ]]; then
     git push $@
   else
-    git push `git_origin_or_fork` `git_branch`
+    git push `git_origin_or_fork` -u `git_branch`
   fi
 }
 
