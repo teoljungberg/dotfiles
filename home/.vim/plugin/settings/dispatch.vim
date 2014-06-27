@@ -1,6 +1,7 @@
 nnoremap <silent> d<cr> :Dispatch!<cr>
 nnoremap <silent> du :Dispatch!<space><up><cr>
 nnoremap d<space> :Dispatch!<space>
+nnoremap <silent> dc :Console<cr>
 
 if expand('%') =~# '_test\.rb$'
   let b:dispatch = 'ruby -I test:lib %'
@@ -14,3 +15,6 @@ else
   let b:dispatch = 'ruby -w %'
 endif
 
+if !exists(":Console")
+  command! -bang Console Start
+endif
