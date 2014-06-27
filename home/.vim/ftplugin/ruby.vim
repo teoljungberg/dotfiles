@@ -7,18 +7,6 @@ set complete-=i
 iabbrev dinit def initialize
 
 " dispatch
-if expand('%') =~# '_test\.rb$'
-  let b:dispatch = 'ruby -I test:lib %'
-elseif expand('%') =~# '_spec\.rb$'
-  if filereadable("Gemfile")
-    let b:dispatch = 'bundle exec rspec %'
-  else
-    let b:dispatch = 'rspec %'
-  endif
-else
-  let b:dispatch = 'ruby -w %'
-endif
-
 let b:start = executable('pry') ? 'pry -I lib -r "%:p"' : 'irb -I lib -r "%:p"'
 
 " minitest
