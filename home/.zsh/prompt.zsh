@@ -1,8 +1,9 @@
 #!/bin/sh
 
 function precmd {
-  print -Pn "\e]2;%c\a" # tmux window
-  print -Pn "\033]0;%c\007" # iterm tab
+  # set the current directory as the title for tmux window and terminal tab
+  print -Pn "\e]2;%c\a"
+  print -Pn "\033]0;%c\007"
   PROMPT="%c %{$fg[yellow]%}$(git_branch)%{$reset_color%}%# "
 }
 
