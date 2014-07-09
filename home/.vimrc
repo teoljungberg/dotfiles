@@ -2,6 +2,7 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/neobundle.vim
 call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#local(expand('~/.vim/misc/'))
 set clipboard=unnamed
 set history=1000
 let mapleader=" "
