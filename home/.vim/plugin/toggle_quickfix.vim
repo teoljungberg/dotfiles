@@ -13,5 +13,5 @@ function! QuickfixToggle(...)
     let g:quickfix_is_open = 1
   endif
 endfunction
-nnoremap <silent> cq :call QuickfixToggle()<cr>
+nnoremap <silent> fq :call QuickfixToggle()<cr>
 nnoremap <silent> dq :call QuickfixToggle(1)<cr>
