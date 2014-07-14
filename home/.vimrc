@@ -48,7 +48,11 @@ NeoBundle 'tpope/vim-tbone'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'wincent/Command-T', { 'build' : { 'mac' : 'ruby ruby/command-t/extconf.rb && make -f ruby/command-t/Makefile' } }
+NeoBundle 'wincent/Command-T', {
+      \  'build' : {
+      \    'mac' : 'cd ruby/command-t && ruby extconf.rb && make'
+      \  }
+      \ }
 runtime macros/matchit.vim
 
 silent! colorscheme solarized " visuals
