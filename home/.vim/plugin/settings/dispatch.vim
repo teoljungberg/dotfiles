@@ -1,6 +1,7 @@
-nnoremap <silent> d<cr> :Dispatch!<cr>
+nnoremap <silent> d<cr> :Dispatch<cr>
+nnoremap <silent> d! :Dispatch!<cr>
 nnoremap <silent> du :Dispatch<up><cr>
-nnoremap d<space> :Dispatch!<space>
+nnoremap d<space> :Dispatch<space>
 nnoremap <silent> dc :Console<cr>
 
 if expand('%') =~# '_test\.rb$'
