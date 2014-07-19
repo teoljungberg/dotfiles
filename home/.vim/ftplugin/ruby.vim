@@ -27,3 +27,5 @@ function! ToggleTest()
   endif
 endfunction
 command! ToggleTest :call ToggleTest()
+
+nmap <silent> <c-w>t :cfile /tmp/autotest.txt<CR> :compiler rubyunit<CR>
