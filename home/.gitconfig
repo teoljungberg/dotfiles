@@ -26,7 +26,6 @@
   staging = !git tag | grep ^staging | tail -n 1 | xargs git show -s
   production = !git tag | grep ^production | tail -n 1 | xargs git show -s
   ctags = !.git/hooks/ctags
-  browse = !hub browse
 [merge]
   tool = vimdiff
   ff = false
