@@ -24,26 +24,6 @@ gp() {
   fi
 }
 
-c() {
-  cd ~/code/$1
-}
-_c() { _files -W ~/code -/; }
-compdef _c c
-
-o() {
-  cd /opt/$1
-}
-_o() { _files -W /opt -/; }
-compdef _o o
-
-b() {
-  if [[ -a Gemfile ]]; then
-    bundle exec $*
-  else
-    command $*
-  fi
-}
-
 gci() {
   git commit -m "$*"
 }
@@ -67,3 +47,24 @@ h() {
   fi
 }
 compdef h=hub
+
+c() {
+  cd ~/code/$1
+}
+_c() { _files -W ~/code -/; }
+compdef _c c
+
+o() {
+  cd /opt/$1
+}
+_o() { _files -W /opt -/; }
+compdef _o o
+
+b() {
+  if [[ -a Gemfile ]]; then
+    bundle exec $*
+  else
+    command $*
+  fi
+}
+
