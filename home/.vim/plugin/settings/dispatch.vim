@@ -13,7 +13,7 @@ elseif expand('%') =~# '_spec\.rb$'
     let b:dispatch = 'rspec %'
   endif
 else
-  let b:dispatch = 'ruby -w %'
+  let b:dispatch = 'ruby %'
 endif
 
 if !exists(":Console")
