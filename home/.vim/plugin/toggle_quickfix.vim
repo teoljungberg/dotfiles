@@ -6,7 +6,7 @@ function! QuickfixToggle(...)
     let g:quickfix_is_open = 0
   else
     if a:0 > 0
-      Copen!
+      Copen
     else
       copen
     endif
