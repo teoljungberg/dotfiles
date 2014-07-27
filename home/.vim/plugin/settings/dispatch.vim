@@ -12,7 +12,7 @@ elseif expand('%') =~# '_spec\.rb$'
   else
     let b:dispatch = 'rspec %'
   endif
-else
+elseif expand('%') =~# '\.rb$'
   let b:dispatch = 'ruby %'
 endif
 
