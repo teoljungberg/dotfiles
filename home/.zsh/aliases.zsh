@@ -6,11 +6,8 @@ alias reload='source ~/.zshrc'
 # listing
 alias ls="ls -GF"
 alias l='ls -1'
-alias ll='ls -l'
-alias la='ls -A'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ....='cd ../../../'
 
 # Typos
 alias kilall="killall"
