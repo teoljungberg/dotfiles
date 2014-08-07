@@ -33,7 +33,7 @@
 [core]
   editor = vim -f
   excludesfile = ~/.gitignore
-  pager = less
+  pager = less -F
 [push]
   default = simple
 [help]
