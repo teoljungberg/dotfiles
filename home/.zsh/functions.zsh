@@ -39,15 +39,6 @@ g() {
 }
 compdef g=git
 
-h() {
-  if [[ $# > 0 ]]; then
-    hub $@
-  else
-    git status -sb
-  fi
-}
-compdef h=hub
-
 c() {
   cd ~/code/$1
 }
