@@ -1,7 +1,5 @@
-#!/bin/sh
-
 # General aliases
-alias reload='source ~/.zshrc'
+alias reload='source ~/.bashrc'
 
 # listing
 alias ls="ls -GF"
@@ -9,13 +7,15 @@ alias l='ls -1'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-# Typos
-alias kilall="killall"
-compdef kilall=killall
-alias brwe="brew"
-compdef brwe=brew
-
 # Git aliases
+g() {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status -sb
+  fi
+}
+complete -o default -o nospace -F _git g
 alias ga='git aa'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
@@ -25,6 +25,6 @@ alias gg="git grep"
 
 # with completion
 alias gd='git diff'
-compdef _git gd=git-diff
+complete -o default -o nospace -F _git_diff gd
 alias gdc='git diff --cached'
-compdef _git gd=git-diff
+complete -o default -o nospace -F _git_diff gdc
