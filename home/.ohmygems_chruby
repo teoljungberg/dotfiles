@@ -1,0 +1,31 @@
+# Reload ohmygems when chruby is called.
+# Inspired by chruby's after hook wiki:
+# https://github.com/postmodern/chruby/wiki/Implementing-an-'after-use'-hook
+
+save_function() {
+    local ORIG_FUNC=$(declare -f $1)
+    local NEWNAME_FUNC="$2${ORIG_FUNC#$1}"
+    eval "$NEWNAME_FUNC"
+}
+
+save_function chruby ohmygems_chruby
+
+function chruby () {
+    # Are we in a gemset?
+    omg_name=${OMG_NAME}
+
+    # Reset ohmygems
+    ohmygems reset
+    # Including removing the ENV variables
+    unset ORIG_GEM_PATH
+    unset ORIG_GEM_HOME
+    unset ORIG_PATH
+
+    # Switch ruby
+    ohmygems_chruby $*
+
+    # Reload gem repo after switching rubies
+    if [ -n "$omg_name" ]; then
+        ohmygems ${omg_name}
+    fi
+}
