@@ -1,0 +1,2 @@
+require 'irb'
+load File.expand_path('~/.irbrc')
