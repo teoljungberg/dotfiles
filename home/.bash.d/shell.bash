@@ -3,6 +3,9 @@
 # Notify immediatly on bg job completion
 set -o notify
 
+# vi mode
+set -o vi
+
 # Case insensitive autocompletion
 shopt -s nocaseglob
 
