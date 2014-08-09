@@ -17,3 +17,7 @@ stty -ixon
 
 # Plenty big history for searching backwards and doing analysis
 export HISTFILESIZE=100000
+
+# Solarized-like colors for ls
+export CLICOLOR=1
+export LSCOLORS=gxfxbEaEcxxEhEhBaDaCaD
