@@ -6,6 +6,8 @@ if [ -r /usr/local/share/chruby/chruby.sh ]; then
   chruby 2.1.2
 fi
 
+complete -W "$(chruby | grep -v "Resetting repo" | tr -d '* ')" chruby
+
 # aliases
 alias s='spring'
 alias sc='spring rails console'
