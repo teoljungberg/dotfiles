@@ -17,6 +17,7 @@ set shiftround
 set autoread
 set updatetime=2000
 set nofoldenable
+set relativenumber
 
 " plugins
 NeoBundleFetch 'Shougo/neobundle.vim'
