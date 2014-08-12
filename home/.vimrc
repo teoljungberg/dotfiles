@@ -15,6 +15,7 @@ set splitright
 set tags=.git/tags
 set shiftround
 set autoread
+set autowrite
 set updatetime=2000
 set nofoldenable
 set relativenumber
