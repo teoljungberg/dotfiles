@@ -1,1 +1,1 @@
-cmap w!! w !sudo tee % >/dev/null<cr>
+cabbrev w!! w !sudo tee % >/dev/null
