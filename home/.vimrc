@@ -144,7 +144,4 @@ augroup vimrcEx
   autocmd FileType gitcommit setlocal spell
 
   autocmd WinEnter,BufWinEnter,CursorHold * silent! checktime
-
-  " autosource vim-files on save
-  autocmd BufWritePost $MYVIMRC,home/.vimrc,home/.vim/**/*.vim source %
 augroup END
