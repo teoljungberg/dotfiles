@@ -1,8 +1,8 @@
-nnoremap <silent> d<cr> :Dispatch<cr>
-nnoremap <silent> d! :Dispatch!<cr>
-nnoremap d<space> :Dispatch<space>
-nnoremap d<bs> :Focus<space>
-nnoremap <silent> dc :Console<cr>
+nnoremap <silent> d<cr>    :Dispatch<cr>
+nnoremap <silent> d!       :Dispatch!<cr>
+nnoremap          d<space> :Dispatch<space>
+nnoremap          d<bs>    :Focus<space>
+nnoremap <silent> dc       :Console<cr>
 
 if expand('%') =~# '_test\.rb$'
   let b:dispatch = 'ruby -I test:lib %'
