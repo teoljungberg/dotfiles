@@ -1,4 +1,7 @@
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export GEM_HOME="$HOME/.gem"
+export GEM_PATH="$HOME/.gem"
+export PATH="$HOME/.gem/bin:$PATH"
 
 # aliases
 alias s='spring'
