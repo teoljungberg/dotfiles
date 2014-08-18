@@ -1,12 +1,4 @@
-if [ -r /usr/local/share/chruby/chruby.sh ]; then
-  source /usr/local/share/chruby/chruby.sh
-  source /usr/local/share/chruby/auto.sh
-  RUBIES=(~/.rubies/*)
-
-  chruby 2.1.2
-fi
-
-complete -W "$(chruby | grep -v "Resetting repo" | tr -d '* ')" chruby
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # aliases
 alias s='spring'
