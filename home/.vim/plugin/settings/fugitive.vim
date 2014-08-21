@@ -22,4 +22,6 @@ augroup Fugitive
         \ spell
         \ complete+=kspell
 
+  autocmd FileType fugitiveblame nmap <buffer> § ~
+
 augroup END
