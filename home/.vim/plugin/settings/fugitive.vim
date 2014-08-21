@@ -11,3 +11,15 @@ call s:gm('gb', 'Gblame')
 vnoremap <silent> gb :Gbrowse<cr>
 
 cabbrev G Git
+
+augroup Fugitive
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+
+  autocmd FileType gitcommit nmap <silent> <buffer> q :q<CR>
+  autocmd FileType git setlocal nolist
+  autocmd FileType gitcommit setlocal
+        \ nolist
+        \ spell
+        \ complete+=kspell
+
+augroup END

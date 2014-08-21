@@ -135,12 +135,7 @@ map <c-h> <c-w>h
 
 augroup vimrcEx
   autocmd!
-  autocmd BufReadPost fugitive://* set bufhidden=delete
-
-  autocmd FileType help,gitcommit,qf map <silent> <buffer> q :q<CR>
-
-  autocmd FileType gitcommit,qf,git setlocal nolist
-  autocmd FileType gitcommit setlocal spell complete+=kspell
 
   autocmd WinEnter,BufWinEnter,CursorHold * silent! checktime
+  autocmd FileType help map <silent> <buffer> q :q<cr>
 augroup END
