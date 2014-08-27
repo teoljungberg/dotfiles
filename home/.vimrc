@@ -108,6 +108,9 @@ noremap K <nop>
 cnoremap <c-g> <c-f>
 noremap 0 ^
 
+" close everything
+nnoremap <silent> <c-w>z :wincmd z<Bar>cclose<Bar>lclose<CR>
+
 " re-select the last pasted text
 noremap gV V`]
 
