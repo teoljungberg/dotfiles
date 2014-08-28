@@ -18,3 +18,6 @@ stty -ixon
 # Solarized-like colors for ls
 export CLICOLOR=1
 export LSCOLORS=gxfxbEaEcxxEhEhBaDaCaD
+
+# Colorize matched pattern for grep
+export GREP_OPTIONS="--color"
