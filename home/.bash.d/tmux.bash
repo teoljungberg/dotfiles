@@ -6,5 +6,3 @@ rename_tmux_window_to_current_dir() {
     fi
   fi
 }
-
-export PROMPT_COMMAND=rename_tmux_window_to_current_dir
