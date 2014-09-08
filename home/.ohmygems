@@ -1,4 +1,4 @@
-# -*- sh -*-
+#!/bin/sh
 
 ohmygems() {
     name=${1:-}
