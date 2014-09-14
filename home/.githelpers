@@ -5,12 +5,7 @@ REFS="%C(cyan)%d%C(reset)"
 AUTHOR="%C(bold)%an%C(reset)"
 SUBJECT="%s"
 RELATIVE_TIME="%C(bold)%cr"
-FULL_FORMAT="$HASH $AUTHOR$REFS $SUBJECT $RELATIVE_TIME"
 SHORT_FORMAT="$HASH$REFS $SUBJECT $RELATIVE_TIME"
-
-pretty_git_log() {
-  git log --graph --pretty="tformat:${FULL_FORMAT}" $*
-}
 
 short_git_log() {
   git log --graph --pretty="tformat:${SHORT_FORMAT}" $*
