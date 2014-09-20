@@ -5,8 +5,8 @@
 "   w, W, e, E, b, B, t*, f*, i*, a*, and custom text objects
 "
 
-nnoremap <silent> gr :set opfunc=<SID>AckMotion<CR>g@
-xnoremap <silent> gr :<C-U>call <SID>AckMotion(visualmode())<CR>
+nnoremap <silent> gr :set opfunc=<SID>GrepMotion<CR>g@
+xnoremap <silent> gr :<C-U>call <SID>GrepMotion(visualmode())<CR>
 
 function! s:CopyMotionForType(type)
   if a:type ==# 'v'
@@ -16,7 +16,7 @@ function! s:CopyMotionForType(type)
   endif
 endfunction
 
-function! s:AckMotion(type) abort
+function! s:GrepMotion(type) abort
   let reg_save = @@
 
   call s:CopyMotionForType(a:type)
