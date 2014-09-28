@@ -10,6 +10,8 @@ call s:gm('gd', 'Gdiff')
 call s:gm('gb', 'Gblame')
 vnoremap <silent> gb :Gbrowse<cr>
 
+nnoremap <silent> du :diffupdate<cr>
+
 cabbrev G Git
 
 augroup Fugitive
