@@ -10,6 +10,7 @@ let g:CommandTSelectNextMap = ['<C-j>', '<C-n>', '<ESC>OB']
 let g:CommandTSelectPrevMap = ['<C-k>', '<C-p>', '<ESC>OA']
 set wildignore+=.git/**
 set wildignore+=**/public/assets/**,**/app/assets/images/**,**/*.keep,**/tmp/**,**/pkg/**,**/log/**
+set wildignore+=**/bower_components/**,**/node_modules/**
 set wildignore+=**/Cellar/**,**/home/.vim/bundle/**,**/home/.vim/vendor/**,**/_site/**
 set wildignore+=**/*.netrw*,**/*.DS_Store
 
