@@ -27,4 +27,12 @@ $ git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 $ vim +NeoBundleInstall +qall
 ```
 
+## Selecta
+I use [selecta][selecta] to act as my fuzzy-matcher, install it with
+
+```bash
+$ brew install selecta
+```
+
 [homesick_home]:http://github.com/technicalpickles/homesick
+[selecta]:http://github.com/garybernhardt/selecta
