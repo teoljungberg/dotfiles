@@ -13,6 +13,16 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
   exec a:vim_command . " " . selection
 endfunction
 
+function! ListActiveBuffers()
+  let bufferlist = []
+  for l:bni in range(bufnr("$"), 1, -1)
+    if buflisted(l:bni)
+      call add(bufferlist, bufname(l:bni))
+    endif
+  endfor
+  return "echo ".join(bufferlist, ' ')." | tr ' ' '\\n' "
+endfunction
+
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
 if filereadable(".git/config")
@@ -22,3 +32,4 @@ else
 endif
 
 nnoremap <leader><leader> :call SelectaCommand(find_cmd, "", ":e")<cr>
+nnoremap <leader>b :call SelectaCommand(ListActiveBuffers(), "", ":e")<cr>
