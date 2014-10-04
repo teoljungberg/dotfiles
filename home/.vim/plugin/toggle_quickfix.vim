@@ -33,5 +33,5 @@ function! OpenQuickfix(dispatch_eh)
   endif
 endfunction
 
-nnoremap <silent> fq :call ToggleQuickfix(0)<cr>
-nnoremap <silent> dq :call ToggleQuickfix(1)<cr>
+nnoremap <silent> dq :call ToggleQuickfix(0)<cr>
+nnoremap <silent> dQ :call ToggleQuickfix(1)<cr>
