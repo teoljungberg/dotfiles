@@ -1,8 +1,6 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/neobundle.vim
-call neobundle#rc(expand('~/.vim/bundle/'))
-call neobundle#local(expand('~/.vim/vendor/'))
 set clipboard=unnamed
 set history=1000
 let mapleader=" "
@@ -21,36 +19,40 @@ set nofoldenable
 set relativenumber
 
 " plugins
-NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#begin(expand("~/.vim/bundle/"))
+NeoBundleFetch "Shougo/neobundle.vim"
 
-NeoBundle 'Shougo/vimproc', { 'build' : { 'mac' : 'make -f make_mac.mak' } }
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
-NeoBundle 'teoljungberg/vim-grep'
-NeoBundle 'teoljungberg/vim-visual-star-search'
-NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'tommcdo/vim-lion'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-bundler'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-git'
-NeoBundle 'tpope/vim-liquid'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-projectionist'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-rake'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-sleuth'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'tpope/vim-vinegar'
-NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle "Shougo/vimproc", { "build" : { "mac" : "make -f make_mac.mak" } }
+NeoBundle "altercation/vim-colors-solarized"
+NeoBundle "kana/vim-textobj-user"
+NeoBundle "kchmck/vim-coffee-script"
+NeoBundle "mustache/vim-mustache-handlebars"
+NeoBundle "nelstrom/vim-textobj-rubyblock"
+NeoBundle "teoljungberg/vim-grep"
+NeoBundle "teoljungberg/vim-visual-star-search"
+NeoBundle "tommcdo/vim-exchange"
+NeoBundle "tommcdo/vim-lion"
+NeoBundle "tpope/vim-abolish"
+NeoBundle "tpope/vim-bundler"
+NeoBundle "tpope/vim-commentary"
+NeoBundle "tpope/vim-dispatch"
+NeoBundle "tpope/vim-endwise"
+NeoBundle "tpope/vim-fugitive"
+NeoBundle "tpope/vim-git"
+NeoBundle "tpope/vim-liquid"
+NeoBundle "tpope/vim-markdown"
+NeoBundle "tpope/vim-projectionist"
+NeoBundle "tpope/vim-rails"
+NeoBundle "tpope/vim-rake"
+NeoBundle "tpope/vim-repeat"
+NeoBundle "tpope/vim-sleuth"
+NeoBundle "tpope/vim-surround"
+NeoBundle "tpope/vim-unimpaired"
+NeoBundle "tpope/vim-vinegar"
+NeoBundle "vim-ruby/vim-ruby"
+call neobundle#end()
+call neobundle#local(expand("~/.vim/vendor/"))
+
 runtime macros/matchit.vim
 
 silent! colorscheme solarized " visuals
