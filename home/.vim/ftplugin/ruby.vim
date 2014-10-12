@@ -40,7 +40,7 @@ function! ToggleTest()
 endfunction
 command! ToggleTest :call ToggleTest()
 
-nmap <silent> <c-w>t :cfile /tmp/autotest.txt<CR> :compiler rubyunit<CR>
+nmap <silent> <c-w>t :lfile /tmp/autotest.txt<CR> :compiler rubyunit<CR>
 
 command! MinitestFocus execute 'normal 0Orequire "minitest/focus"<cr>focus<esc>j0'
 command! Pry execute "normal 0Orequire 'pry'<cr>binding.pry<esc>j0"
