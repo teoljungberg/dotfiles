@@ -123,7 +123,8 @@ cnoremap %% <c-r>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 
 " emacs movement
-inoremap <c-e> <esc>A
+" stolen from tpope/vim-rsi
+inoremap <expr> <c-e> col('.')>strlen(getline('.'))?"\<lt>c-e>":"\<lt>end>"
 inoremap <c-a> <esc>I
 cnoremap <c-a> <home>
 
