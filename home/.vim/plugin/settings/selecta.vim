@@ -31,5 +31,9 @@ else
   let find_cmd = "find * -type f"
 endif
 
-nnoremap <leader><leader> :call SelectaCommand(find_cmd, "", ":e")<cr>
-nnoremap <leader>b :call SelectaCommand(ListActiveBuffers(), "", ":e")<cr>
+if executable("selecta")
+  if ! has("gui_running")
+    nnoremap <leader><leader> :call SelectaCommand(find_cmd, "", ":e")<cr>
+    nnoremap <leader>b :call SelectaCommand(ListActiveBuffers(), "", ":e")<cr>
+  endif
+endif
