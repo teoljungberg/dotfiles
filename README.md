@@ -34,5 +34,4 @@ I use [selecta][selecta] to act as my fuzzy-matcher, install it with
 $ brew install selecta
 ```
 
-[homesick_home]:http://github.com/technicalpickles/homesick
 [selecta]:http://github.com/garybernhardt/selecta
