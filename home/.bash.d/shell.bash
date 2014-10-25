@@ -21,3 +21,7 @@ export LSCOLORS=gxfxbEaEcxxEhEhBaDaCaD
 
 # Colorize matched pattern for grep
 export GREP_OPTIONS="--color"
+
+# Saner `ctrl-w` behaviour
+stty werase undef # undefine previous behaviour
+bind '\C-w:unix-filename-rubout'
