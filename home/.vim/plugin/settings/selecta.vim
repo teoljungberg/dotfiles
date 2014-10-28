@@ -31,9 +31,12 @@ else
   let find_cmd = "find * -type f"
 endif
 
+let tag_cmd = "awk '{print $1}' .git/tags | sort -u | grep -v '^!'"
+
 if executable("selecta")
   if ! has("gui_running")
     nnoremap <leader><leader> :call SelectaCommand(find_cmd, "", ":e")<cr>
     nnoremap <leader>b :call SelectaCommand(ListActiveBuffers(), "", ":e")<cr>
+    nnoremap <leader>7 :call SelectaCommand(tag_cmd, "", ":tag")<cr>
   endif
 endif
