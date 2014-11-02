@@ -104,6 +104,8 @@ noremap Q <nop>
 noremap K <nop>
 cnoremap <c-g> <c-f>
 noremap 0 ^
+cnoremap <c-p> <up>
+cnoremap <c-n> <down>
 
 " close everything
 nnoremap <silent> <c-w>z :wincmd z<Bar>cclose<Bar>lclose<CR>
