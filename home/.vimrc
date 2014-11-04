@@ -1,7 +1,6 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/neobundle.vim
-set clipboard=unnamed
 set history=1000
 let mapleader=" "
 set backspace=indent,eol,start
@@ -106,6 +105,16 @@ cnoremap <c-g> <c-f>
 noremap 0 ^
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
+
+" system clipboard integration
+nnoremap gy "*y
+nnoremap gY "*Y
+nnoremap gp "*p
+nnoremap gP "*P
+
+vnoremap gy "*y
+vnoremap gp "*p
+vnoremap gP "*P
 
 " close everything
 nnoremap <silent> <c-w>z :wincmd z<Bar>cclose<Bar>lclose<CR>
