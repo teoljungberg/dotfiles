@@ -25,7 +25,7 @@ endfunction
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-let is_git_repo = system("git status 2&> /dev/null && echo $?") == 0
+let is_git_repo = system("git rev-parse --is-inside-work-tree &> /dev/null ; echo $?") == 0
 
 if is_git_repo
   let find_cmd = "git ls-files . -co --exclude-standard"
