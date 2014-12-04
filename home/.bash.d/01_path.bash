@@ -6,8 +6,8 @@ if [ -d /usr/local/bin ]; then
   export PATH=$PATH:/usr/local/sbin
 fi
 
-if [ -d /Applications/Postgres93.app ]; then
-  export PATH=$PATH:/Applications/Postgres93.app/Contents/MacOS/bin
+if [ -d /Applications/Postgres.app ]; then
+  export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
 fi
 
 if [[ -d $HOME/bin ]]; then
