@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+exit 0 if ENV["NO_SCREENSHOT"]
+
 file = "~/Dropbox/gitshots/#{Time.now.strftime("%d%m%y-%H%M%S")}.jpg"
 
 unless File.directory? File.expand_path("../../rebase-merge", __FILE__)
