@@ -131,6 +131,9 @@ command! -complete=tag -nargs=1 Tag tag <args>
 cnoremap %% <c-r>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 
+" open tag under the cursor in a horizontal split
+noremap <c-\> <c-w>s<c-]>
+
 " emacs movement
 " stolen from tpope/vim-rsi
 inoremap <expr> <c-e> col('.')>strlen(getline('.'))?"\<lt>c-e>":"\<lt>end>"
