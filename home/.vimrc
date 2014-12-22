@@ -95,8 +95,6 @@ command! -bang Qa qa
 command! -bang Wq wq
 command! -bang Wqa wqa
 noremap Y y$
-noremap ö :
-noremap Ö :
 noremap Q <nop>
 noremap K <nop>
 cnoremap <c-g> <c-f>
