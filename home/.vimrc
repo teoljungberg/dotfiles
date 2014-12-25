@@ -1,6 +1,5 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/neobundle.vim
 set history=1000
 let mapleader=" "
 set backspace=indent,eol,start
@@ -19,38 +18,8 @@ set relativenumber
 set showcmd
 
 " plugins
-call neobundle#begin(expand("~/.vim/bundle/"))
-NeoBundleFetch "Shougo/neobundle.vim"
-
-NeoBundle "Shougo/vimproc", { "build" : { "mac" : "make -f make_mac.mak" } }
-NeoBundle "altercation/vim-colors-solarized"
-NeoBundle "kana/vim-textobj-user"
-NeoBundle "kchmck/vim-coffee-script"
-NeoBundle "nelstrom/vim-textobj-rubyblock"
-NeoBundle "teoljungberg/vim-grep"
-NeoBundle "teoljungberg/vim-visual-star-search"
-NeoBundle "tommcdo/vim-exchange"
-NeoBundle "tpope/vim-abolish"
-NeoBundle "tpope/vim-bundler"
-NeoBundle "tpope/vim-commentary"
-NeoBundle "tpope/vim-dispatch"
-NeoBundle "tpope/vim-endwise"
-NeoBundle "tpope/vim-fugitive"
-NeoBundle "tpope/vim-git"
-NeoBundle "tpope/vim-liquid"
-NeoBundle "tpope/vim-markdown"
-NeoBundle "tpope/vim-projectionist"
-NeoBundle "tpope/vim-rails"
-NeoBundle "tpope/vim-rake"
-NeoBundle "tpope/vim-repeat"
-NeoBundle "tpope/vim-sleuth"
-NeoBundle "tpope/vim-surround"
-NeoBundle "tpope/vim-unimpaired"
-NeoBundle "tpope/vim-vinegar"
-NeoBundle "vim-ruby/vim-ruby"
-call neobundle#end()
-call neobundle#local(expand("~/.vim/vendor/"))
-
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect('bundle/{}', 'vendor/{}')
 runtime macros/matchit.vim
 
 silent! colorscheme solarized " visuals

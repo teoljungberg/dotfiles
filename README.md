@@ -20,11 +20,10 @@
 
 
 ## Setup
-I use `linker.sh` to perform the symlinking
-
 ```bash
-$ git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-$ vim +NeoBundleInstall +qall
+$ sh install.sh
+# output ommitted
+$ sh linker.sh
 ```
 
 ## Selecta
