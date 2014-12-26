@@ -9,6 +9,7 @@ update_bundle() {
   cd $vim_bundle
   echo "updating $bundle_name"
   git pull --rebase origin master
+  echo
 }
 
 setup_pathogen() {
@@ -55,4 +56,11 @@ for bundle in "${bundles[@]}"; do
   else
     update_bundle
   fi
+done
+
+for bundle in $(ls ~/.vim/vendor); do
+  vim_bundle=~/.vim/vendor/$bundle
+  bundle_name=$bundle
+
+  update_bundle
 done
