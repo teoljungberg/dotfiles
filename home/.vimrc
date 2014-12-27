@@ -16,6 +16,7 @@ set autowrite
 set updatetime=2000
 set nofoldenable
 set relativenumber
+set showcmd
 
 " plugins
 call neobundle#begin(expand("~/.vim/bundle/"))
