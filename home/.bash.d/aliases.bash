@@ -20,7 +20,6 @@ alias ga='git aa'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gl="git log --oneline -15"
-alias gb="git branch"
 alias gg="git grep"
 
 # with completion
