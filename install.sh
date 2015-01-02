@@ -47,20 +47,24 @@ bundles=(
   "vim-ruby/vim-ruby"
 )
 
-for bundle in "${bundles[@]}"; do
-  bundle_name=$(echo $bundle | tr "/" "\n" | tail -1)
-  vim_bundle=~/.vim/bundle/$bundle_name
+main() {
+  for bundle in "${bundles[@]}"; do
+    bundle_name=$(echo $bundle | tr "/" "\n" | tail -1)
+    vim_bundle=~/.vim/bundle/$bundle_name
 
-  if [ ! -d $vim_bundle ]; then
-    fetch_bundle
-  else
+    if [ ! -d $vim_bundle ]; then
+      fetch_bundle
+    else
+      update_bundle
+    fi
+  done
+
+  for bundle in $(ls ~/.vim/vendor); do
+    vim_bundle=~/.vim/vendor/$bundle
+    bundle_name=$bundle
+
     update_bundle
-  fi
-done
+  done
+}
 
-for bundle in $(ls ~/.vim/vendor); do
-  vim_bundle=~/.vim/vendor/$bundle
-  bundle_name=$bundle
-
-  update_bundle
-done
+main
