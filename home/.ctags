@@ -5,6 +5,7 @@
 --exclude=jquery-*.js
 --exclude=bootstrap*.css
 --exclude=.git
+--exclude=.bundle
 
 --langdef=Clojure
 --langmap=Clojure:.clj
