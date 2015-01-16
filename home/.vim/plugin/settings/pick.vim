@@ -1,11 +1,11 @@
 " Run a given vim command on the results of fuzzy selecting from a given shell
 " command. See usage below.
-function! SelectaCommand(choice_command, selecta_args, vim_command)
+function! PickCommand(choice_command, pick_args, vim_command)
   try
-    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+    let selection = system(a:choice_command . " | pick " . a:pick_args)
   catch /Vim:Interrupt/
     " Swallow the ^C so that the redraw below happens; otherwise there will be
-    " leftovers from selecta on the screen
+    " leftovers from pick on the screen
     redraw!
     return
   endtry
@@ -35,10 +35,10 @@ endif
 
 let tag_cmd = "awk '{print $1}' .git/tags | sort -u | grep -v '^!'"
 
-if executable("selecta")
+if executable("pick")
   if ! has("gui_running")
-    nnoremap <leader><leader> :call SelectaCommand(find_cmd, "", ":e")<cr>
-    nnoremap <leader>b :call SelectaCommand(ListActiveBuffers(), "", ":e")<cr>
-    nnoremap <leader>7 :call SelectaCommand(tag_cmd, "", ":tag")<cr>
+    nnoremap <leader><leader> :call PickCommand(find_cmd, "", ":e")<cr>
+    nnoremap <leader>b :call PickCommand(ListActiveBuffers(), "", ":e")<cr>
+    nnoremap <leader>7 :call PickCommand(tag_cmd, "", ":tag")<cr>
   endif
 endif

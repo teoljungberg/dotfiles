@@ -26,11 +26,7 @@ $ sh install.sh
 $ sh linker.sh
 ```
 
-## Selecta
-I use [selecta][selecta] to act as my fuzzy-matcher, install it with
+## Pick
+I use [pick][pick] to act as my fuzzy-matcher
 
-```bash
-$ brew install selecta
-```
-
-[selecta]:http://github.com/garybernhardt/selecta
+[pick]:http://github.com/thoughtbot/pick
