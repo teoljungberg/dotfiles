@@ -44,3 +44,5 @@
   templatedir = ~/.git_template
 [grep]
   linenumber = true
+[fetch]
+  prune = true
