@@ -16,6 +16,7 @@ set updatetime=2000
 set nofoldenable
 set relativenumber
 set showcmd
+set wildmode=list:longest
 
 " plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
