@@ -51,10 +51,6 @@ set ignorecase " search
 set incsearch
 set smartcase
 set gdefault
-noremap n nzzzv
-noremap N Nzzzv
-noremap * *zzzv
-noremap # #zzzv
 
 " leader bindings
 noremap <leader>sr :%s//<left>
