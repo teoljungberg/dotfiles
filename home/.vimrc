@@ -63,7 +63,6 @@ command! -bang Wq wq
 command! -bang Wqa wqa
 noremap Y y$
 noremap Q <nop>
-noremap K <nop>
 cnoremap <c-g> <c-f>
 noremap 0 ^
 cnoremap <c-p> <up>
