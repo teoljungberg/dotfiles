@@ -64,6 +64,7 @@ command! -bang Wqa wqa
 noremap Y y$
 noremap Q <nop>
 nnoremap - -
+nnoremap <c-w>e :edit #<cr>
 
 " system clipboard integration
 nnoremap gy "*y
