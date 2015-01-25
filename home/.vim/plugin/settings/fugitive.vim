@@ -10,8 +10,6 @@ call s:gm('gd', 'Gdiff')
 call s:gm('gb', 'Gblame')
 vnoremap <silent> gb :Gbrowse<cr>
 
-cabbrev G Git
-
 augroup Fugitive
   autocmd BufReadPost fugitive://* set bufhidden=delete
 
