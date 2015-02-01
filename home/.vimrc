@@ -63,10 +63,7 @@ command! -bang Wq wq
 command! -bang Wqa wqa
 noremap Y y$
 noremap Q <nop>
-cnoremap <c-g> <c-f>
-noremap 0 ^
-cnoremap <c-p> <up>
-cnoremap <c-n> <down>
+nnoremap - -
 
 " system clipboard integration
 nnoremap gy "*y
@@ -83,10 +80,6 @@ nnoremap <silent> <c-w>z :wincmd z<Bar>cclose<Bar>lclose<CR>
 
 " re-select the last pasted text
 noremap gV V`]
-
-" swap ` and '
-noremap ' `
-noremap `  '
 
 " autocomplete Tag to tag
 command! -complete=tag -nargs=1 Tag tag <args>
