@@ -54,6 +54,7 @@ set gdefault
 
 " leader bindings
 noremap <leader>sr :%s//<left>
+noremap <leader>d :bd<cr>
 
 " convenience mappings
 command! -bang W w
