@@ -16,6 +16,7 @@ for file in home/.[^.]*; do
     symlink $path $target
   elif [[ -a $target ]]; then
     read -p "~/$base exists and differs from home/$base Override? [yn]" -n 1
+    echo
 
     if [[ $REPLY =~ [yY]* ]]; then
       symlink $path $target
