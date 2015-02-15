@@ -8,6 +8,8 @@ export PATH="$PATH:/usr/local/lib/node_modules"
 
 export MANPATH="~/.man:$MANPATH"
 
+export PATH=".git/safe/../../bin:$PATH"
+
 if [[ -d $HOME/bin ]]; then
   export PATH=$PATH:$HOME/bin
 fi
