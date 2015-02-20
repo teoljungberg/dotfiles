@@ -22,6 +22,10 @@ gp() {
   fi
 }
 
+gpl() {
+  git pull --rebase `git_origin_or_fork` `git_branch`
+}
+
 gci() {
   git commit -m "$*"
 }
