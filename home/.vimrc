@@ -66,6 +66,8 @@ noremap Y y$
 noremap Q <nop>
 nnoremap - -
 nnoremap <c-w>e :edit #<cr>
+cnoremap <c-p> <up>
+cnoremap <c-n> <down>
 
 " system clipboard integration
 nnoremap gy "*y
