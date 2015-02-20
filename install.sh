@@ -20,6 +20,7 @@ setup_pathogen() {
 
 bundles=(
   "altercation/vim-colors-solarized"
+  "beloglazov/vim-textobj-quotes"
   "kana/vim-textobj-user"
   "kchmck/vim-coffee-script"
   "nelstrom/vim-textobj-rubyblock"
