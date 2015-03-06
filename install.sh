@@ -26,6 +26,7 @@ bundles=(
   "nelstrom/vim-textobj-rubyblock"
   "teoljungberg/vim-grep"
   "teoljungberg/vim-visual-star-search"
+  "thoughtbot/pick.vim"
   "tommcdo/vim-exchange"
   "tpope/vim-abolish"
   "tpope/vim-bundler"
