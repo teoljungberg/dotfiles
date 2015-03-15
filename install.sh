@@ -1,7 +1,7 @@
 #!/bin/sh
 
 fetch_bundle() {
-  git clone "git@github.com:$bundle" $vim_bundle
+  git clone "git://github.com/$bundle" $vim_bundle
   echo
 }
 
