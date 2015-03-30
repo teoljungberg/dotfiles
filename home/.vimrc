@@ -53,7 +53,7 @@ set smartcase
 set gdefault
 
 " leader bindings
-noremap <leader>sr :%s//<left>
+noremap <leader>r :%s//<left>
 noremap <leader>d :bd<cr>
 
 " convenience mappings
