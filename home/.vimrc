@@ -74,9 +74,6 @@ nnoremap <silent> <c-w>z :wincmd z<Bar>cclose<Bar>lclose<CR>
 " re-select the last pasted text
 noremap gV V`]
 
-" autocomplete Tag to tag
-command! -complete=tag -nargs=1 Tag tag <args>
-
 " open files in directory of current file
 cnoremap %% <c-r>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
