@@ -97,5 +97,4 @@ augroup vimrcEx
   autocmd!
 
   autocmd WinEnter,BufWinEnter,CursorHold * silent! checktime
-  autocmd FileType help map <silent> <buffer> q :q<cr>
 augroup END
