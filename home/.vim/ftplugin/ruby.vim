@@ -42,5 +42,5 @@ command! ToggleTest :call ToggleTest()
 
 nnoremap <buffer> <silent> <c-w>t :lfile /tmp/autotest.txt<CR> :compiler rubyunit<CR>
 
-command! MinitestFocus execute 'normal 0Orequire "minitest/focus"<cr>focus<esc>j0'
-command! Pry execute "normal 0Orequire 'pry'; binding.pry<esc>j0"
+command! MinitestFocus execute 'normal 0Orequire "minitest/focus"; focus<esc>j0'
+command! Pry execute 'normal 0Orequire "pry"; binding.pry<esc>j0'
