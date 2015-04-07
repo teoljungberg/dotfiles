@@ -3,8 +3,6 @@ set meta-flag on
 set convert-meta off
 set output-meta on
 
-set editing-mode vi
-
 $if mode=vi
   set keymap vi-command
 
