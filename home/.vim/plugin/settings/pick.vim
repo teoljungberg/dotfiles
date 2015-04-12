@@ -1,5 +1,5 @@
 " Run a given vim command on the results of fuzzy selecting from a given shell
-let tag_cmd = "awk '{print $1}' .git/tags | sort -u | grep -v '^!'"
+let tag_cmd = "awk -F$'\t' '{print $1}' .git/tags | sort -u | grep -v '^!'"
 
 if executable("pick")
   if ! has("gui_running")
