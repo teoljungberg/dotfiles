@@ -23,6 +23,7 @@ bundles=(
   "kana/vim-textobj-user"
   "kchmck/vim-coffee-script"
   "nelstrom/vim-textobj-rubyblock"
+  "pbrisbin/vim-mkdir"
   "teoljungberg/vim-grep"
   "teoljungberg/vim-visual-star-search"
   "thoughtbot/pick.vim"
