@@ -8,5 +8,6 @@ if executable("pick")
     nnoremap <leader>v :call PickFileVerticalSplit()<cr>
     nnoremap <leader>b :call PickBuffer()<cr>
     nnoremap <leader>7 :call PickCommand(tag_cmd, "", ":tag")<cr>
+    nnoremap <leader>] :split<cr>:call PickCommand(tag_cmd, "", ":tag")<cr>
   endif
 endif
