@@ -13,7 +13,7 @@ ssh() {
     return
   fi
 
-  local remote=${@: -1}
+  local remote=$1
   local old_name=$(tmux display-message -p '#W')
 
   if [[ -n $remote ]]; then
