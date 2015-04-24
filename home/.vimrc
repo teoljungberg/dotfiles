@@ -17,6 +17,7 @@ set nofoldenable
 set relativenumber
 set showcmd
 set wildmode=list:longest
+set tagbsearch
 
 " plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
