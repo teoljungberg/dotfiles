@@ -65,7 +65,6 @@ command! -bang Wq wq
 command! -bang Wqa wqa
 noremap Y y$
 noremap Q <nop>
-nnoremap <c-w>e :edit #<cr>
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
 
@@ -79,8 +78,8 @@ noremap gV V`]
 cnoremap %% <c-r>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 
-" open tag under the cursor in a horizontal split
-noremap <c-\> <c-w>s<c-]>
+" toggle between the two most recent files
+noremap <c-\> :edit #<cr>
 
 " emacs movement
 " stolen from tpope/vim-rsi
