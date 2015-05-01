@@ -8,9 +8,7 @@
 --regex-ruby=/^[ \t]*shared_examples ['"](.*)['"] do/\1/i,rspec shared_example/
 
 --exclude=*.min.js
---exclude=jquery.*.js
---exclude=jquery-*.js
---exclude=bootstrap*.css
+
 --exclude=.git
 --exclude=.bundle
 
