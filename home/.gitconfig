@@ -18,7 +18,7 @@
   pr = pull --rebase
   co = checkout
   cp = cherry-pick
-  b = branch
+  br = branch
 
   l = !source ~/.githelpers && short_git_log
   undeployed = !git l `git tag | grep production | tail -n 1`..origin/master
