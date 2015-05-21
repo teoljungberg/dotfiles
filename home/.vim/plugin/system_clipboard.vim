@@ -1,6 +1,6 @@
 " system clipboard integration
 nnoremap gy "*y
-nnoremap gY "*Y
+nnoremap gY "*y$
 nnoremap gp "*p
 nnoremap gP "*P
 
