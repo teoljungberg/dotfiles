@@ -39,8 +39,6 @@
   autocorrect = 1
 [branch]
   autosetuprebase = always
-[rerere]
-  enabled = true
 [init]
   templatedir = ~/.git_template
 [commit]
