@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 fetch_bundle() {
   git clone "git://github.com/$bundle" $vim_bundle
   echo
@@ -8,7 +10,9 @@ fetch_bundle() {
 update_bundle() {
   cd $vim_bundle
   echo "updating $bundle_name"
-  git pull --rebase origin master
+  git fetch --quiet origin
+  git log --oneline ..origin/master
+  git reset --hard origin/master
   echo
 }
 
