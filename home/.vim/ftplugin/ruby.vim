@@ -1,4 +1,5 @@
 setlocal iskeyword+=?,!,=
+setlocal colorcolumn=+1
 
 " includes can be slow
 set complete-=i

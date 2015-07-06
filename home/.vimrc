@@ -18,6 +18,7 @@ set relativenumber
 set showcmd
 set wildmode=list:longest
 set tagbsearch
+set textwidth=80
 
 " plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
