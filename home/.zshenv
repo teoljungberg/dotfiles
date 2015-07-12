@@ -20,8 +20,6 @@ if [[ -d $HOME/bin ]]; then
   export PATH=$PATH:$HOME/bin
 fi
 
-if [ -f ~/.bash_profile.local ]; then
-  . ~/.bash_profile.local
+if [ -f ~/.zshenv.local ]; then
+  . ~/.zshenv.local
 fi
-
-. ~/.bashrc

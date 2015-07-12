@@ -1,3 +1,5 @@
+#!/bin/sh
+
 git_branch() {
   BRANCH_REFS=$(git symbolic-ref HEAD 2>/dev/null) || return
   GIT_BRANCH="${BRANCH_REFS#refs/heads/}"
@@ -21,6 +23,21 @@ gp() {
     git push `git_origin_or_fork` -u `git_branch`
   fi
 }
+
+gci() {
+  git commit -m "$*"
+}
+
+# No arguments: `git status`
+# With arguments: acts like `git`
+g() {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status -sb
+  fi
+}
+compdef g=git
 
 gpl() {
   git pull --rebase `git_origin_or_fork` `git_branch`

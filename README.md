@@ -9,7 +9,7 @@
     <th>Font</th>
   </tr>
   <tr>
-    <td>bash</td>
+    <td>zsh</td>
     <td>vim</td>
     <td>Solarized Light</td>
     <td>git</td>
