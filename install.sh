@@ -26,6 +26,7 @@ bundles=(
   "altercation/vim-colors-solarized"
   "kana/vim-textobj-user"
   "kchmck/vim-coffee-script"
+  "nelstrom/vim-qargs"
   "nelstrom/vim-textobj-rubyblock"
   "pbrisbin/vim-mkdir"
   "teoljungberg/vim-grep"
