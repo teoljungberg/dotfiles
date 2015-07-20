@@ -9,4 +9,5 @@ augroup Fugitive
         \ spell
         \ complete+=kspell
 
+  autocmd VimEnter .git/PULLREQ_EDITMSG set filetype=gitcommit
 augroup END
