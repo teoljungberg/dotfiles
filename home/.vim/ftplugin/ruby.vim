@@ -41,5 +41,3 @@ function! ToggleTest()
 endfunction
 command! ToggleTest :call ToggleTest()
 
-command! MinitestFocus execute 'normal 0Orequire "minitest/focus"; focus<esc>j0'
-command! Pry execute 'normal 0Orequire "pry"; binding.pry<esc>j0'
