@@ -74,6 +74,9 @@ nnoremap <silent> <c-w>z :wincmd z<Bar>cclose<Bar>lclose<CR>
 " re-select the last pasted text
 noremap gV V`]
 
+" duplicate the visually selected block
+vmap D y'>p
+
 " open files in directory of current file
 cnoremap %% <c-r>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
