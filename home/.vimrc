@@ -90,12 +90,6 @@ inoremap <expr> <c-e> col('.')>strlen(getline('.'))?"\<lt>c-e>":"\<lt>end>"
 inoremap <c-a> <esc>I
 cnoremap <c-a> <home>
 
-" move between panes
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-
 augroup vimrcEx
   autocmd!
 
