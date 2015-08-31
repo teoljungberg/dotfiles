@@ -7,4 +7,3 @@ set go-=r
 set go-=R
 set go-=e
 autocmd FocusLost * silent! wall
-set guicursor=a:blinkon0
