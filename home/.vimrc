@@ -51,7 +51,6 @@ set nowrap
 set ignorecase " search
 set incsearch
 set smartcase
-set gdefault
 
 " leader bindings
 noremap <leader>r :%s//<left>
