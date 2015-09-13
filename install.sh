@@ -2,26 +2,6 @@
 
 set -e
 
-fetch_bundle() {
-  git clone "git://github.com/$bundle" $vim_bundle
-  echo
-}
-
-update_bundle() {
-  cd $vim_bundle
-  echo "updating $bundle_name"
-  git fetch --quiet origin
-  git log --oneline ..origin/master
-  git reset --hard origin/master
-  echo
-}
-
-setup_pathogen() {
-  if [ ! -d $vim_bundle_base_path ]; then
-    mkdir -p $vim_bundle_base_path
-  fi
-}
-
 bundles=(
   "altercation/vim-colors-solarized"
   "kana/vim-textobj-user"
@@ -52,6 +32,26 @@ bundles=(
   "tpope/vim-vinegar"
   "vim-ruby/vim-ruby"
 )
+
+fetch_bundle() {
+  git clone "git://github.com/$bundle" $vim_bundle
+  echo
+}
+
+update_bundle() {
+  cd $vim_bundle
+  echo "updating $bundle_name"
+  git fetch --quiet origin
+  git log --oneline ..origin/master
+  git reset --hard origin/master
+  echo
+}
+
+setup_pathogen() {
+  if [ ! -d $vim_bundle_base_path ]; then
+    mkdir -p $vim_bundle_base_path
+  fi
+}
 
 main() {
   for bundle in "${bundles[@]}"; do
