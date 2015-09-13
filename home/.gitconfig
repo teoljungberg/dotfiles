@@ -5,11 +5,6 @@
   user = teoljungberg
 [credential]
   helper = osxkeychain
-[color]
-  diff = auto
-  status = auto
-  branch = auto
-  ui = true
 [alias]
   aa = add --all
   amend = commit -v --amend
