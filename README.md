@@ -1,11 +1,9 @@
 # Setup
-```bash
-$ sh install.sh
-# output ommitted
-$ sh linker.sh
-```
+I use [thoughtbot/rcm][rcm] to manage my dotfiles.
+
+[rcm]: http://github.com/thoughtbot/rcm
 
 # Pick
-I use [pick][pick] to act as my fuzzy-matcher
+I use [thoughtbot/pick][pick] to act as my fuzzy-matcher.
 
 [pick]: http://github.com/thoughtbot/pick

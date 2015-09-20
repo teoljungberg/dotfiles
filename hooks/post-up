@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 bundles=(
   "altercation/vim-colors-solarized"
   "kana/vim-textobj-user"
@@ -33,44 +31,34 @@ bundles=(
   "vim-ruby/vim-ruby"
 )
 
-fetch_bundle() {
+install_bundle() {
   git clone "git://github.com/$bundle" $vim_bundle
   echo
 }
 
 update_bundle() {
-  cd $vim_bundle
   echo "updating $bundle_name"
+  cd $vim_bundle
   git fetch --quiet origin
-  git log --oneline ..origin/master
+  git --no-pager log --oneline ..origin/master
   git reset --hard origin/master
   echo
 }
 
-setup_pathogen() {
-  if [ ! -d $vim_bundle_base_path ]; then
-    mkdir -p $vim_bundle_base_path
-  fi
-}
+for bundle in "${bundles[@]}"; do
+  bundle_name=$(echo $bundle | tr "/" "\n" | tail -1)
+  vim_bundle=~/.vim/bundle/$bundle_name
 
-main() {
-  for bundle in "${bundles[@]}"; do
-    bundle_name=$(echo $bundle | tr "/" "\n" | tail -1)
-    vim_bundle=~/.vim/bundle/$bundle_name
-
-    if [ ! -d $vim_bundle ]; then
-      fetch_bundle
-    else
-      update_bundle
-    fi
-  done
-
-  for bundle in $(ls ~/.vim/vendor); do
-    vim_bundle=~/.vim/vendor/$bundle
-    bundle_name=$bundle
-
+  if [ ! -d $vim_bundle ]; then
+    install_bundle
+  else
     update_bundle
-  done
-}
+  fi
+done
 
-main
+for bundle in $(ls ~/.vim/vendor); do
+  vim_bundle=~/.vim/vendor/$bundle
+  bundle_name=$bundle
+
+  update_bundle
+done
