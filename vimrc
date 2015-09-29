@@ -3,7 +3,6 @@ filetype off
 set history=1000
 let mapleader=" "
 set backspace=indent,eol,start
-set wildmenu
 set hidden
 set ttimeout ttimeoutlen=50
 set splitright
@@ -15,7 +14,7 @@ set updatetime=2000
 set nofoldenable
 set relativenumber
 set showcmd
-set wildmode=list:longest
+set wildmode=list:full
 set tagbsearch
 set textwidth=80
 
