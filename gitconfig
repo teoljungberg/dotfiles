@@ -1,6 +1,7 @@
 [user]
   name = Teo Ljungberg
   email = teo@teoljungberg.com
+  signingkey = B5D3178C
 [github]
   user = teoljungberg
 [credential]
