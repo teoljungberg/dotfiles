@@ -57,9 +57,11 @@ for bundle in "${bundles[@]}"; do
   fi
 done
 
-for bundle in $(ls ~/.vim/vendor); do
-  vim_bundle=~/.vim/vendor/$bundle
-  bundle_name=$bundle
+if [ -d ~/.vim/vendor ]; then
+  for bundle in $(ls ~/.vim/vendor); do
+    vim_bundle=~/.vim/vendor/$bundle
+    bundle_name=$bundle
 
-  update_bundle
-done
+    update_bundle
+  done
+fi
