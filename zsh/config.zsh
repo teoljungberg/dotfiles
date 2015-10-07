@@ -14,7 +14,3 @@ export HOMEBREW_NO_EMOJI=1
 # pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
 zstyle ':completion:*' completer _complete _ignored
-
-# completion menu
-zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
