@@ -24,10 +24,6 @@ gp() {
   fi
 }
 
-gci() {
-  git commit -m "$*"
-}
-
 # No arguments: `git status`
 # With arguments: acts like `git`
 g() {
@@ -38,14 +34,6 @@ g() {
   fi
 }
 compdef g=git
-
-gpl() {
-  git pull --rebase `git_origin_or_fork` `git_branch`
-}
-
-gci() {
-  git commit -m "$*"
-}
 
 b() {
   if [[ -a Gemfile ]]; then
