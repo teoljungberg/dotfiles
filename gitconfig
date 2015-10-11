@@ -9,14 +9,14 @@
 [alias]
   aa = add --all
   amend = commit -v --amend
-  unstage = reset HEAD --
-  reset-author = commit --amend --reset-author --no-edit
-  pr = pull --rebase
+  br = branch
   co = checkout
   cp = cherry-pick
-  br = branch
+  l = log --graph --decorate --oneline
+  pr = pull --rebase
+  reset-author = commit --amend --reset-author --no-edit
+  unstage = reset HEAD --
 
-  l = !source ~/.githelpers && short_git_log
   ctags = !.git/hooks/ctags
 [merge]
   tool = vimdiff
