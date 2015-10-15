@@ -18,7 +18,6 @@ bundles="
   tpope/vim-endwise
   tpope/vim-fugitive
   tpope/vim-git
-  tpope/vim-liquid
   tpope/vim-markdown
   tpope/vim-pathogen
   tpope/vim-projectionist
