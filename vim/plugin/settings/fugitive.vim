@@ -1,5 +1,3 @@
-nnoremap gs :Gstatus<cr>
-
 augroup Fugitive
   autocmd BufReadPost fugitive://* set bufhidden=delete
 
