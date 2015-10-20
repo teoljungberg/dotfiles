@@ -1,5 +1,3 @@
-#!/bin/sh
-
 git_branch() {
   BRANCH_REFS=$(git symbolic-ref HEAD 2>/dev/null) || return
   GIT_BRANCH="${BRANCH_REFS#refs/heads/}"

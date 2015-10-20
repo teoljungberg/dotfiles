@@ -1,5 +1,3 @@
-#!/bin/sh
-
 rename_tmux_window_to_current_dir() {
   if [ ! -z "$TMUX" ]; then
     if [ "$PWD" != "$LPWD" ]; then

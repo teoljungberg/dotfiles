@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # General aliases
 alias reload='source ~/.zshrc'
 
