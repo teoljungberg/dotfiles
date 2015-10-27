@@ -1,2 +1,2 @@
 #!/bin/sh
-sh ~/.dotfiles/scripts/vim-plugins
+sh $(dirname $0)/vim-plugins
