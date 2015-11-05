@@ -2,6 +2,7 @@
 alias reload='source ~/.zshrc'
 
 # listing
+alias b="bundle exec"
 alias ls="ls -GF"
 alias l='ls -1'
 

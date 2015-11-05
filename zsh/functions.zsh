@@ -32,11 +32,3 @@ g() {
   fi
 }
 compdef g=git
-
-b() {
-  if [[ -a Gemfile ]]; then
-    bundle exec $*
-  else
-    command $*
-  fi
-}
