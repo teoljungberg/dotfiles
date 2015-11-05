@@ -12,7 +12,6 @@
   co = checkout
   cp = cherry-pick
   l = log --graph --decorate --oneline
-  pr = pull --rebase
 
   ctags = !.git/hooks/ctags
 [merge]
