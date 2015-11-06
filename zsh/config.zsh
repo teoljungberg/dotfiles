@@ -2,6 +2,7 @@ setopt globdots
 setopt nobeep
 setopt no_bg_nice # don't nice background tasks
 setopt alwaystoend # when complete from middle, move cursor
+setopt autocd
 
 export EDITOR='vim'
 export VISUAL="$EDITOR"
