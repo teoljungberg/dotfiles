@@ -17,6 +17,8 @@ set showcmd
 set wildmode=list:full
 set tagbsearch
 set textwidth=80
+set nofileignorecase
+set nowildignorecase
 
 " plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
