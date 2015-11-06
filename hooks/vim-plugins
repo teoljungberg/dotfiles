@@ -6,8 +6,8 @@ bundles="
   kchmck/vim-coffee-script
   nelstrom/vim-textobj-rubyblock
   pbrisbin/vim-mkdir
-  teoljungberg/vim-grep
   teoljungberg/vim-focus-on-nearest-test
+  teoljungberg/vim-grep-motion
   teoljungberg/vim-visual-star-search
   thoughtbot/pick.vim
   tommcdo/vim-exchange
