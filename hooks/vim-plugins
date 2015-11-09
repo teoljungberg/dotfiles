@@ -39,6 +39,7 @@ install_bundle() {
 update_bundle() {
   echo "updating $bundle_name"
   cd $vim_bundle
+  git checkout --quiet master
   git fetch --quiet origin
   git --no-pager log --oneline ..origin/master
   git reset --hard origin/master
