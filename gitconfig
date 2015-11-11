@@ -4,8 +4,6 @@
   signingkey = B5D3178C
 [github]
   user = teoljungberg
-[credential]
-  helper = osxkeychain
 [alias]
   aa = add --all
   br = branch
