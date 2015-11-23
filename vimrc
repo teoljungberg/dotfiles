@@ -24,9 +24,7 @@ set nobackup
 set backupskip=/tmp/*,/private/tmp/*
 set smartindent
 set nowrap
-set ignorecase
 set incsearch
-set smartcase
 
 " plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
