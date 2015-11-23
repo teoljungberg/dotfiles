@@ -19,6 +19,14 @@ set tagbsearch
 set textwidth=80
 set nofileignorecase
 set nowildignorecase
+set noswapfile
+set nobackup
+set backupskip=/tmp/*,/private/tmp/*
+set smartindent
+set nowrap
+set ignorecase
+set incsearch
+set smartcase
 
 " plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -36,22 +44,11 @@ set list
 set listchars=tab:>-,trail:.,extends:>,precedes:<
 set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
-set noswapfile
-set nobackup
-set backupskip=/tmp/*,/private/tmp/*
-
 " automatically create undodir if it doesn't exist
 set undodir=~/.cache/vim/undo//
 if !isdirectory(expand(&undodir))
   call mkdir(expand(&undodir), "p")
 endif
-
-set smartindent
-set nowrap
-
-set ignorecase " search
-set incsearch
-set smartcase
 
 " leader bindings
 noremap <leader>r :%s//<left>
