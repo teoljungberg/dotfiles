@@ -28,8 +28,3 @@ end
 def pbpaste
   `pbpaste`
 end
-
-def json_pp json
-  require 'json'
-  puts JSON.pretty_generate JSON.parse(json)
-end
