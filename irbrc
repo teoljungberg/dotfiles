@@ -19,12 +19,6 @@ class Object
   end
 end
 
-class Object
-  def super_method name
-    self.class.superclass.instance_method name
-  end
-end
-
 def pbcopy input
   str = input.to_s
   IO.popen('pbcopy', 'w') { |f| f << str }
