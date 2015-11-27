@@ -1,7 +1,6 @@
 set nocompatible
 filetype off
 set history=1000
-let mapleader=" "
 set backspace=indent,eol,start
 set hidden
 set ttimeout ttimeoutlen=50
