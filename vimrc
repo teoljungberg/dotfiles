@@ -74,6 +74,9 @@ vmap D y'>p
 " open files in directory of current file
 cnoremap %% <c-r>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
+map <leader>s :split %%
+map <leader>v :vsplit %%
+map <leader>t :tabedit %%
 
 " toggle between the two most recent files
 noremap <c-\> :edit #<cr>
