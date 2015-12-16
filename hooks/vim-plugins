@@ -2,9 +2,7 @@
 
 bundles="
   altercation/vim-colors-solarized
-  kana/vim-textobj-user
   kchmck/vim-coffee-script
-  nelstrom/vim-textobj-rubyblock
   pbrisbin/vim-mkdir
   teoljungberg/vim-focus-on-nearest-test
   teoljungberg/vim-grep-motion
