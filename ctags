@@ -6,6 +6,8 @@
 --regex-ruby=/^[ \t]*it ['"](.*)['"].* do/\1/i,rspec tests/
 --regex-ruby=/^[ \t]*scenario ['"](.*)['"].* do/\1/i,rspec scenario/
 --regex-ruby=/^[ \t]*shared_examples ['"](.*)['"] do/\1/i,rspec shared_example/
+--regex-ruby=/^[ \t]*let\(:(.*)\)/\1/i,rspec let/
+--regex-ruby=/^[ \t]*subject\(:(.*)\)/\1/i,rspec subject/
 --regex-ruby=/^[ \t]*factory :(.*) do/\1/i,factory_girl factory/
 --regex-ruby=/^[ \t]*trait :(.*) do/\1/i,factory_girl trait/
 
