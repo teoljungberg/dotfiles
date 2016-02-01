@@ -34,3 +34,5 @@
   linenumber = true
 [fetch]
   prune = true
+[rebase]
+  autosquash = true
