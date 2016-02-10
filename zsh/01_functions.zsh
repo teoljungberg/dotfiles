@@ -32,3 +32,24 @@ g() {
   fi
 }
 compdef g=git
+
+# The grep commands are used in this order:
+# - `git grep`
+# - `ag`
+# - `grep`
+gr() {
+  cmd=""
+
+  git rev-parse --is-inside-work-tree 2> /dev/null 1> /dev/null
+
+  if [ $? -eq 0 ]; then
+    cmd="git grep -n"
+  else
+    if [ command -v ag >/dev/null ]; then
+      cmd="ag --nogroup"
+    else
+      cmd="grep -rnH"
+    fi
+  fi
+  eval "$cmd $(printf "%q" $1) $2"
+}
