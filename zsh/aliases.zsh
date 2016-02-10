@@ -7,4 +7,3 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gc='git commit -v'
 alias gl="git log --oneline -15"
-alias gg="git grep"
