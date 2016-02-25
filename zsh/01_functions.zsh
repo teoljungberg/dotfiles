@@ -38,7 +38,9 @@ compdef g=git
 # - `ag`
 # - `grep`
 gr() {
-  cmd=""
+  local cmd=""
+  local term=$(printf "%q" $1)
+  local files=${@:2}
 
   git rev-parse --is-inside-work-tree 2> /dev/null 1> /dev/null
 
@@ -51,5 +53,5 @@ gr() {
       cmd="grep -rnH"
     fi
   fi
-  eval "$cmd $(printf "%q" $1) $2"
+  eval "$cmd $term $files"
 }
