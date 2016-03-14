@@ -16,8 +16,10 @@ set showcmd
 set wildmode=list,full
 set tagbsearch
 set textwidth=80
-set nofileignorecase
-set nowildignorecase
+if v:version > 703
+  set nofileignorecase
+  set nowildignorecase
+end
 set noswapfile
 set nobackup
 set backupskip=/tmp/*,/private/tmp/*
