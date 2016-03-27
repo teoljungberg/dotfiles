@@ -26,6 +26,7 @@ set backupskip=/tmp/*,/private/tmp/*
 set smartindent
 set nowrap
 set incsearch
+set shortmess=aoOts
 
 " plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
