@@ -6,5 +6,6 @@ if executable("pick")
     nnoremap <space>b :call PickBuffer()<cr>
     nnoremap <space>7 :call PickTag()<cr>
     nnoremap <space>] :split<cr>:call PickTag()<cr>
+    nnoremap <space>t :call PickFileTab()<cr>
   endif
 endif
