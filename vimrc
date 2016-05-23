@@ -55,11 +55,6 @@ noremap <leader>r :%s//<left>
 noremap <leader>d :bd<cr>
 
 " convenience mappings
-command! -bang W w
-command! -bang Q q
-command! -bang Qa qa
-command! -bang Wq wq
-command! -bang Wqa wqa
 noremap Y y$
 noremap Q <nop>
 cnoremap <c-p> <up>
