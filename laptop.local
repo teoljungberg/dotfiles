@@ -1,0 +1,20 @@
+brew_install_or_upgrade pick
+brew_install_or_upgrade qt55
+brew_install_or_upgrade tree
+brew_install_or_upgrade yank
+
+brew_tap "caskroom/cask"
+brew_install_or_upgrade "brew-cask"
+
+brew cask install 1password
+brew cask install alfred
+brew cask install dropbox
+brew cask install flux
+brew cask install rowanj-gitx
+brew cask install google-chrome
+brew cask install gpgtools
+brew cask install karabiner
+brew cask install moom
+brew cask install screenhero
+brew cask install sketch
+brew cask install slack
