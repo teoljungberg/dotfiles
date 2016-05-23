@@ -79,6 +79,9 @@ map <leader>t :tabedit %%
 " toggle between the two most recent files
 noremap <c-\> :edit #<cr>
 
+" open the tag under the cursor using `:ltag`
+noremap <c-w>\ :ltag <c-r>=expand("<cword>")<cr><cr>
+
 " emacs movement
 " stolen from tpope/vim-rsi
 inoremap <expr> <c-e> col('.')>strlen(getline('.'))?"\<lt>c-e>":"\<lt>end>"
