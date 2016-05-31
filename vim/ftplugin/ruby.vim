@@ -1,3 +1,4 @@
+let g:ruby_indent_block_style = "do"
 setlocal iskeyword+=?,!,=
 
 " includes can be slow
