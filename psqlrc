@@ -1,0 +1,7 @@
+\x
+\set ON_ERROR_ROLLBACK interactive
+\set COMP_KEYWORD_CASE upper
+\set HISTFILE ~/.psql/history- :DBNAME
+
+\pset pager off
+\pset null '(null)'
