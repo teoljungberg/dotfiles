@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+command -v yank >/dev/null 2>&1 || {
+  echo >&2 "yank(1) is not installed."
+  exit 78
+}
+
+git commit --fixup="$(git log --oneline | yank)"
