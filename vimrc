@@ -50,8 +50,7 @@ if !isdirectory(expand(&undodir))
   call mkdir(expand(&undodir), "p")
 endif
 
-" leader bindings
-noremap <leader>r :%s//<left>
+" close current buffer
 noremap <leader>d :bd<cr>
 
 " convenience mappings
@@ -75,6 +74,7 @@ map <leader>e :edit %%
 map <leader>s :split %%
 map <leader>v :vsplit %%
 map <leader>t :tabedit %%
+map <leader>r :read %%
 
 " toggle between the two most recent files
 noremap <c-\> :edit #<cr>
