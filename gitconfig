@@ -14,7 +14,6 @@
   ctags = !.git/hooks/ctags
 [merge]
   tool = vimdiff
-  conflictstyle = diff3
 [core]
   editor = vim -f
   excludesfile = ~/.gitignore
