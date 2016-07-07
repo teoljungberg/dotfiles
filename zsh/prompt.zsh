@@ -2,7 +2,7 @@ rename_tmux_window_to_current_dir() {
   if [ ! -z "$TMUX" ]; then
     if [ "$PWD" != "$LPWD" ]; then
       LPWD="$PWD"
-      tmux rename-window $(print -Pn "%c")
+      tmux rename-window "$(print -Pn "%c")"
     fi
   fi
 }
