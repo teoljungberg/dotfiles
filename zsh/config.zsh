@@ -11,6 +11,7 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export GREP_OPTIONS="--color"
 export HOMEBREW_NO_EMOJI=1
+export TERM=xterm-256color-italic
 
 # pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
