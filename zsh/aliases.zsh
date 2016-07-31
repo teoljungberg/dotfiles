@@ -1,6 +1,5 @@
 alias reload='source ~/.zshrc'
 alias b="bundle exec"
-alias ls="ls -GF"
 
 alias ga='git aa'
 alias gd='git diff'
