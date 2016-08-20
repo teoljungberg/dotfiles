@@ -2,7 +2,7 @@ function! SetGrepPrg()
   let l:output = system("git ls-files " . expand("%") . " -co --exclude-standard --error-unmatch 2> /dev/null; echo $?")
 
   if l:output == 0
-    set grepprg=git\ grep\ -n
+    set grepprg=git\ grep\ --untracked
   else
     if executable("ag")
       set grepprg=ag\ --nogroup\ --nocolor

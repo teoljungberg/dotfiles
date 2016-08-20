@@ -45,7 +45,7 @@ gr() {
   git rev-parse --is-inside-work-tree 2> /dev/null 1> /dev/null
 
   if [ $? -eq 0 ]; then
-    cmd="git grep -n"
+    cmd="git grep --untracked"
   else
     if [ command -v ag >/dev/null ]; then
       cmd="ag --nogroup"
