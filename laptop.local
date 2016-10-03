@@ -1,10 +1,14 @@
-brew_install_or_upgrade pick
-brew_install_or_upgrade qt55
-brew_install_or_upgrade tree
-brew_install_or_upgrade yank
+brew bundle --file=- <<EOF
+brew "chruby"
+brew "pick"
+brew "qt5"
+brew "ruby-install"
+brew "tree"
+brew "yank"
 
-brew_tap "caskroom/cask"
-brew_install_or_upgrade "brew-cask"
+tap "caskroom/cask"
+brew "brew-cask"
+EOF
 
 brew cask install 1password
 brew cask install alfred
