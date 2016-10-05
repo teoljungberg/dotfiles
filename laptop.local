@@ -1,4 +1,5 @@
 brew bundle --file=- <<EOF
+brew "automake"
 brew "chruby"
 brew "pick"
 brew "qt5"
