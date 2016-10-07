@@ -2,12 +2,12 @@
 
 bundles="
   altercation/vim-colors-solarized
+  calleerlandsson/pick.vim
   kchmck/vim-coffee-script
   pbrisbin/vim-mkdir
   teoljungberg/vim-focus-on-nearest-test
   teoljungberg/vim-grep-motion
   teoljungberg/vim-visual-star-search
-  thoughtbot/pick.vim
   tommcdo/vim-exchange
   tpope/vim-abolish
   tpope/vim-bundler
