@@ -9,7 +9,6 @@ brew "tree"
 brew "yank"
 
 tap "caskroom/cask"
-brew "brew-cask"
 EOF
 
 brew cask install 1password
