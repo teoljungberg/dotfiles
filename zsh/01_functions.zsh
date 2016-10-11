@@ -33,29 +33,6 @@ g() {
 }
 compdef g=git
 
-# The grep commands are used in this order:
-# - `git grep`
-# - `ag`
-# - `grep`
-gr() {
-  local cmd=""
-  local term=$(printf "%q" $1)
-  local files=${@:2}
-
-  git rev-parse --is-inside-work-tree 2> /dev/null 1> /dev/null
-
-  if [ $? -eq 0 ]; then
-    cmd="git grep --untracked"
-  else
-    if [ command -v ag >/dev/null ]; then
-      cmd="ag --nogroup"
-    else
-      cmd="grep -rnH"
-    fi
-  fi
-  eval "$cmd $term $files"
-}
-
 # Completion for `bin/git-delete-branch`
 _git_delete_branch() {
   __gitcomp "$(__git_heads)"
