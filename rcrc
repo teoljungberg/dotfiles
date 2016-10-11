@@ -1,1 +1,2 @@
 EXCLUDES="README.md"
+DOTFILES_DIRS="$HOME/src/dotfiles"
