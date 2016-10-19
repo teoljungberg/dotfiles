@@ -27,6 +27,9 @@ set smartindent
 set nowrap
 set incsearch
 set shortmess=aoOts
+if exists("+completefunc") && &completefunc == ""
+  set completefunc=syntaxcomplete#Complete
+endif
 
 " plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
