@@ -7,6 +7,7 @@ brew "qt5"
 brew "ruby-install"
 brew "tree"
 brew "yank"
+brew "z"
 
 tap "caskroom/cask"
 EOF
