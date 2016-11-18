@@ -6,13 +6,13 @@ save_function() {
   eval "$new_function"
 }
 
-save_function chruby original_chruby
+save_function "chruby" "original_chruby"
 
 prepend_to_path_without_duplication() {
   path=($1 ${(@)path:#$1})
 }
 
 chruby() {
-  original_chruby $*
+  original_chruby "$@"
   prepend_to_path_without_duplication ".git/safe/../../bin"
 }
