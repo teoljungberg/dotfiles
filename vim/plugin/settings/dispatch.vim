@@ -1,3 +1,5 @@
+set shellpipe+=" "
+
 nnoremap <silent> <expr> d<cr> ":Dispatch<cr>"
 nnoremap <silent> <expr> d! ":Dispatch!<cr>"
 nnoremap d<space> :Dispatch<space>
