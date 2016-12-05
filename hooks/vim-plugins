@@ -38,7 +38,7 @@ for bundle in ${bundles}; do
     git checkout --quiet master
     git fetch --quiet origin
     git --no-pager log --oneline ..origin/master
-    git reset --quiet --hard origin/master
+    git rebase --quiet origin/master
   else
     git clone "git://github.com/$bundle" $vim_bundle
   fi
@@ -54,7 +54,7 @@ if [ -d ~/.vim/vendor ]; then
       git checkout --quiet master
       git fetch --quiet origin
       git --no-pager log --oneline ..origin/master
-      git reset --quiet --hard origin/master
+      git rebase --quiet origin/master
     fi
   done
 fi
