@@ -1,0 +1,74 @@
+#!/bin/sh
+#
+# `pick-file` is a generic tool listing all files in the current directory, the
+# method that is used to do so is dependent on what type of directory it is.
+# It can also be override by passing the listing command to with
+# `[-f|--file-command]`.
+#
+# Unless configured otherwise, the command will try to use `git ls-files` if it
+# is executed inside a git directory. Else, plain old `find` is used.
+#
+# Options:
+#
+#   See: `pick-file --help`
+#
+# Examples:
+#
+#   Stage a file in `git`:
+#
+#     % git add $(pick-file)
+#
+#   Run a specific test file:
+#
+#     % your-test-command $(pick-file)
+#
+
+command -v pick >/dev/null 2>&1 || {
+  echo >&2 "pick(1) is not installed."
+  exit 78
+}
+
+inside_git_repo() {
+  git rev-parse --is-inside-work-tree 2> /dev/null 1> /dev/null
+}
+
+usage() {
+  echo "usage: $(basename $0) [(-f | --file-command) <argument>]"
+  echo "usage: $(basename $0) [(-l | --lines) <argument>]"
+  echo "usage: $(basename $0) [(-h | --help)]"
+}
+
+parse_options() {
+  while [ $# -gt 0 ]; do
+    case $1 in
+      -l | --lines )
+        shift
+        flags="-X"
+        lines=$1
+        ;;
+
+      -f | --file-command )
+        shift
+        file_command=$1
+        ;;
+
+      -h | --help )
+        usage
+        exit
+        ;;
+    esac
+    shift
+  done
+}
+
+flags=""
+lines=0
+if inside_git_repo; then
+  file_command="git ls-files --cached --exclude-standard --others"
+else
+  file_command="find * -type f"
+fi
+
+parse_options "$@" || exit $?
+
+eval "$file_command | env LINES=$lines pick $flags"
