@@ -17,4 +17,11 @@ let g:rails_projections = {
       \      "template": "require 'rails_helper'\n\n" .
       \        "RSpec.describe '{}' do\nend",
       \   },
+      \   "app/services/*.rb": {
+      \     "command": "service",
+      \     "test": [
+      \       "spec/services/%s_spec.rb",
+      \       "test/services/%s_test.rb"
+      \     ],
+      \   },
       \ }
