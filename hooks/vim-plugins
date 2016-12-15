@@ -35,7 +35,6 @@ for bundle in ${bundles}; do
   if [ -d $vim_bundle ]; then
     echo "updating $vim_bundle"
     cd $vim_bundle
-    git checkout --quiet master
     git fetch --quiet origin
     git --no-pager log --oneline ..origin/master
     git rebase --quiet origin/master
@@ -51,7 +50,6 @@ if [ -d ~/.vim/vendor ]; then
 
     if [ $(git remote) ]; then
       echo "updating $vim_bundle"
-      git checkout --quiet master
       git fetch --quiet origin
       git --no-pager log --oneline ..origin/master
       git rebase --quiet origin/master
