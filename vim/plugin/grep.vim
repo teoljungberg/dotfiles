@@ -1,3 +1,5 @@
+cabbrev rg gr
+
 function! SetGrepPrg()
   if executable("rg")
     set grepprg=rg\ --no-heading\ --vimgrep
