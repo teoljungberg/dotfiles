@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+target="${1:-staging}"
+
+git fetch --multiple origin $target
+git log --oneline $target/master..origin/master
