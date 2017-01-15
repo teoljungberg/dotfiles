@@ -13,7 +13,7 @@ set updatetime=2000
 set nofoldenable
 set relativenumber
 set showcmd
-set wildmode=list,full
+set wildmode=list:full
 set tagbsearch
 set textwidth=80
 if v:version > 703
