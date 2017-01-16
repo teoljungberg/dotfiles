@@ -16,3 +16,7 @@ bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M viins '^S' history-incremental-search-forward
 
 bindkey -M viins "^q" push-line-or-edit
+
+# Search history in vim
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey -M vicmd '/' history-incremental-search-forward
