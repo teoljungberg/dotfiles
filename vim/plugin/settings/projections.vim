@@ -23,5 +23,18 @@ let g:rails_projections = {
       \       "spec/services/%s_spec.rb",
       \       "test/services/%s_test.rb"
       \     ],
+      \      "template": [
+      \        "class {camelcase|capitalize|colons}",
+      \        "  def self.call(*args)",
+      \        "    new(*args).call",
+      \        "  end",
+      \        "",
+      \        "  def initialize(*args)",
+      \        "  end",
+      \        "",
+      \        "  def call",
+      \        "  end",
+      \        "end"
+      \      ]
       \   },
       \ }
