@@ -14,8 +14,12 @@ let g:rails_projections = {
       \   "spec/requests/*_spec.rb": {
       \      "command": "request",
       \      "alternate": "app/controllers/{}_controller.rb",
-      \      "template": "require 'rails_helper'\n\n" .
-      \        "RSpec.describe '{}' do\nend",
+      \      "template": [
+      \        "require \"rails_helper\"",
+      \        "",
+      \        "RSpec.describe \"{}\" do",
+      \        "end"
+      \      ]
       \   },
       \   "app/services/*.rb": {
       \     "command": "service",
