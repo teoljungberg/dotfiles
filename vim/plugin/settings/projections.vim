@@ -37,4 +37,24 @@ let g:rails_projections = {
       \        "end"
       \      ]
       \   },
+      \   "app/queries/*_query.rb": {
+      \     "command": "query",
+      \     "test": [
+      \       "spec/queries/%s_spec.rb",
+      \       "test/queries/%s_test.rb"
+      \     ],
+      \      "template": [
+      \        "class {camelcase|capitalize|colons}Query",
+      \        "  def self.call(*args)",
+      \        "    new(*args).call",
+      \        "  end",
+      \        "",
+      \        "  def initialize(*args)",
+      \        "  end",
+      \        "",
+      \        "  def call",
+      \        "  end",
+      \        "end"
+      \      ]
+      \   },
       \ }
