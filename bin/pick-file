@@ -33,9 +33,9 @@ inside_git_repo() {
 }
 
 usage() {
-  echo "usage: $(basename $0) [(-f | --file-command) <argument>]"
-  echo "usage: $(basename $0) [(-l | --lines) <argument>]"
-  echo "usage: $(basename $0) [(-h | --help)]"
+  echo "usage: $(basename "$0") [(-f | --file-command) <argument>]"
+  echo "usage: $(basename "$0") [(-l | --lines) <argument>]"
+  echo "usage: $(basename "$0") [(-h | --help)]"
 }
 
 parse_options() {
