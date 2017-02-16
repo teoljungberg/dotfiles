@@ -46,6 +46,7 @@ filetype plugin indent on
 set list
 set listchars=tab:\ \ ,trail:.,extends:>,precedes:<
 set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set cmdheight=2
 
 " automatically create undodir if it doesn't exist
 set undodir=~/.cache/vim/undo//
