@@ -26,7 +26,7 @@ set backupskip=/tmp/*,/private/tmp/*
 set smartindent
 set nowrap
 set incsearch
-set shortmess=aoOts
+set shortmess=aoOtsT
 if exists("+completefunc") && &completefunc == ""
   set completefunc=syntaxcomplete#Complete
 endif
