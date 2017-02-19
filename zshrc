@@ -4,9 +4,6 @@ bindkey -v
 # to make vim behave under xterm
 stty -ixon
 
-# completion
-autoload -Uz compinit && compinit
-
 # colors and prompt
 autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
