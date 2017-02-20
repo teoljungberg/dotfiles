@@ -1,3 +1,8 @@
+# to make vim behave under xterm
+stty -ixon
+
+bindkey -v
+
 # command line editing
 autoload edit-command-line
 zle -N edit-command-line
