@@ -26,3 +26,4 @@ brew cask install rowanj-gitx
 brew cask install screenhero
 brew cask install slack
 brew cask install spotify
+brew cask install whatsapp
