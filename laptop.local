@@ -22,6 +22,7 @@ brew cask install google-chrome
 brew cask install gpgtools
 brew cask install hammerspoon
 brew cask install karabiner
+brew cask install messenger
 brew cask install rowanj-gitx
 brew cask install screenhero
 brew cask install slack
