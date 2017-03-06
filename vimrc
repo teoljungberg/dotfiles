@@ -30,15 +30,6 @@ set shortmess=aoOtsT
 if exists("+completefunc") && &completefunc == ""
   set completefunc=syntaxcomplete#Complete
 endif
-
-" plugins
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect('bundle/{}', 'vendor/{}')
-runtime macros/matchit.vim
-
-silent! colorscheme solarized " visuals
-set background=light
-set t_Co=256
 set scrolljump=-50
 set laststatus=2
 syntax on
@@ -47,6 +38,15 @@ set list
 set listchars=tab:\ \ ,trail:.,extends:>,precedes:<
 set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set cmdheight=2
+
+" plugins
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect('bundle/{}', 'vendor/{}')
+runtime macros/matchit.vim
+
+silent! colorscheme solarized
+set background=light
+set t_Co=256
 
 " automatically create undodir if it doesn't exist
 set undodir=~/.cache/vim/undo//
