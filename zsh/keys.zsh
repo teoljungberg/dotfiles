@@ -25,3 +25,5 @@ bindkey -M viins "^q" push-line-or-edit
 # Search history in vim
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-forward
+
+bindkey -M viins '\e_' insert-last-word
