@@ -11,20 +11,19 @@ brew "yank"
 brew "z"
 
 tap "caskroom/cask"
+cask "1password"
+cask "alfred"
+cask "dropbox"
+cask "firefox"
+cask "flux"
+cask "google-chrome"
+cask "gpgtools"
+cask "hammerspoon"
+cask "karabiner"
+cask "messenger"
+cask "rowanj-gitx"
+cask "screenhero"
+cask "slack"
+cask "spotify"
+cask "whatsapp"
 EOF
-
-brew cask install 1password
-brew cask install alfred
-brew cask install dropbox
-brew cask install firefox
-brew cask install flux
-brew cask install google-chrome
-brew cask install gpgtools
-brew cask install hammerspoon
-brew cask install karabiner
-brew cask install messenger
-brew cask install rowanj-gitx
-brew cask install screenhero
-brew cask install slack
-brew cask install spotify
-brew cask install whatsapp
