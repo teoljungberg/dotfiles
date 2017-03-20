@@ -28,7 +28,6 @@
   templatedir = ~/.git_template
 [commit]
   template = ~/.gitmessage
-  gpgSign = true
 [grep]
   linenumber = true
 [fetch]
