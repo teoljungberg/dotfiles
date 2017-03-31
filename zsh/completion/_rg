@@ -1,7 +1,0 @@
-#compdef rg
-
-if (( CURRENT == 2 )); then
-  compadd $(cut -f 1 .git/tags 2>/dev/null | grep -Ev "^\!")
-else
-  _files
-fi
