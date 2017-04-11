@@ -22,6 +22,12 @@ bindkey -M viins '^S' history-incremental-search-forward
 
 bindkey -M viins "^q" push-line-or-edit
 
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey '^X^P' history-beginning-search-backward-end
+bindkey '^X^N' history-beginning-search-forward-end
+
 # Search history in vim
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-forward
