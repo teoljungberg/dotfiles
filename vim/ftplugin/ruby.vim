@@ -7,7 +7,7 @@ set complete-=i
 iabbrev dinit def initialize
 
 " dispatch
-let b:start = executable('pry') ? 'pry -I lib -r "%:p"' : 'irb -I lib -r "%:p"'
+let b:start = "irb -I lib -r '%:p'"
 
 if empty("b:dispatch")
   if expand('%') =~# '_test\.rb$'
