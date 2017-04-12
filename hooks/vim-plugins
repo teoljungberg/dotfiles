@@ -22,6 +22,7 @@ bundles="
   tpope/vim-rails
   tpope/vim-rake
   tpope/vim-repeat
+  tpope/vim-rhubarb
   tpope/vim-sleuth
   tpope/vim-surround
   tpope/vim-unimpaired
