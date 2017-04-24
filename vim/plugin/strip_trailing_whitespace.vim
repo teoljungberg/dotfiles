@@ -1,11 +1,8 @@
 " save last search, and cursor position.
 function! Preserve(command)
-  let _s=@/
-  let l = line('.')
-  let c = col('.')
+  let l:save = winsaveview()
   execute a:command
-  " restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
+  call winrestview(l:save)
 endfunction
+
 command! StripTrailingWhitespace :call Preserve(':%s/\s\+$//e')
