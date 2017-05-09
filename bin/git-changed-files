@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+command -v pick >/dev/null 2>&1 || {
+  echo >&2 "pick(1) is not installed."
+  exit 78
+}
+
+git status --porcelain | LINES=15 pick -X | cut -c4-
