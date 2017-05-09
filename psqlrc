@@ -1,7 +1,7 @@
 \x
 \set ON_ERROR_ROLLBACK interactive
 \set COMP_KEYWORD_CASE upper
-\set HISTFILE ~/.psql/history- :DBNAME
+\set HISTFILE ~/.psql-history- :DBNAME
 
 -- http://www.postgresql.org/docs/9.3/static/app-psql.html#APP-PSQL-PROMPTING
 \set PROMPT1 '%[%033[1m%]%/%R%[%033[0m%]%# '

@@ -1,5 +1,3 @@
-mkdir "$HOME/.psql"
-
 brew bundle --file=- <<EOF
 brew "automake"
 brew "chruby"
