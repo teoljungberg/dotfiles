@@ -40,6 +40,10 @@ set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set cmdheight=2
 set lazyredraw
 set nojoinspaces
+" When the type of shell script is /bin/sh, assume a POSIX-compatible shell for
+" syntax highlighting purposes.
+" More on why: https://github.com/thoughtbot/dotfiles/pull/471
+let g:is_posix = 1
 
 " plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
