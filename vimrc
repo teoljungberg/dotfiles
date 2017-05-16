@@ -91,6 +91,10 @@ noremap <c-w>\ :ltag <c-r>=expand("<cword>")<cr><cr>
 " Only have the current split and tab open
 command! O :silent only<bar>silent tabonly
 
+" open `:tag` in splits, and tabs
+cabbrev vtag vsplit<bar>tag
+cabbrev ttag tabnew<bar>tag
+
 " emacs movement
 " stolen from tpope/vim-rsi
 inoremap <expr> <c-e> col('.')>strlen(getline('.'))?"\<lt>c-e>":"\<lt>end>"
