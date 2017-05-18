@@ -18,3 +18,9 @@ class Object
     end
   end
 end
+
+def exception_for(&block)
+  block.call
+rescue => exception
+  exception
+end
