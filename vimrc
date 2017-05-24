@@ -35,7 +35,7 @@ set laststatus=2
 syntax on
 filetype plugin indent on
 set list
-set listchars=tab:\ \ ,trail:.,extends:>,precedes:<
+set listchars=tab:\ \ ,trail:.,extends:>,precedes:<,nbsp:•
 set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set cmdheight=2
 set lazyredraw
