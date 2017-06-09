@@ -1,4 +1,5 @@
 cabbrev rg gr
+nnoremap <space>gr :grep<space><C-R>=expand("<cword>")<CR>
 
 if executable("rg")
   set grepprg=rg\ --hidden\ --glob\ '!.git'\ --no-heading\ --vimgrep
