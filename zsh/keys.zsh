@@ -33,3 +33,6 @@ bindkey -M vicmd '?' history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-forward
 
 bindkey -M viins '\e_' insert-last-word
+
+# Leverage `bin/pick-file` fuzzy-find a file
+bindkey '^X^F' _pick_file
