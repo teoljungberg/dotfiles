@@ -7,4 +7,4 @@ command -v pick >/dev/null 2>&1 || {
   exit 78
 }
 
-git status --porcelain | pick -X | cut -c4-
+git status --porcelain | pick | cut -c4-
