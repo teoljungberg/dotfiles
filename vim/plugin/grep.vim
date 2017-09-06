@@ -1,4 +1,3 @@
-cabbrev rg gr
 nnoremap <leader>gr :grep<space><C-R>=expand("<cword>")<CR>
 nnoremap <leader>gl :lgrep<space><C-R>=expand("<cword>")<CR>
 
