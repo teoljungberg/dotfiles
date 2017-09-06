@@ -4,4 +4,4 @@ hi! link rubyAssertion rubyFunction
 hi! link rubyBlockParameter rubyIdentifier
 
 " 33 = blue
-hi MatchParen cterm=bold ctermbg=none ctermfg=33
+hi! MatchParen cterm=bold ctermbg=none ctermfg=33
