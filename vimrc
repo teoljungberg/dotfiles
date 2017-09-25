@@ -70,7 +70,7 @@ cnoremap <c-p> <up>
 cnoremap <c-n> <down>
 
 " close everything
-nnoremap <silent> <c-w>z :wincmd z<Bar>cclose<Bar>lclose<CR>
+nnoremap <silent> <c-w>z :wincmd z<Bar>cclose<Bar>lclose<Bar>helpclose<CR>
 
 " re-select the last pasted text
 noremap gV V`]
