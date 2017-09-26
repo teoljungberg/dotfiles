@@ -97,7 +97,9 @@ command! O :silent only<bar>silent tabonly
 
 " open `:tag` in splits, and tabs
 cabbrev vtag vsplit<bar>tag
+cabbrev vt   vsplit<bar>tag
 cabbrev ttag tabnew<bar>tag
+cabbrev tt   tabnew<bar>tag
 "
 " open `:buffer` in splits, and tabs
 cabbrev vbuffer vsplit<bar>buffer
