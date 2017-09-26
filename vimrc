@@ -101,9 +101,9 @@ cabbrev ttag tabnew<bar>tag
 "
 " open `:buffer` in splits, and tabs
 cabbrev vbuffer vsplit<bar>buffer
-cabbrev vb vsplit<bar>buffer
+cabbrev vb      vsplit<bar>buffer
 cabbrev tbuffer tabnew<bar>buffer
-cabbrev tb tabnew<bar>buffer
+cabbrev tb      tabnew<bar>buffer
 
 " emacs movement
 " stolen from tpope/vim-rsi
