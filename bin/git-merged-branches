@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# List all merged branches
+
+set -e
+
+current_ref="$(git symbolic-ref HEAD)"
+current_branch="${current_ref#refs/heads/}"
+
+git branch --merged | \
+  grep -v master | \
+  grep -v $current_branch | \
+  cut -c3-
