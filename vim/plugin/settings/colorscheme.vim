@@ -1,7 +1,11 @@
+hi! Comment cterm=italic gui=italic
+hi! Constant cterm=italic gui=italic
 hi! link rubyCapitalizedMethod rubyConstant
 hi! link rubyTestMacro rubyFunction
 hi! link rubyAssertion rubyFunction
 hi! link rubyBlockParameter rubyIdentifier
+hi! link gitCommitComment Comment
+hi! link gitCommitHeader Comment
 
 " 33 = blue
 hi! MatchParen cterm=bold ctermbg=none ctermfg=33
