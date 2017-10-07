@@ -1,2 +1,6 @@
 #!/bin/sh
+
+mkdir -p ~/.vim/pack/bundle/start
+mkdir -p ~/.vim/pack/bundle/opt
+
 sh $(dirname $0)/vim-plugins

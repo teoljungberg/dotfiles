@@ -46,8 +46,6 @@ set nojoinspaces
 let g:is_posix = 1
 
 " plugins
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect('bundle/{}', 'vendor/{}')
 runtime macros/matchit.vim
 
 silent! colorscheme solarized

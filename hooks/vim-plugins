@@ -17,7 +17,6 @@ bundles="
   tpope/vim-fugitive
   tpope/vim-git
   tpope/vim-markdown
-  tpope/vim-pathogen
   tpope/vim-projectionist
   tpope/vim-rails
   tpope/vim-rake
@@ -45,7 +44,7 @@ display_new_commits() {
 
 for bundle in ${bundles}; do
   bundle_name=$(echo $bundle | tr "/" "\n" | tail -1)
-  vim_bundle=~/.vim/bundle/$bundle_name
+  vim_bundle=~/.vim/pack/bundle/start/$bundle_name
 
   if [ -d $vim_bundle ]; then
     echo "updating $vim_bundle"
@@ -58,9 +57,9 @@ for bundle in ${bundles}; do
   fi
 done
 
-if [ -d ~/.vim/vendor ]; then
-  for bundle in $(ls ~/.vim/vendor); do
-    vim_bundle=~/.vim/vendor/$bundle
+if [ -d ~/.vim/pack/bundle/opt ]; then
+  for bundle in $(ls ~/.vim/pack/bundle/opt); do
+    vim_bundle=~/.vim/pack/bundle/opt/$bundle
     cd $vim_bundle
 
     if [ $(git remote) ]; then
