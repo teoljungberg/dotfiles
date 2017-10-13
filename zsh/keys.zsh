@@ -34,5 +34,8 @@ bindkey -M vicmd '/' history-incremental-search-forward
 
 bindkey -M viins '\e_' insert-last-word
 
-# Leverage `bin/pick-file` fuzzy-find a file
+# `bin/pick-file`
 bindkey '^X^F' _pick_file
+
+# `bin/git-changed-files`
+bindkey '^X^G' _git_changed_files
