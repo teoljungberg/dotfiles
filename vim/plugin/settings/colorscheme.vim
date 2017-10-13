@@ -6,6 +6,13 @@ hi! link rubyBlockParameter rubyIdentifier
 " 33 = blue
 hi! MatchParen cterm=bold ctermbg=none ctermfg=33
 
+hi! StatusLineNC
+      \ term=reverse
+      \ cterm=reverse
+      \ ctermfg=7
+      \ ctermbg=14
+      \ gui=bold,reverse
+
 hi! StatusLineTerm
       \ term=bold,reverse
       \ cterm=bold
@@ -17,7 +24,7 @@ hi! StatusLineTerm
 hi! StatusLineTermNC
       \ term=reverse
       \ cterm=reverse
-      \ ctermfg=12
-      \ ctermbg=7
+      \ ctermfg=7
+      \ ctermbg=10
       \ guifg=bg
       \ guibg=LightGray
