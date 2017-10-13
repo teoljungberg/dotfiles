@@ -12,7 +12,7 @@ endfunction
 nnoremap <silent> <expr> d<cr> ":DispatchWithCount<cr>"
 nnoremap <silent> <expr> d! ":Dispatch!<cr>"
 nnoremap d<space> :Dispatch<space>
-nnoremap d<bs> :FocusDispatch<space>
+nnoremap d<bs> :Focus<space>
 nnoremap dc :Console<cr>
 
 if !exists(":Console")
