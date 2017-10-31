@@ -5,8 +5,9 @@
 [github]
   user = teoljungberg
 [alias]
-  aa = add --all
+  a = add --all
   br = branch
+  c = commit -v
   co = checkout
   cp = cherry-pick
   d = diff
