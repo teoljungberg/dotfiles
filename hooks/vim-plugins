@@ -53,6 +53,7 @@ for bundle in ${bundles}; do
     git rebase --quiet origin/master
   else
     git clone "git://github.com/$bundle" $vim_bundle
+    vim +helptags\ $vim_bundle +quit
   fi
 done
 
