@@ -6,6 +6,7 @@
   user = teoljungberg
 [alias]
   a = add --all
+  amend = commit -v --amend
   br = branch
   c = commit -v
   co = checkout
