@@ -1,9 +1,11 @@
 # No arguments: `git status`
 # With arguments: acts like `git`
-g() {
+git() {
+  original_git=$(whence -p git)
+
   if [[ $# > 0 ]]; then
-    git $@
+    $original_git $@
   else
-    git status -sb
+    $original_git status -sb
   fi
 }
