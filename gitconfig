@@ -14,6 +14,7 @@
   d = diff
   dc = diff --cached
   l = log --graph --decorate --oneline
+  p = push-origin-or-fork
 
   ctags = !.git/hooks/ctags
 [merge]

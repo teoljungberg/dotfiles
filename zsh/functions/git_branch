@@ -3,4 +3,3 @@ git_branch() {
   GIT_BRANCH="${BRANCH_REFS#refs/heads/}"
   [ -n "$GIT_BRANCH" ] && echo "$GIT_BRANCH "
 }
-
