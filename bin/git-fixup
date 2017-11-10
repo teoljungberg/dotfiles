@@ -10,5 +10,5 @@ command -v yank >/dev/null 2>&1 || {
 if [ ! -z "$1" ]; then
   git commit --fixup="$1"
 else
-  git commit --fixup="$(git log -25 --oneline | yank)"
+  git commit --fixup="$(git log --oneline origin/master.. | yank)"
 fi
