@@ -30,6 +30,11 @@ function! DispatchFocusCommand()
   endif
 endfunction
 
+function! DispatchFocusOnCurrentTest()
+  let g:dispatch = DispatchFocusCommand()
+  echo g:dispatch
+endfunction
+
 nnoremap <silent> <expr> d<cr> ":DispatchWithCount<cr>"
 nnoremap <silent> <expr> d! ":Dispatch!<cr>"
 nnoremap d<space> :Dispatch<space>

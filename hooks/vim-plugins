@@ -4,7 +4,6 @@ bundles="
   altercation/vim-colors-solarized
   calleerlandsson/pick.vim
   pbrisbin/vim-mkdir
-  teoljungberg/vim-focus-on-nearest-test
   teoljungberg/vim-grep-motion
   teoljungberg/vim-visual-star-search
   tommcdo/vim-exchange
