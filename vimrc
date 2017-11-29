@@ -95,6 +95,8 @@ map <leader>v :vsplit %%
 map <leader>t :tabedit %%
 map <leader>r :read %%
 
+cnoremap %t <c-r>=expand('%:t')<cr>
+
 " toggle between the two most recent files
 noremap <c-\> :edit #<cr>
 
