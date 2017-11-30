@@ -77,6 +77,7 @@ nnoremap <silent> <c-w>z :
       \ wincmd z<Bar>
       \ cclose<Bar>
       \ lclose<Bar>
+      \ pclose<Bar>
       \ helpclose<Bar>
       \ silent call CloseTerminalBuffers()
       \ <CR>
