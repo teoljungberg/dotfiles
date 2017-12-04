@@ -1,5 +1,5 @@
 if executable("pick")
-  let g:pick_height = 20
+  let g:pick_height = 15
 
   if ! has("gui_running")
     nnoremap <space><space> :call PickFile()<cr>
