@@ -30,7 +30,6 @@ set shortmess=aoOtsT
 if exists("+completefunc") && &completefunc == ""
   set completefunc=syntaxcomplete#Complete
 endif
-set scrolljump=-50
 set laststatus=2
 syntax on
 filetype plugin indent on
