@@ -61,4 +61,11 @@ let g:rails_projections = {
       \        "end"
       \      ]
       \   },
+      \   "app/graph/*.rb": {
+      \     "command": "graph",
+      \     "test": [
+      \       "spec/graph/%s_spec.rb",
+      \       "test/graph/%s_test.rb"
+      \     ],
+      \   },
       \ }
