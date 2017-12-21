@@ -7,7 +7,6 @@ brew "qt55"
 brew "rg"
 brew "ruby-install"
 brew "tree"
-brew "yank"
 brew "z"
 
 tap "caskroom/cask"

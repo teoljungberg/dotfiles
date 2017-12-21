@@ -2,13 +2,17 @@
 
 set -e
 
-command -v yank >/dev/null 2>&1 || {
-  echo >&2 "yank(1) is not installed."
+command -v pick >/dev/null 2>&1 || {
+  echo >&2 "pick(1) is not installed."
   exit 78
 }
 
 if [ ! -z "$1" ]; then
   git commit --fixup="$1"
 else
-  git commit --fixup="$(git log --oneline origin/master.. | yank)"
+  git commit --fixup="$( \
+    git log --oneline origin/master.. | \
+    pick | \
+    cut -d" " -f1 \
+    )"
 fi
