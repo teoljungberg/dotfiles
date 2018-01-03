@@ -107,16 +107,16 @@ noremap <c-w>\ :ltag <c-r>=expand("<cword>")<cr><cr>
 command! O :silent only<bar>silent tabonly
 
 " open `:tag` in splits, and tabs
-cabbrev vtag vsplit<bar>tag
-cabbrev vt   vsplit<bar>tag
-cabbrev ttag tabnew<bar>tag
-cabbrev tt   tabnew<bar>tag
+cabbrev vtag vertial stag
+cabbrev vt   vertial stag
+cabbrev ttag tab stag
+cabbrev tt   tab stag
 "
 " open `:buffer` in splits, and tabs
-cabbrev vbuffer vsplit<bar>buffer
-cabbrev vb      vsplit<bar>buffer
-cabbrev tbuffer tabnew<bar>buffer
-cabbrev tb      tabnew<bar>buffer
+cabbrev vbuffer vertical sbuffer
+cabbrev vb      vertical sbuffer
+cabbrev tbuffer tab sbuffer
+cabbrev tb      tab sbuffer
 
 " emacs movement
 " stolen from tpope/vim-rsi
