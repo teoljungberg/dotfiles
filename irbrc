@@ -1,8 +1,8 @@
-require 'irb/completion'
+require "irb/completion"
 
 IRB.conf[:EVAL_HISTORY] = 1000
 IRB.conf[:SAVE_HISTORY] = 1000
-IRB.conf[:HISTORY_FILE] = File.expand_path('~/.irbhistory')
+IRB.conf[:HISTORY_FILE] = File.expand_path("~/.irbhistory")
 
 class Object
   def interesting_methods
