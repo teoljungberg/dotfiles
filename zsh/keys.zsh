@@ -6,8 +6,8 @@ bindkey -v
 # command line editing
 autoload edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd '^Xe' edit-command-line
-bindkey -M viins '^Xe' edit-command-line
+bindkey -M vicmd '^X^e' edit-command-line
+bindkey -M viins '^X^e' edit-command-line
 
 # emacs keys for vim
 bindkey -M viins '^A' beginning-of-line
