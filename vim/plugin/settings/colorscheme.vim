@@ -11,20 +11,23 @@ hi! StatusLineNC
       \ cterm=reverse
       \ ctermfg=7
       \ ctermbg=14
-      \ gui=bold,reverse
+      \ gui=reverse
+      \ guifg=#839496
+      \ guibg=#eee8d5
 
 hi! StatusLineTerm
-      \ term=bold,reverse
-      \ cterm=bold
-      \ ctermfg=7
-      \ ctermbg=10
-      \ gui=bold
-      \ guifg=bg
-      \ guibg=DarkGray
+      \ term=reverse
+      \ cterm=reverse
+      \ ctermfg=10
+      \ ctermbg=7
+      \ gui=reverse
+      \ guifg=#586e75
+      \ guibg=#eee8d5
 hi! StatusLineTermNC
       \ term=reverse
       \ cterm=reverse
       \ ctermfg=7
-      \ ctermbg=10
-      \ guifg=bg
-      \ guibg=LightGray
+      \ ctermbg=14
+      \ gui=reverse
+      \ guifg=#839496
+      \ guibg=#eee8d5
