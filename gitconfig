@@ -16,7 +16,7 @@
   l = log --graph --decorate --oneline
   p = push-origin-or-fork
 
-  ctags = !.git/hooks/ctags
+  ctags = !$(git rev-parse --git-dir)/hooks/ctags
 [merge]
   tool = vimdiff
 [core]
