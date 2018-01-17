@@ -21,6 +21,6 @@ function! ToggleQuickfixList()
   copen
 endfunction
 
-nnoremap ]oq :copen<CR>
-nnoremap [oq :cclose<CR>
+nnoremap [oq :copen<CR>
+nnoremap ]oq :cclose<CR>
 nnoremap =oq :call ToggleQuickfixList()<CR>
