@@ -20,3 +20,5 @@ chruby() {
   original_chruby "$@"
   prepend_to_path_without_duplication ".git/safe/../../bin"
 }
+
+unset -f save_function
