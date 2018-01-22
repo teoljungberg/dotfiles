@@ -9,5 +9,5 @@ current_branch="${current_ref#refs/heads/}"
 
 git branch --merged | \
   grep -v master | \
-  grep -v $current_branch | \
+  grep -v "$current_branch" | \
   cut -c3-
