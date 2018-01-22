@@ -13,11 +13,11 @@ git_origin_or_fork() {
 git_branch() {
   BRANCH_REFS=$(git symbolic-ref HEAD 2>/dev/null) || return
   GIT_BRANCH="${BRANCH_REFS#refs/heads/}"
-  [ -n "$GIT_BRANCH" ] && echo "$GIT_BRANCH "
+  [ -n "$GIT_BRANCH" ] && echo "$GIT_BRANCH"
 }
 
-if [[ $# > 0 ]]; then
-  git push $@
+if [ $# -gt 0 ]; then
+  git push "$@"
 else
-  git push `git_origin_or_fork` -u `git_branch`
+  git push "$(git_origin_or_fork)" -u "$(git_branch)"
 fi
