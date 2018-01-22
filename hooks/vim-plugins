@@ -50,7 +50,6 @@ for bundle in ${bundles}; do
     git fetch --quiet origin
     display_new_commits
     git rebase --quiet origin/master
-    vim +helptags\ "$vim_bundle" +quit
   else
     git clone "git://github.com/$bundle" "$vim_bundle"
   fi
