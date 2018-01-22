@@ -28,12 +28,12 @@ bundles="
 "
 
 display_new_commits() {
-  local current=$(git rev-parse --short HEAD)
-  local new=$(git rev-parse --short origin/master)
+  current="$(git rev-parse --short HEAD)"
+  new="$(git rev-parse --short origin/master)"
 
-  if [ $current != $new ]; then
+  if [ "$current" != "$new" ]; then
     if command -v hub > /dev/null 2>&1; then
-      hub compare -u $current...$new
+      hub compare -u "$current"..."$new"
     else
       git --no-pager log --oneline ..origin/master
     fi
@@ -41,27 +41,26 @@ display_new_commits() {
 }
 
 for bundle in ${bundles}; do
-  bundle_name=$(echo $bundle | tr "/" "\n" | tail -1)
-  vim_bundle=~/.vim/pack/bundle/start/$bundle_name
+  bundle_name="$(echo "$bundle" | tr "/" "\n" | tail -1)"
+  vim_bundle="$HOME/.vim/pack/bundle/start/$bundle_name"
 
-  if [ -d $vim_bundle ]; then
+  if [ -d "$vim_bundle" ]; then
     echo "updating $vim_bundle"
-    cd $vim_bundle
+    cd "$vim_bundle" || exit
     git fetch --quiet origin
     display_new_commits
     git rebase --quiet origin/master
+    vim +helptags\ "$vim_bundle" +quit
   else
-    git clone "git://github.com/$bundle" $vim_bundle
-    vim +helptags\ $vim_bundle +quit
+    git clone "git://github.com/$bundle" "$vim_bundle"
   fi
 done
 
 if [ -d ~/.vim/pack/bundle/opt ]; then
-  for bundle in $(ls ~/.vim/pack/bundle/opt); do
-    vim_bundle=~/.vim/pack/bundle/opt/$bundle
-    cd $vim_bundle
+  for vim_bundle in $HOME/.vim/pack/bundle/opt/*/; do
+    cd "$vim_bundle" || exit
 
-    if [ $(git remote) ]; then
+    if [ "$(git remote)" ]; then
       echo "updating $vim_bundle"
       git fetch --quiet origin
       display_new_commits
