@@ -1,3 +1,7 @@
+command -v chruby >/dev/null 2>&1 || {
+  return
+}
+
 # Prepend `./git/safe../../bin` to the `$PATH` after invoking `chruby`, don't
 # prepend it if it's already in the `$PATH`
 save_function() {
