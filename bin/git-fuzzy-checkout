@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+command -v pick >/dev/null 2>&1 || {
+  echo >&2 "pick(1) is not installed."
+  exit 78
+}
+
+if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+  exit 1
+fi
+
+git branch | cut -c3- | pick -X | xargs git checkout
