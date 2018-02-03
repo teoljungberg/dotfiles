@@ -9,7 +9,12 @@ rename_tmux_window_to_current_dir() {
 
 function precmd {
   rename_tmux_window_to_current_dir
-  PROMPT="%c %{$fg[yellow]%}$(git_branch)%{$reset_color%}%# "
+
+  if [ -z $SSH_CONNECTION ]; then
+    PROMPT="%c %{$fg[yellow]%}$(git_branch)%{$reset_color%}%# "
+  else
+    PROMPT="%c@%m %{$fg[yellow]%}$(git_branch)%{$reset_color%}%# "
+  fi
 }
 
 # use solarized-like color for ls
