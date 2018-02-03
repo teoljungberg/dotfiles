@@ -6,7 +6,6 @@ brew "pick"
 brew "rg"
 brew "ruby-install"
 brew "tree"
-brew "z"
 
 tap "caskroom/cask"
 cask "1password"
