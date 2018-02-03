@@ -1,4 +1,3 @@
 #!/bin/sh
 
 mkdir -p ~/.vim/pack/bundle/start
-mkdir -p ~/.vim/pack/bundle/opt
