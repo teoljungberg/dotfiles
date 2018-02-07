@@ -8,4 +8,6 @@ fi
 
 export CDPATH=$CDPATH:$HOME/src
 
+PATH="$PATH:$HOME/.bin"
+
 [ -f ~/.zshenv.local ] && source ~/.zshenv.local
