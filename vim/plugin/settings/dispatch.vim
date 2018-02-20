@@ -10,4 +10,4 @@ nmap <script> m!        <SID>make!
 nmap <script> =<CR>     :<C-R>=exists(":Start") > 1 ? "Start" : "shell"<CR><CR>
 nmap <script> =<Space>  :<C-R>=exists(":Start") > 1 ? "Start " : "!"<CR>
 nmap <script> =!        :<C-R>=exists(":Start") > 1 ? "Start!" : "!"<CR>
-nmap <script> =c        :Console<CR>
+nmap <script> =c        :<C-R>=exists(":Console") > 1 ? "Console" : "Start"<CR><CR>
