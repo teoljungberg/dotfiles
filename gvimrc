@@ -1,9 +1,9 @@
 set guifont=Office\ Code\ Pro:h14
 set columns=80
 set lines=45
-set go-=T
-set go-=L
-set go-=r
-set go-=m
-set go-=e
+set guioptions-=T
+set guioptions-=m
+set guioptions-=e
+set guioptions-=r
+set guioptions-=L
 autocmd FocusLost * silent! wall
