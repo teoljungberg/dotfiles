@@ -118,6 +118,17 @@ cabbrev vb      vertical sbuffer
 cabbrev tbuffer tab sbuffer
 cabbrev tb      tab sbuffer
 
+" Given this situation:
+"     user.fo|o!
+" When I press <C-]> to go to the `foo!` tag, for some reason it acts as if the
+" cursor is on `user` and goes to the `user` tag.
+"
+" To fix this, use `<cword>` to select the word under the cursor and go to it
+" directly.
+nnoremap <C-]>      :tag <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-W><C-]> :stag <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-W>]     :stag <C-R>=expand("<cword>")<CR><CR>
+
 " emacs movement
 " stolen from tpope/vim-rsi
 inoremap <expr> <c-e> col('.')>strlen(getline('.'))?"\<lt>c-e>":"\<lt>end>"
