@@ -1,0 +1,7 @@
+# Save a function($1) as another function($2), allowing the former to be
+# overridden.
+save_function() {
+  local original_function="$(declare -f $1)"
+  local new_function="$2${original_function#$1}"
+  eval "$new_function"
+}
