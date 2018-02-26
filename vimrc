@@ -135,6 +135,10 @@ inoremap <expr> <c-e> col('.')>strlen(getline('.'))?"\<lt>c-e>":"\<lt>end>"
 inoremap <c-a> <esc>I
 cnoremap <c-a> <home>
 
+if has("terminal")
+  tnoremap <ESC> <C-\><C-N>
+endif
+
 augroup vimrcEx
   autocmd!
 
