@@ -44,6 +44,13 @@ set nojoinspaces
 " More on why: https://github.com/thoughtbot/dotfiles/pull/471
 let g:is_posix = 1
 
+set mouse=nvi
+if $TERM =~ "^screen"
+  if exists("+mouse")
+    set ttymouse=xterm2
+  endif
+endif
+
 " plugins
 runtime macros/matchit.vim
 
