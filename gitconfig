@@ -17,6 +17,7 @@
   p = push-origin-or-fork
 
   ctags = !$(git rev-parse --git-dir)/hooks/ctags
+  safe = !mkdir $(git rev-parse --git-dir)/safe
 [merge]
   tool = vimdiff
 [core]
