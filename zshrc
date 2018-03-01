@@ -29,6 +29,7 @@ export LC_ALL="en_US.UTF-8"
 export LESS="-F -X -R"
 export LSCOLORS=gxfxbEaEcxxEhEhBaDaCaD
 export PAGER="less -R"
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export VISUAL="$EDITOR"
 
 zstyle ':completion:*' insert-tab pending
