@@ -1,3 +1,5 @@
+cabbrev rg <c-r>=(getcmdtype()==":" && getcmdpos()==1 ? "gr" : "rg")<CR>
+
 nnoremap <leader>gr :grep<space><C-R>=expand("<cword>")<CR>
 nnoremap <leader>gl :lgrep<space><C-R>=expand("<cword>")<CR>
 
