@@ -11,7 +11,8 @@ set autoread
 set autowrite
 set updatetime=2000
 set nofoldenable
-set relativenumber
+set number
+set numberwidth=5
 set showcmd
 set wildmode=list:longest,list:full
 set tagbsearch
