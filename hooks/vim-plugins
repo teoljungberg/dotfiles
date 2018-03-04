@@ -1,6 +1,7 @@
 #!/bin/sh
 
 bundles="
+  AndrewRadev/splitjoin.vim
   altercation/vim-colors-solarized
   calleerlandsson/pick.vim
   pbrisbin/vim-mkdir
