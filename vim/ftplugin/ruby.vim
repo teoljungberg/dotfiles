@@ -5,6 +5,7 @@ setlocal complete-=i
 
 " abbreviations
 iabbrev dinit def initialize
+iabbrev ddebug require 'irb'; binding.irb
 
 " dispatch
 let b:start = "irb -I lib -r '%:p'"
