@@ -103,7 +103,10 @@ map <leader>v :vsplit %%
 map <leader>t :tabedit %%
 map <leader>r :read %%
 
-cnoremap %t <c-r>=expand('%:t:r')<cr>
+" In the following file `app/services/foo_bar.rb`, `%t` is expanded to
+" `services/foo_bar`. Which useful for creating tests by i.e `:Vspec %t!` (which
+" is expanded to `:Vspec services/foo_bar!`.
+cnoremap %t <C-R>=substitute(expand("%:r"), "^[^/]*.", "", "")<CR>
 
 " toggle between the two most recent files
 noremap <leader><leader> :edit #<cr>
