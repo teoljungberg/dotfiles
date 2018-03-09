@@ -26,6 +26,7 @@ bundles="
   tpope/vim-surround
   tpope/vim-unimpaired
   tpope/vim-vinegar
+  vim-ruby/vim-ruby
 "
 
 display_new_commits() {
