@@ -7,17 +7,12 @@ setlocal complete-=i
 iabbrev dinit def initialize
 iabbrev ddebug require 'irb'; binding.irb
 
-" dispatch
-let b:start = "irb -I lib -r '%:p'"
+let b:start = "irb -r '%:p'"
 
-if empty("b:dispatch")
-  if expand('%') =~# '_test\.rb$'
-    let b:dispatch = 'ruby -I test:lib %'
-  elseif expand('%') =~# '_spec\.rb$'
-    if filereadable("Gemfile")
-      let b:dispatch = 'bundle exec rspec %'
-    else
-      let b:dispatch = 'rspec %'
-    endif
-  endif
+if expand("%") =~# "_test\.rb$"
+  let b:dispatch = "testrb %"
+elseif expand("%") =~# "_spec\.rb$"
+  let b:dispatch = "rspec %"
+elseif !exists("b:dispatch")
+  let b:dispatch = "ruby -wc %"
 endif
