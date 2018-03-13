@@ -7,7 +7,7 @@ command -v pick >/dev/null 2>&1 || {
   exit 78
 }
 
-if ! git diff-index --quiet HEAD; then
+if [ -n "$(git status --porcelain)" ]; then
   git status --porcelain | pick | cut -c4-
 else
   exit 1
