@@ -20,4 +20,8 @@ augroup Dispatch
         \   let b:dispatch = getline(1)[2:-1] . " %" |
         \   let b:start = b:dispatch |
         \ endif
+  autocmd BufReadPost *
+        \ if &filetype == "ruby" && filereadable(".rubocop.yml") |
+        \   compiler rubocop |
+        \ endif
 augroup END
