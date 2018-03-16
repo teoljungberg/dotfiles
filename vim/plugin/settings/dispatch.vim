@@ -24,4 +24,8 @@ augroup Dispatch
         \ if &filetype == "ruby" && filereadable(".rubocop.yml") |
         \   compiler rubocop |
         \ endif
+  autocmd BufReadPost *
+        \ if index(["bash", "sh"], &filetype) >= 0 |
+        \   compiler shellcheck |
+        \ endif
 augroup END
