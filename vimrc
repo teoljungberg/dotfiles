@@ -76,9 +76,9 @@ cnoremap <c-n> <down>
 
 " close everything
 function! CloseTerminalBuffers()
-  for b in term_list()
-    exec ":bd " . b
-  endfor
+  if has("terminal")
+    for term in term_list() | exec ":bd " . term | endfor
+  endif
 endfunction
 nnoremap <silent> <c-w>z :
       \ wincmd z<Bar>
