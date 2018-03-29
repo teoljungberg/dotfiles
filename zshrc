@@ -4,7 +4,13 @@ for function in ~/.zsh/functions/*; do
 done
 
 # load our own completion functions
-fpath=(~/.zsh/completion /usr/local/share/zsh/site-functions $fpath)
+
+fpath=(
+  $HOME/.zsh/completion
+  /usr/local/share/zsh/site-functions
+  /usr/local/share/zsh-completions
+  $fpath
+)
 
 autoload -U compinit && compinit
 autoload -Uz colors && colors
