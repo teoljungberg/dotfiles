@@ -42,16 +42,21 @@ display_new_commits() {
   fi
 }
 
+upgrade_vim_bundle() {
+  vim_bundle="$1"
+  echo "updating $vim_bundle"
+  git fetch --quiet origin
+  display_new_commits
+  git rebase --quiet origin/master
+}
+
 for bundle in ${bundles}; do
   bundle_name="$(echo "$bundle" | cut -d "/" -f 2)"
   vim_bundle="$HOME/.vim/pack/bundle/start/$bundle_name"
 
   if [ -d "$vim_bundle" ]; then
-    echo "updating $vim_bundle"
     cd "$vim_bundle" || exit
-    git fetch --quiet origin
-    display_new_commits
-    git rebase --quiet origin/master
+    upgrade_vim_bundle "$vim_bundle"
   else
     git clone "git://github.com/$bundle" "$vim_bundle"
   fi
@@ -62,10 +67,7 @@ if [ -d ~/.vim/pack/bundle/opt ]; then
     cd "$vim_bundle" || exit
 
     if [ "$(git remote)" ]; then
-      echo "updating $vim_bundle"
-      git fetch --quiet origin
-      display_new_commits
-      git rebase --quiet origin/master
+      upgrade_vim_bundle "$vim_bundle"
     fi
   done
 fi
