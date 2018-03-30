@@ -6,7 +6,7 @@ if [ -f /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
   source /usr/local/opt/chruby/share/chruby/auto.sh
 fi
 
-export CDPATH=$CDPATH:$HOME/src
+CDPATH=$CDPATH:$HOME/src
 
 PATH="$PATH:$HOME/.bin"
 
