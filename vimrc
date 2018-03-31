@@ -157,6 +157,9 @@ if has("terminal")
   tnoremap <ESC> <C-\><C-N>
 endif
 
+nnoremap <silent> <C-L>
+      \ :nohlsearch <C-R>=has("diff") ? "<Bar>diffupdate" : ""<CR><CR><C-L>
+
 augroup vimrcEx
   autocmd!
 
