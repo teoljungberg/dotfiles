@@ -59,7 +59,6 @@ runtime macros/matchit.vim
 
 silent! colorscheme solarized
 set background=light
-set t_Co=256
 
 " automatically create undodir if it doesn't exist
 set undodir=~/.cache/vim/undo//
