@@ -9,7 +9,6 @@ set tags=.git/tags,tags
 set shiftround
 set autoread
 set autowrite
-set updatetime=2000
 set nofoldenable
 set number
 set numberwidth=5
