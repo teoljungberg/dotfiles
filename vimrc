@@ -21,9 +21,11 @@ set nowildignorecase
 set nowrap
 set number
 set numberwidth=5
+set scrolloff=1
 set shiftround
 set shortmess=aoOtsT
 set showcmd
+set sidescrolloff=5
 set smartindent
 set splitright
 set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
