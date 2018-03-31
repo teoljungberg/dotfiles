@@ -14,7 +14,6 @@ set number
 set numberwidth=5
 set showcmd
 set wildmode=list:longest,list:full
-set tagbsearch
 set textwidth=80
 if v:version > 703
   set nofileignorecase
