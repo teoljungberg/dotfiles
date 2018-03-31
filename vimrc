@@ -1,40 +1,43 @@
 set nocompatible
-filetype off
-set history=1000
-set backspace=indent,eol,start
-set hidden
-set ttimeout ttimeoutlen=50
-set splitright
-set tags=.git/tags,tags
-set shiftround
+
 set autoread
 set autowrite
+set backspace=indent,eol,start
+set backupskip=/tmp/*,/private/tmp/*
+set cmdheight=2
+set hidden
+set history=1000
+set incsearch
+set laststatus=2
+set lazyredraw
+set list
+set listchars=tab:\ \ ,trail:.,extends:>,precedes:<,nbsp:•
+set nobackup
+set nofileignorecase
 set nofoldenable
+set nojoinspaces
+set noswapfile
+set nowildignorecase
+set nowrap
 set number
 set numberwidth=5
+set shiftround
+set shortmess=aoOtsT
 set showcmd
-set wildmode=list:longest,list:full
+set smartindent
+set splitright
+set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set tags=.git/tags,tags
 set textwidth=80
+set ttimeout ttimeoutlen=50
+set wildmode=list:longest,list:full
+syntax enable
+
 if v:version > 703
   set nofileignorecase
   set nowildignorecase
 end
-set noswapfile
-set nobackup
-set backupskip=/tmp/*,/private/tmp/*
-set smartindent
-set nowrap
-set incsearch
-set shortmess=aoOtsT
-set laststatus=2
-syntax enable
-filetype plugin indent on
-set list
-set listchars=tab:\ \ ,trail:.,extends:>,precedes:<,nbsp:•
-set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-set cmdheight=2
-set lazyredraw
-set nojoinspaces
+
 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for
 " syntax highlighting purposes.
 " More on why: https://github.com/thoughtbot/dotfiles/pull/471
@@ -46,6 +49,8 @@ if $TERM =~ "^screen"
     set ttymouse=xterm2
   endif
 endif
+
+filetype plugin indent on
 
 " plugins
 runtime macros/matchit.vim
