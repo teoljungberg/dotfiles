@@ -159,8 +159,6 @@ endif
 
 augroup vimrcEx
   autocmd!
-
-  autocmd WinEnter,BufWinEnter,CursorHold * silent! checktime
 augroup END
 
 if filereadable($HOME . "/.vimrc.local")
