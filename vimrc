@@ -26,9 +26,6 @@ set smartindent
 set nowrap
 set incsearch
 set shortmess=aoOtsT
-if exists("+completefunc") && &completefunc == ""
-  set completefunc=syntaxcomplete#Complete
-endif
 set laststatus=2
 syntax enable
 filetype plugin indent on
@@ -157,6 +154,15 @@ endif
 
 augroup vimrcEx
   autocmd!
+
+  autocmd FileType *
+        \ if exists("+completefunc") && &completefunc == "" |
+        \   setlocal completefunc=syntaxcomplete#Complete |
+        \ endif
+  autocmd FileType *
+        \ if exists("+omnifunc") && &omnifunc == "" |
+        \   setlocal omnifunc=syntaxcomplete#Complete |
+        \ endif
 augroup END
 
 if filereadable($HOME . "/.vimrc.local")
