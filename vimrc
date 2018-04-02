@@ -30,7 +30,7 @@ if exists("+completefunc") && &completefunc == ""
   set completefunc=syntaxcomplete#Complete
 endif
 set laststatus=2
-syntax on
+syntax enable
 filetype plugin indent on
 set list
 set listchars=tab:\ \ ,trail:.,extends:>,precedes:<,nbsp:•
