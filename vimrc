@@ -5,6 +5,7 @@ set autowrite
 set backspace=indent,eol,start
 set backupskip=/tmp/*,/private/tmp/*
 set cmdheight=2
+set display=lastline
 set hidden
 set history=1000
 set incsearch
