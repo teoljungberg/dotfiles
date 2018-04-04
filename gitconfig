@@ -23,7 +23,7 @@
 [core]
   editor = vim -f
   excludesfile = ~/.gitignore
-  pager = less -F
+  pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -F
 [push]
   default = simple
 [help]
