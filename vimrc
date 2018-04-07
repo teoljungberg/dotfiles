@@ -79,7 +79,7 @@ cnoremap <c-n> <down>
 " close everything
 function! CloseTerminalBuffers()
   if has("terminal")
-    for term in term_list() | exec ":bd " . term | endfor
+    for term in term_list() | exec ":bd! " . term | endfor
   endif
 endfunction
 nnoremap <silent> <c-w>z :
