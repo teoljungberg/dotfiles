@@ -55,6 +55,8 @@ if command -v chruby >/dev/null 2>&1; then
   }
 fi
 
+[ -f /usr/local/etc/profile.d/z.sh ] && source /usr/local/etc/profile.d/z.sh
+
 # to make vim behave under xterm
 stty -ixon
 
