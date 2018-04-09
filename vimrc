@@ -37,6 +37,10 @@ set ttimeout ttimeoutlen=50
 set wildmode=list:longest,list:full
 syntax enable
 
+" Enforce italics
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+
 if v:version > 703
   set nofileignorecase
   set nowildignorecase
@@ -48,7 +52,7 @@ end
 let g:is_posix = 1
 
 set mouse=nvi
-if $TERM =~ "^screen"
+if $TERM =~ "^xterm"
   if exists("+mouse")
     set ttymouse=xterm2
   endif

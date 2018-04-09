@@ -1,3 +1,5 @@
+hi! Comment term=italic cterm=italic gui=italic
+
 hi! link rubyAssertion rubyFunction
 hi! link rubyCapitalizedMethod rubyConstant
 hi! link rubyTestMacro rubyFunction
