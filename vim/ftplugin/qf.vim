@@ -14,4 +14,5 @@ else
 endif
 
 setlocal nolist
+setlocal nonumber
 setlocal norelativenumber
