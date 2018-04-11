@@ -1,4 +1,6 @@
 augroup Fugitive
+  autocmd!
+
   autocmd BufReadPost fugitive://* set bufhidden=delete
 
   autocmd FileType git setlocal nolist

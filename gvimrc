@@ -10,5 +10,7 @@ set guioptions-=r
 set guioptions-=L
 
 augroup GUI
+  autocmd!
+
   autocmd FocusLost * silent! wall
 augroup END
