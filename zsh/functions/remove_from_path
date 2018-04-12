@@ -1,0 +1,3 @@
+remove_from_path() {
+  path=(${(@)path:#$1})
+}

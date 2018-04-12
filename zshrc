@@ -14,6 +14,7 @@ fpath=(
 
 autoload -U compinit && compinit
 autoload -Uz colors && colors
+autoload -Uz add-zsh-hook
 
 setopt globdots
 setopt nobeep
@@ -46,14 +47,15 @@ alias b="bundle exec"
 alias j="jobs"
 alias ..="cd .."
 
-if command -v chruby >/dev/null 2>&1; then
-  save_function "chruby" "original_chruby"
-
-  chruby() {
-    original_chruby "$@"
+add_trusted_local_bin_to_path() {
+  if [ -d "$PWD/.git/safe" ]; then
     prepend_to_path_without_duplication ".git/safe/../../bin"
-  }
-fi
+  else
+    remove_from_path ".git/safe/../../bin"
+  fi
+}
+
+add-zsh-hook preexec "add_trusted_local_bin_to_path"
 
 [ -f /usr/local/etc/profile.d/z.sh ] && source /usr/local/etc/profile.d/z.sh
 
