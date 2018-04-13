@@ -42,7 +42,6 @@ export VISUAL="$EDITOR"
 zstyle ':completion:*' insert-tab pending
 zstyle ':completion:*' completer _complete _ignored
 
-alias reload='source ~/.zshrc'
 alias b="bundle exec"
 alias j="jobs"
 alias ..="cd .."
