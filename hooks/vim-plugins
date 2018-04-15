@@ -1,4 +1,9 @@
 #!/bin/sh
+#
+# Variables:
+#
+#   - `VERBOSE=1`
+#
 
 bundles="
   AndrewRadev/splitjoin.vim
@@ -54,7 +59,7 @@ done
 
 find "$HOME/.vim/pack/bundle" -type d -name ".git" | while read -r path; do
   path="${path%/.git}"
-  echo "$path"
+  [ -n "$VERBOSE" ] && echo $path
 
   if [ "$(git -C "$path" remote)" ]; then
     git -C "$path" fetch --quiet origin
