@@ -1,0 +1,4 @@
+CRON=1
+PATH=/usr/local/bin:/usr/bin:/bin
+
+30 9 * * *	$HOME/src/dotfiles/hooks/vim-plugins
