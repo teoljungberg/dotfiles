@@ -59,7 +59,7 @@ done
 
 find "$HOME/.vim/pack/bundle" -type d -name ".git" | while read -r path; do
   path="${path%/.git}"
-  [ -n "$VERBOSE" ] && echo $path
+  [ -n "$VERBOSE" ] && echo "$path"
 
   if [ "$(git -C "$path" remote)" ]; then
     git -C "$path" fetch --quiet origin
