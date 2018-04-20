@@ -1,3 +1,12 @@
+#!/bin/sh
+
 prepend_to_path_without_duplication() {
-  path=($1 ${(@)path:#$1})
+  case ":$PATH:" in
+    *":$1:"* )
+      ;;
+
+    *)
+      PATH="$1:$PATH"
+      ;;
+  esac
 }
