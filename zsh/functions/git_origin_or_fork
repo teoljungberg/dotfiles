@@ -1,3 +1,5 @@
+#!/bin/sh
+
 git_origin_or_fork() {
   if git remote 2>/dev/null | grep -iq teoljungberg; then
     echo "teoljungberg"
