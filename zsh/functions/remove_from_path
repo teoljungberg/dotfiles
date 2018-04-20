@@ -1,3 +1,5 @@
+#!/bin/sh
+
 remove_from_path() {
-  path=(${(@)path:#$1})
+  PATH=$(echo "$PATH" | sed -e "s|$1:||")
 }
