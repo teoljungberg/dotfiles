@@ -31,6 +31,7 @@ set sidescrolloff=5
 set smartindent
 set splitright
 set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set synmaxcol=200
 set tags=.git/tags,tags
 set textwidth=80
 set ttimeout ttimeoutlen=50
