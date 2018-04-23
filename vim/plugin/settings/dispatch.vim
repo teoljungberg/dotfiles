@@ -21,7 +21,7 @@ augroup Dispatch
         \   compiler rubocop |
         \ endif
   autocmd BufReadPost *
-        \ if index(["bash", "sh"], &filetype) >= 0 |
+        \ if index(["sh", "bash", "dash", "ksh"], &filetype) >= 0 |
         \   compiler shellcheck |
         \ endif
 augroup END
