@@ -127,11 +127,11 @@ noremap <c-w>\ :ltag <c-r>=expand("<cword>")<cr><cr>
 command! O :silent only<bar>silent tabonly
 
 " open `:tag` in splits, and tabs
-cabbrev vtag vertial stag
-cabbrev vt   vertial stag
+cabbrev vtag vertical stag
+cabbrev vt   vertical stag
 cabbrev ttag tab stag
 cabbrev tt   tab stag
-"
+
 " open `:buffer` in splits, and tabs
 cabbrev vbuffer vertical sbuffer
 cabbrev vb      vertical sbuffer
