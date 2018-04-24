@@ -1,7 +1,4 @@
 nmap <script> <SID>:    :<C-R>=getcmdline() =~ "," ? "\0250" : ""<CR>
-nmap <script> d<CR>     <SID>:Dispatch<CR>
-nmap <script> d<Space>  <SID>:Dispatch<Space>
-nmap <script> d!        <SID>:Dispatch!
 nmap <script> d<BS>     <SID>:Focus
 
 nmap <script> =<CR>     :<C-R>=exists(":Start") > 1 ? "Start" : "shell"<CR><CR>
