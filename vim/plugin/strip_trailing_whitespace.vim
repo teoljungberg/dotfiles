@@ -1,8 +1,8 @@
 " save last search, and cursor position.
-function! Preserve(command)
+function! s:Preserve(command)
   let l:save = winsaveview()
   execute a:command
   call winrestview(l:save)
 endfunction
 
-command! StripTrailingWhitespace :call Preserve(':%s/\s\+$//e')
+command! StripTrailingWhitespace :call <SID>Preserve(':%s/\s\+$//e')

@@ -1,11 +1,11 @@
 nnoremap <silent> <buffer> q :q<CR>
 nnoremap <silent> <buffer> go <CR><Bar>:copen<CR>
 
-function! IsLocationList()
+function! s:IsLocationList()
   return getwininfo(win_getid())[0].loclist
 endfunction
 
-if IsLocationList()
+if <SID>IsLocationList()
   nnoremap <buffer> [f :lolder<CR>
   nnoremap <buffer> ]f :lnewer<CR>
 else

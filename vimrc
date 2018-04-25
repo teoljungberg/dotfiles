@@ -83,7 +83,7 @@ cnoremap <c-p> <up>
 cnoremap <c-n> <down>
 
 " close everything
-function! CloseTerminalBuffers()
+function! s:CloseTerminalBuffers()
   if has("terminal")
     for term in term_list() | exec ":bd! " . term | endfor
   endif
@@ -94,7 +94,7 @@ nnoremap <silent> <c-w>z :
       \ lclose<Bar>
       \ pclose<Bar>
       \ helpclose<Bar>
-      \ silent call CloseTerminalBuffers()
+      \ silent call <SID>CloseTerminalBuffers()
       \ <CR>
 
 " re-select the last pasted text

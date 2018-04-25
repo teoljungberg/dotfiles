@@ -1,4 +1,4 @@
-function! BufferOpen(buffer_name)
+function! s:BufferOpen(buffer_name)
   let buffer_list = 0
   redir =>buffer_list
   silent! ls
