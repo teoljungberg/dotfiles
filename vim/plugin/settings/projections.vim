@@ -21,6 +21,15 @@ let g:rails_projections = {
       \        "end"
       \      ]
       \   },
+      \   "spec/features/*_spec.rb": {
+      \      "command": "feature",
+      \      "template": [
+      \        "require \"rails_helper\"",
+      \        "",
+      \        "RSpec.describe \"{}\" do",
+      \        "end"
+      \      ]
+      \   },
       \   "app/services/*.rb": {
       \     "command": "service",
       \     "test": [
