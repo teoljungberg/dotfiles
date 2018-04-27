@@ -1,4 +1,4 @@
-set guifont=Office\ Code\ Pro:h14
+set guifont=IBM\ Plex\ Mono:h14
 set columns=80
 set lines=45
 set title
