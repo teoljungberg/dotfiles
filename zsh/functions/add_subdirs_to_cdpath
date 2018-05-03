@@ -1,0 +1,13 @@
+#!/bin/sh
+
+has_subdirs(){
+  [ "$(find "$HOME/src" -type d -maxdepth 1 | wc -l)" -gt 0 ]
+}
+
+add_subdirs_to_cdpath(){
+  if has_subdirs "$1"; then
+    for subdir in "$1"/*; do
+      CDPATH="$CDPATH:$subdir"
+    done
+  fi
+}

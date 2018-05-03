@@ -1,0 +1,7 @@
+#!/bin/sh
+
+add_dir_to_cdpath(){
+  if [ -d "$1" ]; then
+    CDPATH="$CDPATH:$1"
+  fi
+}

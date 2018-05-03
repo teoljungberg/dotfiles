@@ -1,0 +1,11 @@
+#!/bin/sh
+
+projects() {
+  result=$(echo "$CDPATH" | tr ":" "\\n" | sed "/^$/d" | pick -q "$1")
+
+  cd "$result" || exit
+}
+
+p() {
+  projects "$@"
+}
