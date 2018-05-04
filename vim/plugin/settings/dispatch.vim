@@ -24,7 +24,8 @@ nmap <script> =c       :<C-R>=exists(":Console") > 1 ? "Console" : "Start"<CR><C
 nmap <script> <SID>:   :<C-R>=getcmdline() =~ "," ? "\0250" : ""<CR>
 nmap <script> d<BS>    <SID>:Focus
 
-nmap <script> `<CR>    <SID>:<C-R>=len(<SID>Linter()) ?
+nmap <script> `<CR>    <SID>:<C-R>=
+      \ len(<SID>Linter()) ?
       \ "Dispatch -compiler=" . <SID>Linter().compiler . " " . <SID>Linter().command . expand("%") :
       \ "Dispatch"<CR><CR>
 
