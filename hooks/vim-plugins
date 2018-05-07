@@ -30,6 +30,7 @@ bundles="
   tpope/vim-rake
   tpope/vim-repeat
   tpope/vim-rhubarb
+  tpope/vim-scriptease
   tpope/vim-sleuth
   tpope/vim-surround
   tpope/vim-unimpaired
