@@ -1,6 +1,5 @@
 brew bundle --file=- <<EOF
 brew "automake"
-brew "chruby"
 brew "macvim"
 brew "pick"
 brew "rg"
