@@ -5,6 +5,11 @@ function! s:Linter()
     let linter = { "compiler": "rubocop", "command": "rubocop " }
   elseif index(["sh", "bash", "dash", "ksh"], &filetype) >= 0
     let linter = { "compiler": "shellcheck", "command": "shellcheck -f gcc " }
+  elseif &filetype == "elixir" && filereadable(".credo.exs")
+    let linter = {
+          \ "compiler": "credo",
+          \ "command": "mix credo suggest --format=flycheck "
+          \ }
   endif
 
   return linter
