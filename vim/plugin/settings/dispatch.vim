@@ -1,11 +1,13 @@
 function! s:Linter()
-  if &filetype == "ruby" && filereadable(".rubocop.yml") |
-    return "rubocop"
+  let linter = {}
+
+  if &filetype == "ruby" && filereadable(".rubocop.yml")
+    let linter = { "compiler": "rubocop", "command": "rubocop " }
   elseif index(["sh", "bash", "dash", "ksh"], &filetype) >= 0
-    return "shellcheck -f gcc"
-  else
-    return ""
+    let linter = { "compiler": "shellcheck", "command": "shellcheck -f gcc " }
   endif
+
+  return linter
 endfunction
 
 nmap <script> =<CR>    :<C-R>=exists(":Start") > 1 ? "Start" : "shell"<CR><CR>
@@ -17,7 +19,7 @@ nmap <script> <SID>:   :<C-R>=getcmdline() =~ "," ? "\0250" : ""<CR>
 nmap <script> d<BS>    <SID>:Focus
 
 nmap <script> `<CR>    <SID>:<C-R>=len(<SID>Linter()) ?
-      \ "Dispatch " . <SID>Linter() . " " . expand("%") :
+      \ "Dispatch -compiler=" . <SID>Linter().compiler . " " . <SID>Linter().command . expand("%") :
       \ "Dispatch"<CR><CR>
 
 augroup Dispatch
