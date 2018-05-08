@@ -78,3 +78,26 @@ let g:rails_projections = {
       \     ],
       \   },
       \ }
+
+let g:projectionist_heuristics = {
+      \  "&mix.exs": {
+      \    "lib/*.ex": {
+      \      "type": "lib",
+      \      "alternate": [
+      \        "spec/{}_spec.exs",
+      \        "test/{}_test.exs",
+      \      ],
+      \    },
+      \    "spec/*_spec.exs": {
+      \      "type": "spec",
+      \      "alternate": "lib/{}.ex",
+      \      "dispatch": "mix espec %`=v:lnum ? ':'.v:lnum : ''`"
+      \    },
+      \    "test/*_test.exs": {
+      \      "type": "test",
+      \      "alternate": "lib/{}.ex",
+      \      "dispatch": "mix test %`=v:lnum ? ':'.v:lnum : ''`"
+      \    },
+      \    "*": { "make": "mix" }
+      \  }
+      \ }
