@@ -1,18 +1,13 @@
 function! s:Linter()
-  let linter = {}
-
-  if &filetype == "ruby" && filereadable(".rubocop.yml")
-    let linter = { "compiler": "rubocop", "command": "rubocop " }
+  if &filetype == "ruby" && filereadable(".rubocop.yml") |
+    return "rubocop"
   elseif index(["sh", "bash", "dash", "ksh"], &filetype) >= 0
-    let linter = { "compiler": "shellcheck", "command": "shellcheck -f gcc " }
-  elseif &filetype == "elixir" && filereadable(".credo.exs")
-    let linter = {
-          \ "compiler": "credo",
-          \ "command": "mix credo suggest --format=flycheck "
-          \ }
+    return "shellcheck -f gcc"
+  elseif &filetype == "elixir" && filereadable(".credo.exs") |
+    return "mix credo suggest --format=flycheck"
+  else
+    return ""
   endif
-
-  return linter
 endfunction
 
 nmap <script> =<CR>    :<C-R>=exists(":Start") > 1 ? "Start" : "shell"<CR><CR>
@@ -26,7 +21,7 @@ nmap <script> d<BS>    <SID>:Focus
 
 nmap <script> `<CR>    <SID>:<C-R>=
       \ len(<SID>Linter()) ?
-      \ "Dispatch -compiler=" . <SID>Linter().compiler . " " . <SID>Linter().command . expand("%") :
+      \ "Dispatch " . <SID>Linter() . " " . expand("%") :
       \ "Dispatch"<CR><CR>
 
 augroup Dispatch
