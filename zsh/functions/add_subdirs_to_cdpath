@@ -1,7 +1,7 @@
 #!/bin/sh
 
 has_subdirs(){
-  [ "$(find "$HOME/src" -type d -maxdepth 1 | wc -l)" -gt 0 ]
+  [ -d "$1" ] && [ "$(find "$1" -type d -maxdepth 1 | wc -l)" -gt 1 ]
 }
 
 add_subdirs_to_cdpath(){
