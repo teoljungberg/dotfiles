@@ -93,11 +93,13 @@ let g:projectionist_heuristics = {
       \      "alternate": "lib/{}.ex",
       \      "dispatch": "mix espec %`=v:lnum ? ':'.v:lnum : ''`"
       \    },
+      \    "spec/spec_helper.exs": { "type": "spec" },
       \    "test/*_test.exs": {
       \      "type": "test",
       \      "alternate": "lib/{}.ex",
       \      "dispatch": "mix test %`=v:lnum ? ':'.v:lnum : ''`"
       \    },
+      \    "test/test_helper.exs": { "type": "test" },
       \    "mix.exs": {
       \      "type": "lib",
       \      "alternate": "mix.lock",
