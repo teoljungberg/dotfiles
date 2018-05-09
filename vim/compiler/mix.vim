@@ -10,5 +10,7 @@ CompilerSet errorformat=
       \%A%t%*[^:]:\ %m,
       \%C%f:%l:\ %m,
       \%C%f:%l,%Z,
-      \**\ (%\\w%\\+)\ %f:%l:\ %m
+      \**\ (%\\w%\\+)\ %f:%l:\ %m,
+      \%f:%l:\ %m,
+      \%f:%l:%c:\ %m,
 CompilerSet makeprg=mix
