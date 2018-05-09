@@ -99,6 +99,7 @@ let g:projectionist_heuristics = {
       \      "dispatch": "mix test %`=v:lnum ? ':'.v:lnum : ''`"
       \    },
       \    "mix.exs": {
+      \      "type": "lib",
       \      "alternate": "mix.lock",
       \      "dispatch": "mix deps.get"
       \    },
