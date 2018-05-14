@@ -1,0 +1,4 @@
+# Completion for `git p`
+function _git_p() {
+  __gitcomp "$(__git_heads)"
+}
