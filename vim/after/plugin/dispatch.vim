@@ -17,7 +17,7 @@ nmap <script> =s       :<C-R>=exists(":Server") > 1 ? "Server" : "Start"<CR><CR>
 nmap <script> =c       :<C-R>=exists(":Console") > 1 ? "Console" : "Start"<CR><CR>
 
 nmap <script> <SID>:   :<C-R>=getcmdline() =~ "," ? "\0250" : ""<CR>
-nmap <script> d<BS>    <SID>:Focus
+nmap <script> `<BS>    <SID>:Focus
 
 nmap <script> `<CR>    <SID>:<C-R>=
       \ len(<SID>Linter()) ?
