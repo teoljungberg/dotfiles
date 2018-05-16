@@ -1,12 +1,4 @@
 #!/bin/sh
-#
-# Variables:
-#
-#   - `VERBOSE=1`. Verbosity is enabled if the script is run outside of
-#   `cron(1)`.
-#
-
-[ -z "$CRON" ] && VERBOSE=1
 
 bundles="
   AndrewRadev/splitjoin.vim
@@ -63,7 +55,6 @@ done
 
 find "$HOME/.vim/pack/bundle" -type d -name ".git" | while read -r path; do
   path="${path%/.git}"
-  [ -n "$VERBOSE" ] && basename "$path"
 
   if [ "$(git -C "$path" remote)" ]; then
     git -C "$path" fetch --quiet origin
