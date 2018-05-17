@@ -4,10 +4,10 @@ has_subdirs(){
   [ -d "$1" ] && [ "$(find "$1" -type d -maxdepth 1 | wc -l)" -gt 1 ]
 }
 
-add_subdirs_to_cdpath(){
+add_subdirs_to_projects(){
   if has_subdirs "$1"; then
     for subdir in "$1"/*; do
-      CDPATH="$CDPATH:$subdir"
+      PROJECTS="$PROJECTS:$subdir"
     done
   fi
 }

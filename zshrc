@@ -60,10 +60,10 @@ add-zsh-hook preexec "add_trusted_local_bin_to_path"
 [ -r "$HOME/.asdf/completions/asdf.bash" ] &&
   source "$HOME/.asdf/completions/asdf.bash"
 
-add_dir_to_cdpath "$HOME/src"
-add_subdirs_to_cdpath "$HOME/src"
-add_subdirs_to_cdpath "$HOME/.vim/pack/bundle/start"
-add_subdirs_to_cdpath "$HOME/.vim/pack/bundle/opt"
+add_dir_to_projects "$HOME/src"
+add_subdirs_to_projects "$HOME/src"
+add_subdirs_to_projects "$HOME/.vim/pack/bundle/start"
+add_subdirs_to_projects "$HOME/.vim/pack/bundle/opt"
 
 # to make vim behave under xterm
 stty -ixon
