@@ -78,9 +78,11 @@ noremap <leader>d :bd<cr>
 
 " convenience mappings
 noremap Y y$
-noremap Q <nop>
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
+
+" Record macro with `qq`, replay with `Q`
+nnoremap Q @q
 
 " close everything
 function! s:CloseTerminalBuffers()
