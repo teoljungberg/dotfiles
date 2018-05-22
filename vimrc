@@ -35,6 +35,7 @@ set synmaxcol=200
 set tags=.git/tags,tags
 set textwidth=80
 set ttimeout ttimeoutlen=50
+set updatetime=1000
 set wildmode=list:longest,list:full
 syntax enable
 
