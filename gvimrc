@@ -10,9 +10,3 @@ set guioptions-=r
 set guioptions-=L
 set visualbell
 set t_vb=
-
-augroup GUI
-  autocmd!
-
-  autocmd FocusLost * silent! wall
-augroup END
