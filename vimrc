@@ -6,6 +6,7 @@ set backspace=indent,eol,start
 set backupskip=/tmp/*,/private/tmp/*
 set cmdheight=2
 set complete+=kspell
+set complete-=i
 set display=lastline
 set hidden
 set history=1000
