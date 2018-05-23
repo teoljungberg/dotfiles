@@ -15,11 +15,9 @@ set lazyredraw
 set list
 set listchars=tab:\ \ ,trail:.,extends:>,precedes:<,nbsp:+
 set nobackup
-set nofileignorecase
 set nofoldenable
 set nojoinspaces
 set noswapfile
-set nowildignorecase
 set nowrap
 set number
 set numberwidth=5
