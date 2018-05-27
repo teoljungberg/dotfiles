@@ -1,6 +1,4 @@
 if executable("pick")
-  let g:pick_height = 15
-
   if ! has("gui_running")
     nnoremap <space><space> :call PickFile()<cr>
     nnoremap <space>s :call PickFileSplit()<cr>

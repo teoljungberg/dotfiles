@@ -170,6 +170,9 @@ endif
 nnoremap <silent> <C-L>
       \ :nohlsearch <C-R>=has("diff") ? "<Bar>diffupdate" : ""<CR><CR><C-L>
 
+" Set the height of pick.vim
+let g:pick_height = 15
+
 augroup vimrcEx
   autocmd!
 
