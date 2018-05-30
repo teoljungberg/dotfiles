@@ -1,8 +1,8 @@
 setlocal iskeyword+=?,!,=
 
 " abbreviations
-iabbrev dinit def initialize
-iabbrev ddebug require 'irb'; binding.irb
+iabbrev <buffer> dinit def initialize
+iabbrev <buffer> ddebug require 'irb'; binding.irb
 
 let b:start = "irb -r '%:p'"
 
