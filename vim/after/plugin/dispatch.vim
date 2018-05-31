@@ -10,10 +10,14 @@ function! s:Linter()
   endif
 endfunction
 
-nmap <script> `= :<C-R>=
+nmap <script> d= :<C-R>=
       \ len(<SID>Linter()) ?
       \ "Dispatch " . <SID>Linter() . " " . expand("%") :
       \ "Dispatch"<CR><CR>
+
+" Use _d_ rather than _`_ until the final mappings are finalized in
+" dispatch.vim.
+let g:nremap = { "`": "d" }
 
 augroup Dispatch
   autocmd!
