@@ -106,6 +106,9 @@ let g:projectionist_heuristics = {
       \      "dispatch": "mix deps.get"
       \    },
       \    "mix.lock": { "alternate": "mix.exs" },
-      \    "*": { "make": "mix" }
+      \    "*": {
+      \      "make": "mix",
+      \      "console": "iex -S mix"
+      \    }
       \  }
       \ }
