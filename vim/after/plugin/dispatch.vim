@@ -16,13 +16,6 @@ nmap <script> d= :<C-R>=
       \ "Dispatch"<CR><CR>
 nmap =c :Console<CR>
 
-" Use _d_ rather than _`_ until the final mappings are finalized in
-" dispatch.vim.
-let g:nremap = {
-      \   "`": "d",
-      \   "'": "=",
-      \ }
-
 augroup Dispatch
   autocmd!
   autocmd BufReadPost *

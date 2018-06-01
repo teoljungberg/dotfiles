@@ -173,6 +173,13 @@ nnoremap <silent> <C-L>
 " Set the height of pick.vim
 let g:pick_height = 15
 
+" Use d, and = rather than `, and ' until the final mappings are finalized in
+" dispatch.vim.
+let g:nremap = {
+      \   "`": "d",
+      \   "'": "=",
+      \ }
+
 augroup vimrcEx
   autocmd!
 
