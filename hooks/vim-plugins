@@ -7,7 +7,6 @@ bundles="
   pbrisbin/vim-mkdir
   teoljungberg/vim-grep-motion
   teoljungberg/vim-visual-star-search
-  tmux-plugins/vim-tmux-focus-events
   tommcdo/vim-exchange
   tpope/vim-abolish
   tpope/vim-bundler

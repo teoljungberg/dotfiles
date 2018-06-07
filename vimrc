@@ -183,13 +183,6 @@ let g:nremap = {
 augroup vimrcEx
   autocmd!
 
-  " Write all files when focus is lost, or a buffer is swtiched, even inside
-  " `tmux(1)`.
-  "
-  " The following plugin is used for this:
-  " https://github.com/tmux-plugins/vim-tmux-focus-events
-  autocmd FocusLost,BufLeave * if !empty(&filetype) | silent! write | endif
-
   autocmd FileType *
         \ if exists("+completefunc") && &completefunc == "" |
         \   setlocal completefunc=syntaxcomplete#Complete |
