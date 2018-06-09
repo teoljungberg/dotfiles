@@ -1,5 +1,6 @@
 brew bundle --file=- <<EOF
 brew "automake"
+brew "extract_url"
 brew "macvim"
 brew "pick"
 brew "rg"
