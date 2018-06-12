@@ -1,5 +1,5 @@
-iabbrev -. - [ ]
-iabbrev -x - [X]
+iabbrev <buffer> -. - [ ]
+iabbrev <buffer> -x - [X]
 
 setlocal spell
 setlocal textwidth=80
