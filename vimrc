@@ -172,6 +172,16 @@ inoremap <expr> <c-e> col('.')>strlen(getline('.'))?"\<lt>c-e>":"\<lt>end>"
 inoremap <c-a> <esc>I
 cnoremap <c-a> <home>
 
+" system clipboard integration
+nnoremap gy "*y
+nnoremap gY "*y$
+nnoremap gp "*p
+nnoremap gP "*P
+
+vnoremap gy "*y
+vnoremap gp "*p
+vnoremap gP "*P
+
 if has("terminal")
   tnoremap <ESC> <C-\><C-N>
 endif
