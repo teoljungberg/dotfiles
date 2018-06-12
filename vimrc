@@ -179,6 +179,20 @@ endif
 nnoremap <silent> <C-L>
       \ :nohlsearch <C-R>=has("diff") ? "<Bar>diffupdate" : ""<CR><CR><C-L>
 
+" Jumps to the last known position in a file, except in the filetypes that are
+" blacklisted.
+augroup JumpToLastKnownPosition
+  autocmd!
+  autocmd BufReadPost *
+        \ if (
+        \   index(["gitcommit", "gitrebase"], &ft) < 0
+        \ ) && (
+        \   line("'\"") > 0 && line("'\"") <= line("$")
+        \ ) |
+        \   exe "normal g`\"" |
+        \ endif
+augroup END
+
 augroup vimrcEx
   autocmd!
 
