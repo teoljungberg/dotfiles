@@ -61,8 +61,11 @@ endif
 
 filetype plugin indent on
 
-" plugins
-runtime macros/matchit.vim
+if has("packages")
+  packadd matchit
+else
+  runtime macros/matchit.vim
+endif
 
 silent! colorscheme solarized
 set background=light
