@@ -189,6 +189,10 @@ endif
 nnoremap <silent> <C-L>
       \ :nohlsearch <C-R>=has("diff") ? "<Bar>diffupdate" : ""<CR><CR><C-L>
 
+nnoremap [ot :setlocal cc=&textwidth<CR>
+nnoremap ]ot :setlocal cc=0<CR>
+nnoremap yot :setlocal cc=<C-R>=&cc == 0 ? &textwidth : 0<CR><CR>
+
 " Jumps to the last known position in a file, except in the filetypes that are
 " blacklisted.
 augroup JumpToLastKnownPosition
