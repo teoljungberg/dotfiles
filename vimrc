@@ -189,6 +189,27 @@ endif
 nnoremap <silent> <C-L>
       \ :nohlsearch <C-R>=has("diff") ? "<Bar>diffupdate" : ""<CR><CR><C-L>
 
+function! BufferOpen(buffer_name)
+  let buffer_list = 0
+  redir =>buffer_list
+  silent! ls
+  redir END
+
+  for buffer_number in map(
+        \ filter(split(buffer_list, "\n"), "v:val =~ '" . a:buffer_name . "'"),
+        \ "str2nr(matchstr(v:val, '\\d\\+'))")
+    if bufwinnr(buffer_number) != -1
+      return 1
+    endif
+  endfor
+
+  return 0
+endfunction!
+
+nnoremap [oq :copen<CR>
+nnoremap ]oq :cclose<CR>
+nnoremap yoq :<C-R>=BufferOpen("Quickfix List") ? "cclose" : "copen"<CR><CR>
+
 nnoremap [ot :setlocal cc=&textwidth<CR>
 nnoremap ]ot :setlocal cc=0<CR>
 nnoremap yot :setlocal cc=<C-R>=&cc == 0 ? &textwidth : 0<CR><CR>
