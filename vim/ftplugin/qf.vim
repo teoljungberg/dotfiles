@@ -1,5 +1,4 @@
 nnoremap <silent> <buffer> q :q<CR>
-nnoremap <silent> <buffer> go <CR><Bar>:copen<CR>
 
 function! s:IsLocationList()
   return getwininfo(win_getid())[0].loclist
