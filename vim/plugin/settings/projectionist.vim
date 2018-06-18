@@ -13,62 +13,22 @@ let g:rails_projections = {
       \   },
       \   "spec/requests/*_spec.rb": {
       \      "command": "request",
-      \      "alternate": "app/controllers/{}_controller.rb",
-      \      "template": [
-      \        "require \"rails_helper\"",
-      \        "",
-      \        "RSpec.describe \"{}\" do",
-      \        "end"
-      \      ]
+      \      "alternate": "app/controllers/{}_controller.rb"
       \   },
-      \   "spec/features/*_spec.rb": {
-      \      "command": "feature",
-      \      "template": [
-      \        "require \"rails_helper\"",
-      \        "",
-      \        "RSpec.describe \"{}\" do",
-      \        "end"
-      \      ]
-      \   },
+      \   "spec/features/*_spec.rb": { "command": "feature" },
       \   "app/services/*.rb": {
       \     "command": "service",
       \     "test": [
       \       "spec/services/%s_spec.rb",
       \       "test/services/%s_test.rb"
-      \     ],
-      \      "template": [
-      \        "class {camelcase|capitalize|colons}",
-      \        "  def self.call(*args)",
-      \        "    new(*args).call",
-      \        "  end",
-      \        "",
-      \        "  def initialize(*args)",
-      \        "  end",
-      \        "",
-      \        "  def call",
-      \        "  end",
-      \        "end"
-      \      ]
+      \     ]
       \   },
       \   "app/queries/*_query.rb": {
       \     "command": "query",
       \     "test": [
       \       "spec/queries/%s_spec.rb",
       \       "test/queries/%s_test.rb"
-      \     ],
-      \      "template": [
-      \        "class {camelcase|capitalize|colons}Query",
-      \        "  def self.call(*args)",
-      \        "    new(*args).call",
-      \        "  end",
-      \        "",
-      \        "  def initialize(*args)",
-      \        "  end",
-      \        "",
-      \        "  def call",
-      \        "  end",
-      \        "end"
-      \      ]
+      \     ]
       \   },
       \   "app/graphql/*.rb": {
       \     "command": "graphql",
