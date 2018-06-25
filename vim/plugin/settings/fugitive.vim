@@ -10,6 +10,4 @@ augroup Fugitive
         \ shiftwidth=2
         \ nolist
         \ spell
-
-  autocmd VimEnter .git/PULLREQ_EDITMSG set filetype=gitcommit
 augroup END
