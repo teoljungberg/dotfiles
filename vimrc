@@ -229,6 +229,16 @@ endfunction
 
 xnoremap @ :<C-u>call <SID>ExecuteMacroOverVisualRange()<CR>
 
+" Strip trailing whitespace, and save last search, and cursor position.
+function! s:PreservePositionAfterCommand(command)
+  let l:save = winsaveview()
+  execute a:command
+  call winrestview(l:save)
+endfunction
+
+command! StripTrailingWhitespace :
+      \ call <SID>PreservePositionAfterCommand(':%s/\s\+$//e')
+
 " Jumps to the last known position in a file, except in the filetypes that are
 " blacklisted.
 augroup JumpToLastKnownPosition
