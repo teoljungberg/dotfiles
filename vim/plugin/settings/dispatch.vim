@@ -1,15 +1,3 @@
-function! s:Linter()
-  if &filetype == "ruby" && filereadable(".rubocop.yml") |
-    return "rubocop"
-  elseif index(["sh", "bash", "dash", "ksh"], &filetype) >= 0
-    return "shellcheck -f gcc"
-  elseif &filetype == "elixir" && filereadable(".credo.exs") |
-    return "mix credo suggest --format=flycheck"
-  else
-    return ""
-  endif
-endfunction
-
 " Use d, and = rather than `, and ' until the final mappings are finalized in
 " dispatch.vim.
 let g:nremap = {
@@ -17,10 +5,6 @@ let g:nremap = {
       \   "'": "=",
       \ }
 
-nmap <script> d= :<C-R>=
-      \ len(<SID>Linter()) ?
-      \ "Dispatch " . <SID>Linter() . " " . expand("%") :
-      \ "Dispatch"<CR><CR>
 nmap =c :Console<CR>
 
 augroup Dispatch
