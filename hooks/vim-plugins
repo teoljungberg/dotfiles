@@ -28,6 +28,7 @@ bundles="
   tpope/vim-unimpaired
   tpope/vim-vinegar
   vim-ruby/vim-ruby
+  w0rp/ale
 "
 
 display_new_commits() {
