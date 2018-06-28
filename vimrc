@@ -53,7 +53,7 @@ end
 let g:is_posix = 1
 
 set mouse=nvi
-if $TERM =~ "^xterm"
+if $TERM =~# "^xterm"
   if exists("+mouse")
     set ttymouse=xterm2
   endif
