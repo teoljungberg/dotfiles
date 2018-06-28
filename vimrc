@@ -215,7 +215,7 @@ function! BufferOpen(buffer_name)
   endfor
 
   return 0
-endfunction!
+endfunction
 
 nnoremap [oq :copen<CR>
 nnoremap ]oq :cclose<CR>
