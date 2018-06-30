@@ -23,4 +23,4 @@ augroup Ale
   let g:ale_linters.vim = ["vint"]
 augroup END
 
-nnoremap d= :ALELint<CR>
+nnoremap d=<CR> :ALELint<CR>
