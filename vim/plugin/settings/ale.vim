@@ -21,6 +21,15 @@ augroup Ale
   let g:ale_linters.ruby = ["rubocop"]
   let g:ale_linters.sh = ["shellcheck"]
   let g:ale_linters.vim = ["vint"]
+
+  let g:ale_fixers_explicit = 1
+
+  let g:ale_fixers = {}
+  let g:ale_fixers.elixir = ["credo"]
+  let g:ale_fixers.javascript = ["eslint"]
+  let g:ale_fixers.ruby = ["rubocop"]
+  let g:ale_fixers.rust = ["rustfmt"]
 augroup END
 
 nnoremap d=<CR> :ALELint<CR>
+nnoremap d== :ALEFix<CR>
