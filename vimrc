@@ -139,9 +139,6 @@ cnoremap %t <C-R>=substitute(expand("%:r"), "^app[^/]*.", "", "")<CR>
 " toggle between the two most recent files
 noremap <leader><leader> :edit #<cr>
 
-" open the tag under the cursor using `:ltag`
-noremap <c-w>\ :ltag <c-r>=expand("<cword>")<cr><cr>
-
 " Only have the current split and tab open
 command! O :silent only<bar>silent tabonly
 
