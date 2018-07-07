@@ -122,9 +122,6 @@ noremap gV V`]
 " duplicate the visually selected block
 vmap D y'>p
 
-" pre-fill the visual selection in command mode
-vmap <Space> ygv:<C-U><Space><C-R>"<Home>
-
 " open files in directory of current file
 cnoremap %% <c-r>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
