@@ -1,5 +1,3 @@
-nnoremap <silent> <buffer> q :q<CR>
-
 function! s:IsLocationList()
   return getwininfo(win_getid())[0].loclist
 endfunction
