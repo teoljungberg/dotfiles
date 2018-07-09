@@ -27,5 +27,5 @@ let g:ale_fixers.javascript = ["eslint"]
 let g:ale_fixers.ruby = ["rubocop"]
 let g:ale_fixers.rust = ["rustfmt"]
 
-nnoremap d=<CR> :ALELint<CR>
-nnoremap d== :ALEFix<CR>
+nnoremap d=<CR> :ALEFix<CR>
+nnoremap d== :ALELint<CR>
