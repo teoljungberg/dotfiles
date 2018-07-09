@@ -1,6 +1,8 @@
 function! s:ColorschemeChanges()
   hi! Comment term=italic cterm=italic gui=italic
   hi! Constant term=italic cterm=italic gui=italic
+  hi! PmenuSBar term=reverse cterm=reverse ctermfg=11 ctermbg=15 guibg=Black
+  hi! PmenuThumb term=reverse cterm=reverse ctermfg=0 ctermbg=11 guibg=Grey
 
   hi! link rubyAssertion rubyFunction
   hi! link rubyCapitalizedMethod rubyConstant
