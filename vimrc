@@ -207,7 +207,7 @@ nnoremap [oq :copen<CR>
 nnoremap ]oq :cclose<CR>
 nnoremap yoq :<C-R>=IsQuickfixOpen() ? "cclose" : "copen"<CR><CR>
 
-nnoremap [ot :setlocal cc=&textwidth + 1<CR>
+nnoremap [ot :setlocal cc=<C-R>=&textwidth + 1<CR><CR>
 nnoremap ]ot :setlocal cc=0<CR>
 nnoremap yot :setlocal cc=<C-R>=&cc == 0 ? &textwidth + 1 : 0<CR><CR>
 
