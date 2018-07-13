@@ -5,6 +5,8 @@ bundles="
   altercation/vim-colors-solarized
   calleerlandsson/pick.vim
   pbrisbin/vim-mkdir
+  racer-rust/vim-racer
+  rust-lang/rust.vim
   teoljungberg/vim-grep-motion
   teoljungberg/vim-visual-star-search
   tommcdo/vim-exchange
