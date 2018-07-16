@@ -1,8 +1,10 @@
 #!/bin/sh
 
 ssh() {
+  original_ssh=$(whence -p ssh)
+
   if [ -z "$TMUX" ]; then
-    /usr/bin/ssh "$@"
+    $original_ssh "$@"
     return
   fi
 
@@ -13,7 +15,7 @@ ssh() {
     tmux rename-window "$remote"
   fi
 
-  /usr/bin/ssh "$@"
+  $original_ssh "$@"
 
   tmux rename-window "$old_name"
 }
