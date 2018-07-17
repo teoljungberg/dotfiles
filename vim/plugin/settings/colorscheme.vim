@@ -1,4 +1,8 @@
 function! s:ColorschemeChanges()
+  if g:colors_name != "solarized"
+    return
+  endif
+
   hi! Comment term=italic cterm=italic gui=italic
   hi! Constant term=italic cterm=italic gui=italic
   hi! PmenuSBar term=reverse cterm=reverse ctermfg=11 ctermbg=15 guibg=Black
