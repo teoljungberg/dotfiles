@@ -15,15 +15,15 @@ function! s:ColorschemeChanges()
 
   hi! MatchParen cterm=bold ctermbg=none ctermfg=33
 
-  hi! StatusLineNC
-        \ term=reverse
-        \ cterm=reverse
-        \ ctermfg=7
-        \ ctermbg=14
-        \ gui=reverse
-        \ guifg=#839496
-        \ guibg=#eee8d5
-
+  if &background == "light"
+    hi! StatusLineNC
+          \ term=reverse
+          \ cterm=reverse
+          \ ctermfg=7
+          \ ctermbg=14
+          \ gui=reverse
+          \ guifg=#839496
+          \ guibg=#eee8d5
   hi! StatusLineTerm
         \ term=reverse
         \ cterm=reverse
@@ -40,6 +40,32 @@ function! s:ColorschemeChanges()
         \ gui=reverse
         \ guifg=#839496
         \ guibg=#eee8d5
+  else
+    hi! StatusLineNC
+          \ term=reverse
+          \ cterm=reverse
+          \ ctermfg=10
+          \ ctermbg=14
+          \ gui=reverse
+          \ guifg=#657b83
+          \ guibg=#073642
+    hi! StatusLineTerm
+          \ term=reverse
+          \ cterm=reverse
+          \ ctermfg=14
+          \ ctermbg=0
+          \ gui=reverse
+          \ guifg=#93a1a1
+          \ guibg=#073642
+    hi! StatusLineTermNC
+          \ term=reverse
+          \ cterm=reverse
+          \ ctermfg=10
+          \ ctermbg=14
+          \ gui=reverse
+          \ guifg=#657b83
+          \ guibg=#073642
+  endif
 endfunction
 
 augroup Colorscheme
