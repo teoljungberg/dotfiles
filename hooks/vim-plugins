@@ -37,8 +37,9 @@ display_new_commits() {
   work_tree_path="$1"
   current_sha="$(git -C "$work_tree_path" rev-parse --short HEAD)"
   new_sha="$(git -C "$work_tree_path" rev-parse --short origin/master)"
+  current_branch="$(git -C "$work_tree_path" symbolic-ref --short HEAD)"
 
-  if [ "$current_sha" != "$new_sha" ]; then
+  if [ "$current_branch" = "master" ] && [ "$current_sha" != "$new_sha" ]; then
     if command -v hub > /dev/null 2>&1; then
       hub -C "$work_tree_path" compare -u "$current_sha"..."$new_sha"
     else
