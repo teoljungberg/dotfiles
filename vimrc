@@ -191,10 +191,6 @@ vnoremap gy "*y
 vnoremap gp "*p
 vnoremap gP "*P
 
-if has("terminal")
-  tnoremap <ESC> <C-\><C-N>
-endif
-
 nnoremap <silent> <C-L>
       \ :nohlsearch <C-R>=has("diff") ? "<Bar>diffupdate" : ""<CR><CR><C-L>
 
