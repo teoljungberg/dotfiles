@@ -70,6 +70,10 @@ endif
 silent! colorscheme solarized
 set background=light
 
+if $TERM == "xterm"
+  colorscheme default
+endif
+
 " automatically create undodir if it doesn't exist
 set undodir=~/.cache/vim/undo//
 if !isdirectory(expand(&undodir))
