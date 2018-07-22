@@ -70,7 +70,7 @@ endif
 silent! colorscheme solarized
 set background=light
 
-if $TERM == "xterm"
+if !has("gui_running") && $TERM == "xterm"
   colorscheme default
 endif
 
