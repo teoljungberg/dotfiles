@@ -24,22 +24,22 @@ function! s:ColorschemeChanges()
           \ gui=reverse
           \ guifg=#839496
           \ guibg=#eee8d5
-  hi! StatusLineTerm
-        \ term=reverse
-        \ cterm=reverse
-        \ ctermfg=10
-        \ ctermbg=7
-        \ gui=reverse
-        \ guifg=#586e75
-        \ guibg=#eee8d5
-  hi! StatusLineTermNC
-        \ term=reverse
-        \ cterm=reverse
-        \ ctermfg=7
-        \ ctermbg=14
-        \ gui=reverse
-        \ guifg=#839496
-        \ guibg=#eee8d5
+    hi! StatusLineTerm
+          \ term=reverse
+          \ cterm=reverse
+          \ ctermfg=10
+          \ ctermbg=7
+          \ gui=reverse
+          \ guifg=#586e75
+          \ guibg=#eee8d5
+    hi! StatusLineTermNC
+          \ term=reverse
+          \ cterm=reverse
+          \ ctermfg=7
+          \ ctermbg=14
+          \ gui=reverse
+          \ guifg=#839496
+          \ guibg=#eee8d5
   else
     hi! StatusLineNC
           \ term=reverse
