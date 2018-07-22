@@ -1,5 +1,0 @@
-_pick_file() {
-  zle -U "$(pick-file)"
-  zle list-expand
-}
-zle -N _pick_file
