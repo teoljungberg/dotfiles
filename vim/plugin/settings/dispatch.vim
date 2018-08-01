@@ -1,11 +1,4 @@
-" Use d, and = rather than `, and ' until the final mappings are finalized in
-" dispatch.vim.
-let g:nremap = {
-      \   "`": "d",
-      \   "'": "=",
-      \ }
-
-nmap =c :Console<CR>
+nmap 'c :Console<CR>
 
 augroup Dispatch
   autocmd!
