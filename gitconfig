@@ -16,6 +16,7 @@
   l = log --graph --decorate --oneline
   ls = ls-files
   p = push-origin-or-fork
+  r = recent
 
   ctags = !$(git rev-parse --git-dir)/hooks/ctags
   safe = !mkdir $(git rev-parse --git-dir)/safe

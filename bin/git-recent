@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# `git-recent` logs local and unpushed commits if there are any. If not, it logs
+# the local tree against `origin/master`.
+
+set -e
+
+git_log() {
+  git log --graph --decorate --oneline "$@"
+}
+
+has_local_commits() {
+  [ "$(git_log "@{u}.." | wc -l)" -gt 0 ]
+}
+
+if has_local_commits; then
+  git_log "@{u}.."
+else
+  git_log "origin/master.."
+fi
