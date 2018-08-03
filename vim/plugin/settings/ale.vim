@@ -8,6 +8,7 @@ let g:ale_lint_on_save = 0
 let g:ale_set_signs = 0
 " Open the location list when `:ALELint` produces any errors.
 let g:ale_open_list = 1
+
 " Only run linters listed in `g:ale_linters`.
 let g:ale_linters_explicit = 1
 
@@ -18,6 +19,7 @@ let g:ale_linters.ruby = ["rubocop"]
 let g:ale_linters.sh = ["shellcheck"]
 let g:ale_linters.vim = ["vint"]
 
+" Only run fixers listed in `g:ale_fixers`.
 let g:ale_fixers_explicit = 1
 
 let g:ale_fixers = {}
