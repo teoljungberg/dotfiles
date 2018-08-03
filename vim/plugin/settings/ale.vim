@@ -8,7 +8,6 @@ let g:ale_lint_on_save = 0
 let g:ale_set_signs = 0
 " Open the location list when `:ALELint` produces any errors.
 let g:ale_open_list = 1
-
 " Only run linters listed in `g:ale_linters`.
 let g:ale_linters_explicit = 1
 
@@ -27,5 +26,5 @@ let g:ale_fixers.javascript = ["eslint"]
 let g:ale_fixers.ruby = ["rubocop"]
 let g:ale_fixers.rust = ["rustfmt"]
 
-nnoremap d=<CR> :ALEFix<CR>
-nnoremap d== :ALELint<CR>
+nnoremap `=<CR> :ALEFix<CR>
+nnoremap `== :ALELint<CR>
