@@ -70,5 +70,25 @@ let g:projectionist_heuristics = {
       \      "make": "mix",
       \      "console": "iex -S mix"
       \    }
+      \  },
+      \  "&Cargo.toml": {
+      \    "src/*.rs": {
+      \      "type": "src",
+      \      "dispatch": "cargo test {basename}::tests"
+      \    },
+      \    "src/main.rs": {
+      \      "type": "src",
+      \      "dispatch": "cargo test"
+      \    },
+      \    "Cargo.toml": {
+      \      "type": "cargo",
+      \      "alternate": "Cargo.lock",
+      \      "dispatch": "cargo check"
+      \    },
+      \    "Cargo.lock": {
+      \      "alternate": "Cargo.toml",
+      \      "dispatch": "cargo check"
+      \    },
+      \    "*": { "make": "cargo" }
       \  }
       \ }
