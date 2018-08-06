@@ -1,0 +1,5 @@
+_git_changed_files() {
+  zle -U "$(git changed-files)"
+  zle list-expand
+}
+zle -N _git_changed_files
