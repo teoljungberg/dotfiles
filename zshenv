@@ -7,6 +7,7 @@ if [ -f /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
 fi
 
 PATH="$PATH:$HOME/.bin"
+PATH="$PATH:$HOME/.cargo/bin"
 PATH="$PATH:/usr/local/sbin"
 
 [ -f ~/.zshenv.local ] && source ~/.zshenv.local
