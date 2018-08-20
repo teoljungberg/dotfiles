@@ -250,3 +250,7 @@ augroup END
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
+if filereadable(".git/safe/../../.vimrc.local")
+  source .vimrc.local
+endif
