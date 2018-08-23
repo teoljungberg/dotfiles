@@ -243,8 +243,6 @@ augroup vimrcEx
         \ if exists("+omnifunc") && &omnifunc == "" |
         \   setlocal omnifunc=syntaxcomplete#Complete |
         \ endif
-
-  autocmd SourcePre */macros/less.vim set laststatus=0 cmdheight=1
 augroup END
 
 if filereadable($HOME . "/.vimrc.local")
