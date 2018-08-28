@@ -280,6 +280,22 @@ let g:ale_fixers.rust = ["rustfmt"]
 nnoremap `=<CR> :ALEFix<CR>
 nnoremap `== :ALELint<CR>
 
+" pick.vim
+" --------
+if executable("pick")
+  let g:pick_height = 15
+
+  if ! has("gui_running")
+    nnoremap <space><space> :call PickFile()<cr>
+    nnoremap <space>s :call PickFileSplit()<cr>
+    nnoremap <space>v :call PickFileVerticalSplit()<cr>
+    nnoremap <space>b :call PickBuffer()<cr>
+    nnoremap <space>] :call PickTag()<cr>
+    nnoremap <space>\ :call PickSplitTag()<cr>
+    nnoremap <space>t :call PickFileTab()<cr>
+  endif
+endif
+
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
