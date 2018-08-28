@@ -359,6 +359,19 @@ augroup Colorscheme
   autocmd ColorScheme * call <SID>ColorschemeChanges()
 augroup END
 
+" dispatch.vim
+" ------------
+nnoremap 'c :Console<CR>
+
+augroup Dispatch
+  autocmd!
+  autocmd BufReadPost *
+        \ if getline(1) =~# "^#!" |
+        \   let b:dispatch = getline(1)[2:-1] . " %" |
+        \   let b:start = b:dispatch |
+        \ endif
+augroup END
+
 " pick.vim
 " --------
 if executable("pick")
