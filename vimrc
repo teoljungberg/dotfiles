@@ -423,6 +423,12 @@ nnoremap <silent>  S    :<C-U>call <SID>try("SplitjoinSplit", "S")<CR>
 " `m   => Jump back to the mark `m`.
 nnoremap <silent> r<CR> :<C-U>call <SID>try("SplitjoinSplit", "mmi\015\003`m")<CR>
 
+" surround.vim
+" ------------
+let g:surround_{char2nr("#")} = "#{\r}"
+let g:surround_{char2nr("s")} = " \r"
+let g:surround_{char2nr("S")} = "\r "
+
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
