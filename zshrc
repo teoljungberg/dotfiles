@@ -31,6 +31,7 @@ export EDITOR="vim"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent::1"
 export GREP_OPTIONS="--color"
 export HOMEBREW_NO_EMOJI=1
+export HOMEBREW_AUTO_UPDATE_SECS=600000
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LESS="-F -X -R"
