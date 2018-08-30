@@ -548,6 +548,7 @@ augroup ft_options
         \ shiftwidth=8
         \ tabstop=8
         \ cinoptions=:0,t0,+4,(4
+  autocmd FileType elixir iabbrev <buffer> ddebug require IEx; IEx.pry
 augroup END
 
 if filereadable($HOME . "/.vimrc.local")
