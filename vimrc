@@ -539,6 +539,12 @@ let g:surround_{char2nr("S")} = "\r "
 nnoremap - -
 let g:netrw_localrmdir = "rm -rf"
 
+augroup ft_options
+  autocmd!
+
+  autocmd FileType bash setlocal iskeyword+=-
+augroup END
+
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
