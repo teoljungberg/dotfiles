@@ -539,6 +539,26 @@ let g:surround_{char2nr("S")} = "\r "
 nnoremap - -
 let g:netrw_localrmdir = "rm -rf"
 
+" markdown
+" -------
+let g:markdown_fenced_languages = [
+      \ "ruby",
+      \ "html",
+      \ "javascript",
+      \ "css",
+      \ "erb=eruby.html",
+      \ "bash=sh",
+      \ "sh",
+      \ ]
+
+function! s:MarkdownMappings()
+  nnoremap <buffer> <expr> k (v:count == 0 ? "gk" : "k")
+  nnoremap <buffer> <expr> j (v:count == 0 ? "gj" : "j")
+  nnoremap <buffer>        $ g$
+  nnoremap <buffer>        0 g0
+  nnoremap <buffer>        ^ g^
+endfunction
+
 augroup ft_options
   autocmd!
 
@@ -549,6 +569,17 @@ augroup ft_options
         \ tabstop=8
         \ cinoptions=:0,t0,+4,(4
   autocmd FileType elixir iabbrev <buffer> ddebug require IEx; IEx.pry
+  autocmd FileType markdown iabbrev <buffer> -. - [ ]
+  autocmd FileType markdown iabbrev <buffer> -x - [X]
+  autocmd FileType markdown setlocal
+        \ spell
+        \ textwidth=80
+        \ shiftwidth=4
+        \ expandtab
+        \ wrap
+        \ nolist
+        \ linebreak
+  autocmd FileType markdown call <SID>MarkdownMappings()
 augroup END
 
 if filereadable($HOME . "/.vimrc.local")
