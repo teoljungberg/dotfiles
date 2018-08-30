@@ -559,6 +559,22 @@ function! s:MarkdownMappings()
   nnoremap <buffer>        ^ g^
 endfunction
 
+function! s:QuickfixMappings()
+  let is_location_list = getwininfo(win_getid())[0].loclist
+
+  if is_location_list
+    nnoremap <buffer> [f :lolder<CR>
+    nnoremap <buffer> ]f :lnewer<CR>
+    nnoremap <buffer> [F :<C-R>=getloclist("$", {"nr": "$"}).nr - 1<CR>lolder<CR>
+    nnoremap <buffer> ]F :<C-R>=getloclist("$", {"nr": "$"}).nr - 1<CR>lnewer<CR>
+  else
+    nnoremap <buffer> [f :colder<CR>
+    nnoremap <buffer> ]f :cnewer<CR>
+    nnoremap <buffer> [F :<C-R>=getqflist({"nr": "$"}).nr - 1<CR>colder<CR>
+    nnoremap <buffer> ]F :<C-R>=getqflist({"nr": "$"}).nr - 1<CR>cnewer<CR>
+  endif
+endfunction
+
 augroup ft_options
   autocmd!
 
@@ -580,6 +596,11 @@ augroup ft_options
         \ nolist
         \ linebreak
   autocmd FileType markdown call <SID>MarkdownMappings()
+  autocmd FileType qf setlocal
+        \ nolist
+        \ nonumber
+        \ norelativenumber
+  autocmd FileType qf call <SID>QuickfixMappings()
 augroup END
 
 if filereadable($HOME . "/.vimrc.local")
