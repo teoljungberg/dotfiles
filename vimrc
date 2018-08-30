@@ -543,6 +543,11 @@ augroup ft_options
   autocmd!
 
   autocmd FileType bash setlocal iskeyword+=-
+  autocmd FileType c setlocal
+        \ noexpandtab
+        \ shiftwidth=8
+        \ tabstop=8
+        \ cinoptions=:0,t0,+4,(4
 augroup END
 
 if filereadable($HOME . "/.vimrc.local")
