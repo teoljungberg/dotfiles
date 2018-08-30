@@ -551,6 +551,12 @@ let g:markdown_fenced_languages = [
       \ "sh",
       \ ]
 
+" rust
+" ----
+let g:ftplugin_rust_source_path =
+      \ "$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
+
 function! s:MarkdownMappings()
   nnoremap <buffer> <expr> k (v:count == 0 ? "gk" : "k")
   nnoremap <buffer> <expr> j (v:count == 0 ? "gj" : "j")
@@ -645,6 +651,9 @@ augroup ft_options
         \ elseif !exists("b:dispatch") |
         \   let b:dispatch = "ruby -wc %" |
         \ endif
+  autocmd FileType rust setlocal iskeyword+=!
+  autocmd FileType rust nnoremap <buffer> K <Plug>(rust-doc)
+  autocmd FileType rust nnoremap <buffer> gd <Plug>(rust-def)
 augroup END
 
 if filereadable($HOME . "/.vimrc.local")
