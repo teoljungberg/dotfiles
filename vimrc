@@ -350,6 +350,10 @@ function! s:ColorschemeChanges()
   endif
 endfunction
 
+function! s:CustomRubySyntax()
+
+endfunction
+
 augroup Colorscheme
   autocmd!
 
@@ -639,6 +643,7 @@ augroup ft_options
         \ nonumber
         \ norelativenumber
   autocmd FileType qf call <SID>QuickfixMappings()
+  autocmd FileType ruby call <SID>CustomRubySyntax()
   autocmd FileType ruby setlocal iskeyword+=?,!,=
   autocmd FileType ruby iabbrev <buffer> dinit def initialize
   autocmd FileType ruby iabbrev <buffer> ddebug require 'irb'; binding.irb
