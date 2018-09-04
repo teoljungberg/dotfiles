@@ -8,6 +8,7 @@ set cmdheight=2
 set complete+=kspell
 set complete-=i
 set display=lastline
+set guifont=IBM\ Plex\ Mono:h14
 set hidden
 set history=1000
 set incsearch
@@ -235,6 +236,18 @@ augroup END
 augroup vimrcEx
   autocmd!
 
+  autocmd GUIEnter * set
+        \ title
+        \ icon
+        \ lines=45
+        \ columns=80
+        \ guioptions-=T
+        \ guioptions-=m
+        \ guioptions-=e
+        \ guioptions-=r
+        \ guioptions-=L
+        \ visualbell
+        \ t_vb=
   autocmd FileType *
         \ if exists("+completefunc") && &completefunc == "" |
         \   setlocal completefunc=syntaxcomplete#Complete |
