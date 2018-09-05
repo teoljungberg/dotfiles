@@ -384,6 +384,10 @@ augroup END
 " ------------
 nnoremap 'c :Console<CR>
 
+let g:dispatch_compilers = {
+      \   "rubocop": "gcc",
+      \ }
+
 augroup Dispatch
   autocmd!
   autocmd BufReadPost *
