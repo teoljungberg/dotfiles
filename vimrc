@@ -170,6 +170,10 @@ nnoremap <C-]>      :tag <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-W><C-]> :stag <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-W>]     :stag <C-R>=expand("<cword>")<CR><CR>
 
+" Call `:ptag` the word under the cursor. Navigate between the matches with
+" `:ptnext` or `:ptprevious`. Or using unimpaired.vim's `]<C-T>` and `[<C-T>`.
+nnoremap g<C-T> :ptag <C-R>=expand("<cword>")<CR><CR>
+
 " Get the current line number
 cnoremap <C-R><C-L> <C-R>=line(".")<CR>
 
