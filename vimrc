@@ -463,6 +463,9 @@ let g:rails_projections = {
       \       "test/graphql/%s_test.rb"
       \     ],
       \   },
+      \   "config/routes.rb": {
+      \     "command": "routes",
+      \   },
       \ }
 
 let g:projectionist_heuristics = {
