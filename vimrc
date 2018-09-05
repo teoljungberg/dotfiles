@@ -8,6 +8,7 @@ set cmdheight=2
 set complete+=kspell
 set complete-=i
 set display=lastline
+set guifont=IBM\ Plex\ Mono:h14
 set hidden
 set history=1000
 set incsearch
@@ -235,6 +236,18 @@ augroup END
 augroup vimrcEx
   autocmd!
 
+  autocmd GUIEnter * set
+        \ title
+        \ icon
+        \ lines=45
+        \ columns=80
+        \ guioptions-=T
+        \ guioptions-=m
+        \ guioptions-=e
+        \ guioptions-=r
+        \ guioptions-=L
+        \ visualbell
+        \ t_vb=
   autocmd FileType *
         \ if exists("+completefunc") && &completefunc == "" |
         \   setlocal completefunc=syntaxcomplete#Complete |
@@ -243,6 +256,422 @@ augroup vimrcEx
         \ if exists("+omnifunc") && &omnifunc == "" |
         \   setlocal omnifunc=syntaxcomplete#Complete |
         \ endif
+augroup END
+
+" ale.vim
+" -------
+" I prefer invoking `ALELint` at my leisure rather than having it run
+" automatically when a file is saved, changed, or touched.
+let g:ale_lint_on_text_changed = "never"
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 0
+
+" Disable the gutter by not allowing any signs.
+let g:ale_set_signs = 0
+" Open the location list when `:ALELint` produces any errors.
+let g:ale_open_list = 1
+
+" Only run linters listed in `g:ale_linters`.
+let g:ale_linters_explicit = 1
+
+let g:ale_linters = {}
+let g:ale_linters.elixir = ["credo"]
+let g:ale_linters.javascript = ["eslint"]
+let g:ale_linters.ruby = ["rubocop"]
+let g:ale_linters.sh = ["shellcheck"]
+let g:ale_linters.vim = ["vint"]
+
+" Only run fixers listed in `g:ale_fixers`.
+let g:ale_fixers_explicit = 1
+
+let g:ale_fixers = {}
+let g:ale_fixers.elixir = ["mix_format"]
+let g:ale_fixers.javascript = ["eslint"]
+let g:ale_fixers.ruby = ["rubocop"]
+let g:ale_fixers.rust = ["rustfmt"]
+
+nnoremap `=<CR> :ALEFix<CR>
+nnoremap `== :ALELint<CR>
+
+function! s:ColorschemeChanges()
+  if !empty(get(g:, "colors_name")) && g:colors_name != "solarized"
+    return
+  endif
+
+  hi! Comment term=italic cterm=italic gui=italic
+  hi! Constant term=italic cterm=italic gui=italic
+  hi! PmenuSBar term=reverse cterm=reverse ctermfg=11 ctermbg=15 guibg=Black
+  hi! PmenuThumb term=reverse cterm=reverse ctermfg=0 ctermbg=11 guibg=Grey
+
+  hi! link rubyAssertion rubyFunction
+  hi! link rubyCapitalizedMethod rubyConstant
+  hi! link rubyTestMacro rubyFunction
+  hi! link rubyTesthelper rubyFunction
+
+  hi! MatchParen cterm=bold ctermbg=none ctermfg=33
+
+  if &background == "light"
+    hi! StatusLineNC
+          \ term=reverse
+          \ cterm=reverse
+          \ ctermfg=7
+          \ ctermbg=14
+          \ gui=reverse
+          \ guifg=#839496
+          \ guibg=#eee8d5
+    hi! StatusLineTerm
+          \ term=reverse
+          \ cterm=reverse
+          \ ctermfg=10
+          \ ctermbg=7
+          \ gui=reverse
+          \ guifg=#586e75
+          \ guibg=#eee8d5
+    hi! StatusLineTermNC
+          \ term=reverse
+          \ cterm=reverse
+          \ ctermfg=7
+          \ ctermbg=14
+          \ gui=reverse
+          \ guifg=#839496
+          \ guibg=#eee8d5
+  else
+    hi! StatusLineNC
+          \ term=reverse
+          \ cterm=reverse
+          \ ctermfg=10
+          \ ctermbg=14
+          \ gui=reverse
+          \ guifg=#657b83
+          \ guibg=#073642
+    hi! StatusLineTerm
+          \ term=reverse
+          \ cterm=reverse
+          \ ctermfg=14
+          \ ctermbg=0
+          \ gui=reverse
+          \ guifg=#93a1a1
+          \ guibg=#073642
+    hi! StatusLineTermNC
+          \ term=reverse
+          \ cterm=reverse
+          \ ctermfg=10
+          \ ctermbg=14
+          \ gui=reverse
+          \ guifg=#657b83
+          \ guibg=#073642
+  endif
+endfunction
+
+function! s:CustomRubySyntax()
+
+endfunction
+
+augroup Colorscheme
+  autocmd!
+
+  autocmd VimEnter * call <SID>ColorschemeChanges()
+  " Run these settings whenever colorscheme changes, in order to re-overwrite
+  " whatever the colorscheme sets
+  autocmd ColorScheme * call <SID>ColorschemeChanges()
+augroup END
+
+" dispatch.vim
+" ------------
+nnoremap 'c :Console<CR>
+
+augroup Dispatch
+  autocmd!
+  autocmd BufReadPost *
+        \ if getline(1) =~# "^#!" |
+        \   let b:dispatch = getline(1)[2:-1] . " %" |
+        \   let b:start = b:dispatch |
+        \ endif
+augroup END
+
+" fugitive.vim
+" ------------
+augroup Fugitive
+  autocmd!
+
+  autocmd FileType git setlocal nolist
+  autocmd FileType gitcommit let b:sleuth_automatic = 0
+  autocmd FileType gitcommit setlocal
+        \ shiftwidth=2
+        \ nolist
+        \ spell
+augroup END
+
+" pick.vim
+" --------
+if executable("pick")
+  let g:pick_height = 15
+
+  if ! has("gui_running")
+    nnoremap <space><space> :call PickFile()<cr>
+    nnoremap <space>s :call PickFileSplit()<cr>
+    nnoremap <space>v :call PickFileVerticalSplit()<cr>
+    nnoremap <space>b :call PickBuffer()<cr>
+    nnoremap <space>] :call PickTag()<cr>
+    nnoremap <space>\ :call PickSplitTag()<cr>
+    nnoremap <space>t :call PickFileTab()<cr>
+  endif
+endif
+
+" projectionist.vim
+" -----------------
+let g:rails_projections = {
+      \  "app/controllers/*_controller.rb": {
+      \      "test": [
+      \        "spec/requests/{}_spec.rb",
+      \        "spec/controllers/{}_controller_spec.rb",
+      \        "test/controllers/{}_controller_test.rb"
+      \      ],
+      \      "alternate": [
+      \        "spec/requests/{}_spec.rb",
+      \        "spec/controllers/{}_controller_spec.rb",
+      \        "test/controllers/{}_controller_test.rb"
+      \      ],
+      \   },
+      \   "spec/requests/*_spec.rb": {
+      \      "command": "request",
+      \      "alternate": "app/controllers/{}_controller.rb"
+      \   },
+      \   "spec/features/*_spec.rb": { "command": "feature" },
+      \   "app/services/*.rb": {
+      \     "command": "service",
+      \     "test": [
+      \       "spec/services/%s_spec.rb",
+      \       "test/services/%s_test.rb"
+      \     ]
+      \   },
+      \   "app/queries/*_query.rb": {
+      \     "command": "query",
+      \     "test": [
+      \       "spec/queries/%s_spec.rb",
+      \       "test/queries/%s_test.rb"
+      \     ]
+      \   },
+      \   "app/graphql/*.rb": {
+      \     "command": "graphql",
+      \     "test": [
+      \       "spec/graphql/%s_spec.rb",
+      \       "test/graphql/%s_test.rb"
+      \     ],
+      \   },
+      \ }
+
+let g:projectionist_heuristics = {
+      \  "&mix.exs": {
+      \    "lib/*.ex": {
+      \      "type": "lib",
+      \      "alternate": [
+      \        "spec/{}_spec.exs",
+      \        "test/{}_test.exs",
+      \      ],
+      \    },
+      \    "spec/*_spec.exs": {
+      \      "type": "spec",
+      \      "alternate": "lib/{}.ex",
+      \      "dispatch": "mix espec {file}`=v:lnum ? ':'.v:lnum : ''`"
+      \    },
+      \    "spec/spec_helper.exs": { "type": "spec" },
+      \    "test/*_test.exs": {
+      \      "type": "test",
+      \      "alternate": "lib/{}.ex",
+      \      "dispatch": "mix test {file}`=v:lnum ? ':'.v:lnum : ''`"
+      \    },
+      \    "test/test_helper.exs": { "type": "test" },
+      \    "mix.exs": {
+      \      "type": "lib",
+      \      "alternate": "mix.lock",
+      \      "dispatch": "mix deps.get"
+      \    },
+      \    "mix.lock": { "alternate": "mix.exs" },
+      \    "*": {
+      \      "make": "mix",
+      \      "console": "iex -S mix"
+      \    }
+      \  },
+      \  "&Cargo.toml": {
+      \    "src/*.rs": {
+      \      "type": "src",
+      \      "dispatch": "cargo test {basename}::tests"
+      \    },
+      \    "src/main.rs": {
+      \      "type": "src",
+      \      "dispatch": "cargo test"
+      \    },
+      \    "Cargo.toml": {
+      \      "type": "cargo",
+      \      "alternate": "Cargo.lock",
+      \      "dispatch": "cargo check"
+      \    },
+      \    "Cargo.lock": {
+      \      "alternate": "Cargo.toml",
+      \      "dispatch": "cargo check"
+      \    },
+      \    "*": { "make": "cargo" }
+      \  }
+      \ }
+
+" splitjoin.vim
+" -------------
+let g:splitjoin_trailing_comma = 1
+let g:splitjoin_ruby_hanging_args = 0
+let g:splitjoin_ruby_curly_braces = 0
+let g:splitjoin_ruby_options_as_arguments = 1
+
+function! s:try(cmd, default)
+  if exists(":" . a:cmd) && !v:count
+    let tick = b:changedtick
+    exe a:cmd
+    if tick == b:changedtick
+      execute "normal! ".a:default
+    endif
+  else
+    execute "normal! ".v:count.a:default
+  endif
+endfunction
+
+nnoremap <silent> gJ    :<C-U>call <SID>try("SplitjoinJoin", "gJ")<CR>
+nnoremap <silent>  J    :<C-U>call <SID>try("SplitjoinJoin", "J")<CR>
+nnoremap <silent> gS    :<C-U>call <SID>try("SplitjoinSplit", "S")<CR>
+nnoremap <silent>  S    :<C-U>call <SID>try("SplitjoinSplit", "S")<CR>
+" mm   => Place a mark `m` under the cursor
+" i    => Enter insert mode
+" \015 => <CR>
+" \003 => <ESC>
+" `m   => Jump back to the mark `m`.
+nnoremap <silent> r<CR> :<C-U>call <SID>try("SplitjoinSplit", "mmi\015\003`m")<CR>
+
+" surround.vim
+" ------------
+let g:surround_{char2nr("#")} = "#{\r}"
+let g:surround_{char2nr("s")} = " \r"
+let g:surround_{char2nr("S")} = "\r "
+
+" vinegar.vim
+" -----------
+nnoremap - -
+let g:netrw_localrmdir = "rm -rf"
+
+" markdown
+" -------
+let g:markdown_fenced_languages = [
+      \ "ruby",
+      \ "html",
+      \ "javascript",
+      \ "css",
+      \ "erb=eruby.html",
+      \ "bash=sh",
+      \ "sh",
+      \ ]
+
+" rust
+" ----
+let g:ftplugin_rust_source_path =
+      \ "$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
+
+function! s:MarkdownMappings()
+  nnoremap <buffer> <expr> k (v:count == 0 ? "gk" : "k")
+  nnoremap <buffer> <expr> j (v:count == 0 ? "gj" : "j")
+  nnoremap <buffer>        $ g$
+  nnoremap <buffer>        0 g0
+  nnoremap <buffer>        ^ g^
+endfunction
+
+function! s:QuickfixMappings()
+  let is_location_list = getwininfo(win_getid())[0].loclist
+
+  if is_location_list
+    nnoremap <buffer> [f :lolder<CR>
+    nnoremap <buffer> ]f :lnewer<CR>
+    nnoremap <buffer> [F :<C-R>=getloclist("$", {"nr": "$"}).nr - 1<CR>lolder<CR>
+    nnoremap <buffer> ]F :<C-R>=getloclist("$", {"nr": "$"}).nr - 1<CR>lnewer<CR>
+  else
+    nnoremap <buffer> [f :colder<CR>
+    nnoremap <buffer> ]f :cnewer<CR>
+    nnoremap <buffer> [F :<C-R>=getqflist({"nr": "$"}).nr - 1<CR>colder<CR>
+    nnoremap <buffer> ]F :<C-R>=getqflist({"nr": "$"}).nr - 1<CR>cnewer<CR>
+  endif
+endfunction
+
+function! s:CustomRubySyntax()
+  if expand("%") =~# "_spec\.rb$"
+    syn match rubyTestHelper "\<subject\>"
+    syn match rubyTestMacro "\<let\>!\="
+    syn keyword rubyTestMacro after around before
+    syn keyword rubyTestMacro
+          \ context
+          \ describe
+          \ feature
+          \ containedin=rubyKeywordAsMethod
+    syn keyword rubyTestMacro it it_behaves_like
+    syn keyword rubyComment
+          \ xcontext
+          \ xdescribe
+          \ xfeature
+          \ containedin=rubyKeywordAsMethod
+    syn keyword rubyComment xit
+    syn keyword rubyAssertion
+          \ allow
+          \ expect
+          \ is_expected
+          \ skip
+    syn keyword rubyTestHelper
+          \ class_double
+          \ described_class
+          \ double
+          \ instance_double
+          \ instance_spy
+          \ spy
+  endif
+endfunction
+
+augroup ft_options
+  autocmd!
+
+  autocmd FileType bash setlocal iskeyword+=-
+  autocmd FileType c setlocal
+        \ noexpandtab
+        \ shiftwidth=8
+        \ tabstop=8
+        \ cinoptions=:0,t0,+4,(4
+  autocmd FileType elixir iabbrev <buffer> ddebug require IEx; IEx.pry
+  autocmd FileType markdown iabbrev <buffer> -. - [ ]
+  autocmd FileType markdown iabbrev <buffer> -x - [X]
+  autocmd FileType markdown setlocal
+        \ spell
+        \ textwidth=80
+        \ shiftwidth=4
+        \ expandtab
+        \ wrap
+        \ nolist
+        \ linebreak
+  autocmd FileType markdown call <SID>MarkdownMappings()
+  autocmd FileType qf setlocal
+        \ nolist
+        \ nonumber
+        \ norelativenumber
+  autocmd FileType qf call <SID>QuickfixMappings()
+  autocmd FileType ruby call <SID>CustomRubySyntax()
+  autocmd FileType ruby setlocal iskeyword+=?,!,=
+  autocmd FileType ruby iabbrev <buffer> dinit def initialize
+  autocmd FileType ruby iabbrev <buffer> ddebug require 'irb'; binding.irb
+  autocmd FileType ruby let b:start = "irb -r '%:p'"
+  autocmd FileType ruby
+        \ if expand("%") =~# "_test\.rb$" |
+        \   let b:dispatch = "ruby -Itest %" |
+        \ elseif expand("%") =~# "_spec\.rb$" |
+        \   let b:dispatch = "rspec %" |
+        \ elseif !exists("b:dispatch") |
+        \   let b:dispatch = "ruby -wc %" |
+        \ endif
+  autocmd FileType rust setlocal iskeyword+=!
+  autocmd FileType rust nnoremap <buffer> K <Plug>(rust-doc)
+  autocmd FileType rust nnoremap <buffer> gd <Plug>(rust-def)
 augroup END
 
 if filereadable($HOME . "/.vimrc.local")
