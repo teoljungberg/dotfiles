@@ -10,13 +10,8 @@ git_origin_or_fork() {
   fi
 }
 
-git_branch() {
-  GIT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null) || return
-  [ -n "$GIT_BRANCH" ] && echo "$GIT_BRANCH"
-}
-
 if [ $# -gt 0 ]; then
   git push "$@"
 else
-  git push "$(git_origin_or_fork)" -u "$(git_branch)"
+  git push "$(git_origin_or_fork)"
 fi

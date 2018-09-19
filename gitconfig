@@ -27,7 +27,7 @@
   excludesfile = ~/.gitignore
   pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -F
 [push]
-  default = simple
+  default = current
 [help]
   autocorrect = 1
 [branch]
