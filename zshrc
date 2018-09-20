@@ -99,6 +99,7 @@ bindkey '^X^G' _git_changed_files
 
 precmd() {
   rename_tmux_window_to_current_dir
+  rename_tab_to_current_dir
 
   if [ -z $SSH_CONNECTION ]; then
     PROMPT="%c %{$fg[yellow]%}$(git_branch)%{$reset_color%}%# "

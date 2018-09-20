@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rename_tab_to_current_dir() {
+  print -Pn "\\033]0;%c\\007"
+}
