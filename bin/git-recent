@@ -14,7 +14,7 @@ has_local_commits() {
 }
 
 if has_local_commits; then
-  git_log "@{u}.."
+  git_log "@{u}.." "$@"
 else
-  git_log "origin/master.."
+  git_log "origin/master.." "$@"
 fi
