@@ -266,9 +266,11 @@ augroup END
 " -------
 " I prefer invoking `ALELint` at my leisure rather than having it run
 " automatically when a file is saved, changed, or touched.
-let g:ale_lint_on_text_changed = "never"
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 0
+let g:ale_lint_on_filetype_changed = 0
 
 " Disable the gutter by not allowing any signs.
 let g:ale_set_signs = 0
