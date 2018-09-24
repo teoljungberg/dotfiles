@@ -392,11 +392,18 @@ let g:dispatch_compilers = {
 
 augroup Dispatch
   autocmd!
+
   autocmd BufReadPost *
         \ if getline(1) =~# "^#!" |
         \   let b:dispatch = getline(1)[2:-1] . " %" |
         \   let b:start = b:dispatch |
         \ endif
+  autocmd VimEnter *
+        \ if empty($TMUX) || has("gui_running") |
+        \   let g:dispatch_experimental = 1 |
+        \ else |
+        \   let g:dispatch_experimental = 0 |
+        \ end
 augroup END
 
 " fugitive.vim
