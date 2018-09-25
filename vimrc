@@ -244,7 +244,7 @@ augroup vimrcEx
         \ title
         \ icon
         \ lines=45
-        \ columns=80
+        \ columns=86
         \ guioptions-=T
         \ guioptions-=m
         \ guioptions-=e
