@@ -619,6 +619,11 @@ function! s:QuickfixMappings()
 endfunction
 
 function! s:CustomRubySyntax()
+  unlet b:current_syntax
+  syn include @SQL syntax/sql.vim
+  syn region sqlHeredoc start=/\v\<\<[-~]SQL/ end=/\vSQL/ keepend contains=@SQL
+  let b:current_syntax = "ruby"
+
   if expand("%") =~# "_spec\.rb$"
     syn match rubyTestHelper "\<subject\>"
     syn match rubyTestMacro "\<let\>!\="
