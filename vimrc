@@ -425,13 +425,13 @@ if executable("pick")
   let g:pick_height = 15
 
   if ! has("gui_running")
-    nnoremap <space><space> :call PickFile()<CR>
-    nnoremap <space>s :call PickFileSplit()<CR>
-    nnoremap <space>v :call PickFileVerticalSplit()<CR>
-    nnoremap <space>b :call PickBuffer()<CR>
-    nnoremap <space>] :call PickTag()<CR>
-    nnoremap <space>\ :call PickSplitTag()<CR>
-    nnoremap <space>t :call PickFileTab()<CR>
+    nnoremap <Space><Space> :call PickFile()<CR>
+    nnoremap <Space>s :call PickFileSplit()<CR>
+    nnoremap <Space>v :call PickFileVerticalSplit()<CR>
+    nnoremap <Space>b :call PickBuffer()<CR>
+    nnoremap <Space>] :call PickTag()<CR>
+    nnoremap <Space>\ :call PickSplitTag()<CR>
+    nnoremap <Space>t :call PickFileTab()<CR>
   endif
 endif
 
