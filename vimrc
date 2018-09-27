@@ -96,7 +96,7 @@ else
 endif
 
 " close current buffer
-noremap <leader>d :bd<cr>
+noremap <leader>d :bd<CR>
 
 " convenience mappings
 noremap Y y$
@@ -128,7 +128,7 @@ noremap gV V`]
 vmap D y'>p
 
 " open files in directory of current file
-cnoremap %% <c-r>=expand('%:h').'/'<cr>
+cnoremap %% <c-r>=expand('%:h').'/'<CR>
 map <leader>e :edit %%
 map <leader>s :split %%
 map <leader>v :vsplit %%
@@ -142,7 +142,7 @@ map <leader>r :read %%
 cnoremap %t <C-R>=substitute(expand("%:r"), "^app[^/]*.", "", "")<CR>
 
 " toggle between the two most recent files
-noremap <leader><leader> :edit #<cr>
+noremap <leader><leader> :edit #<CR>
 
 " Only have the current split and tab open
 command! O :silent only<bar>silent tabonly
@@ -425,13 +425,13 @@ if executable("pick")
   let g:pick_height = 15
 
   if ! has("gui_running")
-    nnoremap <space><space> :call PickFile()<cr>
-    nnoremap <space>s :call PickFileSplit()<cr>
-    nnoremap <space>v :call PickFileVerticalSplit()<cr>
-    nnoremap <space>b :call PickBuffer()<cr>
-    nnoremap <space>] :call PickTag()<cr>
-    nnoremap <space>\ :call PickSplitTag()<cr>
-    nnoremap <space>t :call PickFileTab()<cr>
+    nnoremap <space><space> :call PickFile()<CR>
+    nnoremap <space>s :call PickFileSplit()<CR>
+    nnoremap <space>v :call PickFileVerticalSplit()<CR>
+    nnoremap <space>b :call PickBuffer()<CR>
+    nnoremap <space>] :call PickTag()<CR>
+    nnoremap <space>\ :call PickSplitTag()<CR>
+    nnoremap <space>t :call PickFileTab()<CR>
   endif
 endif
 
