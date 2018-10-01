@@ -13,5 +13,5 @@ git_origin_or_fork() {
 if [ $# -gt 0 ]; then
   git push "$@"
 else
-  git push "$(git_origin_or_fork)"
+  git push "$(git_origin_or_fork)" -u
 fi
