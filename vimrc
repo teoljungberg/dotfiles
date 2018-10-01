@@ -1,5 +1,3 @@
-set nocompatible
-
 set autoread
 set autowrite
 set backspace=indent,eol,start
