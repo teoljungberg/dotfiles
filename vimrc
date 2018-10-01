@@ -71,7 +71,7 @@ endif
 silent! colorscheme solarized
 set background=light
 
-if !has("gui_running") && $TERM == "xterm"
+if !has("gui_running") && $TERM ==# "xterm"
   colorscheme default
 endif
 
@@ -200,7 +200,7 @@ nnoremap <silent> <C-L>
       \ :nohlsearch <C-R>=has("diff") ? "<Bar>diffupdate" : ""<CR><CR><C-L>
 
 function! IsQuickfixOpen()
-  let l:result = filter(
+  let result = filter(
         \   getwininfo(),
         \   "v:val.quickfix && !v:val.loclist",
         \ )
@@ -300,7 +300,7 @@ nnoremap `=<CR> :ALEFix<CR>
 nnoremap `== :ALELint<CR>
 
 function! s:ColorschemeChanges()
-  if !empty(get(g:, "colors_name")) && g:colors_name != "solarized"
+  if !empty(get(g:, "colors_name")) && g:colors_name !=# "solarized"
     return
   endif
 
@@ -316,7 +316,7 @@ function! s:ColorschemeChanges()
 
   hi! MatchParen cterm=bold ctermbg=none ctermfg=33
 
-  if &background == "light"
+  if &background ==# "light"
     hi! StatusLineNC
           \ term=reverse
           \ cterm=reverse
