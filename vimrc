@@ -128,7 +128,7 @@ noremap gV V`]
 vmap D y'>p
 
 " open files in directory of current file
-cnoremap %% <c-r>=expand('%:h').'/'<CR>
+cnoremap %% <C-R>=expand('%:h').'/'<CR>
 map <leader>e :edit %%
 map <leader>s :split %%
 map <leader>v :vsplit %%
