@@ -100,8 +100,8 @@ noremap <Leader>d :bd<CR>
 
 " convenience mappings
 noremap Y y$
-cnoremap <c-p> <up>
-cnoremap <c-n> <down>
+cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
 
 " Record macro with `qq`, replay with `Q`
 nnoremap Q @q
@@ -112,7 +112,7 @@ function! s:CloseTerminalBuffers()
     for term in term_list() | exec ":bd! " . term | endfor
   endif
 endfunction
-nnoremap <silent> <c-w>z :
+nnoremap <silent> <C-W>z :
       \ wincmd z<Bar>
       \ cclose<Bar>
       \ lclose<Bar>
@@ -182,9 +182,9 @@ cnoremap <C-R>W <C-R><C-A>
 
 " emacs movement
 " stolen from tpope/vim-rsi
-inoremap <expr> <c-e> col('.')>strlen(getline('.'))?"\<lt>c-e>":"\<lt>end>"
-inoremap <c-a> <esc>I
-cnoremap <c-a> <home>
+inoremap <expr> <C-E> col('.')>strlen(getline('.'))?"\<lt>C-E>":"\<lt>end>"
+inoremap <C-A> <Esc>I
+cnoremap <C-A> <Home>
 
 " system clipboard integration
 nnoremap gy "*y
