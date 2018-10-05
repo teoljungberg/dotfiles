@@ -69,7 +69,7 @@ endif
 silent! colorscheme solarized
 set background=light
 
-if !has("gui_running") && $TERM ==# "xterm"
+if !has("gui_running") && !empty($VIM_TERMINAL)
   colorscheme default
 endif
 
