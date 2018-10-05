@@ -79,7 +79,9 @@ if !isdirectory(expand(&undodir))
   call mkdir(expand(&undodir), "p")
 endif
 
-cabbrev rg <c-r>=(getcmdtype()==":" && getcmdpos()==1 ? "gr" : "rg")<CR>
+" Correct `:rg` to `:gr`, but only if we are the beginning of the line in
+" command mode.
+cabbrev rg <C-R>=getcmdtype() == ":" && getcmdpos() == 1 ? "gr" : "rg"<CR>
 
 if executable("rg")
   set grepprg=rg\
