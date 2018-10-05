@@ -96,7 +96,7 @@ else
 endif
 
 " close current buffer
-noremap <leader>d :bd<CR>
+noremap <Leader>d :bd<CR>
 
 " convenience mappings
 noremap Y y$
@@ -129,11 +129,11 @@ vmap D y'>p
 
 " open files in directory of current file
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
-map <leader>e :edit %%
-map <leader>s :split %%
-map <leader>v :vsplit %%
-map <leader>t :tabedit %%
-map <leader>r :read %%
+map <Leader>e :edit %%
+map <Leader>s :split %%
+map <Leader>v :vsplit %%
+map <Leader>t :tabedit %%
+map <Leader>r :read %%
 
 " In the following file `app/services/foo_bar.rb`, `%t` is expanded to
 " `services/foo_bar`. Which useful for creating tests by i.e `:Vspec %t!` (which
@@ -142,7 +142,7 @@ map <leader>r :read %%
 cnoremap %t <C-R>=substitute(expand("%:r"), "^app[^/]*.", "", "")<CR>
 
 " toggle between the two most recent files
-noremap <leader><leader> :edit #<CR>
+noremap <Leader><Leader> :edit #<CR>
 
 " Only have the current split and tab open
 command! O :silent only<bar>silent tabonly
