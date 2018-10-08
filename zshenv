@@ -1,10 +1,4 @@
-if [ -f /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
-  source /usr/local/opt/chruby/share/chruby/chruby.sh
-
-  RUBIES=(~/.rubies/*)
-
-  source /usr/local/opt/chruby/share/chruby/auto.sh
-fi
+[ -r /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
 
 PATH="$PATH:$HOME/.bin"
 PATH="$PATH:$HOME/.cargo/bin"
