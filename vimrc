@@ -41,11 +41,6 @@ syntax enable
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
-if v:version > 703
-  set nofileignorecase
-  set nowildignorecase
-end
-
 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for
 " syntax highlighting purposes.
 " More on why: https://github.com/thoughtbot/dotfiles/pull/471
