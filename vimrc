@@ -351,10 +351,6 @@ function! s:ColorschemeChanges()
   endif
 endfunction
 
-function! s:CustomRubySyntax()
-
-endfunction
-
 augroup Colorscheme
   autocmd!
 
