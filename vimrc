@@ -199,19 +199,6 @@ vnoremap gP "*P
 nnoremap <silent> <C-L>
       \ :nohlsearch <C-R>=has("diff") ? "<Bar>diffupdate" : ""<CR><CR><C-L>
 
-function! IsQuickfixOpen()
-  let result = filter(
-        \   getwininfo(),
-        \   "v:val.quickfix && !v:val.loclist",
-        \ )
-
-  return !empty(l:result)
-endfunction
-
-nnoremap [oq :copen<CR>
-nnoremap ]oq :cclose<CR>
-nnoremap yoq :<C-R>=IsQuickfixOpen() ? "cclose" : "copen"<CR><CR>
-
 nnoremap [ot :setlocal cc=<C-R>=&textwidth + 1<CR><CR>
 nnoremap ]ot :setlocal cc=0<CR>
 nnoremap yot :setlocal cc=<C-R>=&cc == 0 ? &textwidth + 1 : 0<CR><CR>
