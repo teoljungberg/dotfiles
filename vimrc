@@ -642,6 +642,9 @@ augroup ft_options
   autocmd FileType elixir iabbrev <buffer> ddebug require IEx; IEx.pry
   autocmd FileType markdown iabbrev <buffer> -. - [ ]
   autocmd FileType markdown iabbrev <buffer> -x - [X]
+  autocmd FileType markdown iabbrev <buffer>
+        \ set_spelllang
+        \ <!-- vim:set spelllang=TODO : -->
   autocmd FileType markdown setlocal
         \ spell
         \ textwidth=80
