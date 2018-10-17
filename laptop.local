@@ -1,7 +1,6 @@
 brew bundle --file=- <<EOF
 brew "asdf"
 brew "automake"
-brew "extract_url"
 brew "macvim"
 brew "pick"
 brew "rg"
