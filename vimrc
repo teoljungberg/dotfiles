@@ -594,6 +594,10 @@ function! s:QuickfixMappings()
 endfunction
 
 function! s:CustomRubySyntax()
+  if empty(get(b:, "current_syntax"))
+    return
+  endif
+
   unlet b:current_syntax
   syn include @SQL syntax/sql.vim
   syn region sqlHeredoc start=/\v\<\<[-~]SQL/ end=/\vSQL/ keepend contains=@SQL
