@@ -652,7 +652,7 @@ augroup ft_options
   autocmd FileType markdown setlocal
         \ spell
         \ textwidth=80
-        \ shiftwidth=4
+        \ shiftwidth=2
         \ expandtab
         \ wrap
         \ nolist
