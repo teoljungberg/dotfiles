@@ -9,6 +9,7 @@ set display=lastline
 set guifont=IBM\ Plex\ Mono:h14
 set hidden
 set history=1000
+set ignorecase
 set incsearch
 set laststatus=2
 set lazyredraw
@@ -26,6 +27,7 @@ set shiftround
 set shortmess=aoOtsT
 set showcmd
 set sidescrolloff=5
+set smartcase
 set smartindent
 set splitright
 set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
