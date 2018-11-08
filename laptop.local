@@ -4,7 +4,6 @@ brew "automake"
 brew "macvim"
 brew "pick"
 brew "rg"
-brew "ruby-install"
 brew "tree"
 
 tap "caskroom/cask"
