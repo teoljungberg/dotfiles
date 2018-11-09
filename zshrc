@@ -58,8 +58,8 @@ add_trusted_local_bin_to_path() {
 add-zsh-hook preexec "add_trusted_local_bin_to_path"
 
 [ -f /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
-[ -f /usr/local/opt/asdf/completions/asdf.bash ] &&
-  source /usr/local/opt/asdf/completions/asdf.bash
+[ -f /usr/local/etc/bash_completion.d/asdf.bash ] &&
+  source /usr/local/etc/bash_completion.d/asdf.bash
 
 add_subdirs_to_projects "$HOME/src"
 
