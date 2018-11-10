@@ -1,7 +1,6 @@
 # Setup
-I use [thoughtbot/rcm][rcm] to manage my dotfiles.
 
-[rcm]: http://github.com/thoughtbot/rcm
+I use [rcm](http://github.com/thoughtbot/rcm) to manage my dotfiles.
 
 ## Cron
 
@@ -13,6 +12,5 @@ To update the vim plugins daily, add the `crontab.vim-plugins` to your
 ```
 
 # Pick
-I use [calleerlandsson/pick][pick] to act as my fuzzy-matcher.
 
-[pick]: http://github.com/calleerlandsson/pick
+I use [pick](http://github.com/mptre/pick) to act as my fuzzy-matcher.
