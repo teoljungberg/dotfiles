@@ -40,8 +40,9 @@ export PAGER="less -R"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export VISUAL="$EDITOR"
 
-zstyle ':completion:*' insert-tab pending
 zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' insert-tab pending
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 
 alias b="bundle exec"
 alias j="jobs"
