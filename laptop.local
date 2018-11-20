@@ -4,7 +4,6 @@ brew "automake"
 brew "macvim"
 brew "pick"
 brew "rg"
-brew "tree"
 
 tap "caskroom/cask"
 cask "1password"
