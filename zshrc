@@ -62,6 +62,10 @@ add-zsh-hook preexec "add_trusted_local_bin_to_path"
 [ -f /usr/local/etc/bash_completion.d/asdf.bash ] &&
   source /usr/local/etc/bash_completion.d/asdf.bash
 
+if command -v kitty >/dev/null; then
+  kitty + complete setup zsh | source /dev/stdin
+fi
+
 add_subdirs_to_projects "$HOME/src"
 
 # to make vim behave under xterm
