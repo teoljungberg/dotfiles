@@ -1,7 +1,6 @@
 set autoread
 set autowrite
 set backspace=indent,eol,start
-set backupskip=/tmp/*,/private/tmp/*
 set cmdheight=2
 set complete+=kspell
 set complete-=i
