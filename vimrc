@@ -57,6 +57,10 @@ endif
 
 filetype plugin indent on
 
+if !has("packages")
+  set rtp^=~/.vim/pack/*/start/* rtp+=~/.vim/pack/*/start/*/after
+endif
+
 if has("packages")
   packadd matchit
 else
