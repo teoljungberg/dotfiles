@@ -74,7 +74,7 @@ if !has("gui_running") && !empty($VIM_TERMINAL)
   colorscheme default
 endif
 
-" automatically create undodir if it doesn't exist
+" Automatically create undodir if it does not exist
 set undodir=~/.cache/vim/undo//
 if !isdirectory(expand(&undodir))
   call mkdir(expand(&undodir), "p")
@@ -96,10 +96,10 @@ else
   set grepprg=grep\ -rnH
 endif
 
-" close current buffer
+" Close current buffer
 noremap <Leader>d :bd<CR>
 
-" convenience mappings
+" Convenience mappings
 noremap Y y$
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
@@ -107,7 +107,7 @@ cnoremap <C-N> <Down>
 " Record macro with `qq`, replay with `Q`
 nnoremap Q @q
 
-" close everything
+" Close everything
 function! s:CloseTerminalBuffers()
   if has("terminal")
     for term in term_list() | exec ":bd! " . term | endfor
@@ -122,10 +122,10 @@ nnoremap <silent> <C-W>z :
       \ silent call <SID>CloseTerminalBuffers()
       \ <CR>
 
-" re-select the last pasted text
+" Re-select the last pasted text
 noremap gV V`]
 
-" duplicate the visually selected block
+" Duplicate the visually selected block
 vmap D y'>p
 
 " open files in directory of current file
@@ -142,19 +142,19 @@ map <Leader>r :read %%
 " This is only done for files under `app`.
 cnoremap %t <C-R>=substitute(expand("%:r"), "^app[^/]*.", "", "")<CR>
 
-" toggle between the two most recent files
+" Toggle between the two most recent files
 noremap <Leader><Leader> <C-^>
 
 " Only have the current split and tab open
 command! O :silent only<bar>silent tabonly
 
-" open `:tag` in splits, and tabs
+" Open `:tag` in splits, and tabs
 cabbrev vtag vertical stag
 cabbrev vt   vertical stag
 cabbrev ttag tab stag
 cabbrev tt   tab stag
 
-" open `:buffer` in splits, and tabs
+" Open `:buffer` in splits, and tabs
 cabbrev vbuffer vertical sbuffer
 cabbrev vb      vertical sbuffer
 cabbrev tbuffer tab sbuffer
@@ -181,13 +181,13 @@ cnoremap <C-R><C-L> <C-R>=line(".")<CR>
 " Add the current `WORD` (rather than `word`) under the cursor
 cnoremap <C-R>W <C-R><C-A>
 
-" emacs movement
-" stolen from tpope/vim-rsi
+" Emacs movement
+" Stolen from tpope/vim-rsi
 inoremap <expr> <C-E> col('.')>strlen(getline('.'))?"\<lt>C-E>":"\<lt>end>"
 inoremap <C-A> <Esc>I
 cnoremap <C-A> <Home>
 
-" system clipboard integration
+" System clipboard integration
 nnoremap gy "*y
 nnoremap gY "*y$
 nnoremap gp "*p
