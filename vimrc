@@ -93,7 +93,7 @@ if executable("rg")
         \ --with-filename
   set grepformat=%f:%l:%c:%m
 else
-  set grepprg=grep\ -rnH
+  set grepprg=grep\ -rnH\ $*\ /dev/null
 endif
 
 " Close current buffer
