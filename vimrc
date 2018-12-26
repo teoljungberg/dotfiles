@@ -379,7 +379,8 @@ augroup Dispatch
 
   autocmd BufReadPost *
         \ if getline(1) =~# "^#!" |
-        \   let b:dispatch = getline(1)[2:-1] . " %" |
+        \   let b:dispatch =
+        \       matchstr(getline(1), '#!\%(/usr/bin/env \+\)\=\zs.*') . " %" |
         \   let b:start = b:dispatch |
         \ endif
   autocmd VimEnter *
