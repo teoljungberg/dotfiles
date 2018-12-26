@@ -456,9 +456,7 @@ let g:rails_projections = {
       \       "test/graphql/%s_test.rb"
       \     ],
       \   },
-      \   "config/routes.rb": {
-      \     "command": "routes",
-      \   },
+      \   "config/routes.rb": { "command": "routes" },
       \   "spec/*_spec.rb": {
       \     "dispatch": "bin/rspec {file}`=v:lnum ? ':'.v:lnum : ''`",
       \   },
