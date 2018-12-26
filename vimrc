@@ -679,7 +679,8 @@ augroup ft_options
         \ if expand("%") =~# "_test\.rb$" |
         \   let b:dispatch = "ruby -Itest %" |
         \ elseif expand("%") =~# "_spec\.rb$" |
-        \   let b:dispatch = "rspec %" |
+        \   let b:dispatch =
+        \       get(b:, "dispatch", "rspec %:s/$/\=exists('l#') ? ':'.l# : ''/") |
         \ elseif !exists("b:dispatch") |
         \   let b:dispatch = "ruby -wc %" |
         \ endif
