@@ -459,6 +459,9 @@ let g:rails_projections = {
       \   "config/routes.rb": {
       \     "command": "routes",
       \   },
+      \   "spec/*_spec.rb": {
+      \     "dispatch": "bin/rspec {file}`=v:lnum ? ':'.v:lnum : ''`",
+      \   },
       \   "spec/requests/*_spec.rb": {
       \     "command": "request",
       \     "alternate": "app/controllers/{}_controller.rb"
