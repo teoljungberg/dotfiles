@@ -424,35 +424,30 @@ endif
 " -----------------
 let g:rails_projections = {
       \  "app/controllers/*_controller.rb": {
-      \      "test": [
-      \        "spec/requests/{}_spec.rb",
-      \        "spec/controllers/{}_controller_spec.rb",
-      \        "test/controllers/{}_controller_test.rb"
-      \      ],
-      \      "alternate": [
-      \        "spec/requests/{}_spec.rb",
-      \        "spec/controllers/{}_controller_spec.rb",
-      \        "test/controllers/{}_controller_test.rb"
-      \      ],
+      \     "test": [
+      \       "spec/requests/{}_spec.rb",
+      \       "spec/controllers/{}_controller_spec.rb",
+      \       "test/controllers/{}_controller_test.rb"
+      \     ],
+      \     "alternate": [
+      \       "spec/requests/{}_spec.rb",
+      \       "spec/controllers/{}_controller_spec.rb",
+      \       "test/controllers/{}_controller_test.rb"
+      \     ],
       \   },
-      \   "spec/requests/*_spec.rb": {
-      \      "command": "request",
-      \      "alternate": "app/controllers/{}_controller.rb"
-      \   },
-      \   "spec/features/*_spec.rb": { "command": "feature" },
       \   "app/services/*.rb": {
       \     "command": "service",
       \     "test": [
       \       "spec/services/%s_spec.rb",
       \       "test/services/%s_test.rb"
-      \     ]
+      \     ],
       \   },
       \   "app/queries/*_query.rb": {
       \     "command": "query",
       \     "test": [
       \       "spec/queries/%s_spec.rb",
       \       "test/queries/%s_test.rb"
-      \     ]
+      \     ],
       \   },
       \   "app/graphql/*.rb": {
       \     "command": "graphql",
@@ -464,6 +459,11 @@ let g:rails_projections = {
       \   "config/routes.rb": {
       \     "command": "routes",
       \   },
+      \   "spec/requests/*_spec.rb": {
+      \     "command": "request",
+      \     "alternate": "app/controllers/{}_controller.rb"
+      \   },
+      \   "spec/features/*_spec.rb": { "command": "feature" },
       \ }
 
 let g:projectionist_heuristics = {
@@ -651,6 +651,7 @@ augroup ft_options
         \ tabstop=8
         \ cinoptions=:0,t0,+4,(4
   autocmd FileType elixir iabbrev <buffer> ddebug require IEx; IEx.pry
+  autocmd FileType markdown,text setlocal linebreak keywordprg=dict
   autocmd FileType markdown iabbrev <buffer> -. - [ ]
   autocmd FileType markdown iabbrev <buffer> -x - [X]
   autocmd FileType markdown iabbrev <buffer>
