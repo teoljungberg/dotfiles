@@ -381,7 +381,7 @@ augroup Dispatch
         \ if getline(1) =~# "^#!" |
         \   let b:dispatch =
         \       matchstr(getline(1), '#!\%(/usr/bin/env \+\)\=\zs.*') . " %" |
-        \   let b:start = b:dispatch |
+        \   let b:start = "-wait=always " . b:dispatch |
         \ endif
   autocmd VimEnter *
         \ if empty($TMUX) || has("gui_running") |
