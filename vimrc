@@ -592,8 +592,10 @@ function! s:QuickfixMappings()
   if is_location_list
     nnoremap <buffer> [f :lolder<CR>
     nnoremap <buffer> ]f :lnewer<CR>
-    nnoremap <buffer> [F :<C-R>=getloclist("$", {"nr": "$"}).nr - 1<CR>lolder<CR>
-    nnoremap <buffer> ]F :<C-R>=getloclist("$", {"nr": "$"}).nr - 1<CR>lnewer<CR>
+    nnoremap <buffer> [F :
+          \ <C-R>=getloclist("$", {"nr": "$"}).nr - 1<CR>lolder<CR>
+    nnoremap <buffer> ]F :
+          \ <C-R>=getloclist("$", {"nr": "$"}).nr - 1<CR>lnewer<CR>
   else
     nnoremap <buffer> [f :colder<CR>
     nnoremap <buffer> ]f :cnewer<CR>
@@ -682,8 +684,11 @@ augroup ft_options
         \ if expand("%") =~# "_test\.rb$" |
         \   let b:dispatch = "ruby -Itest %" |
         \ elseif expand("%") =~# "_spec\.rb$" |
-        \   let b:dispatch =
-        \       get(b:, "dispatch", "rspec %:s/$/\=exists('l#') ? ':'.l# : ''/") |
+        \   let b:dispatch = get(
+        \     b:,
+        \     "dispatch",
+        \     "rspec %:s/$/\=exists('l#') ? ':'.l# : ''/",
+        \   ) |
         \ elseif !exists("b:dispatch") |
         \   let b:dispatch = "ruby -wc %" |
         \ endif
