@@ -298,10 +298,10 @@ function! s:ColorschemeChanges()
   hi! PmenuSBar term=reverse cterm=reverse ctermfg=11 ctermbg=15 guibg=Black
   hi! PmenuThumb term=reverse cterm=reverse ctermfg=0 ctermbg=11 guibg=Grey
 
-  hi! link rubyAssertion rubyFunction
+  hi! link rubyAssertion rubyMethodName
   hi! link rubyCapitalizedMethod rubyConstant
-  hi! link rubyTestMacro rubyFunction
-  hi! link rubyTesthelper rubyFunction
+  hi! link rubyTestMacro rubyMethodName
+  hi! link rubyTesthelper rubyMethodName
 
   hi! MatchParen cterm=bold ctermbg=none ctermfg=33
 
