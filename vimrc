@@ -397,6 +397,10 @@ augroup END
 augroup Fugitive
   autocmd!
 
+  autocmd BufReadPost *
+        \ if &readonly && get(b:, "fugitive_type", "") == "index" |
+        \   setlocal nolist |
+        \ endif
   autocmd FileType git setlocal nolist
   autocmd FileType gitcommit let b:sleuth_automatic = 0
   autocmd FileType gitcommit setlocal
