@@ -8,7 +8,6 @@ bundles="
   racer-rust/vim-racer
   rust-lang/rust.vim
   teoljungberg/vim-grep-motion
-  teoljungberg/vim-visual-star-search
   tommcdo/vim-exchange
   tpope/vim-abolish
   tpope/vim-bundler
