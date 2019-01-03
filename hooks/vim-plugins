@@ -66,3 +66,5 @@ find "$HOME/.vim/pack/bundle" -type d -name ".git" | while read -r path; do
     git -C "$path" rebase --quiet origin/master > /dev/null
   fi
 done
+
+nohup vim -u NONE -c "helptags ALL" -cq >/dev/null 2>&1 </dev/null &
