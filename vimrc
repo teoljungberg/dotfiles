@@ -34,6 +34,7 @@ set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set synmaxcol=200
 set tags=.git/tags,tags
 set textwidth=80
+set t_RV=
 set ttimeout ttimeoutlen=50
 set updatetime=1000
 set wildmode=list:longest,list:full
