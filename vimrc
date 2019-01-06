@@ -72,7 +72,7 @@ endif
 silent! colorscheme solarized
 set background=light
 
-if !has("gui_running") && !empty($VIM_TERMINAL)
+if !has("gui_running") && len($VIM_TERMINAL)
   colorscheme default
 endif
 
@@ -290,7 +290,7 @@ nnoremap `=<CR> :ALEFix<CR>
 nnoremap `== :ALELint<CR>
 
 function! s:ColorschemeChanges()
-  if !empty(get(g:, "colors_name")) && g:colors_name !=# "solarized"
+  if len(get(g:, "colors_name")) && g:colors_name !=# "solarized"
     return
   endif
 
