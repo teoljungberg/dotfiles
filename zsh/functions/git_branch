@@ -1,6 +1,0 @@
-#!/bin/sh
-
-git_branch() {
-  GIT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null) || return
-  [ -n "$GIT_BRANCH" ] && echo "$GIT_BRANCH "
-}

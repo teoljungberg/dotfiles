@@ -1,9 +1,0 @@
-#!/bin/sh
-
-clear() {
-  if [ -n "$TMUX" ]; then
-    /usr/bin/clear && tmux clear-history
-  else
-    /usr/bin/clear
-  fi
-}

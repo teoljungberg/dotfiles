@@ -1,7 +1,0 @@
-#!/bin/sh
-
-add_dir_to_projects(){
-  if [ -d "$1" ]; then
-    PROJECTS="$PROJECTS:$1"
-  fi
-}

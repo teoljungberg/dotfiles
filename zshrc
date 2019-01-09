@@ -1,17 +1,3 @@
-# load custom executable functions
-for function in ~/.zsh/functions/*; do
-  source $function
-done
-
-# load our own completion functions
-
-fpath=(
-  $HOME/.zsh/completion
-  /usr/local/share/zsh/site-functions
-  /usr/local/share/zsh-completions
-  $fpath
-)
-
 autoload -U compinit && compinit
 autoload -Uz colors && colors
 autoload -Uz add-zsh-hook
@@ -48,15 +34,138 @@ alias b="bundle exec"
 alias j="jobs"
 alias ..="cd .."
 
-add_trusted_local_bin_to_path() {
+_prepend_to_path_without_duplication() {
+  case ":$PATH:" in
+    *":$1:"* )
+      ;;
+
+    *)
+      PATH="$1:$PATH"
+      ;;
+  esac
+}
+
+_add_trusted_local_bin_to_path() {
   if [ -d "$PWD/.git/safe" ]; then
-    prepend_to_path_without_duplication ".git/safe/../../bin"
+    _prepend_to_path_without_duplication ".git/safe/../../bin"
   else
-    remove_from_path ".git/safe/../../bin"
+    _remove_from_path ".git/safe/../../bin"
   fi
 }
 
-add-zsh-hook preexec "add_trusted_local_bin_to_path"
+_remove_from_path() {
+  PATH=$(echo "$PATH" | sed -e "s|$1:||")
+}
+
+# Completion for `bin/git-changed-files`
+_git_changed_files() {
+  zle -U "$(git changed-files)"
+  zle list-expand
+}
+zle -N _git_changed_files
+
+# Completion for `bin/git-delete-branch`
+_git_delete_branch() {
+  __gitcomp "$(__git_heads)"
+}
+
+# Completion for `git p`
+_git_p() {
+  __gitcomp "$(__git_heads)"
+}
+
+# Completion for `bin/pick-file`
+_pick_file() {
+  zle -U "$(pick-file)"
+  zle list-expand
+}
+zle -N _pick_file
+
+# Inside tmux(1) - run builtin clear and clear tmux history.
+# Outside tmux(1) - run builtin clear.
+clear() {
+  original_clear=$(whence -p clear)
+
+  if [ -n "$TMUX" ]; then
+    $original_clear && tmux clear-history
+  else
+    $original_clear
+  fi
+}
+
+# No arguments: `git status`
+# With arguments: acts like `git`
+git() {
+  original_git=$(whence -p git)
+
+  if [ $# -gt 0 ]; then
+    $original_git "$@"
+  else
+    $original_git status -sb
+  fi
+}
+
+_has_subdirs() {
+  [ -d "$1" ] && [ "$(find "$1" -type d -maxdepth 1 | wc -l)" -gt 1 ]
+}
+
+add_subdirs_to_projects() {
+  if _has_subdirs "$1"; then
+    for subdir in "$1"/*; do
+      PROJECTS="$PROJECTS:$subdir"
+    done
+  fi
+}
+
+rename_tab_to_current_dir() {
+  print -Pn "\\033]0;%c\\007"
+}
+
+rename_tmux_window_to_current_dir() {
+  if [ -n "$TMUX" ]; then
+    if [ "$PWD" != "$LPWD" ]; then
+      LPWD="$PWD"
+      tmux rename-window "$(print -Pn "%c")"
+    fi
+  fi
+}
+
+git_branch() {
+  GIT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null) || return
+  [ -n "$GIT_BRANCH" ] && echo "$GIT_BRANCH "
+}
+
+projects() {
+  result=$(echo "$PROJECTS" | tr ":" "\\n" | sed "/^$/d" | pick -q "$1")
+
+  cd "$result" || exit
+}
+
+p() {
+  projects "$@"
+}
+
+ssh() {
+  original_ssh=$(whence -p ssh)
+
+  if [ -z "$TMUX" ]; then
+    $original_ssh "$@"
+    return
+  fi
+
+  remote="$1"
+  old_name="$(tmux display-message -p "#W")"
+
+  if [ -n "$remote" ]; then
+    tmux rename-window "$remote"
+  fi
+
+  $original_ssh "$@"
+
+  tmux rename-window "$old_name"
+}
+
+add-zsh-hook preexec "_add_trusted_local_bin_to_path"
 
 [ -f /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
 [ -f /usr/local/etc/bash_completion.d/asdf.bash ] &&
