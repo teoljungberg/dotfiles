@@ -120,7 +120,9 @@ endfunction
 
 function! s:CloseTerminalBuffers()
   if has("terminal")
-    for term in term_list() | exec ":bd! " . term | endfor
+    for buffer in term_list()
+      execute ":bdelete! " . buffer
+    endfor
   endif
 endfunction
 nnoremap <silent> <C-W>z :
