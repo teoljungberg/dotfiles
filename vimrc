@@ -213,6 +213,17 @@ endfunction
 
 xnoremap @ :<C-u>call <SID>ExecuteMacroOverVisualRange()<CR>
 
+nnoremap <silent> <C-w>.
+      \ :if exists(":Lcd")<Bar>
+      \   execute "Lcd"<Bar>
+      \ elseif exists(":Glcd")<Bar>
+      \   execute "Glcd"<Bar>
+      \ else<Bar>
+      \   lcd %:h<Bar>
+      \ endif<Bar>
+      \ <CR>
+nmap cd <C-W>.
+
 " Jumps to the last known position in a file, except in the filetypes that are
 " blacklisted.
 augroup JumpToLastKnownPosition
