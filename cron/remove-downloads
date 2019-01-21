@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find ~/Downloads -mtime +7 -exec rm {} \;
