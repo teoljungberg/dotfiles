@@ -1,3 +1,4 @@
 PATH=/usr/local/bin:/usr/bin:/bin
 
 30 9 * * *	$HOME/src/dotfiles/cron/vim-plugins
+30 9 * * *	$HOME/src/dotfiles/cron/remove-screenshots
