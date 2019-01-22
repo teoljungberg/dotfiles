@@ -1,2 +1,2 @@
-EXCLUDES="README.md crontab.vim-plugins cron"
+EXCLUDES="README.md crontab.teoljungberg cron"
 DOTFILES_DIRS="$HOME/src/dotfiles"
