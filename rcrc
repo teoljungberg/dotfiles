@@ -1,2 +1,2 @@
-EXCLUDES="README.md crontab.teoljungberg cron"
+EXCLUDES="README.md cron"
 DOTFILES_DIRS="$HOME/src/dotfiles"

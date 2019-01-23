@@ -4,11 +4,10 @@ I use [rcm](http://github.com/thoughtbot/rcm) to manage my dotfiles.
 
 ## Cron
 
-To update the vim plugins daily, add the `crontab.teoljungberg` to your
-`crontab(1)`:
+Add the `cron/crontab.teoljungberg` to your own `crontab(1)`:
 
 ```sh
-% crontab - < crontab.teoljungberg
+% crontab - < cron/crontab.teoljungberg
 ```
 
 # Pick
