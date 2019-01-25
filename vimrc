@@ -99,7 +99,7 @@ else
 endif
 
 " Close current buffer
-noremap <Leader>d :bd<CR>
+noremap <Leader>d :bdelete<CR>
 
 " Convenience mappings
 noremap Y y$
