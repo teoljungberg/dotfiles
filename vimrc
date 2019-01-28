@@ -611,6 +611,10 @@ let g:markdown_fenced_languages = [
       \ "sh",
       \ ]
 
+" ruby
+" ----
+let g:ruby_indent_block_style = "do"
+
 " rust
 " ----
 let g:ftplugin_rust_source_path =
