@@ -245,7 +245,7 @@ augroup JumpToLastKnownPosition
         \ ) && (
         \   line("'\"") > 0 && line("'\"") <= line("$")
         \ ) |
-        \   exe "normal g`\"" |
+        \   execute "normal g`\"" |
         \ endif
 augroup END
 
@@ -571,7 +571,7 @@ let g:splitjoin_ruby_options_as_arguments = 1
 function! s:try(cmd, default)
   if exists(":" . a:cmd) && !v:count
     let tick = b:changedtick
-    exe a:cmd
+    execute a:cmd
     if tick == b:changedtick
       execute "normal! ".a:default
     endif
