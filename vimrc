@@ -497,7 +497,7 @@ let g:rails_projections = {
       \   },
       \   "config/routes.rb": { "command": "routes" },
       \   "spec/*_spec.rb": {
-      \     "dispatch": "bin/rspec {file}`=v:lnum ? ':'.v:lnum : ''`",
+      \     "dispatch": "bin/rspec spec/{}_spec.rb`=v:lnum ? ':'.v:lnum : ''`",
       \   },
       \   "spec/requests/*_spec.rb": {
       \     "command": "request",
@@ -518,13 +518,13 @@ let g:projectionist_heuristics = {
       \    "spec/*_spec.exs": {
       \      "type": "spec",
       \      "alternate": "lib/{}.ex",
-      \      "dispatch": "mix espec {file}`=v:lnum ? ':'.v:lnum : ''`"
+      \      "dispatch": "mix espec spec/{}_spec.exs`=v:lnum ? ':'.v:lnum : ''`"
       \    },
       \    "spec/spec_helper.exs": { "type": "spec" },
       \    "test/*_test.exs": {
       \      "type": "test",
       \      "alternate": "lib/{}.ex",
-      \      "dispatch": "mix test {file}`=v:lnum ? ':'.v:lnum : ''`"
+      \      "dispatch": "mix test test/{}_test.exs`=v:lnum ? ':'.v:lnum : ''`"
       \    },
       \    "test/test_helper.exs": { "type": "test" },
       \    "mix.exs": {
@@ -729,7 +729,7 @@ augroup ft_options
         \   let b:dispatch = get(
         \     b:,
         \     "dispatch",
-        \     "rspec %:s/$/\=exists('l#') ? ':'.l# : ''/",
+        \     "rspec %`=v:lnum ? ':'.v:lnum : ''`",
         \   ) |
         \ elseif !exists("b:dispatch") |
         \   let b:dispatch = "ruby -wc %" |
