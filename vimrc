@@ -491,8 +491,8 @@ let g:rails_projections = {
       \   "app/graphql/*.rb": {
       \     "command": "graphql",
       \     "test": [
-      \       "spec/graphql/%s_spec.rb",
-      \       "test/graphql/%s_test.rb"
+      \       "spec/graphql/{}_spec.rb",
+      \       "test/graphql/{}_test.rb"
       \     ],
       \   },
       \   "config/routes.rb": { "command": "routes" },
