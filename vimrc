@@ -311,7 +311,7 @@ nnoremap `=<CR> :ALEFix<CR>
 nnoremap `== :ALELint<CR>
 
 function! s:ColorschemeChanges()
-  if len(get(g:, "colors_name")) && g:colors_name !=# "solarized"
+  if get(g:, "colors_name", "") !=# "solarized"
     return
   endif
 
