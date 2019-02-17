@@ -416,12 +416,17 @@ augroup END
 
 " fugitive.vim
 " ------------
+function s:GstatusMappings()
+  nnoremap <buffer> rM :Grebase --interactive origin/master<CR>
+endfunction
+
 augroup Fugitive
   autocmd!
 
   autocmd BufReadPost *
         \ if &readonly && get(b:, "fugitive_type", "") == "index" |
         \   setlocal nolist |
+        \   call <SID>GstatusMappings() |
         \ endif
   autocmd FileType git setlocal nolist
   autocmd FileType gitcommit let b:sleuth_automatic = 0
