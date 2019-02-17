@@ -420,6 +420,20 @@ function s:GstatusMappings()
   nnoremap <buffer> rM :Grebase --interactive origin/master<CR>
 endfunction
 
+function s:OpenCommandInVerticalSplit(command)
+  if getcmdtype() == ":" && getcmdpos() == 1 && winwidth(0) >= 160
+    return "vertical " . a:command
+  else
+    return a:command
+  endif
+endfunction
+
+" Open a `:Gstatus` window in a vertical split if we are on a large monitor, and
+" in a horizontal one if we are not. We also only split vertically it if the
+" current window is large enough to avoid messing up the layout.
+cabbrev Gstatus <C-R>=<SID>OpenCommandInVerticalSplit("Gstatus")<CR>
+cabbrev G <C-R>=<SID>OpenCommandInVerticalSplit("G")<CR>
+
 augroup Fugitive
   autocmd!
 
