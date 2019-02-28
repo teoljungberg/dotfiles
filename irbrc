@@ -28,7 +28,7 @@ class Object
   end
 end
 
-def exception_for(&block)
+def capture_exception(&block)
   block.call
 rescue => exception
   exception
