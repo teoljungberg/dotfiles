@@ -36,7 +36,7 @@ set textwidth=80
 set t_RV=
 set ttimeout ttimeoutlen=50
 set updatetime=1000
-set wildmode=list:longest,list:full
+set wildmode=list,list:full
 syntax enable
 
 " Enforce italics
