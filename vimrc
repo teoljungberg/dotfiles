@@ -43,6 +43,11 @@ syntax enable
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
+" Set different cursors for insert, replace, and normal mode.
+let &t_SI = "\e[6 q"
+let &t_SR = "\e[4 q"
+let &t_EI = "\e[2 q"
+
 " When the type of shell script is /bin/sh, assume a POSIX-compatible shell for
 " syntax highlighting purposes.
 " More on why: https://github.com/thoughtbot/dotfiles/pull/471
