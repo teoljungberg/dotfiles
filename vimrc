@@ -102,6 +102,10 @@ else
   set grepprg=grep\ -rnH\ $*\ /dev/null
 endif
 
+" For easy `:lgrep` and `:grep`.
+nnoremap gl<Space> :lgrep<Space>
+nnoremap gr<Space> :grep<Space>
+
 " Close current buffer
 noremap <Leader>d :bdelete<CR>
 
