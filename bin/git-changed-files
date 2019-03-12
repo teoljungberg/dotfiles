@@ -2,13 +2,21 @@
 
 set -e
 
-command -v pick >/dev/null 2>&1 || {
-  echo >&2 "pick(1) is not installed."
-  exit 78
+require_pick_to_be_installed() {
+  command -v pick >/dev/null 2>&1 || {
+    echo >&2 "pick(1) is not installed."
+    exit 78
+  }
 }
 
 if [ -n "$(git status --porcelain)" ]; then
-  git status --porcelain | pick | cut -c4-
+  if [ -t 1 ]; then
+    require_pick_to_be_installed
+
+    git status --porcelain | pick | cut -c 4-
+  else
+    git status --porcelain | cut -c 4-
+  fi
 else
   exit 1
 fi
