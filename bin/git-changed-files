@@ -21,10 +21,10 @@ else
   if [ -t 1 ]; then
     require_pick_to_be_installed
 
-    git diff origin/master.. --name-status --diff-filter=d | \
+    git diff origin/master..HEAD --name-status --diff-filter=d | \
       cut -f 2 | \
       pick
   else
-    git diff origin/master.. --name-status --diff-filter=d | cut -f 2
+    git diff origin/master..HEAD --name-status --diff-filter=d | cut -f 2
   fi
 fi
