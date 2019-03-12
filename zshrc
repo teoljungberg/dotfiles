@@ -59,7 +59,7 @@ _remove_from_path() {
 
 # Completion for `bin/git-changed-files`
 _git_changed_files() {
-  zle -U "$(git changed-files)"
+  zle -U "$(git changed-files | pick)"
   zle list-expand
 }
 zle -N _git_changed_files
