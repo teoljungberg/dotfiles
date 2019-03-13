@@ -460,7 +460,6 @@ augroup Fugitive
         \ formatoptions+=tcqln
         \ formatoptions-=r
         \ formatoptions-=o
-        \ formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^[-*+]\\s\\+\\\|^\\[^\\ze[^\\]]\\+\\]:
 augroup END
 
 " pick.vim
