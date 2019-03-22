@@ -13,8 +13,14 @@ has_local_commits() {
   [ "$(git_log "@{upstream}.." | wc -l)" -gt 0 ]
 }
 
+has_unpulled_commits() {
+  [ "$(git_log "..@{upstream}" | wc -l)" -gt 0 ]
+}
+
 if has_local_commits; then
   git_log "@{upstream}.." "$@"
+elif has_unpulled_commits; then
+  git_log "..@{upstream}" "$@"
 else
   git_log "origin/master.." "$@"
 fi
