@@ -10,11 +10,11 @@ git_log() {
 }
 
 has_local_commits() {
-  [ "$(git_log "@{u}.." | wc -l)" -gt 0 ]
+  [ "$(git_log "@{upstream}.." | wc -l)" -gt 0 ]
 }
 
 if has_local_commits; then
-  git_log "@{u}.." "$@"
+  git_log "@{upstream}.." "$@"
 else
   git_log "origin/master.." "$@"
 fi
