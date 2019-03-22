@@ -10,17 +10,17 @@ git_log() {
 }
 
 has_local_commits() {
-  [ "$(git_log "@{upstream}.." | wc -l)" -gt 0 ]
+  [ "$(git_log '@{upstream}..HEAD' | wc -l)" -gt 0 ]
 }
 
 has_unpulled_commits() {
-  [ "$(git_log "..@{upstream}" | wc -l)" -gt 0 ]
+  [ "$(git_log 'HEAD..@{upstream}' | wc -l)" -gt 0 ]
 }
 
 if has_local_commits; then
-  git_log "@{upstream}.." "$@"
+  git_log "@{upstream}..HEAD" "$@"
 elif has_unpulled_commits; then
-  git_log "..@{upstream}" "$@"
+  git_log "HEAD..@{upstream}" "$@"
 else
-  git_log "origin/master.." "$@"
+  git_log "origin/master..HEAD" "$@"
 fi
