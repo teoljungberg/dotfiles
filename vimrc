@@ -430,7 +430,7 @@ function s:GstatusMappings()
 endfunction
 
 function s:OpenCommandInVerticalSplit(command)
-  if getcmdtype() == ":" && getcmdpos() == 1 && winwidth(0) >= 160
+  if getcmdtype() ==# ":" && getcmdpos() == 1 && winwidth(0) >= 160
     return "vertical " . a:command
   else
     return a:command
