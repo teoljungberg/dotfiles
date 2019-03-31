@@ -415,6 +415,19 @@ augroup Dispatch
         \       matchstr(getline(1), '#!\%(/usr/bin/env \+\)\=\zs.*') . " %" |
         \   let b:start = "-wait=always " . b:dispatch |
         \ endif
+  autocmd FileType ruby let b:start = "irb -r '%:p'"
+  autocmd FileType ruby
+        \ if expand("%") =~# "_test\.rb$" |
+        \   let b:dispatch = "ruby -Itest %" |
+        \ elseif expand("%") =~# "_spec\.rb$" |
+        \   let b:dispatch = get(
+        \     b:,
+        \     "dispatch",
+        \     "rspec %`=v:lnum ? ':'.v:lnum : ''`",
+        \   ) |
+        \ elseif !exists("b:dispatch") |
+        \   let b:dispatch = "ruby -wc %" |
+        \ endif
   autocmd VimEnter *
         \ if empty($TMUX) || has("gui_running") |
         \   let g:dispatch_experimental = 1 |
@@ -748,19 +761,6 @@ augroup ft_options
   autocmd FileType ruby setlocal iskeyword+=?,!,=
   autocmd FileType ruby iabbrev <buffer> dinit def initialize
   autocmd FileType ruby iabbrev <buffer> ddebug require 'irb'; binding.irb
-  autocmd FileType ruby let b:start = "irb -r '%:p'"
-  autocmd FileType ruby
-        \ if expand("%") =~# "_test\.rb$" |
-        \   let b:dispatch = "ruby -Itest %" |
-        \ elseif expand("%") =~# "_spec\.rb$" |
-        \   let b:dispatch = get(
-        \     b:,
-        \     "dispatch",
-        \     "rspec %`=v:lnum ? ':'.v:lnum : ''`",
-        \   ) |
-        \ elseif !exists("b:dispatch") |
-        \   let b:dispatch = "ruby -wc %" |
-        \ endif
   autocmd FileType rust setlocal iskeyword+=!
   autocmd FileType rust nnoremap <buffer> K <Plug>(rust-doc)
   autocmd FileType rust nnoremap <buffer> gd <Plug>(rust-def)
