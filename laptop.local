@@ -1,10 +1,10 @@
 brew bundle --file=- <<EOF
 brew "asdf"
 brew "automake"
+brew "fzf"
 brew "jq"
 brew "macvim"
 brew "pgformatter"
-brew "pick"
 brew "rg"
 
 tap "caskroom/cask"

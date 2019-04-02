@@ -3,8 +3,8 @@
 bundles="
   AndrewRadev/splitjoin.vim
   altercation/vim-colors-solarized
-  calleerlandsson/pick.vim
   dense-analysis/ale
+  junegunn/fzf.vim
   pbrisbin/vim-mkdir
   racer-rust/vim-racer
   rust-lang/rust.vim

@@ -447,21 +447,32 @@ augroup Fugitive
         \ spell
 augroup END
 
-" pick.vim
+" fzf.vim
 " --------
-if executable("pick")
-  let g:pick_height = 15
-
-  if !has("gui_running")
-    nnoremap <Space><Space> :call PickFile()<CR>
-    nnoremap <Space>s :call PickFileSplit()<CR>
-    nnoremap <Space>v :call PickFileVerticalSplit()<CR>
-    nnoremap <Space>b :call PickBuffer()<CR>
-    nnoremap <Space>] :call PickTag()<CR>
-    nnoremap <Space>\ :call PickSplitTag()<CR>
-    nnoremap <Space>t :call PickFileTab()<CR>
-  endif
+if executable("fzf")
+  set runtimepath+=/usr/local/opt/fzf
 endif
+
+let g:fzf_command_prefix = "FZF"
+let g:fzf_action = {
+      \   "ctrl-s": "split",
+      \   "ctrl-t": "tab split",
+      \   "ctrl-v": "vsplit",
+      \ }
+
+nnoremap <Space><Space> :FZF<CR>
+nnoremap <Space>] :FZFTags<CR>
+nnoremap <Space>b :FZFBuffers<CR>
+
+augroup FZF
+  autocmd!
+
+  autocmd FileType help nnoremap <buffer> <Space>] :FZFHelptags<CR>
+  autocmd FileType fzf
+        \ set laststatus=0 noshowmode noruler
+        \ |
+        \ autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup END
 
 " projectionist.vim
 " -----------------

@@ -10,6 +10,6 @@ Add the `cron/crontab-teoljungberg` to your own `crontab(1)`:
 % crontab - < cron/crontab-teoljungberg
 ```
 
-# Pick
+# FZF
 
-I use [pick](http://github.com/mptre/pick) to act as my fuzzy-matcher.
+I use [fzf](http://github.com/junegunn/fzf) to act as my fuzzy-matcher.

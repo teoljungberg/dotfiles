@@ -2,8 +2,8 @@
 
 set -e
 
-command -v pick >/dev/null 2>&1 || {
-  echo >&2 "pick(1) is not installed."
+command -v fzf >/dev/null 2>&1 || {
+  echo >&2 "fzf(1) is not installed."
   exit 78
 }
 
@@ -12,7 +12,7 @@ if [ -n "$1" ]; then
 else
   git commit --fixup="$( \
     git log --oneline origin/master.. | \
-    pick | \
+    fzf | \
     cut -d" " -f1 \
     )"
 fi

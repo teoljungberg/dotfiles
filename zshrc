@@ -60,7 +60,7 @@ _remove_from_path() {
 
 # Completion for `bin/git-changed-files`
 _git_changed_files() {
-  zle -U "$(git changed-files | pick)"
+  zle -U "$(git changed-files | fzf)"
   zle list-expand
 }
 zle -N _git_changed_files
@@ -74,13 +74,6 @@ _git_delete_branch() {
 _git_p() {
   __gitcomp "$(__git_heads)"
 }
-
-# Completion for `bin/pick-file`
-_pick_file() {
-  zle -U "$(pick-file)"
-  zle list-expand
-}
-zle -N _pick_file
 
 # Inside tmux(1) - run builtin clear and clear tmux history.
 # Outside tmux(1) - run builtin clear.
@@ -143,7 +136,7 @@ git_branch() {
 }
 
 projects() {
-  result=$(echo "$PROJECTS" | tr ":" "\\n" | sed "/^$/d" | pick -q "$1")
+  result=$(echo "$PROJECTS" | tr ":" "\\n" | sed "/^$/d" | fzf -q "$1")
 
   cd "$result" || exit
 }
@@ -196,6 +189,8 @@ add-zsh-hook preexec "_add_trusted_local_bin_to_path"
 [ -f /usr/local/etc/bash_completion.d/asdf.bash ] &&
   source /usr/local/etc/bash_completion.d/asdf.bash
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 if command -v kitty >/dev/null; then
   kitty + complete setup zsh | source /dev/stdin
 fi
@@ -237,7 +232,6 @@ bindkey -M vicmd '/' history-incremental-search-forward
 
 bindkey -M viins '\e_' insert-last-word
 
-bindkey '^X^F' _pick_file
 bindkey '^X^G' _git_changed_files
 
 preexec() {
