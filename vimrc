@@ -109,8 +109,11 @@ nnoremap gr<Space> :grep<Space>
 " Close current buffer
 noremap <Leader>d :bdelete<CR>
 
-" Convenience mappings
+" Yank to the end of the line, for consistency with `C` and `D`.
 noremap Y y$
+
+" Move Up and Down with `<C-P>` and `<C-N>` in command mode, for consitency with
+" `<C-P>` and `<C-N>` in normal mode.
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
