@@ -31,10 +31,11 @@ set smartindent
 set splitright
 set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set synmaxcol=200
+set t_RV=
 set tags=.git/tags,tags
 set textwidth=80
-set t_RV=
 set ttimeout ttimeoutlen=50
+set undodir=~/.cache/vim/undo//
 set updatetime=1000
 set wildmode=list:longest,list:full
 syntax enable
@@ -81,7 +82,6 @@ if !has("gui_running") && len($VIM_TERMINAL)
 endif
 
 " Automatically create undodir if it does not exist
-set undodir=~/.cache/vim/undo//
 if !isdirectory(expand(&undodir))
   call mkdir(expand(&undodir), "p")
 endif
