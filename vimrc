@@ -14,6 +14,7 @@ set laststatus=2
 set lazyredraw
 set list
 set listchars=tab:\ \ ,trail:.,extends:>,precedes:<,nbsp:+
+set mouse=nvi
 set nobackup
 set nofoldenable
 set nojoinspaces
@@ -54,7 +55,6 @@ let &t_EI = "\e[2 q"
 " More on why: https://github.com/thoughtbot/dotfiles/pull/471
 let g:is_posix = 1
 
-set mouse=nvi
 if $TERM =~# "^xterm"
   if exists("+mouse")
     set ttymouse=xterm2
