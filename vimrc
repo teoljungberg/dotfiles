@@ -310,7 +310,7 @@ let g:ale_linters.vim = ["vint"]
 " Only run fixers listed in `g:ale_fixers`.
 let g:ale_fixers_explicit = 1
 
-let g:ale_fixers = {}
+let g:ale_fixers = { "*": ["trim_whitespace"] }
 let g:ale_fixers.elixir = ["mix_format"]
 let g:ale_fixers.javascript = ["eslint"]
 let g:ale_fixers.ruby = ["rubocop"]
