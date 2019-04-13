@@ -477,9 +477,6 @@ augroup Fugitive
         \ shiftwidth=2
         \ nolist
         \ spell
-        \ formatoptions+=tcqln
-        \ formatoptions-=r
-        \ formatoptions-=o
 augroup END
 
 " pick.vim
