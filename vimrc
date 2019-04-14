@@ -125,13 +125,8 @@ nnoremap <Tab> <Nop>
 nnoremap Q @q
 
 " Close everything
-nnoremap <silent> <C-W>z :
-      \ wincmd z<Bar>
-      \ cclose<Bar>
-      \ lclose<Bar>
-      \ pclose<Bar>
-      \ helpclose<Bar>
-      \ <CR>
+nnoremap <silent> <C-W>z
+      \ :wincmd z<Bar>cclose<Bar>lclose<Bar>pclose<Bar>helpclose<Bar><CR>
 
 " Re-select the last pasted text
 noremap gV V`]
