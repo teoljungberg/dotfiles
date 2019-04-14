@@ -518,7 +518,6 @@ let g:rails_projections = {
       \     "command": "request",
       \     "alternate": "app/controllers/{}_controller.rb"
       \   },
-      \   "spec/features/*_spec.rb": { "command": "feature" },
       \ }
 
 let g:projectionist_heuristics = {
