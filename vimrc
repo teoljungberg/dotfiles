@@ -125,20 +125,12 @@ nnoremap <Tab> <Nop>
 nnoremap Q @q
 
 " Close everything
-function! s:CloseTerminalBuffers()
-  if has("terminal")
-    for buffer in term_list()
-      execute ":bdelete! " . buffer
-    endfor
-  endif
-endfunction
 nnoremap <silent> <C-W>z :
       \ wincmd z<Bar>
       \ cclose<Bar>
       \ lclose<Bar>
       \ pclose<Bar>
       \ helpclose<Bar>
-      \ silent call <SID>CloseTerminalBuffers()
       \ <CR>
 
 " Re-select the last pasted text
