@@ -125,14 +125,6 @@ nnoremap <Tab> <Nop>
 nnoremap Q @q
 
 " Close everything
-function! s:CloseGitStatusBuffer()
-  let buffer = bufnr(".git/index")
-
-  if bufloaded(buffer)
-    execute ":bdelete! " . buffer
-  endif
-endfunction
-
 function! s:CloseTerminalBuffers()
   if has("terminal")
     for buffer in term_list()
@@ -146,7 +138,6 @@ nnoremap <silent> <C-W>z :
       \ lclose<Bar>
       \ pclose<Bar>
       \ helpclose<Bar>
-      \ silent call <SID>CloseGitStatusBuffer()<Bar>
       \ silent call <SID>CloseTerminalBuffers()
       \ <CR>
 
