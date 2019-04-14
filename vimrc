@@ -503,13 +503,6 @@ let g:rails_projections = {
       \       "test/services/%s_test.rb"
       \     ],
       \   },
-      \   "app/queries/*_query.rb": {
-      \     "command": "query",
-      \     "test": [
-      \       "spec/queries/%s_spec.rb",
-      \       "test/queries/%s_test.rb"
-      \     ],
-      \   },
       \   "app/graphql/*.rb": {
       \     "command": "graphql",
       \     "test": [
