@@ -610,7 +610,6 @@ let g:surround_{char2nr("S")} = "\r "
 " vinegar.vim
 " -----------
 nnoremap - -
-let g:netrw_localrmdir = "rm -rf"
 
 " markdown
 " -------
