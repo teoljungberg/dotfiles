@@ -27,7 +27,6 @@ set shiftround
 set shortmess=aoOtsT
 set showcmd
 set sidescrolloff=5
-set smartcase
 set smartindent
 set splitright
 set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
