@@ -15,7 +15,6 @@ set lazyredraw
 set list
 set listchars=tab:\ \ ,trail:.,extends:>,precedes:<,nbsp:+
 set mouse=nvi
-set nobackup
 set nofoldenable
 set nojoinspaces
 set nowrap
