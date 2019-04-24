@@ -285,6 +285,7 @@ let g:ale_linters_explicit = 1
 let g:ale_linters = {}
 let g:ale_linters.elixir = ["credo"]
 let g:ale_linters.javascript = ["eslint"]
+let g:ale_linters.markdown = ["mdl"]
 let g:ale_linters.ruby = ["rubocop"]
 let g:ale_linters.sh = ["shellcheck"]
 let g:ale_linters.vim = ["vint"]
