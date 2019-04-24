@@ -9,3 +9,5 @@ Icon?
 .bundle
 /doc/tags
 .vimrc.local
+.*.sw?
+.sw?

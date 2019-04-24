@@ -18,7 +18,6 @@ set mouse=nvi
 set nobackup
 set nofoldenable
 set nojoinspaces
-set noswapfile
 set nowrap
 set number
 set numberwidth=5
