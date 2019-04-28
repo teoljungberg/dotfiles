@@ -170,9 +170,9 @@ cabbrev tb      tab sbuffer
 "
 " To fix this, use `<cword>` to select the word under the cursor and go to it
 " directly.
-nnoremap <C-]>      :tag <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-]> :tag <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-W><C-]> :stag <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-W>]     :stag <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-W>] :stag <C-R>=expand("<cword>")<CR><CR>
 
 " Call `:ptag` the word under the cursor. Navigate between the matches with
 " `:ptnext` or `:ptprevious`. Or using unimpaired.vim's `]<C-T>` and `[<C-T>`.
