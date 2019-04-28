@@ -152,16 +152,32 @@ noremap <Leader><Leader> <C-^>
 command! O :silent only<bar>silent tabonly
 
 " Open `:tag` in splits, and tabs
-cabbrev vtag vertical stag
-cabbrev vt   vertical stag
-cabbrev ttag tab stag
-cabbrev tt   tab stag
+cabbrev vtag <C-R>=
+      \ getcmdtype() == ":" && getcmdpos() == 1 ?
+      \ "vertical stag" : "vtag"<CR>
+cabbrev vt <C-R>=
+      \ getcmdtype() == ":" && getcmdpos() == 1 ?
+      \ "vertical stag" : "vt"<CR>
+cabbrev ttag <C-R>=
+      \ getcmdtype() == ":" && getcmdpos() == 1 ?
+      \ "tab stag" : "ttag"<CR>
+cabbrev tt <C-R>=
+      \ getcmdtype() == ":" && getcmdpos() == 1 ?
+      \ "tab stag" : "tt"<CR>
 
 " Open `:buffer` in splits, and tabs
-cabbrev vbuffer vertical sbuffer
-cabbrev vb      vertical sbuffer
-cabbrev tbuffer tab sbuffer
-cabbrev tb      tab sbuffer
+cabbrev vbuffer <C-R>=
+      \ getcmdtype() == ":" && getcmdpos() == 1 ?
+      \ "vertical sbuffer" : "vbuffer"<CR>
+cabbrev vb <C-R>=
+      \ getcmdtype() == ":" && getcmdpos() == 1 ?
+      \ "vertical sbuffer" : "vb"<CR>
+cabbrev tbuffer <C-R>=
+      \ getcmdtype() == ":" && getcmdpos() == 1 ?
+      \ "tab sbuffer" : "tbuffer"<CR>
+cabbrev tb <C-R>=
+      \ getcmdtype() == ":" && getcmdpos() == 1 ?
+      \ "tab sbuffer" : "tb"<CR>
 
 " Given this situation:
 "     user.fo|o!
