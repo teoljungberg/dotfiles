@@ -149,7 +149,7 @@ cnoremap %t <C-R>=substitute(expand("%:r"), "^app[^/]*.", "", "")<CR>
 noremap <Leader><Leader> <C-^>
 
 " Only have the current split and tab open
-command! O :silent only<bar>silent tabonly
+command! O :silent only<Bar>silent tabonly
 
 " Open `:tag` in splits, and tabs
 cabbrev vtag <C-R>=
