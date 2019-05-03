@@ -114,10 +114,6 @@ noremap Y y$
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
-" Unmap `<Tab>` in normal mode to avoid accidentally moving through the
-" jumplist as `<Tab>` sends `<C-I>`.
-nnoremap <Tab> <Nop>
-
 " Record macro with `qq`, replay with `Q`
 nnoremap Q @q
 
