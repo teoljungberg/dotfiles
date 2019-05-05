@@ -147,33 +147,33 @@ noremap <Leader><Leader> <C-^>
 " Only have the current split and tab open
 command! O :silent only<Bar>silent tabonly
 
+function! s:ExpandWhenStartOfCmdLine(command, expanded_command)
+  if getcmdtype() ==# ":" && getcmdpos() == 1
+    return a:expanded_command
+  else
+    return a:command
+  endif
+endfunction
+
 " Open `:tag` in splits, and tabs
 cabbrev vtag <C-R>=
-      \ getcmdtype() == ":" && getcmdpos() == 1 ?
-      \ "vertical stag" : "vtag"<CR>
+      \ <SID>ExpandWhenStartOfCmdLine("vtag", "vertical stag")<CR>
 cabbrev vt <C-R>=
-      \ getcmdtype() == ":" && getcmdpos() == 1 ?
-      \ "vertical stag" : "vt"<CR>
+      \ <SID>ExpandWhenStartOfCmdLine("vt", "vertical stag")<CR>
 cabbrev ttag <C-R>=
-      \ getcmdtype() == ":" && getcmdpos() == 1 ?
-      \ "tab stag" : "ttag"<CR>
+      \ <SID>ExpandWhenStartOfCmdLine("ttag", "tab stag")<CR>
 cabbrev tt <C-R>=
-      \ getcmdtype() == ":" && getcmdpos() == 1 ?
-      \ "tab stag" : "tt"<CR>
+      \ <SID>ExpandWhenStartOfCmdLine("tt", "tab stag")<CR>
 
 " Open `:buffer` in splits, and tabs
 cabbrev vbuffer <C-R>=
-      \ getcmdtype() == ":" && getcmdpos() == 1 ?
-      \ "vertical sbuffer" : "vbuffer"<CR>
+      \ <SID>ExpandWhenStartOfCmdLine("vbuffer", "vertical sbuffer")<CR>
 cabbrev vb <C-R>=
-      \ getcmdtype() == ":" && getcmdpos() == 1 ?
-      \ "vertical sbuffer" : "vb"<CR>
+      \ <SID>ExpandWhenStartOfCmdLine("vb", "vertical sbuffer")<CR>
 cabbrev tbuffer <C-R>=
-      \ getcmdtype() == ":" && getcmdpos() == 1 ?
-      \ "tab sbuffer" : "tbuffer"<CR>
+      \ <SID>ExpandWhenStartOfCmdLine("tbuffer", "tab sbuffer")<CR>
 cabbrev tb <C-R>=
-      \ getcmdtype() == ":" && getcmdpos() == 1 ?
-      \ "tab sbuffer" : "tb"<CR>
+      \ <SID>ExpandWhenStartOfCmdLine("tb", "tab sbuffer")<CR>
 
 " Given this situation:
 "     user.fo|o!
