@@ -665,6 +665,12 @@ function! s:QuickfixMappings()
   endif
 endfunction
 
+function! s:QuickfixTitle()
+  if exists("w:quickfix_title")
+    let w:quickfix_title = substitute(w:quickfix_title, &grepprg, "grep", '')
+  end
+endfunction
+
 function! s:CustomRubySyntax()
   if empty(get(b:, "current_syntax"))
     return
@@ -736,6 +742,7 @@ augroup ft_options
         \ nonumber
         \ norelativenumber
   autocmd FileType qf call <SID>QuickfixMappings()
+  autocmd FileType qf call <SID>QuickfixTitle()
   autocmd FileType ruby call <SID>CustomRubySyntax()
   autocmd FileType ruby setlocal iskeyword+=?,!,=
   autocmd FileType ruby iabbrev <buffer> dinit def initialize
