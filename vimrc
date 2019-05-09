@@ -228,7 +228,7 @@ xnoremap @ :<C-u>call <SID>ExecuteMacroOverVisualRange()<CR>
 
 nnoremap <silent> <C-w>.
       \ :if exists(":Plcd")<Bar>
-      \   execute "Plcd"<Bar>
+      \   execute "0Plcd"<Bar>
       \ elseif exists(":Glcd")<Bar>
       \   execute "Glcd"<Bar>
       \ else<Bar>
