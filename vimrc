@@ -227,8 +227,8 @@ endfunction
 xnoremap @ :<C-u>call <SID>ExecuteMacroOverVisualRange()<CR>
 
 nnoremap <silent> <C-w>.
-      \ :if exists(":Lcd")<Bar>
-      \   execute "Lcd"<Bar>
+      \ :if exists(":Plcd")<Bar>
+      \   execute "Plcd"<Bar>
       \ elseif exists(":Glcd")<Bar>
       \   execute "Glcd"<Bar>
       \ else<Bar>
