@@ -628,9 +628,9 @@ let g:racer_cmd = "$HOME/.cargo/bin/racer"
 function! s:MarkdownMappings()
   nnoremap <buffer> <expr> k (v:count == 0 ? "gk" : "k")
   nnoremap <buffer> <expr> j (v:count == 0 ? "gj" : "j")
-  nnoremap <buffer>        $ g$
-  nnoremap <buffer>        0 g0
-  nnoremap <buffer>        ^ g^
+  nnoremap <buffer> $ g$
+  nnoremap <buffer> 0 g0
+  nnoremap <buffer> ^ g^
 endfunction
 
 function! s:QuickfixMappings()
