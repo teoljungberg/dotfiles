@@ -27,7 +27,7 @@ set showcmd
 set sidescrolloff=5
 set smartindent
 set splitright
-set statusline=[%n]\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set statusline=[%n]\ %<%f\ %h%m%r%w%=%-14.(%l,%c%V%)\ %P
 set synmaxcol=200
 set t_RV=
 set tags=.git/tags,tags
