@@ -219,13 +219,6 @@ nnoremap [ot :setlocal cc=<C-R>=&textwidth + 1<CR><CR>
 nnoremap ]ot :setlocal cc=0<CR>
 nnoremap yot :setlocal cc=<C-R>=&cc == 0 ? &textwidth + 1 : 0<CR><CR>
 
-function! s:ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction
-
-xnoremap @ :<C-u>call <SID>ExecuteMacroOverVisualRange()<CR>
-
 nnoremap <silent> <C-w>.
       \ :if exists(":Plcd")<Bar>
       \   execute "0Plcd"<Bar>
