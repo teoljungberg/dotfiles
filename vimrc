@@ -103,6 +103,12 @@ endif
 nnoremap gl<Space> :lgrep<Space>
 nnoremap gr<Space> :grep<Space>
 
+" Open and close the quickfix and locationlist windows.
+nnoremap gr[ :copen<CR>
+nnoremap gr] :cclose<CR>
+nnoremap gl[ :lopen<CR>
+nnoremap gl] :lclose<CR>
+
 " Close current buffer
 noremap <Leader>d :bdelete<CR>
 
