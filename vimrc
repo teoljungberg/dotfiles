@@ -594,7 +594,7 @@ let g:surround_{char2nr("S")} = "\r "
 
 " vinegar.vim
 " -----------
-nnoremap - -
+nmap <expr> - line(".") == 1 ? "<Plug>VinegarUp" : "-"
 
 " markdown
 " -------
