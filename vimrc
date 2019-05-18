@@ -645,9 +645,11 @@ function! s:QuickfixMappings()
 endfunction
 
 function! s:QuickfixTitle()
-  if exists("w:quickfix_title")
-    let w:quickfix_title = substitute(w:quickfix_title, &grepprg, "grep", '')
-  end
+  if !exists("w:quickfix_title") | return | endif
+
+  if w:quickfix_title =~# "^:rg" || w:quickfix_title =~# "^:grep"
+    let w:quickfix_title = substitute(w:quickfix_title, &grepprg, "grep", "")
+  endif
 endfunction
 
 function! s:CustomRubySyntax()
