@@ -198,7 +198,7 @@ cnoremap <C-R>W <C-R><C-A>
 
 " Emacs movement
 " Stolen from tpope/vim-rsi
-inoremap <expr> <C-E> col('.')>strlen(getline('.'))?"\<lt>C-E>":"\<lt>end>"
+inoremap <expr> <C-E> col(".") > strlen(getline(".")) ? "<C-E>" : "<End>"
 inoremap <C-A> <Esc>I
 cnoremap <C-A> <Home>
 
