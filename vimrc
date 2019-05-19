@@ -711,7 +711,6 @@ augroup ft_options
         \ <!-- vim:set spelllang=TODO : -->
   autocmd FileType markdown setlocal
         \ spell
-        \ textwidth=80
         \ shiftwidth=2
         \ expandtab
         \ wrap
