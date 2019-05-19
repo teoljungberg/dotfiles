@@ -714,7 +714,6 @@ augroup ft_options
         \ shiftwidth=2
         \ expandtab
         \ wrap
-        \ nolist
         \ linebreak
   autocmd FileType markdown call <SID>MarkdownMappings()
   autocmd FileType qf setlocal
