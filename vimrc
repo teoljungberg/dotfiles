@@ -730,8 +730,8 @@ augroup ft_options
   autocmd FileType ruby iabbrev <buffer> ddebug require 'irb'; binding.irb
   autocmd FileType ruby iabbrev <buffer> dinit def initialize
   autocmd FileType ruby setlocal iskeyword+=?,!,=
-  autocmd FileType rust nnoremap <buffer> K <Plug>(rust-doc)
-  autocmd FileType rust nnoremap <buffer> gd <Plug>(rust-def)
+  autocmd FileType rust nmap <buffer> K <Plug>(rust-doc)
+  autocmd FileType rust nmap <buffer> gd <Plug>(rust-def)
   autocmd FileType rust setlocal iskeyword+=!
   autocmd FileType sql setlocal formatprg=pg_format
 augroup END
