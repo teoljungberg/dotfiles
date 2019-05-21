@@ -609,6 +609,7 @@ let g:markdown_fenced_languages = [
       \ "javascript",
       \ "ruby",
       \ "sh",
+      \ "sql",
       \ ]
 
 " ruby
