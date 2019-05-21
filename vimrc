@@ -602,12 +602,12 @@ nmap <expr> - line(".") == 1 ? "<Plug>VinegarUp" : "-"
 " markdown
 " -------
 let g:markdown_fenced_languages = [
-      \ "ruby",
-      \ "html",
-      \ "javascript",
+      \ "bash=sh",
       \ "css",
       \ "erb=eruby.html",
-      \ "bash=sh",
+      \ "html",
+      \ "javascript",
+      \ "ruby",
       \ "sh",
       \ ]
 
