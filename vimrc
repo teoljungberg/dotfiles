@@ -307,8 +307,8 @@ let g:ale_fixers.javascript = ["eslint"]
 let g:ale_fixers.ruby = ["rubocop"]
 let g:ale_fixers.rust = ["rustfmt"]
 
-nnoremap `=<CR> :ALEFix<CR>
-nnoremap `== :ALELint<CR>
+nmap `=<CR> <Plug>(ale_fix)
+nmap `== <Plug>(ale_lint)
 
 function! s:ColorschemeChanges()
   if get(g:, "colors_name", "") !=# "solarized"
