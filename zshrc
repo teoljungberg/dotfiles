@@ -145,26 +145,6 @@ p() {
   projects "$@"
 }
 
-ssh() {
-  original_ssh=$(whence -p ssh)
-
-  if [ -z "$TMUX" ]; then
-    $original_ssh "$@"
-    return
-  fi
-
-  remote="$1"
-  old_name="$(tmux display-message -p "#W")"
-
-  if [ -n "$remote" ]; then
-    tmux rename-window "$remote"
-  fi
-
-  $original_ssh "$@"
-
-  tmux rename-window "$old_name"
-}
-
 add-zsh-hook preexec "_add_trusted_local_bin_to_path"
 
 [ -f /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
