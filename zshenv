@@ -1,5 +1,6 @@
 [ -r /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
 
+LANG="en_US.UTF-8"
 PATH="$PATH:$HOME/.bin"
 PATH="$PATH:$HOME/.cargo/bin"
 PATH="$PATH:/usr/local/sbin"
