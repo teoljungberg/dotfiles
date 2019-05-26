@@ -39,10 +39,12 @@ display_new_commits() {
   current_branch="$(git -C "$work_tree_path" symbolic-ref --short HEAD)"
 
   if [ "$current_branch" = "master" ] && [ "$current_sha" != "$new_sha" ]; then
+    sha_range="$current_sha...$new_sha"
+
     if command -v hub > /dev/null 2>&1; then
-      hub -C "$work_tree_path" compare -u "$current_sha"..."$new_sha"
+      hub -C "$work_tree_path" compare -u "$sha_range"
     else
-      git -C "$work_tree_path" --no-pager log --oneline "$current_sha"..."$new_sha"
+      git -C "$work_tree_path" --no-pager log --oneline "$sha_range"
     fi
   fi
 }
