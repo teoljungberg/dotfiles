@@ -721,6 +721,7 @@ augroup ft_options
         \ linebreak
   autocmd FileType markdown call <SID>MarkdownMappings()
   autocmd FileType qf setlocal
+        \ nobuflisted
         \ nolist
         \ nonumber
         \ norelativenumber
