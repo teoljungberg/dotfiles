@@ -1,3 +1,9 @@
 #!/bin/sh
 
 mkdir -p ~/.vim/pack/bundle/start
+
+if [ ! -f "$HOME/.config/kitty/theme.conf" ]; then
+  ln -fs \
+    "$HOME/.config/kitty/light.conf" \
+    "$HOME/.config/kitty/theme.conf"
+fi

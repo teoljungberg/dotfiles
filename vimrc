@@ -72,7 +72,13 @@ else
 endif
 
 silent! colorscheme solarized
-set background=light
+if $KITTY_THEME == "light"
+  set background=light
+elseif $KITTY_THEME == "dark"
+  set background=dark
+else
+  set background=light
+end
 
 if !has("gui_running") && len($VIM_TERMINAL)
   colorscheme default

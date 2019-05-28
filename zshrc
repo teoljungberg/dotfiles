@@ -145,6 +145,52 @@ p() {
   projects "$@"
 }
 
+theme() {
+  usage() { echo "theme <light|dark|reload>" }
+  new_style=""
+  should_reload=""
+
+  case "$1" in
+    dark)
+      new_style="dark"
+      should_reload=1
+      ;;
+    light)
+      new_style="light"
+      should_reload=1
+      ;;
+    reload)
+      should_reload=1
+      ;;
+    --help|-h)
+      echo "$(usage)"
+      return 0
+      ;;
+    *)
+      echo "$(usage)" >&2
+      return 1
+  esac
+
+  if [ -n "$new_style" ]; then
+    ln -sf \
+      "$HOME/.config/kitty/${new_style}.conf" \
+      "$HOME/.config/kitty/theme.conf"
+    export KITTY_THEME="$new_style"
+  fi
+
+  if [ -n "$should_reload" ]; then
+    if [ -n "$TMUX" ]; then
+      kitty @ --to "$KITTY_LISTEN_TO" \
+        set-colors --all --configured "$HOME/.config/kitty/theme.conf"
+      tmux set-environment KITTY_THEME "$KITTY_THEME"
+      tmux source-file "$HOME/.tmux.conf"
+    else
+      kitty @ \
+        set-colors --all --configured "$HOME/.config/kitty/theme.conf"
+    fi
+  fi
+}
+
 add-zsh-hook preexec "_add_trusted_local_bin_to_path"
 
 [ -f /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
