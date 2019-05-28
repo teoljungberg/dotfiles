@@ -697,6 +697,12 @@ function! s:CustomRubySyntax()
   endif
 endfunction
 
+augroup HideNewBuffers
+  autocmd!
+
+  autocmd BufNew setlocal nobuflisted
+augroup END
+
 augroup ft_options
   autocmd!
 
