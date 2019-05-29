@@ -4,10 +4,10 @@ I use [rcm](http://github.com/thoughtbot/rcm) to manage my dotfiles.
 
 ## Cron
 
-Add the `cron/crontab.teoljungberg` to your own `crontab(1)`:
+Add the `cron/crontab-teoljungberg` to your own `crontab(1)`:
 
 ```sh
-% crontab - < cron/crontab.teoljungberg
+% crontab - < cron/crontab-teoljungberg
 ```
 
 # Pick
