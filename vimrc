@@ -703,6 +703,12 @@ augroup HideNewBuffers
   autocmd BufNew setlocal nobuflisted
 augroup END
 
+augroup CursorlineForPreviewWindows
+  autocmd!
+
+  autocmd BufWinEnter * if &previewwindow | setlocal cursorline | endif
+augroup END
+
 augroup ft_options
   autocmd!
 
