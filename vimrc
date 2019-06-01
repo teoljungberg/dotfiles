@@ -746,7 +746,6 @@ augroup ft_options
   autocmd FileType rust nmap <buffer> K <Plug>(rust-doc)
   autocmd FileType rust nmap <buffer> gd <Plug>(rust-def)
   autocmd FileType rust setlocal iskeyword+=!
-  autocmd FileType sql setlocal formatprg=pg_format
 augroup END
 
 if filereadable($HOME . "/.vimrc.local")
