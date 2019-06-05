@@ -16,7 +16,6 @@ cask "messenger"
 cask "rowanj-gitx"
 cask "slack"
 cask "spotify"
-cask "whatsapp"
 
 tap "homebrew/cask-fonts"
 cask "font-ibm-plex"
