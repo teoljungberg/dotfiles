@@ -242,6 +242,9 @@ nnoremap <silent> <C-w>.
       \ <CR>
 nmap cd <C-W>.
 
+" Todays date in the format of YEAR-MONTH-DATE.
+cnoremap %date <C-R>=strftime("%Y-%m-%d")<CR>
+
 " Jumps to the last known position in a file, except in the filetypes that are
 " blacklisted.
 augroup JumpToLastKnownPosition
