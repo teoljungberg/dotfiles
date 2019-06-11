@@ -451,11 +451,9 @@ augroup Fugitive
         \ if &readonly && get(b:, "fugitive_type", "") == "index" |
         \   call <SID>GstatusMappings() |
         \ endif
-  autocmd FileType git setlocal nolist
   autocmd FileType gitcommit let b:sleuth_automatic = 0
   autocmd FileType gitcommit setlocal
         \ shiftwidth=2
-        \ nolist
         \ spell
 augroup END
 
