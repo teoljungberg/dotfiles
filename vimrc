@@ -449,7 +449,6 @@ augroup Fugitive
 
   autocmd BufReadPost *
         \ if &readonly && get(b:, "fugitive_type", "") == "index" |
-        \   setlocal nolist |
         \   call <SID>GstatusMappings() |
         \ endif
   autocmd FileType git setlocal nolist
