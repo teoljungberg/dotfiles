@@ -724,6 +724,15 @@ augroup CursorlineForPreviewWindows
   autocmd BufWinEnter * if &previewwindow | setlocal cursorline | endif
 augroup END
 
+augroup ReleaseSwapfiles
+  autocmd!
+
+  autocmd BufWritePost,BufReadPost,BufLeave *
+        \ if isdirectory(expand("<amatch>:h")) |
+        \   let &swapfile = &modified |
+        \ endif
+augroup END
+
 augroup ft_options
   autocmd!
 
