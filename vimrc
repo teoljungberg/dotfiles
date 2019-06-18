@@ -248,6 +248,10 @@ nmap cd <C-W>.
 " Todays date in the format of YEAR-MONTH-DATE.
 cnoremap %date <C-R>=strftime("%Y-%m-%d")<CR>
 
+" Indent and unindent while re-selecting the selection
+vnoremap > >gv
+vnoremap < <gv
+
 " Jumps to the last known position in a file, except in the filetypes that are
 " blacklisted.
 augroup JumpToLastKnownPosition
