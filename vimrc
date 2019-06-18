@@ -57,6 +57,10 @@ if $TERM =~# "^xterm"
   endif
 endif
 
+if exists("+breakindent")
+  set breakindent showbreak=\ +
+endif
+
 filetype plugin indent on
 
 if !has("packages")
