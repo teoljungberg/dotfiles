@@ -130,6 +130,12 @@ rename_tmux_window_to_current_dir() {
   fi
 }
 
+refresh_tmux_environment_variables() {
+  if [ -n "$TMUX" ]; then
+    export $(tmux show-environment | grep "^KITTY_THEME") > /dev/null
+  fi
+}
+
 git_branch() {
   GIT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null) || return
   [ -n "$GIT_BRANCH" ] && echo "$GIT_BRANCH "
@@ -240,6 +246,10 @@ bindkey -M viins '\e_' insert-last-word
 
 bindkey '^X^F' _pick_file
 bindkey '^X^G' _git_changed_files
+
+preexec() {
+  refresh_tmux_environment_variables
+}
 
 precmd() {
   rename_tmux_window_to_current_dir
