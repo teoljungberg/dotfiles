@@ -723,6 +723,7 @@ function! Redir(cmd) abort
   if a:cmd =~ "^!"
     let output = system(matchstr(a:cmd, "^!\zs.*"))
   else
+    let output = ""
     redir => output
     execute a:cmd
     redir END
