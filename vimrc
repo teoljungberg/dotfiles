@@ -252,20 +252,6 @@ cnoremap %date <C-R>=strftime("%Y-%m-%d")<CR>
 vnoremap > >gv
 vnoremap < <gv
 
-" Jumps to the last known position in a file, except in the filetypes that are
-" blacklisted.
-augroup JumpToLastKnownPosition
-  autocmd!
-  autocmd BufReadPost *
-        \ if (
-        \   index(["gitcommit", "gitrebase"], &ft) < 0
-        \ ) && (
-        \   line("'\"") > 0 && line("'\"") <= line("$")
-        \ ) |
-        \   execute "normal g`\"" |
-        \ endif
-augroup END
-
 augroup vimrcEx
   autocmd!
 
