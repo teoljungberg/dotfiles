@@ -22,9 +22,9 @@ else
     require_pick_to_be_installed
 
     git diff origin/master..HEAD --name-status --diff-filter=d | \
-      cut -f 2 | \
+      awk '{ print $NF }' | \
       pick
   else
-    git diff origin/master..HEAD --name-status --diff-filter=d | cut -f 2
+    git diff origin/master..HEAD --name-status --diff-filter=d | awk '{ print $NF }'
   fi
 fi
