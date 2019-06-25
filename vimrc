@@ -314,6 +314,7 @@ let g:ale_fixers.elixir = ["mix_format"]
 let g:ale_fixers.javascript = ["eslint"]
 let g:ale_fixers.ruby = ["rubocop"]
 let g:ale_fixers.rust = ["rustfmt"]
+let g:ale_fixers.sql = ["pgformatter"]
 
 nmap `=<CR> <Plug>(ale_fix)
 nmap `== <Plug>(ale_lint)
