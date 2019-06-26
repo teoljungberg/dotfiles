@@ -75,9 +75,9 @@ else
 endif
 
 silent! colorscheme solarized
-if $KITTY_THEME == "light"
+if $KITTY_THEME ==# "light"
   set background=light
-elseif $KITTY_THEME == "dark"
+elseif $KITTY_THEME ==# "dark"
   set background=dark
 else
   set background=light
@@ -721,7 +721,7 @@ function! Redir(cmd) abort
       execute win . "windo close"
     endif
   endfor
-  if a:cmd =~ "^!"
+  if a:cmd =~# "^!"
     let output = system(matchstr(a:cmd, "^!\zs.*"))
   else
     let output = ""
