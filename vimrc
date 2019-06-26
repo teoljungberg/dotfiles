@@ -92,10 +92,6 @@ if !isdirectory(expand(&undodir))
   call mkdir(expand(&undodir), "p")
 endif
 
-" Correct `:rg` to `:gr`, but only if we are the beginning of the line in
-" command mode.
-cabbrev rg <C-R>=getcmdtype() == ":" && getcmdpos() == 1 ? "gr" : "rg"<CR>
-
 if executable("rg")
   set grepprg=rg\
         \ --hidden\
@@ -189,6 +185,11 @@ cabbrev tbuffer <C-R>=
       \ <SID>ExpandWhenStartOfCmdLine("tbuffer", "tab sbuffer")<CR>
 cabbrev tb <C-R>=
       \ <SID>ExpandWhenStartOfCmdLine("tb", "tab sbuffer")<CR>
+
+
+" Correct `:rg` to `:grep`
+cabbrev rg <C-R>=
+      \ <SID>ExpandWhenStartOfCmdLine("rg", "grep")<CR>
 
 " Given this situation:
 "     user.fo|o!
