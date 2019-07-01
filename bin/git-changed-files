@@ -22,8 +22,8 @@ else
     require_pick_to_be_installed
 
     git diff origin/master..HEAD --name-status --diff-filter=d | \
-      awk '{ print $NF }' | \
-      pick
+      pick | \
+      awk '{ print $NF }'
   else
     git diff origin/master..HEAD --name-status --diff-filter=d | awk '{ print $NF }'
   fi
