@@ -450,15 +450,7 @@ augroup END
 if executable("pick")
   let g:pick_height = 15
 
-  if has("gui_running")
-    nmap <Space><Space> :find<Space>
-    nmap <Space>s :sfind<Space>
-    nmap <Space>s :vertical sfind<Space>
-    nmap <Space>b :ls<CR>:buffer<Space>
-    nmap <Space>] :tag<Space>
-    nmap <Space>\ :stag<Space>
-    nmap <Space>t :tab sfind<Space>
-  else
+  if !has("gui_running")
     nnoremap <Space><Space> :call PickFile()<CR>
     nnoremap <Space>s :call PickFileSplit()<CR>
     nnoremap <Space>v :call PickFileVerticalSplit()<CR>
