@@ -200,7 +200,7 @@ nnoremap <C-W>] :stag <C-R>=expand("<cword>")<CR><CR>
 nnoremap g<C-T> :ptag <C-R>=expand("<cword>")<CR><CR>
 
 " Get the current line
-cnoremap <C-R><C-L> <C-R>=getline(".")<CR>
+cnoremap <C-R><C-L> <C-R>=substitute(getline("."), '^\s*', "", "")<CR>
 
 " Add the current `WORD` (rather than `word`) under the cursor
 cnoremap <C-R>W <C-R><C-A>
