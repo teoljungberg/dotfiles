@@ -439,6 +439,7 @@ augroup Fugitive
         \ if &readonly && get(b:, "fugitive_type", "") == "index" |
         \   call <SID>GstatusMappings() |
         \ endif
+  autocmd BufReadPost *.git/PULLREQ_EDITMSG set filetype=gitcommit
   autocmd FileType gitcommit let b:sleuth_automatic = 0
   autocmd FileType gitcommit setlocal
         \ shiftwidth=2
