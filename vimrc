@@ -502,37 +502,6 @@ let g:rails_projections = {
       \ }
 
 let g:projectionist_heuristics = {
-      \  "&mix.exs": {
-      \    "lib/*.ex": {
-      \      "type": "lib",
-      \      "alternate": [
-      \        "spec/{}_spec.exs",
-      \        "test/{}_test.exs",
-      \      ],
-      \    },
-      \    "spec/*_spec.exs": {
-      \      "type": "spec",
-      \      "alternate": "lib/{}.ex",
-      \      "dispatch": "mix espec spec/{}_spec.exs`=v:lnum ? ':'.v:lnum : ''`"
-      \    },
-      \    "spec/spec_helper.exs": { "type": "spec" },
-      \    "test/*_test.exs": {
-      \      "type": "test",
-      \      "alternate": "lib/{}.ex",
-      \      "dispatch": "mix test test/{}_test.exs`=v:lnum ? ':'.v:lnum : ''`"
-      \    },
-      \    "test/test_helper.exs": { "type": "test" },
-      \    "mix.exs": {
-      \      "type": "lib",
-      \      "alternate": "mix.lock",
-      \      "dispatch": "mix deps.get"
-      \    },
-      \    "mix.lock": { "alternate": "mix.exs" },
-      \    "*": {
-      \      "make": "mix",
-      \      "console": "iex -S mix"
-      \    }
-      \  },
       \  "&Cargo.toml": {
       \    "src/*.rs": {
       \      "type": "src",
