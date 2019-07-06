@@ -593,9 +593,7 @@ function! s:MarkdownMappings()
 endfunction
 
 function! s:QuickfixMappings()
-  let is_location_list = getwininfo(win_getid())[0].loclist
-
-  if is_location_list
+  if getwininfo(win_getid())[0].loclist
     nnoremap <buffer> [f :lolder<CR>
     nnoremap <buffer> ]f :lnewer<CR>
     nnoremap <buffer> [F :
