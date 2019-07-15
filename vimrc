@@ -242,10 +242,6 @@ nmap cd <C-W>.
 " Todays date in the format of YEAR-MONTH-DATE.
 cnoremap %date <C-R>=strftime("%Y-%m-%d")<CR>
 
-" Indent and unindent while re-selecting the selection
-vnoremap > >gv
-vnoremap < <gv
-
 augroup vimrcEx
   autocmd!
 
