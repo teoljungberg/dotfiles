@@ -668,28 +668,6 @@ augroup CursorlineForPreviewWindows
   autocmd BufWinEnter * if &previewwindow | setlocal cursorline | endif
 augroup END
 
-function! Redir(cmd) abort
-  for win in range(1, winnr("$"))
-    if getwinvar(win, "scratch")
-      execute win . "windo close"
-    endif
-  endfor
-  if a:cmd =~# "^!"
-    let output = system(matchstr(a:cmd, "^!\zs.*"))
-  else
-    let output = ""
-    redir => output
-    execute a:cmd
-    redir END
-  endif
-  new
-  let w:scratch = 1
-  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
-  call setline(1, split(output, "\n"))
-endfunction
-
-command! -nargs=1 -complete=command Redir silent call Redir(<q-args>)
-
 " Make list-like commands more intuitive.
 " Originally from:
 "
