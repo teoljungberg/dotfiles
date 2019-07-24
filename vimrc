@@ -690,6 +690,52 @@ endfunction
 
 command! -nargs=1 -complete=command Redir silent call Redir(<q-args>)
 
+" Make list-like commands more intuitive.
+" Originally from:
+"
+" https://gist.github.com/romainl/047aca21e338df7ccf771f96858edb86
+function! CCR()
+  let cmdline = getcmdline()
+  let filter_present = '\v\C^(filt|filter) /.*/ '
+
+  if
+        \ cmdline =~# '\v\C^(ls|files|buffers)' ||
+        \ cmdline =~# filter_present . '(ls|files|buffers)'
+    return "\<CR>:buffer "
+  elseif
+        \ cmdline =~# '\v\C/(#|nu|num|numb|numbe|number)$' ||
+        \ cmdline =~# filter_present . '(#|nu|num|numb|numbe|number)'
+    return "\<CR>:"
+  elseif
+        \ cmdline =~# '\v\C^(old|oldfiles)' ||
+        \ cmdline =~# filter_present . '(old|oldfiles)'
+    set nomore
+    return "\<CR>:silent set more|edit #<"
+  elseif cmdline =~# '\C^changes'
+    set nomore
+    return "\<CR>:silent set more|normal! g;\<S-Left>"
+  elseif
+        \ cmdline =~# '\v\C^(ju|jumps)' ||
+        \ cmdline =~# filter_present . '(ju|jumps)'
+    set nomore
+    return "\<CR>:silent set more|normal! \<C-O>\<S-Left>"
+  elseif cmdline =~# '\C^marks' || cmdline =~# filter_present . 'marks'
+    return "\<CR>:normal! `"
+  elseif
+        \ cmdline =~# '\v\C^(cli|clist|lli|llist)' ||
+        \ cmdline =~# filter_present . '(cli|clist|lli|llist)'
+    return
+          \ "\<CR>" .
+          \ ":silent " .
+          \ repeat(matchlist(cmdline, '\v(cli|clist|lli|llist)')[0][0], 2) .
+          \ "\<Space>"
+  else
+    return "\<CR>"
+  endif
+endfunction
+
+cnoremap <expr> <CR> CCR()
+
 augroup ReleaseSwapfiles
   autocmd!
 
