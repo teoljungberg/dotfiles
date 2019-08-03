@@ -4,6 +4,7 @@ bundles="
   AndrewRadev/splitjoin.vim
   altercation/vim-colors-solarized
   calleerlandsson/pick.vim
+  dense-analysis/ale
   pbrisbin/vim-mkdir
   racer-rust/vim-racer
   rust-lang/rust.vim
@@ -29,7 +30,6 @@ bundles="
   tpope/vim-unimpaired
   tpope/vim-vinegar
   vim-ruby/vim-ruby
-  w0rp/ale
 "
 
 display_new_commits() {
