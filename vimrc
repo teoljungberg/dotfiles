@@ -85,7 +85,7 @@ else
   runtime macros/matchit.vim
 endif
 
-silent! colorscheme solarized
+silent! colorscheme whitescale
 if $THEME ==# "light"
   set background=light
 elseif $THEME ==# "dark"
@@ -93,10 +93,6 @@ elseif $THEME ==# "dark"
 else
   set background=light
 end
-
-if !has("gui_running") && len($VIM_TERMINAL)
-  colorscheme default
-endif
 
 if executable("rg")
   set grepprg=rg\
@@ -325,85 +321,6 @@ let g:ale_fixers.sql = ["pgformatter"]
 nmap `=<CR> <Plug>(ale_fix)
 nmap `== <Plug>(ale_lint)
 
-function! s:ColorschemeChanges()
-  if get(g:, "colors_name", "") !=# "solarized"
-    return
-  endif
-
-  hi! Comment term=italic cterm=italic gui=italic
-  hi! Constant term=italic cterm=italic gui=italic
-  hi! PmenuSBar term=reverse cterm=reverse ctermfg=11 ctermbg=15 guibg=Black
-  hi! PmenuThumb term=reverse cterm=reverse ctermfg=0 ctermbg=11 guibg=Grey
-
-  hi! link rubyAssertion rubyMethodName
-  hi! link rubyCapitalizedMethod rubyConstant
-  hi! link rubyTestMacro rubyMethodName
-  hi! link rubyTesthelper rubyMethodName
-
-  hi! MatchParen cterm=bold ctermbg=none ctermfg=33
-
-  if &background ==# "light"
-    hi! StatusLineNC
-          \ term=reverse
-          \ cterm=reverse
-          \ ctermfg=7
-          \ ctermbg=14
-          \ gui=reverse
-          \ guifg=#839496
-          \ guibg=#eee8d5
-    hi! StatusLineTerm
-          \ term=reverse
-          \ cterm=reverse
-          \ ctermfg=10
-          \ ctermbg=7
-          \ gui=reverse
-          \ guifg=#586e75
-          \ guibg=#eee8d5
-    hi! StatusLineTermNC
-          \ term=reverse
-          \ cterm=reverse
-          \ ctermfg=7
-          \ ctermbg=14
-          \ gui=reverse
-          \ guifg=#839496
-          \ guibg=#eee8d5
-  else
-    hi! StatusLineNC
-          \ term=reverse
-          \ cterm=reverse
-          \ ctermfg=10
-          \ ctermbg=14
-          \ gui=reverse
-          \ guifg=#657b83
-          \ guibg=#073642
-    hi! StatusLineTerm
-          \ term=reverse
-          \ cterm=reverse
-          \ ctermfg=14
-          \ ctermbg=0
-          \ gui=reverse
-          \ guifg=#93a1a1
-          \ guibg=#073642
-    hi! StatusLineTermNC
-          \ term=reverse
-          \ cterm=reverse
-          \ ctermfg=10
-          \ ctermbg=14
-          \ gui=reverse
-          \ guifg=#657b83
-          \ guibg=#073642
-  endif
-endfunction
-
-augroup Colorscheme
-  autocmd!
-
-  autocmd VimEnter * call <SID>ColorschemeChanges()
-  " Run these settings whenever colorscheme changes, in order to re-overwrite
-  " whatever the colorscheme sets
-  autocmd ColorScheme * call <SID>ColorschemeChanges()
-augroup END
-
 " dispatch.vim
 " ------------
 nnoremap 'c :Console<CR>
@@ -620,47 +537,6 @@ function! s:QuickfixTitle()
   endif
 endfunction
 
-function! s:CustomRubySyntax()
-  if empty(get(b:, "current_syntax"))
-    return
-  endif
-
-  unlet b:current_syntax
-  syn include @SQL syntax/sql.vim
-  syn region sqlHeredoc start=/\v\<\<[-~]SQL/ end=/\vSQL/ keepend contains=@SQL
-  let b:current_syntax = "ruby"
-
-  if expand("%") =~# "_spec\.rb$"
-    syn match rubyTestHelper "\<subject\>"
-    syn match rubyTestMacro "\<let\>!\="
-    syn keyword rubyTestMacro after around before
-    syn keyword rubyTestMacro
-          \ context
-          \ describe
-          \ feature
-          \ containedin=rubyKeywordAsMethod
-    syn keyword rubyTestMacro it it_behaves_like
-    syn keyword rubyComment
-          \ xcontext
-          \ xdescribe
-          \ xfeature
-          \ containedin=rubyKeywordAsMethod
-    syn keyword rubyComment xit
-    syn keyword rubyAssertion
-          \ allow
-          \ expect
-          \ is_expected
-          \ skip
-    syn keyword rubyTestHelper
-          \ class_double
-          \ described_class
-          \ double
-          \ instance_double
-          \ instance_spy
-          \ spy
-  endif
-endfunction
-
 augroup HideNewBuffers
   autocmd!
 
@@ -767,7 +643,6 @@ augroup ft_options
         \ norelativenumber
   autocmd FileType qf call <SID>QuickfixMappings()
   autocmd FileType qf call <SID>QuickfixTitle()
-  autocmd FileType ruby call <SID>CustomRubySyntax()
   autocmd FileType ruby iabbrev <buffer> ddebug require 'irb'; binding.irb
   autocmd FileType ruby iabbrev <buffer> dinit def initialize
   autocmd FileType ruby setlocal iskeyword+=?,!,=

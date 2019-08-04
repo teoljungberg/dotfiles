@@ -12,7 +12,7 @@
   cp = cherry-pick
   d = diff
   dc = diff --cached
-  l = log --graph --decorate --oneline
+  l = log --graph --pretty=format:'%C(bold)%h%d%C(reset) %s'
   ls = ls-files
   p = push-origin-or-fork
   r = recent
@@ -45,3 +45,26 @@
   path = ~/.gitconfig.local
 [pull]
   rebase = true
+[format]
+  pretty = format:commit %C(bold)%H%nAuthor: %an <%ae>%nDate:  %ad%n%n%-B
+[color "interactive"]
+  prompt = bold
+[color "branch"]
+  current = bold
+  remote = 248
+  nobranch = bold
+[color "status"]
+  added = bold
+  branch = bold
+  changed = 248
+  deleted = 248
+  localBranch = bold
+  remoteBranch = 248
+  unmerged = bold
+  untracked = 248
+  updated = bold
+[color "diff"]
+  frag = bold
+  new = bold
+  old = 248
+  whitespace = bold

@@ -12,16 +12,15 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-export CLICOLOR=1
 export EDITOR="vim"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent::1"
 export GREP_OPTIONS="--color"
+export HOMEBREW_NO_COLOR=1
 export HOMEBREW_NO_EMOJI=1
 export HOMEBREW_AUTO_UPDATE_SECS=600000
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LESS="-F -X -R"
-export LSCOLORS=gxfxbEaEcxxEhEhBaDaCaD
 export PAGER="less -R"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export VISUAL="$EDITOR"
@@ -246,6 +245,16 @@ bindkey -M viins '\e_' insert-last-word
 
 bindkey '^X^G' _git_changed_files
 
+git_branch_color() {
+  if [ "$THEME" = "light" ]; then
+    echo "%{$fg_bold[black]%}"
+  elif [ "$THEME" = "dark" ]; then
+    echo "%{$fg_bold[white]%}"
+  else
+    echo "%{$fg_bold[black]%}"
+  fi
+}
+
 preexec() {
   refresh_tmux_environment_variables
 }
@@ -255,9 +264,9 @@ precmd() {
   rename_tab_to_current_dir
 
   if [ -z $SSH_CONNECTION ]; then
-    PROMPT="%c %{$fg[yellow]%}$(git_branch)%{$reset_color%}%# "
+    PROMPT="%c $(git_branch_color)$(git_branch)%{$reset_color%}%# "
   else
-    PROMPT="%c@%m %{$fg[yellow]%}$(git_branch)%{$reset_color%}%# "
+    PROMPT="%c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%# "
   fi
 }
 

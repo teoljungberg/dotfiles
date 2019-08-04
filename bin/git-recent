@@ -6,7 +6,7 @@
 set -e
 
 git_log() {
-  git log --graph --decorate --oneline "$@"
+  git log --graph --pretty=format:'%C(bold)%h%d%C(reset) %s' "$@"
 }
 
 has_upstream() {
