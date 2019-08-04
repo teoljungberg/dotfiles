@@ -34,6 +34,7 @@ set textwidth=80
 set ttimeout ttimeoutlen=50
 set undodir=~/.cache/vim/undo//
 set updatetime=1000
+set viminfo=!,'20,<50,s10,h
 set wildmode=list:longest,list:full
 syntax enable
 
