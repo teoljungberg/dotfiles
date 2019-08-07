@@ -32,6 +32,7 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 
 alias b="bundle exec"
 alias j="jobs"
+alias ls="ls -F"
 alias ..="cd .."
 
 _prepend_to_path_without_duplication() {
