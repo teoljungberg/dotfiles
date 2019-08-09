@@ -225,9 +225,9 @@ vnoremap gP "*P
 nnoremap <silent> <C-L>
       \ :nohlsearch <C-R>=has("diff") ? "<Bar>diffupdate" : ""<CR><CR><C-L>
 
-nnoremap [ot :setlocal cc=<C-R>=&textwidth + 1<CR><CR>
-nnoremap ]ot :setlocal cc=0<CR>
-nnoremap yot :setlocal cc=<C-R>=&cc == 0 ? &textwidth + 1 : 0<CR><CR>
+nnoremap [ot :setlocal colorcolumn=<C-R>=&textwidth + 1<CR><CR>
+nnoremap ]ot :setlocal colorcolumn=0<CR>
+nnoremap yot :setlocal colorcolumn=<C-R>=&cc == 0 ? &textwidth + 1 : 0<CR><CR>
 
 nnoremap <silent> <C-w>.
       \ :if exists(":Plcd")<Bar>
