@@ -240,9 +240,6 @@ nnoremap <silent> <C-w>.
       \ <CR>
 nmap cd <C-W>.
 
-" Todays date in the format of YEAR-MONTH-DATE.
-cnoremap %date <C-R>=strftime("%Y-%m-%d")<CR>
-
 augroup vimrcEx
   autocmd!
 
