@@ -32,7 +32,6 @@ set t_RV=
 set tags=.git/tags,tags
 set textwidth=80
 set ttimeout ttimeoutlen=50
-set undodir=~/.cache/vim/undo//
 set updatetime=1000
 set viminfo=!,'20,<50,s10,h
 set wildmode=list:longest,list:full
@@ -62,6 +61,15 @@ if exists("+breakindent")
   set breakindent showbreak=\ +
 endif
 
+if exists("+undofile")
+  set undodir=~/.cache/vim/undo//
+  set undofile
+
+  if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+  endif
+endif
+
 filetype plugin indent on
 
 if !has("packages")
@@ -86,11 +94,6 @@ end
 
 if !has("gui_running") && len($VIM_TERMINAL)
   colorscheme default
-endif
-
-" Automatically create undodir if it does not exist
-if !isdirectory(expand(&undodir))
-  call mkdir(expand(&undodir), "p")
 endif
 
 if executable("rg")
