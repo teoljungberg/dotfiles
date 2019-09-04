@@ -133,7 +133,7 @@ rename_tmux_window_to_current_dir() {
 
 refresh_tmux_environment_variables() {
   if [ -n "$TMUX" ]; then
-    export $(tmux show-environment | grep "^KITTY_THEME") > /dev/null
+    export $(tmux show-environment | grep "^THEME") > /dev/null
   fi
 }
 
@@ -176,13 +176,13 @@ theme() {
     ln -sf \
       "$HOME/.config/kitty/${new_style}.conf" \
       "$HOME/.config/kitty/theme.conf"
-    export KITTY_THEME="$new_style"
+    export THEME="$new_style"
   fi
 
   if [ -n "$TMUX" ]; then
-    kitty @ --to "$KITTY_LISTEN_TO" \
+    kitty @ --to "$LISTEN_TO" \
       set-colors --all --configured "$HOME/.config/kitty/theme.conf"
-    tmux set-environment KITTY_THEME "$KITTY_THEME"
+    tmux set-environment THEME "$THEME"
     tmux source-file "$HOME/.tmux.conf"
   else
     kitty @ \

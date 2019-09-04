@@ -85,9 +85,9 @@ else
 endif
 
 silent! colorscheme solarized
-if $KITTY_THEME ==# "light"
+if $THEME ==# "light"
   set background=light
-elseif $KITTY_THEME ==# "dark"
+elseif $THEME ==# "dark"
   set background=dark
 else
   set background=light
