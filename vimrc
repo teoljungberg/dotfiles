@@ -428,7 +428,7 @@ augroup END
 " fugitive.vim
 " ------------
 function s:GstatusMappings()
-  nnoremap <buffer> rM :Grebase --interactive origin/master<CR>
+  nnoremap <buffer> rM :Git rebase --interactive origin/master<CR>
 endfunction
 
 augroup Fugitive
