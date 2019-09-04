@@ -675,6 +675,10 @@ augroup END
 "
 " https://gist.github.com/romainl/047aca21e338df7ccf771f96858edb86
 function! CCR()
+  if getcmdtype() != ":"
+    return "\<CR>"
+  end
+
   let cmdline = getcmdline()
   let filter_present = '\v\C^(filt|filter) /.*/ '
 
@@ -683,7 +687,7 @@ function! CCR()
         \ cmdline =~# filter_present . '(ls|files|buffers)'
     return "\<CR>:buffer "
   elseif
-        \ cmdline =~# '\v\C/(#|nu|num|numb|numbe|number)$' ||
+        \ cmdline =~# '\v\C^(g|global).*(#|nu|num|numb|numbe|number)$' ||
         \ cmdline =~# filter_present . '(#|nu|num|numb|numbe|number)'
     return "\<CR>:"
   elseif
