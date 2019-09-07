@@ -2,6 +2,7 @@
 --regex-ruby=/^[ \t]*attr_(reader|writer|accessor) (:[a-z0-9_]+, )*:([a-z0-9_]+)/\3/A,attr/
 --regex-ruby=/^[ \t]*describe ['"](.*)['"].* do/\1/
 --regex-ruby=/^[ \t]*scope[ \t]*:([a-zA-Z0-9_]+)/\1/
+--regex-ruby=/^[ \t]*(belongs_to|has_one|has_many|has_and_belongs_to_many)[ \t]*:([a-zA-Z0-9_]+)/\2/
 
 --langdef=Rust
 --langmap=Rust:.rs
