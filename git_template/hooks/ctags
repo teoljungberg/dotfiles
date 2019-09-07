@@ -1,8 +1,17 @@
 #!/bin/sh
 set -e
+
 PATH="/usr/local/bin:$PATH"
 dir="$(git rev-parse --git-dir)"
+
 trap 'rm -f "$dir/$$.tags"' EXIT
-git ls-files --cached --exclude-standard --others | \
-  ctags --tag-relative -L - -f"$dir/$$.tags"
+
+if [ -f Gemfile ] && hash ripper-tags 2>/dev/null; then
+  git ls-files --cached --exclude-standard --others | \
+    ripper-tags --tag-relative -L - -f "$dir/$$.tags"
+else
+  git ls-files --cached --exclude-standard --others | \
+    ctags --tag-relative -L - -f "$dir/$$.tags"
+fi
+
 mv "$dir/$$.tags" "$dir/tags"
