@@ -709,7 +709,7 @@ function! CCR()
   elseif cmdline =~ '\v\C^(undol|undolist)'
     return "\<CR>:undo "
   elseif
-        \ cmdline =~# '\v\C^(cli|clist|lli|llist)' ||
+        \ cmdline =~# '\v\C^(cli|clist|lli|llist) /.*' ||
         \ cmdline =~# filter_present . '(cli|clist|lli|llist)'
     return
           \ "\<CR>" .
