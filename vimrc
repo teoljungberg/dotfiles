@@ -716,6 +716,12 @@ function! CCR()
           \ ":silent " .
           \ repeat(matchlist(cmdline, '\v(cli|clist|lli|llist)')[0][0], 2) .
           \ "\<Space>"
+    elseif cmdline =~ '\v\C^(dli|dlist|il|ilist) /.*'
+      return
+            \ "\<CR>:" .
+            \ cmdline[0] .
+            \ "jump  " . split(cmdline, " ")[1] .
+            \ "\<S-Left>\<Left>"
   else
     return "\<CR>"
   endif
