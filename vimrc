@@ -676,7 +676,7 @@ augroup END
 "
 " https://gist.github.com/romainl/047aca21e338df7ccf771f96858edb86
 function! CCR()
-  if getcmdtype() != ":"
+  if getcmdtype() !=# ":"
     return "\<CR>"
   end
 
@@ -706,17 +706,17 @@ function! CCR()
     return "\<CR>:silent set more|normal! \<C-O>\<S-Left>"
   elseif cmdline =~# '\C^marks' || cmdline =~# filter_present . 'marks'
     return "\<CR>:normal! `"
-  elseif cmdline =~ '\v\C^(undol|undolist)'
+  elseif cmdline =~# '\v\C^(undol|undolist)'
     return "\<CR>:undo "
   elseif
-        \ cmdline =~# '\v\C^(cli|clist|lli|llist) /.*' ||
+        \ cmdline =~# '\v\C^(cli|clist|lli|llist)\s.*' ||
         \ cmdline =~# filter_present . '(cli|clist|lli|llist)'
     return
           \ "\<CR>" .
           \ ":silent " .
           \ repeat(matchlist(cmdline, '\v(cli|clist|lli|llist)')[0][0], 2) .
           \ "\<Space>"
-    elseif cmdline =~ '\v\C^(dli|dlist|il|ilist) /.*'
+    elseif cmdline =~# '\v\C^(dli|dlist|il|ilist)\s.*'
       return
             \ "\<CR>:" .
             \ cmdline[0] .
