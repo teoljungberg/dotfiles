@@ -1,3 +1,4 @@
+require "irb"
 require "irb/completion"
 
 if defined?(Bundler)
