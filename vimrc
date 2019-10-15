@@ -32,7 +32,8 @@ set synmaxcol=200
 set t_RV=
 set tags^=./.git/tags;tags
 set textwidth=80
-set ttimeout ttimeoutlen=50
+set ttimeout
+set ttimeoutlen=50
 set updatetime=1000
 set viminfo=!,'20,<50,s10,h
 set wildmode=list:longest,list:full
