@@ -292,7 +292,6 @@ let g:ale_sql_pgformatter_options = "--spaces 2"
 let g:ale_linters_explicit = 1
 
 let g:ale_linters = {}
-let g:ale_linters.elixir = ["credo"]
 let g:ale_linters.javascript = ["eslint"]
 let g:ale_linters.markdown = ["mdl"]
 let g:ale_linters.ruby = ["rubocop"]
@@ -303,7 +302,6 @@ let g:ale_linters.vim = ["vint"]
 let g:ale_fixers_explicit = 1
 
 let g:ale_fixers = { "*": ["trim_whitespace"] }
-let g:ale_fixers.elixir = ["mix_format"]
 let g:ale_fixers.javascript = ["eslint"]
 let g:ale_fixers.json = ["jq"]
 let g:ale_fixers.ruby = ["rubocop"]
@@ -739,7 +737,6 @@ augroup ft_options
         \ shiftwidth=8
         \ tabstop=8
         \ cinoptions=:0,t0,+4,(4
-  autocmd FileType elixir iabbrev <buffer> ddebug require IEx; IEx.pry
   autocmd FileType markdown,gitcommit iabbrev <buffer> -. - [ ]
   autocmd FileType markdown,gitcommit iabbrev <buffer> -x - [X]
   autocmd FileType markdown iabbrev <buffer>
