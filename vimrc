@@ -586,14 +586,6 @@ let g:ftplugin_rust_source_path =
       \ "$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
 
-function! s:MarkdownMappings()
-  nnoremap <buffer> <expr> k (v:count == 0 ? "gk" : "k")
-  nnoremap <buffer> <expr> j (v:count == 0 ? "gj" : "j")
-  nnoremap <buffer> $ g$
-  nnoremap <buffer> 0 g0
-  nnoremap <buffer> ^ g^
-endfunction
-
 function! s:QuickfixMappings()
   if getwininfo(win_getid())[0].loclist
     nnoremap <buffer> [f :lolder<CR>
@@ -759,7 +751,6 @@ augroup ft_options
         \ expandtab
         \ wrap
         \ linebreak
-  autocmd FileType markdown call <SID>MarkdownMappings()
   autocmd FileType qf setlocal
         \ nobuflisted
         \ nolist
