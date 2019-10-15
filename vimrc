@@ -562,19 +562,6 @@ let g:surround_{char2nr("S")} = "\r "
 " -----------
 nmap <expr> - line(".") == 1 ? "<Plug>VinegarUp" : "-"
 
-" markdown
-" -------
-let g:markdown_fenced_languages = [
-      \ "bash=sh",
-      \ "css",
-      \ "erb=eruby.html",
-      \ "html",
-      \ "javascript",
-      \ "ruby",
-      \ "sh",
-      \ "sql",
-      \ ]
-
 " ruby
 " ----
 let g:ruby_indent_block_style = "do"
