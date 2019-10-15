@@ -603,7 +603,7 @@ endfunction
 function! s:QuickfixTitle()
   if !exists("w:quickfix_title") | return | endif
 
-  if w:quickfix_title =~# "^:rg" || w:quickfix_title =~# "^:grep"
+  if w:quickfix_title =~# "^:" . &grepprg || w:quickfix_title =~# "^:grep"
     let w:quickfix_title = substitute(w:quickfix_title, &grepprg, "grep", "")
   endif
 endfunction
