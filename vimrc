@@ -589,10 +589,10 @@ function! s:QuickfixMappings()
 endfunction
 
 function! s:QuickfixTitle()
-  if !exists("w:quickfix_title") | return | endif
+  let title = get(w:, "quickfix_title", "")
 
-  if w:quickfix_title =~# "^:" . &grepprg || w:quickfix_title =~# "^:grep"
-    let w:quickfix_title = substitute(w:quickfix_title, &grepprg, "grep", "")
+  if title =~# "^:" . &grepprg || title =~# "^:grep"
+    let w:quickfix_title = substitute(title, &grepprg, "grep", "")
   endif
 endfunction
 
