@@ -146,7 +146,7 @@ p() {
 }
 
 theme() {
-  usage() { echo "theme <light|dark>" }
+  usage="theme <light|dark>"
   new_style=""
 
   case "$1" in
@@ -157,11 +157,11 @@ theme() {
       new_style="light"
       ;;
     --help|-h)
-      echo "$(usage)"
+      echo "$usage"
       return 0
       ;;
     *)
-      echo "$(usage)" >&2
+      echo "$usage" >&2
       return 1
   esac
 
