@@ -270,6 +270,19 @@ augroup vimrcEx
         \ endif
 augroup END
 
+if exists("##OSAppearanceChanged")
+  augroup FollowOSAppearance
+    autocmd!
+
+    autocmd OSAppearanceChanged *
+          \ if v:os_appearance == 1 |
+          \   set background=dark |
+          \ else |
+          \   set background=light |
+          \ endif
+  augroup END
+endif
+
 " ale.vim
 " -------
 " I prefer invoking `ALELint` at my leisure rather than having it run
