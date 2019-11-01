@@ -236,7 +236,7 @@ nnoremap yot :setlocal colorcolumn=<C-R>=&cc == 0 ? &textwidth + 1 : 0<CR><CR>
 
 nnoremap <silent> <C-w>.
       \ :if exists(":Plcd")<Bar>
-      \   execute "0Plcd"<Bar>
+      \   execute "Plcd"<Bar>
       \ elseif exists(":Glcd")<Bar>
       \   execute "Glcd"<Bar>
       \ else<Bar>
