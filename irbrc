@@ -13,7 +13,6 @@ begin
 rescue LoadError
   # no-op
 end
-
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] =
   if defined?(Rails) && Rails.root
@@ -39,4 +38,10 @@ def capture_exception(&block)
   block.call
 rescue => exception
   exception
+end
+
+def time(&block)
+  t0 = Time.now
+  block.call
+  puts Time.now - t0
 end
