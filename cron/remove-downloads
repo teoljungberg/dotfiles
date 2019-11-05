@@ -1,3 +1,5 @@
 #!/bin/sh
 
-find ~/Downloads -mtime 7 -exec rm {} \;
+set -e
+
+find ~/Downloads -type f -mtime +7 -exec rm "{}" \;
