@@ -1,3 +1,5 @@
 #!/bin/sh
 
-find ~/Desktop -name "*Screenshot*.png" -mtime 2 -exec rm {} \;
+set -e
+
+find ~/Desktop -type f -name "*Screen Shot*.png" -mtime +2 -exec rm "{}" \;
