@@ -435,7 +435,7 @@ augroup Fugitive
   autocmd!
 
   autocmd BufReadPost *
-        \ if &readonly && get(b:, "fugitive_type", "") == "index" |
+        \ if get(b:, "fugitive_type", "") == "index" |
         \   call <SID>GstatusMappings() |
         \ endif
   autocmd BufReadPost *.git/PULLREQ_EDITMSG set filetype=gitcommit
