@@ -558,37 +558,27 @@ function! CCR()
     return "\<CR>"
   end
   let cmdline = getcmdline()
-  let filter_present = '\v\C^(filt|filter) /.*/ '
+  let filter_stub = '\v\C^((filt|filte|filter) .+ )*'
   command! -bar Z silent set more|delcommand Z
 
-  if
-        \ cmdline =~# '\v\C^(ls|files|buffers)' ||
-        \ cmdline =~# filter_present . '(ls|files|buffers)'
+  if cmdline =~# filter_stub . '(ls|files|buffers)'
     return "\<CR>:buffer "
-  elseif
-        \ cmdline =~# '\v\C^(g|global).*(#|nu|num|numb|numbe|number)$' ||
-        \ cmdline =~# filter_present . '(#|nu|num|numb|numbe|number)'
+  elseif cmdline =~# filter_stub . '(#|nu|num|numb|numbe|number)'
     return "\<CR>:"
-  elseif
-        \ cmdline =~# '\v\C^(old|oldfiles)' ||
-        \ cmdline =~# filter_present . '(old|oldfiles)'
+  elseif cmdline =~# filter_stub . '(old|oldfiles)'
     set nomore
     return "\<CR>:Z|edit #<"
   elseif cmdline =~# '\C^changes'
     set nomore
     return "\<CR>:Z|normal! g;\<S-Left>"
-  elseif
-        \ cmdline =~# '\v\C^(ju|jumps)' ||
-        \ cmdline =~# filter_present . '(ju|jumps)'
+  elseif cmdline =~# filter_stub . '(ju|jumps)'
     set nomore
     return "\<CR>:Z|normal! \<C-O>\<S-Left>"
-  elseif cmdline =~# '\C^marks' || cmdline =~# filter_present . 'marks'
+  elseif cmdline =~# filter_stub . 'marks'
     return "\<CR>:normal! `"
   elseif cmdline =~# '\v\C^(undol|undolist)'
     return "\<CR>:undo "
-  elseif
-        \ cmdline =~# '\v\C^(cli|clist|lli|llist)\s.*' ||
-        \ cmdline =~# filter_present . '(cli|clist|lli|llist)'
+  elseif cmdline =~# filter_stub . '(cli|clist|lli|llist)'
     return
           \ "\<CR>" .
           \ ":silent " .
