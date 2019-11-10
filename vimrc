@@ -557,9 +557,9 @@ function! CCR()
   if getcmdtype() !=# ":"
     return "\<CR>"
   end
-
   let cmdline = getcmdline()
   let filter_present = '\v\C^(filt|filter) /.*/ '
+  command! -bar Z silent set more|delcommand Z
 
   if
         \ cmdline =~# '\v\C^(ls|files|buffers)' ||
@@ -573,15 +573,15 @@ function! CCR()
         \ cmdline =~# '\v\C^(old|oldfiles)' ||
         \ cmdline =~# filter_present . '(old|oldfiles)'
     set nomore
-    return "\<CR>:silent set more|edit #<"
+    return "\<CR>:Z|edit #<"
   elseif cmdline =~# '\C^changes'
     set nomore
-    return "\<CR>:silent set more|normal! g;\<S-Left>"
+    return "\<CR>:Z|normal! g;\<S-Left>"
   elseif
         \ cmdline =~# '\v\C^(ju|jumps)' ||
         \ cmdline =~# filter_present . '(ju|jumps)'
     set nomore
-    return "\<CR>:silent set more|normal! \<C-O>\<S-Left>"
+    return "\<CR>:Z|normal! \<C-O>\<S-Left>"
   elseif cmdline =~# '\C^marks' || cmdline =~# filter_present . 'marks'
     return "\<CR>:normal! `"
   elseif cmdline =~# '\v\C^(undol|undolist)'
