@@ -60,7 +60,8 @@ if $TERM =~# "^xterm"
 endif
 
 if exists("+breakindent")
-  set breakindent showbreak=\ +
+  set breakindent
+  set showbreak=\ +
 endif
 
 if exists("+undofile")
