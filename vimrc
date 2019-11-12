@@ -612,21 +612,21 @@ augroup ft_options
 
   autocmd FileType bash setlocal iskeyword+=-
   autocmd FileType c setlocal
+        \ cinoptions=:0,t0,+4,(4
         \ noexpandtab
         \ shiftwidth=8
         \ tabstop=8
-        \ cinoptions=:0,t0,+4,(4
   autocmd FileType markdown,gitcommit iabbrev <buffer> -. - [ ]
   autocmd FileType markdown,gitcommit iabbrev <buffer> -x - [X]
   autocmd FileType markdown iabbrev <buffer>
         \ set_spelllang
         \ <!-- vim:set spelllang=TODO : -->
   autocmd FileType markdown setlocal
-        \ spell
-        \ shiftwidth=2
         \ expandtab
-        \ wrap
         \ linebreak
+        \ shiftwidth=2
+        \ spell
+        \ wrap
   autocmd FileType qf setlocal
         \ nobuflisted
         \ nolist
