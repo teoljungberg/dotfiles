@@ -172,7 +172,7 @@ theme() {
   fi
 
   if [ -n "$TMUX" ]; then
-    kitty @ --to "$LISTEN_TO" \
+    kitty @ --to "$KITTY_LISTEN_ON" \
       set-colors --all --configured "$HOME/.config/kitty/theme.conf"
     tmux set-environment THEME "$THEME"
     tmux source-file "$HOME/.tmux.conf"
