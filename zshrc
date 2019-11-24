@@ -194,6 +194,16 @@ theme() {
   fi
 }
 
+if [ -z "$THEME" ] && [ $(uname -s) = "Darwin" ]; then
+  style=$(defaults read -g AppleInterfaceStyle 2> /dev/null)
+
+  if [ "$style" = "Dark" ]; then
+    export THEME=dark
+  else
+    export THEME=light
+  fi
+fi
+
 add-zsh-hook preexec "_add_trusted_local_bin_to_path"
 
 [ -f /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
