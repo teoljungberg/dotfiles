@@ -40,11 +40,12 @@ display_new_commits() {
   current_sha="$(git -C "$work_tree_path" rev-parse --short HEAD)"
   new_sha="$(git -C "$work_tree_path" rev-parse --short origin/master)"
   current_branch="$(git -C "$work_tree_path" symbolic-ref --short HEAD)"
+  remote="$(git -C "$work_tree_path" remote show -n origin | grep "Fetch URL")"
 
   if [ "$current_branch" = "master" ] && [ "$current_sha" != "$new_sha" ]; then
     sha_range="$current_sha...$new_sha"
 
-    if command -v hub > /dev/null 2>&1; then
+    if echo "$remote" | grep -q github && command -v hub > /dev/null 2>&1; then
       hub -C "$work_tree_path" compare -u "$sha_range"
     else
       git -C "$work_tree_path" --no-pager log --oneline "$sha_range"
