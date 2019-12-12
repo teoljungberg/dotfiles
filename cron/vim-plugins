@@ -1,6 +1,7 @@
 #!/bin/sh
 
 set -e
+[ -n "$DEBUG" ] && set -x
 
 bundles="
   AndrewRadev/splitjoin.vim
