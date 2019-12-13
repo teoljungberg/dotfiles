@@ -149,9 +149,6 @@ map <Leader>r :read %%
 " This is only done for files under `app`.
 cnoremap %t <C-R>=substitute(expand("%:r"), "^app[^/]*.", "", "")<CR>
 
-" Toggle between the two most recent files
-noremap <Leader><Leader> <C-^>
-
 " Only have the current split and tab open
 command! O :silent only<Bar>silent tabonly
 
