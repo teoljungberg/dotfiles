@@ -561,7 +561,7 @@ function! CCR()
 
   if cmdline =~# filter_stub . '(ls|files|buffers)'
     return "\<CR>:buffer "
-  elseif cmdline =~# filter_stub . '(#|nu|num|numb|numbe|number)'
+  elseif cmdline =~# '\v\C(#|nu|num|numb|numbe|number)$'
     return "\<CR>:"
   elseif cmdline =~# filter_stub . '(old|oldfiles)'
     set nomore
