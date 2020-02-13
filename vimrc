@@ -355,6 +355,11 @@ augroup END
 
 " fugitive.vim
 " ------------
+nmap <script> <SID>:. :<C-R>=getcmdline() =~ "," ? "\0250" : ""<CR>
+nmap g<CR> <SID>:.Git<CR>
+nmap g<Space> <SID>:.Git<Space>
+vnoremap g<Space> :Git<Space>
+
 function s:GstatusMappings()
   nnoremap <buffer> rM :Git rebase --interactive origin/master<CR>
 endfunction
