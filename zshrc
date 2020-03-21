@@ -34,29 +34,6 @@ alias j="jobs"
 alias ls="ls -F"
 alias ..="cd .."
 
-_prepend_to_path_without_duplication() {
-  case ":$PATH:" in
-    *":$1:"* )
-      ;;
-
-    *)
-      PATH="$1:$PATH"
-      ;;
-  esac
-}
-
-_add_trusted_local_bin_to_path() {
-  if [ -d "$PWD/.git/safe" ]; then
-    _prepend_to_path_without_duplication ".git/safe/../../bin"
-  else
-    _remove_from_path ".git/safe/../../bin"
-  fi
-}
-
-_remove_from_path() {
-  PATH=$(echo "$PATH" | sed -e "s|$1:||")
-}
-
 # Completion for `bin/git-changed-files`
 _git_changed_files() {
   zle -U "$(git changed-files | fzf)"
@@ -206,9 +183,9 @@ if [ -z "$THEME" ] && [ $(uname -s) = "Darwin" ]; then
   fi
 fi
 
-add-zsh-hook preexec "_add_trusted_local_bin_to_path"
-
 [ -f /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
+
+PATH=".git/safe/../../bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
