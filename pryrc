@@ -1,6 +1,6 @@
 load File.expand_path("~/.irbrc")
 
-Pry.config.history.file =
+Pry.config.history_file =
   if defined?(Rails)
     Rails.root.join("tmp", "history-#{Rails.env}.rb")
   else
