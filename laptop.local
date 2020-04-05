@@ -1,11 +1,13 @@
 brew bundle --file=- <<EOF
-brew "asdf"
 brew "automake"
 brew "fzf"
 brew "jq"
 brew "macvim"
 brew "pgformatter"
 brew "rg"
+
+tap "teoljungberg/formulae"
+cask "setrb"
 
 tap "caskroom/cask"
 cask "1password"

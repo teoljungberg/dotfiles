@@ -27,6 +27,8 @@ export PAGER="less -R"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export THOR_SHELL=Basic
 export VISUAL="$EDITOR"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' insert-tab pending
@@ -208,10 +210,6 @@ if [ -z "$THEME" ] && [ $(uname -s) = "Darwin" ]; then
   fi
 fi
 
-[ -f /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
-
-PATH=".git/safe/../../bin:$PATH"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if command -v kitty >/dev/null; then
@@ -267,6 +265,13 @@ git_branch_color() {
   fi
 }
 
+setup_setrb() {
+  which setrb >/dev/null && \
+    [ -z "$SETRB_PATH_ADDITIONS" ] &&
+    ([ -f .ruby-version ] || [ -f .tool-versions ]) && \
+    eval "$(setrb -w0 2>/dev/null)"
+}
+
 preexec() {
   refresh_tmux_environment_variables
 }
@@ -274,6 +279,7 @@ preexec() {
 precmd() {
   rename_tmux_window_to_current_dir
   rename_tab_to_current_dir
+  setup_setrb
 
   if [ -z $SSH_CONNECTION ]; then
     PROMPT="%c $(git_branch_color)$(git_branch)%{$reset_color%}%# "
