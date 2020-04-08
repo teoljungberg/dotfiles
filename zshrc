@@ -12,14 +12,16 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export EDITOR="vim"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent::1"
 export GREP_OPTIONS="--color"
+export HOMEBREW_AUTO_UPDATE_SECS=600000
 export HOMEBREW_NO_COLOR=1
 export HOMEBREW_NO_EMOJI=1
-export HOMEBREW_AUTO_UPDATE_SECS=600000
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export LESS="-F -X -R"
 export PAGER="less -R"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
