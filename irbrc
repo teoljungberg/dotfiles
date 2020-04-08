@@ -1,6 +1,8 @@
 require "irb"
 require "irb/completion"
 
+ENV["TERM"] = "xterm"
+
 if defined?(Bundler)
   Gem.path.each do |gemset|
     $LOAD_PATH.concat Dir.glob("#{gemset}/gems/pry-*/lib")
@@ -20,6 +22,10 @@ IRB.conf[:HISTORY_FILE] =
   else
     File.expand_path("~/.history.rb")
   end
+
+if defined?(Rails)
+  ActiveSupport::LogSubscriber.colorize_logging = false
+end
 
 class Object
   def interesting_methods

@@ -25,6 +25,7 @@ export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export LESS="-F -X -R"
 export PAGER="less -R"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+export THOR_SHELL=Basic
 export VISUAL="$EDITOR"
 
 zstyle ':completion:*' completer _complete _ignored
