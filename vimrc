@@ -610,6 +610,13 @@ augroup ReleaseSwapfiles
         \ endif
 augroup END
 
+augroup Autosave
+  autocmd!
+
+  autocmd BufEnter,FocusGained * silent! update
+  autocmd BufLeave,FocusLost * silent! wall
+augroup END
+
 augroup ft_options
   autocmd!
 
