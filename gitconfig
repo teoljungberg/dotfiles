@@ -68,3 +68,6 @@
   new = bold
   old = 248
   whitespace = bold
+[color "grep"]
+  match = reverse
+  separator = dim
