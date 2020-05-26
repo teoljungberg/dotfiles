@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -e /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ]; then
+  /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -F
+else
+  less -F
+fi
