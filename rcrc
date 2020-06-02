@@ -1,2 +1,2 @@
-EXCLUDES="README.md cron"
+EXCLUDES="*.md cron"
 DOTFILES_DIRS="$HOME/src/dotfiles"
