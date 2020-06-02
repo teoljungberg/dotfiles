@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# Usage:
+#
+# To edit the Pull Request for the current branch:
+#
+# % git edit-pull-request
+#
+# Or to edit a specific Pull Request:
+#
+# % git edit-pull-request 1337
+#
+
+set -e
+
+command -v hub >/dev/null || {
+  echo >&2 "hub(1) is not installed"
+  exit 1
+}
+
+if [ -n "$1" ]; then
+  pull_request_number="$1"
+else
+  current_branch=$(git rev-parse --abbrev-ref HEAD)
+  delimiter="|"
+  format="%I$delimiter%t%n"
+  pull_request_number=$( \
+    hub pr list -f "$format" -h "$current_branch" \ |
+    cut -d "$delimiter" -f 1 \
+  )
+fi
+
+hub issue update --edit "$pull_request_number"
