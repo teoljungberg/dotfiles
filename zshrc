@@ -36,6 +36,7 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 alias b="bundle exec"
 alias j="jobs"
 alias ls="ls -F"
+alias p="projects"
 alias ..="cd .."
 
 # Completion for `bin/git-changed-files`
@@ -141,10 +142,6 @@ projects() {
   result=$(echo "$PROJECTS" | tr ":" "\\n" | sed "/^$/d" | fzf -q "$1")
 
   cd "$result" || exit
-}
-
-p() {
-  projects "$@"
 }
 
 theme() {
