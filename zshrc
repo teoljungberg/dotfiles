@@ -40,9 +40,22 @@ alias p="projects"
 alias ..="cd .."
 
 # Completion for `bin/git-changed-files`
+__git_changed_files() {
+  local cmd="git changed-files"
+  setopt localoptions pipefail no_aliases 2> /dev/null
+  eval "$cmd" | fzf --height 40% --reverse | while read item; do
+    echo -n "${(q)item} "
+  done
+  local ret=$?
+  echo
+  return $ret
+}
+
 _git_changed_files() {
-  zle -U "$(git changed-files | fzf)"
-  zle list-expand
+  LBUFFER="${LBUFFER}$(__git_changed_files)"
+  local ret=$?
+  zle reset-prompt
+  return $ret
 }
 zle -N _git_changed_files
 
