@@ -6,7 +6,7 @@ dir="$(git rev-parse --git-dir)"
 
 trap 'rm -f "$dir/$$.tags"' EXIT
 
-if [ -f Gemfile ] && which ripper-tags >/dev/null; then
+if [ -f Gemfile ] && asdf exec ripper-tags -h 1> /dev/null 2> /dev/null; then
   git ls-files --cached --exclude-standard --others | \
     ripper-tags --tag-relative -L - -f "$dir/$$.tags"
 else

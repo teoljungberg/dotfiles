@@ -12,22 +12,20 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export EDITOR="vim"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent::1"
-export HOMEBREW_AUTO_UPDATE_SECS=600000
-export HOMEBREW_NO_COLOR=1
-export HOMEBREW_NO_EMOJI=1
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export LESS="-F -X -R"
+export NIX_PATH="darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$NIX_PATH"
+export NIX_PATH="darwin=$HOME/.nix-defexpr/channels/darwin:$NIX_PATH"
+export NIX_PATH="home-manager=$HOME/.nix-defexpr/channels/home-manager:$NIX_PATH"
 export PAGER="less -R"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+export RPS1=""
+export RUBY_CONFIGURE_OPTS=--"with-readline-dir=$HOME/.nix-profile/include/readline/"
 export THOR_SHELL=Basic
 export VISUAL="$EDITOR"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' insert-tab pending
@@ -38,6 +36,7 @@ alias j="jobs"
 alias ls="ls -F"
 alias p="projects"
 alias ..="cd .."
+alias sha256sum="gsha256sum"
 
 # Completion for `bin/git-changed-files`
 __git_changed_files() {
@@ -157,6 +156,12 @@ projects() {
   cd "$result" || exit
 }
 
+_source_if_available() {
+  file_to_be_sourced="$1"
+
+  [ -e "$file_to_be_sourced" ] && source "$file_to_be_sourced"
+}
+
 theme() {
   usage="theme <light|dark>"
   new_style=""
@@ -219,7 +224,11 @@ if [ -z "$THEME" ] && [ $(uname -s) = "Darwin" ]; then
   fi
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+_source_if_available "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+_source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
+_source_if_available "$HOME/.nix-profile/asdf/asdf.sh"
+_source_if_available "$HOME/.nix-profile/share/zsh/site-functions/_asdf"
+PATH=".git/safe/../../bin:$PATH"
 
 if command -v kitty >/dev/null; then
   kitty + complete setup zsh | source /dev/stdin
@@ -235,6 +244,10 @@ bindkey -v
 # command line editing
 autoload edit-command-line
 zle -N edit-command-line
+
+# keybindings
+_source_if_available "$HOME/.nix-profile/share/fzf/key-bindings.zsh"
+
 bindkey -M vicmd '^X^e' edit-command-line
 bindkey -M viins '^X^e' edit-command-line
 
@@ -274,13 +287,6 @@ git_branch_color() {
   fi
 }
 
-setup_setrb() {
-  which setrb >/dev/null && \
-    [ -z "$SETRB_PATH_ADDITIONS" ] &&
-    ([ -f .ruby-version ] || [ -f .tool-versions ]) && \
-    eval "$(setrb -w0 2>/dev/null)"
-}
-
 preexec() {
   refresh_tmux_environment_variables
 }
@@ -288,7 +294,6 @@ preexec() {
 precmd() {
   rename_tmux_window_to_current_dir
   rename_tab_to_current_dir
-  setup_setrb
 
   if [ -z $SSH_CONNECTION ]; then
     PROMPT="%c $(git_branch_color)$(git_branch)%{$reset_color%}%# "

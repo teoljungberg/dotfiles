@@ -293,6 +293,7 @@ let g:ale_set_signs = 0
 let g:ale_open_list = 1
 
 let g:ale_markdown_mdl_executable = "bin/mdl"
+let g:ale_nix_nixpkgsfmt_executable = "nixfmt"
 let g:ale_ruby_rubocop_executable = "bin/rubocop"
 let g:ale_sql_pgformatter_options = "--spaces 2"
 
@@ -302,6 +303,7 @@ let g:ale_linters_explicit = 1
 let g:ale_linters = {}
 let g:ale_linters.javascript = ["eslint"]
 let g:ale_linters.markdown = ["mdl"]
+let g:ale_linters.nix = ["nixpkgs-fmt"]
 let g:ale_linters.ruby = ["rubocop"]
 let g:ale_linters.sh = ["shellcheck"]
 let g:ale_linters.vim = ["vint"]
@@ -313,6 +315,7 @@ let g:ale_fixers = { "*": ["trim_whitespace"] }
 let g:ale_fixers.javascript = ["eslint"]
 let g:ale_fixers.json = ["jq"]
 let g:ale_fixers.ruby = ["rubocop"]
+let g:ale_fixers.nix = ["nixpkgs-fmt"]
 let g:ale_fixers.rust = ["rustfmt"]
 let g:ale_fixers.sql = ["pgformatter"]
 
@@ -332,6 +335,12 @@ augroup Dispatch
         \       matchstr(getline(1), '#!\%(/usr/bin/env \+\)\=\zs.*') . " %" |
         \   let b:start = "-wait=always " . b:dispatch |
         \ endif
+  autocmd BufReadPost */darwin-configuration.nix
+        \ let b:dispatch = "darwin-rebuild check" |
+        \ let b:start = "-wait=always darwin-rebuild switch"
+  autocmd BufReadPost */home.nix
+        \ let b:dispatch = "home-manager -n switch" |
+        \ let b:start = "-wait=always home-manager switch"
   autocmd FileType ruby let b:start = "irb -r '%:p'"
   autocmd FileType ruby
         \ if expand("%") =~# "_test\.rb$" |
@@ -383,7 +392,7 @@ augroup END
 " fzf.vim
 " --------
 if executable("fzf")
-  set runtimepath+=/usr/local/opt/fzf
+  set runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
 endif
 
 let g:fzf_command_prefix = "FZF"

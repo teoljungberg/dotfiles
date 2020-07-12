@@ -5,6 +5,7 @@ set -e
 
 bundles="
   AndrewRadev/splitjoin.vim
+  LnL7/vim-nix
   dense-analysis/ale
   junegunn/fzf.vim
   pbrisbin/vim-mkdir
