@@ -22,6 +22,7 @@ IRB.conf[:HISTORY_FILE] =
   else
     File.expand_path("~/.history.rb")
   end
+IRB.conf[:USE_COLORIZE] = false
 
 if defined?(Rails)
   ActiveSupport::LogSubscriber.colorize_logging = false
