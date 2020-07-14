@@ -11,3 +11,4 @@ Icon?
 .vimrc.local
 .*.sw?
 .sw?
+/TODO.md

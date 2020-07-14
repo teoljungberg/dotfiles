@@ -473,7 +473,10 @@ let g:projectionist_heuristics = {
       \      "dispatch": "cargo check"
       \    },
       \    "*": { "make": "cargo" }
-      \  }
+      \  },
+      \  "*": {
+      \   "TODO.md": { "command": "todo" },
+      \  },
       \ }
 
 " splitjoin.vim
