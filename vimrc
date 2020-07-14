@@ -445,6 +445,12 @@ let g:rails_projections = {
       \     "command": "request",
       \     "alternate": "app/controllers/{}_controller.rb"
       \   },
+      \   "spec/factories/*.rb": {
+      \     "command": "factory",
+      \     "related": [
+      \       "app/models/{singular}.rb"
+      \     ],
+      \   },
       \ }
 
 let g:projectionist_heuristics = {
