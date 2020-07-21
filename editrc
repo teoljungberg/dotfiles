@@ -1,0 +1,18 @@
+bind "^R" em-inc-search-prev
+
+# Home
+bind "\e[1~" ed-move-to-beg
+# End
+bind "\e[4~" ed-move-to-end
+# Delete
+bind "\e[3~" ed-delete-next-char
+# Insert
+bind "\e[2~" ed-quoted-insert
+# Ctrl-Right
+bind "\e[1;5C" em-next-word
+bind "\e[5C" em-next-word
+bind "\e\e[C" em-next-word
+# Ctrl-Left
+bind "\e[1;5D" ed-prev-word
+bind "\e[5D" ed-prev-word
+bind "\e\e[D" ed-prev-word
