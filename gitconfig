@@ -47,12 +47,6 @@
   rebase = true
 [format]
   pretty = format:commit %C(bold)%H%nAuthor: %an <%ae>%nDate:  %ad%n%n%-B
-[color "interactive"]
-  prompt = bold
-[color "branch"]
-  current = bold
-  remote = 248
-  nobranch = bold
 [color "status"]
   added = bold
   branch = bold
@@ -68,6 +62,7 @@
   new = bold
   old = 248
   whitespace = bold
-[color "grep"]
-  match = reverse
-  separator = dim
+[color]
+  ui = false
+  diff = true
+  status = true
