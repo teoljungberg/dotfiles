@@ -63,6 +63,9 @@
   old = 248
   whitespace = bold
 [color]
+  advice = false
+  push = false
+  transport = false
   ui = false
   diff = true
   status = true
