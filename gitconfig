@@ -45,27 +45,8 @@
   path = ~/.gitconfig.local
 [pull]
   rebase = true
-[format]
-  pretty = format:commit %C(bold)%H%nAuthor: %an <%ae>%nDate:  %ad%n%n%-B
-[color "status"]
-  added = bold
-  branch = bold
-  changed = 248
-  deleted = 248
-  localBranch = bold
-  remoteBranch = 248
-  unmerged = bold
-  untracked = 248
-  updated = bold
-[color "diff"]
-  frag = bold
-  new = bold
-  old = 248
-  whitespace = bold
 [color]
   advice = false
   push = false
   transport = false
   ui = false
-  diff = true
-  status = true
