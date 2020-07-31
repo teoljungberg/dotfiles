@@ -248,9 +248,13 @@ zle -N edit-command-line
 # keybindings
 _source_if_available "$HOME/.nix-profile/share/fzf/key-bindings.zsh"
 
-bindkey -M vicmd '^X^e' edit-command-line
-bindkey -M viins '^X^e' edit-command-line
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
 
+bindkey -M vicmd '^X^e' edit-command-line
+bindkey -M viins "^q" push-line-or-edit
+bindkey -M viins '\e_' insert-last-word
 bindkey -M viins '^A' beginning-of-line
 bindkey -M viins '^B' backward-char
 bindkey -M viins '^D' delete-char-or-list
@@ -261,21 +265,12 @@ bindkey -M viins '^N' down-line-or-history
 bindkey -M viins '^P' up-line-or-history
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M viins '^S' history-incremental-search-forward
-
-bindkey -M viins "^q" push-line-or-edit
-
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey '^X^P' history-beginning-search-backward-end
-bindkey '^X^N' history-beginning-search-forward-end
+bindkey -M viins '^X^G' _git_changed_files
+bindkey -M viins '^X^N' history-beginning-search-forward-end
+bindkey -M viins '^X^P' history-beginning-search-backward-end
 
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-forward
-
-bindkey -M viins '\e_' insert-last-word
-
-bindkey '^X^G' _git_changed_files
 
 git_branch_color() {
   if [ "$THEME" = "light" ]; then
