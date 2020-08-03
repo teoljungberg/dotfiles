@@ -52,3 +52,7 @@ def time(&block)
   block.call
   puts Time.now - t0
 end
+
+def ri(*args)
+  help(*args)
+end
