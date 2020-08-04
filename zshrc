@@ -290,11 +290,11 @@ precmd() {
   rename_tmux_window_to_current_dir
   rename_tab_to_current_dir
 
-  if [ -z $SSH_CONNECTION ]; then
-    PROMPT="%c $(git_branch_color)$(git_branch)%{$reset_color%}%# "
-  else
+  PROMPT="%c $(git_branch_color)$(git_branch)%{$reset_color%}%# "
+
+  [ -n "$SIMPLE_PROMPT" ] && PROMPT="%# "
+  [ -n "$SSH_CONNECTION" ] && \
     PROMPT="%c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%# "
-  fi
 }
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
