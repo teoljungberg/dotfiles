@@ -142,6 +142,7 @@ map <Leader>s :split %%
 map <Leader>v :vsplit %%
 map <Leader>t :tabedit %%
 map <Leader>r :read %%
+map <Leader>w :write %%
 
 " In the following file `app/services/foo_bar.rb`, `%t` is expanded to
 " `services/foo_bar`. Which useful for creating tests by i.e `:Vspec %t!` (which
