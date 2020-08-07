@@ -263,11 +263,13 @@ bindkey -M viins '^D' delete-char-or-list
 bindkey -M viins '^E' end-of-line
 bindkey -M viins '^F' forward-char
 bindkey -M viins '^K' kill-line
-bindkey -M viins '^N' history-beginning-search-forward-end
-bindkey -M viins '^P' history-beginning-search-backward-end
+bindkey -M viins '^N' down-line-or-history
+bindkey -M viins '^P' up-line-or-history
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M viins '^S' history-incremental-search-forward
 bindkey -M viins '^X^G' _git_changed_files
+bindkey -M viins '^X^N' history-beginning-search-forward-end
+bindkey -M viins '^X^P' history-beginning-search-backward-end
 
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-forward
