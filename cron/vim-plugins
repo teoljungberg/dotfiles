@@ -69,7 +69,9 @@ find "$HOME/.vim/pack/bundle" -type d -name ".git" | while read -r path; do
   if [ -n "$(git -C "$path" remote)" ]; then
     git -C "$path" fetch -q origin
     display_new_commits "$path"
+    git -C "$path" stash > /dev/null
     git -C "$path" rebase -q origin/master > /dev/null
+    git -C "$path" stash pop > /dev/null
   fi
 done
 
