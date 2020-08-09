@@ -1,5 +1,5 @@
 LANG="en_US.UTF-8"
-PATH=/usr/local/bin:/usr/bin:/bin
+PATH=$HOME/.nix-profile/bin:/usr/bin:/bin
 
 30 9 * * *	$HOME/src/dotfiles/cron/vim-plugins
 30 9 * * 1	$HOME/src/dotfiles/cron/remove-downloads
