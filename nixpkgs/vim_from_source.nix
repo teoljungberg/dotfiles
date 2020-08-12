@@ -30,10 +30,6 @@ stdenv.mkDerivation {
       "vim_cv_memmove_handles_overlap=yes"
     ];
 
-  postPatch = ''
-    substituteInPlace runtime/ftplugin/man.vim --replace "/usr/bin/man " "man "
-  '';
-
   postInstall = ''
     ln -s $out/bin/vim $out/bin/vi
     mkdir -p $out/share/vim
