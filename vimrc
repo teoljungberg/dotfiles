@@ -21,6 +21,7 @@ set nojoinspaces
 set nowrap
 set number
 set numberwidth=5
+set path=.,,
 set scrolloff=1
 set shiftround
 set shortmess=aoOtsT
