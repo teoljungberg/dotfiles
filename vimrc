@@ -396,6 +396,14 @@ augroup END
 " --------
 if executable("fzf")
   set runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
+
+  nnoremap <Space><Space> :FZF<CR>
+  nnoremap <Space>] :FZFTags<CR>
+  nnoremap <Space>b :FZFBuffers<CR>
+else
+  nnoremap <Space><Space> :find<Space>
+  nnoremap <Space>] :tag<Space>
+  nnoremap <Space>b :ls<CR>:buffer<Space>
 endif
 
 let g:fzf_command_prefix = "FZF"
@@ -406,14 +414,15 @@ let g:fzf_action = {
       \ }
 let g:fzf_preview_window = ""
 
-nnoremap <Space><Space> :FZF<CR>
-nnoremap <Space>] :FZFTags<CR>
-nnoremap <Space>b :FZFBuffers<CR>
-
 augroup FZF
   autocmd!
 
-  autocmd FileType help nnoremap <buffer> <Space>] :FZFHelptags<CR>
+  autocmd FileType help
+        \ if executable("fzf") |
+        \   nnoremap <buffer> <Space>] :FZFHelptags<CR> |
+        \ else |
+        \   nnoremap <buffer> <Space>] :tag<Space> |
+        \ endif
   autocmd FileType fzf
         \ set laststatus=0 noshowmode noruler
         \ |
