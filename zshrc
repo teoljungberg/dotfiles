@@ -156,11 +156,7 @@ projects() {
   cd "$result" || exit
 }
 
-_source_if_available() {
-  file_to_be_sourced="$1"
-
-  [ -e "$file_to_be_sourced" ] && source "$file_to_be_sourced"
-}
+_source_if_available() { [ -e "$1" ] && source "$1" }
 
 theme() {
   usage="theme <light|dark>"

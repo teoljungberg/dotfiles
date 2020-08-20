@@ -11,11 +11,7 @@ if [ -z "$TMUX" ]; then
 fi
 export PATH
 
-_source_if_available() {
-  file_to_be_sourced="$1"
-
-  [ -e "$file_to_be_sourced" ] && source "$file_to_be_sourced"
-}
+_source_if_available() { [ -e "$1" ] && source "$1" }
 
 if command -v rustc >/dev/null 2>&1; then
   RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
