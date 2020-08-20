@@ -297,4 +297,4 @@ precmd() {
     PROMPT="%c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%# "
 }
 
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+_source_if_available "$HOME/.zshrc.local"
