@@ -278,6 +278,14 @@ git_branch_color() {
   fi
 }
 
+set_prompt() {
+  PROMPT="%c $(git_branch_color)$(git_branch)%{$reset_color%}%# "
+
+  [ -n "$SIMPLE_PROMPT" ] && PROMPT="%# "
+  [ -n "$SSH_CONNECTION" ] && \
+    PROMPT="%c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%# "
+}
+
 preexec() {
   refresh_tmux_environment_variables
 }
@@ -285,12 +293,7 @@ preexec() {
 precmd() {
   rename_tmux_window_to_current_dir
   rename_tab_to_current_dir
-
-  PROMPT="%c $(git_branch_color)$(git_branch)%{$reset_color%}%# "
-
-  [ -n "$SIMPLE_PROMPT" ] && PROMPT="%# "
-  [ -n "$SSH_CONNECTION" ] && \
-    PROMPT="%c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%# "
+  set_prompt
 }
 
 _source_if_available "$HOME/.zshrc.local"
