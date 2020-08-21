@@ -7,6 +7,7 @@ setopt nobeep
 setopt no_bg_nice
 setopt alwaystoend
 setopt hist_ignore_all_dups inc_append_history
+setopt prompt_sp
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
