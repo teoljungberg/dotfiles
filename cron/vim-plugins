@@ -71,7 +71,7 @@ find "$HOME/.vim/pack/bundle" -type d -name ".git" | while read -r path; do
     display_new_commits "$path"
     git -C "$path" stash > /dev/null
     git -C "$path" rebase -q origin/master > /dev/null
-    git -C "$path" stash pop > /dev/null
+    git -C "$path" stash pop 1> /dev/null 2> /dev/null
   fi
 done
 
