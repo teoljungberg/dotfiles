@@ -242,6 +242,8 @@ nnoremap <silent> <C-w>.
       \ <CR>
 nmap cd <C-W>.
 
+nnoremap <Space>b :ls<CR>:buffer<Space>
+
 augroup vimrcEx
   autocmd!
 
@@ -399,11 +401,9 @@ if executable("fzf")
 
   nnoremap <Space><Space> :FZF<CR>
   nnoremap <Space>] :FZFTags<CR>
-  nnoremap <Space>b :FZFBuffers<CR>
 else
   nnoremap <Space><Space> :find<Space>
   nnoremap <Space>] :tag<Space>
-  nnoremap <Space>b :ls<CR>:buffer<Space>
 endif
 
 let g:fzf_command_prefix = "FZF"
