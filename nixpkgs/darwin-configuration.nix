@@ -53,7 +53,7 @@ in {
     NSAutomaticSpellingCorrectionEnabled = false;
     NSNavPanelExpandedStateForSaveMode = true;
     NSNavPanelExpandedStateForSaveMode2 = true;
-    _HIHideMenuBar = false;
+    _HIHideMenuBar = true;
   };
 
   system.defaults.dock = {
