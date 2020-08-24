@@ -38,7 +38,7 @@ set ttimeout
 set ttimeoutlen=50
 set updatetime=1000
 set viminfo=!,'20,<50,s10,h
-set wildmode=list:longest,list:full
+set wildmode=list,full
 syntax enable
 
 " Enforce italics
