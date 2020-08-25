@@ -378,12 +378,20 @@ function s:GstatusMappings()
   nnoremap <buffer> rM :Git rebase --interactive origin/master<CR>
 endfunction
 
+function s:FugitiveMappings()
+  nnoremap <buffer> q <Nop>
+endfunction
+
 augroup Fugitive
   autocmd!
 
   autocmd BufReadPost *
         \ if get(b:, "fugitive_type", "") == "index" |
         \   call <SID>GstatusMappings() |
+        \ endif
+  autocmd BufReadPost *
+        \ if has_key(b:, "fugitive_type") |
+        \   call <SID>FugitiveMappings() |
         \ endif
   autocmd BufReadPost *.git/PULLREQ_EDITMSG set filetype=gitcommit
   autocmd FileType git setlocal nolist
