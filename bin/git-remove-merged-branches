@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# Remove all branches that have had their remote branch removed.
+
+git for-each-ref --format "%(refname) %(upstream:track)" refs/heads | \
+  grep "\[gone\]" | \
+  cut -d" " -f1 | \
+  rev | \
+  cut -d/ -f1 | \
+  rev | \
+  xargs git branch -D
