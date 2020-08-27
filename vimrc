@@ -3,6 +3,7 @@ set autowrite
 set backspace=indent,eol,start
 set backupskip=/tmp/*,/private/tmp/*
 set cmdheight=2
+set commentstring=#\ %s
 set complete+=kspell
 set complete-=i
 set display=lastline
