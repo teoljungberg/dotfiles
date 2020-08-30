@@ -544,7 +544,12 @@ let g:surround_{char2nr("S")} = "\r "
 
 " vinegar.vim
 " -----------
-nmap <expr> - line(".") == 1 ? "<Plug>VinegarUp" : "-"
+if exists("<Plug>VinegarUp")
+  nnoremap <silent> <Plug>Up <Plug>VinegarUp
+else
+  nnoremap <silent> <Plug>Up :Explore<CR>
+endif
+nmap <expr> - line(".") == 1 ? "<Plug>Up" : "-"
 
 " ruby
 " ----
