@@ -15,7 +15,6 @@ in {
     autoconf
     automake
     coreutils-prefixed
-    ctags
     fzf
     git
     gnupg
@@ -33,6 +32,7 @@ in {
     setrb
     shellcheck
     tmux
+    universal-ctags
     vim
     zsh
   ];
