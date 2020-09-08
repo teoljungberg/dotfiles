@@ -1,3 +1,4 @@
 --exclude=*.min.js
 --exclude=.bundle
 --exclude=.git
+--languages=-json
