@@ -12,7 +12,7 @@
   cp = cherry-pick
   d = diff
   dc = diff --cached
-  l = log --graph --pretty=format:'%C(bold)%h%d%C(reset) %s'
+  l = log --graph --oneline
   ls = ls-files
   p = push-origin-or-fork
   r = recent
