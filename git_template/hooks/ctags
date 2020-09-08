@@ -8,7 +8,9 @@ trap 'rm -f "$dir/$$.tags"' EXIT
 
 if [ -f Gemfile ] && asdf exec ripper-tags -h 1> /dev/null 2> /dev/null; then
   git ls-files --cached --exclude-standard --others | \
-    ripper-tags --tag-relative -L - -f "$dir/$$.tags"
+    ripper-tags --append --tag-relative -L - -f "$dir/$$.tags"
+  git ls-files --cached --exclude-standard --others | \
+    ctags --append --languages=-ruby --tag-relative -L - -f "$dir/$$.tags"
 else
   git ls-files --cached --exclude-standard --others | \
     ctags --tag-relative -L - -f "$dir/$$.tags"
