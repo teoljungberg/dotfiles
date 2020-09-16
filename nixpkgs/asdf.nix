@@ -3,11 +3,11 @@
 
 stdenv.mkDerivation {
   pname = "asdf";
-  version = "0.8.0-rc1";
+  version = "0.8.0";
 
   src = fetchzip {
-    url = "https://github.com/asdf-vm/asdf/archive/v0.8.0-rc1.tar.gz";
-    sha256 = "1ycv7knjlf169y742bgpvv88apj03yp58yva2y4dycp2rf0196is";
+    url = "https://github.com/asdf-vm/asdf/archive/v0.8.0.tar.gz";
+    sha256 = "07pn23dazjglwadaqczmw0zwlmfvw8r8zmlvraqjlkq8hkvqv28k";
   };
 
   installPhase = ''
