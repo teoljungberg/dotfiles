@@ -412,7 +412,7 @@ if executable("fzf")
   nnoremap <Space>] :FZFTags<CR>
 else
   nnoremap <Space><Space> :find<Space>
-  nnoremap <Space>] :tag<Space>
+  nnoremap <Space>] :tjump /
 endif
 
 let g:fzf_command_prefix = "FZF"
