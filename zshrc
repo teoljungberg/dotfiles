@@ -25,7 +25,6 @@ export NO_COLOR=1
 export PAGER="less -R"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export RPS1=""
-export RUBY_CONFIGURE_OPTS=--"with-readline-dir=$HOME/.nix-profile/include/readline/"
 export THOR_SHELL=Basic
 export VISUAL="$EDITOR"
 
