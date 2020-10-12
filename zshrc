@@ -250,6 +250,7 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
 bindkey -M vicmd '^X^e' edit-command-line
+bindkey -M viins '^X^e' edit-command-line
 bindkey -M viins "^q" push-line-or-edit
 bindkey -M viins '\e_' insert-last-word
 bindkey -M viins '^A' beginning-of-line
