@@ -15,6 +15,8 @@ SAVEHIST=10000
 
 export EDITOR="vim"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent::1"
+export HEROKU_COLOR=0
+export HEROKU_LOGS_COLOR=0
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LESS="-F -X -R"
