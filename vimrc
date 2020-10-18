@@ -612,7 +612,7 @@ augroup END
 " Originally from:
 "
 " https://gist.github.com/romainl/047aca21e338df7ccf771f96858edb86
-function! CCR()
+function! s:CCR()
   if getcmdtype() !=# ":"
     return "\<CR>"
   end
@@ -654,7 +654,7 @@ function! CCR()
   endif
 endfunction
 
-cnoremap <expr> <CR> CCR()
+cnoremap <script> <expr> <CR> <SID>CCR()
 
 augroup ReleaseSwapfiles
   autocmd!
