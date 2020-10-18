@@ -332,7 +332,6 @@ let g:ale_fixers.javascript = ["eslint"]
 let g:ale_fixers.json = ["jq"]
 let g:ale_fixers.ruby = ["rubocop"]
 let g:ale_fixers.nix = ["nixpkgs-fmt"]
-let g:ale_fixers.rust = ["rustfmt"]
 let g:ale_fixers.sql = ["pgformatter"]
 
 nmap `=<CR> <Plug>(ale_fix)
@@ -494,32 +493,6 @@ let g:rails_projections = {
       \   },
       \ }
 
-let g:projectionist_heuristics = {
-      \  "&Cargo.toml": {
-      \    "src/*.rs": {
-      \      "type": "src",
-      \      "dispatch": "cargo test {basename}::tests"
-      \    },
-      \    "src/main.rs": {
-      \      "type": "src",
-      \      "dispatch": "cargo test"
-      \    },
-      \    "Cargo.toml": {
-      \      "type": "cargo",
-      \      "alternate": "Cargo.lock",
-      \      "dispatch": "cargo check"
-      \    },
-      \    "Cargo.lock": {
-      \      "alternate": "Cargo.toml",
-      \      "dispatch": "cargo check"
-      \    },
-      \    "*": { "make": "cargo" }
-      \  },
-      \  "*": {
-      \   "TODO.md": { "command": "todo" },
-      \  },
-      \ }
-
 " splitjoin.vim
 " -------------
 let g:splitjoin_trailing_comma = 1
@@ -565,12 +538,6 @@ nmap <expr> - line(".") == 1 ? "<Plug>Up" : "-"
 " ruby
 " ----
 let g:ruby_indent_block_style = "do"
-
-" rust
-" ----
-let g:ftplugin_rust_source_path =
-      \ "$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-let g:racer_cmd = "$HOME/.cargo/bin/racer"
 
 function! s:QuickfixMappings()
   if getwininfo(win_getid())[0].loclist
@@ -695,9 +662,6 @@ augroup ft_options
   autocmd FileType ruby iabbrev <buffer> ddebug require 'irb'; binding.irb
   autocmd FileType ruby iabbrev <buffer> dinit def initialize
   autocmd FileType ruby setlocal iskeyword+=?,!,=
-  autocmd FileType rust nmap <buffer> K <Plug>(rust-doc)
-  autocmd FileType rust nmap <buffer> gd <Plug>(rust-def)
-  autocmd FileType rust setlocal iskeyword+=!
 augroup END
 
 if filereadable($HOME . "/.vimrc.local")

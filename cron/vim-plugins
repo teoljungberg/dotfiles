@@ -9,8 +9,6 @@ bundles="
   dense-analysis/ale
   junegunn/fzf.vim
   pbrisbin/vim-mkdir
-  racer-rust/vim-racer
-  rust-lang/rust.vim
   teoljungberg/vim-grep-motion
   teoljungberg/vim-whitescale
   tommcdo/vim-exchange

@@ -3,7 +3,6 @@ LANG="en_US.UTF-8"
 typeset -U PATH
 if [ -z "$TMUX" ]; then
   PATH="$PATH:$HOME/.bin"
-  PATH="$PATH:$HOME/.cargo/bin"
   PATH="$PATH:/run/current-system/sw/bin:$PATH"
   PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
   PATH="$PATH:/usr/sbin"
@@ -11,10 +10,6 @@ fi
 export PATH
 
 _source_if_available() { [ -e "$1" ] && source "$1" }
-
-if command -v rustc >/dev/null 2>&1; then
-  RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-fi
 
 _source_if_available "$HOME/.nix-profile/asdf/asdf.sh"
 

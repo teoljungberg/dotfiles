@@ -30,7 +30,6 @@ in {
     rcm
     readline.dev
     ripgrep
-    rustup
     setrb
     shellcheck
     tmux
