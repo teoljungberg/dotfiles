@@ -385,11 +385,11 @@ nmap g<CR> <SID>:.Git<CR>
 nmap g<Space> <SID>:.Git<Space>
 vnoremap g<Space> :Git<Space>
 
-function s:GstatusMappings()
+function! s:GstatusMappings()
   nnoremap <buffer> rM :Git rebase --interactive origin/master<CR>
 endfunction
 
-function s:FugitiveMappings()
+function! s:FugitiveMappings()
   nnoremap <buffer> q <Nop>
 endfunction
 
