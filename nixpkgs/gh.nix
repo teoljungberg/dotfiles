@@ -3,12 +3,12 @@
 
 stdenv.mkDerivation {
   pname = "gh";
-  version = "1.0.0";
+  version = "1.1.0";
 
   src = fetchzip {
     url =
-      "https://github.com/cli/cli/releases/download/v1.0.0/gh_1.0.0_macOS_amd64.tar.gz";
-    sha256 = "0jzzz7ihjc3wlvc7sx570lc0nybz44xx56xcj978658x30yxsn5h";
+      "https://github.com/cli/cli/releases/download/v1.1.0/gh_1.1.0_macOS_amd64.tar.gz";
+    sha256 = "0afswn1rwkpy2d9d5cf950zy51zipv8mjykvqh9z60px1k3l4rav";
   };
 
   installPhase = ''
