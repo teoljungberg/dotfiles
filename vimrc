@@ -493,6 +493,12 @@ let g:rails_projections = {
       \   },
       \ }
 
+let g:projectionist_heuristics = {
+      \  "*": {
+      \   "TODO.md": { "command": "todo" },
+      \  },
+      \ }
+
 " splitjoin.vim
 " -------------
 let g:splitjoin_trailing_comma = 1
