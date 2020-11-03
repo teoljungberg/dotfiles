@@ -4,11 +4,11 @@
 #
 # To edit the Pull Request for the current branch:
 #
-# % git edit-pull-request
+# % hub-edit-pull-request
 #
 # Or to edit a specific Pull Request:
 #
-# % git edit-pull-request 1337
+# % hub-edit-pull-request 1337
 #
 
 set -e
