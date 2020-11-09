@@ -13,6 +13,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+export DIRENV_LOG_FORMAT=
 export EDITOR="vim"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent::1"
 export HEROKU_COLOR=0
@@ -231,6 +232,10 @@ PATH=".git/safe/../../bin:$PATH"
 
 if command -v kitty >/dev/null; then
   kitty + complete setup zsh | source /dev/stdin
+fi
+
+if command -v direnv >/dev/null; then
+  eval "$(direnv hook zsh)"
 fi
 
 add_subdirs_to_projects "$HOME/src"
