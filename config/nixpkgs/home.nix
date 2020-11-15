@@ -23,7 +23,6 @@ in {
     heroku
     hub
     jq
-    kitty
     nixfmt
     openssl.dev
     pgformatter
