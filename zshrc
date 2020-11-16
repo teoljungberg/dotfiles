@@ -28,6 +28,7 @@ export NO_COLOR=1
 export PAGER="less -R"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export RPS1=""
+export RUBOCOP_OPTS="--no-color"
 export THOR_SHELL=Basic
 export VISUAL="$EDITOR"
 
