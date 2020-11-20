@@ -290,11 +290,11 @@ git_branch_color() {
 }
 
 set_prompt() {
-  PROMPT="%c $(git_branch_color)$(git_branch)%{$reset_color%}%# "
+  PROMPT="%c $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
 
   [ -n "$SIMPLE_PROMPT" ] && PROMPT="%# "
   [ -n "$SSH_CONNECTION" ] && \
-    PROMPT="%c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%# "
+    PROMPT="%c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .) %# "
 }
 
 preexec() {
