@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -e
-[ -n "$DEBUG" ] && set -x
+[ -n "$DEBUG" ] && set -ex
 
 bundles="
   AndrewRadev/splitjoin.vim
@@ -63,13 +63,23 @@ done
 
 find "$HOME/.vim/pack/bundle" -type d -name ".git" | while read -r path; do
   path="${path%/.git}"
+  did_stash="0"
 
   if [ -n "$(git -C "$path" remote)" ]; then
     git -C "$path" fetch -q origin
+
     display_new_commits "$path"
-    git -C "$path" stash > /dev/null
+
+    if [ -n "$(git -C "$path" status --porcelain)" ]; then
+      git -C "$path" stash push -q 1> /dev/null 2> /dev/null
+      did_stash="1"
+    fi
+
     git -C "$path" rebase -q origin/master > /dev/null
-    git -C "$path" stash pop 1> /dev/null 2> /dev/null
+
+    if [ "$did_stash" = "1" ]; then
+      git -C "$path" stash pop -q 1> /dev/null 2> /dev/null
+    fi
   fi
 done
 
