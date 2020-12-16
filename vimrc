@@ -581,10 +581,10 @@ augroup CursorlineForPreviewWindows
   autocmd BufWinEnter * if &previewwindow | setlocal cursorline | endif
 augroup END
 
-nmap [I :ilist /<cword><CR>
-nmap ]I :ilist /<cword><CR>
-nmap [D :dlist /<cword><CR>
-nmap ]D :dlist /<cword><CR>
+nmap [I :ilist /<C-R>=expand("<cword>")<CR><CR>
+nmap ]I :ilist /<C-R>=expand("<cword>")<CR><CR>
+nmap [D :dlist /<C-R>=expand("<cword>")<CR><CR>
+nmap ]D :dlist /<C-R>=expand("<cword>")<CR><CR>
 
 " Make list-like commands more intuitive.
 " Originally from:
