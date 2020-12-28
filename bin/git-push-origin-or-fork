@@ -2,10 +2,12 @@
 # No arguments: `git push teoljungberg/upstream/origin CURRENT_BRANCH`
 # With arguments: acts like `git push`
 
+set -e
+
 git_origin_or_fork() {
-  if git remote 2>/dev/null | grep -iq teoljungberg; then
+  if git remote 2>/dev/null | grep -q teoljungberg; then
     echo "teoljungberg"
-  elif git remote 2>/dev/null | grep -iq upstream; then
+  elif git remote 2>/dev/null | grep -q upstream; then
     echo "upstream"
   else
     echo "origin"
