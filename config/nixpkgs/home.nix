@@ -3,7 +3,6 @@ let
   callPackage = pkgs.callPackage;
 
   asdf = callPackage /Users/teo/src/dotfiles/nixpkgs/asdf.nix { };
-  hub = callPackage /Users/teo/src/dotfiles/nixpkgs/hub.nix { };
   setrb = callPackage /Users/teo/src/dotfiles/nixpkgs/setrb.nix { };
   vimFromSource = callPackage /Users/teo/src/dotfiles/nixpkgs/vim_from_source.nix { };
 in {
@@ -18,9 +17,9 @@ in {
     fzf
     git
     gitAndTools.gh
+    gitAndTools.hub
     gnupg
     heroku
-    hub
     jq
     nixfmt
     openssl.dev
