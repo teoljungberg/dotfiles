@@ -21,7 +21,7 @@ I use [fzf](http://github.com/junegunn/fzf) to act as my fuzzy-matcher.
 1. Install [home-manager]
 1. Add nix channels.
 
-```
+```sh
 % cat ~/.nix-channels
 https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
 https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
