@@ -24,7 +24,7 @@ I use [fzf](http://github.com/junegunn/fzf) to act as my fuzzy-matcher.
 ```
 % cat ~/.nix-channels
 https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
-https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
+https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 https://nixos.org/channels/nixpkgs-unstable unstable
 ```
 
@@ -35,4 +35,4 @@ https://nixos.org/channels/nixpkgs-unstable unstable
 
 [nix]: https://nixos.org/download.html
 [nix-darwin]: https://github.com/LnL7/nix-darwin
-[home-manager]: https://github.com/rycee/home-manager
+[home-manager]: https://github.com/nix-community/home-manager
