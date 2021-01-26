@@ -10,7 +10,7 @@ set display=lastline
 set encoding=utf-8
 set guifont=IBM\ Plex\ Mono:h14
 set hidden
-set history=1000
+set history=200
 set incsearch
 set laststatus=2
 set lazyredraw
