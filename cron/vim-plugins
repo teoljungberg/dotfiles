@@ -44,8 +44,13 @@ display_new_commits() {
   if [ "$current_branch" = "master" ] && [ "$current_sha" != "$new_sha" ]; then
     sha_range="$current_sha...$new_sha"
 
-    if echo "$remote" | grep -q github && command -v hub > /dev/null 2>&1; then
-      hub -C "$work_tree_path" compare -u "$sha_range"
+    if echo "$remote" | grep -q github; then
+      url="$(
+        git -C "$work_tree_path" config remote.origin.url | \
+        sed 's|^git:|https:|' \
+      )"
+
+      echo "$url/compare/$sha_range"
     else
       git -C "$work_tree_path" --no-pager log --oneline "$sha_range"
     fi
