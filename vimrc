@@ -493,8 +493,8 @@ let g:rails_projections = {
       \ }
 
 let g:projectionist_heuristics = {
-      \  "*": {
-      \   "TODO.md": { "command": "todo" },
+      \  ".git\/": {
+      \    "TODO.md": { "command": "todo" },
       \  },
       \ }
 
