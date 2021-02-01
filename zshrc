@@ -229,6 +229,7 @@ _source_if_available "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 _source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
 _source_if_available "$HOME/.nix-profile/asdf/asdf.sh"
 _source_if_available "$HOME/.nix-profile/share/zsh/site-functions/_asdf"
+PATH="/usr/local/bin:$PATH"
 PATH=".git/safe/../../bin:$PATH"
 
 if command -v kitty >/dev/null; then
