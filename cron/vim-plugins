@@ -34,14 +34,26 @@ bundles="
   vim-ruby/vim-ruby
 "
 
+find_upstream() {
+  if git -C "$work_tree_path" branch | grep -q "main"; then
+    echo "main"
+  elif git -C "$work_tree_path" branch | grep -q "master"; then
+    echo "master"
+  else
+    echo 1> "No upstream can be found for '$work_tree_path'"
+    exit 1
+  fi
+}
+
 display_new_commits() {
   work_tree_path="$1"
+  upstream=$(find_upstream)
   current_sha="$(git -C "$work_tree_path" rev-parse --short HEAD)"
-  new_sha="$(git -C "$work_tree_path" rev-parse --short origin/master)"
+  new_sha="$(git -C "$work_tree_path" rev-parse --short "origin/$upstream")"
   current_branch="$(git -C "$work_tree_path" symbolic-ref --short HEAD)"
   remote="$(git -C "$work_tree_path" remote show -n origin | grep "Fetch URL")"
 
-  if [ "$current_branch" = "master" ] && [ "$current_sha" != "$new_sha" ]; then
+  if [ "$current_branch" = "$upstream" ] && [ "$current_sha" != "$new_sha" ]; then
     sha_range="$current_sha...$new_sha"
 
     if echo "$remote" | grep -q github; then
@@ -80,7 +92,7 @@ find "$HOME/.vim/pack/bundle" -type d -name ".git" | while read -r path; do
       did_stash="1"
     fi
 
-    git -C "$path" rebase -q origin/master > /dev/null
+    git -C "$path" rebase -q "origin/$(find_upstream)" > /dev/null
 
     if [ "$did_stash" = "1" ]; then
       git -C "$path" stash pop -q 1> /dev/null 2> /dev/null
