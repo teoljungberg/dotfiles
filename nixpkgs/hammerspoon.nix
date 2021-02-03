@@ -1,6 +1,7 @@
 # Taken from Burke Libbey:
 # https://github.com/burke/b/blob/master/src/apps/hammerspoon.nix
-{ stdenv ? (import <nixpkgs> { }).stdenv
+{ lib ? (import <nixpkgs> { }).lib
+, stdenv ? (import <nixpkgs> { }).stdenv
 , fetchzip ? (import <nixpkgs> { }).fetchzip }:
 
 stdenv.mkDerivation {
@@ -21,8 +22,8 @@ stdenv.mkDerivation {
 
   meta = {
     description = "Staggeringly powerful macOS desktop automation with Lua";
-    license = stdenv.lib.licenses.mit;
+    license = lib.licenses.mit;
     homepage = "https://www.hammerspoon.org";
-    platforms = stdenv.lib.platforms.darwin;
+    platforms = lib.platforms.darwin;
   };
 }

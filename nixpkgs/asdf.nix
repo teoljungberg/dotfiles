@@ -1,4 +1,4 @@
-{ stdenv ? (import <nixpkgs> { }).stdenv
+{ stdenv ? (import <nixpkgs> { }).stdenv, lib ? (import <nixpkgs> { }).lib
 , fetchzip ? (import <nixpkgs> { }).fetchzip }:
 
 stdenv.mkDerivation {
@@ -23,8 +23,8 @@ stdenv.mkDerivation {
   meta = {
     description =
       "Extendable version manager with support for Ruby, Node.js, Elixir, Erlang & more asdf-vm.com";
-    license = stdenv.lib.licenses.mit;
+    license = lib.licenses.mit;
     homepage = "https://github.com/asdf-vm/asdf";
-    platforms = stdenv.lib.platforms.unix;
+    platforms = lib.platforms.unix;
   };
 }

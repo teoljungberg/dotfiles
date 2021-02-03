@@ -1,4 +1,4 @@
-{ stdenv ? (import <nixpkgs> { }).stdenv
+{ stdenv ? (import <nixpkgs> { }).stdenv, lib ? (import <nixpkgs> { }).lib
 , fetchzip ? (import <nixpkgs> { }).fetchzip }:
 
 stdenv.mkDerivation {
@@ -12,8 +12,8 @@ stdenv.mkDerivation {
 
   meta = {
     description = "setrb(1) switches Ruby ecosystems.";
-    license = stdenv.lib.licenses.isc;
+    license = lib.licenses.isc;
     homepage = "https://mike-burns.com/project/setrb/";
-    platforms = stdenv.lib.platforms.unix;
+    platforms = lib.platforms.unix;
   };
 }
