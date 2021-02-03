@@ -383,25 +383,13 @@ nmap g<CR> <SID>:.Git<CR>
 nmap g<Space> <SID>:.Git<Space>
 vnoremap g<Space> :Git<Space>
 
-function! s:GstatusMappings()
-  nnoremap <buffer> rM :Git rebase --interactive origin/master<CR>
-endfunction
-
-function! s:FugitiveMappings()
-  nnoremap <buffer> q <Nop>
-endfunction
-
 augroup Fugitive
   autocmd!
 
-  autocmd BufReadPost *
-        \ if get(b:, "fugitive_type", "") == "index" |
-        \   call <SID>GstatusMappings() |
-        \ endif
-  autocmd BufReadPost *
-        \ if has_key(b:, "fugitive_type") |
-        \   call <SID>FugitiveMappings() |
-        \ endif
+  autocmd User FugitiveIndex
+        \ nnoremap <buffer> rM :Git rebase --interactive origin/master<CR>
+  autocmd User Fugitive
+        \ nnoremap <buffer> q <Nop>
   autocmd BufReadPost *.git/PULLREQ_EDITMSG set filetype=gitcommit
   autocmd FileType git setlocal nolist
   autocmd FileType gitcommit let b:sleuth_automatic = 0
