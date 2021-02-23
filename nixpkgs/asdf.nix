@@ -1,5 +1,4 @@
-{ stdenv ? (import <nixpkgs> { }).stdenv, lib ? (import <nixpkgs> { }).lib
-, fetchzip ? (import <nixpkgs> { }).fetchzip }:
+{ stdenv, lib, fetchzip, ... }:
 
 stdenv.mkDerivation {
   pname = "asdf";
