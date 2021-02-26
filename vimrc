@@ -349,6 +349,8 @@ augroup Dispatch
         \       matchstr(getline(1), '#!\%(/usr/bin/env \+\)\=\zs.*') . " %" |
         \   let b:start = "-wait=always " . b:dispatch |
         \ endif
+  autocmd BufReadPost *.nix
+        \ let b:dispatch = "nix-build --check % --out-link /tmp/%:t:r" |
   autocmd BufReadPost */darwin-configuration.nix
         \ let b:dispatch = "darwin-rebuild check" |
         \ let b:start = "-wait=always darwin-rebuild switch"
