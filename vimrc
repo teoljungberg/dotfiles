@@ -439,8 +439,9 @@ augroup END
 
 " projectionist.vim
 " -----------------
-let g:rails_projections = {
-      \  "app/controllers/*_controller.rb": {
+let g:rails_projections =
+      \ {
+      \   "app/controllers/*_controller.rb": {
       \     "test": [
       \       "spec/requests/{}_spec.rb",
       \       "spec/controllers/{}_controller_spec.rb",
@@ -482,10 +483,11 @@ let g:rails_projections = {
       \   },
       \ }
 
-let g:projectionist_heuristics = {
-      \  ".git\/": {
-      \    "TODO.md": { "command": "todo" },
-      \  },
+let g:projectionist_heuristics =
+      \ {
+      \   ".git\/": {
+      \     "TODO.md": { "command": "todo" },
+      \   },
       \ }
 
 " splitjoin.vim
