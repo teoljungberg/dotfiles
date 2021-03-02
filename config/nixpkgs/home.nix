@@ -3,11 +3,14 @@ let
   callPackage = pkgs.callPackage;
 
   asdf = callPackage /Users/teo/src/dotfiles/nixpkgs/asdf.nix { };
-  comma = callPackage /Users/teo/src/dotfiles/nixpkgs/comma.nix {};
+  comma = callPackage /Users/teo/src/dotfiles/nixpkgs/comma.nix { };
   setrb = callPackage /Users/teo/src/dotfiles/nixpkgs/setrb.nix { };
 in {
   programs.home-manager.enable = true;
-  home.stateVersion = "20.03";
+
+  home.homeDirectory = "/Users/teo";
+  home.stateVersion = "21.05";
+  home.username = "teo";
 
   home.packages = with pkgs; [
     asdf
