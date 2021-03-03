@@ -2,9 +2,9 @@
 let
   callPackage = pkgs.callPackage;
 
-  asdf = callPackage /Users/teo/src/dotfiles/nixpkgs/asdf.nix { };
-  comma = callPackage /Users/teo/src/dotfiles/nixpkgs/comma.nix { };
-  setrb = callPackage /Users/teo/src/dotfiles/nixpkgs/setrb.nix { };
+  asdf = callPackage ./../../nixpkgs/asdf.nix { };
+  comma = callPackage ./../../nixpkgs/comma.nix { };
+  setrb = callPackage ./../../nixpkgs/setrb.nix { };
 in {
   programs.home-manager.enable = true;
 

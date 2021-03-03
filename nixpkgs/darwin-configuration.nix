@@ -3,7 +3,7 @@
 let
   callPackage = pkgs.callPackage;
 
-  hammerspoon = callPackage /Users/teo/src/dotfiles/nixpkgs/hammerspoon.nix { };
+  hammerspoon = callPackage ./hammerspoon.nix { };
 in {
   services.nix-daemon.enable = true;
 
