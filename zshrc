@@ -62,11 +62,6 @@ _git_changed_files() {
 }
 zle -N _git_changed_files
 
-# Completion for `bin/git-delete-branch`
-_git_delete_branch() {
-  __gitcomp "$(__git_heads)"
-}
-
 # Completion for `git p`
 _git_p() {
   __gitcomp "$(__git_heads)"
