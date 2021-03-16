@@ -5,12 +5,12 @@
 
 stdenv.mkDerivation {
   pname = "hammerspoon";
-  version = "0.9.82";
+  version = "0.9.86";
 
   src = fetchzip {
     url =
-      "https://github.com/Hammerspoon/hammerspoon/releases/download/0.9.82/Hammerspoon-0.9.82.zip";
-    sha256 = "0ydg05cci0ycnin3mr1i1cmgr3233frh723hm90k2nymyl3ypmqz";
+      "https://github.com/Hammerspoon/hammerspoon/releases/download/0.9.86/Hammerspoon-0.9.86.zip";
+    sha256 = "196qnar404szhmg504bi4cwwpabmnxczks8j91n574qmn8b8nd9p";
   };
 
   installPhase = ''
