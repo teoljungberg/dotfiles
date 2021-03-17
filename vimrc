@@ -392,8 +392,6 @@ augroup Fugitive
 
   autocmd User FugitiveIndex
         \ nnoremap <buffer> rM :Git rebase --interactive origin/master<CR>
-  autocmd User Fugitive
-        \ nnoremap <buffer> q <Nop>
   autocmd BufReadPost *.git/PULLREQ_EDITMSG set filetype=gitcommit
   autocmd FileType git setlocal nolist
   autocmd FileType gitcommit let b:sleuth_automatic = 0
