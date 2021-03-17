@@ -1,9 +1,8 @@
-hs.window.animationDuration = 0
 local pixelDifference = 50
 local menuBarInPixles = 23
 local numberOfCells = 8
 
-function getWindow()
+local function getWindow()
   local window = hs.window.focusedWindow()
 
   if window == nil then
@@ -13,7 +12,7 @@ function getWindow()
   end
 end
 
-function moveWindowX(direction)
+local function moveWindowX(direction)
   local window = getWindow()
   local frame = window:frame()
 
@@ -21,7 +20,7 @@ function moveWindowX(direction)
   window:setFrame(frame)
 end
 
-function moveWindowY(direction)
+local function moveWindowY(direction)
   local window = getWindow()
   local frame = window:frame()
 
@@ -29,7 +28,7 @@ function moveWindowY(direction)
   window:setFrame(frame)
 end
 
-function resizeWindowX(direction)
+local function resizeWindowX(direction)
   local window = getWindow()
   local frame = window:frame()
 
@@ -37,7 +36,7 @@ function resizeWindowX(direction)
   window:setFrame(frame)
 end
 
-function resizeWindowY(direction)
+local function resizeWindowY(direction)
   local window = getWindow()
   local frame = window:frame()
 
@@ -45,7 +44,7 @@ function resizeWindowY(direction)
   window:setFrame(frame)
 end
 
-function centralizeWindow()
+local function centralizeWindow()
   local window = getWindow()
   local frame = window:frame()
   local max = window:screen():frame()
@@ -60,28 +59,28 @@ function centralizeWindow()
   window:setFrame(frame)
 end
 
-function fullScreenWindow()
+local function fullScreenWindow()
   local window = getWindow()
   window:maximize(0)
 end
 
-function moveLeft()
+local function moveLeft()
   moveWindowX(pixelDifference)
 end
 
-function moveRight()
+local function moveRight()
   moveWindowX(-pixelDifference)
 end
 
-function moveUp()
+local function moveUp()
   moveWindowY(-pixelDifference)
 end
 
-function moveDown()
+local function moveDown()
   moveWindowY(pixelDifference)
 end
 
-function moveWindowLeftHalfScreen()
+local function moveWindowLeftHalfScreen()
   local window = getWindow()
   local windowFrame = window:frame()
   local screen = window:screen()
@@ -95,7 +94,7 @@ function moveWindowLeftHalfScreen()
   window:setFrame(windowFrame)
 end
 
-function moveWindowRightHalfScreen()
+local function moveWindowRightHalfScreen()
   local window = getWindow()
   local windowFrame = window:frame()
   local screen = window:screen()
@@ -109,44 +108,44 @@ function moveWindowRightHalfScreen()
   window:setFrame(windowFrame)
 end
 
-function resizeLeft()
+local function resizeLeft()
   resizeWindowX(-pixelDifference)
 end
 
-function resizeRight()
+local function resizeRight()
   resizeWindowX(pixelDifference)
 end
 
-function resizeUp()
+local function resizeUp()
   resizeWindowY(-pixelDifference)
 end
 
-function resizeDown()
+local function resizeDown()
   resizeWindowY(pixelDifference)
 end
 
-function reloadConfig()
+local function reloadConfig()
   hs.reload()
   hs.alert.show("Config reloaded")
 end
 
-function moveWindowToWestDisplay()
+local function moveWindowToWestDisplay()
   hs.window.focusedWindow():moveOneScreenWest()
 end
 
-function moveWindowToEastDisplay()
+local function moveWindowToEastDisplay()
   hs.window.focusedWindow():moveOneScreenEast()
 end
 
-function moveWindowToNorthDisplay()
+local function moveWindowToNorthDisplay()
   hs.window.focusedWindow():moveOneScreenNorth()
 end
 
-function moveWindowToSouthDisplay()
+local function moveWindowToSouthDisplay()
   hs.window.focusedWindow():moveOneScreenSouth()
 end
 
-function hideAlreadyRunningApplication(bundleID)
+local function hideAlreadyRunningApplication(bundleID)
   local focus = hs.window.focusedWindow()
 
   if focus and focus:application():bundleID() == bundleID then
@@ -157,7 +156,7 @@ function hideAlreadyRunningApplication(bundleID)
   end
 end
 
-function activeRunningApplication(bundleID)
+local function activeRunningApplication(bundleID)
   local running = hs.application.applicationsForBundleID(bundleID)
 
   if #running > 0 and #running[1]:allWindows() > 0 then
@@ -168,11 +167,11 @@ function activeRunningApplication(bundleID)
   end
 end
 
-function launchApplication(bundleID)
+local function launchApplication(bundleID)
   hs.application.launchOrFocusByBundleID(bundleID)
 end
 
-function toggleApplication(bundleID)
+local function toggleApplication(bundleID)
   return function()
     if hideAlreadyRunningApplication(bundleID) then
       return
@@ -188,16 +187,40 @@ end
 --
 -- `osascript -e 'id of app "NAME OF APP"'`
 --
-applicationShortcutToBundleMapping = {
-  [0] = "net.kovidgoyal.kitty",
-  [1] = "com.brave.Browser",
-  [2] = "com.apple.mail",
-  [3] = "com.tinyspeck.slackmacgap",
-  [4] = "com.spotify.client",
-  [5] = nil,
-  [6] = nil,
-  [7] = nil,
-  [8] = nil,
-  [9] = "com.google.Chrome",
-  ["m"] = "org.vim.MacVim",
+local function applicationShortcutToBundleMapping()
+  return {
+    [0] = "net.kovidgoyal.kitty",
+    [1] = "com.brave.Browser",
+    [2] = "com.apple.mail",
+    [3] = "com.tinyspeck.slackmacgap",
+    [4] = "com.spotify.client",
+    [5] = nil,
+    [6] = nil,
+    [7] = nil,
+    [8] = nil,
+    [9] = "com.google.Chrome",
+    ["m"] = "org.vim.MacVim",
+  }
+end
+
+return {
+  moveLeft = moveLeft,
+  moveRight = moveRight,
+  moveUp = moveUp,
+  moveDown = moveDown,
+  moveWindowLeftHalfScreen = moveWindowLeftHalfScreen,
+  moveWindowRightHalfScreen = moveWindowRightHalfScreen,
+  resizeLeft = resizeLeft,
+  resizeRight = resizeRight,
+  resizeUp = resizeUp,
+  resizeDown = resizeDown,
+  reloadConfig = reloadConfig,
+  moveWindowToWestDisplay = moveWindowToWestDisplay,
+  moveWindowToEastDisplay = moveWindowToEastDisplay,
+  moveWindowToNorthDisplay = moveWindowToNorthDisplay,
+  moveWindowToSouthDisplay = moveWindowToSouthDisplay,
+  fullScreenWindow = fullScreenWindow,
+  centralizeWindow = centralizeWindow,
+  applicationShortcutToBundleMapping = applicationShortcutToBundleMapping,
+  toggleApplication = toggleApplication,
 }
