@@ -382,6 +382,8 @@ augroup END
 
 " fugitive.vim
 " ------------
+let g:fugitive_legacy_commands=0
+
 nmap <script> <SID>:. :<C-R>=getcmdline() =~ "," ? "\0250" : ""<CR>
 nmap g<CR> <SID>:.Git<CR>
 nmap g<Space> <SID>:.Git<Space>
