@@ -33,6 +33,6 @@ https://nixos.org/channels/nixpkgs-unstable unstable
 % home-manager switch -f $HOME/src/dotfiles/config/nixpkgs/home.nix
 ```
 
-[nix]: https://nixos.org/download.html
+[nix]: https://nixos.org/manual/nix/stable/#sect-macos-installation
 [nix-darwin]: https://github.com/LnL7/nix-darwin
 [home-manager]: https://github.com/nix-community/home-manager
