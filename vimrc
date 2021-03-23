@@ -574,11 +574,6 @@ augroup CursorlineForPreviewWindows
   autocmd BufWinEnter * if &previewwindow | setlocal cursorline | endif
 augroup END
 
-nmap [I :ilist /<C-R>=expand("<cword>")<CR><CR>
-nmap ]I :ilist /<C-R>=expand("<cword>")<CR><CR>
-nmap [D :dlist /<C-R>=expand("<cword>")<CR><CR>
-nmap ]D :dlist /<C-R>=expand("<cword>")<CR><CR>
-
 nnoremap <expr> j v:count ? "j" : "gj"
 nnoremap <expr> k v:count ? "k" : "gk"
 
@@ -629,6 +624,11 @@ function! s:CCR()
 endfunction
 
 cnoremap <script> <expr> <CR> <SID>CCR()
+
+nmap [I :ilist /<C-R>=expand("<cword>")<CR><CR>
+nmap ]I :ilist /<C-R>=expand("<cword>")<CR><CR>
+nmap [D :dlist /<C-R>=expand("<cword>")<CR><CR>
+nmap ]D :dlist /<C-R>=expand("<cword>")<CR><CR>
 
 augroup ReleaseSwapfiles
   autocmd!
