@@ -382,6 +382,7 @@ augroup END
 
 " fugitive.vim
 " ------------
+let g:fugitive_dynamic_colors = 0
 let g:fugitive_legacy_commands=0
 
 nmap <script> <SID>:. :<C-R>=getcmdline() =~ "," ? "\0250" : ""<CR>
