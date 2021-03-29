@@ -106,7 +106,7 @@ if executable("rg")
         \ --with-filename
   set grepformat=%f:%l:%c:%m
 else
-  set grepprg=grep\ -rnH\ $*\ /dev/null
+  set grepprg=grep\ -rnH\ --exclude-dir\ .git\ $*\ /dev/null
 endif
 
 " For easy `:lgrep` and `:grep`.
