@@ -459,8 +459,8 @@ let g:rails_projections =
       \   "app/services/*.rb": {
       \     "command": "service",
       \     "test": [
-      \       "spec/services/%s_spec.rb",
-      \       "test/services/%s_test.rb"
+      \       "spec/services/{}_spec.rb",
+      \       "test/services/{}_test.rb"
       \     ],
       \   },
       \   "app/graphql/*.rb": {
