@@ -348,11 +348,11 @@ augroup Dispatch
   autocmd BufReadPost *
         \ if getline(1) =~# "^#!" |
         \   let b:dispatch =
-        \       matchstr(getline(1), '#!\%(/usr/bin/env \+\)\=\zs.*') . " %" |
+        \       matchstr(getline(1), '#!\%(/usr/bin/env \+\)\=\zs.*') . " %:S" |
         \   let b:start = "-wait=always " . b:dispatch |
         \ endif
   autocmd BufReadPost *.nix
-        \ let b:dispatch = "nix-build --check % --out-link /tmp/%:t:r" |
+        \ let b:dispatch = "nix-build --check %:S --out-link /tmp/%:t:r" |
   autocmd BufReadPost */darwin-configuration.nix
         \ let b:dispatch = "darwin-rebuild check" |
         \ let b:start = "-wait=always darwin-rebuild switch"
@@ -362,15 +362,15 @@ augroup Dispatch
   autocmd FileType ruby let b:start = "irb -r '%:p'"
   autocmd FileType ruby
         \ if expand("%") =~# "_test\.rb$" |
-        \   let b:dispatch = "ruby -Itest %" |
+        \   let b:dispatch = "ruby -Itest %:S" |
         \ elseif expand("%") =~# "_spec\.rb$" |
         \   let b:dispatch = get(
         \     b:,
         \     "dispatch",
-        \     "rspec %`=v:lnum ? ':'.v:lnum : ''`",
+        \     "rspec %:S`=v:lnum ? ':'.v:lnum : ''`",
         \   ) |
         \ elseif !exists("b:dispatch") |
-        \   let b:dispatch = "ruby -wc %" |
+        \   let b:dispatch = "ruby -wc %:S" |
         \ endif
   autocmd VimEnter *
         \ if empty($TMUX) || has("gui_running") |
