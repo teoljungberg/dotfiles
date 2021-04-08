@@ -569,12 +569,6 @@ augroup HideNewBuffers
   autocmd BufNew setlocal nobuflisted
 augroup END
 
-augroup CursorlineForPreviewWindows
-  autocmd!
-
-  autocmd BufWinEnter * if &previewwindow | setlocal cursorline | endif
-augroup END
-
 nnoremap <expr> j v:count ? "j" : "gj"
 nnoremap <expr> k v:count ? "k" : "gk"
 
