@@ -579,6 +579,23 @@ augroup ft_qf
   autocmd FileType qf call <SID>QuickfixTitle()
 augroup END
 
+" markdown
+" --------
+augroup ft_markdown
+  autocmd!
+
+  autocmd FileType markdown,gitcommit iabbrev <buffer> -. - [ ]
+  autocmd FileType markdown,gitcommit iabbrev <buffer> -x - [X]
+  autocmd FileType markdown iabbrev <buffer> set_spelllang
+        \ <!-- vim:set spelllang=TODO : -->
+  autocmd FileType markdown setlocal
+        \ expandtab
+        \ linebreak
+        \ shiftwidth=2
+        \ spell
+        \ wrap
+augroup END
+
 augroup HideNewBuffers
   autocmd!
 
@@ -656,16 +673,6 @@ augroup ft_options
         \ noexpandtab
         \ shiftwidth=8
         \ tabstop=8
-  autocmd FileType markdown,gitcommit iabbrev <buffer> -. - [ ]
-  autocmd FileType markdown,gitcommit iabbrev <buffer> -x - [X]
-  autocmd FileType markdown iabbrev <buffer> set_spelllang
-        \ <!-- vim:set spelllang=TODO : -->
-  autocmd FileType markdown setlocal
-        \ expandtab
-        \ linebreak
-        \ shiftwidth=2
-        \ spell
-        \ wrap
   autocmd FileType ruby iabbrev <buffer> ddebug require 'irb'; binding.irb
   autocmd FileType ruby iabbrev <buffer> dinit def initialize
   autocmd FileType ruby setlocal iskeyword+=?,!,=
