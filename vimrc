@@ -541,6 +541,14 @@ nmap <expr> - line(".") == 1 ? "<Plug>Up" : "-"
 " ----
 let g:ruby_indent_block_style = "do"
 
+augroup ft_ruby
+  autocmd!
+
+  autocmd FileType ruby iabbrev <buffer> ddebug require 'irb'; binding.irb
+  autocmd FileType ruby iabbrev <buffer> dinit def initialize
+  autocmd FileType ruby setlocal iskeyword+=?,!,=
+augroup END
+
 " quickfix
 " --------
 function! s:QuickfixMappings()
@@ -673,9 +681,6 @@ augroup ft_options
         \ noexpandtab
         \ shiftwidth=8
         \ tabstop=8
-  autocmd FileType ruby iabbrev <buffer> ddebug require 'irb'; binding.irb
-  autocmd FileType ruby iabbrev <buffer> dinit def initialize
-  autocmd FileType ruby setlocal iskeyword+=?,!,=
 augroup END
 
 if filereadable($HOME . "/.vimrc.local")
