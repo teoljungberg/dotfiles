@@ -253,6 +253,9 @@ nmap cd <C-W>.
 
 nnoremap <Space>b :ls<CR>:buffer<Space>
 
+nnoremap <expr> j v:count ? "j" : "gj"
+nnoremap <expr> k v:count ? "k" : "gk"
+
 augroup vimrcEx
   autocmd!
 
@@ -567,9 +570,6 @@ augroup HideNewBuffers
 
   autocmd BufNew setlocal nobuflisted
 augroup END
-
-nnoremap <expr> j v:count ? "j" : "gj"
-nnoremap <expr> k v:count ? "k" : "gk"
 
 " Make list-like commands more intuitive.
 " Originally from:
