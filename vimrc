@@ -541,6 +541,8 @@ nmap <expr> - line(".") == 1 ? "<Plug>Up" : "-"
 " ----
 let g:ruby_indent_block_style = "do"
 
+" quickfix
+" --------
 function! s:QuickfixMappings()
   if getwininfo(win_getid())[0].loclist
     nnoremap <buffer> [f :lolder<CR>
@@ -564,6 +566,18 @@ function! s:QuickfixTitle()
     let w:quickfix_title = substitute(title, &grepprg, "grep", "")
   endif
 endfunction
+
+augroup ft_qf
+  autocmd!
+
+  autocmd FileType qf setlocal
+        \ nobuflisted
+        \ nolist
+        \ nonumber
+        \ norelativenumber
+  autocmd FileType qf call <SID>QuickfixMappings()
+  autocmd FileType qf call <SID>QuickfixTitle()
+augroup END
 
 augroup HideNewBuffers
   autocmd!
@@ -652,13 +666,6 @@ augroup ft_options
         \ shiftwidth=2
         \ spell
         \ wrap
-  autocmd FileType qf setlocal
-        \ nobuflisted
-        \ nolist
-        \ nonumber
-        \ norelativenumber
-  autocmd FileType qf call <SID>QuickfixMappings()
-  autocmd FileType qf call <SID>QuickfixTitle()
   autocmd FileType ruby iabbrev <buffer> ddebug require 'irb'; binding.irb
   autocmd FileType ruby iabbrev <buffer> dinit def initialize
   autocmd FileType ruby setlocal iskeyword+=?,!,=
