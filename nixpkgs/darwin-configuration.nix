@@ -5,7 +5,7 @@ let
 
   hammerspoon = callPackage ./hammerspoon.nix { };
 in {
-  services.nix-daemon.enable = true;
+  services.nix-daemon.enable = false;
 
   users.users.teo = {
     home = "/Users/teo";
