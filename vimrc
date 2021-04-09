@@ -604,12 +604,6 @@ augroup ft_markdown
         \ wrap
 augroup END
 
-augroup HideNewBuffers
-  autocmd!
-
-  autocmd BufNew setlocal nobuflisted
-augroup END
-
 " Make list-like commands more intuitive.
 " Originally from:
 "
