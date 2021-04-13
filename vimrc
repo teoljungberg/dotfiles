@@ -256,6 +256,8 @@ nnoremap <Space>b :ls<CR>:buffer<Space>
 nnoremap <expr> j v:count ? "j" : "gj"
 nnoremap <expr> k v:count ? "k" : "gk"
 
+nmap <script> <SID>:. :<C-R>=getcmdline() =~ "," ? "\0250" : ""<CR>
+
 augroup vimrcEx
   autocmd!
 
@@ -387,7 +389,6 @@ augroup END
 let g:fugitive_dynamic_colors = 0
 let g:fugitive_legacy_commands=0
 
-nmap <script> <SID>:. :<C-R>=getcmdline() =~ "," ? "\0250" : ""<CR>
 nmap g<CR> <SID>:.Git<CR>
 nmap g<Space> <SID>:.Git<Space>
 vnoremap g<Space> :Git<Space>
