@@ -16,8 +16,8 @@ in {
     asdf
     autoconf
     automake
-    coreutils-prefixed
     comma
+    coreutils-prefixed
     fzf
     git
     gitAndTools.gh
@@ -28,6 +28,7 @@ in {
     nixfmt
     openssl.dev
     pgformatter
+    pkg-config
     rcm
     readline.dev
     ripgrep
