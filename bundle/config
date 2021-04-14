@@ -1,4 +1,4 @@
 ---
 BUNDLE_PATH: ".bundle/vendor"
-BUNDLE_JOBS: "4"
+BUNDLE_JOBS: "8"
 BUNDLE_BUILD__NOKOGIRI: "--use-system-libraries"
