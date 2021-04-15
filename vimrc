@@ -360,6 +360,8 @@ augroup Dispatch
   autocmd BufReadPost */darwin-configuration.nix
         \ let b:dispatch = "darwin-rebuild check" |
         \ let b:start = "-wait=always darwin-rebuild switch"
+  autocmd BufReadPost */default.nix
+        \ let b:dispatch = "nix-build --check %:S --out-link /tmp/%:h:t" |
   autocmd BufReadPost */home.nix
         \ let b:dispatch = "home-manager -n switch" |
         \ let b:start = "-wait=always home-manager switch"
