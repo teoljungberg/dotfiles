@@ -2,15 +2,17 @@
 let
   callPackage = pkgs.callPackage;
 
-  asdf = callPackage ./../../nixpkgs/asdf.nix { };
-  comma = callPackage ./../../nixpkgs/comma.nix { };
-  setrb = callPackage ./../../nixpkgs/setrb.nix { };
+  user = import ./../../nixpkgs/user.nix;
+
+  asdf = callPackage "${user.user.directory}/.nixpkgs/asdf.nix" { };
+  comma = callPackage "${user.user.directory}/.nixpkgs/comma.nix" { };
+  setrb = callPackage "${user.user.directory}/.nixpkgs/setrb.nix" { };
 in {
   programs.home-manager.enable = true;
 
-  home.homeDirectory = "/Users/teo";
+  home.homeDirectory = user.user.directory;
   home.stateVersion = "21.05";
-  home.username = "teo";
+  home.username = user.user.name;
 
   home.packages = with pkgs; [
     asdf

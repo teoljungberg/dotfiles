@@ -3,20 +3,22 @@
 let
   callPackage = pkgs.callPackage;
 
+  user = import ./user.nix;
+
   hammerspoon = callPackage ./hammerspoon.nix { };
 in {
   services.nix-daemon.enable = false;
 
   users.users.teo = {
-    home = "/Users/teo";
-    description = "Teo Ljungberg";
+    home = user.user.directory;
+    description = user.user.fullName;
     shell = pkgs.zsh;
   };
 
   services.redis = {
     enable = true;
     package = pkgs.redis;
-    dataDir = "/Users/teo/.local/share/redis";
+    dataDir = "${user.user.directory}/.local/share/redis";
   };
 
   environment.systemPackages = [ hammerspoon ];
