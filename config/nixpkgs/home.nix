@@ -7,6 +7,7 @@ let
   asdf = callPackage "${user.user.directory}/.nixpkgs/asdf.nix" { };
   comma = callPackage "${user.user.directory}/.nixpkgs/comma.nix" { };
   setrb = callPackage "${user.user.directory}/.nixpkgs/setrb.nix" { };
+  nixpkgs-teo = import "${user.user.directory}/src/nixpkgs" { };
 in {
   programs.home-manager.enable = true;
 
