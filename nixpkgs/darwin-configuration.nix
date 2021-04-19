@@ -33,6 +33,10 @@ in {
     loginShell = "/run/current-system/sw/bin/zsh";
   };
 
+  networking = {
+    hostName = "Cardamom";
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
