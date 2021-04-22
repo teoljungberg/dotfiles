@@ -672,11 +672,7 @@ augroup END
 augroup WriteOnFocusLost
   autocmd!
 
-  autocmd FocusLost *
-        \ let s:confirm = &confirm |
-        \ setglobal noconfirm |
-        \ silent! wall |
-        \ let &confirm = s:confirm
+  autocmd FocusLost * silent! wall
 augroup END
 
 augroup ft_options
