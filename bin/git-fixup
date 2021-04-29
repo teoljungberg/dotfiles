@@ -4,7 +4,7 @@ set -e
 
 command -v fzf >/dev/null 2>&1 || {
   echo >&2 "fzf(1) is not installed."
-  exit 78
+  exit 1
 }
 
 if [ -n "$1" ]; then
