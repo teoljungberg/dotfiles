@@ -221,8 +221,6 @@ fi
 
 _source_if_available "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 _source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
-_source_if_available "$HOME/.nix-profile/asdf/asdf.sh"
-_source_if_available "$HOME/.nix-profile/share/zsh/site-functions/_asdf"
 PATH="/usr/local/bin:$PATH"
 PATH=".git/safe/../../bin:$PATH"
 
@@ -292,6 +290,13 @@ set_prompt() {
     PROMPT="%c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .) %# "
 }
 
+setup_setrb() {
+  which setrb >/dev/null && \
+    [ -z "$SETRB_PATH_ADDITIONS" ] &&
+    ([ -f .ruby-version ] || [ -f .tool-versions ]) && \
+    eval "$(setrb -w0 2>/dev/null)"
+}
+
 preexec() {
   refresh_tmux_environment_variables
 }
@@ -300,6 +305,7 @@ precmd() {
   rename_tmux_window_to_current_dir
   rename_tab_to_current_dir
   set_prompt
+  setup_setrb
 }
 
 _source_if_available "$HOME/.zshrc.local"

@@ -17,6 +17,4 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 _source_if_available() { [ -e "$1" ] && source "$1" }
 
-_source_if_available "$HOME/.nix-profile/asdf/asdf.sh"
-_source_if_available "$HOME/.nix-profile/etc/profile.d/nix.sh"
 _source_if_available "$HOME/.zshenv.local"
