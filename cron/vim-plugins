@@ -9,7 +9,6 @@ bundles="
   dense-analysis/ale
   junegunn/fzf.vim
   pbrisbin/vim-mkdir
-  teoljungberg/vim-grep-motion
   teoljungberg/vim-whitescale
   tommcdo/vim-exchange
   tpope/vim-abolish
