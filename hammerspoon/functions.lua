@@ -198,7 +198,7 @@ local function applicationShortcutToBundleMapping()
     [6] = nil,
     [7] = nil,
     [8] = nil,
-    [9] = "com.google.Chrome",
+    [9] = nil,
     ["m"] = "org.vim.MacVim",
   }
 end
