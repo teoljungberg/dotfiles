@@ -1,11 +1,9 @@
 { config, pkgs, ... }:
 
 let
-  callPackage = pkgs.callPackage;
-
   user = import ./user.nix;
 
-  hammerspoon = callPackage ./hammerspoon.nix { };
+  hammerspoon = pkgs.callPackage ./hammerspoon.nix { };
 in {
   services.nix-daemon.enable = false;
 

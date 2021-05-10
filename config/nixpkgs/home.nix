@@ -1,12 +1,10 @@
 { config, pkgs, ... }:
 let
-  callPackage = pkgs.callPackage;
-
   user = import ./../../nixpkgs/user.nix;
 
-  asdf = callPackage "${user.user.directory}/.nixpkgs/asdf.nix" { };
-  comma = callPackage "${user.user.directory}/.nixpkgs/comma.nix" { };
-  setrb = callPackage "${user.user.directory}/.nixpkgs/setrb.nix" { };
+  asdf = pkgs.callPackage "${user.user.directory}/.nixpkgs/asdf.nix" { };
+  comma = pkgs.callPackage "${user.user.directory}/.nixpkgs/comma.nix" { };
+  setrb = pkgs.callPackage "${user.user.directory}/.nixpkgs/setrb.nix" { };
   nixpkgs-teo = import "${user.user.directory}/src/nixpkgs" { };
 in {
   programs.home-manager.enable = true;
