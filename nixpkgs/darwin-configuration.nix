@@ -13,12 +13,6 @@ in {
     shell = pkgs.zsh;
   };
 
-  services.redis = {
-    enable = true;
-    package = pkgs.redis;
-    dataDir = "${user.user.directory}/.local/share/redis";
-  };
-
   environment.systemPackages = [ hammerspoon ];
 
   fonts = {
