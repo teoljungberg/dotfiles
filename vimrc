@@ -403,6 +403,9 @@ augroup Dispatch
   autocmd BufReadPost */home.nix
         \ let b:dispatch = "home-manager -n switch" |
         \ let b:start = "-wait=always home-manager switch"
+  autocmd BufReadPost */shell.nix
+        \ let b:dispatch = "nix-build --check %:S --out-link /tmp/%:p:h:t" |
+        \ let b:start = "-wait=always nix-shell %:S"
 
   autocmd FileType ruby let b:start = "irb -r '%:p'"
   autocmd FileType ruby
