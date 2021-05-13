@@ -287,7 +287,7 @@ set_prompt() {
 
   [ -n "$SIMPLE_PROMPT" ] && PROMPT="%# "
   [ -n "$SSH_CONNECTION" ] && \
-    PROMPT="%c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .) %# "
+    PROMPT="%c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
 }
 
 setup_setrb() {
