@@ -114,7 +114,7 @@ git() {
 }
 
 _has_subdirs() {
-  [ -d "$1" ] && [ "$(find "$1" -type d -maxdepth 1 | wc -l)" -gt 1 ]
+  [ -d "$1" ] && [ "$(find "$1" -maxdepth 1 -type d | wc -l)" -gt 1 ]
 }
 
 add_subdirs_to_projects() {
