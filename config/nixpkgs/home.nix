@@ -14,7 +14,6 @@ in {
   home.username = user.user.name;
 
   home.packages = with pkgs; [
-    asdf
     autoconf
     automake
     comma
