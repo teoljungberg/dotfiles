@@ -4,7 +4,6 @@ typeset -U PATH
 if [ -z "$TMUX" ]; then
   PATH="$PATH:$HOME/.bin"
   PATH="$PATH:/run/current-system/sw/bin:$PATH"
-  PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
   PATH="$PATH:/usr/sbin"
 fi
 export PATH
