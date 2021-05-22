@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  user = import ./../../nixpkgs/user.nix;
+  user = import ./../../nixpkgs/user.nix { };
 
   asdf = pkgs.callPackage "${user.user.directory}/.nixpkgs/asdf.nix" { };
   comma = pkgs.callPackage "${user.user.directory}/.nixpkgs/comma.nix" { };

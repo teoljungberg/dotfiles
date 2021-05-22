@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  user = import ./user.nix;
+  user = import ./user.nix { };
 
   hammerspoon = pkgs.callPackage ./hammerspoon.nix { };
 in {
