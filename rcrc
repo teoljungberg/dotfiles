@@ -1,2 +1,2 @@
 DOTFILES_DIRS="$HOME/src/dotfiles"
-EXCLUDES="*.md cron"
+EXCLUDES="*.md cron/* nixpkgs/nixos-configuration.nix"

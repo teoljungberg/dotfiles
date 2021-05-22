@@ -406,6 +406,9 @@ augroup Dispatch
   autocmd BufReadPost */shell.nix
         \ let b:dispatch = "nix build -f %:S --out-link /tmp/%:p:h:t" |
         \ let b:start = "-wait=always nix-shell %:S"
+  autocmd BufReadPost */nixos-configuration.nix
+        \ let b:dispatch = "nixos-rebuild dry-run" |
+        \ let b:start = "-wait=always sudo nixos-rebuild switch"
 
   autocmd FileType ruby let b:start = "irb -r '%:p'"
   autocmd FileType ruby
