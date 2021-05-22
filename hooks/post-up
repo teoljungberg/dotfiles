@@ -1,6 +1,7 @@
 #!/bin/sh
 
 mkdir -p ~/.vim/pack/bundle/start
+mkdir -p ~/.psql_history
 
 if [ ! -f "$HOME/.config/kitty/theme.conf" ]; then
   ln -fs \
