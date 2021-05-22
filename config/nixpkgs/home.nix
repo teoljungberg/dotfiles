@@ -36,6 +36,7 @@ in {
     shellcheck
     tmux
     universal-ctags
+    vim
     zsh
   ];
 
