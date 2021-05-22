@@ -25,9 +25,7 @@ in {
     loginShell = "/run/current-system/sw/bin/zsh";
   };
 
-  networking = {
-    hostName = "Cardamom";
-  };
+  networking = { hostName = "Cardamom"; };
 
   programs.zsh = {
     enable = true;
