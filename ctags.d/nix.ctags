@@ -1,0 +1,3 @@
+--langdef=NIX
+--langmap=NIX:.nix
+--regex-NIX=/([^ \t*]*)[ \t]*=/\1/f/
