@@ -346,7 +346,7 @@ let g:ale_open_list = 1
 let g:ale_markdown_mdl_executable = "bin/mdl"
 let g:ale_nix_nixpkgsfmt_executable = "nixfmt"
 let g:ale_ruby_rubocop_executable = "bin/rubocop"
-let g:ale_sql_pgformatter_options = "--spaces 2"
+let g:ale_sql_pgformatter_options = "--spaces 2 --comma-break"
 
 " Only run linters listed in `g:ale_linters`.
 let g:ale_linters_explicit = 1
