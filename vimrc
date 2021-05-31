@@ -271,7 +271,7 @@ nnoremap ]ot :setlocal colorcolumn=0<CR>
 nnoremap yot :setlocal colorcolumn=<C-R>=&cc == 0 ? &textwidth + 1 : 0<CR><CR>
 
 nnoremap <silent> <C-w>.
-      \ :if exists("b:git_dir")<Bar>
+      \ :if len(get(b:, "git_dir", ""))<Bar>
       \   execute "Glcd"<Bar>
       \ elseif exists(":Plcd")<Bar>
       \   execute "Plcd"<Bar>
