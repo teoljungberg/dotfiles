@@ -292,7 +292,7 @@ augroup vimrcEx
   autocmd!
 
   autocmd GUIEnter * let
-        \ g:markdown_fenced_languages=["bash=sh", "sh", "json", "ruby"]
+        \ g:markdown_fenced_languages=["bash=sh", "sh", "json", "ruby", "diff"]
   autocmd GUIEnter * set
         \ title
         \ icon
