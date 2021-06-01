@@ -291,8 +291,14 @@ nmap <script> <SID>:. :<C-R>=getcmdline() =~ "," ? "\0250" : ""<CR>
 augroup vimrcEx
   autocmd!
 
-  autocmd GUIEnter * let
-        \ g:markdown_fenced_languages=["bash=sh", "sh", "json", "ruby", "diff"]
+  autocmd GUIEnter * let g:markdown_fenced_languages=
+        \ [
+          \   "bash=sh",
+          \   "diff",
+          \   "json",
+          \   "ruby",
+          \   "sh",
+          \ ]
   autocmd GUIEnter * set
         \ title
         \ icon
