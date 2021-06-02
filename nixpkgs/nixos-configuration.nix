@@ -33,7 +33,6 @@ in {
 
   services.openssh = {
     enable = true;
-    permitRootLogin = "yes";
   };
 
   virtualisation.docker.enable = true;
