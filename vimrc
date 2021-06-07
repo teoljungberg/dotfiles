@@ -290,7 +290,7 @@ augroup vimrcEx
   autocmd!
 
   autocmd GUIEnter * let g:markdown_fenced_languages=
-        \ [
+          \ [
           \   "bash=sh",
           \   "diff",
           \   "json",
