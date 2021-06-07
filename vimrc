@@ -31,7 +31,6 @@ set smartcase
 set splitright
 set statusline=[%n]\ %<%f\ %h%m%r%w%=%-14.(%l,%c%V%)\ %P
 set synmaxcol=200
-set t_RV=
 set tags^=./.git/tags;tags
 set textwidth=80
 set ttimeout
