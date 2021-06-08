@@ -8,9 +8,9 @@
 let
   user = import ./../../nixpkgs/user.nix { };
 
-  asdf = pkgs.callPackage "${user.user.directory}/.nixpkgs/asdf.nix" { };
-  comma = pkgs.callPackage "${user.user.directory}/.nixpkgs/comma.nix" { };
-  setrb = pkgs.callPackage "${user.user.directory}/.nixpkgs/setrb.nix" { };
+  asdf = pkgs.callPackage ./../../nixpkgs/asdf.nix { };
+  comma = pkgs.callPackage ./../../nixpkgs/comma.nix { };
+  setrb = pkgs.callPackage ./../../nixpkgs/setrb.nix { };
 in {
   programs.home-manager.enable = true;
 
