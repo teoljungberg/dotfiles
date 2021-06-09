@@ -8,7 +8,6 @@
 let
   user = import ./../../nixpkgs/user.nix { };
 
-  asdf = pkgs.callPackage ./../../nixpkgs/asdf.nix { };
   comma = pkgs.callPackage ./../../nixpkgs/comma.nix { };
   setrb = pkgs.callPackage ./../../nixpkgs/setrb.nix { };
 in {
