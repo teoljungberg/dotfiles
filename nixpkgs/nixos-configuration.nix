@@ -31,9 +31,7 @@ in {
 
   security.sudo.wheelNeedsPassword = false;
 
-  services.openssh = {
-    enable = true;
-  };
+  services.openssh = { enable = true; };
 
   virtualisation.docker.enable = true;
 
