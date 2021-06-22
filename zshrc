@@ -40,7 +40,6 @@ alias j="jobs"
 alias ls="ls -F"
 alias p="projects"
 alias ..="cd .."
-alias sha256sum="gsha256sum"
 
 # Completion for `bin/git-changed-files`
 __git_changed_files() {
