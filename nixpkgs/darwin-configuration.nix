@@ -63,6 +63,12 @@ in {
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
 
-  nix.buildCores = 1;
-  nix.maxJobs = 4;
+  nix = {
+    buildCores = 1;
+    maxJobs = 4;
+    extraOptions = ''
+      keep-outputs = true
+      keep-derivations = true
+    '';
+  };
 }
