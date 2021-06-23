@@ -65,7 +65,7 @@ in {
 
   nix = {
     buildCores = 1;
-    maxJobs = 4;
+    maxJobs = 8;
     extraOptions = ''
       keep-outputs = true
       keep-derivations = true
