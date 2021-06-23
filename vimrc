@@ -398,7 +398,7 @@ augroup Dispatch
         \ endif
 
   autocmd BufReadPost *.nix
-        \ let b:dispatch = "nix build -f %:S --out-link /tmp/%:t:r" |
+        \ let b:dispatch = "nix build -f %:S --no-link" |
   autocmd BufReadPost */darwin-configuration.nix
         \ let b:dispatch = "darwin-rebuild check" |
         \ let b:start = "-wait=always darwin-rebuild switch"
@@ -406,7 +406,6 @@ augroup Dispatch
         \ let b:dispatch = "home-manager -n switch" |
         \ let b:start = "-wait=always home-manager switch"
   autocmd BufReadPost */default.nix,*/shell.nix
-        \ let b:dispatch = "nix build -f %:S --out-link /tmp/%:p:h:t" |
         \ let b:start = "-wait=always nix-shell %:S"
   autocmd BufReadPost */nixos-configuration.nix
         \ let b:dispatch = "nixos-rebuild dry-run" |
