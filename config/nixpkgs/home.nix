@@ -30,11 +30,9 @@ in {
     heroku
     jq
     nixfmt
-    openssl.dev
     pgformatter
     pkg-config
     rcm
-    readline.dev
     ripgrep
     setrb
     shellcheck
