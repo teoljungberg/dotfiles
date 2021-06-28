@@ -399,6 +399,7 @@ augroup Dispatch
 
   autocmd BufReadPost *.nix
         \ let b:dispatch = "nix build -f %:S --no-link" |
+        \ setlocal makeprg=nix\ build\ -f\ %:S |
   autocmd BufReadPost */darwin-configuration.nix
         \ let b:dispatch = "darwin-rebuild check" |
         \ let b:start = "-wait=always darwin-rebuild switch"
