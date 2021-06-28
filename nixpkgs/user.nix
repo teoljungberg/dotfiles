@@ -1,4 +1,5 @@
-{ stdenv ? (import <nixpkgs> { }).stdenv, lib ? (import <nixpkgs> { }).lib }:
+{ stdenv ? (import <nixpkgs> { }).stdenv, ... }:
+
 let
   name = "teo";
   fullName = "Teo Ljungberg";
