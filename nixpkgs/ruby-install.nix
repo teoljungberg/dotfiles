@@ -4,6 +4,7 @@
 
 let
   paths = [
+    pkgs.bash
     pkgs.gcc
     pkgs.gdbm
     pkgs.gnumake
@@ -36,6 +37,7 @@ in stdenv.mkDerivation {
   '';
 
   installPhase = ''
+    sed -ie "s|^SHELL=.*|SHELL=${pkgs.bash}/bin/bash|g" Makefile
     make install PREFIX=$out/
     wrapProgram $out/bin/ruby-install \
       --set PKG_CONFIG_PATH "${env}/lib/pkgconfig" \
