@@ -37,8 +37,7 @@ in stdenv.mkDerivation {
   '';
 
   installPhase = ''
-    sed -ie "s|^SHELL=.*|SHELL=${pkgs.bash}/bin/bash|g" Makefile
-    make install PREFIX=$out/
+    make install PREFIX=$out/ SHELL=${pkgs.bash}/bin/bash
     wrapProgram $out/bin/ruby-install \
       --set PKG_CONFIG_PATH "${env}/lib/pkgconfig" \
       --set CFLAGS "-I${env}/include" \
