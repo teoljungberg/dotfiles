@@ -1,6 +1,6 @@
-{ stdenv ? (import <nixpkgs> { }).stdenv, lib ? (import <nixpkgs> { }).lib
-, fetchzip ? (import <nixpkgs> { }).fetchzip, pkgs ? (import <nixpkgs> { }), ...
-}:
+{ pkgs ? (import <nixpkgs> { }), stdenv ? (import <nixpkgs> { }).stdenv
+, lib ? (import <nixpkgs> { }).lib, fetchzip ? (import <nixpkgs> { }).fetchzip
+, ... }:
 
 let
   paths = [
