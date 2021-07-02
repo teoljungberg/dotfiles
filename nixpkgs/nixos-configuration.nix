@@ -26,7 +26,8 @@ let
       -cf ${archive.name}-$(date +%Y%m%d%H%M%S) \
       ${lib.concatStringsSep " " archive.directories}
   '';
-in {
+in
+{
   imports = [
     /etc/nixos/hardware-configuration.nix
     /etc/nixos/networking.nix # generated at runtime by nixos-infect

@@ -11,7 +11,8 @@ let
   comma = pkgs.callPackage ./../../nixpkgs/comma.nix { };
   setrb = pkgs.callPackage ./../../nixpkgs/setrb.nix { };
   ruby-install = pkgs.callPackage ./../../nixpkgs/ruby-install.nix { };
-in {
+in
+{
   programs.home-manager.enable = true;
 
   home.homeDirectory = user.user.directory;

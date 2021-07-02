@@ -3,7 +3,8 @@
 let
   name = "teo";
   fullName = "Teo Ljungberg";
-in rec {
+in
+rec {
   user = {
     name = name;
     fullName = fullName;

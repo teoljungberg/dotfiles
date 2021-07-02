@@ -1,5 +1,7 @@
-{ stdenv ? (import <nixpkgs> { }).stdenv, lib ? (import <nixpkgs> { }).lib
-, fetchzip ? (import <nixpkgs> { }).fetchzip }:
+{ stdenv ? (import <nixpkgs> { }).stdenv
+, lib ? (import <nixpkgs> { }).lib
+, fetchzip ? (import <nixpkgs> { }).fetchzip
+}:
 
 stdenv.mkDerivation {
   pname = "setrb";

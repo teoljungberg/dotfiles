@@ -4,7 +4,8 @@ let
   user = import ./user.nix { };
 
   hammerspoon = pkgs.callPackage ./hammerspoon.nix { };
-in {
+in
+{
   services.nix-daemon.enable = false;
 
   users.users.teo = {

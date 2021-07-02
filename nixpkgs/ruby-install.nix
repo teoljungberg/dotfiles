@@ -1,6 +1,9 @@
-{ pkgs ? (import <nixpkgs> { }), stdenv ? (import <nixpkgs> { }).stdenv
-, lib ? (import <nixpkgs> { }).lib, fetchzip ? (import <nixpkgs> { }).fetchzip
-, ... }:
+{ pkgs ? (import <nixpkgs> { })
+, stdenv ? (import <nixpkgs> { }).stdenv
+, lib ? (import <nixpkgs> { }).lib
+, fetchzip ? (import <nixpkgs> { }).fetchzip
+, ...
+}:
 
 let
   paths = [
@@ -20,7 +23,8 @@ let
     paths = paths;
     extraOutputsToInstall = [ "bin" "include" "lib" ];
   };
-in stdenv.mkDerivation {
+in
+stdenv.mkDerivation {
   pname = "ruby-install";
   version = "0.8.1";
 
