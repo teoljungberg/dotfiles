@@ -38,10 +38,6 @@ set viminfo=!,'20,<50,s10,h
 set wildmode=list,full
 syntax enable
 
-" Enforce italics
-let &t_ZH="\e[3m"
-let &t_ZR="\e[23m"
-
 " Set different cursors for insert, replace, and normal mode.
 let &t_SI = "\e[6 q"
 let &t_SR = "\e[4 q"
