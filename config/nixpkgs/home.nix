@@ -30,7 +30,7 @@ in {
     gnupg
     heroku
     jq
-    nixfmt
+    nixpkgs-fmt
     pgformatter
     pkg-config
     rcm

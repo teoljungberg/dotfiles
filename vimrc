@@ -348,7 +348,6 @@ let g:ale_set_signs = 0
 let g:ale_open_list = 1
 
 let g:ale_markdown_mdl_executable = "bin/mdl"
-let g:ale_nix_nixpkgsfmt_executable = "nixfmt"
 let g:ale_ruby_rubocop_executable = "bin/rubocop"
 let g:ale_sql_pgformatter_options = "--spaces 2 --comma-break"
 
@@ -358,7 +357,6 @@ let g:ale_linters_explicit = 1
 let g:ale_linters = {}
 let g:ale_linters.javascript = ["eslint"]
 let g:ale_linters.markdown = ["mdl"]
-let g:ale_linters.nix = ["nixpkgs-fmt"]
 let g:ale_linters.ruby = ["rubocop"]
 let g:ale_linters.sh = ["shellcheck"]
 let g:ale_linters.vim = ["vint"]
