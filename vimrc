@@ -347,8 +347,6 @@ let g:ale_set_signs = 0
 " Open the location list when `:ALELint` produces any errors.
 let g:ale_open_list = 1
 
-let g:ale_markdown_mdl_executable = "bin/mdl"
-let g:ale_ruby_rubocop_executable = "bin/rubocop"
 let g:ale_sql_pgformatter_options = "--spaces 2 --comma-break"
 
 " Only run linters listed in `g:ale_linters`.
