@@ -65,7 +65,7 @@ in
   system.stateVersion = 4;
 
   nix = {
-    buildCores = 1;
+    buildCores = 4;
     maxJobs = 8;
     extraOptions = ''
       keep-outputs = true
