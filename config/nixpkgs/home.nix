@@ -42,6 +42,7 @@ in
     tmux
     universal-ctags
     vim
+    vim-vint
     zsh
   ];
 

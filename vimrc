@@ -313,6 +313,7 @@ augroup vimrcEx
         \ if exists("+omnifunc") && &omnifunc == "" |
         \   setlocal omnifunc=syntaxcomplete#Complete |
         \ endif
+  autocmd BufReadPost */vintrc,*/.vintrc set filetype=yaml
 augroup END
 
 if exists("##OSAppearanceChanged")
