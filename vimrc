@@ -392,6 +392,7 @@ augroup Dispatch
 
   autocmd BufReadPost *.nix
         \ let b:dispatch = "nix build -f %:S --no-link" |
+        \ let b:start = "nix repl -I %:p:h:S '<%:t>'" |
         \ setlocal makeprg=nix\ build\ -f\ %:S |
   if has("mac")
     autocmd BufReadPost */darwin-configuration.nix
