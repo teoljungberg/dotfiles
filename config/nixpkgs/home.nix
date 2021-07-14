@@ -1,4 +1,6 @@
-{ pkgs, ... }:
+{ pkgs ? (import <nixpkgs> { })
+, ...
+}:
 
 # https://status.nixos.org
 # with import

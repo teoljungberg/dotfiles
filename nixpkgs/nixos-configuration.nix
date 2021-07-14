@@ -1,4 +1,7 @@
-{ pkgs, lib, ... }:
+{ pkgs ? (import <nixpkgs> { })
+, lib ? (import <nixpkgs> { }).lib
+, ...
+}:
 
 let
   key =
