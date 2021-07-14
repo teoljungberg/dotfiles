@@ -393,9 +393,11 @@ augroup Dispatch
   autocmd BufReadPost *.nix
         \ let b:dispatch = "nix build -f %:S --no-link" |
         \ setlocal makeprg=nix\ build\ -f\ %:S |
-  autocmd BufReadPost */darwin-configuration.nix
-        \ let b:dispatch = "darwin-rebuild check" |
-        \ let b:start = "-wait=always darwin-rebuild switch"
+  if has("mac")
+    autocmd BufReadPost */darwin-configuration.nix
+          \ let b:dispatch = "darwin-rebuild check" |
+          \ let b:start = "-wait=always darwin-rebuild switch"
+  endif
   autocmd BufReadPost */home.nix
         \ let b:dispatch = "home-manager -n switch" |
         \ let b:start = "-wait=always home-manager switch"
