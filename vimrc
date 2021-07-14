@@ -398,14 +398,16 @@ augroup Dispatch
           \ let b:dispatch = "darwin-rebuild check" |
           \ let b:start = "-wait=always darwin-rebuild switch"
   endif
+  if has("linux")
+    autocmd BufReadPost */nixos-configuration.nix
+          \ let b:dispatch = "nixos-rebuild dry-run" |
+          \ let b:start = "-wait=always sudo nixos-rebuild switch"
+  endif
   autocmd BufReadPost */home.nix
         \ let b:dispatch = "home-manager -n switch" |
         \ let b:start = "-wait=always home-manager switch"
   autocmd BufReadPost */default.nix,*/shell.nix
         \ let b:start = "-wait=always nix-shell %:S"
-  autocmd BufReadPost */nixos-configuration.nix
-        \ let b:dispatch = "nixos-rebuild dry-run" |
-        \ let b:start = "-wait=always sudo nixos-rebuild switch"
 
   autocmd FileType ruby let b:start = "irb -r '%:p'"
   autocmd FileType ruby
