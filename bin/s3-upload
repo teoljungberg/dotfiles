@@ -1,0 +1,58 @@
+#!/bin/sh
+
+set -e
+[ -n "$DEBUG" ] && set -ex
+
+show_usage() {
+  echo >&2 "s3-upload --private path/to/file"
+  echo >&2 "s3-upload --private path/to/file [remote-name]"
+  echo >&2 "s3-upload --public path/to/file"
+  echo >&2 "s3-upload --public path/to/file [remote-name]"
+
+  exit 1
+}
+
+set_acl() {
+  acl=""
+  if [ "$1" = "--private" ]; then
+    acl="private"
+  elif [ "$1" = "--public" ]; then
+    acl="public-read"
+  else
+    show_usage
+  fi
+
+  echo "$acl"
+}
+
+set_filename() {
+  filename=""
+  if [ -n "$1" ]; then
+    filename="$1"
+  else
+    show_usage
+  fi
+
+  echo "$filename"
+}
+
+set_remote_filename() {
+  remote_filename=""
+  if [ -n "$1" ]; then
+    remote_filename="$1"
+  elif [ -n "$2" ]; then
+    remote_filename="$2"
+  else
+    show_usage
+  fi
+
+  echo "$remote_filename"
+}
+
+acl=$(set_acl "$1")
+shift
+filename=$(set_filename "$1")
+shift
+remote_filename=$(set_remote_filename "$1" "$filename")
+
+aws s3 cp --acl "$acl" "$filename" "s3://teoljungberg/$remote_filename"

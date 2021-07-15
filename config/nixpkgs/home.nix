@@ -24,6 +24,7 @@ in
   home.packages = with pkgs; [
     autoconf
     automake
+    awscli2
     comma
     coreutils-prefixed
     fzf
