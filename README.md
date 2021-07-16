@@ -32,7 +32,7 @@ https://nixos.org/channels/nixpkgs-unstable unstable
 
 1. Modify `/etc/nixos/configuration.nix` to your hearts content. Reboot server.
 1. `cp /etc/nixos/configuration.nix{,.bak}`
-1. `ln -sf $HOME/dotfiles/nixpkgs/nixos-configuration.nix /etc/nixos/configuration.nix`
+1. `ln -sf $HOME/src/dotfiles/nixpkgs/nixos-configuration.nix /etc/nixos/configuration.nix`
 1. Add nix channels.
 
 ## Cron
