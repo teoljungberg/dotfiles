@@ -535,6 +535,9 @@ let g:projectionist_heuristics =
       \   ".git\/": {
       \     "TODO.md": { "command": "todo" },
       \   },
+      \   "Gemfile": {
+      \     "*.rb": { "path": ["{project}/test/**"] },
+      \   },
       \ }
 
 " splitjoin.vim
