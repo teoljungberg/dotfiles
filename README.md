@@ -17,8 +17,8 @@ https://nixos.org/channels/nixpkgs-unstable unstable
 1. Add nix channels.
 
 ```
-% darwin-rebuild switch -I darwin-config=$HOME/src/dotfiles/nixpkgs/darwin-configuration.nix
-% home-manager switch -f $HOME/src/dotfiles/config/nixpkgs/home.nix
+% darwin-rebuild switch -I darwin-config=$(pwd)/nixpkgs/darwin-configuration.nix
+% home-manager switch -f $(pwd)/config/nixpkgs/home.nix
 ```
 
 ### NixOS
@@ -32,7 +32,7 @@ https://nixos.org/channels/nixpkgs-unstable unstable
 
 1. Modify `/etc/nixos/configuration.nix` to your hearts content. Reboot server.
 1. `cp /etc/nixos/configuration.nix{,.bak}`
-1. `ln -sf $HOME/src/dotfiles/nixpkgs/nixos-configuration.nix /etc/nixos/configuration.nix`
+1. `ln -sf $(pwd)/nixpkgs/nixos-configuration.nix /etc/nixos/configuration.nix`
 1. Add nix channels.
 
 ## Cron

@@ -28,6 +28,7 @@ in
     comma
     coreutils-prefixed
     fzf
+    ghq
     git
     gitAndTools.gh
     gitAndTools.hub

@@ -51,3 +51,5 @@
   push = false
   transport = false
   ui = false
+[ghq]
+  root = ~/src

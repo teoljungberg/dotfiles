@@ -112,18 +112,6 @@ git() {
   fi
 }
 
-_has_subdirs() {
-  [ -d "$1" ] && [ "$(find "$1" -maxdepth 1 -type d | wc -l)" -gt 1 ]
-}
-
-add_subdirs_to_projects() {
-  if _has_subdirs "$1"; then
-    for subdir in "$1"/*; do
-      PROJECTS="$PROJECTS:$subdir"
-    done
-  fi
-}
-
 rename_tab_to_current_dir() {
   print -Pn "\\033]0;%c\\007"
 }
@@ -149,9 +137,10 @@ git_branch() {
 }
 
 projects() {
-  result=$(echo "$PROJECTS" | tr ":" "\\n" | sed "/^$/d" | fzf -q "$1")
+  root=$(ghq root)
+  result=$(ghq list | fzf -q "$1")
 
-  cd "$result" || exit
+  [ -n "$result" ] && cd "$root/$result"
 }
 
 _source_if_available() { [ -e "$1" ] && source "$1" }
@@ -230,8 +219,6 @@ fi
 if command -v direnv >/dev/null; then
   eval "$(direnv hook zsh)"
 fi
-
-add_subdirs_to_projects "$HOME/src"
 
 # to make vim behave under xterm
 stty -ixon
