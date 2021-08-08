@@ -113,14 +113,14 @@ git() {
 }
 
 rename_tab_to_current_dir() {
-  print -Pn "\\033]0;%c\\007"
+  print -Pn "\\033]0;$(title_name)\\007"
 }
 
 rename_tmux_window_to_current_dir() {
   if [ -n "$TMUX" ] && [ -z "$VIM_TERMINAL" ]; then
     if [ "$PWD" != "$LPWD" ]; then
       LPWD="$PWD"
-      tmux rename-window "$(print -Pn "%c")"
+      tmux rename-window "$(title_name)"
     fi
   fi
 }
@@ -268,12 +268,16 @@ git_branch_color() {
   fi
 }
 
+title_name() {
+  print -Pn "%20<...<% %2c%<"
+}
+
 set_prompt() {
-  PROMPT="%c $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
+  PROMPT="%2c $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
 
   [ -n "$SIMPLE_PROMPT" ] && PROMPT="%# "
   [ -n "$SSH_CONNECTION" ] && \
-    PROMPT="%c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
+    PROMPT="%2c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
 }
 
 setup_setrb() {
