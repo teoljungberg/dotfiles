@@ -275,7 +275,6 @@ title_name() {
 set_prompt() {
   PROMPT="%2c $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
 
-  [ -n "$SIMPLE_PROMPT" ] && PROMPT="%# "
   [ -n "$SSH_CONNECTION" ] && \
     PROMPT="%2c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
 }
