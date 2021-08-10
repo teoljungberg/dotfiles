@@ -1,25 +1,35 @@
-{ pkgs ? (import <nixpkgs> { })
-, stdenv ? (import <nixpkgs> { }).stdenv
-, lib ? (import <nixpkgs> { }).lib
+{ buildEnv ? (import <nixpkgs> { }).buildEnv
 , fetchzip ? (import <nixpkgs> { }).fetchzip
-, ...
+, gcc ? (import <nixpkgs> { }).gcc
+, gdbm ? (import <nixpkgs> { }).gdbm
+, gnugrep ? (import <nixpkgs> { }).gnugrep
+, gnumake ? (import <nixpkgs> { }).gnumake
+, lib ? (import <nixpkgs> { }).lib
+, libyaml ? (import <nixpkgs> { }).libyaml
+, makeWrapper ? (import <nixpkgs> { }).makeWrapper
+, ncurses ? (import <nixpkgs> { }).ncurses
+, openssl ? (import <nixpkgs> { }).openssl
+, pkg-config ? (import <nixpkgs> { }).pkg-config
+, readline ? (import <nixpkgs> { }).readline
+, stdenv ? (import <nixpkgs> { }).stdenv
+, zlib ? (import <nixpkgs> { }).zlib
 }:
 
 let
   paths = [
-    pkgs.gcc
-    pkgs.gdbm
-    pkgs.gnugrep
-    pkgs.gnumake
-    pkgs.libyaml
-    pkgs.makeWrapper
-    pkgs.ncurses
-    pkgs.openssl.dev
-    pkgs.pkg-config
-    pkgs.readline
-    pkgs.zlib
+    gcc
+    gdbm
+    gnugrep
+    gnumake
+    libyaml
+    makeWrapper
+    ncurses
+    openssl.dev
+    pkg-config
+    readline
+    zlib
   ];
-  env = pkgs.buildEnv {
+  env = buildEnv {
     name = "ruby-install-env";
     paths = paths;
     extraOutputsToInstall = [ "bin" "include" "lib" ];

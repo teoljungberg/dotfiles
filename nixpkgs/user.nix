@@ -1,4 +1,4 @@
-{ stdenv ? (import <nixpkgs> { }).stdenv, ... }:
+{ stdenv ? (import <nixpkgs> { }).stdenv }:
 
 let
   name = "teo";

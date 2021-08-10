@@ -1,6 +1,5 @@
 { pkgs ? (import <nixpkgs> { })
 , fetchFromGitHub ? (import <nixpkgs> { }).fetchFromGitHub
-, ...
 }:
 
 let

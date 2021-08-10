@@ -1,6 +1,4 @@
-{ pkgs ? (import <nixpkgs> { })
-, ...
-}:
+{ pkgs ? (import <nixpkgs> { }) }:
 
 let
   user = import ./user.nix { };
