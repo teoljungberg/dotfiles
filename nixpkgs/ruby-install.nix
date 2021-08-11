@@ -4,7 +4,6 @@
 , gdbm ? (import <nixpkgs> { }).gdbm
 , gnugrep ? (import <nixpkgs> { }).gnugrep
 , gnumake ? (import <nixpkgs> { }).gnumake
-, lib ? (import <nixpkgs> { }).lib
 , libyaml ? (import <nixpkgs> { }).libyaml
 , makeWrapper ? (import <nixpkgs> { }).makeWrapper
 , ncurses ? (import <nixpkgs> { }).ncurses
@@ -58,11 +57,4 @@ stdenv.mkDerivation {
       --set LDFLAGS "-L${env}/lib" \
       --prefix PATH : "${env}/bin"
   '';
-
-  meta = with lib; {
-    description = "";
-    homepage = "";
-    license = "";
-    platforms = platforms.unix;
-  };
 }
