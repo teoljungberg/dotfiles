@@ -118,10 +118,7 @@ rename_tab_to_current_dir() {
 
 rename_tmux_window_to_current_dir() {
   if [ -n "$TMUX" ] && [ -z "$VIM_TERMINAL" ]; then
-    if [ "$PWD" != "$LPWD" ]; then
-      LPWD="$PWD"
-      tmux rename-window "$(title_name)"
-    fi
+    tmux rename-window "$(title_name)"
   fi
 }
 
