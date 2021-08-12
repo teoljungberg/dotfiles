@@ -25,6 +25,7 @@ in
     autoconf
     automake
     awscli2
+    bat
     comma
     coreutils-prefixed
     fzf
