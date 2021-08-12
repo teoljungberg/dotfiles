@@ -427,7 +427,7 @@ augroup END
 
 " fugitive.vim
 " ------------
-let g:fugitive_dynamic_colors = 0
+let g:fugitive_dynamic_colors=0
 let g:fugitive_legacy_commands=0
 
 nmap g<CR> <SID>:.Git<CR>
