@@ -53,3 +53,8 @@
   ui = false
 [ghq]
   root = ~/src
+[gitsh.color]
+  uninitialized = normal
+  untracked = normal
+  modified = normal
+  default = normal

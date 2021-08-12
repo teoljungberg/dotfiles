@@ -11,6 +11,7 @@ let
   user = import ./../../nixpkgs/user.nix { };
 
   comma = pkgs.callPackage ./../../nixpkgs/comma.nix { };
+  gitsh = pkgs.callPackage ./../../nixpkgs/gitsh.nix { };
   setrb = pkgs.callPackage ./../../nixpkgs/setrb.nix { };
   ruby-install = pkgs.callPackage ./../../nixpkgs/ruby-install.nix { };
 in
@@ -33,6 +34,7 @@ in
     git
     gitAndTools.gh
     gitAndTools.hub
+    gitsh
     gnupg
     heroku
     jq
