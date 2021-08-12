@@ -49,7 +49,7 @@ let &t_EI = "\e[2 q"
 let g:is_posix = 1
 
 if $TERM =~# "^xterm"
-  if exists("+mouse")
+  if exists("+mouse") && !has("nvim")
     set ttymouse=xterm2
   endif
 endif
