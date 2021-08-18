@@ -69,7 +69,7 @@ _git_p() {
 # Inside tmux(1) - run builtin clear and clear tmux history.
 # Outside tmux(1) - run builtin clear.
 clear() {
-  original_clear=$(whence -p clear)
+  local original_clear=$(whence -p clear)
 
   if [ -n "$TMUX" ]; then
     $original_clear && tmux clear-history
@@ -82,11 +82,11 @@ clear() {
 # known host in ssh_config(5)
 # Outside tmux(1) - run builtin ssh.
 ssh() {
-  hostname="$@"
-  previous_window_name=""
-  original_ssh=$(whence -p ssh)
-  known_hosts=$(grep -E "^Host" ~/.ssh/config | cut -d" " -f 2)
-  is_known_host=$(echo $known_hosts | grep -Fq -- "$hostname"; echo $?)
+  local hostname="$@"
+  local previous_window_name=""
+  local original_ssh=$(whence -p ssh)
+  local known_hosts=$(grep -E "^Host" ~/.ssh/config | cut -d" " -f 2)
+  local is_known_host=$(echo $known_hosts | grep -Fq -- "$hostname"; echo $?)
 
   if [ -n "$TMUX" ] && [ "$is_known_host" = "0" ]; then
     previous_window_name=$(tmux display-message -p "#W")
@@ -103,7 +103,7 @@ ssh() {
 # No arguments: `git status`
 # With arguments: acts like `git`
 git() {
-  original_git=$(whence -p git)
+  local original_git=$(whence -p git)
 
   if [ $# -gt 0 ]; then
     $original_git "$@"
@@ -129,13 +129,13 @@ refresh_tmux_environment_variables() {
 }
 
 git_branch() {
-  GIT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null) || return
-  [ -n "$GIT_BRANCH" ] && echo "$GIT_BRANCH "
+  local branch_name=$(git symbolic-ref --short HEAD 2>/dev/null) || return
+  [ -n "$branch_name" ] && echo "$branch_name "
 }
 
 projects() {
-  root=$(ghq root)
-  result=$(ghq list | fzf -q "$*")
+  local root=$(ghq root)
+  local result=$(ghq list | fzf -q "$*")
 
   [ -n "$result" ] && cd "$root/$result"
 }
@@ -143,8 +143,8 @@ projects() {
 _source_if_available() { [ -e "$1" ] && source "$1" }
 
 theme() {
-  usage="theme <light|dark>"
-  new_style=""
+  local usage="theme <light|dark>"
+  local new_style=""
 
   case "$1" in
     dark)
@@ -195,7 +195,7 @@ theme() {
 }
 
 if [ -z "$THEME" ] && [ $(uname -s) = "Darwin" ]; then
-  style=$(defaults read -g AppleInterfaceStyle 2> /dev/null)
+  local style=$(defaults read -g AppleInterfaceStyle 2> /dev/null)
 
   if [ "$style" = "Dark" ]; then
     export THEME=dark
