@@ -135,7 +135,7 @@ git_branch() {
 
 projects() {
   root=$(ghq root)
-  result=$(ghq list | fzf -q "$1")
+  result=$(ghq list | fzf -q "$*")
 
   [ -n "$result" ] && cd "$root/$result"
 }
