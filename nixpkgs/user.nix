@@ -4,7 +4,7 @@ let
   name = "teo";
   fullName = "Teo Ljungberg";
 in
-rec {
+{
   user = {
     name = name;
     fullName = fullName;
