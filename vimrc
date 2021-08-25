@@ -596,22 +596,6 @@ augroup END
 
 " quickfix
 " --------
-function! s:QuickfixMappings()
-  if getwininfo(win_getid())[0].loclist
-    nnoremap <buffer> [f :lolder<CR>
-    nnoremap <buffer> ]f :lnewer<CR>
-    nnoremap <buffer> [F :
-          \ <C-R>=getloclist("$", {"nr": "$"}).nr - 1<CR>lolder<CR>
-    nnoremap <buffer> ]F :
-          \ <C-R>=getloclist("$", {"nr": "$"}).nr - 1<CR>lnewer<CR>
-  else
-    nnoremap <buffer> [f :colder<CR>
-    nnoremap <buffer> ]f :cnewer<CR>
-    nnoremap <buffer> [F :<C-R>=getqflist({"nr": "$"}).nr - 1<CR>colder<CR>
-    nnoremap <buffer> ]F :<C-R>=getqflist({"nr": "$"}).nr - 1<CR>cnewer<CR>
-  endif
-endfunction
-
 function! s:QuickfixTitle()
   let title = get(w:, "quickfix_title", "")
 
@@ -628,7 +612,6 @@ augroup ft_qf
         \ nolist
         \ nonumber
         \ norelativenumber
-  autocmd FileType qf call <SID>QuickfixMappings()
   autocmd FileType qf call <SID>QuickfixTitle()
 augroup END
 
