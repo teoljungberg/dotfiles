@@ -6,30 +6,6 @@
 let
   key =
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8DmGnZmzOUOlg+gtKuGouRz6wCqy1pwNKvweJ4MCp0 teo@teoljungberg.com";
-  tarsnapConfig = {
-    archives = {
-      teo = {
-        name = "teo";
-        cachedir = "/home/teo/.cache/tarsnap";
-        keyfile = "/home/teo/tarsnap.key";
-        directories = [ "/home/teo/backup" ];
-      };
-
-      upload = {
-        name = "upload";
-        cachedir = "/home/upload/.cache/tarsnap";
-        keyfile = "/home/upload/tarsnap.key";
-        directories = [ "/home/upload/backup" ];
-      };
-    };
-  };
-  tarsnapBackup = tarsnap: archive: ''
-    ${tarsnap}/bin/tarsnap \
-      --keyfile ${archive.keyfile} \
-      --cachedir ${archive.cachedir} \
-      -cf ${archive.name}-$(date +%Y%m%d%H%M%S) \
-      ${lib.concatStringsSep " " archive.directories}
-  '';
 in
 {
   imports = [
@@ -49,7 +25,6 @@ in
     git
     home-manager
     rcm
-    tarsnap
     vim
     zsh
   ];
@@ -91,13 +66,5 @@ in
     shell = pkgs.zsh;
     extraGroups = [ "users" ];
     openssh.authorizedKeys.keys = [ key ];
-  };
-
-  services.cron = {
-    enable = true;
-    systemCronJobs = [
-      "5 */1 * * * ${tarsnapBackup pkgs.tarsnap tarsnapConfig.archives.teo}"
-      "5 */1 * * * ${tarsnapBackup pkgs.tarsnap tarsnapConfig.archives.upload}"
-    ];
   };
 }
