@@ -56,3 +56,5 @@ shift
 remote_filename=$(set_remote_filename "$1" "$filename")
 
 aws s3 cp --acl "$acl" "$filename" "s3://teoljungberg/$remote_filename"
+
+echo "https://teoljungberg.s3.amazonaws.com/$remote_filename"
