@@ -41,7 +41,7 @@ set_remote_filename() {
   if [ -n "$1" ]; then
     remote_filename="$1"
   elif [ -n "$2" ]; then
-    remote_filename="$2"
+    remote_filename="$(basename "$2")"
   else
     show_usage
   fi
