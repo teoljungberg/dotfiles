@@ -393,16 +393,17 @@ augroup Dispatch
   autocmd BufReadPost *.nix
         \ let b:dispatch = "nix build -f %:S --no-link" |
         \ let b:start = "nix repl -I %:p:h:S '<%:t>'" |
-        \ setlocal makeprg=nix\ build\ -f\ %:S |
+        \ setlocal makeprg=nix\ build\ -f\ %:S
   if has("mac")
     autocmd BufReadPost */darwin-configuration.nix
           \ let b:dispatch = "darwin-rebuild check" |
-          \ let b:start = "-wait=always darwin-rebuild switch"
+          \ setlocal makeprg=darwin-rebuild\ switch
   endif
   if has("linux")
     autocmd BufReadPost */nixos-configuration.nix
           \ let b:dispatch = "nixos-rebuild dry-run" |
-          \ let b:start = "-wait=always sudo nixos-rebuild switch"
+          \ let b:start = "-wait=always sudo nixos-rebuild switch" |
+          \ setlocal makeprg=sudo\ nixos-rebuild\ switch
   endif
   autocmd BufReadPost */home.nix
         \ let b:dispatch = "home-manager -n switch" |
