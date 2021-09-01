@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ -e "$HOME/.nix-profile/share/git/contrib/diff-highlight/diff-highlight" ]; then
-  "$HOME/.nix-profile/share/git/contrib/diff-highlight/diff-highlight" | less -F
-else
-  less -F
-fi

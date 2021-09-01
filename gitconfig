@@ -25,7 +25,7 @@
 [core]
   editor = vim -f
   excludesfile = ~/.gitignore
-  pager = git pager
+  pager = diff-highlight | less -F
 [push]
   default = current
 [help]
