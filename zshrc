@@ -90,14 +90,15 @@ ssh() {
 
   if [ -n "$TMUX" ] && [ "$is_known_host" = "0" ]; then
     previous_window_name=$(tmux display-message -p "#W")
-    tmux rename-window "$hostname"
+    tmux rename-window -t "$TMUX_PANE" "$hostname"
 
     $original_ssh "$@"
   else
     $original_ssh "$@"
   fi
 
-  [ -n "$previous_window_name" ] && tmux rename-window "$previous_window_name"
+  [ -n "$previous_window_name" ] && \
+    tmux rename-window -t "$TMUX_PANE" "$previous_window_name"
 }
 
 # No arguments: `git status`
@@ -118,7 +119,7 @@ rename_tab_to_current_dir() {
 
 rename_tmux_window_to_current_dir() {
   if [ -n "$TMUX" ] && [ -z "$VIM_TERMINAL" ]; then
-    tmux rename-window "$(title_name)"
+    tmux rename-window -t "$TMUX_PANE" "$(title_name)"
   fi
 }
 
