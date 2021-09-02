@@ -110,14 +110,6 @@ xnoremap <silent> gl :<C-U>call <SID>LGrep(visualmode())<CR>
 nnoremap gl<Space> :lgrep<Space>
 nnoremap gr<Space> :grep<Space>
 
-function! s:CopyMotionForType(type)
-  if a:type ==# "v"
-    silent execute "normal! `<" . a:type . "`>y"
-  elseif a:type ==# "char"
-    silent execute "normal! `[v`]y"
-  endif
-endfunction
-
 function! s:Grep(type) abort
   call <SID>GrepMotion(a:type, "grep")
 endfunction
@@ -129,7 +121,11 @@ endfunction
 function! s:GrepMotion(type, command) abort
   let prior = @@
 
-  call s:CopyMotionForType(a:type)
+  if a:type ==# "v"
+    silent execute "normal! `<" . a:type . "`>y"
+  elseif a:type ==# "char"
+    silent execute "normal! `[v`]y"
+  endif
 
   execute ":" . a:command . " " . shellescape(@@)
 
