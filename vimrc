@@ -531,7 +531,7 @@ let g:projectionist_heuristics =
       \   ".git\/": {
       \     "TODO.md": { "command": "todo" },
       \   },
-      \   "Gemfile": {
+      \   "test\/": {
       \     "*.rb": { "path": ["{project}/test/**"] },
       \   },
       \ }
