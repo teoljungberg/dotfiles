@@ -61,11 +61,6 @@ _git_changed_files() {
 }
 zle -N _git_changed_files
 
-# Completion for `git p`
-_git_p() {
-  __gitcomp "$(__git_heads)"
-}
-
 # Inside tmux(1) - run builtin clear and clear tmux history.
 # Outside tmux(1) - run builtin clear.
 clear() {
