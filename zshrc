@@ -34,6 +34,9 @@ export THOR_SHELL=Basic
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' insert-tab pending
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
+if [ -e "$HOME/.nix-profile/share/git/contrib/completion/git-completion.zsh" ]; then
+  zstyle ':completion:*:*:git:*' script $HOME/.nix-profile/share/git/contrib/completion/git-completion.zsh
+fi
 
 alias b="bundle exec"
 alias j="jobs"
