@@ -8,6 +8,7 @@ setopt no_bg_nice
 setopt alwaystoend
 setopt hist_ignore_all_dups inc_append_history
 setopt prompt_sp
+setopt auto_cd
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -42,7 +43,6 @@ alias b="bundle exec"
 alias j="jobs"
 alias ls="ls -F"
 alias p="projects"
-alias ..="cd .."
 
 # Completion for `bin/git-changed-files`
 __git_changed_files() {
