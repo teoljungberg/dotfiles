@@ -401,7 +401,7 @@ augroup Dispatch
           \ setlocal makeprg=sudo\ nixos-rebuild\ switch
   endif
   autocmd BufReadPost */home.nix
-        \ let b:dispatch = "home-manager -n switch" |
+        \ let b:dispatch = "home-manager -f %:S --no-out-link build" |
         \ setlocal makeprg=home-manager\ switch
   autocmd BufReadPost */default.nix,*/shell.nix
         \ let b:start = "-wait=always nix-shell %:S"
