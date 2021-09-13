@@ -9,12 +9,6 @@
 
 let
   user = import ./../../nixpkgs/user.nix { };
-
-  comma = pkgs.callPackage ./../../nixpkgs/comma.nix { };
-  diff-highlight = pkgs.callPackage ./../../nixpkgs/diff-highlight.nix { };
-  gitsh = pkgs.callPackage ./../../nixpkgs/gitsh.nix { };
-  ruby-install = pkgs.callPackage ./../../nixpkgs/ruby-install.nix { };
-  setrb = pkgs.callPackage ./../../nixpkgs/setrb.nix { };
 in
 {
   programs.home-manager.enable = true;
