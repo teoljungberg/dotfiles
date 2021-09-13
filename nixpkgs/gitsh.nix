@@ -1,8 +1,9 @@
-{ fetchurl ? (import <nixpkgs> { }).fetchurl
-, lib ? (import <nixpkgs> { }).lib
-, readline ? (import <nixpkgs> { }).readline
-, ruby ? (import <nixpkgs> { }).ruby
-, stdenv ? (import <nixpkgs> { }).stdenv
+{ pkgs ? (import <nixpkgs> { })
+, fetchurl ? pkgs.fetchurl
+, lib ? pkgs.lib
+, readline ? pkgs.readline
+, ruby ? pkgs.ruby
+, stdenv ? pkgs.stdenv
 }:
 
 stdenv.mkDerivation rec {

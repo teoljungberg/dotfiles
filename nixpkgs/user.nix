@@ -1,4 +1,6 @@
-{ stdenv ? (import <nixpkgs> { }).stdenv }:
+{ pkgs ? (import <nixpkgs> { })
+, stdenv ? pkgs.stdenv
+}:
 
 let
   name = "teo";

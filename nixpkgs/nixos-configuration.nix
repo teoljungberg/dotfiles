@@ -1,5 +1,4 @@
 { pkgs ? (import <nixpkgs> { })
-, lib ? (import <nixpkgs> { }).lib
 , ...
 }:
 

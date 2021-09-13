@@ -1,6 +1,7 @@
-{ stdenv ? (import <nixpkgs> { }).stdenv
-, lib ? (import <nixpkgs> { }).lib
-, fetchzip ? (import <nixpkgs> { }).fetchzip
+{ pkgs ? (import <nixpkgs> { })
+, stdenv ? pkgs.stdenv
+, lib ? pkgs.lib
+, fetchzip ? pkgs.fetchzip
 }:
 
 stdenv.mkDerivation {

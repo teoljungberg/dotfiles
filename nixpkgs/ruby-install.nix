@@ -1,17 +1,18 @@
-{ buildEnv ? (import <nixpkgs> { }).buildEnv
-, fetchzip ? (import <nixpkgs> { }).fetchzip
-, gcc ? (import <nixpkgs> { }).gcc
-, gdbm ? (import <nixpkgs> { }).gdbm
-, gnugrep ? (import <nixpkgs> { }).gnugrep
-, gnumake ? (import <nixpkgs> { }).gnumake
-, libyaml ? (import <nixpkgs> { }).libyaml
-, makeWrapper ? (import <nixpkgs> { }).makeWrapper
-, ncurses ? (import <nixpkgs> { }).ncurses
-, openssl ? (import <nixpkgs> { }).openssl
-, pkg-config ? (import <nixpkgs> { }).pkg-config
-, readline ? (import <nixpkgs> { }).readline
-, stdenv ? (import <nixpkgs> { }).stdenv
-, zlib ? (import <nixpkgs> { }).zlib
+{ pkgs ? (import <nixpkgs> { })
+, buildEnv ? pkgs.buildEnv
+, fetchzip ? pkgs.fetchzip
+, gcc ? pkgs.gcc
+, gdbm ? pkgs.gdbm
+, gnugrep ? pkgs.gnugrep
+, gnumake ? pkgs.gnumake
+, libyaml ? pkgs.libyaml
+, makeWrapper ? pkgs.makeWrapper
+, ncurses ? pkgs.ncurses
+, openssl ? pkgs.openssl
+, pkg-config ? pkgs.pkg-config
+, readline ? pkgs.readline
+, stdenv ? pkgs.stdenv
+, zlib ? pkgs.zlib
 }:
 
 let

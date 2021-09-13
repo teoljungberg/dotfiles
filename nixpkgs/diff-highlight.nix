@@ -1,5 +1,6 @@
-{ runCommand ? (import <nixpkgs> { }).runCommand
-, git ? (import <nixpkgs> { }).git
+{ pkgs ? (import <nixpkgs> { })
+, runCommand ? pkgs.runCommand
+, git ? pkgs.git
 }:
 
 runCommand "diff-highlight" { } ''

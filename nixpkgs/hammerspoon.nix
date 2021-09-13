@@ -1,7 +1,8 @@
 # Taken from Burke Libbey:
 # https://github.com/burke/b/blob/master/src/apps/hammerspoon.nix
-{ stdenv ? (import <nixpkgs> { }).stdenv
-, fetchzip ? (import <nixpkgs> { }).fetchzip
+{ pkgs ? (import <nixpkgs> { })
+, stdenv ? pkgs.stdenv
+, fetchzip ? pkgs.fetchzip
 }:
 
 stdenv.mkDerivation {
