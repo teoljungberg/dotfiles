@@ -430,9 +430,29 @@ nnoremap g<CR> :Git<CR>
 nnoremap g<Space> :Git<Space>
 vnoremap g<Space> :Git<Space>
 
+" https://github.com/tpope/vim-git/commit/3a96b1bca5a295c7922d907021f180b5b7fc5599
+function! s:GitKeywordProg()
+  if has("gui_running") && &guioptions !~# "!"
+    setlocal keywordprg=git\ --no-pager\ show
+  else
+    setlocal keywordprg=git\ show
+  endif
+
+  if exists(":Gpedit")
+    setlocal keywordprg=:Gpedit
+  endif
+
+  nnoremap <buffer> <expr> K
+        \ col(".") < 7 &&
+        \ expand("<cword>") =~ '\X' &&
+        \ getline(".") =~ '^\w\+\s\+\x\+\>'
+        \ ? "wK" : "K"
+endfunction
+
 augroup Fugitive
   autocmd!
 
+  autocmd FileType git,gitcommit,gitrebase :call <SID>GitKeywordProg()
   autocmd User FugitiveIndex
         \ nnoremap <buffer> rM :Git rebase --interactive origin/master<CR>
   autocmd BufReadPost *.git/PULLREQ_EDITMSG set filetype=gitcommit
