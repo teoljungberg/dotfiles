@@ -101,9 +101,6 @@ else
   set grepprg=grep\ -rnH\ --exclude-dir\ .git\ $*\ /dev/null
 endif
 
-nnoremap gl<Space> :lgrep<Space>
-nnoremap gr<Space> :grep<Space>
-
 " Close current buffer
 noremap <Leader>d :bdelete<CR>
 
