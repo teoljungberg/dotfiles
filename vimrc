@@ -238,8 +238,6 @@ nnoremap <Space>b :ls<CR>:buffer<Space>
 nnoremap <expr> j v:count ? "j" : "gj"
 nnoremap <expr> k v:count ? "k" : "gk"
 
-nmap <script> <SID>:. :<C-R>=getcmdline() =~ "," ? "\0250" : ""<CR>
-
 augroup vimrcEx
   autocmd!
 
