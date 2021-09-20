@@ -101,35 +101,8 @@ else
   set grepprg=grep\ -rnH\ --exclude-dir\ .git\ $*\ /dev/null
 endif
 
-" Make :grep and :lgrep motion aware
-nnoremap <silent> gr :set operatorfunc=<SID>Grep<CR>g@
-xnoremap <silent> gr :<C-U>call <SID>Grep(visualmode())<CR>
-nnoremap <silent> gl :set operatorfunc=<SID>LGrep<CR>g@
-xnoremap <silent> gl :<C-U>call <SID>LGrep(visualmode())<CR>
 nnoremap gl<Space> :lgrep<Space>
 nnoremap gr<Space> :grep<Space>
-
-function! s:Grep(type) abort
-  call <SID>GrepMotion(a:type, "grep")
-endfunction
-
-function! s:LGrep(type) abort
-  call <SID>GrepMotion(a:type, "lgrep")
-endfunction
-
-function! s:GrepMotion(type, command) abort
-  let prior = @@
-
-  if a:type ==# "v"
-    silent execute "normal! `<" . a:type . "`>y"
-  elseif a:type ==# "char"
-    silent execute "normal! `[v`]y"
-  endif
-
-  execute ":" . a:command . " " . shellescape(@@)
-
-  let @@ = prior
-endfunction
 
 " Close current buffer
 noremap <Leader>d :bdelete<CR>
