@@ -174,16 +174,6 @@ cabbrev tbuffer <C-R>=
 cabbrev tb <C-R>=
       \ <SID>ExpandWhenStartOfCmdLine("tb", "tab sbuffer")<CR>
 
-" Open `:find` in splits, and tabs
-cabbrev vfind <C-R>=
-      \ <SID>ExpandWhenStartOfCmdLine("vfind", "vertical sfind")<CR>
-cabbrev vf <C-R>=
-      \ <SID>ExpandWhenStartOfCmdLine("vf", "vertical sfind")<CR>
-cabbrev tfind <C-R>=
-      \ <SID>ExpandWhenStartOfCmdLine("tfind", "tab sfind")<CR>
-cabbrev tf <C-R>=
-      \ <SID>ExpandWhenStartOfCmdLine("tf", "tab sfind")<CR>
-
 " Correct `:rg` to `:grep`
 cabbrev rg <C-R>=
       \ <SID>ExpandWhenStartOfCmdLine("rg", "grep")<CR>
