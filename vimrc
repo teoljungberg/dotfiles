@@ -143,6 +143,7 @@ cnoremap %t <C-R>=substitute(expand("%:r"), "^app[^/]*.", "", "")<CR>
 " Only have the current split and tab open
 command! O :silent only<Bar>silent tabonly
 
+" `:tag` and `:buffer`, but in splits and tabs
 function! s:ExpandWhenStartOfCmdLine(command, expanded_command)
   if getcmdtype() ==# ":" && getcmdpos() == 1
     return a:expanded_command
@@ -151,7 +152,6 @@ function! s:ExpandWhenStartOfCmdLine(command, expanded_command)
   endif
 endfunction
 
-" Open `:tag` in splits, and tabs
 cabbrev vtag <C-R>=
       \ <SID>ExpandWhenStartOfCmdLine("vtag", "vertical stag")<CR>
 cabbrev vt <C-R>=
@@ -161,7 +161,6 @@ cabbrev ttag <C-R>=
 cabbrev tt <C-R>=
       \ <SID>ExpandWhenStartOfCmdLine("tt", "tab stag")<CR>
 
-" Open `:buffer` in splits, and tabs
 cabbrev vbuffer <C-R>=
       \ <SID>ExpandWhenStartOfCmdLine("vbuffer", "vertical sbuffer")<CR>
 cabbrev vb <C-R>=
