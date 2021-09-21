@@ -201,12 +201,11 @@ inoremap <expr> <C-E> col(".") > strlen(getline(".")) ? "<C-E>" : "<End>"
 inoremap <C-A> <Esc>I
 cnoremap <C-A> <Home>
 
-" System clipboard integration
+" Global yank and paste
 nnoremap gy "*y
 nnoremap gY "*y$
 nnoremap gp "*p
 nnoremap gP "*P
-
 vnoremap gy "*y
 vnoremap gp "*p
 vnoremap gP "*P
