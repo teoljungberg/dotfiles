@@ -227,6 +227,7 @@ nnoremap <silent> <C-w>.
       \ <CR>
 nmap cd <C-W>.
 
+" Move linewise, except when a count is given. Useful for when &wrap is set.
 nnoremap <expr> j v:count ? "j" : "gj"
 nnoremap <expr> k v:count ? "k" : "gk"
 
