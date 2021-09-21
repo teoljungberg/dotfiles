@@ -215,6 +215,7 @@ nnoremap [ot :setlocal colorcolumn=<C-R>=&textwidth + 1<CR><CR>
 nnoremap ]ot :setlocal colorcolumn=0<CR>
 nnoremap yot :setlocal colorcolumn=<C-R>=&cc == 0 ? &textwidth + 1 : 0<CR><CR>
 
+" :lcd into the current git, project, or local directory.
 nnoremap <silent> <C-w>.
       \ :if len(get(b:, "git_dir", ""))<Bar>
       \   execute "Glcd"<Bar>
