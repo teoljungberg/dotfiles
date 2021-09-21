@@ -227,8 +227,6 @@ nnoremap <silent> <C-w>.
       \ <CR>
 nmap cd <C-W>.
 
-nnoremap <Space>b :ls<CR>:buffer<Space>
-
 nnoremap <expr> j v:count ? "j" : "gj"
 nnoremap <expr> k v:count ? "k" : "gk"
 
@@ -654,6 +652,7 @@ nmap [I :ilist /<C-R>=expand("<cword>")<CR><CR>
 nmap ]I :ilist /<C-R>=expand("<cword>")<CR><CR>
 nmap [D :dlist /<C-R>=expand("<cword>")<CR><CR>
 nmap ]D :dlist /<C-R>=expand("<cword>")<CR><CR>
+nmap <Space>b :ls<CR>
 
 augroup ReleaseSwapfiles
   autocmd!
