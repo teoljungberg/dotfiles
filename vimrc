@@ -265,6 +265,7 @@ augroup vimrcEx
   autocmd BufReadPost */vintrc,*/.vintrc set filetype=yaml
 augroup END
 
+" Make gvim on macOS follow the appearance for light- and dark-mode.
 if exists("##OSAppearanceChanged")
   augroup FollowOSAppearance
     autocmd!
