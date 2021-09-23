@@ -73,6 +73,9 @@ if !has("packages")
 endif
 
 if has("packages")
+  if v:version >= 802 && has("patch0311")
+    packadd cfilter
+  endif
   packadd matchit
 else
   runtime macros/matchit.vim
