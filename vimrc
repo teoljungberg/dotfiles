@@ -67,8 +67,6 @@ if exists("+undofile")
   endif
 endif
 
-filetype plugin indent on
-
 if !has("packages")
   set runtimepath^=~/.vim/pack/*/start/*
         \ runtimepath+=~/.vim/pack/*/start/*/after
@@ -79,6 +77,8 @@ if has("packages")
 else
   runtime macros/matchit.vim
 endif
+
+filetype plugin indent on
 
 silent! colorscheme whitescale
 if $THEME ==# "light"
