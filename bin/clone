@@ -3,6 +3,11 @@
 set -e
 [ -n "$DEBUG" ] && set -ex
 
+command -v ghq >/dev/null 2>&1 || {
+  echo >&2 "ghq(1) is not installed."
+  exit 1
+}
+
 usage() {
   echo "Usage: clone teoljungberg/dotfiles"
   echo "       clone git@github.com:teoljungberg/dotfiles"
