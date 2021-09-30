@@ -488,8 +488,18 @@ let g:rails_projections =
       \     ],
       \   },
       \   "config/routes.rb": { "command": "routes" },
+      \   "lib/tasks/*.rake": {
+      \     "command": "task",
+      \     "test": [
+      \       "spec/lib/tasks/{}_spec.rb",
+      \       "test/lib/tasks/{}_test.rb",
+      \     ],
+      \   },
       \   "spec/*_spec.rb": {
       \     "dispatch": "bin/rspec spec/{}_spec.rb`=v:lnum ? ':'.v:lnum : ''`",
+      \   },
+      \   "spec/lib/tasks/*_spec.rb": {
+      \     "alternate": "lib/tasks/{}.rake",
       \   },
       \   "spec/requests/*_spec.rb": {
       \     "command": "request",
