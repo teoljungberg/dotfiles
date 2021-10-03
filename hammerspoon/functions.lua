@@ -200,6 +200,7 @@ local function applicationShortcutToBundleMapping()
     [8] = nil,
     [9] = nil,
     ["m"] = "org.vim.MacVim",
+    ["n"] = "com.apple.Notes",
   }
 end
 
