@@ -60,7 +60,11 @@ if exists("+breakindent")
 endif
 
 if exists("+undofile")
-  set undodir=~/.cache/vim/undo//
+  if has("nvim")
+    set undodir=~/.cache/vim/undo/nvim/
+  else
+    set undodir=~/.cache/vim/undo//
+  end
   set undofile
 
   if !isdirectory(expand(&undodir))
