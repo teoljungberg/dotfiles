@@ -18,6 +18,7 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set mouse=nvi
 set nofoldenable
 set nojoinspaces
+set nowildmenu
 set nowrap
 set number
 set path=.,,
