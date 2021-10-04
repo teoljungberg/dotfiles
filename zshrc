@@ -84,7 +84,10 @@ ssh() {
   local hostname="$@"
   local previous_window_name=""
   local original_ssh=$(whence -p ssh)
-  local known_hosts=$(grep -E "^Host" ~/.ssh/config | cut -d" " -f 2)
+  local known_hosts=""
+  if [ -e "$HOME/.ssh/config" ]; then
+    local known_hosts=$(grep -E "^Host" "$HOME/.ssh/config" | cut -d" " -f 2)
+  fi
   local is_known_host=$(echo $known_hosts | grep -Fq -- "$hostname"; echo $?)
 
   if [ -n "$TMUX" ] && [ "$is_known_host" = "0" ]; then
