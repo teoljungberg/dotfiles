@@ -570,6 +570,15 @@ else
 endif
 nmap <expr> - line(".") == 1 ? "<Plug>Up" : "-"
 
+" direnv.vim
+if has("gui_running")
+  let g:direnv_auto=1
+else
+  let g:direnv_auto=0
+endif
+
+let g:direnv_silent_load=1
+
 " ruby
 " ----
 let g:ruby_indent_block_style = "do"

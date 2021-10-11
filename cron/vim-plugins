@@ -7,6 +7,7 @@ bundles="
   AndrewRadev/splitjoin.vim
   LnL7/vim-nix
   dense-analysis/ale
+  direnv/direnv.vim
   junegunn/fzf.vim
   pbrisbin/vim-mkdir
   teoljungberg/vim-whitescale
