@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # `git-recent` logs local and unpushed commits if there are any. If not, it logs
-# the local tree against `origin/master`.
+# the local tree against `origin/{master,main}`.
 
 set -e
 
@@ -23,10 +23,25 @@ has_unpulled_commits() {
   [ "$(git_log 'HEAD..@{upstream}' | wc -l)" -gt 0 ]
 }
 
+git_branch_exists() {
+  git rev-parse "$1" 1>/dev/null 2>/dev/null
+}
+
+branch() {
+  if git_branch_exists "master"; then
+    echo "master"
+  elif git_branch_exists "main"; then
+    echo "main"
+  else
+    echo >&1 "Could not find a master or main branch"
+    exit 1
+  fi
+}
+
 if has_upstream && has_local_commits; then
   git_log "@{upstream}..HEAD" "$@"
 elif has_upstream && has_unpulled_commits; then
   git_log "HEAD..@{upstream}" "$@"
 else
-  git_log "origin/master..HEAD" "$@"
+  git_log "origin/$(branch)..HEAD" "$@"
 fi

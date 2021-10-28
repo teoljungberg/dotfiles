@@ -2,8 +2,28 @@
 
 set -e
 
+git_branch_exists() {
+  git rev-parse "$1" 1>/dev/null 2>/dev/null
+}
+
+branch() {
+  if git_branch_exists "master"; then
+    echo "master"
+  elif git_branch_exists "main"; then
+    echo "main"
+  else
+    echo >&1 "Could not find a master or main branch"
+    exit 1
+  fi
+}
+
 if [ -n "$(git status --porcelain)" ]; then
   git status --porcelain | cut -c 4-
 else
-  git diff origin/master..HEAD --name-status --diff-filter=d | rev | cut -f 1 | rev
+  git diff origin/$(branch)..HEAD \
+    --name-status \
+    --diff-filter=d \
+    | rev \
+    | cut -f 1 \
+    | rev
 fi

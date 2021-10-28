@@ -7,11 +7,26 @@ command -v fzf >/dev/null 2>&1 || {
   exit 1
 }
 
+git_branch_exists() {
+  git rev-parse "$1" 1>/dev/null 2>/dev/null
+}
+
+branch() {
+  if git_branch_exists "master"; then
+    echo "master"
+  elif git_branch_exists "main"; then
+    echo "main"
+  else
+    echo >&1 "Could not find a master or main branch"
+    exit 1
+  fi
+}
+
 if [ -n "$1" ]; then
   git commit --fixup="$1"
 else
   git commit --fixup="$( \
-    git log --oneline origin/master.. | \
+    git log --oneline origin/$(branch).. | \
     fzf | \
     cut -d" " -f1 \
     )"
