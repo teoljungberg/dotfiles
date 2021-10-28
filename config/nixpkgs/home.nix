@@ -20,7 +20,6 @@ in
   home.packages = with pkgs; [
     autoconf
     automake
-    awscli2
     bat
     comma
     coreutils-prefixed
@@ -40,6 +39,7 @@ in
     rcm
     ripgrep
     ruby-install
+    s3cmd
     setrb
     shellcheck
     tmux

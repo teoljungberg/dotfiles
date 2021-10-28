@@ -15,9 +15,9 @@ show_usage() {
 set_acl() {
   acl=""
   if [ "$1" = "--private" ]; then
-    acl="private"
+    acl="--acl-private"
   elif [ "$1" = "--public" ]; then
-    acl="public-read"
+    acl="--acl-public"
   else
     show_usage
   fi
@@ -55,6 +55,9 @@ filename=$(set_filename "$1")
 shift
 remote_filename=$(set_remote_filename "$1" "$filename")
 
-aws s3 cp --acl "$acl" "$filename" "s3://teoljungberg/$remote_filename"
+s3cmd \
+  --quiet \
+  --follow-symlinks \
+  put "$acl" "$filename" "s3://teoljungberg/$remote_filename"
 
 echo "https://teoljungberg.s3.amazonaws.com/$remote_filename"
