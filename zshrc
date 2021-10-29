@@ -161,7 +161,7 @@ theme() {
       return 0
       ;;
     *)
-      echo "$usage" >&2
+      echo >&2 "$usage"
       return 1
   esac
 
