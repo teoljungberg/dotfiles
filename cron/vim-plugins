@@ -40,7 +40,7 @@ find_upstream() {
   elif git -C "$work_tree_path" branch | grep -q "master"; then
     echo "master"
   else
-    echo 1> "No upstream can be found for '$work_tree_path'"
+    echo >&1 "No upstream can be found for '$work_tree_path'"
     exit 1
   fi
 }
