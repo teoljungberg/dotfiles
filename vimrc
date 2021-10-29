@@ -419,8 +419,6 @@ augroup Fugitive
   autocmd!
 
   autocmd FileType git,gitcommit,gitrebase :call <SID>GitKeywordProg()
-  autocmd User FugitiveIndex
-        \ nnoremap <buffer> rM :Git rebase --interactive origin/master<CR>
   autocmd BufReadPost *.git/PULLREQ_EDITMSG set filetype=gitcommit
   autocmd FileType git setlocal nolist
   autocmd FileType gitcommit let b:sleuth_automatic = 0
