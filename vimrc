@@ -612,6 +612,7 @@ augroup ft_qf
         \ nonumber
         \ norelativenumber
   autocmd FileType qf call <SID>QuickfixTitle()
+  autocmd FileType qf nnoremap <buffer> - -
 augroup END
 
 " markdown
