@@ -2,11 +2,6 @@
 , ...
 }:
 
-# https://status.nixos.org
-# with import
-#   (fetchTarball "https://github.com/NixOS/nixpkgs/archive/COMMIT_SHA.tar.gz")
-#   { };
-
 let
   user = import ./../../nixpkgs/user.nix { };
 in
