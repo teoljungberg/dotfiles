@@ -16,7 +16,6 @@ in
     autoconf
     automake
     bat
-    comma
     coreutils-prefixed
     diff-highlight
     fzf

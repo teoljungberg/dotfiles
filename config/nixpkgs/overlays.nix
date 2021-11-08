@@ -1,5 +1,4 @@
 [
-  (self: super: { comma = super.callPackage ./../../nixpkgs/comma.nix { }; })
   (self: super: { diff-highlight = super.callPackage ./../../nixpkgs/diff-highlight.nix { }; })
   (self: super: { gitsh = super.callPackage ./../../nixpkgs/gitsh.nix { }; })
   (self: super: {

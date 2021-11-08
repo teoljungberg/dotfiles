@@ -32,7 +32,7 @@ in
 
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
+    enableCompletion = false;
   };
 
   system.keyboard = {
@@ -70,8 +70,9 @@ in
     buildCores = 4;
     maxJobs = 8;
     extraOptions = ''
-      keep-outputs = true
+      extra-experimental-features = nix-command flakes
       keep-derivations = true
+      keep-outputs = true
     '';
   };
 }

@@ -15,8 +15,17 @@ in
   system.autoUpgrade.enable = true;
   system.autoUpgrade.channel = "https://nixos.org/channels/nixos-unstable";
 
-  nix.gc.automatic = true;
-  nix.gc.dates = "03:00";
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "03:00";
+    };
+    extraOptions = ''
+      extra-experimental-features = nix-command flakes
+      keep-derivations = true
+      keep-outputs = true
+    '';
+  };
 
   nixpkgs.config.allowUnfree = true;
 
