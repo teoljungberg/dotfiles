@@ -4,7 +4,8 @@ set backspace=indent,eol,start
 set backupskip=/tmp/*,/private/tmp/*
 set cmdheight=2
 set commentstring=#\ %s
-set complete+=kspell complete-=i
+set complete+=kspell
+set complete-=i
 set display=lastline
 set encoding=utf-8
 set guifont=IBM\ Plex\ Mono:h14
