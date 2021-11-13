@@ -152,37 +152,6 @@ cnoremap %t <C-R>=substitute(expand("%:r"), "^app[^/]*.", "", "")<CR>
 " Only have the current split and tab open
 command! O :silent only<Bar>silent tabonly
 
-" `:tag` and `:buffer`, but in splits and tabs
-function! s:ExpandWhenStartOfCmdLine(command, expanded_command)
-  if getcmdtype() ==# ":" && getcmdpos() == 1
-    return a:expanded_command
-  else
-    return a:command
-  endif
-endfunction
-
-cabbrev vtag <C-R>=
-      \ <SID>ExpandWhenStartOfCmdLine("vtag", "vertical stag")<CR>
-cabbrev vt <C-R>=
-      \ <SID>ExpandWhenStartOfCmdLine("vt", "vertical stag")<CR>
-cabbrev ttag <C-R>=
-      \ <SID>ExpandWhenStartOfCmdLine("ttag", "tab stag")<CR>
-cabbrev tt <C-R>=
-      \ <SID>ExpandWhenStartOfCmdLine("tt", "tab stag")<CR>
-
-cabbrev vbuffer <C-R>=
-      \ <SID>ExpandWhenStartOfCmdLine("vbuffer", "vertical sbuffer")<CR>
-cabbrev vb <C-R>=
-      \ <SID>ExpandWhenStartOfCmdLine("vb", "vertical sbuffer")<CR>
-cabbrev tbuffer <C-R>=
-      \ <SID>ExpandWhenStartOfCmdLine("tbuffer", "tab sbuffer")<CR>
-cabbrev tb <C-R>=
-      \ <SID>ExpandWhenStartOfCmdLine("tb", "tab sbuffer")<CR>
-
-" Correct `:rg` to `:grep`
-cabbrev rg <C-R>=
-      \ <SID>ExpandWhenStartOfCmdLine("rg", "grep")<CR>
-
 " Given this situation:
 "     user.fo|o!
 " When I press <C-]> to go to the `foo!` tag, for some reason it acts as if the
