@@ -199,7 +199,7 @@ nnoremap <silent> <C-L>
 
 " :lcd into the current git, project, or local directory.
 nnoremap <silent> <C-w>.
-      \ :if len(get(b:, "git_dir", ""))<Bar>
+      \ :if has_key(b:, "git_dir")<Bar>
       \   execute "Glcd"<Bar>
       \ elseif exists(":Plcd")<Bar>
       \   execute "Plcd"<Bar>
