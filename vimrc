@@ -375,7 +375,7 @@ augroup Fugitive
 augroup END
 
 " fzf.vim
-" --------
+" -------
 if executable("fzf")
   set runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
 
@@ -519,6 +519,7 @@ endif
 nmap <expr> - line(".") == 1 ? "<Plug>Up" : "-"
 
 " direnv.vim
+" ----------
 if has("gui_running")
   let g:direnv_auto=1
 else
