@@ -339,8 +339,6 @@ augroup Dispatch
   autocmd BufReadPost */home.nix
         \ let b:dispatch = "home-manager -f %:S --no-out-link build" |
         \ setlocal makeprg=home-manager\ switch
-  autocmd BufReadPost */default.nix,*/shell.nix
-        \ let b:start = "-wait=always nix-shell %:S"
 
   autocmd FileType ruby let b:start = "irb -r '%:p'"
   autocmd FileType ruby
