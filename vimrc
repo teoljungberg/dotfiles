@@ -651,9 +651,6 @@ augroup END
 augroup ft_options
   autocmd!
 
-  autocmd BufReadPost *.drv set filetype=json
-  autocmd BufReadPost *.drv set formatprg=nix\ show-derivation\ %
-
   autocmd FileType bash setlocal iskeyword+=-
   autocmd FileType c setlocal
         \ cinoptions=:0,t0,+4,(4
