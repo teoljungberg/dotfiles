@@ -303,8 +303,6 @@ nmap `== <Plug>(ale_lint)
 
 " dispatch.vim
 " ------------
-nnoremap 'c :Console<CR>
-
 augroup Dispatch
   autocmd!
 
