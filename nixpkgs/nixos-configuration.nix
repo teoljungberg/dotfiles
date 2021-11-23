@@ -20,7 +20,7 @@ in
       automatic = true;
       dates = "03:00";
     };
-    package = pkgs.nix_2_4;
+    package = pkgs.nixFlakes;
     extraOptions = ''
       extra-experimental-features = nix-command flakes
       keep-derivations = true
