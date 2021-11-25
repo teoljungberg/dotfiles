@@ -132,7 +132,7 @@ nnoremap <silent> <C-W>z
 noremap gV V`]
 
 " Duplicate the visually selected block
-vmap D y'>p
+vnoremap D y'>p
 
 " open files in directory of current file
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
