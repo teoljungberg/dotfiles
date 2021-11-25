@@ -136,12 +136,12 @@ vmap D y'>p
 
 " open files in directory of current file
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
-map <Leader>e :edit %%
-map <Leader>s :split %%
-map <Leader>v :vsplit %%
-map <Leader>t :tabedit %%
-map <Leader>r :read %%
-map <Leader>w :write %%
+nmap <Leader>e :edit %%
+nmap <Leader>s :split %%
+nmap <Leader>v :vsplit %%
+nmap <Leader>t :tabedit %%
+nmap <Leader>r :read %%
+nmap <Leader>w :write %%
 
 " In the following file `app/services/foo_bar.rb`, `%t` is expanded to
 " `services/foo_bar`. Which useful for creating tests by i.e `:Vspec %t!` (which
