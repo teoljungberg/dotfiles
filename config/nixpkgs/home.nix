@@ -16,7 +16,6 @@ in
     autoconf
     automake
     bat
-    coreutils-prefixed
     diff-highlight
     fzf
     ghq
