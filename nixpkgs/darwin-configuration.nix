@@ -20,7 +20,7 @@ in
 
   fonts = {
     enableFontDir = true;
-    fonts = with pkgs; [ ibm-plex ];
+    fonts = with pkgs; [ jetbrains-mono ];
   };
 
   environment = {

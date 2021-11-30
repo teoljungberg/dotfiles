@@ -8,7 +8,7 @@ set complete+=kspell
 set complete-=i
 set display=lastline
 set encoding=utf-8
-set guifont=IBM\ Plex\ Mono:h14
+set guifont=JetBrains\ Mono:h14
 set hidden
 set history=200
 set incsearch
