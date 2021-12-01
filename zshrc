@@ -210,7 +210,6 @@ fi
 _source_if_available "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 _source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
 PATH="/usr/local/bin:$PATH"
-PATH=".git/safe/../../bin:$PATH"
 
 if command -v kitty >/dev/null; then
   kitty + complete setup zsh | source /dev/stdin
