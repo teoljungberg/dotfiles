@@ -387,7 +387,8 @@ else
 endif
 
 let g:fzf_command_prefix = "FZF"
-let g:fzf_action = {
+let g:fzf_action =
+      \ {
       \   "ctrl-s": "split",
       \   "ctrl-t": "tab split",
       \   "ctrl-v": "vsplit",
