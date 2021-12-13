@@ -213,7 +213,7 @@ nmap cd <C-W>.
 nnoremap <expr> j v:count ? "j" : "gj"
 nnoremap <expr> k v:count ? "k" : "gk"
 
-augroup vimrcEx
+augroup t_vimrc
   autocmd!
 
   autocmd GUIEnter * let g:markdown_fenced_languages=
@@ -249,7 +249,7 @@ augroup END
 
 " Make gvim on macOS follow the appearance for light- and dark-mode.
 if exists("##OSAppearanceChanged")
-  augroup FollowOSAppearance
+  augroup t_follow_os_appearance
     autocmd!
 
     autocmd OSAppearanceChanged *
@@ -303,7 +303,7 @@ nmap `== <Plug>(ale_lint)
 
 " dispatch.vim
 " ------------
-augroup Dispatch
+augroup t_dispatch
   autocmd!
 
   autocmd VimEnter *
@@ -362,7 +362,7 @@ nnoremap g<CR> :Git<CR>
 nnoremap g<Space> :Git<Space>
 vnoremap g<Space> :Git<Space>
 
-augroup Fugitive
+augroup t_fugitive
   autocmd!
 
   autocmd BufReadPost *.git/PULLREQ_EDITMSG set filetype=gitcommit
@@ -396,7 +396,7 @@ let g:fzf_action =
 let g:fzf_layout = { "down": "40%" }
 let g:fzf_preview_window = ""
 
-augroup FZF
+augroup t_fzf
   autocmd!
 
   autocmd FileType help
@@ -533,7 +533,7 @@ let g:direnv_silent_load=1
 " ----
 let g:ruby_indent_block_style = "do"
 
-augroup ft_ruby
+augroup t_ruby
   autocmd!
 
   autocmd FileType ruby iabbrev <buffer> ddebug require 'irb'; binding.irb
@@ -551,7 +551,7 @@ function! s:QuickfixTitle()
   endif
 endfunction
 
-augroup ft_qf
+augroup t_qf
   autocmd!
 
   autocmd FileType qf setlocal
@@ -565,7 +565,7 @@ augroup END
 
 " markdown
 " --------
-augroup ft_markdown
+augroup t_markdown
   autocmd!
 
   autocmd FileType markdown,gitcommit iabbrev <buffer> -. - [ ]
@@ -634,7 +634,7 @@ nmap [D :dlist /<C-R>=expand("<cword>")<CR><CR>
 nmap ]D :dlist /<C-R>=expand("<cword>")<CR><CR>
 nmap <Space>b :ls<CR>
 
-augroup ReleaseSwapfiles
+augroup t_release_swapfiles
   autocmd!
 
   autocmd BufWritePost,BufReadPost,BufLeave *
@@ -643,13 +643,13 @@ augroup ReleaseSwapfiles
         \ endif
 augroup END
 
-augroup WriteOnFocusLost
+augroup t_write_on_focus_lost
   autocmd!
 
   autocmd FocusLost * silent! wall
 augroup END
 
-augroup ft_options
+augroup t_ft_options
   autocmd!
 
   autocmd FileType bash setlocal iskeyword+=-
