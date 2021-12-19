@@ -75,7 +75,7 @@ endif
 
 if !has("packages")
   set runtimepath^=~/.vim/pack/*/start/*
-        \ runtimepath+=~/.vim/pack/*/start/*/after
+  set runtimepath+=~/.vim/pack/*/start/*/after
 endif
 
 if has("packages")
