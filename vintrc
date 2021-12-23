@@ -1,6 +1,2 @@
 cmdargs:
   color: false
-
-policies:
-  ProhibitUnnecessaryDoubleQuote:
-    enabled: false
