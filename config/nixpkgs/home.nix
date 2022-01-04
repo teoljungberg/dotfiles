@@ -9,7 +9,7 @@ in
   programs.home-manager.enable = true;
 
   home.homeDirectory = user.user.directory;
-  home.stateVersion = "21.05";
+  home.stateVersion = "21.11";
   home.username = user.user.name;
 
   home.packages = with pkgs; [
