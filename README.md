@@ -27,7 +27,7 @@ https://nixos.org/channels/nixpkgs-unstable unstable
 
   ```
   # curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect | \
-    NIX_CHANNEL=nixos-21.05 PROVIDER=digitalocean NO_REBOOT=1 bash -x
+    NIX_CHANNEL=nixos-21.11 PROVIDER=digitalocean NO_REBOOT=1 bash -x
   ```
 
 1. Modify `/etc/nixos/configuration.nix` to your hearts content. Reboot server.
