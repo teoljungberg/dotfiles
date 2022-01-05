@@ -1,6 +1,6 @@
 { pkgs ? (import <nixpkgs> { })
 , buildEnv ? pkgs.buildEnv
-, fetchzip ? pkgs.fetchzip
+, fetchurl ? pkgs.fetchurl
 , gcc ? pkgs.gcc
 , gdbm ? pkgs.gdbm
 , gnugrep ? pkgs.gnugrep
@@ -39,7 +39,7 @@ stdenv.mkDerivation {
   pname = "ruby-install";
   version = "0.8.2";
 
-  src = fetchzip {
+  src = fetchurl {
     url = "https://github.com/postmodern/ruby-install/archive/v0.8.2.tar.gz";
     sha256 = "0nvw77lhc350ax7bq6yh8501x1yxv2qvzr7qkazsqsz8fgsff485";
   };
