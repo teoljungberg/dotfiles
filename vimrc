@@ -221,6 +221,7 @@ augroup t_vimrc
           \   'bash=sh',
           \   'diff',
           \   'json',
+          \   'nix',
           \   'ruby',
           \   'sh',
           \ ]
