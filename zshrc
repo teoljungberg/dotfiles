@@ -254,6 +254,8 @@ bindkey -M viins '^X^G' _git_changed_files
 bindkey -M viins '^X^N' history-beginning-search-forward-end
 bindkey -M viins '^X^P' history-beginning-search-backward-end
 
+command -v fzf 1>/dev/null && bindkey -M viins '^X^R' fzf-history-widget
+
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-forward
 
