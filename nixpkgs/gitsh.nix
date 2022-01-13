@@ -1,5 +1,4 @@
 { pkgs ? (import <nixpkgs> { })
-, fetchurl ? pkgs.fetchurl
 , lib ? pkgs.lib
 , readline ? pkgs.readline
 , ruby ? pkgs.ruby
@@ -10,9 +9,9 @@ stdenv.mkDerivation rec {
   name = "gitsh-${version}";
   version = "0.14.0";
 
-  src = fetchurl {
+  src = fetchTarball {
     url = "https://github.com/thoughtbot/gitsh/releases/download/v0.14/gitsh-0.14.tar.gz";
-    sha256 = "0981knqnn5xdi8x67qizgldvcza79rcl1r68qibpnsij0v8bd2ab";
+    sha256 = "1rjvhz4bk0qvgc7s4j4fhwy5qa612z82bkxsjn982qxs4lky2m0g";
   };
 
   buildInputs = [ readline ruby ];
