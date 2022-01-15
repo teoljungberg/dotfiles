@@ -5,11 +5,11 @@
   (self: super: {
     heroku = super.heroku.overrideAttrs (
       oldAttrs: rec {
-        version = "7.59.1";
+        version = "7.59.2";
 
         src = fetchTarball {
           url = "https://cli-assets.heroku.com/heroku-v${version}/heroku-v${version}.tar.xz";
-          sha256 = "0xfd0smdj19m6knq6sbzjw8iy8sjxaq8frw25mij27gqvdhxfjsp";
+          sha256 = "0qj651gikw8c80pn6z44pzm7r5hhc58cgdvgbqlqwz5bw76ii88f";
         };
       }
     );
