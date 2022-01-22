@@ -39,6 +39,9 @@ set viminfo=!,'20,<50,s10,h
 set wildmode=list,full
 syntax enable
 
+setglobal completefunc=syntaxcomplete#Complete
+setglobal omnifunc=syntaxcomplete#Complete
+
 " Set different cursors for insert, replace, and normal mode.
 let &t_SI = "\e[6 q"
 let &t_SR = "\e[4 q"
@@ -237,14 +240,6 @@ augroup t_vimrc
         \ guioptions-=L
         \ visualbell
         \ t_vb=
-  autocmd FileType *
-        \ if exists('+completefunc') && &completefunc == '' |
-        \   setlocal completefunc=syntaxcomplete#Complete |
-        \ endif
-  autocmd FileType *
-        \ if exists('+omnifunc') && &omnifunc == '' |
-        \   setlocal omnifunc=syntaxcomplete#Complete |
-        \ endif
   autocmd BufReadPost */vintrc,*/.vintrc set filetype=yaml
 augroup END
 
