@@ -6,6 +6,7 @@ setglobal cmdheight=2
 setglobal commentstring=#\ %s
 setglobal complete+=kspell
 setglobal complete-=i
+setglobal completefunc=syntaxcomplete#Complete
 setglobal display=lastline
 setglobal encoding=utf-8
 setglobal guifont=JetBrains\ Mono:h14
@@ -22,6 +23,7 @@ setglobal nojoinspaces
 setglobal nowildmenu
 setglobal nowrap
 setglobal number
+setglobal omnifunc=syntaxcomplete#Complete
 setglobal path=.,,
 setglobal scrolloff=1
 setglobal shiftround
@@ -38,9 +40,6 @@ setglobal ttimeoutlen=50
 setglobal viminfo=!,'20,<50,s10,h
 setglobal wildmode=list,full
 syntax enable
-
-setglobal completefunc=syntaxcomplete#Complete
-setglobal omnifunc=syntaxcomplete#Complete
 
 " Set different cursors for insert, replace, and normal mode.
 let &t_SI = "\e[6 q"
