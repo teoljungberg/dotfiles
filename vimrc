@@ -216,7 +216,7 @@ nmap cd <C-W>.
 nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
 
-augroup t_vimrc
+augroup t_gui
   autocmd!
 
   autocmd GUIEnter * let g:markdown_fenced_languages=
