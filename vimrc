@@ -239,6 +239,11 @@ augroup t_gui
         \ guioptions-=L
         \ visualbell
         \ t_vb=
+augroup END
+
+augroup t_filetypes
+  autocmd!
+
   autocmd BufReadPost */vintrc,*/.vintrc set filetype=yaml
 augroup END
 
