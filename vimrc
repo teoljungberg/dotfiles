@@ -1,42 +1,42 @@
-set autoread
-set autowrite
-set backspace=indent,eol,start
-set backupskip=/tmp/*,/private/tmp/*
-set cmdheight=2
-set commentstring=#\ %s
-set complete+=kspell
-set complete-=i
-set display=lastline
-set encoding=utf-8
-set guifont=JetBrains\ Mono:h14
-set hidden
-set history=200
-set incsearch
-set laststatus=2
-set lazyredraw
-set list
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-set mouse=nvi
-set nofoldenable
-set nojoinspaces
-set nowildmenu
-set nowrap
-set number
-set path=.,,
-set scrolloff=1
-set shiftround
-set shortmess=aoOtsT
-set showcmd
-set sidescrolloff=5
-set smartcase
-set statusline=[%n]\ %<%f\ %h%m%r%w%=%-14.(%l,%c%V%)\ %P
-set synmaxcol=200
-set tags^=./.git/tags;tags
-set textwidth=80
-set ttimeout
-set ttimeoutlen=50
-set viminfo=!,'20,<50,s10,h
-set wildmode=list,full
+setglobal autoread
+setglobal autowrite
+setglobal backspace=indent,eol,start
+setglobal backupskip=/tmp/*,/private/tmp/*
+setglobal cmdheight=2
+setglobal commentstring=#\ %s
+setglobal complete+=kspell
+setglobal complete-=i
+setglobal display=lastline
+setglobal encoding=utf-8
+setglobal guifont=JetBrains\ Mono:h14
+setglobal hidden
+setglobal history=200
+setglobal incsearch
+setglobal laststatus=2
+setglobal lazyredraw
+setglobal list
+setglobal listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+setglobal mouse=nvi
+setglobal nofoldenable
+setglobal nojoinspaces
+setglobal nowildmenu
+setglobal nowrap
+setglobal number
+setglobal path=.,,
+setglobal scrolloff=1
+setglobal shiftround
+setglobal shortmess=aoOtsT
+setglobal showcmd
+setglobal sidescrolloff=5
+setglobal smartcase
+setglobal statusline=[%n]\ %<%f\ %h%m%r%w%=%-14.(%l,%c%V%)\ %P
+setglobal synmaxcol=200
+setglobal tags^=./.git/tags;tags
+setglobal textwidth=80
+setglobal ttimeout
+setglobal ttimeoutlen=50
+setglobal viminfo=!,'20,<50,s10,h
+setglobal wildmode=list,full
 syntax enable
 
 setglobal completefunc=syntaxcomplete#Complete
@@ -54,22 +54,22 @@ let g:is_posix = 1
 
 if $TERM =~# '^xterm'
   if exists('+mouse') && !has('nvim')
-    set ttymouse=xterm2
+    setglobal ttymouse=xterm2
   endif
 endif
 
 if exists('+breakindent')
-  set breakindent
-  set showbreak=\ +
+  setglobal breakindent
+  setglobal showbreak=\ +
 endif
 
 if exists('+undofile')
   if has('nvim')
-    set undodir=~/.cache/vim/undo/nvim/
+    setglobal undodir=~/.cache/vim/undo/nvim/
   else
-    set undodir=~/.cache/vim/undo//
+    setglobal undodir=~/.cache/vim/undo//
   end
-  set undofile
+  setglobal undofile
 
   if !isdirectory(expand(&undodir))
     call mkdir(expand(&undodir), 'p')
@@ -77,8 +77,8 @@ if exists('+undofile')
 endif
 
 if !has('packages')
-  set runtimepath^=~/.vim/pack/*/start/*
-  set runtimepath+=~/.vim/pack/*/start/*/after
+  setglobal runtimepath^=~/.vim/pack/*/start/*
+  setglobal runtimepath+=~/.vim/pack/*/start/*/after
 endif
 
 if has('packages')
@@ -102,15 +102,15 @@ else
 end
 
 if executable('rg')
-  set grepprg=rg\
+  setglobal grepprg=rg\
         \ --hidden\
         \ --glob\ '!.git'\
         \ --glob\ '!tags'\
         \ --vimgrep\
         \ --with-filename
-  set grepformat=%f:%l:%c:%m
+  setglobal grepformat=%f:%l:%c:%m
 else
-  set grepprg=grep\ -rnH\ --exclude-dir\ .git\ $*\ /dev/null
+  setglobal grepprg=grep\ -rnH\ --exclude-dir\ .git\ $*\ /dev/null
 endif
 
 " Close current buffer
@@ -373,7 +373,7 @@ augroup END
 " fzf.vim
 " -------
 if executable('fzf')
-  set runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
+  setglobal runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
 
   nnoremap <Space><Space> :FZF<CR>
   nnoremap <Space>] :FZFTags<CR>
