@@ -45,6 +45,17 @@ find_upstream() {
   fi
 }
 
+display_new_commits_github() {
+  work_tree_path="$1"
+  sha_range="$2"
+  url="$(
+    git -C "$work_tree_path" config remote.origin.url | \
+    sed 's|^git:|https:|' \
+  )"
+
+  echo "$url/compare/$sha_range"
+}
+
 display_new_commits() {
   work_tree_path="$1"
   upstream=$(find_upstream)
@@ -56,13 +67,8 @@ display_new_commits() {
   if [ "$current_branch" = "$upstream" ] && [ "$current_sha" != "$new_sha" ]; then
     sha_range="$current_sha...$new_sha"
 
-    if echo "$remote" | grep -q github; then
-      url="$(
-        git -C "$work_tree_path" config remote.origin.url | \
-        sed 's|^git:|https:|' \
-      )"
-
-      echo "$url/compare/$sha_range"
+    if echo "$remote" | grep -q github.com; then
+      display_new_commits_github "$work_tree_path" "$sha_range"
     else
       git -C "$work_tree_path" --no-pager log --oneline "$sha_range"
     fi
