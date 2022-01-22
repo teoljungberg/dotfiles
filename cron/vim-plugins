@@ -4,34 +4,34 @@ set -e
 [ -n "$DEBUG" ] && set -ex
 
 bundles="
-  AndrewRadev/splitjoin.vim
-  LnL7/vim-nix
-  dense-analysis/ale
-  direnv/direnv.vim
-  junegunn/fzf.vim
-  pbrisbin/vim-mkdir
-  teoljungberg/vim-whitescale
-  tommcdo/vim-exchange
-  tpope/vim-abolish
-  tpope/vim-bundler
-  tpope/vim-commentary
-  tpope/vim-dispatch
-  tpope/vim-endwise
-  tpope/vim-eunuch
-  tpope/vim-fugitive
-  tpope/vim-git
-  tpope/vim-markdown
-  tpope/vim-projectionist
-  tpope/vim-rails
-  tpope/vim-rake
-  tpope/vim-repeat
-  tpope/vim-rhubarb
-  tpope/vim-scriptease
-  tpope/vim-sleuth
-  tpope/vim-surround
-  tpope/vim-unimpaired
-  tpope/vim-vinegar
-  vim-ruby/vim-ruby
+  git://github.com:AndrewRadev/splitjoin.vim
+  git://github.com:LnL7/vim-nix
+  git://github.com:dense-analysis/ale
+  git://github.com:direnv/direnv.vim
+  git://github.com:junegunn/fzf.vim
+  git://github.com:pbrisbin/vim-mkdir
+  git://github.com:teoljungberg/vim-whitescale
+  git://github.com:tommcdo/vim-exchange
+  git://github.com:tpope/vim-abolish
+  git://github.com:tpope/vim-bundler
+  git://github.com:tpope/vim-commentary
+  git://github.com:tpope/vim-dispatch
+  git://github.com:tpope/vim-endwise
+  git://github.com:tpope/vim-eunuch
+  git://github.com:tpope/vim-fugitive
+  git://github.com:tpope/vim-git
+  git://github.com:tpope/vim-markdown
+  git://github.com:tpope/vim-projectionist
+  git://github.com:tpope/vim-rails
+  git://github.com:tpope/vim-rake
+  git://github.com:tpope/vim-repeat
+  git://github.com:tpope/vim-rhubarb
+  git://github.com:tpope/vim-scriptease
+  git://github.com:tpope/vim-sleuth
+  git://github.com:tpope/vim-surround
+  git://github.com:tpope/vim-unimpaired
+  git://github.com:tpope/vim-vinegar
+  git://github.com:vim-ruby/vim-ruby
 "
 
 find_upstream() {
@@ -74,7 +74,7 @@ for bundle in ${bundles}; do
   vim_bundle="$HOME/.vim/pack/bundle/start/$bundle_name"
 
   if [ ! -d "$vim_bundle" ]; then
-    git clone "git://github.com/$bundle" "$vim_bundle"
+    git clone "$bundle" "$vim_bundle"
   fi
 done
 
