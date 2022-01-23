@@ -240,10 +240,15 @@ augroup t_gui
         \ t_vb=
 augroup END
 
-augroup t_filetypes
+augroup t_number
   autocmd!
 
   autocmd FileType * setlocal number
+augroup END
+
+augroup t_filetypes
+  autocmd!
+
   autocmd BufReadPost */vintrc,*/.vintrc set filetype=yaml
 augroup END
 
