@@ -244,6 +244,7 @@ augroup t_number
   autocmd!
 
   autocmd FileType * setlocal number
+  autocmd FileType fugitive,git* setlocal nonumber
   autocmd FileType markdown,text setlocal nonumber
 augroup END
 
