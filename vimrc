@@ -402,9 +402,9 @@ augroup t_fzf
         \   nnoremap <buffer> <Space>] :tag<Space> |
         \ endif
   autocmd FileType fzf
-        \ set laststatus=0 noshowmode noruler
+        \ setlocal laststatus=0 noshowmode noruler
         \ |
-        \ autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+        \ autocmd BufLeave <buffer> setlocal laststatus=2 showmode ruler
 augroup END
 
 " projectionist.vim
