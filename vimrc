@@ -22,7 +22,6 @@ setglobal nofoldenable
 setglobal nojoinspaces
 setglobal nowildmenu
 setglobal nowrap
-setglobal number
 setglobal omnifunc=syntaxcomplete#Complete
 setglobal path=.,,
 setglobal scrolloff=1
@@ -244,6 +243,7 @@ augroup END
 augroup t_filetypes
   autocmd!
 
+  autocmd FileType * setlocal number
   autocmd BufReadPost */vintrc,*/.vintrc set filetype=yaml
 augroup END
 
