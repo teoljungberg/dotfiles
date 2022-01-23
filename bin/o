@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+if [ -n "$*" ]; then
+  files="$*"
+else
+  files="."
+fi
+
+if gvim --serverlist | grep -q "VIM"; then
+  gvim --servername VIM --remote-tab "$files"
+else
+  gvim "$files"
+fi
