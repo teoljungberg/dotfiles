@@ -226,7 +226,7 @@ augroup t_gui
           \   'ruby',
           \   'sh',
           \ ]
-  autocmd GUIEnter * set
+  autocmd GUIEnter * setglobal
         \ title
         \ icon
         \ lines=45
