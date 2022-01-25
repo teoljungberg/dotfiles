@@ -5,6 +5,7 @@ if [ -z "$TMUX" ]; then
   PATH="$PATH:$HOME/.bin"
   PATH="$PATH:/run/current-system/sw/bin:$PATH"
   PATH="$PATH:/usr/sbin"
+  PATH="$PATH:/usr/local/bin"
 fi
 export PATH
 
