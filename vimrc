@@ -314,13 +314,6 @@ nmap `== <Plug>(ale_lint)
 augroup t_dispatch
   autocmd!
 
-  autocmd VimEnter *
-        \ if empty($TMUX) || has('gui_running') |
-        \   let g:dispatch_experimental = 1 |
-        \ else |
-        \   let g:dispatch_experimental = 0 |
-        \ end
-
   autocmd BufReadPost *
         \ if getline(1) =~# '^#!' |
         \   let b:dispatch =
