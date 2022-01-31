@@ -595,7 +595,7 @@ function! s:CCR()
 
   if cmdline =~# filter_stub . '(ls|files|buffers)'
     return "\<CR>:buffer "
-  elseif cmdline =~# '\v\C^(g|global).*(#|nu|num|numb|numbe|number)$'
+  elseif cmdline =~# '\v\C/(#|nu|num|numb|numbe|number)$'
     return "\<CR>:"
   elseif cmdline =~# filter_stub . '(old|oldfiles)'
     set nomore
@@ -616,7 +616,7 @@ function! s:CCR()
           \ ':silent ' .
           \ repeat(matchlist(cmdline, '\v(cli|clist|lli|llist)')[0][0], 2) .
           \ "\<Space>"
-    elseif cmdline =~# '\v\C^(dli|dlist|il|ilist)\s.*'
+    elseif cmdline =~# '\v\C(dli|dlist|il|ilist)\s.*'
       return
             \ "\<CR>:" .
             \ cmdline[0] .
