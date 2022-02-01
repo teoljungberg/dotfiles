@@ -16,6 +16,7 @@ SAVEHIST=10000
 
 export DIRENV_LOG_FORMAT=
 export EDITOR="vim"
+export GHQ_ROOT="$HOME/src"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent::1"
 export HEROKU_COLOR=0
 export HEROKU_LOGS_COLOR=0
@@ -268,15 +269,22 @@ git_branch_color() {
   fi
 }
 
+prompt_directory() {
+  case $(pwd) in
+    $GHQ_ROOT/*) echo "%2c";;
+    *) echo "%c";;
+  esac
+}
+
 title_name() {
-  print -Pn "%20<...<% %2c%<"
+  print -Pn "%20<...<% $(prompt_directory)%<"
 }
 
 set_prompt() {
-  PROMPT="%2c $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
+  PROMPT="$(prompt_directory) $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
 
   [ -n "$SSH_CONNECTION" ] && \
-    PROMPT="%2c@%m $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
+    PROMPT="$(prompt_directory)@%m $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
 }
 
 setup_setrb() {
