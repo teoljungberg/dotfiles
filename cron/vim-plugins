@@ -70,7 +70,9 @@ display_new_commits() {
     if echo "$remote" | grep -q github.com; then
       display_new_commits_github "$work_tree_path" "$sha_range"
     else
+      echo "$work_tree_path"
       git -C "$work_tree_path" --no-pager log --oneline "$sha_range"
+      echo
     fi
   fi
 }
