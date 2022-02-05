@@ -4,34 +4,34 @@ set -e
 [ -n "$DEBUG" ] && set -ex
 
 bundles="
-  AndrewRadev/splitjoin.vim
-  LnL7/vim-nix
-  dense-analysis/ale
-  direnv/direnv.vim
-  junegunn/fzf.vim
-  pbrisbin/vim-mkdir
-  teoljungberg/vim-whitescale
-  tommcdo/vim-exchange
-  tpope/vim-abolish
-  tpope/vim-bundler
-  tpope/vim-commentary
-  tpope/vim-dispatch
-  tpope/vim-endwise
-  tpope/vim-eunuch
-  tpope/vim-fugitive
-  tpope/vim-git
-  tpope/vim-markdown
-  tpope/vim-projectionist
-  tpope/vim-rails
-  tpope/vim-rake
-  tpope/vim-repeat
-  tpope/vim-rhubarb
-  tpope/vim-scriptease
-  tpope/vim-sleuth
-  tpope/vim-surround
-  tpope/vim-unimpaired
-  tpope/vim-vinegar
-  vim-ruby/vim-ruby
+  https://github.com/AndrewRadev/splitjoin.vim
+  https://github.com/LnL7/vim-nix
+  https://github.com/dense-analysis/ale
+  https://github.com/direnv/direnv.vim
+  https://github.com/junegunn/fzf.vim
+  https://github.com/pbrisbin/vim-mkdir
+  https://github.com/teoljungberg/vim-whitescale
+  https://github.com/tommcdo/vim-exchange
+  https://github.com/tpope/vim-abolish
+  https://github.com/tpope/vim-bundler
+  https://github.com/tpope/vim-commentary
+  https://github.com/tpope/vim-dispatch
+  https://github.com/tpope/vim-endwise
+  https://github.com/tpope/vim-eunuch
+  https://github.com/tpope/vim-fugitive
+  https://github.com/tpope/vim-git
+  https://github.com/tpope/vim-markdown
+  https://github.com/tpope/vim-projectionist
+  https://github.com/tpope/vim-rails
+  https://github.com/tpope/vim-rake
+  https://github.com/tpope/vim-repeat
+  https://github.com/tpope/vim-rhubarb
+  https://github.com/tpope/vim-scriptease
+  https://github.com/tpope/vim-sleuth
+  https://github.com/tpope/vim-surround
+  https://github.com/tpope/vim-unimpaired
+  https://github.com/tpope/vim-vinegar
+  https://github.com/vim-ruby/vim-ruby
 "
 
 find_upstream() {
@@ -49,8 +49,8 @@ display_new_commits_github() {
   work_tree_path="$1"
   sha_range="$2"
   url="$(
-    git -C "$work_tree_path" config remote.origin.url | \
-    sed 's|^git:|https:|' \
+    git -C "$work_tree_path" config remote.origin.url \
+    | sed 's|^git@github.com:|https://github.com/|' \
   )"
 
   echo "$url/compare/$sha_range"
@@ -78,11 +78,11 @@ display_new_commits() {
 }
 
 for bundle in ${bundles}; do
-  bundle_name="$(echo "$bundle" | cut -d "/" -f 2)"
+  bundle_name="$(echo "$bundle" | rev | cut -d "/" -f 1 | rev)"
   vim_bundle="$HOME/.vim/pack/bundle/start/$bundle_name"
 
   if [ ! -d "$vim_bundle" ]; then
-    git clone "git://github.com/$bundle" "$vim_bundle"
+    git clone "$bundle" "$vim_bundle"
   fi
 done
 
