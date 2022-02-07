@@ -48,12 +48,15 @@ find_upstream() {
 display_new_commits_github() {
   work_tree_path="$1"
   sha_range="$2"
-  url="$(
+  slug="$(
     git -C "$work_tree_path" config remote.origin.url \
-    | sed 's|^git@github.com:|https://github.com/|' \
+      | rev \
+      | cut -d / -f 1,2 \
+      | rev
   )"
 
-  echo "$url/compare/$sha_range"
+  echo "https://github.com/$slug/compare/$sha_range"
+}
 }
 
 display_new_commits() {
