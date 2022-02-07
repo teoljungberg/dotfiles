@@ -57,6 +57,13 @@ display_new_commits_github() {
 
   echo "https://github.com/$slug/compare/$sha_range"
 }
+
+display_new_commits_tpope() {
+  work_tree_path="$1"
+  sha_range="$2"
+  repository="vim-$(basename "$1")"
+
+  echo "https://github.com/tpope/$repository/compare/$sha_range"
 }
 
 display_new_commits() {
@@ -72,6 +79,8 @@ display_new_commits() {
 
     if echo "$remote" | grep -q github.com; then
       display_new_commits_github "$work_tree_path" "$sha_range"
+    elif echo "$remote" | grep -q tpope.io; then
+      display_new_commits_tpope "$work_tree_path" "$sha_range"
     else
       echo "$work_tree_path"
       git -C "$work_tree_path" --no-pager log --oneline "$sha_range"
