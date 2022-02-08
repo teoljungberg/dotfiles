@@ -4,6 +4,7 @@
       comma = super.callPackage ./../../nixpkgs/comma.nix { };
       diff-highlight = super.callPackage ./../../nixpkgs/diff-highlight.nix { };
       gitsh = super.callPackage ./../../nixpkgs/gitsh.nix { };
+      hammerspoon = super.callPackage ./../../nixpkgs/hammerspoon.nix { };
       heroku = super.heroku.overrideAttrs (
         oldAttrs: rec {
           version = "7.59.2";
