@@ -4,10 +4,10 @@
 
 let
   user = import ./user.nix { };
-
-  hammerspoon = pkgs.callPackage ./hammerspoon.nix { };
 in
 {
+  nixpkgs.overlays = import ../config/nixpkgs/overlays.nix;
+
   services.nix-daemon.enable = false;
 
   users.users.teo = {
@@ -16,7 +16,7 @@ in
     shell = pkgs.zsh;
   };
 
-  environment.systemPackages = [ hammerspoon ];
+  environment.systemPackages = with pkgs; [ hammerspoon ];
 
   fonts = {
     enableFontDir = true;
