@@ -45,8 +45,8 @@ let &t_SI = "\e[6 q"
 let &t_SR = "\e[4 q"
 let &t_EI = "\e[2 q"
 
-" When the type of shell script is /bin/sh, assume a POSIX-compatible shell for
-" syntax highlighting purposes.
+" When the type of shell script is /bin/sh, assume a POSIX-compatible shell
+" for syntax highlighting purposes.
 " More on why: https://github.com/thoughtbot/dotfiles/pull/471
 let g:is_posix = 1
 
