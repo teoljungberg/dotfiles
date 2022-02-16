@@ -200,10 +200,10 @@ nnoremap <silent> <C-L>
 
 " :lcd into the current git, project, or local directory.
 nnoremap <silent> <C-w>.
-      \ :if exists(':Lcd')<Bar>
-      \   execute 'Lcd'<Bar>
-      \ elseif exists(':Glcd')<Bar>
+      \ :if has_key(b:, 'git_dir')<Bar>
       \   execute 'Glcd'<Bar>
+      \ elseif exists(':Plcd')<Bar>
+      \   execute 'Plcd'<Bar>
       \ else<Bar>
       \   lcd %:h<Bar>
       \ endif<Bar>
