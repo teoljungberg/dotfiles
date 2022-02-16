@@ -1,4 +1,4 @@
-{ pkgs ? (import <nixpkgs> { overlays = import ./config/nixpkgs/overlays.nix; })
+{ pkgs ? (import <nixpkgs> { })
 , ...
 }:
 
@@ -6,6 +6,8 @@ let
   user = import ./../../nixpkgs/user.nix { };
 in
 {
+  nixpkgs.overlays = import ./overlays.nix;
+
   programs.home-manager.enable = true;
 
   home.homeDirectory = user.user.directory;
