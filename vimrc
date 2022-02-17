@@ -336,8 +336,8 @@ augroup t_dispatch
           \ setlocal makeprg=sudo\ nixos-rebuild\ switch
   endif
   autocmd BufReadPost */home.nix
-        \ let b:dispatch = 'home-manager -f %:S --no-out-link build' |
-        \ setlocal makeprg=home-manager\ switch
+        \ let b:dispatch = 'home-manager --file %:S --no-out-link build' |
+        \ setlocal makeprg=home-manager\ switch\ --file\ %:S
 
   autocmd FileType ruby let b:start = 'irb -r %:S:p'
   autocmd FileType ruby
