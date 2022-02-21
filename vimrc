@@ -635,6 +635,15 @@ nmap [D :dlist /<C-R>=expand('<cword>')<CR><CR>
 nmap ]D :dlist /<C-R>=expand('<cword>')<CR><CR>
 nmap <Space>b :ls<CR>
 
+let s:mod = has('mac') ? 'D' : 'M'
+for s:i in range(1, 9)
+  exe 'noremap  <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
+  exe 'noremap! <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
+  if exists(':tmap')
+    exe 'tnoremap <' . s:mod . '-' . s:i . '> <C-w>:' . s:i . 'tabnext<CR>'
+  endif
+endfor
+
 augroup t_release_swapfiles
   autocmd!
 
