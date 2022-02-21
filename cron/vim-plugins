@@ -98,7 +98,7 @@ for bundle in ${bundles}; do
   fi
 done
 
-find "$HOME/.vim/pack/bundle" -type d -name ".git" -maxdepth 3 | while read -r path; do
+find "$HOME/.vim/pack/bundle" -maxdepth 3 -type d -name ".git" | while read -r path; do
   path="${path%/.git}"
   did_stash="0"
 
