@@ -117,8 +117,8 @@ noremap <Leader>d :bdelete<CR>
 " Yank to the end of the line, for consistency with `C` and `D`.
 noremap Y y$
 
-" Move Up and Down with `<C-P>` and `<C-N>` in command mode, for consitency with
-" `<C-P>` and `<C-N>` in normal mode.
+" Move Up and Down with `<C-P>` and `<C-N>` in command mode, for consitency
+" with `<C-P>` and `<C-N>` in normal mode.
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
@@ -145,8 +145,8 @@ nmap <Leader>r :read %%
 nmap <Leader>w :write %%
 
 " In the following file `app/services/foo_bar.rb`, `%t` is expanded to
-" `services/foo_bar`. Which useful for creating tests by i.e `:Vspec %t!` (which
-" is expanded to `:Vspec services/foo_bar!`.
+" `services/foo_bar`. Which useful for creating tests by i.e `:Vspec %t!`
+" (which is expanded to `:Vspec services/foo_bar!`.
 " This is only done for files under `app`.
 cnoremap %t <C-R>=substitute(expand('%:r'), '^app[^/]*.', '', '')<CR>
 
@@ -155,8 +155,8 @@ command! O :silent only<Bar>silent tabonly
 
 " Given this situation:
 "     user.fo|o!
-" When I press <C-]> to go to the `foo!` tag, for some reason it acts as if the
-" cursor is on `user` and goes to the `user` tag.
+" When I press <C-]> to go to the `foo!` tag, for some reason it acts as if
+" the cursor is on `user` and goes to the `user` tag.
 "
 " To fix this, use `<cword>` to select the word under the cursor and go to it
 " directly.
@@ -329,8 +329,10 @@ augroup t_dispatch
 
   autocmd BufReadPost *
         \ if getline(1) =~# '^#!' |
-        \   let b:dispatch =
-        \       matchstr(getline(1), '#!\%(/usr/bin/env \+\)\=\zs.*') . ' %:S' |
+        \   let b:dispatch = matchstr(
+        \     getline(1),
+        \     '#!\%(/usr/bin/env \+\)\=\zs.*'
+        \    ) . ' %:S' |
         \   let b:start = '-wait=always ' . b:dispatch |
         \ endif
 
