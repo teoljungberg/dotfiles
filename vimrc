@@ -464,7 +464,7 @@ let g:rails_projections =
       \     ],
       \   },
       \   'spec/*_spec.rb': {
-      \     'dispatch': "bin/rspec spec/{}_spec.rb`=v:lnum ? ':'.v:lnum : ''`",
+      \     'dispatch': "rspec spec/{}_spec.rb`=v:lnum ? ':'.v:lnum : ''`",
       \   },
       \   'spec/lib/tasks/*_spec.rb': {
       \     'alternate': 'lib/tasks/{}.rake',
