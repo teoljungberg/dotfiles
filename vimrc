@@ -252,6 +252,10 @@ augroup END
 augroup t_filetypes
   autocmd!
 
+  autocmd BufReadPost *.com
+        \ if directory(expand(<afile>)) |
+        \   set filetype=netrw |
+        \ end
   autocmd BufReadPost */vintrc,*/.vintrc set filetype=yaml
 augroup END
 
