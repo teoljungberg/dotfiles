@@ -14,6 +14,7 @@
           };
         }
       );
+      lim = super.callPackage ./../../nixpkgs/lim.nix { };
       ruby-install = super.callPackage ./../../nixpkgs/ruby-install.nix { };
       setrb = super.callPackage ./../../nixpkgs/setrb.nix { };
     }

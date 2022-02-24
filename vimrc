@@ -685,6 +685,13 @@ augroup t_ft_options
         \ tabstop=8
 augroup END
 
+augroup t_pager
+  autocmd!
+
+  autocmd SourcePost */macros/less.vim nunmap <Space><Space>
+  autocmd SourcePre */macros/less.vim setglobal laststatus=0 showtabline=0
+augroup END
+
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif

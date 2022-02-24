@@ -28,6 +28,7 @@ in
     gnupg
     heroku
     jq
+    lim
     nixpkgs-fmt
     pgformatter
     pkg-config
