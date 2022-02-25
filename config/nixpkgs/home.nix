@@ -18,7 +18,6 @@ in
     autoconf
     automake
     bat
-    comma
     diff-highlight
     fzf
     ghq
