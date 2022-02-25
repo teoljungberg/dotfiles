@@ -12,9 +12,7 @@ let
       "/home/${name}";
 in
 {
-  user = {
-    name = name;
-    fullName = fullName;
-    directory = directory;
-  };
+  name = name;
+  fullName = fullName;
+  directory = directory;
 }

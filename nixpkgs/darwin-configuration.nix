@@ -11,8 +11,8 @@ in
   services.nix-daemon.enable = false;
 
   users.users.teo = {
-    home = user.user.directory;
-    description = user.user.fullName;
+    home = user.directory;
+    description = user.fullName;
     shell = pkgs.zsh;
   };
 
