@@ -1,4 +1,4 @@
-{ pkgs ? (import <nixpkgs> { })
+{ pkgs ? import <nixpkgs> { }
 , buildEnv ? pkgs.buildEnv
 , gcc ? pkgs.gcc
 , gdbm ? pkgs.gdbm
