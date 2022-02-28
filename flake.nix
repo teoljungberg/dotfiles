@@ -9,11 +9,26 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, darwin, nixpkgs, home-manager, ... } @inputs:
+  outputs = { self, darwin, nixpkgs, home-manager, ... }@inputs:
+    let
+      nixpkgsConfig = {
+        config = { allowUnfree = true; };
+        overlays = import ./config/nixpkgs/overlays.nix;
+      };
+    in
     {
       darwinConfigurations.Cardamom = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
-        modules = [ ./nixpkgs/darwin-configuration.nix ];
+        modules = [
+          ./nix/darwin.nix
+          home-manager.darwinModules.home-manager
+          {
+            nixpkgs = nixpkgsConfig;
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.teo = import ./config/nixpkgs/home.nix;
+          }
+        ];
       };
     };
 }
