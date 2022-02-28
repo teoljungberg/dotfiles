@@ -10,25 +10,10 @@
   };
 
   outputs = { self, darwin, nixpkgs, home-manager, ... } @inputs:
-    let
-      nixpkgsConfig = {
-        config = { allowUnfree = true; };
-        overlays = import ./config/nixpkgs/overlays.nix;
-      };
-    in
     {
-      darwinConfigurations."one" = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          ./nixpkgs/darwin-configuration.nix
-          home-manager.darwinModules.home-manager
-          {
-            nixpkgs = nixpkgsConfig;
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.teo = import ./config/nixpkgs/home.nix;
-          }
-        ];
+      darwinConfigurations."Cardamom" = darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
+        modules = [ ./nixpkgs/darwin-configuration.nix ];
       };
     };
 }
