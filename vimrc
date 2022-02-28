@@ -387,6 +387,8 @@ augroup t_dispatch
   autocmd BufReadPost */home.nix
         \ let b:dispatch = 'home-manager --file %:S --no-out-link build' |
         \ setlocal makeprg=home-manager\ switch\ --file\ %:S
+  autocmd BufReadPost */flake.nix
+        \ let b:dispatch = 'nix build --no-link' |
 
   autocmd FileType ruby let b:start = 'irb -r %:S:p'
   autocmd FileType ruby
