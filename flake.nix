@@ -11,7 +11,7 @@
 
   outputs = { self, darwin, nixpkgs, home-manager, ... } @inputs:
     {
-      darwinConfigurations."Cardamom" = darwin.lib.darwinSystem {
+      darwinConfigurations.Cardamom = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [ ./nixpkgs/darwin-configuration.nix ];
       };
