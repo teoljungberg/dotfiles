@@ -1,2 +1,2 @@
 DOTFILES_DIRS="$HOME/src/github.com/teoljungberg/dotfiles"
-EXCLUDES="*.md cron/* result rcrc flake.nix"
+EXCLUDES="*.md cron/* result rcrc flake.*"
