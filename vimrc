@@ -268,6 +268,17 @@ augroup t_filetypes
   autocmd BufReadPost */vintrc,*/.vintrc set filetype=yaml
 augroup END
 
+augroup t_filetype_options
+  autocmd!
+
+  autocmd FileType bash setlocal iskeyword+=-
+  autocmd FileType c setlocal
+        \ cinoptions=:0,t0,+4,(4
+        \ noexpandtab
+        \ shiftwidth=8
+        \ tabstop=8
+augroup END
+
 " Make gvim on macOS follow the appearance for light- and dark-mode.
 if exists('##OSAppearanceChanged')
   augroup t_follow_os_appearance
@@ -672,17 +683,6 @@ augroup t_write_on_focus_lost
   autocmd!
 
   autocmd FocusLost * silent! wall
-augroup END
-
-augroup t_filetype_options
-  autocmd!
-
-  autocmd FileType bash setlocal iskeyword+=-
-  autocmd FileType c setlocal
-        \ cinoptions=:0,t0,+4,(4
-        \ noexpandtab
-        \ shiftwidth=8
-        \ tabstop=8
 augroup END
 
 augroup t_pager
