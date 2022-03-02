@@ -674,7 +674,7 @@ augroup t_write_on_focus_lost
   autocmd FocusLost * silent! wall
 augroup END
 
-augroup t_ft_options
+augroup t_filetype_options
   autocmd!
 
   autocmd FileType bash setlocal iskeyword+=-
