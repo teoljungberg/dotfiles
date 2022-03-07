@@ -35,16 +35,18 @@ bundles="
 "
 
 find_upstream() {
-  if git -C "$work_tree_path" branch | grep -q "main"; then
+  if git -C "$1" branch | grep -q "main"; then
     echo "main"
-  elif git -C "$work_tree_path" branch | grep -q "master"; then
+  elif git -C "$1" branch | grep -q "master"; then
     echo "master"
-  elif git -C "$work_tree_path" branch | grep -q "release"; then
+  elif git -C "$1" branch | grep -q "release"; then
     echo "release"
-  else
-    echo >&1 "No upstream can be found for '$work_tree_path'"
-    exit 1
   fi
+}
+
+no_upstream_found() {
+  echo "No upstream can be found for '$1'"
+  exit 1
 }
 
 display_new_commits_github() {
@@ -70,7 +72,7 @@ display_new_commits_tpope() {
 
 display_new_commits() {
   work_tree_path="$1"
-  upstream=$(find_upstream)
+  upstream=$(find_upstream "$work_tree_path") || no_upstream_found "$work_tree_path"
   current_sha="$(git -C "$work_tree_path" rev-parse --short HEAD)"
   new_sha="$(git -C "$work_tree_path" rev-parse --short "origin/$upstream")"
   current_branch="$(git -C "$work_tree_path" symbolic-ref --short HEAD)"
@@ -114,7 +116,8 @@ find "$HOME/.vim/pack/bundle" -maxdepth 3 -type d -name ".git" | while read -r p
       did_stash="1"
     fi
 
-    git -C "$path" rebase -q "origin/$(find_upstream)" > /dev/null
+    upstream=$(find_upstream "$path") || no_upstream_found "$path"
+    git -C "$path" rebase -q "origin/$upstream" > /dev/null
 
     if [ "$did_stash" = "1" ]; then
       git -C "$path" stash pop -q 1> /dev/null 2> /dev/null
