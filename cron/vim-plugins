@@ -39,6 +39,8 @@ find_upstream() {
     echo "main"
   elif git -C "$work_tree_path" branch | grep -q "master"; then
     echo "master"
+  elif git -C "$work_tree_path" branch | grep -q "release"; then
+    echo "release"
   else
     echo >&1 "No upstream can be found for '$work_tree_path'"
     exit 1
