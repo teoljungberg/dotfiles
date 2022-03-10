@@ -25,6 +25,8 @@ in
       extra-experimental-features = nix-command flakes
       keep-derivations = true
       keep-outputs = true
+      substituters = https://cache.nixos.org https://teoljungberg.cachix.org
+      trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= teoljungberg.cachix.org-1:LrP1Mr0IlVQYO5LOkGv3Vs0GpRmeCD+pyLPzmRL/3rU=
     '';
   };
 
