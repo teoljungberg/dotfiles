@@ -94,7 +94,7 @@ display_new_commits() {
 }
 
 for bundle in ${bundles}; do
-  bundle_name="$(echo "$bundle" | rev | cut -d "/" -f 1 | rev)"
+  bundle_name="$(basename "$bundle")"
   vim_bundle="$HOME/.vim/pack/bundle/start/$bundle_name"
 
   if [ ! -d "$vim_bundle" ]; then
