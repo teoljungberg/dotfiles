@@ -52,14 +52,9 @@ no_upstream_found() {
 display_new_commits_github() {
   work_tree_path="$1"
   sha_range="$2"
-  slug="$(
-    git -C "$work_tree_path" config remote.origin.url \
-      | rev \
-      | cut -d / -f 1,2 \
-      | rev
-  )"
+  url=$(git -C "$work_tree_path" config remote.origin.url)
 
-  echo "https://github.com/$slug/compare/$sha_range"
+  echo "$url/compare/$sha_range"
 }
 
 display_new_commits_tpope() {
