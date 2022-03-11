@@ -3,6 +3,90 @@
 set -e
 [ -n "$DEBUG" ] && set -ex
 
+find_upstream() {
+  if git -C "$1" branch | grep -q "main"; then
+    echo "main"
+  elif git -C "$1" branch | grep -q "master"; then
+    echo "master"
+  elif git -C "$1" branch | grep -q "release"; then
+    echo "release"
+  fi
+}
+
+no_upstream_found() {
+  echo "No upstream can be found for '$1'"
+  exit 1
+}
+
+git_sha_range() {
+  work_tree_path="$1"
+  current_sha="$(git -C "$work_tree_path" rev-parse --short HEAD)"
+  new_sha="$(
+    git -C "$work_tree_path" \
+      rev-parse --short "origin/$upstream_branch"
+  )"
+
+  echo "$current_sha...$new_sha"
+}
+
+display_new_commits_github() {
+  work_tree_path="$1"
+  sha_range=$(git_sha_range "$1")
+  url=$(git -C "$work_tree_path" config remote.origin.url)
+
+  echo "$url/compare/$sha_range"
+}
+
+display_new_commits_tpope() {
+  work_tree_path="$1"
+  sha_range=$(git_sha_range "$1")
+  repository="vim-$(basename "$1")"
+
+  echo "https://github.com/tpope/$repository/compare/$sha_range"
+}
+
+display_new_commits_git_log() {
+  work_tree_path="$1"
+  sha_range=$(git_sha_range "$1")
+
+  echo "$work_tree_path"
+  git -C "$work_tree_path" --no-pager log --oneline "$sha_range"
+  echo
+}
+
+on_upstream_branch() {
+  work_tree_path="$1"
+  current_branch="$(git -C "$work_tree_path" symbolic-ref --short HEAD)"
+  upstream_branch=$(find_upstream "$work_tree_path") ||
+    no_upstream_found "$work_tree_path"
+
+  [ "$current_branch" = "$upstream_branch" ]
+}
+
+behind_upstream() {
+  work_tree_path="$1"
+
+  git -C "$work_tree_path" status -sb | grep -q behind
+}
+
+display_new_commits() {
+  work_tree_path="$1"
+  url=$(git -C "$work_tree_path" config remote.origin.url)
+
+  if
+    on_upstream_branch "$work_tree_path" &&
+      behind_upstream "$work_tree_path"
+  then
+    if echo "$url" | grep -q github.com; then
+      display_new_commits_github "$work_tree_path"
+    elif echo "$url" | grep -q tpope.io; then
+      display_new_commits_tpope "$work_tree_path"
+    else
+      display_new_commits_git_log "$work_tree_path"
+    fi
+  fi
+}
+
 bundles="
   https://github.com/AndrewRadev/splitjoin.vim
   https://github.com/LnL7/vim-nix
@@ -34,60 +118,6 @@ bundles="
   https://tpope.io/vim/vinegar
 "
 
-find_upstream() {
-  if git -C "$1" branch | grep -q "main"; then
-    echo "main"
-  elif git -C "$1" branch | grep -q "master"; then
-    echo "master"
-  elif git -C "$1" branch | grep -q "release"; then
-    echo "release"
-  fi
-}
-
-no_upstream_found() {
-  echo "No upstream can be found for '$1'"
-  exit 1
-}
-
-display_new_commits_github() {
-  work_tree_path="$1"
-  sha_range="$2"
-  url=$(git -C "$work_tree_path" config remote.origin.url)
-
-  echo "$url/compare/$sha_range"
-}
-
-display_new_commits_tpope() {
-  work_tree_path="$1"
-  sha_range="$2"
-  repository="vim-$(basename "$1")"
-
-  echo "https://github.com/tpope/$repository/compare/$sha_range"
-}
-
-display_new_commits() {
-  work_tree_path="$1"
-  upstream=$(find_upstream "$work_tree_path") || no_upstream_found "$work_tree_path"
-  current_sha="$(git -C "$work_tree_path" rev-parse --short HEAD)"
-  new_sha="$(git -C "$work_tree_path" rev-parse --short "origin/$upstream")"
-  current_branch="$(git -C "$work_tree_path" symbolic-ref --short HEAD)"
-  remote="$(git -C "$work_tree_path" remote show -n origin | grep "Fetch URL")"
-
-  if [ "$current_branch" = "$upstream" ] && [ "$current_sha" != "$new_sha" ]; then
-    sha_range="$current_sha...$new_sha"
-
-    if echo "$remote" | grep -q github.com; then
-      display_new_commits_github "$work_tree_path" "$sha_range"
-    elif echo "$remote" | grep -q tpope.io; then
-      display_new_commits_tpope "$work_tree_path" "$sha_range"
-    else
-      echo "$work_tree_path"
-      git -C "$work_tree_path" --no-pager log --oneline "$sha_range"
-      echo
-    fi
-  fi
-}
-
 for bundle in ${bundles}; do
   bundle_name="$(basename "$bundle")"
   vim_bundle="$HOME/.vim/pack/bundle/start/$bundle_name"
@@ -97,27 +127,32 @@ for bundle in ${bundles}; do
   fi
 done
 
-find "$HOME/.vim/pack/bundle" -maxdepth 3 -type d -name ".git" | while read -r path; do
-  path="${path%/.git}"
-  did_stash="0"
+find \
+  "$HOME/.vim/pack/bundle" \
+  -maxdepth 3 \
+  -type d \
+  -name ".git" |
+  while read -r path; do
+    path="${path%/.git}"
+    did_stash=""
 
-  if [ -n "$(git -C "$path" remote)" ]; then
-    git -C "$path" fetch -q origin
+    if git -C "$path" remote | grep -q origin; then
+      git -C "$path" fetch -q origin
 
-    display_new_commits "$path"
+      display_new_commits "$path"
 
-    if [ -n "$(git -C "$path" status --porcelain)" ]; then
-      git -C "$path" stash push -q 1>/dev/null 2>/dev/null
-      did_stash="1"
+      if [ -n "$(git -C "$path" status --porcelain)" ]; then
+        git -C "$path" stash push -q 1>/dev/null 2>/dev/null
+        did_stash="y"
+      fi
+
+      upstream_branch=$(find_upstream "$path") || no_upstream_found "$path"
+      git -C "$path" rebase -q "origin/$upstream_branch" 1>/dev/null 2>/dev/null
+
+      if [ -n "$did_stash" ]; then
+        git -C "$path" stash pop -q 1>/dev/null 2>/dev/null
+      fi
     fi
+  done
 
-    upstream=$(find_upstream "$path") || no_upstream_found "$path"
-    git -C "$path" rebase -q "origin/$upstream" >/dev/null
-
-    if [ "$did_stash" = "1" ]; then
-      git -C "$path" stash pop -q 1>/dev/null 2>/dev/null
-    fi
-  fi
-done
-
-nohup vim -u NONE -c "helptags ALL" -cq >/dev/null 2>&1 </dev/null &
+nohup vim -u NONE -c "helptags ALL" -cq 1>/dev/null 2>/dev/null &
