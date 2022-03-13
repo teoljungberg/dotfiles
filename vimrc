@@ -308,6 +308,7 @@ let g:ale_set_signs = 0
 " Open the location list when `:ALELint` produces any errors.
 let g:ale_open_list = 1
 
+let g:ale_sh_shfmt_options = '-i 2 -ci'
 let g:ale_sql_pgformatter_options = '--spaces 2 --comma-break'
 
 " Only run linters listed in `g:ale_linters`.
@@ -328,6 +329,7 @@ let g:ale_fixers.javascript = ['eslint']
 let g:ale_fixers.json = ['jq']
 let g:ale_fixers.ruby = ['rubocop']
 let g:ale_fixers.nix = ['nixpkgs-fmt']
+let g:ale_fixers.sh = ['shfmt']
 let g:ale_fixers.sql = ['pgformatter']
 
 nmap `=<CR> <Plug>(ale_fix)

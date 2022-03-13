@@ -4,8 +4,8 @@
 
 set -e
 
-git for-each-ref --format "%(refname) %(upstream:track)" refs/heads | \
-  grep "\[gone\]" | \
-  cut -d" " -f1 | \
+git for-each-ref --format "%(refname) %(upstream:track)" refs/heads |
+  grep "\[gone\]" |
+  cut -d" " -f1 |
   sed "s|refs/heads/||" |
   xargs git branch -D

@@ -25,9 +25,9 @@ branch() {
 if [ -n "$1" ]; then
   git commit --fixup="$1"
 else
-  git commit --fixup="$( \
-    git log --oneline origin/$(branch).. | \
-    fzf | \
-    cut -d" " -f1 \
-    )"
+  git commit --fixup="$(
+    git log --oneline "origin/$(branch)..HEAD" |
+      fzf |
+      cut -d" " -f1
+  )"
 fi

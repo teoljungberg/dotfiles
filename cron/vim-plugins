@@ -107,15 +107,15 @@ find "$HOME/.vim/pack/bundle" -maxdepth 3 -type d -name ".git" | while read -r p
     display_new_commits "$path"
 
     if [ -n "$(git -C "$path" status --porcelain)" ]; then
-      git -C "$path" stash push -q 1> /dev/null 2> /dev/null
+      git -C "$path" stash push -q 1>/dev/null 2>/dev/null
       did_stash="1"
     fi
 
     upstream=$(find_upstream "$path") || no_upstream_found "$path"
-    git -C "$path" rebase -q "origin/$upstream" > /dev/null
+    git -C "$path" rebase -q "origin/$upstream" >/dev/null
 
     if [ "$did_stash" = "1" ]; then
-      git -C "$path" stash pop -q 1> /dev/null 2> /dev/null
+      git -C "$path" stash pop -q 1>/dev/null 2>/dev/null
     fi
   fi
 done

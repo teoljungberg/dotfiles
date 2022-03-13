@@ -24,9 +24,9 @@ else
   current_branch=$(git rev-parse --abbrev-ref HEAD)
   delimiter="|"
   format="%I$delimiter%t%n"
-  pull_request_number=$( \
-    hub pr list -f "$format" -h "$current_branch" \ |
-    cut -d "$delimiter" -f 1 \
+  pull_request_number=$(
+    hub pr list -f "$format" -h "$current_branch" \  |
+      cut -d "$delimiter" -f 1
   )
 fi
 

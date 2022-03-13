@@ -38,6 +38,7 @@ in
     s3cmd
     setrb
     shellcheck
+    shfmt
     tmux
     universal-ctags
     vim

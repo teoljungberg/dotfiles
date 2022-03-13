@@ -7,19 +7,19 @@ dir="$(git rev-parse --git-dir)"
 
 trap 'rm -f "$dir/$$.tags"' EXIT
 
-if [ -f Gemfile ] && which ripper-tags 1> /dev/null 2> /dev/null; then
+if [ -f Gemfile ] && which ripper-tags 1>/dev/null 2>/dev/null; then
   if [ -n "$SKIP_RIPPER" ]; then
-    git ls-files --cached --exclude-standard --others | \
+    git ls-files --cached --exclude-standard --others |
       ctags --append --tag-relative -L - -f "$dir/$$.tags"
   else
-    git ls-files --cached --exclude-standard --others | \
+    git ls-files --cached --exclude-standard --others |
       ripper-tags --append --tag-relative -L - -f "$dir/$$.tags"
 
-    git ls-files --cached --exclude-standard --others | \
+    git ls-files --cached --exclude-standard --others |
       ctags --append --languages=-ruby, --tag-relative -L - -f "$dir/$$.tags"
   fi
 else
-  git ls-files --cached --exclude-standard --others | \
+  git ls-files --cached --exclude-standard --others |
     ctags --tag-relative -L - -f "$dir/$$.tags"
 fi
 
