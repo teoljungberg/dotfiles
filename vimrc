@@ -254,6 +254,7 @@ augroup t_number
 
   autocmd FileType * setlocal number
   autocmd FileType fugitive,git,gitcommit,gitrebase setlocal nonumber
+  autocmd FileType fzf setlocal nonumber
   autocmd FileType help setlocal nonumber
   autocmd FileType markdown,text setlocal nonumber
 augroup END
