@@ -6,11 +6,11 @@
       hammerspoon = super.callPackage ./../../nixpkgs/hammerspoon.nix { };
       heroku = super.heroku.overrideAttrs (
         oldAttrs: rec {
-          version = "7.59.2";
+          version = "7.59.4";
 
           src = fetchTarball {
             url = "https://cli-assets.heroku.com/heroku-v${version}/heroku-v${version}.tar.xz";
-            sha256 = "0qj651gikw8c80pn6z44pzm7r5hhc58cgdvgbqlqwz5bw76ii88f";
+            sha256 = "1jycndjkmvdn1hxx122krplgh4x9wnsqvq03gi24bb18bfl0dw78";
           };
         }
       );
