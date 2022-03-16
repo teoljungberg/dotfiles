@@ -10,7 +10,6 @@ setglobal completefunc=syntaxcomplete#Complete
 setglobal display=lastline
 setglobal encoding=utf-8
 setglobal guifont=JetBrains\ Mono:h14
-setglobal hidden
 setglobal history=200
 setglobal incsearch
 setglobal laststatus=2
