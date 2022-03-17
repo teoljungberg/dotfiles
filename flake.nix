@@ -20,7 +20,7 @@
       Cardamom = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [
-          ./nix/darwin.nix
+          ./nixpkgs/darwin-configuration.nix
           home-manager.darwinModules.home-manager
           {
             nixpkgs = nixpkgsConfig;
