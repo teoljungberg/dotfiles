@@ -17,7 +17,7 @@
       };
     in
     {
-      darwinConfigurations.Cardamom = darwin.lib.darwinSystem {
+      Cardamom = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [
           ./nix/darwin.nix
