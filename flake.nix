@@ -16,8 +16,8 @@
         overlays = import ./config/nixpkgs/overlays.nix;
       };
     in
-    {
-      Cardamom = darwin.lib.darwinSystem {
+    rec {
+      cardamom = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [
           ./nixpkgs/darwin-configuration.nix
@@ -30,5 +30,8 @@
           }
         ];
       };
+      # vanilla = {};
+      defaultPackage.x86_64-darwin = cardamom.system;
+      defaultPackage.x86_64-linux = vanilla.system;
     };
 }
