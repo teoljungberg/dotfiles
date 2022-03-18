@@ -500,6 +500,7 @@ let g:projectionist_heuristics =
       \ {
       \   '.git/': {
       \     'TODO.md': { 'command': 'todo' },
+      \     'shell.nix': { 'command': 'shell' },
       \   },
       \   'test/': {
       \     '*.rb': { 'path': ['{project}/test/**'] },
