@@ -498,10 +498,10 @@ let g:rails_projections =
 
 let g:projectionist_heuristics =
       \ {
-      \   '.git\/': {
+      \   '.git/': {
       \     'TODO.md': { 'command': 'todo' },
       \   },
-      \   'test\/': {
+      \   'test/': {
       \     '*.rb': { 'path': ['{project}/test/**'] },
       \   },
       \ }
