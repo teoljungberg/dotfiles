@@ -381,8 +381,8 @@ augroup t_dispatch
   endif
   if has('linux')
     autocmd BufReadPost */nixos-configuration.nix
-          \ let b:dispatch = 'nixos-rebuild dry-run' |
-          \ setlocal makeprg=sudo\ nixos-rebuild\ switch
+          \ let b:dispatch = 'nixos-rebuild --flake . --impure dry-run' |
+          \ setlocal makeprg=sudo\ nixos-rebuild\ --flake\ .\ --impure\ switch
   endif
   autocmd BufReadPost */home.nix
         \ let b:dispatch = 'home-manager --file %:S --no-out-link build' |
