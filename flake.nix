@@ -32,6 +32,6 @@
       };
       # vanilla = {};
       defaultPackage.x86_64-darwin = cardamom.system;
-      defaultPackage.x86_64-linux = vanilla.system;
+      # defaultPackage.x86_64-linux = vanilla.system;
     };
 }
