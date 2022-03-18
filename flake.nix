@@ -36,8 +36,8 @@
           ./nixpkgs/nixos-configuration.nix
         ];
       };
-      nixosConfigurations.vanilla = vanilla;
 
       defaultPackage.x86_64-darwin = cardamom.system;
+      nixosConfigurations.vanilla = vanilla;
     };
 }
