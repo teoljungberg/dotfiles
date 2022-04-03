@@ -21,6 +21,8 @@ no_upstream_found() {
 git_sha_range() {
   work_tree_path="$1"
   current_sha="$(git -C "$work_tree_path" rev-parse --short HEAD)"
+  upstream_branch=$(find_upstream "$work_tree_path") ||
+    no_upstream_found "$work_tree_path"
   new_sha="$(
     git -C "$work_tree_path" \
       rev-parse --short "origin/$upstream_branch"
