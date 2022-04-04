@@ -61,16 +61,19 @@ if exists('+breakindent')
 endif
 
 if exists('+undofile')
-  if has('nvim')
-    setglobal undodir=~/.cache/vim/undo/nvim/
-  else
-    setglobal undodir=~/.cache/vim/undo//
-  end
   setglobal undofile
+endif
 
-  if !isdirectory(expand(&undodir))
-    call mkdir(expand(&undodir), 'p')
-  endif
+if exists('+undodir') && !has('nvim')
+  let s:data_home = expand('~/.cache/vim/')
+
+  let &undodir = s:data_home . 'undo//'
+  let &directory = s:data_home . 'swap//'
+  let &backupdir = s:data_home . 'backup//'
+
+  if !isdirectory(&undodir) | call mkdir(&undodir, 'p') | endif
+  if !isdirectory(&directory) | call mkdir(&directory, 'p') | endif
+  if !isdirectory(&backupdir) | call mkdir(&backupdir, 'p') | endif
 endif
 
 if !has('packages')
