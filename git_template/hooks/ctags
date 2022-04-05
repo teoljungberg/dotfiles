@@ -14,9 +14,6 @@ if [ -f Gemfile ] && which ripper-tags 1>/dev/null 2>/dev/null; then
   else
     git ls-files --cached --exclude-standard --others |
       ripper-tags --append --tag-relative -L - -f "$dir/$$.tags"
-
-    git ls-files --cached --exclude-standard --others |
-      ctags --append --languages=-ruby, --tag-relative -L - -f "$dir/$$.tags"
   fi
 else
   git ls-files --cached --exclude-standard --others |
