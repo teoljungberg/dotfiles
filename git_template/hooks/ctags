@@ -9,7 +9,7 @@ trap 'rm -f "$dir/$$.tags"' EXIT
 
 if [ -f Gemfile ] && which ripper-tags 1>/dev/null 2>/dev/null; then
   git ls-files --cached --exclude-standard --others |
-    ripper-tags --append --tag-relative -L - -f "$dir/$$.tags"
+    ripper-tags --tag-relative -L - -f "$dir/$$.tags"
 else
   git ls-files --cached --exclude-standard --others |
     ctags --tag-relative -L - -f "$dir/$$.tags"
