@@ -40,7 +40,13 @@ main() {
     vim_bundle="$HOME/.vim/pack/bundle/start/$bundle_name"
 
     if [ ! -d "$vim_bundle" ]; then
-      git clone "$bundle" "$vim_bundle"
+      git \
+        clone \
+        --template /dev/null \
+        "$bundle" \
+        "$vim_bundle" \
+        1>/dev/null \
+        2>/dev/null
     fi
   done
 
