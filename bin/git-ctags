@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+[ -n "$DEBUG" ] && set -ex
+
+root=$(git rev-parse --git-dir)
+
+if [ ! -f "$root/hooks/ctags" ]; then
+  git init
+fi
+
+"$root/hooks/ctags"

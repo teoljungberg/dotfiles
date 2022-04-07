@@ -17,7 +17,6 @@
   p = push-origin-or-fork
   r = recent
 
-  ctags = !$(git rev-parse --git-dir)/hooks/ctags
   hub = !hub $@
   safe = !mkdir $(git rev-parse --git-dir)/safe
 [merge]
