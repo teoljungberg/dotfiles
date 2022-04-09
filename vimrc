@@ -561,8 +561,6 @@ endif
 
 let g:direnv_silent_load=1
 
-autocmd User DirenvLoaded echo
-
 " ruby
 " ----
 let g:ruby_indent_block_style = 'do'
