@@ -1,3 +1,4 @@
+local M = {}
 local pixelDifference = 50
 local menuBarInPixles = 23
 local numberOfCells = 8
@@ -44,7 +45,7 @@ local function resizeWindowY(direction)
   window:setFrame(frame)
 end
 
-local function centralizeWindow()
+function M.centralizeWindow()
   local window = getWindow()
   local frame = window:frame()
   local max = window:screen():frame()
@@ -59,28 +60,28 @@ local function centralizeWindow()
   window:setFrame(frame)
 end
 
-local function fullScreenWindow()
+function M.fullScreenWindow()
   local window = getWindow()
   window:maximize(0)
 end
 
-local function moveLeft()
+function M.moveLeft()
   moveWindowX(pixelDifference)
 end
 
-local function moveRight()
+function M.moveRight()
   moveWindowX(-pixelDifference)
 end
 
-local function moveUp()
+function M.moveUp()
   moveWindowY(-pixelDifference)
 end
 
-local function moveDown()
+function M.moveDown()
   moveWindowY(pixelDifference)
 end
 
-local function moveWindowLeftHalfScreen()
+function M.moveWindowLeftHalfScreen()
   local window = getWindow()
   local windowFrame = window:frame()
   local screen = window:screen()
@@ -94,7 +95,7 @@ local function moveWindowLeftHalfScreen()
   window:setFrame(windowFrame)
 end
 
-local function moveWindowRightHalfScreen()
+function M.moveWindowRightHalfScreen()
   local window = getWindow()
   local windowFrame = window:frame()
   local screen = window:screen()
@@ -108,40 +109,40 @@ local function moveWindowRightHalfScreen()
   window:setFrame(windowFrame)
 end
 
-local function resizeLeft()
+function M.resizeLeft()
   resizeWindowX(-pixelDifference)
 end
 
-local function resizeRight()
+function M.resizeRight()
   resizeWindowX(pixelDifference)
 end
 
-local function resizeUp()
+function M.resizeUp()
   resizeWindowY(-pixelDifference)
 end
 
-local function resizeDown()
+function M.resizeDown()
   resizeWindowY(pixelDifference)
 end
 
-local function reloadConfig()
+function M.reloadConfig()
   hs.reload()
   hs.alert.show("Config reloaded")
 end
 
-local function moveWindowToWestDisplay()
+function M.moveWindowToWestDisplay()
   hs.window.focusedWindow():moveOneScreenWest()
 end
 
-local function moveWindowToEastDisplay()
+function M.moveWindowToEastDisplay()
   hs.window.focusedWindow():moveOneScreenEast()
 end
 
-local function moveWindowToNorthDisplay()
+function M.moveWindowToNorthDisplay()
   hs.window.focusedWindow():moveOneScreenNorth()
 end
 
-local function moveWindowToSouthDisplay()
+function M.moveWindowToSouthDisplay()
   hs.window.focusedWindow():moveOneScreenSouth()
 end
 
@@ -171,7 +172,7 @@ local function launchApplication(bundleID)
   hs.application.launchOrFocusByBundleID(bundleID)
 end
 
-local function toggleApplication(bundleID)
+function M.toggleApplication(bundleID)
   return function()
     if hideAlreadyRunningApplication(bundleID) then
       return
@@ -187,7 +188,7 @@ end
 --
 -- `osascript -e 'id of app "NAME OF APP"'`
 --
-local function applicationShortcutToBundleMapping()
+function M.applicationShortcutToBundleMapping()
   return {
     [0] = "net.kovidgoyal.kitty",
     [1] = "com.brave.Browser",
@@ -204,24 +205,4 @@ local function applicationShortcutToBundleMapping()
   }
 end
 
-return {
-  moveLeft = moveLeft,
-  moveRight = moveRight,
-  moveUp = moveUp,
-  moveDown = moveDown,
-  moveWindowLeftHalfScreen = moveWindowLeftHalfScreen,
-  moveWindowRightHalfScreen = moveWindowRightHalfScreen,
-  resizeLeft = resizeLeft,
-  resizeRight = resizeRight,
-  resizeUp = resizeUp,
-  resizeDown = resizeDown,
-  reloadConfig = reloadConfig,
-  moveWindowToWestDisplay = moveWindowToWestDisplay,
-  moveWindowToEastDisplay = moveWindowToEastDisplay,
-  moveWindowToNorthDisplay = moveWindowToNorthDisplay,
-  moveWindowToSouthDisplay = moveWindowToSouthDisplay,
-  fullScreenWindow = fullScreenWindow,
-  centralizeWindow = centralizeWindow,
-  applicationShortcutToBundleMapping = applicationShortcutToBundleMapping,
-  toggleApplication = toggleApplication,
-}
+return M
