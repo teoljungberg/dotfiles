@@ -188,21 +188,19 @@ end
 --
 -- `osascript -e 'id of app "NAME OF APP"'`
 --
-function M.applicationShortcutToBundleMapping()
-  return {
-    [0] = "net.kovidgoyal.kitty",
-    [1] = "com.brave.Browser",
-    [2] = "com.apple.mail",
-    [3] = "com.tinyspeck.slackmacgap",
-    [4] = "com.spotify.client",
-    [5] = nil,
-    [6] = nil,
-    [7] = nil,
-    [8] = nil,
-    [9] = nil,
-    ["m"] = "org.vim.MacVim",
-    ["n"] = "com.apple.Notes",
-  }
-end
+M.applicationShortcutToBundleMapping = {
+  [0] = "net.kovidgoyal.kitty",
+  [1] = "com.brave.Browser",
+  [2] = "com.apple.mail",
+  [3] = "com.tinyspeck.slackmacgap",
+  [4] = "com.spotify.client",
+  [5] = nil,
+  [6] = nil,
+  [7] = nil,
+  [8] = nil,
+  [9] = nil,
+  ["m"] = "org.vim.MacVim",
+  ["n"] = "com.apple.Notes",
+}
 
 return M
