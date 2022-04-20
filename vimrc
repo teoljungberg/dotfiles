@@ -88,6 +88,11 @@ else
   runtime macros/matchit.vim
 endif
 
+if has('packages') && has('nvim')
+  setglobal runtimepath^=~/.vim/pack/*/start/*
+  setglobal runtimepath+=~/.vim/pack/*/start/*/after
+endif
+
 filetype plugin indent on
 
 silent! colorscheme whitescale
