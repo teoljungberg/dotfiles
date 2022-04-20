@@ -89,6 +89,8 @@ find_upstream() {
     echo "master"
   elif git -C "$1" branch | grep -q "release"; then
     echo "release"
+  else
+    exit 1
   fi
 }
 
