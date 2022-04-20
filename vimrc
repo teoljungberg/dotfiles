@@ -534,7 +534,7 @@ nnoremap <silent> gS :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
 nnoremap <silent> S :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
 " r    => Enter replace mode
 " \015 => <CR>
-nnoremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', 'r\015')<CR>
+nnoremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', "r\015")<CR>
 
 " surround.vim
 " ------------
