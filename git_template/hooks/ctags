@@ -5,14 +5,16 @@ set -e
 
 dir="$(git rev-parse --git-dir)"
 
-trap 'rm -f "$dir/$$.tags"' EXIT
+if [ -d "$dir/safe" ]; then
+  trap 'rm -f "$dir/$$.tags"' EXIT
 
-if [ -f Gemfile ] && which ripper-tags 1>/dev/null 2>/dev/null; then
-  git ls-files --cached --exclude-standard --others |
-    ripper-tags --tag-relative -L - -f "$dir/$$.tags"
-else
-  git ls-files --cached --exclude-standard --others |
-    ctags --tag-relative -L - -f "$dir/$$.tags"
+  if [ -f Gemfile ] && which ripper-tags 1>/dev/null 2>/dev/null; then
+    git ls-files --cached --exclude-standard --others |
+      ripper-tags --tag-relative -L - -f "$dir/$$.tags"
+    else
+      git ls-files --cached --exclude-standard --others |
+        ctags --tag-relative -L - -f "$dir/$$.tags"
+  fi
+
+  mv "$dir/$$.tags" "$dir/tags"
 fi
-
-mv "$dir/$$.tags" "$dir/tags"
