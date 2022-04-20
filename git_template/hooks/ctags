@@ -9,12 +9,13 @@ if [ -d "$dir/safe" ]; then
   trap 'rm -f "$dir/$$.tags"' EXIT
 
   if [ -f Gemfile ] && which ripper-tags 1>/dev/null 2>/dev/null; then
-    git ls-files --cached --exclude-standard --others |
-      ripper-tags --tag-relative -L - -f "$dir/$$.tags"
-    else
-      git ls-files --cached --exclude-standard --others |
-        ctags --tag-relative -L - -f "$dir/$$.tags"
+    ctags_command="ripper-tags"
+  else
+    ctags_command="ctags"
   fi
+
+  git ls-files --cached --exclude-standard --others |
+    "$ctags_command" --tag-relative -L - -f "$dir/$$.tags"
 
   mv "$dir/$$.tags" "$dir/tags"
 fi
