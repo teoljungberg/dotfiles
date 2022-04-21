@@ -5,11 +5,11 @@
 
 stdenv.mkDerivation {
   pname = "setrb";
-  version = "0.3.1";
+  version = "0.3.2";
 
   src = fetchTarball {
-    url = "https://mike-burns.com/project/setrb/setrb-0.3.1.tar.gz";
-    sha256 = "0wm7c3248c21qr8i7a0491i272qcyj1b338fxiw8r72ydnj5fxdj";
+    url = "https://mike-burns.com/project/setrb/setrb-0.3.2.tar.gz";
+    sha256 = "199wwli9q25fy1vs3mjqs5db02w3cbnnwfknyld94796n53ndb9p";
   };
 
   meta = {
