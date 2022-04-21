@@ -76,7 +76,7 @@ if exists('+undodir') && !has('nvim')
   if !isdirectory(&backupdir) | call mkdir(&backupdir, 'p') | endif
 endif
 
-if !has('packages')
+if has('nvim') || !has('packages')
   setglobal runtimepath^=~/.vim/pack/*/start/*
   setglobal runtimepath+=~/.vim/pack/*/start/*/after
 endif
@@ -86,11 +86,6 @@ if has('packages')
   packadd! matchit
 else
   runtime macros/matchit.vim
-endif
-
-if has('packages') && has('nvim')
-  setglobal runtimepath^=~/.vim/pack/*/start/*
-  setglobal runtimepath+=~/.vim/pack/*/start/*/after
 endif
 
 filetype plugin indent on
