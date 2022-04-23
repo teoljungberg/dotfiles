@@ -29,6 +29,7 @@ in
     heroku
     jq
     lim
+    neovim
     nixpkgs-fmt
     pgformatter
     pkg-config
