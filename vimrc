@@ -267,6 +267,7 @@ augroup t_filetypes
         \   set filetype=netrw |
         \ end
   autocmd BufReadPost *.conf set filetype=conf
+  autocmd BufReadPost */gitconfig,*/.gitconfig set filetype=gitconfig
   autocmd BufReadPost */vintrc,*/.vintrc set filetype=yaml
 augroup END
 
