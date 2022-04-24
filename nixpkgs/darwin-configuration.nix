@@ -19,7 +19,7 @@ in
   environment.systemPackages = with pkgs; [ hammerspoon ];
 
   fonts = {
-    enableFontDir = true;
+    fontDir = { enable = true; };
     fonts = with pkgs; [ jetbrains-mono ];
   };
 
