@@ -189,11 +189,6 @@ vnoremap gy "*y
 vnoremap gp "*p
 vnoremap gP "*P
 
-" Toggle cursorcolumn based on &textwidth.
-nnoremap [ot :setlocal colorcolumn=<C-R>=&textwidth + 1<CR><CR>
-nnoremap ]ot :setlocal colorcolumn=0<CR>
-nnoremap yot :setlocal colorcolumn=<C-R>=&cc == 0 ? &textwidth + 1 : 0<CR><CR>
-
 " Enhanced <C-L>
 nnoremap <silent> <C-L>
       \ :nohlsearch <C-R>=has('diff') ? "<Bar>diffupdate" : ''<CR><CR><C-L>
