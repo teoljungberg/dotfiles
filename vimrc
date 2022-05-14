@@ -14,7 +14,6 @@ setglobal history=200
 setglobal incsearch
 setglobal laststatus=2
 setglobal lazyredraw
-setglobal list
 setglobal listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 setglobal mouse=nvi
 setglobal nofoldenable
@@ -38,6 +37,19 @@ setglobal viminfo=!,'20,<50,s10,h
 setglobal wildmode=list,full
 syntax enable
 
+if has('vim_starting')
+  set list
+endif
+
+if has('vim_starting') && exists('+breakindent')
+  set breakindent
+  set showbreak=\ +
+endif
+
+if has('vim_starting') && exists('+undofile')
+  set undofile
+endif
+
 " Set different cursors for insert, replace, and normal mode.
 let &t_SI = "\e[6 q"
 let &t_SR = "\e[4 q"
@@ -53,16 +65,6 @@ if $TERM =~# '^xterm'
     setglobal ttymouse=xterm2
   endif
 endif
-
-if exists('+breakindent')
-  setglobal breakindent
-  setglobal showbreak=\ +
-endif
-
-if exists('+undofile')
-  setglobal undofile
-endif
-
 if exists('+undodir') && !has('nvim')
   let s:data_home = expand('~/.cache/vim/')
 
