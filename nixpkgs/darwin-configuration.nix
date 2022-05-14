@@ -8,7 +8,7 @@ in
 {
   nixpkgs.overlays = import ../config/nixpkgs/overlays.nix;
 
-  services.nix-daemon.enable = false;
+  services.nix-daemon.enable = true;
 
   users.users.teo = {
     home = user.directory;
