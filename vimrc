@@ -32,7 +32,6 @@ setglobal smartcase
 setglobal statusline=[%n]\ %<%f\ %h%m%r%w%=%-14.(%l,%c%V%)\ %P
 setglobal synmaxcol=200
 setglobal tags^=./.git/tags;tags
-setglobal textwidth=0
 setglobal ttimeout
 setglobal ttimeoutlen=50
 setglobal viminfo=!,'20,<50,s10,h
@@ -239,7 +238,7 @@ augroup t_textwidth
   autocmd!
 
   autocmd FileType *
-        \ if &textwidth == 0 |
+        \ if !&textwidth |
         \   setlocal textwidth=80 |
         \ endif
 augroup END
