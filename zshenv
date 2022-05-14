@@ -6,6 +6,7 @@ if [ -z "$TMUX" ]; then
   PATH="$PATH:/run/current-system/sw/bin:$PATH"
   PATH="$PATH:/usr/sbin"
   PATH="$PATH:/usr/local/bin"
+  PATH="$PATH:/Applications/kitty.app/Contents/MacOS"
 fi
 export PATH
 
