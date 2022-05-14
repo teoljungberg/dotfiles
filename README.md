@@ -43,7 +43,7 @@ Add the `cron/crontab-teoljungberg` to your own `crontab(1)`:
 % crontab - < cron/crontab-teoljungberg
 ```
 
-[nix]: https://nixos.org/manual/nix/stable/#sect-macos-installation
+[nix]: https://nixos.org/manual/nix/stable/installation/installing-binary.html
 [nix-darwin]: https://github.com/LnL7/nix-darwin
 [home-manager]: https://github.com/nix-community/home-manager
 [nixos-infect]: https://github.com/elitak/nixos-infect
