@@ -57,5 +57,3 @@
   untracked = normal
   modified = normal
   default = normal
-[url "ssh://git@github.com/"]
-  insteadOf = https://github.com/
