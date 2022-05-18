@@ -3,7 +3,7 @@ LANG="en_US.UTF-8"
 typeset -U PATH
 if [ -z "$TMUX" ]; then
   PATH="$PATH:$HOME/.bin"
-  PATH="$PATH:/run/current-system/sw/bin:$PATH"
+  PATH="$PATH:/run/current-system/sw/bin"
   PATH="$PATH:/usr/sbin"
   PATH="$PATH:/usr/local/bin"
   PATH="$PATH:/Applications/kitty.app/Contents/MacOS"
