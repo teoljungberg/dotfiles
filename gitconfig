@@ -41,8 +41,6 @@
   prune = true
 [rebase]
   autosquash = true
-[include]
-  path = ~/.gitconfig.local
 [pull]
   rebase = true
 [color]
@@ -57,3 +55,5 @@
   untracked = normal
   modified = normal
   default = normal
+[include]
+  path = ~/.gitconfig.local
