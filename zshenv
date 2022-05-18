@@ -2,6 +2,7 @@ LANG="en_US.UTF-8"
 
 typeset -U PATH
 if [ -z "$TMUX" ]; then
+  PATH="$HOME/.nix-profile/bin:$PATH"
   PATH="$PATH:$HOME/.bin"
   PATH="$PATH:/run/current-system/sw/bin"
   PATH="$PATH:/usr/sbin"
