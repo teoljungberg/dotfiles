@@ -447,9 +447,9 @@ augroup t_fzf
         \ autocmd BufLeave <buffer> setlocal laststatus=2 showmode ruler
 augroup END
 
-" projectionist.vim
-" -----------------
-let g:rails_projections =
+" rails.vim
+" ---------
+let g:rails_projections=
       \ {
       \   'app/controllers/*_controller.rb': {
       \     'test': [
@@ -503,7 +503,10 @@ let g:rails_projections =
       \   },
       \ }
 
-let g:projectionist_heuristics =
+
+" projectionist.vim
+" -----------------
+let g:projectionist_heuristics=
       \ {
       \   '.git/': {
       \     'TODO.md': { 'command': 'todo' },
