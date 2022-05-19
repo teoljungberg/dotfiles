@@ -32,7 +32,8 @@ if [ -n "$SPIN" ]; then
 
   sh ~/dotfiles/cron/vim-plugins
 
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  [ ! -d "~/.fzf" ] &&
+   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
   git \
     config \
