@@ -408,7 +408,12 @@ augroup END
 " fzf.vim
 " -------
 if executable('fzf')
-  setglobal runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
+  if isdirectory(expand('$HOME/.fzf'))
+    setglobal runtimepath+=$HOME/.fzf
+  endif
+  if isdirectory(expand('$HOME/.nix-profile/share/vim-plugins/fzf/'))
+    setglobal runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
+  endif
 
   nnoremap <Space><Space> :FZF<CR>
   nnoremap <Space>] :FZFTags<CR>
