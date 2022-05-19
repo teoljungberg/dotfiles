@@ -449,6 +449,7 @@ augroup END
 
 " rails.vim
 " ---------
+let g:rails_vim_enter=0
 let g:rails_projections=
       \ {
       \   'app/controllers/*_controller.rb': {
@@ -506,6 +507,7 @@ let g:rails_projections=
 
 " projectionist.vim
 " -----------------
+let g:projectionist_vim_enter=0
 let g:projectionist_heuristics=
       \ {
       \   '.git/': {
