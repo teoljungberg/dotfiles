@@ -5,10 +5,10 @@ set -e
 
 if [ -n "$SPIN" ]; then
   is_installed() {
-    command -v "$1" 1>/dev/null 2>/dev/null
+    command -v "$1"
   }
   install() {
-    sudo apt-get install -y "$1" 1>/dev/null 2>/dev/null
+    sudo apt-get install -y "$1"
   }
 
   is_installed ctags || install ctags
