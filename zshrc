@@ -139,10 +139,24 @@ git_branch() {
 }
 
 projects() {
-  local root=$(ghq root)
-  local result=$(ghq list | fzf -q "$*")
+  if command -v ghq 1>/dev/null 2>/dev/null; then
+    local root=$(ghq root)
+    local result=$(ghq list | fzf -q "$*")
 
-  [ -n "$result" ] && cd "$root/$result"
+    [ -n "$result" ] && cd "$root/$result"
+  else
+    local result=$(
+      find \
+        $HOME/src \
+        -maxdepth 4 \
+        -name .git \
+        -type d \
+        -printf '%h\n' \
+        | fzf -q "$*"
+    )
+
+    [ -n "$result" ] && cd "$result"
+  fi
 }
 
 _source_if_available() { [ -e "$1" ] && source "$1" }
