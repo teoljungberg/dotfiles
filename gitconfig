@@ -12,7 +12,7 @@
   cp = cherry-pick
   d = diff
   dc = diff --cached
-  l = log --graph --oneline
+  l = log --oneline
   ls = ls-files
   p = push-origin-or-fork
   r = recent
