@@ -32,7 +32,7 @@ if [ -n "$SPIN" ]; then
 
   sh ~/dotfiles/cron/vim-plugins
 
-  [ ! -d "~/.fzf" ] &&
+  [ ! -d "$HOME/.fzf" ] &&
    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
   git \
