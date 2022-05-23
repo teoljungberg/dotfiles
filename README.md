@@ -3,10 +3,9 @@
 ## Nix
 
 ```
-% cat ~/.nix-channels
-https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
-https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-https://nixos.org/channels/nixpkgs-unstable unstable
+~ % nix-channel --list
+darwin https://github.com/LnL7/nix-darwin/archive/master.tar.gz
+home-manager https://github.com/nix-community/home-manager/archive/master.tar.gz
 ```
 
 ### Darwin
