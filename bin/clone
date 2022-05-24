@@ -19,5 +19,5 @@ if [ -z "$1" ]; then
   usage
   exit 1
 else
-  ghq get --no-recursive "$@"
+  ghq get -p --no-recursive "$@"
 fi
