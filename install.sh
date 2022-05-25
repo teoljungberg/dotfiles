@@ -30,8 +30,6 @@ if [ -n "$SPIN" ]; then
     core.sshCommand \
     'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 
-  sh ~/dotfiles/cron/vim-plugins
-
   [ ! -d "$HOME/.fzf" ] &&
    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
