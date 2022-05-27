@@ -515,7 +515,10 @@ let g:projectionist_heuristics=
       \     'shell.nix': { 'command': 'shell' },
       \   },
       \   'test/': {
-      \     '*.rb': { 'path': ['{project}/test/**'] },
+      \     'test/*.rb': {
+      \       'command': 'test',
+      \       'path': ['{project}/test/**'],
+      \     },
       \   },
       \ }
 
