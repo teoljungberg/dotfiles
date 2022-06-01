@@ -11,7 +11,7 @@ if [ -n "$SPIN" ]; then
     sudo apt-get install -y "$1"
   }
 
-  is_installed ctags || install ctags
+  is_installed ctags || install exuberant-ctags
   is_installed fzf || install fzf
   is_installed rcup || install rcm
   is_installed rg || install ripgrep
