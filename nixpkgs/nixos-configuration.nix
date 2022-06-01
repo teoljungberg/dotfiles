@@ -55,6 +55,15 @@ in
 
   services.openssh.enable = true;
 
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      ''
+        30 9 * * *  teo  $HOME/src/github.com/teoljungberg/dotfiles/cron/vim-plugins
+      ''
+    ];
+  };
+
   virtualisation.docker.enable = true;
 
   users.users.root.openssh.authorizedKeys.keys = [ key ];
