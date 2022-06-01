@@ -15,7 +15,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 export BUNDLE_JOBS=8
-export BUNDLE_PATH=".bundle/vendor"
 export DIRENV_LOG_FORMAT=
 export EDITOR="vim"
 export GHQ_ROOT="$HOME/src"
