@@ -14,7 +14,6 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-export BUNDLE_JOBS=8
 export DIRENV_LOG_FORMAT=
 export EDITOR="vim"
 export GHQ_ROOT="$HOME/src"
