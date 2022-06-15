@@ -582,7 +582,7 @@ augroup t_ruby
 
   autocmd FileType ruby iabbrev <buffer> ddebug require 'irb'; binding.irb
   autocmd FileType ruby iabbrev <buffer> dinit def initialize
-  autocmd FileType ruby setlocal iskeyword+=?,!,=
+  autocmd FileType ruby setlocal comments=:#\<Space> iskeyword+=?,!,=
 augroup END
 
 " quickfix
