@@ -352,6 +352,10 @@ augroup t_dispatch
         \   let b:start = '-wait=always ' . b:dispatch |
         \ endif
 
+  autocmd BufReadPost *.test.tsx
+        \ let b:dispatch = 'jest %' |
+        \ let b:start = 'jest'
+
   autocmd BufReadPost *.nix
         \ let b:dispatch = 'nix-build %:S --no-link' |
         \ let b:start = "nix repl -I %:p:h:S '<%:t>'" |
