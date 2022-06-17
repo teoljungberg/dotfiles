@@ -15,6 +15,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 export DIRENV_LOG_FORMAT=
+export DISABLE_SPRING=1
 export EDITOR="vim"
 export GHQ_ROOT="$HOME/src"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent::1"
