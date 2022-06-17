@@ -320,7 +320,7 @@ let g:ale_linters_explicit = 1
 let g:ale_linters = {}
 let g:ale_linters.javascript = ['eslint']
 let g:ale_linters.markdown = ['mdl']
-let g:ale_linters.ruby = ['rubocop']
+let g:ale_linters.ruby = ['rubocop', 'sorbet']
 let g:ale_linters.sh = ['shellcheck']
 let g:ale_linters.vim = ['vint']
 
@@ -330,7 +330,7 @@ let g:ale_fixers_explicit = 1
 let g:ale_fixers = { '*': ['trim_whitespace'] }
 let g:ale_fixers.javascript = ['eslint']
 let g:ale_fixers.json = ['jq']
-let g:ale_fixers.ruby = ['rubocop']
+let g:ale_fixers.ruby = ['rubocop', 'sorbet']
 let g:ale_fixers.nix = ['nixpkgs-fmt']
 let g:ale_fixers.sh = ['shfmt']
 let g:ale_fixers.sql = ['pgformatter']
