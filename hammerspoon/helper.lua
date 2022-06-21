@@ -191,8 +191,8 @@ end
 M.applicationShortcutToBundleMapping = {
   [0] = "net.kovidgoyal.kitty",
   [1] = "com.google.Chrome",
-  [2] = "com.tinyspeck.slackmacgap",
-  [3] = nil,
+  [2] = nil,
+  [3] = "com.tinyspeck.slackmacgap",
   [4] = "com.spotify.client",
   [5] = nil,
   [6] = nil,
