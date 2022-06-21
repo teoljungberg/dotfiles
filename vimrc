@@ -318,7 +318,6 @@ let g:ale_sql_pgformatter_options = '--spaces 2 --comma-break'
 let g:ale_linters_explicit = 1
 
 let g:ale_linters = {}
-let g:ale_linters.javascript = ['eslint']
 let g:ale_linters.markdown = ['mdl']
 let g:ale_linters.ruby = ['rubocop', 'sorbet']
 let g:ale_linters.sh = ['shellcheck']
@@ -328,12 +327,13 @@ let g:ale_linters.vim = ['vint']
 let g:ale_fixers_explicit = 1
 
 let g:ale_fixers = { '*': ['trim_whitespace'] }
-let g:ale_fixers.javascript = ['eslint']
+let g:ale_fixers.javascript = ['prettier']
 let g:ale_fixers.json = ['jq']
-let g:ale_fixers.ruby = ['rubocop', 'sorbet']
 let g:ale_fixers.nix = ['nixpkgs-fmt']
+let g:ale_fixers.ruby = ['rubocop', 'sorbet']
 let g:ale_fixers.sh = ['shfmt']
 let g:ale_fixers.sql = ['pgformatter']
+let g:ale_fixers.typescriptreact = g:ale_fixers.javascript
 
 nmap `=<CR> <Plug>(ale_fix)
 nmap `== <Plug>(ale_lint)
