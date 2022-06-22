@@ -311,6 +311,9 @@ let g:ale_set_signs = 0
 " Open the location list when `:ALELint` produces any errors.
 let g:ale_open_list = 1
 
+" Disable hovering
+let g:ale_hover_cursor = 0
+
 let g:ale_sh_shfmt_options = '-i 2 -ci'
 let g:ale_sql_pgformatter_options = '--spaces 2 --comma-break'
 
