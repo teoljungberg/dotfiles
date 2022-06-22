@@ -298,36 +298,19 @@ endif
 
 " ale.vim
 " -------
-" I prefer invoking `ALELint` at my leisure rather than having it run
-" automatically when a file is saved, changed, or touched.
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 0
-let g:ale_lint_on_filetype_changed = 0
-
-" Disable the gutter by not allowing any signs.
-let g:ale_set_signs = 0
-" Open the location list when `:ALELint` produces any errors.
-let g:ale_open_list = 1
-
-" Disable hovering
+let g:ale_fixers_explicit = 1
 let g:ale_hover_cursor = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_save = 0
+let g:ale_lint_on_text_changed = 0
+let g:ale_linters_explicit = 1
+let g:ale_open_list = 1
+let g:ale_set_signs = 0
 
 let g:ale_sh_shfmt_options = '-i 2 -ci'
 let g:ale_sql_pgformatter_options = '--spaces 2 --comma-break'
-
-" Only run linters listed in `g:ale_linters`.
-let g:ale_linters_explicit = 1
-
-let g:ale_linters = {}
-let g:ale_linters.markdown = ['mdl']
-let g:ale_linters.ruby = ['rubocop', 'sorbet']
-let g:ale_linters.sh = ['shellcheck']
-let g:ale_linters.vim = ['vint']
-
-" Only run fixers listed in `g:ale_fixers`.
-let g:ale_fixers_explicit = 1
 
 let g:ale_fixers = { '*': ['trim_whitespace'] }
 let g:ale_fixers.javascript = ['prettier']
@@ -337,6 +320,11 @@ let g:ale_fixers.ruby = ['rubocop', 'sorbet']
 let g:ale_fixers.sh = ['shfmt']
 let g:ale_fixers.sql = ['pgformatter']
 let g:ale_fixers.typescriptreact = g:ale_fixers.javascript
+let g:ale_linters = {}
+let g:ale_linters.markdown = ['mdl']
+let g:ale_linters.ruby = ['rubocop', 'sorbet']
+let g:ale_linters.sh = ['shellcheck']
+let g:ale_linters.vim = ['vint']
 
 nmap `=<CR> <Plug>(ale_fix)
 nmap `== <Plug>(ale_lint)
