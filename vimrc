@@ -252,14 +252,24 @@ augroup t_textwidth
         \ endif
 augroup END
 
+let s:filetypes_with_nonumber = [
+      \ 'fugitive',
+      \ 'fzf',
+      \ 'git',
+      \ 'gitcommit',
+      \ 'gitrebase',
+      \ 'help',
+      \ 'markdown',
+      \ 'text',
+      \ ]
 augroup t_number
   autocmd!
 
   autocmd FileType * setlocal number
-  autocmd FileType fugitive,git,gitcommit,gitrebase setlocal nonumber
-  autocmd FileType fzf setlocal nonumber
-  autocmd FileType help setlocal nonumber
-  autocmd FileType markdown,text setlocal nonumber
+  autocmd FileType *
+        \ if index(s:filetypes_with_nonumber, &filetype) >= 0 |
+        \   setlocal nonumber |
+        \ endif
 augroup END
 
 augroup t_filetypes
