@@ -148,6 +148,7 @@ projects() {
   else
     local result=$(
       find \
+        -L \
         $HOME/src \
         -maxdepth 4 \
         -name .git \
