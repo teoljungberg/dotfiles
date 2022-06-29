@@ -134,11 +134,6 @@ refresh_tmux_environment_variables() {
   fi
 }
 
-git_branch() {
-  local branch_name=$(git symbolic-ref --short HEAD 2>/dev/null) || return
-  [ -n "$branch_name" ] && echo "$branch_name "
-}
-
 projects() {
   if command -v ghq 1>/dev/null 2>/dev/null; then
     local root=$(ghq root)
@@ -276,6 +271,11 @@ command -v fzf 1>/dev/null && bindkey -M viins '^X^R' fzf-history-widget
 
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-forward
+
+git_branch() {
+  local branch_name=$(git symbolic-ref --short HEAD 2>/dev/null) || return
+  [ -n "$branch_name" ] && echo "$branch_name "
+}
 
 git_branch_color() {
   if [ "$THEME" = "light" ]; then
