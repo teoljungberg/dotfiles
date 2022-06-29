@@ -35,6 +35,10 @@ setglobal viminfo=!,'20,<50,s10,h
 setglobal wildmode=list,full
 syntax enable
 
+if has('+macmeta')
+  setglobal macmeta
+endif
+
 if has('vim_starting')
   set completefunc=syntaxcomplete#Complete
   set omnifunc=syntaxcomplete#Complete
