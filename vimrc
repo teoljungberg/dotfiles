@@ -683,8 +683,10 @@ for s:i in range(1, 9)
 endfor
 
 if exists('&termwinkey')
-  tmap <script><expr> <SID>: (empty(&termwinkey) ? "\027" : eval('"\' . &termwinkey . '"')) . ':'
-  tmap <script><expr> <C-\>: (empty(&termwinkey) ? "\027" : eval('"\' . &termwinkey . '"')) . ':'
+  tmap <script><expr> <SID>:
+        \ (empty(&termwinkey) ? "\027" : eval('"\' . &termwinkey . '"')) . ':'
+  tmap <script><expr> <C-\>:
+        \ (empty(&termwinkey) ? "\027" : eval('"\' . &termwinkey . '"')) . ':'
 elseif exists(':tmap')
   tmap <script> <SID>: <C-\><C-N>:
   tmap <script> <C-\>: <C-\><C-N>:
