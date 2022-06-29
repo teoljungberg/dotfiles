@@ -274,7 +274,7 @@ bindkey -M vicmd '/' history-incremental-search-forward
 
 git_branch() {
   local branch_name=$(git symbolic-ref --short HEAD 2>/dev/null) || return
-  [ -n "$branch_name" ] && echo "$branch_name "
+  [ -n "$branch_name" ] && print -Pn "%32<...<% $branch_name %< "
 }
 
 git_branch_color() {
