@@ -32,7 +32,6 @@ in
     neovim
     nixpkgs-fmt
     pgformatter
-    pkg-config
     rcm
     ripgrep
     ruby-install
@@ -45,7 +44,12 @@ in
     vim
     vim-vint
     zsh
-  ];
+  ] ++ (
+    if stdenv.isLinux then
+      [ pkgs.pkg-config ]
+    else
+      [ ]
+  );
 
   programs.direnv = {
     enable = true;
