@@ -646,13 +646,13 @@ function! s:CCR()
   elseif cmdline =~# '\v\C/(#|nu|num|numb|numbe|number)$'
     return "\<CR>:"
   elseif cmdline =~# filter_stub . '(old|oldfiles)'
-    set nomore
+    setlocal nomore
     return "\<CR>:Z|edit #<"
   elseif cmdline =~# '\C^changes'
-    set nomore
+    setlocal nomore
     return "\<CR>:Z|normal! g;\<S-Left>"
   elseif cmdline =~# filter_stub . '(ju|jumps)'
-    set nomore
+    setlocal nomore
     return "\<CR>:Z|normal! \<C-O>\<S-Left>"
   elseif cmdline =~# filter_stub . 'marks'
     return "\<CR>:normal! `"
