@@ -17,7 +17,6 @@ setglobal listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 setglobal mouse=nvi
 setglobal nofoldenable
 setglobal nojoinspaces
-setglobal nowildmenu
 setglobal nowrap
 setglobal path=.,,
 setglobal scrolloff=1
@@ -32,7 +31,8 @@ setglobal tags^=./.git/tags;tags
 setglobal ttimeout
 setglobal ttimeoutlen=50
 setglobal viminfo=!,'20,<50,s10,h
-setglobal wildmode=list,full
+setglobal wildmenu
+setglobal wildmode=full
 syntax enable
 
 if has('+macmeta')
