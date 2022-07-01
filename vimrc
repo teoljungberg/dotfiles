@@ -686,7 +686,7 @@ nmap <Space>b :ls<CR>
 let s:mod = (has('mac') && has('gui_running')) ? 'D' : 'M'
 for s:i in range(1, 9)
   execute "set <M-" . s:i . ">=\<Esc>" . s:i
-  execute 'noremap  <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
+  execute 'noremap <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
   execute 'noremap! <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
   if exists(':tmap')
     execute 'tnoremap <' . s:mod . '-' . s:i . '> <C-w>:' . s:i . 'tabnext<CR>'
