@@ -683,9 +683,12 @@ nmap [D :dlist /<C-R>=expand('<cword>')<CR><CR>
 nmap ]D :dlist /<C-R>=expand('<cword>')<CR><CR>
 nmap <Space>b :ls<CR>
 
+for s:i in range(1, 9)
+  silent! execute "set <M-" . s:i . ">=\<Esc>" . s:i
+endfor
+
 let s:mod = (has('mac') && has('gui_running')) ? 'D' : 'M'
 for s:i in range(1, 9)
-  execute "set <M-" . s:i . ">=\<Esc>" . s:i
   execute 'noremap <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
   execute 'noremap! <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
   if exists(':tmap')
