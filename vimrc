@@ -683,6 +683,23 @@ nmap [D :dlist /<C-R>=expand('<cword>')<CR><CR>
 nmap ]D :dlist /<C-R>=expand('<cword>')<CR><CR>
 nmap <Space>b :ls<CR>
 
+function! s:NCR()
+  if &buftype ==# 'quickfix'
+    return "\r"
+  else
+    if &buftype !=# 'terminal'
+      return ":\025confirm " . (v:count ? 'write' : 'update') . "\r"
+    elseif exists('*jobwait') && jobwait([&channel], 0)[0] == -1
+      return ':normal! i' . "\r"
+    elseif &modified
+      return ':normal! i' . "\r"
+    else
+      return "\r"
+    endif
+  endif
+endfunction
+nmap <silent> <script> <expr> <CR> <SID>NCR()
+
 for s:i in range(1, 9)
   silent! execute "set <M-" . s:i . ">=\<Esc>" . s:i
 endfor
