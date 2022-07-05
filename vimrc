@@ -342,6 +342,7 @@ let g:ale_linters.vim = ['vint']
 
 nmap `=<CR> <Plug>(ale_fix)
 nmap `== <Plug>(ale_lint)
+nmap `=? <Plug>(ale_hover)
 
 " dispatch.vim
 " ------------
