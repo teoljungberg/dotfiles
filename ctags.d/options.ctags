@@ -2,4 +2,9 @@
 --exclude=.bundle
 --exclude=.git
 --exclude=node_modules
+
 --languages=-json
+
+--langdef=NIX
+--langmap=NIX:.nix
+--regex-NIX=/([^ \t*]*)[ \t]*=/\1/f/
