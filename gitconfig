@@ -18,7 +18,7 @@
   r = recent
 
   hub = !hub $@
-  safe = !mkdir $(git rev-parse --git-dir)/safe
+  safe = !mkdir -p $(git rev-parse --git-dir)/safe
 [merge]
   tool = vimdiff
 [core]
