@@ -25,7 +25,6 @@ in
     gitAndTools.gh
     gitAndTools.hub
     gitsh
-    gnupg
     heroku
     jq
     lim
@@ -46,7 +45,10 @@ in
     zsh
   ] ++ (
     if stdenv.isLinux then
-      [ pkgs.pkg-config ]
+      [
+        pkgs.gnupg
+        pkgs.pkg-config
+      ]
     else
       [ ]
   );
