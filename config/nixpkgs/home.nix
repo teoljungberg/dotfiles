@@ -45,9 +45,9 @@ in
     zsh
   ] ++ (
     if stdenv.isLinux then
-      [
-        pkgs.gnupg
-        pkgs.pkg-config
+      with pkgs; [
+        gnupg
+        pkg-config
       ]
     else
       [ ]
