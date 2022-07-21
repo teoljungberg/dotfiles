@@ -630,6 +630,24 @@ augroup t_markdown
         \ wrap
 augroup END
 
+" obsession.vim
+" ---------
+setglobal sessionoptions-=buffers,curdir sessionoptions+=sesdir,globals
+
+augroup t_obsession
+  autocmd!
+
+  autocmd VimEnter * nested
+        \ if (
+        \   !argc() &&
+        \   empty(v:this_session) &&
+        \   filereadable('Session.vim') &&
+        \   !&modified
+        \ ) |
+        \   source Session.vim |
+        \ endif
+augroup END
+
 " Make list-like commands more intuitive.
 " Originally from:
 "
