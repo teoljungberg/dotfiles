@@ -47,14 +47,16 @@ in
     nameservers = [ "8.8.8.8" ];
     firewall = {
       allowPing = true;
-      enable = true;
       allowedTCPPorts = [ 22 ];
+      allowedUDPPortRanges = [{ from = 60000; to = 60010; }];
+      enable = true;
     };
   };
 
   security.sudo.wheelNeedsPassword = false;
 
   services.openssh.enable = true;
+  programs.mosh.enable = true;
 
   services.cron = {
     enable = true;
