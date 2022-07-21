@@ -12,6 +12,8 @@ in
     /etc/nixos/networking.nix # generated at runtime by nixos-infect
   ];
 
+  system.stateVersion = "22.05";
+
   system.autoUpgrade.enable = true;
   system.autoUpgrade.channel = "https://nixos.org/channels/nixos-unstable";
 
