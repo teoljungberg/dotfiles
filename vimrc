@@ -57,7 +57,7 @@ if has('vim_starting') && exists('+undofile')
 endif
 
 if has('vim_starting')
-  set synmaxcol=200
+  set synmaxcol=500
 endif
 
 " Set different cursors for insert, replace, and normal mode.
