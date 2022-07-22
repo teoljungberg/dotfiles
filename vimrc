@@ -3,7 +3,6 @@ setglobal autowrite
 setglobal backspace=indent,eol,start
 setglobal backupskip=/tmp/*,/private/tmp/*
 setglobal cmdheight=2
-setglobal commentstring=#\ %s
 setglobal complete+=kspell
 setglobal complete-=i
 setglobal display=lastline
@@ -36,6 +35,10 @@ syntax enable
 
 if has('+macmeta')
   setglobal macmeta
+endif
+
+if has('vim_starting')
+  set commentstring=#\ %s
 endif
 
 if has('vim_starting')
