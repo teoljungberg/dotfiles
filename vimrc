@@ -36,37 +36,22 @@ endif
 
 if has('vim_starting')
   set commentstring=#\ %s
-endif
-
-if has('vim_starting')
-  set completefunc=syntaxcomplete#Complete
-  set omnifunc=syntaxcomplete#Complete
-endif
-
-if has('vim_starting')
   set complete+=kspell
   set complete-=i
-endif
-
-if has('vim_starting')
+  set completefunc=syntaxcomplete#Complete
   set list
-endif
-
-if has('vim_starting')
   set nofoldenable
-endif
-
-if has('vim_starting') && exists('+breakindent')
-  set breakindent
-  set showbreak=\ +
-endif
-
-if has('vim_starting') && exists('+undofile')
-  set undofile
-endif
-
-if has('vim_starting')
+  set omnifunc=syntaxcomplete#Complete
   set synmaxcol=500
+
+  if exists('+breakindent')
+    set breakindent
+    set showbreak=\ +
+  endif
+
+  if exists('+undofile')
+    set undofile
+  endif
 endif
 
 " Set different cursors for insert, replace, and normal mode.
