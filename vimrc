@@ -12,7 +12,6 @@ setglobal laststatus=2
 setglobal lazyredraw
 setglobal listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 setglobal mouse=nvi
-setglobal nofoldenable
 setglobal nojoinspaces
 setglobal nowrap
 setglobal path=.,,
@@ -51,6 +50,10 @@ endif
 
 if has('vim_starting')
   set list
+endif
+
+if has('vim_starting')
+  set nofoldenable
 endif
 
 if has('vim_starting') && exists('+breakindent')
