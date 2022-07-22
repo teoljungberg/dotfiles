@@ -26,7 +26,6 @@ setglobal showcmd
 setglobal sidescrolloff=5
 setglobal smartcase
 setglobal statusline=[%n]\ %<%f\ %h%m%r%w%=%-14.(%l,%c%V%)\ %P
-setglobal synmaxcol=200
 setglobal tags^=./.git/tags;tags
 setglobal ttimeout
 setglobal ttimeoutlen=50
@@ -55,6 +54,10 @@ endif
 
 if has('vim_starting') && exists('+undofile')
   set undofile
+endif
+
+if has('vim_starting')
+  set synmaxcol=200
 endif
 
 " Set different cursors for insert, replace, and normal mode.
