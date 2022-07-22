@@ -17,7 +17,6 @@ setglobal nowrap
 setglobal path=.,,
 setglobal scrolloff=1
 setglobal shiftround
-setglobal shortmess=aoOtsT
 setglobal showcmd
 setglobal sidescrolloff=5
 setglobal smartcase
