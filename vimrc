@@ -3,8 +3,6 @@ setglobal autowrite
 setglobal backspace=indent,eol,start
 setglobal backupskip=/tmp/*,/private/tmp/*
 setglobal cmdheight=2
-setglobal complete+=kspell
-setglobal complete-=i
 setglobal display=lastline
 setglobal encoding=utf-8
 setglobal guifont=JetBrains\ Mono:h14
@@ -44,6 +42,11 @@ endif
 if has('vim_starting')
   set completefunc=syntaxcomplete#Complete
   set omnifunc=syntaxcomplete#Complete
+endif
+
+if has('vim_starting')
+  set complete+=kspell
+  set complete-=i
 endif
 
 if has('vim_starting')
