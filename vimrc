@@ -716,8 +716,10 @@ endfunction
 nmap <silent> <script> <expr> <CR> <SID>NCR()
 
 if exists('&termwinkey')
-  tmap <script> <C-\>: <C-w>:
+  tmap <script> <SID>: <C-W>:
+  tmap <script> <C-\>: <C-W>:
 elseif exists(':tmap')
+  tmap <script> <SID>: <C-\><C-N>:
   tmap <script> <C-\>: <C-\><C-N>:
 endif
 
@@ -730,7 +732,7 @@ for s:i in range(1, 9)
   execute 'noremap <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
   execute 'noremap! <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
   if exists(':tmap')
-    execute 'tmap <' . s:mod . '-' . s:i . '> <C-\>:' . s:i . 'tabnext<CR>'
+    execute 'tmap <' . s:mod . '-' . s:i . '> <SID>:' . s:i . 'tabnext<CR>'
   endif
 endfor
 
