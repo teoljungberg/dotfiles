@@ -715,8 +715,14 @@ function! s:NCR()
 endfunction
 nmap <silent> <script> <expr> <CR> <SID>NCR()
 
+if exists('&termwinkey')
+  tmap <script> <C-\>: <C-w>:
+elseif exists(':tmap')
+  tmap <script> <C-\>: <C-\><C-N>:
+endif
+
 for s:i in range(1, 9)
-  silent! execute "set <M-" . s:i . ">=\<Esc>" . s:i
+  silent! execute 'set <M-' . s:i . ">=\<Esc>" . s:i
 endfor
 
 let s:mod = (has('mac') && has('gui_running')) ? 'D' : 'M'
@@ -724,15 +730,9 @@ for s:i in range(1, 9)
   execute 'noremap <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
   execute 'noremap! <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
   if exists(':tmap')
-    execute 'tnoremap <' . s:mod . '-' . s:i . '> <C-w>:' . s:i . 'tabnext<CR>'
+    execute 'tmap <' . s:mod . '-' . s:i . '> <C-\>:' . s:i . 'tabnext<CR>'
   endif
 endfor
-
-if exists('&termwinkey')
-  tmap <script> <C-\>: <C-w>:
-elseif exists(':tmap')
-  tmap <script> <C-\>: <C-\><C-N>:
-endif
 
 augroup t_release_swapfiles
   autocmd!
