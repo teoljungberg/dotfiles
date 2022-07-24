@@ -552,9 +552,9 @@ nnoremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', "r\015")<CR>
 
 " surround.vim
 " ------------
-let g:surround_{char2nr('#')} = "#{\r}"
-let g:surround_{char2nr('s')} = " \r"
-let g:surround_{char2nr('S')} = "\r "
+let g:surround_{char2nr('#')} = "#{\<CR>}"
+let g:surround_{char2nr('s')} = " \<CR>"
+let g:surround_{char2nr('S')} = "\<CR> "
 
 " vinegar.vim
 " -----------
@@ -700,20 +700,20 @@ nmap <Space>b :ls<CR>
 
 function! s:NCR()
   if len(getcmdwintype())
-    return "\r"
+    return "\<CR>"
   endif
 
   if &buftype ==# 'quickfix'
-    return "\r"
+    return "\<CR>"
   else
     if &buftype !=# 'terminal'
-      return ":\025confirm " . (v:count ? 'write' : 'update') . "\r"
+      return ":\025confirm " . (v:count ? 'write' : 'update') . "\<CR>"
     elseif exists('*jobwait') && jobwait([&channel], 0)[0] == -1
-      return ':normal! i' . "\r"
+      return ':normal! i' . "\<CR>"
     elseif &modified
-      return ':normal! i' . "\r"
+      return ':normal! i' . "\<CR>"
     else
-      return "\r"
+      return "\<CR>"
     endif
   endif
 endfunction
