@@ -699,6 +699,10 @@ nmap ]D :dlist /<C-R>=expand('<cword>')<CR><CR>
 nmap <Space>b :ls<CR>
 
 function! s:NCR()
+  if len(getcmdwintype())
+    return "\r"
+  endif
+
   if &buftype ==# 'quickfix'
     return "\r"
   else
