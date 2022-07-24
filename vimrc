@@ -692,12 +692,18 @@ endfunction
 
 cnoremap <script> <expr> <CR> <SID>CCR()
 
+" Leverage CCR for built-in :ilist and :dlist
 nmap [I :ilist /<C-R>=expand('<cword>')<CR><CR>
 nmap ]I :ilist /<C-R>=expand('<cword>')<CR><CR>
 nmap [D :dlist /<C-R>=expand('<cword>')<CR><CR>
 nmap ]D :dlist /<C-R>=expand('<cword>')<CR><CR>
+
 nmap <Space>b :ls<CR>
 
+" Make <CR> more intuitive.
+" Originally from:
+"
+" https://github.com/tpope/dotfiles/blob/c31d6515e126ce2e52dbb11a7b01f4ac4cc2bd0c/.vimrc#L214
 function! s:NCR()
   if len(getcmdwintype())
     return "\<CR>"
@@ -719,6 +725,7 @@ function! s:NCR()
 endfunction
 nmap <silent> <script> <expr> <CR> <SID>NCR()
 
+" Setup common mapping to access command-mode from a running :terminal
 if exists('&termwinkey')
   tmap <script> <SID>: <C-W>:
   tmap <script> <C-\>: <C-W>:
@@ -727,10 +734,15 @@ elseif exists(':tmap')
   tmap <script> <C-\>: <C-\><C-N>:
 endif
 
+" Setup <M-{1,9}> to their supposed escape sequence
 for s:i in range(1, 9)
   silent! execute 'set <M-' . s:i . ">=\<Esc>" . s:i
 endfor
 
+" Switch :tab's with <{D,M}-{1,9}>
+"
+" D is for a running MacVim.
+" M is for everywhere else.
 let s:mod = (has('mac') && has('gui_running')) ? 'D' : 'M'
 for s:i in range(1, 9)
   execute 'noremap <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
