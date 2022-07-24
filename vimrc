@@ -128,10 +128,10 @@ cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
 " Record macro with `qq`, replay with `Q`
-nnoremap Q @q
+noremap Q @q
 
 " Close everything
-nnoremap <silent> <C-W>z
+noremap <silent> <C-W>z
       \ :wincmd z<Bar>cclose<Bar>lclose<Bar>pclose<Bar>helpclose<Bar><CR>
 
 " Re-select the last pasted text
@@ -165,13 +165,13 @@ command! O :silent only<Bar>silent tabonly
 "
 " To fix this, use `<cword>` to select the word under the cursor and go to it
 " directly.
-nnoremap <C-]> :tag <C-R>=expand('<cword>')<CR><CR>
-nnoremap <C-W><C-]> :stag <C-R>=expand('<cword>')<CR><CR>
-nnoremap <C-W>] :stag <C-R>=expand('<cword>')<CR><CR>
+noremap <C-]> :tag <C-R>=expand('<cword>')<CR><CR>
+noremap <C-W><C-]> :stag <C-R>=expand('<cword>')<CR><CR>
+noremap <C-W>] :stag <C-R>=expand('<cword>')<CR><CR>
 
 " Call `:ptag` the word under the cursor. Navigate between the matches with
 " `:ptnext` or `:ptprevious`. Or using unimpaired.vim's `]<C-T>` and `[<C-T>`.
-nnoremap g<C-T> :ptag <C-R>=expand('<cword>')<CR><CR>
+noremap g<C-T> :ptag <C-R>=expand('<cword>')<CR><CR>
 
 " Get the current line
 cnoremap <C-R><C-L> <C-R>=substitute(getline('.'), '^\s*', '', '')<CR>
@@ -186,20 +186,20 @@ inoremap <C-A> <Esc>I
 cnoremap <C-A> <Home>
 
 " Global yank and paste
-nnoremap gy "*y
-nnoremap gY "*y$
-nnoremap gp "*p
-nnoremap gP "*P
+noremap gy "*y
+noremap gY "*y$
+noremap gp "*p
+noremap gP "*P
 vnoremap gy "*y
 vnoremap gp "*p
 vnoremap gP "*P
 
 " Enhanced <C-L>
-nnoremap <silent> <C-L>
+noremap <silent> <C-L>
       \ :nohlsearch <C-R>=has('diff') ? "<Bar>diffupdate" : ''<CR><CR><C-L>
 
 " :lcd into the current git, project, or local directory.
-nnoremap <silent> <C-w>.
+noremap <silent> <C-w>.
       \ :if has_key(b:, 'git_dir')<Bar>
       \   execute 'Glcd'<Bar>
       \ elseif exists(':Plcd')<Bar>
@@ -211,8 +211,8 @@ nnoremap <silent> <C-w>.
 nmap cd <C-W>.
 
 " Move linewise, except when a count is given. Useful for when &wrap is set.
-nnoremap <expr> j v:count ? 'j' : 'gj'
-nnoremap <expr> k v:count ? 'k' : 'gk'
+noremap <expr> j v:count ? 'j' : 'gj'
+noremap <expr> k v:count ? 'k' : 'gk'
 
 augroup t_gui
   autocmd!
@@ -397,8 +397,8 @@ augroup END
 let g:fugitive_dynamic_colors=0
 let g:fugitive_legacy_commands=0
 
-nnoremap g<CR> :Git<CR>
-nnoremap g<Space> :Git<Space>
+noremap g<CR> :Git<CR>
+noremap g<Space> :Git<Space>
 vnoremap g<Space> :Git<Space>
 
 augroup t_fugitive
@@ -422,11 +422,11 @@ if executable('fzf')
     setglobal runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
   endif
 
-  nnoremap <Space><Space> :FZF<CR>
-  nnoremap <Space>] :FZFTags<CR>
+  noremap <Space><Space> :FZF<CR>
+  noremap <Space>] :FZFTags<CR>
 else
-  nnoremap <Space><Space> :find<Space>
-  nnoremap <Space>] :tjump /
+  noremap <Space><Space> :find<Space>
+  noremap <Space>] :tjump /
 endif
 
 let g:fzf_command_prefix = 'FZF'
@@ -444,9 +444,9 @@ augroup t_fzf
 
   autocmd FileType help
         \ if executable('fzf') |
-        \   nnoremap <buffer> <Space>] :FZFHelptags<CR> |
+        \   noremap <buffer> <Space>] :FZFHelptags<CR> |
         \ else |
-        \   nnoremap <buffer> <Space>] :tag<Space> |
+        \   noremap <buffer> <Space>] :tag<Space> |
         \ endif
   autocmd FileType fzf
         \ setlocal laststatus=0 noshowmode noruler
@@ -543,13 +543,13 @@ function! s:try(cmd, default)
   endif
 endfunction
 
-nnoremap <silent> gJ :<C-U>call <SID>try('SplitjoinJoin', 'gJ')<CR>
-nnoremap <silent> J :<C-U>call <SID>try('SplitjoinJoin', 'J')<CR>
-nnoremap <silent> gS :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
-nnoremap <silent> S :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
+noremap <silent> gJ :<C-U>call <SID>try('SplitjoinJoin', 'gJ')<CR>
+noremap <silent> J :<C-U>call <SID>try('SplitjoinJoin', 'J')<CR>
+noremap <silent> gS :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
+noremap <silent> S :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
 " r    => Enter replace mode
 " \015 => <CR>
-nnoremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', "r\015")<CR>
+noremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', "r\015")<CR>
 
 " surround.vim
 " ------------
@@ -560,9 +560,9 @@ let g:surround_{char2nr('S')} = "\<CR> "
 " vinegar.vim
 " -----------
 if exists('<Plug>VinegarUp')
-  nnoremap <silent> <Plug>Up <Plug>VinegarUp
+  noremap <silent> <Plug>Up <Plug>VinegarUp
 else
-  nnoremap <silent> <Plug>Up :Explore<CR>
+  noremap <silent> <Plug>Up :Explore<CR>
 endif
 nmap <expr> - line('.') == 1 ? '<Plug>Up' : '-'
 
@@ -607,7 +607,7 @@ augroup t_qf
         \ nonumber
         \ norelativenumber
   autocmd FileType qf call <SID>QuickfixTitle()
-  autocmd FileType qf nnoremap <buffer> - -
+  autocmd FileType qf noremap <buffer> - -
 augroup END
 
 " markdown
