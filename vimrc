@@ -68,6 +68,7 @@ if $TERM =~# '^xterm'
     setglobal ttymouse=xterm2
   endif
 endif
+
 if exists('+undodir') && !has('nvim')
   let s:data_home = expand('~/.cache/vim/')
 
