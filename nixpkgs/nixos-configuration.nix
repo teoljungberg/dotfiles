@@ -33,7 +33,6 @@ in
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    dropbox-cli
     git
     home-manager
     rcm
