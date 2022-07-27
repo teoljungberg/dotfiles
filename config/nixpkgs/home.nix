@@ -28,6 +28,7 @@ in
     heroku
     jq
     lim
+    mosh
     neovim
     nixpkgs-fmt
     pgformatter
