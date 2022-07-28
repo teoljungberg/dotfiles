@@ -54,6 +54,8 @@ in
     };
   };
 
+  time.timeZone = "Europe/Stockholm";
+
   security.sudo.wheelNeedsPassword = false;
 
   services.openssh.enable = true;
