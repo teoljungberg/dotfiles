@@ -11,7 +11,7 @@ git_branch_exists() {
   git rev-parse "$1" 1>/dev/null 2>/dev/null
 }
 
-branch() {
+git_branch() {
   if git_branch_exists "master"; then
     echo "master"
   elif git_branch_exists "main"; then
@@ -26,7 +26,7 @@ if [ -n "$1" ]; then
   git commit --fixup="$1"
 else
   git commit --fixup="$(
-    git log --oneline "origin/$(branch)..HEAD" |
+    git log --oneline "origin/$(git_branch)..HEAD" |
       fzf |
       cut -d" " -f1
   )"
