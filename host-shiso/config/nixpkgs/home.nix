@@ -15,8 +15,6 @@ in
   home.username = user.name;
 
   home.packages = with pkgs; [
-    autoconf
-    automake
     bat
     diff-highlight
     fzf
@@ -25,18 +23,14 @@ in
     gitAndTools.gh
     gitAndTools.hub
     gitsh
-    heroku
     jq
     lim
     mosh
     neovim
     nixpkgs-fmt
-    pgformatter
     rcm
     ripgrep
-    ruby-install
     s3cmd
-    setrb
     shellcheck
     shfmt
     tmux
