@@ -6,7 +6,7 @@ let
   user = import ./user.nix { };
 in
 {
-  nixpkgs.overlays = import ../config/nixpkgs/overlays.nix;
+  nixpkgs.overlays = import <t-nixpkgs/overlays.nix>;
 
   services.nix-daemon.enable = true;
 
