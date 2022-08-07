@@ -15,16 +15,19 @@ in
   home.username = user.name;
 
   home.packages = with pkgs; [
+    _1password
     autoconf
     automake
     bat
     diff-highlight
+    dropbox-cli
     fzf
     ghq
     git
     gitAndTools.gh
     gitAndTools.hub
     gitsh
+    gnupg
     heroku
     jq
     lim
@@ -32,6 +35,7 @@ in
     neovim
     nixpkgs-fmt
     pgformatter
+    pkg-config
     rcm
     ripgrep
     ruby-install
@@ -44,17 +48,7 @@ in
     vim
     vim-vint
     zsh
-  ] ++ (
-    if stdenv.isLinux then
-      with pkgs; [
-        _1password
-        dropbox-cli
-        gnupg
-        pkg-config
-      ]
-    else
-      [ ]
-  );
+  ];
 
   programs.direnv = {
     enable = true;

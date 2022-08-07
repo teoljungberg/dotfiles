@@ -6,7 +6,7 @@
 % cat ~/.rcrc
 DOTFILES_DIRS="$HOME/src/github.com/teoljungberg/dotfiles"
 EXCLUDES="README.md cron/* nixpkgs/nixos-configuration.nix result rcrc"
-HOSTNAME="TODO"
+HOSTNAME="A_HOST"
 ```
 
 ## Nix
@@ -26,7 +26,7 @@ home-manager https://github.com/nix-community/home-manager/archive/master.tar.gz
 
 ```
 % darwin-rebuild switch -I darwin-config=$(pwd)/nixpkgs/darwin-configuration.nix
-% home-manager switch -f $(pwd)/config/nixpkgs/home.nix
+% home-manager switch -f $(pwd)/host-A_HOST/config/nixpkgs/home.nix
 ```
 
 ### NixOS
