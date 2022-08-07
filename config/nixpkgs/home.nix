@@ -47,6 +47,7 @@ in
   ] ++ (
     if stdenv.isLinux then
       with pkgs; [
+        _1password
         dropbox-cli
         gnupg
         pkg-config
