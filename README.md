@@ -1,5 +1,14 @@
 # teoljungberg/dotfiles
 
+## rcm(1)
+
+```
+% cat ~/.rcrc
+DOTFILES_DIRS="$HOME/src/github.com/teoljungberg/dotfiles"
+EXCLUDES="README.md cron/* nixpkgs/nixos-configuration.nix result rcrc"
+HOSTNAME="TODO"
+```
+
 ## Nix
 
 ```
