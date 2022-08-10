@@ -58,19 +58,11 @@ in
 
   security.sudo.wheelNeedsPassword = false;
 
-  services.openssh.enable = true;
   programs.mosh.enable = true;
 
+  services.cron.enable = true;
   services.do-agent.enable = true;
-
-  services.cron = {
-    enable = true;
-    systemCronJobs = [
-      ''
-        30 9 * * *  teo  $HOME/src/github.com/teoljungberg/dotfiles/cron/vim-plugins
-      ''
-    ];
-  };
+  services.openssh.enable = true;
 
   virtualisation.docker.enable = true;
 
