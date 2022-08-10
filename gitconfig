@@ -33,8 +33,6 @@
   autosetuprebase = always
 [init]
   templatedir = ~/.git_template
-[commit]
-  template = ~/.gitmessage
 [grep]
   linenumber = true
 [fetch]
