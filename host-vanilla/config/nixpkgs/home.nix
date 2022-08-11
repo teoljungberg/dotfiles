@@ -43,6 +43,7 @@ in
     setrb
     shellcheck
     shfmt
+    tarsnap
     tmux
     universal-ctags
     vim
