@@ -13,5 +13,6 @@ Icon?
 /.vimrc.local
 Session.vim
 
+/.rspec-local
 /TODO.md
 /result
