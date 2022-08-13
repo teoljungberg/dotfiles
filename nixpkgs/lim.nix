@@ -6,5 +6,5 @@
 runCommand "lim" { } ''
   mkdir -p $out/bin
 
-  ln -s ${vim}/share/vim/vim82/macros/less.sh $out/bin/lim
+  ln -s ${vim}/share/vim/vim90/macros/less.sh $out/bin/lim
 ''
