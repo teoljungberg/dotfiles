@@ -79,6 +79,7 @@ in
   users.users.teo = {
     isNormalUser = true;
     home = "/home/teo";
+    name = "teo";
     description = "Teo Ljungberg";
     shell = pkgs.zsh;
     extraGroups = [ "wheel" "docker" ];
@@ -89,6 +90,7 @@ in
     isNormalUser = true;
     home = "/home/upload";
     description = "Upload";
+    name = "upload";
     shell = pkgs.zsh;
     extraGroups = [ "users" ];
     openssh.authorizedKeys.keys = [ key ];
