@@ -6,6 +6,7 @@ let
   key =
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8DmGnZmzOUOlg+gtKuGouRz6wCqy1pwNKvweJ4MCp0 teo@teoljungberg.com";
 in
+rec
 {
   imports = [
     /etc/nixos/hardware-configuration.nix
@@ -86,5 +87,18 @@ in
     shell = pkgs.zsh;
     extraGroups = [ "users" ];
     openssh.authorizedKeys.keys = [ key ];
+  };
+
+  systemd.services = {
+    update-vim-plugins = {
+      path = with pkgs; [
+        bash
+        findutils
+        git
+      ];
+      script = builtins.readFile ../cron/vim-plugins;
+      serviceConfig = { User = users.users.teo.name; };
+      startAt = "daily";
+    };
   };
 }
