@@ -200,7 +200,7 @@ noremap <silent> <C-L>
 
 " :lcd into the current git, project, or local directory.
 noremap <silent> <C-w>.
-      \ :if has_key(b:, 'git_dir')<Bar>
+      \ :if exists('*FugitiveGitDir') && !empty(FugitiveGitDir())<Bar>
       \   execute 'Glcd'<Bar>
       \ elseif exists(':Plcd')<Bar>
       \   execute 'Plcd'<Bar>
