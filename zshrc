@@ -147,13 +147,14 @@ projects() {
         -L \
         $HOME/src \
         -maxdepth 4 \
-        -name .git \
         -type d \
+        -name .git \
         -printf '%h\n' \
+        | sed "s|$HOME/src/||" \
         | fzf -q "$*"
     )
 
-    [ -n "$result" ] && cd "$result"
+    [ -n "$result" ] && cd "$HOME/src/$result"
   fi
 }
 
