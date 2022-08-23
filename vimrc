@@ -588,7 +588,7 @@ augroup t_ruby
   autocmd FileType ruby iabbrev <buffer> dinit def initialize
   autocmd FileType ruby setlocal comments=:#\<Space> iskeyword+=?,!,=
   autocmd Syntax ruby syntax region rubySorbetSig start='sig {' end='}'
-  autocmd Syntax ruby syntax region rubySorbetSig start='sig do' end='end'
+  autocmd Syntax ruby syntax region rubySorbetSig start='sig do' end="\<end\>"
   autocmd Syntax ruby hi def link rubysorbetSig Comment
 augroup END
 
