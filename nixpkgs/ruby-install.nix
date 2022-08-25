@@ -1,18 +1,8 @@
-{ pkgs ? import <nixpkgs> { }
-, buildEnv ? pkgs.buildEnv
-, gcc ? pkgs.gcc
-, gdbm ? pkgs.gdbm
-, gnugrep ? pkgs.gnugrep
-, gnumake ? pkgs.gnumake
-, libyaml ? pkgs.libyaml
-, makeWrapper ? pkgs.makeWrapper
-, ncurses ? pkgs.ncurses
-, openssl ? pkgs.openssl
-, pkg-config ? pkgs.pkg-config
-, readline ? pkgs.readline
-, stdenv ? pkgs.stdenv
-, zlib ? pkgs.zlib
-}:
+{ pkgs ? import <nixpkgs> { }, buildEnv ? pkgs.buildEnv, gcc ? pkgs.gcc
+, gdbm ? pkgs.gdbm, gnugrep ? pkgs.gnugrep, gnumake ? pkgs.gnumake
+, libyaml ? pkgs.libyaml, makeWrapper ? pkgs.makeWrapper, ncurses ? pkgs.ncurses
+, openssl ? pkgs.openssl, pkg-config ? pkgs.pkg-config, readline ? pkgs.readline
+, stdenv ? pkgs.stdenv, zlib ? pkgs.zlib }:
 
 let
   paths = [
@@ -27,14 +17,14 @@ let
     pkg-config
     readline
     zlib
+    zlib.dev
   ];
   env = buildEnv {
     name = "ruby-install-env";
     paths = paths;
     extraOutputsToInstall = [ "bin" "include" "lib" ];
   };
-in
-stdenv.mkDerivation {
+in stdenv.mkDerivation {
   pname = "ruby-install";
   version = "0.8.2";
 
