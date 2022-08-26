@@ -91,14 +91,28 @@ rec
 
   systemd.services = {
     update-vim-plugins = {
-      path = with pkgs; [
-        bash
-        findutils
-        git
-      ];
+      path = with pkgs; [ bash findutils git ];
       script = builtins.readFile ../cron/vim-plugins;
       serviceConfig = { User = users.users.teo.name; };
       startAt = "daily";
     };
+
+    backups =
+      let
+        backupsDirectory = users.users.teo.home +
+          "/src/github.com/teoljungberg/backups/";
+        backupsEnabled = builtins.pathExists backupsDirectory;
+      in
+      {
+        path = with pkgs; [ bash findutils git nettools ];
+        enable = backupsEnabled;
+        script =
+          if backupsEnabled then
+            builtins.readFile (backupsDirectory + "run.sh")
+          else
+            "";
+        serviceConfig = { User = users.users.teo.name; };
+        startAt = "daily";
+      };
   };
 }
