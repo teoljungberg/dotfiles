@@ -1,2 +1,2 @@
 DOTFILES_DIRS="$HOME/src/github.com/teoljungberg/dotfiles"
-EXCLUDES="*.md cron/* nixpkgs/nixos-configuration.nix result rcrc"
+EXCLUDES="*.md cron/* result rcrc"
