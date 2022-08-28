@@ -210,10 +210,6 @@ noremap <silent> <C-w>.
       \ <CR>
 nmap cd <C-W>.
 
-" Move linewise, except when a count is given. Useful for when &wrap is set.
-noremap <expr> j v:count ? 'j' : 'gj'
-noremap <expr> k v:count ? 'k' : 'gk'
-
 augroup t_gui
   autocmd!
 
