@@ -23,7 +23,6 @@ export HEROKU_COLOR=0
 export HEROKU_LOGS_COLOR=0
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export LESS="-F -X -R"
 export NIX_PATH="darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$NIX_PATH"
 export NIX_PATH="darwin=$HOME/.nix-defexpr/channels/darwin:$NIX_PATH"
 export NIX_PATH="home-manager=$HOME/.nix-defexpr/channels/home-manager:$NIX_PATH"

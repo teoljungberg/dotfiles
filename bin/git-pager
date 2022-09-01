@@ -5,5 +5,5 @@ set -e
 if command -v diff-highlight 1>/dev/null 2>/dev/null; then
   diff-highlight | less -F
 else
-  less -F
+  less -XFR
 fi
