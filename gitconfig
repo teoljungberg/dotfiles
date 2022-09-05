@@ -7,7 +7,7 @@
 [alias]
   a = add --all
   br = branch
-  c = commit -v
+  c = commit
   co = checkout
   cp = cherry-pick
   d = diff
@@ -48,6 +48,7 @@
   ui = false
 [commit]
   cleanup = scissors
+  verbose = true
 [ghq]
   root = ~/src
 [gitsh.color]
