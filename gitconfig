@@ -46,6 +46,8 @@
   push = false
   transport = false
   ui = false
+[commit]
+  cleanup = scissors
 [ghq]
   root = ~/src
 [gitsh.color]
