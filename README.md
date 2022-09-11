@@ -5,7 +5,7 @@
 ```
 % cat ~/.rcrc
 DOTFILES_DIRS="$HOME/src/github.com/teoljungberg/dotfiles"
-EXCLUDES="README.md cron/* nixpkgs/nixos-configuration.nix result rcrc"
+EXCLUDES="README.md cron/* result rcrc"
 HOSTNAME="A_HOST"
 ```
 
@@ -40,7 +40,7 @@ home-manager https://github.com/nix-community/home-manager/archive/release-22.05
 
 1. Modify `/etc/nixos/configuration.nix` to your hearts content. Reboot server.
 1. `cp /etc/nixos/configuration.nix{,.bak}`
-1. `ln -sf $(pwd)/nixpkgs/nixos-configuration.nix /etc/nixos/configuration.nix`
+1. `ln -sf $(pwd)/host-A_HOST/nixpkgs/nixos-configuration.nix /etc/nixos/configuration.nix`
 1. Add nix channels.
 
 ## Cron

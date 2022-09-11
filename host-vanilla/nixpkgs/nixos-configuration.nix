@@ -92,7 +92,7 @@ rec
   systemd.services = {
     update-vim-plugins = {
       path = with pkgs; [ bash findutils git ];
-      script = builtins.readFile ../cron/vim-plugins;
+      script = builtins.readFile ../../cron/vim-plugins;
       serviceConfig = { User = users.users.teo.name; };
       startAt = "daily";
     };
