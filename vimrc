@@ -213,7 +213,7 @@ nmap cd <C-W>.
 augroup t_gui
   autocmd!
 
-  autocmd GUIEnter * let g:markdown_fenced_languages=
+  autocmd GUIEnter * let g:markdown_fenced_languages =
           \ [
           \   'bash=sh',
           \   'diff',
@@ -391,8 +391,8 @@ augroup END
 
 " fugitive.vim
 " ------------
-let g:fugitive_dynamic_colors=0
-let g:fugitive_legacy_commands=0
+let g:fugitive_dynamic_colors = 0
+let g:fugitive_legacy_commands = 0
 
 noremap g<CR> :Git<CR>
 noremap g<Space> :Git<Space>
@@ -453,8 +453,8 @@ augroup END
 
 " rails.vim
 " ---------
-let g:rails_vim_enter=0
-let g:rails_projections=
+let g:rails_vim_enter = 0
+let g:rails_projections =
       \ {
       \   'app/controllers/*_controller.rb': {
       \     'test': [
@@ -511,8 +511,8 @@ let g:rails_projections=
 
 " projectionist.vim
 " -----------------
-let g:projectionist_vim_enter=0
-let g:projectionist_heuristics=
+let g:projectionist_vim_enter = 0
+let g:projectionist_heuristics =
       \ {
       \   '.git/': {
       \     'TODO.md': { 'command': 'todo' },
@@ -566,12 +566,12 @@ nmap <expr> - line('.') == 1 ? '<Plug>Up' : '-'
 " direnv.vim
 " ----------
 if has('gui_running')
-  let g:direnv_auto=1
+  let g:direnv_auto = 1
 else
-  let g:direnv_auto=0
+  let g:direnv_auto = 0
 endif
 
-let g:direnv_silent_load=1
+let g:direnv_silent_load = 1
 
 " ruby
 " ----
