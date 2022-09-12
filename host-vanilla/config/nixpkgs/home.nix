@@ -38,7 +38,6 @@ in
     pkg-config
     rcm
     ripgrep
-    ruby-install
     s3cmd
     setrb
     shellcheck
