@@ -27,6 +27,7 @@ let
     pkg-config
     readline
     zlib
+    zlib.dev
   ];
   env = buildEnv {
     name = "ruby-install-env";
