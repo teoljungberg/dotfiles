@@ -24,7 +24,7 @@
 [core]
   editor = vim -f
   excludesfile = ~/.gitignore
-  pager = git pager
+  pager = ~/.bin/git-pager
 [push]
   default = current
 [help]
