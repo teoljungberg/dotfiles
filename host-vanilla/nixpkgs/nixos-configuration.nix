@@ -23,7 +23,7 @@ rec
       automatic = true;
       dates = "03:00";
     };
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     extraOptions = ''
       extra-experimental-features = nix-command flakes
       keep-derivations = true
