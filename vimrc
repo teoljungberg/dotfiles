@@ -40,6 +40,7 @@ if has('vim_starting')
   set completefunc=syntaxcomplete#Complete
   set list
   set nofoldenable
+  set nohidden
   set omnifunc=syntaxcomplete#Complete
   set synmaxcol=500
 
