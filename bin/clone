@@ -9,7 +9,8 @@ command -v ghq >/dev/null 2>&1 || {
 }
 
 usage() {
-  echo "Usage: clone teoljungberg/dotfiles"
+  echo "Usage: clone dotfiles"
+  echo "       clone teoljungberg/dotfiles"
   echo "       clone git@github.com:teoljungberg/dotfiles"
   echo "       clone git://github.com/teoljungberg/dotfiles"
   echo "       clone https://github.com/teoljungberg/dotfiles"
