@@ -11,6 +11,7 @@ setglobal incsearch
 setglobal laststatus=2
 setglobal lazyredraw
 setglobal listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+setglobal modelines=0
 setglobal mouse=nvi
 setglobal nojoinspaces
 setglobal nowrap
