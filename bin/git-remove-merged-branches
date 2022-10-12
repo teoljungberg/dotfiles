@@ -3,6 +3,7 @@
 # Remove all branches that have had their remote branch removed.
 
 set -e
+[ -n "$DEBUG" ] && set -ex
 
 git for-each-ref --format "%(refname) %(upstream:track)" refs/heads |
   grep "\[gone\]" |

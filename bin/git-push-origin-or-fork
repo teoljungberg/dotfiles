@@ -3,6 +3,7 @@
 # With arguments: acts like `git push`
 
 set -e
+[ -n "$DEBUG" ] && set -ex
 
 git_origin_or_fork() {
   if git remote 2>/dev/null | grep -q teoljungberg; then

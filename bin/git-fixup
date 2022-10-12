@@ -1,6 +1,7 @@
 #!/bin/sh
 
 set -e
+[ -n "$DEBUG" ] && set -ex
 
 command -v fzf >/dev/null 2>&1 || {
   echo >&2 "fzf(1) is not installed."

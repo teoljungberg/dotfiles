@@ -4,6 +4,7 @@
 # the local tree against `origin/{master,main}`.
 
 set -e
+[ -n "$DEBUG" ] && set -ex
 
 git_log() {
   git log --graph --pretty=format:'%C(bold)%h%d%C(reset) %s' "$@"

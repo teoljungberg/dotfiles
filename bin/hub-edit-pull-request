@@ -12,6 +12,7 @@
 #
 
 set -e
+[ -n "$DEBUG" ] && set -ex
 
 command -v hub >/dev/null || {
   echo >&2 "hub(1) is not installed"
