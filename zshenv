@@ -1,14 +1,12 @@
 LANG="en_US.UTF-8"
 
+PATH="$HOME/.nix-profile/bin:$PATH"
+PATH="$PATH:$HOME/.bin"
+PATH="$PATH:/run/current-system/sw/bin"
+PATH="$PATH:/usr/sbin"
+PATH="$PATH:/usr/local/bin"
+PATH="$PATH:/Applications/kitty.app/Contents/MacOS"
 typeset -U PATH
-if [ -z "$TMUX" ]; then
-  PATH="$HOME/.nix-profile/bin:$PATH"
-  PATH="$PATH:$HOME/.bin"
-  PATH="$PATH:/run/current-system/sw/bin"
-  PATH="$PATH:/usr/sbin"
-  PATH="$PATH:/usr/local/bin"
-  PATH="$PATH:/Applications/kitty.app/Contents/MacOS"
-fi
 export PATH
 
 export VISUAL="vim"
