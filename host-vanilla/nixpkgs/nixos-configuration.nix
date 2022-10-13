@@ -91,7 +91,7 @@ rec
 
   systemd.services = {
     update-vim-plugins = {
-      path = with pkgs; [ bash findutils git ];
+      path = with pkgs; [ bash findutils git openssh ];
       script = builtins.readFile ../../cron/vim-plugins;
       serviceConfig = { User = users.users.teo.name; };
       startAt = "daily";
@@ -104,7 +104,7 @@ rec
         backupsEnabled = builtins.pathExists backupsDirectory;
       in
       {
-        path = with pkgs; [ bash findutils git nettools ];
+        path = with pkgs; [ bash findutils git nettools openssh ];
         enable = backupsEnabled;
         script =
           if backupsEnabled then
