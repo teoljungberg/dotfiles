@@ -4,6 +4,11 @@
 
 let
   user = import <t-nixpkgs/user.nix> { inherit pkgs; };
+  vim = pkgs.vim_configurable.override {
+    ruby = pkgs.ruby_3_0;
+
+    config.vim.gui = false;
+  };
 in
 {
   nixpkgs.overlays = import <t-nixpkgs/overlays.nix>;
