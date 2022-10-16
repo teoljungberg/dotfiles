@@ -1,8 +1,7 @@
-{ pkgs ? import <nixpkgs> { }
-, ...
-}:
-
 let
+  pkgs = (
+    import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/refs/tags/22.05.tar.gz") { }
+  );
   key =
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8DmGnZmzOUOlg+gtKuGouRz6wCqy1pwNKvweJ4MCp0 teo@teoljungberg.com";
 in
