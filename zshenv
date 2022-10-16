@@ -3,13 +3,13 @@ _add_to_path_if_available() { [ -e "$1" ] && PATH="$1:$PATH" }
 
 LANG="en_US.UTF-8"
 
-_add_to_path_if_available "$HOME/.nix-profile/bin"
-_add_to_path_if_available "$HOME/.bin"
 _add_to_path_if_available "/run/current-system/sw/bin"
 _add_to_path_if_available "/run/wrappers/bin"
 _add_to_path_if_available "/usr/sbin"
 _add_to_path_if_available "/usr/local/bin"
 _add_to_path_if_available="/Applications/kitty.app/Contents/MacOS"
+_add_to_path_if_available "$HOME/.nix-profile/bin"
+_add_to_path_if_available "$HOME/.bin"
 typeset -U PATH
 export PATH
 
