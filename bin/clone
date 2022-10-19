@@ -1,4 +1,39 @@
 #!/bin/sh
+#
+# A wrapper around ghq(1).
+
+# In a directory structure such as:
+
+# ```
+# % pwd
+# /home/teo/src/github.com/teoljungberg
+# % clone testing
+# ... git clone github.com/teoljungberg/testing ...
+# ```
+#
+# clone(1) clone the project "testing" for the user "teoljungberg". Meaning in
+# another directory structure such as:
+#
+# ```
+# % pwd
+# /home/teo/src/github.com/someone-else
+# % clone testing
+# ... git clone github.com/someone-else/testing ...
+# ```
+#
+# clone(1) will clone the project "testing" for the user "someone-else"
+# instead.
+#
+# Lastly, to keep everything working as expected when a pattern is given:
+#
+# ```
+# % pwd
+# /home/teo/src/github.com/teoljungberg
+# % clone someone-else/testing
+# ... git clone github.com/someone-else/testing ...
+# ```
+#
+# This example also works for all patterns that clone(1) supports.
 
 set -e
 [ -n "$DEBUG" ] && set -ex
@@ -16,9 +51,36 @@ usage() {
   echo "       clone https://github.com/teoljungberg/dotfiles"
 }
 
+user_in_ghq() {
+  if [ "$(echo "$path" | grep -o "/" | wc -l)" -eq 2 ]; then
+    echo "$path" | cut -d/ -f2
+  elif [ "$(echo "$path" | grep -o "/" | wc -l)" -eq 1 ]; then
+    echo "$path" | cut -d/ -f2
+  else
+    echo "teoljungberg"
+  fi
+}
+
+user() {
+  path=$(echo "$PWD" | sed -e "s|$(ghq root)/||")
+
+  case "$PWD/" in
+    $(ghq root)/*) user_in_ghq ;;
+    *) echo "" ;;
+  esac
+}
+
 if [ -z "$1" ]; then
   usage
   exit 1
 else
-  ghq get -p --no-recursive "$@"
+  if echo "$@" | grep -q "/"; then
+    ghq get -p --no-recursive "$@"
+  else
+    if [ -n "$(user)" ]; then
+      GHQ_USER="$(user)" ghq get -p --no-recursive "$@"
+    else
+      ghq get -p --no-recursive "$@"
+    fi
+  fi
 fi
