@@ -7,7 +7,7 @@ set -e
 [ -n "$DEBUG" ] && set -ex
 
 git_log() {
-  git log --graph --pretty=format:'%C(bold)%h%d%C(reset) %s' "$@"
+  git log --graph --pretty=format:'%h%d %s' "$@"
 }
 
 has_upstream() {
