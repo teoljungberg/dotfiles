@@ -5,7 +5,7 @@
 ```
 % cat ~/.rcrc
 DOTFILES_DIRS="$HOME/src/github.com/teoljungberg/dotfiles"
-EXCLUDES="README.md cron/* result rcrc"
+EXCLUDES="*.md cron/* result rcrc"
 HOSTNAME="A_HOST"
 ```
 
