@@ -2,6 +2,7 @@ let
   pkgs = (
     import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/refs/tags/22.05.tar.gz") { }
   );
+  lib = pkgs.lib;
   key =
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8DmGnZmzOUOlg+gtKuGouRz6wCqy1pwNKvweJ4MCp0 teo@teoljungberg.com";
 in
@@ -102,14 +103,9 @@ rec
           "/src/github.com/teoljungberg/backups/";
         backupsEnabled = builtins.pathExists backupsDirectory;
       in
-      {
+      lib.mkIf backupsEnabled {
         path = with pkgs; [ bash findutils git nettools openssh ];
-        enable = backupsEnabled;
-        script =
-          if backupsEnabled then
-            builtins.readFile (backupsDirectory + "run.sh")
-          else
-            "";
+        script = builtins.readFile (backupsDirectory + "run.sh");
         serviceConfig = { User = users.users.teo.name; };
         startAt = "daily";
       };
