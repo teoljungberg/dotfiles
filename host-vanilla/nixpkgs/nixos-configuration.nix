@@ -89,6 +89,10 @@ rec
     openssh.authorizedKeys.keys = [ key ];
   };
 
+  services.journald.extraConfig = ''
+    MaxRetentionSec=1month
+  '';
+
   systemd.services = {
     update-vim-plugins = {
       path = with pkgs; [ bash findutils git openssh ];
