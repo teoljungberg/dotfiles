@@ -14,6 +14,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+export CDPATH="$CDPATH:$HOME/src/git.sr.ht:$HOME/src/github.com"
 export DIRENV_LOG_FORMAT=
 export DISABLE_SPRING=1
 export EDITOR="vim"
