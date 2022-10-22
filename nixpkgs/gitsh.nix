@@ -1,8 +1,8 @@
 { pkgs ? import <nixpkgs> { }
 , lib ? pkgs.lib
+, stdenv ? pkgs.stdenv
 , readline ? pkgs.readline
 , ruby ? pkgs.ruby
-, stdenv ? pkgs.stdenv
 }:
 
 stdenv.mkDerivation rec {

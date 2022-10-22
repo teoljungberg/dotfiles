@@ -1,4 +1,5 @@
 { pkgs ? import <nixpkgs> { }
+, stdenv ? pkgs.stdenv
 , buildEnv ? pkgs.buildEnv
 , gcc ? pkgs.gcc
 , gdbm ? pkgs.gdbm
@@ -10,7 +11,6 @@
 , openssl ? pkgs.openssl
 , pkg-config ? pkgs.pkg-config
 , readline ? pkgs.readline
-, stdenv ? pkgs.stdenv
 , zlib ? pkgs.zlib
 }:
 
