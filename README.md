@@ -13,6 +13,13 @@ HOSTNAME="A_HOST"
 
 ```
 % nix-channel --list
+home-manager https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz
+```
+
+If on Darwin:
+
+```
+% nix-channel --list
 darwin https://github.com/LnL7/nix-darwin/archive/master.tar.gz
 home-manager https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz
 ```
