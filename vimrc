@@ -34,6 +34,10 @@ if has('+macmeta')
   setglobal macmeta
 endif
 
+if exists('+linebreak')
+  setglobal showbreak=\ +
+endif
+
 if has('vim_starting')
   set commentstring=#\ %s
   set complete+=kspell
@@ -47,7 +51,6 @@ if has('vim_starting')
 
   if exists('+breakindent')
     set breakindent
-    set showbreak=\ +
   endif
 
   if exists('+undofile')
