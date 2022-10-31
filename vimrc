@@ -161,7 +161,7 @@ nmap <Leader>w :write %%
 cnoremap %t <C-R>=substitute(expand('%:r'), '^app[^/]*.', '', '')<CR>
 
 " Only have the current split and tab open
-command! O :silent only<Bar>silent tabonly
+command! Only :silent only<Bar>silent tabonly
 
 " Given this situation:
 "     user.fo|o!
