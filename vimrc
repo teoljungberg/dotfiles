@@ -258,6 +258,7 @@ let s:filetypes_with_nonumber = [
       \ 'gitcommit',
       \ 'gitrebase',
       \ 'help',
+      \ 'man',
       \ 'markdown',
       \ 'text',
       \ ]
@@ -751,6 +752,16 @@ for s:i in range(1, 9)
     execute 'tmap <' . s:mod . '-' . s:i . '> <SID>:' . s:i . 'tabnext<CR>'
   endif
 endfor
+
+if !has('nvim')
+  silent! runtime ftplugin/man.vim
+endif
+
+augroup t_man
+  autocmd!
+
+  autocmd FileType man setlocal nolist
+augroup END
 
 augroup t_release_swapfiles
   autocmd!
