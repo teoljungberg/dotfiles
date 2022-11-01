@@ -1,6 +1,6 @@
 let
   pkgs = (
-    import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/refs/tags/22.05.tar.gz") { }
+    import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/refs/heads/release-22.05.tar.gz") { }
   );
   lib = pkgs.lib;
   key =
