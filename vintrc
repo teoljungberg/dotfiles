@@ -1,2 +1,4 @@
 cmdargs:
   color: false
+env:
+  neovim: true
