@@ -244,10 +244,7 @@ augroup END
 augroup t_textwidth
   autocmd!
 
-  autocmd FileType *
-        \ if !&textwidth |
-        \   setlocal textwidth=80 |
-        \ endif
+  autocmd FileType * if !&textwidth | setlocal textwidth=80 | endif
 augroup END
 
 let s:filetypes_with_nonumber = [
