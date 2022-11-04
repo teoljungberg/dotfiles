@@ -97,6 +97,10 @@ else
   runtime macros/matchit.vim
 endif
 
+if !has('nvim')
+  silent! runtime ftplugin/man.vim
+endif
+
 filetype plugin indent on
 
 silent! colorscheme whitescale
@@ -760,10 +764,6 @@ for s:i in range(1, 9)
     execute 'tmap <' . s:mod . '-' . s:i . '> <SID>:' . s:i . 'tabnext<CR>'
   endif
 endfor
-
-if !has('nvim')
-  silent! runtime ftplugin/man.vim
-endif
 
 augroup t_release_swapfiles
   autocmd!
