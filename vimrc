@@ -43,7 +43,6 @@ if has('vim_starting')
   set complete+=kspell
   set complete-=i
   set completefunc=syntaxcomplete#Complete
-  set list
   set nofoldenable
   set nohidden
   set omnifunc=syntaxcomplete#Complete
@@ -269,6 +268,24 @@ augroup t_number
         \ endif
 augroup END
 
+let s:filetypes_with_nolist = [
+      \ 'fugitive',
+      \ 'git',
+      \ 'gitcommit',
+      \ 'help',
+      \ 'man',
+      \ 'qf',
+      \ ]
+augroup t_list
+  autocmd!
+
+  autocmd FileType * setlocal list
+  autocmd FileType *
+        \ if index(s:filetypes_with_nolist, &filetype) >= 0 |
+        \   setlocal nolist |
+        \ endif
+augroup END
+
 augroup t_filetypes
   autocmd!
 
@@ -400,11 +417,7 @@ augroup t_fugitive
   autocmd!
 
   autocmd BufReadPost *.git/PULLREQ_EDITMSG set filetype=gitcommit
-  autocmd FileType git setlocal nolist
-  autocmd FileType gitcommit setlocal
-        \ shiftwidth=2
-        \ nolist
-        \ spell
+  autocmd FileType gitcommit setlocal shiftwidth=2 spell
 augroup END
 
 " fzf.vim
@@ -601,7 +614,6 @@ augroup t_qf
 
   autocmd FileType qf setlocal
         \ nobuflisted
-        \ nolist
         \ nonumber
         \ norelativenumber
   autocmd FileType qf call <SID>QuickfixTitle()
@@ -752,12 +764,6 @@ endfor
 if !has('nvim')
   silent! runtime ftplugin/man.vim
 endif
-
-augroup t_man
-  autocmd!
-
-  autocmd FileType man setlocal nolist
-augroup END
 
 augroup t_release_swapfiles
   autocmd!
