@@ -784,7 +784,7 @@ augroup t_pager
   autocmd!
 
   autocmd SourcePost */macros/less.vim nunmap <Space><Space>
-  autocmd SourcePre */macros/less.vim setglobal laststatus=0 showtabline=0
+  autocmd SourcePre */macros/less.vim setglobal laststatus=0
 augroup END
 
 if filereadable($HOME . '/.vimrc.local')
