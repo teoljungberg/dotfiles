@@ -75,12 +75,12 @@ if [ -z "$1" ]; then
   exit 1
 else
   if echo "$@" | grep -q "/"; then
-    ghq get -p --no-recursive "$@"
+    ghq get -p -s --no-recursive "$@"
   else
     if [ -n "$(user)" ]; then
-      GHQ_USER="$(user)" ghq get -p --no-recursive "$@"
+      GHQ_USER="$(user)" ghq get -p -s --no-recursive "$@"
     else
-      ghq get -p --no-recursive "$@"
+      ghq get -p -s --no-recursive "$@"
     fi
   fi
 fi
