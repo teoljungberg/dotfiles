@@ -531,6 +531,7 @@ let g:projectionist_heuristics =
       \ {
       \   '.git/': {
       \     'TODO.md': { 'command': 'todo' },
+      \     '*.gemspec': { 'command': 'gemspec' },
       \     'shell.nix': { 'command': 'shell' },
       \     'test/*.rb': { 'command': 'test' },
       \   },
