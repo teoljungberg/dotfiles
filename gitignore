@@ -12,6 +12,7 @@ Icon?
 
 /.vimrc.local
 Session.vim
+Session.vim.*
 
 /.rspec-local
 /TODO.md
