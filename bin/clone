@@ -78,7 +78,7 @@ else
     ghq get -p -s --no-recursive "$@"
   else
     if [ -n "$(user)" ]; then
-      GHQ_USER="$(user)" ghq get -p -s --no-recursive "$@"
+      ghq get -p -s --no-recursive "$(user)/$1"
     else
       ghq get -p -s --no-recursive "$@"
     fi
