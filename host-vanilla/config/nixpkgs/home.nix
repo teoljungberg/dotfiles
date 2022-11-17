@@ -31,6 +31,7 @@ in
     git
     gitAndTools.gh
     gitAndTools.hub
+    gitAndTools.hut
     gitsh
     gnupg
     heroku
