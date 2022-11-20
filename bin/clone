@@ -72,6 +72,21 @@ user() {
   esac
 }
 
+ghq_get() {
+  args="$1"
+  repo="$2"
+
+  if [ -n "$DEBUG" ]; then
+    echo ghq get -p -s --no-recursive "$args" "$repo"
+  else
+    if [ -n "$args" ]; then
+      ghq get -p -s --no-recursive "$args" "$repo"
+    else
+      ghq get -p -s --no-recursive "$repo"
+    fi
+  fi
+}
+
 args=""
 
 if [ -z "$1" ]; then
@@ -92,12 +107,12 @@ else
   done
 
   if echo "$repo" | grep -q "/"; then
-    ghq get -p -s --no-recursive "$args" "$repo"
+    ghq_get "$args" "$repo"
   else
     if [ -n "$(user)" ]; then
-      ghq get -p -s --no-recursive "$args" "$(user)/$repo"
+      ghq_get "$args" "$(user)/$repo"
     else
-      ghq get -p -s --no-recursive "$args" "$repo"
+      ghq_get "$args" "$repo"
     fi
   fi
 fi
