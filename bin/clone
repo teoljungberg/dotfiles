@@ -65,7 +65,7 @@ user() {
   path=$(echo "$PWD" | sed -e "s|$(ghq root)/||")
 
   case "$PWD/" in
-    $(ghq root)/*) user_in_ghq ;;
+    $HOME/src/github.com/*) user_in_ghq ;;
     *) echo "" ;;
   esac
 }
