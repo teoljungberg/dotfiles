@@ -52,6 +52,8 @@ usage() {
 }
 
 user_in_ghq() {
+  path="$1"
+
   if [ "$(echo "$path" | grep -o "/" | wc -l)" -eq 2 ]; then
     echo "$path" | cut -d/ -f2
   elif [ "$(echo "$path" | grep -o "/" | wc -l)" -eq 1 ]; then
@@ -65,7 +67,7 @@ user() {
   path=$(echo "$PWD" | sed -e "s|$(ghq root)/||")
 
   case "$PWD/" in
-    $HOME/src/github.com/*) user_in_ghq ;;
+    $HOME/src/github.com/*) user_in_ghq "$path" ;;
     *) echo "" ;;
   esac
 }
