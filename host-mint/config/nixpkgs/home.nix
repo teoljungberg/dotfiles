@@ -3,10 +3,11 @@
 }:
 
 let
-  user = import <t-nixpkgs/user.nix> { inherit pkgs; };
+  overlays = ./../../../nixpkgs/overlays.nix;
+  user = import ./../../../nixpkgs/user.nix { inherit pkgs; };
 in
 {
-  nixpkgs.overlays = import <t-nixpkgs/overlays.nix>;
+  nixpkgs.overlays = import overlays;
 
   programs.home-manager.enable = true;
 

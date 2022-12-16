@@ -26,7 +26,6 @@ export LC_ALL="en_US.UTF-8"
 export NIX_PATH="darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$NIX_PATH"
 export NIX_PATH="darwin=$HOME/.nix-defexpr/channels/darwin:$NIX_PATH"
 export NIX_PATH="home-manager=$HOME/.nix-defexpr/channels/home-manager:$NIX_PATH"
-export NIX_PATH="t-nixpkgs=$HOME/.nixpkgs:$NIX_PATH"
 export NO_COLOR=1
 export PAGER="less -R"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"

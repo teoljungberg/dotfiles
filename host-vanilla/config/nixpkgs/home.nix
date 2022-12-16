@@ -3,7 +3,8 @@
 }:
 
 let
-  user = import <t-nixpkgs/user.nix> { inherit pkgs; };
+  overlays = ./../../../nixpkgs/overlays.nix;
+  user = import ./../../../nixpkgs/user.nix { inherit pkgs; };
   vim = pkgs.vim_configurable.override {
     ruby = pkgs.ruby_3_0;
 
@@ -11,7 +12,7 @@ let
   };
 in
 {
-  nixpkgs.overlays = import <t-nixpkgs/overlays.nix>;
+  nixpkgs.overlays = import overlays;
 
   programs.home-manager.enable = true;
 
