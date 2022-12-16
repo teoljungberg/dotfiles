@@ -3,7 +3,7 @@
 }:
 
 let
-  user = import ./user.nix { };
+  user = import <t-nixpkgs/user.nix> { inherit pkgs; };
 in
 {
   nixpkgs.overlays = import <t-nixpkgs/overlays.nix>;
