@@ -288,10 +288,11 @@ git_branch_color() {
 }
 
 prompt_directory() {
-  case $(pwd) in
-    $GHQ_ROOT/*) echo "%2c";;
-    *) echo "%c";;
-  esac
+  if git rev-parse --git-dir 1>/dev/null 2>/dev/null; then
+    echo "%2c"
+  else
+    echo "%c"
+  fi
 }
 
 title_name() {
