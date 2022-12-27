@@ -303,6 +303,7 @@ augroup t_filetype_options
 
   autocmd FileType c setlocal
         \ cinoptions=:0,t0,+4,(4
+        \ listchars=tab:\ \ ,trail:-,extends:>,precedes:<,nbsp:+
         \ noexpandtab
         \ shiftwidth=8
         \ tabstop=8
