@@ -372,6 +372,11 @@ augroup t_dispatch
         \   let b:start = '-wait=always ' . b:dispatch |
         \ endif
 
+  autocmd BufReadPost *
+        \ if filereadable('bin/console') |
+        \   let b:start = 'bin/console' |
+        \ endif
+
   autocmd BufReadPost *.nix
         \ let b:dispatch = 'nix-build %:S --no-link' |
         \ let b:start = "nix repl -I %:p:h:S '<%:t>'" |
