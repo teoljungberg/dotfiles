@@ -335,6 +335,7 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_linters_explicit = 1
 let g:ale_open_list = 1
 let g:ale_set_signs = 0
+let g:ale_virtualtext_cursor = 0
 
 let g:ale_sh_shfmt_options = '-i 2 -ci'
 let g:ale_sql_pgformatter_options = '--spaces 2 --comma-break'
