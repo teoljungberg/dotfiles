@@ -92,7 +92,9 @@ endif
 
 if has('packages')
   packadd! cfilter
-  packadd! matchit
+  if !has('nvim')
+    packadd! matchit
+  endif
 else
   runtime macros/matchit.vim
 endif
