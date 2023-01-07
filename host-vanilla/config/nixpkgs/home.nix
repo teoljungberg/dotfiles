@@ -34,6 +34,7 @@ in
     gitAndTools.hub
     gitAndTools.hut
     gitsh
+    gnumake
     gnupg
     heroku
     jq
