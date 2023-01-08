@@ -198,7 +198,7 @@ M.applicationShortcutToBundleMapping = {
   [6] = nil,
   [7] = nil,
   [8] = nil,
-  [9] = nil,
+  [9] = "com.google.Chrome",
   ["m"] = "org.vim.MacVim",
   ["n"] = "com.apple.Notes",
 }
