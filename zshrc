@@ -300,10 +300,11 @@ title_name() {
 }
 
 set_prompt() {
-  PROMPT="$(prompt_directory) $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
-
-  [ -n "$SSH_CONNECTION" ] && \
+  if [ -n "$SSH_CONNECTION" ]; then
     PROMPT="$(prompt_directory) %n@%m $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
+  else
+    PROMPT="$(prompt_directory) $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
+  fi
 }
 
 setup_setrb() {
