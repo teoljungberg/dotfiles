@@ -288,15 +288,11 @@ git_branch_color() {
 }
 
 prompt_directory() {
-  if git rev-parse --git-dir 1>/dev/null 2>/dev/null; then
-    echo "%2c"
-  else
-    echo "%c"
-  fi
+  echo "%20<..<%~%<<"
 }
 
 title_name() {
-  print -Pn "%20<...<% $(prompt_directory)%<"
+  print -Pn "$(prompt_directory)"
 }
 
 set_prompt() {
