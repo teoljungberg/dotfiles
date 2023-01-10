@@ -147,7 +147,7 @@ projects() {
         -maxdepth 4 \
         -type d \
         -name .git \
-        -printf '%h\n' \
+        -exec dirname '{}' \; \
         | sed "s|$HOME/src/||" \
         | fzf -q "$*"
     )
