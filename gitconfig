@@ -65,5 +65,7 @@
   untracked = normal
   modified = normal
   default = normal
+[hub]
+  protocol = ssh
 [include]
   path = ~/.gitconfig.local
