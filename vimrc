@@ -298,6 +298,7 @@ augroup t_filetypes
   autocmd BufReadPost */gitconfig,*/.gitconfig,*/.gitconfig.local
         \ set filetype=gitconfig
   autocmd BufReadPost */vintrc,*/.vintrc set filetype=yaml
+  autocmd BufReadPost patch-* set filetype=diff
 augroup END
 
 augroup t_filetype_options
