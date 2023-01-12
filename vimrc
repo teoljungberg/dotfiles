@@ -296,9 +296,9 @@ augroup t_filetypes
   autocmd!
 
   autocmd BufReadPost */gitconfig,*/.gitconfig,*/.gitconfig.local
-        \ set filetype=gitconfig
-  autocmd BufReadPost */vintrc,*/.vintrc set filetype=yaml
-  autocmd BufReadPost patch-* set filetype=diff
+        \ setfiletype gitconfig
+  autocmd BufReadPost */vintrc,*/.vintrc setfiletype yaml
+  autocmd BufReadPost patch-* setfiletype diff
 augroup END
 
 augroup t_filetype_options
@@ -429,7 +429,7 @@ vnoremap g<Space> :Git<Space>
 augroup t_fugitive
   autocmd!
 
-  autocmd BufReadPost *.git/PULLREQ_EDITMSG set filetype=gitcommit
+  autocmd BufReadPost *.git/PULLREQ_EDITMSG setfiletype gitcommit
   autocmd FileType gitcommit setlocal shiftwidth=2 spell
 augroup END
 
