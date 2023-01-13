@@ -429,7 +429,6 @@ vnoremap g<Space> :Git<Space>
 augroup t_fugitive
   autocmd!
 
-  autocmd BufReadPost *.git/PULLREQ_EDITMSG setfiletype gitcommit
   autocmd FileType gitcommit setlocal shiftwidth=2 spell
 augroup END
 
