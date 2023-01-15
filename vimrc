@@ -301,11 +301,13 @@ augroup t_filetypes
   autocmd BufReadPost patch-* setfiletype diff
 augroup END
 
-augroup t_filetype_options
+augroup t_openbsd
   autocmd!
 
   autocmd FileType c setlocal
+        \ cindent
         \ cinoptions=:0,t0,+4,(4
+        \ indentkeys=0{,0},0),:,0#,!^F,o,O,e
         \ listchars=tab:\ \ ,trail:-,extends:>,precedes:<,nbsp:+
         \ noexpandtab
         \ shiftwidth=8
