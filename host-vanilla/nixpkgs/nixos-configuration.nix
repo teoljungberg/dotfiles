@@ -29,6 +29,7 @@ rec
       keep-derivations = true
       keep-outputs = true
     '';
+    settings.trusted-users = [ "root" "teo" ];
   };
 
   nixpkgs.config.allowUnfree = true;
