@@ -19,7 +19,6 @@ in
     autoconf
     automake
     bat
-    diff-highlight
     fzf
     ghq
     git

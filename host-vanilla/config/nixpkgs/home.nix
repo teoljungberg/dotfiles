@@ -25,7 +25,6 @@ in
     autoconf
     automake
     bat
-    diff-highlight
     dropbox-cli
     fzf
     ghq

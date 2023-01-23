@@ -1,7 +1,6 @@
 [
   (
     self: super: {
-      diff-highlight = super.callPackage ./diff-highlight.nix { };
       gitsh = super.callPackage ./gitsh.nix { };
       hammerspoon = super.callPackage ./hammerspoon.nix { };
       heroku = super.heroku.overrideAttrs (

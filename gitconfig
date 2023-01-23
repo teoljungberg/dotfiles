@@ -8,7 +8,6 @@
   changed-files = ~/.bin/git-changed-files
   ctags = ~/.bin/git-ctags
   fixup = ~/.bin/git-fixup
-  pager = ~/.bin/git-pager
   push-origin-or-fork = ~/.bin/git-push-origin-or-fork
   recent = ~/.bin/git-recent
   remove-merged-branches = ~/.bin/git-remove-merged-branches
@@ -33,7 +32,7 @@
 [core]
   editor = vim -f
   excludesfile = ~/.gitignore
-  pager = ~/.bin/git-pager
+  pager = less -S
 [push]
   default = current
 [help]
