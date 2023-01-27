@@ -297,10 +297,11 @@ set_prompt() {
 }
 
 setup_setrb() {
-  which setrb >/dev/null && \
-    [ -z "$SETRB_PATH_ADDITIONS" ] &&
-    ([ -f .ruby-version ] || [ -f .tool-versions ]) && \
-    eval "$(setrb -w0 2>/dev/null)"
+    which setrb >/dev/null && \
+      [ -z "$DISABLE_SETRB"] && \
+      [ -z "$SETRB_PATH_ADDITIONS" ] &&
+      ([ -f .ruby-version ] || [ -f .tool-versions ]) && \
+      eval "$(setrb -w0 2>/dev/null)"
 }
 
 preexec() {
