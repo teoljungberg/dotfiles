@@ -16,6 +16,15 @@ if defined?(Rails)
   ActiveSupport::LogSubscriber.colorize_logging = false
 end
 
+unless ENV.key?("IRB_RELINE")
+  begin
+    require "readline"
+    IRB.conf[:USE_READLINE] = true
+  rescue LoadError
+    warn "warning: readline not available"
+  end
+end
+
 class Object
   def interesting_methods
     case self.class
