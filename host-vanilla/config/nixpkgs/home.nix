@@ -27,7 +27,6 @@ in
     bat
     dropbox-cli
     fzf
-    ghq
     git
     gitAndTools.gh
     gitAndTools.hub

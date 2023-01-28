@@ -20,7 +20,6 @@ in
     automake
     bat
     fzf
-    ghq
     git
     gitAndTools.gh
     gitAndTools.hub

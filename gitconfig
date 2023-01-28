@@ -57,8 +57,6 @@
 [commit]
   cleanup = scissors
   verbose = true
-[ghq]
-  root = ~/src
 [gitsh.color]
   uninitialized = normal
   untracked = normal

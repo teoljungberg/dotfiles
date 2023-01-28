@@ -134,26 +134,19 @@ refresh_tmux_environment_variables() {
 }
 
 projects() {
-  if command -v ghq 1>/dev/null 2>/dev/null; then
-    local root=$(ghq root)
-    local result=$(ghq list | fzf -q "$*")
+  local result=$(
+    find \
+      -L \
+      $HOME/src \
+      -maxdepth 4 \
+      -type d \
+      -name .git \
+      -exec dirname '{}' \; \
+      | sed "s|$HOME/src/||" \
+      | fzf -q "$*"
+  )
 
-    [ -n "$result" ] && cd "$root/$result"
-  else
-    local result=$(
-      find \
-        -L \
-        $HOME/src \
-        -maxdepth 4 \
-        -type d \
-        -name .git \
-        -exec dirname '{}' \; \
-        | sed "s|$HOME/src/||" \
-        | fzf -q "$*"
-    )
-
-    [ -n "$result" ] && cd "$HOME/src/$result"
-  fi
+  [ -n "$result" ] && cd "$HOME/src/$result"
 }
 
 _source_if_available() { [ -e "$1" ] && source "$1" }
