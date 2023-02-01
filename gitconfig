@@ -5,13 +5,13 @@
 [github]
   user = teoljungberg
 [alias]
-  changed-files = ~/.bin/git-changed-files
-  ctags = ~/.bin/git-ctags
-  fixup = ~/.bin/git-fixup
-  push-origin-or-fork = ~/.bin/git-push-origin-or-fork
-  recent = ~/.bin/git-recent
-  remove-merged-branches = ~/.bin/git-remove-merged-branches
-  unreleased = ~/.bin/git-unreleased
+  changed-files = git-changed-files
+  ctags = git-ctags
+  fixup = git-fixup
+  push-origin-or-fork = git-push-origin-or-fork
+  recent = git-recent
+  remove-merged-branches = git-remove-merged-branches
+  unreleased = git-unreleased
 
   a = add --all
   br = branch
