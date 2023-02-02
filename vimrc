@@ -10,7 +10,6 @@ setglobal history=200
 setglobal incsearch
 setglobal laststatus=2
 setglobal lazyredraw
-setglobal listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 setglobal modelines=0
 setglobal mouse=nvi
 setglobal nojoinspaces
@@ -292,6 +291,17 @@ augroup t_list
         \ endif
 augroup END
 
+augroup t_listchars
+  autocmd!
+
+  autocmd FileType *
+        \ if &expandtab |
+        \   setlocal listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+ |
+        \ else |
+        \   setlocal listchars=tab:\ \ ,trail:-,extends:>,precedes:<,nbsp:+ |
+        \ endif
+augroup END
+
 augroup t_filetypes
   autocmd!
 
@@ -308,7 +318,6 @@ augroup t_openbsd
         \ cindent
         \ cinoptions=:0,t0,+4,(4
         \ indentkeys=0{,0},0),:,0#,!^F,o,O,e
-        \ listchars=tab:\ \ ,trail:-,extends:>,precedes:<,nbsp:+
         \ noexpandtab
         \ shiftwidth=8
         \ tabstop=8
