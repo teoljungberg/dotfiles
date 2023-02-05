@@ -606,6 +606,24 @@ endif
 
 let g:direnv_silent_load = 1
 
+" obsession.vim
+" ---------
+setglobal sessionoptions-=buffers,curdir sessionoptions+=sesdir,globals
+
+augroup t_obsession
+  autocmd!
+
+  autocmd VimEnter * nested
+        \ if (
+        \   !argc() &&
+        \   empty(v:this_session) &&
+        \   filereadable('Session.vim') &&
+        \   !&modified
+        \ ) |
+        \   source Session.vim |
+        \ endif
+augroup END
+
 " ruby
 " ----
 let g:ruby_indent_block_style = 'do'
@@ -655,24 +673,6 @@ augroup t_markdown
         \ shiftwidth=2
         \ spell
         \ wrap
-augroup END
-
-" obsession.vim
-" ---------
-setglobal sessionoptions-=buffers,curdir sessionoptions+=sesdir,globals
-
-augroup t_obsession
-  autocmd!
-
-  autocmd VimEnter * nested
-        \ if (
-        \   !argc() &&
-        \   empty(v:this_session) &&
-        \   filereadable('Session.vim') &&
-        \   !&modified
-        \ ) |
-        \   source Session.vim |
-        \ endif
 augroup END
 
 " Make list-like commands more intuitive.
