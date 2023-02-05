@@ -624,6 +624,10 @@ augroup t_obsession
         \ endif
 augroup END
 
+" bundler.vim
+" -----------
+let g:bundler_edit_commands = 0
+
 " ruby
 " ----
 let g:ruby_indent_block_style = 'do'
