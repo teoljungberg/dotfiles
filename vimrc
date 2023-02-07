@@ -355,13 +355,11 @@ let g:ale_sh_shfmt_options = '-i 2 -ci'
 let g:ale_sql_pgformatter_options = '--spaces 2 --comma-break'
 
 let g:ale_fixers = { '*': ['trim_whitespace'] }
-let g:ale_fixers.javascript = ['prettier']
 let g:ale_fixers.json = ['jq']
 let g:ale_fixers.nix = ['nixpkgs-fmt']
 let g:ale_fixers.ruby = ['rubocop', 'sorbet']
 let g:ale_fixers.sh = ['shfmt']
 let g:ale_fixers.sql = ['pgformatter']
-let g:ale_fixers.typescriptreact = g:ale_fixers.javascript
 let g:ale_linters = {}
 let g:ale_linters.markdown = ['mdl']
 let g:ale_linters.ruby = ['rubocop', 'sorbet']
@@ -422,10 +420,6 @@ augroup t_dispatch
         \ elseif !exists('b:dispatch') |
         \   let b:dispatch = 'ruby -wc %:S' |
         \ endif
-
-  autocmd BufReadPost *.test.tsx
-        \ let b:dispatch = 'jest %' |
-        \ let b:start = 'jest'
 augroup END
 
 " fugitive.vim
