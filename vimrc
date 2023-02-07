@@ -391,7 +391,7 @@ augroup t_dispatch
         \   let b:start = 'bin/console' |
         \ endif
 
-  autocmd BufReadPost *.nix
+  autocmd FileType nix
         \ let b:dispatch = 'nix-build %:S --no-link' |
         \ let b:start = "nix repl -I %:p:h:S '<%:t>'" |
         \ setlocal makeprg=nix-build\ %:S
