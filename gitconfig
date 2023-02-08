@@ -6,7 +6,6 @@
   user = teoljungberg
 [alias]
   changed-files = git-changed-files
-  ctags = git-ctags
   fixup = git-fixup
   push-origin-or-fork = git-push-origin-or-fork
   recent = git-recent
@@ -25,6 +24,7 @@
   p = push-origin-or-fork
   r = recent
 
+  ctags = "!sh -c '[ ! -e .git/hooks/ctags ] && git init; .git/hooks/ctags' git-ctags"
   hub = !hub $@
   safe = !mkdir -p $(git rev-parse --git-dir)/safe
 [merge]
