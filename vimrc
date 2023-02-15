@@ -9,7 +9,6 @@ setglobal guifont=JetBrains\ Mono:h14
 setglobal history=200
 setglobal incsearch
 setglobal laststatus=2
-setglobal lazyredraw
 setglobal modelines=0
 setglobal mouse=nvi
 setglobal nojoinspaces
