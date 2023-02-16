@@ -19,6 +19,7 @@ in
     autoconf
     automake
     bat
+    comma
     fzf
     git
     gitAndTools.gh
