@@ -115,6 +115,21 @@ git_sha_range() {
   echo "$current_sha...$new_sha"
 }
 
+on_upstream_branch() {
+  work_tree_path="$1"
+  current_branch="$(git -C "$work_tree_path" symbolic-ref --short HEAD)"
+  upstream_branch=$(find_upstream "$work_tree_path") ||
+    no_upstream_found "$work_tree_path"
+
+  [ "$current_branch" = "$upstream_branch" ]
+}
+
+behind_upstream() {
+  work_tree_path="$1"
+
+  git -C "$work_tree_path" status -sb | grep -q behind
+}
+
 display_new_commits_github() {
   work_tree_path="$1"
   sha_range=$(git_sha_range "$1")
@@ -138,21 +153,6 @@ display_new_commits_git_log() {
   echo "$work_tree_path"
   git -C "$work_tree_path" --no-pager log --oneline "$sha_range"
   echo
-}
-
-on_upstream_branch() {
-  work_tree_path="$1"
-  current_branch="$(git -C "$work_tree_path" symbolic-ref --short HEAD)"
-  upstream_branch=$(find_upstream "$work_tree_path") ||
-    no_upstream_found "$work_tree_path"
-
-  [ "$current_branch" = "$upstream_branch" ]
-}
-
-behind_upstream() {
-  work_tree_path="$1"
-
-  git -C "$work_tree_path" status -sb | grep -q behind
 }
 
 display_new_commits() {
