@@ -71,12 +71,10 @@ zle -N _git_changed_files
 # Inside tmux(1) - run builtin clear and clear tmux history.
 # Outside tmux(1) - run builtin clear.
 clear() {
-  local original_clear=$(whence -p clear)
-
   if [ -n "$TMUX" ]; then
-    $original_clear && tmux clear-history
+    command clear && tmux clear-history
   else
-    $original_clear
+    command clear
   fi
 }
 
@@ -109,28 +107,10 @@ ssh() {
 # No arguments: `git status`
 # With arguments: acts like `git`
 git() {
-  local original_git=$(whence -p git)
-
   if [ $# -gt 0 ]; then
-    $original_git "$@"
+    command git "$@"
   else
-    $original_git status -sb
-  fi
-}
-
-rename_tab_to_current_dir() {
-  print -Pn "\\033]0;$(title_name)\\007"
-}
-
-rename_tmux_window_to_current_dir() {
-  if [ -n "$TMUX" ] && [ -z "$VIM_TERMINAL" ]; then
-    tmux rename-window -t "$TMUX_PANE" "$(title_name)"
-  fi
-}
-
-refresh_tmux_environment_variables() {
-  if [ -n "$TMUX" ]; then
-    export $(tmux show-environment | grep "^THEME") > /dev/null
+    command git status -sb
   fi
 }
 
@@ -285,12 +265,8 @@ prompt_directory() {
   echo "%20<..<%~%<<"
 }
 
-title_name() {
-  print -Pn "$(prompt_directory)"
-}
-
 set_prompt() {
-  if [ -n "$SSH_CONNECTION" ]; then
+  if [ -n "$SSH_TTY" ]; then
     PROMPT="$(prompt_directory) %n@%m $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
   else
     PROMPT="$(prompt_directory) $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
@@ -305,13 +281,33 @@ setup_setrb() {
       eval "$(setrb -w0 2>/dev/null)"
 }
 
+set_title() {
+  if [ -n "$SSH_TTY" ]; then
+    print -Pn "\e]2;%n@%m:$(prompt_directory)"
+  else
+    print -Pn "\e]2;%n:$(prompt_directory)"
+  fi
+
+  if [ -n "$1" ]; then
+    print -Pnr " (%20>...>$1%>>)"
+  fi
+
+  print -Pn ' \a'
+}
+
+refresh_tmux_environment_variables() {
+  if [ -n "$TMUX" ]; then
+    export $(tmux show-environment | grep "^THEME") > /dev/null
+  fi
+}
+
 preexec() {
+  set_title "$@"
   refresh_tmux_environment_variables
 }
 
 precmd() {
-  rename_tmux_window_to_current_dir
-  rename_tab_to_current_dir
+  set_title "$@"
   set_prompt
   setup_setrb
 }

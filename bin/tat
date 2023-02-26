@@ -1,0 +1,51 @@
+#!/bin/sh
+
+set -e
+[ -n "$DEBUG" ] && set -ex
+
+# tat
+#
+# fuzzy-finds to attach-or-create a session in a project directory
+
+attach_to_tmux_session() {
+  if [ -z "$TMUX" ]; then
+    tmux attach -d -t "$1"
+  else
+    tmux switch-client -t "$1"
+  fi
+}
+
+new_tmux_session_named() {
+  tmux new-session -d -As "$1"
+  attach_to_tmux_session "$1"
+}
+
+connected_to() {
+  current_tmux_session=$(tmux ls -F '#S #{session_attached}' | grep '1$' | cut -d ' ' -f 1)
+
+  [ "$1" = "$current_tmux_session" ]
+}
+
+project_directory=$(
+  find \
+    -L \
+    "$HOME/src" \
+    -maxdepth 4 \
+    -type d \
+    -name .git \
+    -exec dirname '{}' \; \
+    | sed "s|$HOME/src/||" \
+    | fzf -q "$*"
+)
+
+if [ -n "$project_directory" ]; then
+  session_name=$(echo "$project_directory" | cut -d / -f 2- | sed "s/\./-/g")
+
+  if ! connected_to "$session_name"; then
+    if tmux has-session -t "=$session_name" 2>/dev/null; then
+      attach_to_tmux_session "$session_name"
+    else
+      (cd "$HOME/src/$project_directory" && new_tmux_session_named "$session_name")
+    fi
+  fi
+fi
