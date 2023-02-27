@@ -138,7 +138,7 @@ projects() {
   local result=$(
     find \
       -L \
-      $HOME/src \
+      "$HOME/src" \
       -maxdepth 4 \
       -type d \
       -name .git \
