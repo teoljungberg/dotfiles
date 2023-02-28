@@ -5,13 +5,6 @@
 [github]
   user = teoljungberg
 [alias]
-  changed-files = git-changed-files
-  fixup = git-fixup
-  push-origin-or-fork = git-push-origin-or-fork
-  recent = git-recent
-  remove-merged-branches = git-remove-merged-branches
-  unreleased = git-unreleased
-
   a = add --all
   br = branch
   c = commit
