@@ -66,12 +66,6 @@ let &t_EI = "\e[2 q"
 " More on why: https://github.com/thoughtbot/dotfiles/pull/471
 let g:is_posix = 1
 
-if $TERM =~# '^xterm'
-  if exists('+mouse') && !has('nvim')
-    setglobal ttymouse=xterm2
-  endif
-endif
-
 if exists('+undodir') && !has('nvim')
   let s:data_home = expand('~/.cache/vim/')
 
