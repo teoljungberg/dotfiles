@@ -574,6 +574,8 @@ else
 endif
 nmap <expr> - line('.') == 1 ? '<Plug>Up' : '-'
 
+command! E Explore
+
 " direnv.vim
 " ----------
 if has('gui_running')
