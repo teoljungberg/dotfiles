@@ -96,12 +96,18 @@ rec
   '';
 
   systemd.services = {
-    update-vim-plugins = {
-      path = with pkgs; [ bash findutils git openssh ];
-      script = builtins.readFile ../../bin/update-vim-plugins;
-      serviceConfig = { User = users.users.teo.name; };
-      startAt = "daily";
-    };
+    update-vim-plugins =
+      let
+        dotfilesDirectory = users.users.teo.home +
+          "/src/github.com/teoljungberg/dotfiles/";
+        updateVimPluginsEnabled = builtins.pathExists dotfilesDirectory;
+      in
+      lib.mkIf updateVimPluginsEnabled {
+        path = with pkgs; [ bash findutils git openssh ];
+        script = builtins.readFile (dotfilesDirectory + "bin/update-vim-plugins");
+        serviceConfig = { User = users.users.teo.name; };
+        startAt = "daily";
+      };
 
     backups =
       let
