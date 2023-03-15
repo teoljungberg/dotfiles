@@ -84,7 +84,6 @@ clear() {
 ssh() {
   local hostname="$@"
   local previous_window_name=""
-  local original_ssh=$(whence -p ssh)
   local known_hosts=""
   if [ -e "$HOME/.ssh/config" ]; then
     local known_hosts=$(grep -E "^Host" "$HOME/.ssh/config" | cut -d" " -f 2)
@@ -95,9 +94,9 @@ ssh() {
     previous_window_name=$(tmux display-message -p "#W")
     tmux rename-window -t "$TMUX_PANE" "$hostname"
 
-    $original_ssh "$@"
+    command ssh "$@"
   else
-    $original_ssh "$@"
+    command ssh "$@"
   fi
 
   [ -n "$previous_window_name" ] && \
