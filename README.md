@@ -40,15 +40,8 @@ home-manager https://github.com/nix-community/home-manager/archive/release-22.05
 
 ### NixOS
 
-1. Install NixOS on i.e DigitalOcean using [nixos-infect].
-
-  ```
-  # curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect | \
-    NIX_CHANNEL=nixos-22.05 PROVIDER=digitalocean NO_REBOOT=1 bash -x
-  ```
-
-1. Modify `/etc/nixos/configuration.nix` to your hearts content. Reboot server.
 1. `cp /etc/nixos/configuration.nix{,.bak}`
+1. Modify `/etc/nixos/configuration.nix` to your hearts content. Reboot server.
 1. `ln -sf $(pwd)/host-A_HOST/nixpkgs/nixos-configuration.nix /etc/nixos/configuration.nix`
 1. Add nix channels.
 
