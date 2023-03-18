@@ -308,6 +308,7 @@ preexec() {
 precmd() {
   set_title "$@"
   set_prompt
+  export PROMPT_DIRECTORY=$(print -Pn $(prompt_directory))
   setup_setrb
 }
 
