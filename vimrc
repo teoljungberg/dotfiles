@@ -380,16 +380,16 @@ augroup t_dispatch
   if has('mac')
     autocmd BufReadPost */darwin-configuration.nix
           \ let b:dispatch = 'darwin-rebuild check' |
-          \ setlocal makeprg=darwin-rebuild\ switch
+          \ setlocal makeprg=darwin-rebuild\ build
   endif
   if has('linux')
     autocmd BufReadPost */nixos-configuration.nix
           \ let b:dispatch = 'nixos-rebuild dry-run' |
-          \ setlocal makeprg=sudo\ nixos-rebuild\ switch
+          \ setlocal makeprg=nixos-rebuild\ build
   endif
   autocmd BufReadPost */home.nix
-        \ let b:dispatch = 'home-manager --file %:S --no-out-link build' |
-        \ setlocal makeprg=home-manager\ switch\ --file\ %:S
+        \ let b:dispatch = 'home-manager build --file %:S --no-out-link' |
+        \ setlocal makeprg=home-manager\ build\ --file\ %:S
   autocmd BufReadPost flake.nix
         \ let b:dispatch = 'nix build --no-link' |
         \ setlocal makeprg=nix\ build
