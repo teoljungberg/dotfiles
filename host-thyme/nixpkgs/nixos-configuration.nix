@@ -150,10 +150,16 @@ rec
 
   security.sudo.wheelNeedsPassword = false;
 
-  security.doas.enable = true;
-  security.doas.wheelNeedsPassword = false;
+  security.doas = {
+    enable = true;
+    wheelNeedsPassword = false;
+    extraConfig = ''
+      permit nopass keepenv teo as root
+    '';
+  };
 
   programs.mosh.enable = true;
+
   services.cron.enable = true;
   services.openssh.enable = true;
 
