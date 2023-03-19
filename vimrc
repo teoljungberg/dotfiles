@@ -375,7 +375,7 @@ augroup t_dispatch
 
   autocmd FileType nix
         \ let b:dispatch = 'nix-build %:S --no-link' |
-        \ let b:start = "nix repl -I %:p:h:S '<%:t>'" |
+        \ let b:start = 'nix repl --file %:S' |
         \ setlocal makeprg=nix-build\ %:S
   if has('mac')
     autocmd BufReadPost */darwin-configuration.nix
