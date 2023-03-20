@@ -590,7 +590,7 @@ endif
 let g:direnv_silent_load = 1
 
 " obsession.vim
-" ---------
+" -------------
 setglobal sessionoptions-=buffers,curdir sessionoptions+=sesdir,globals
 
 augroup t_obsession
