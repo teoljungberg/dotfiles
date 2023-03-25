@@ -565,8 +565,6 @@ noremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', "r\015")<CR>
 " surround.vim
 " ------------
 let g:surround_{char2nr('#')} = "#{\<CR>}"
-let g:surround_{char2nr('s')} = " \<CR>"
-let g:surround_{char2nr('S')} = "\<CR> "
 
 " vinegar.vim
 " -----------
