@@ -598,8 +598,8 @@ augroup t_obsession
         \ if (
         \   !argc() &&
         \   empty(v:this_session) &&
-        \   filereadable('Session.vim') &&
-        \   !&modified
+        \   !&modified &&
+        \   filereadable('Session.vim')
         \ ) |
         \   source Session.vim |
         \ endif
