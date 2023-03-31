@@ -40,12 +40,8 @@ rec
     dhcpcd.enable = false;
 
     interfaces.eth0 = {
-      ipv4.addresses = [
-        { address = "${ipv4Address}"; prefixLength = 26; }
-      ];
-      ipv6.addresses = [
-        { address = "${ipv6Address}"; prefixLength = 64; }
-      ];
+      ipv4.addresses = [{ address = "${ipv4Address}"; prefixLength = 26; }];
+      ipv6.addresses = [{ address = "${ipv6Address}"; prefixLength = 64; }];
     };
     defaultGateway = { address = "${ipv4Gateway}"; interface = "eth0"; };
     defaultGateway6 = { address = "${ipv6Gateway}"; interface = "eth0"; };
