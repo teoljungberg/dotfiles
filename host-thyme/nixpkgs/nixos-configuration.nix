@@ -121,7 +121,6 @@ rec
   environment.systemPackages = with pkgs; [
     binutils
     git
-    home-manager
     rcm
     vim
     zsh
