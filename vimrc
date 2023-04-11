@@ -790,6 +790,37 @@ augroup t_pager
   autocmd SourcePre */macros/less.vim setglobal laststatus=0
 augroup END
 
+" :cd, :lcd, and :tcd with tab-completion that supports the &cdpath. Exposed
+" as the commands :Cd, :Lcd, and :Tcd.
+"
+" Inspired by Tim Pope's scriptease.vim[1] and its' :Vedit.
+"
+" [1]: https://github.com/tpope/vim-scriptease
+function! s:cd_complete(A, L, P) abort
+  let pattern = substitute(a:A, '/\|\/', '*/', 'g').'*'
+  if &cdpath =~# '^,,'
+    let cdpaths = getcwd() . ',' . &cdpath
+  else
+    let cdpaths = &cdpath
+  endif
+  let found = {}
+  for glob in split(cdpaths, ',')
+    for path in map(split(glob(glob), "\n"), 'fnamemodify(v:val, ":p")')
+      let matches = split(glob(path . '/' . pattern), "\n")
+      call filter(matches, 'isdirectory(v:val)')
+      call map(matches, 'fnamemodify(v:val, ":p")[strlen(path)+1:-1]')
+      for match in matches
+        let found[match] = 1
+      endfor
+    endfor
+  endfor
+  return sort(keys(found))
+endfunction
+
+command! -bar -nargs=1 -complete=customlist,s:cd_complete Cd cd <args>
+command! -bar -nargs=1 -complete=customlist,s:cd_complete Lcd lcd <args>
+command! -bar -nargs=1 -complete=customlist,s:cd_complete Tcd tcd <args>
+
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
