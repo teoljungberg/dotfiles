@@ -4,16 +4,15 @@
 
 let
   overlays = ./../../../nixpkgs/overlays.nix;
-  user = import ./../../../nixpkgs/user.nix { inherit pkgs; };
 in
 {
   nixpkgs.overlays = import overlays;
 
   programs.home-manager.enable = true;
 
-  home.homeDirectory = user.directory;
+  home.homeDirectory = "/Users/teo";
   home.stateVersion = "21.11";
-  home.username = user.name;
+  home.username = "teo";
 
   home.packages = with pkgs; [
     autoconf

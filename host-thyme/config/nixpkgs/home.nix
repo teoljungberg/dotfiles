@@ -4,7 +4,6 @@
 
 let
   overlays = ./../../../nixpkgs/overlays.nix;
-  user = import ./../../../nixpkgs/user.nix { inherit pkgs; };
   vim = pkgs.vim_configurable.override {
     ruby = pkgs.ruby_3_0;
 
@@ -16,9 +15,9 @@ in
 
   programs.home-manager.enable = true;
 
-  home.homeDirectory = user.directory;
+  home.homeDirectory = "/home/teo";
   home.stateVersion = "21.11";
-  home.username = user.name;
+  home.username = "teo";
 
   home.packages = with pkgs; [
     _1password

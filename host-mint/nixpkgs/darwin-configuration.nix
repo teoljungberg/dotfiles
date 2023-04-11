@@ -4,7 +4,6 @@
 
 let
   overlays = ./../../nixpkgs/overlays.nix;
-  user = import ./../../nixpkgs/user.nix { inherit pkgs; };
 in
 {
   nixpkgs.overlays = import overlays;
@@ -12,8 +11,8 @@ in
   services.nix-daemon.enable = true;
 
   users.users.teo = {
-    home = user.directory;
-    description = user.fullName;
+    home = "/Users/teo";
+    description = "Teo Ljungberg";
     shell = pkgs.zsh;
   };
 
