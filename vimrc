@@ -549,10 +549,10 @@ function! s:try(cmd, default)
     let tick = b:changedtick
     execute a:cmd
     if tick == b:changedtick
-      execute 'normal! '. a:default
+      execute 'normal! ' . a:default
     endif
   else
-    execute 'normal! '. v:count . a:default
+    execute 'normal! ' . v:count . a:default
   endif
 endfunction
 
