@@ -626,7 +626,7 @@ augroup END
 
 " quickfix
 " --------
-function! s:QuickfixTitle()
+function! s:quickfix_title()
   let title = get(w:, 'quickfix_title', '')
 
   if title =~# '^:' . &grepprg || title =~# '^:grep'
@@ -641,7 +641,7 @@ augroup t_qf
         \ nobuflisted
         \ nonumber
         \ norelativenumber
-  autocmd FileType qf call <SID>QuickfixTitle()
+  autocmd FileType qf call <SID>quickfix_title()
   autocmd FileType qf noremap <buffer> - -
 augroup END
 
@@ -664,7 +664,7 @@ augroup END
 " Originally from:
 "
 " https://gist.github.com/romainl/047aca21e338df7ccf771f96858edb86
-function! s:CCR()
+function! s:ccr()
   if getcmdtype() !=# ':'
     return "\<CR>"
   end
@@ -706,9 +706,9 @@ function! s:CCR()
   endif
 endfunction
 
-cnoremap <script> <expr> <CR> <SID>CCR()
+cnoremap <script> <expr> <CR> <SID>ccr()
 
-" Leverage CCR for built-in :ilist and :dlist
+" Leverage s:ccr() for built-in :ilist and :dlist
 nmap [I :ilist /<C-R>=expand('<cword>')<CR><CR>
 nmap ]I :ilist /<C-R>=expand('<cword>')<CR><CR>
 nmap [D :dlist /<C-R>=expand('<cword>')<CR><CR>
@@ -720,7 +720,7 @@ nmap <Space>b :ls<CR>
 " Originally from:
 "
 " https://github.com/tpope/dotfiles/blob/c31d6515e126ce2e52dbb11a7b01f4ac4cc2bd0c/.vimrc#L214
-function! s:NCR()
+function! s:ncr()
   if len(getcmdwintype())
     return "\<CR>"
   endif
@@ -739,7 +739,7 @@ function! s:NCR()
     endif
   endif
 endfunction
-nmap <silent> <script> <expr> <CR> <SID>NCR()
+nmap <silent> <script> <expr> <CR> <SID>ncr()
 
 " Setup common mapping to access command-mode from a running :terminal
 if exists('&termwinkey')
