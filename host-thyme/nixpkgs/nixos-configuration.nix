@@ -157,6 +157,7 @@ rec
 
   services.cron.enable = true;
   services.openssh.enable = true;
+  services.tailscale.enable = true;
 
   system.autoUpgrade.channel = "https://nixos.org/channels/nixos-unstable";
   system.autoUpgrade.enable = true;
