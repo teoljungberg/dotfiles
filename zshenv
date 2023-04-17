@@ -13,7 +13,9 @@ _add_to_path_if_available "$HOME/.bin"
 typeset -U PATH
 export PATH
 
-export CDPATH="$CDPATH:$HOME/src/git.sr.ht:$HOME/src/github.com"
+CDPATH="$CDPATH:$HOME/src/git.sr.ht:$HOME/src/github.com"
+typeset -U CDPATH
+export CDPATH
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
 export FZF_DEFAULT_OPTS=--color=bw
