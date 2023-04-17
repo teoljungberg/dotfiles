@@ -39,6 +39,7 @@ in
     setrb
     shellcheck
     shfmt
+    tailscale
     tmux
     universal-ctags
     vim
