@@ -3,12 +3,12 @@
 , lib ? pkgs.lib
 }:
 
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   pname = "setrb";
   version = "0.3.2";
 
   src = fetchTarball {
-    url = "https://mike-burns.com/project/setrb/setrb-0.3.2.tar.gz";
+    url = "https://mike-burns.com/project/setrb/setrb-${version}.tar.gz";
     sha256 = "199wwli9q25fy1vs3mjqs5db02w3cbnnwfknyld94796n53ndb9p";
   };
 
