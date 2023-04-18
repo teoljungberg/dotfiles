@@ -190,7 +190,7 @@ end
 --
 M.applicationShortcutToBundleMapping = {
   [0] = "net.kovidgoyal.kitty",
-  [1] = "com.apple.Safari",
+  [1] = "org.mozilla.firefox",
   [2] = "com.apple.mail",
   [3] = "com.tinyspeck.slackmacgap",
   [4] = "com.spotify.client",
