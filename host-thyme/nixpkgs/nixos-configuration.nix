@@ -4,9 +4,9 @@ let
   );
   lib = pkgs.lib;
 
-  ipv4Address = "46.23.91.116";
+  ipv4Address = "46.23.91.76";
   ipv4Gateway = "46.23.91.65";
-  ipv6Address = "2a03:6000:6a00:641::116";
+  ipv6Address = "2a03:6000:6a00:641::76";
   ipv6Gateway = "2a03:6000:6a00:641::1";
 
   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8DmGnZmzOUOlg+gtKuGouRz6wCqy1pwNKvweJ4MCp0 teo@teoljungberg.com";
