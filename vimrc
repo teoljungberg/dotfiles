@@ -467,59 +467,10 @@ augroup END
 " rails.vim
 " ---------
 let g:rails_vim_enter = 0
-let g:rails_projections =
-      \ {
-      \   'app/controllers/*_controller.rb': {
-      \     'test': [
-      \       'spec/requests/{}_spec.rb',
-      \       'spec/controllers/{}_controller_spec.rb',
-      \       'test/controllers/{}_controller_test.rb'
-      \     ],
-      \     'alternate': [
-      \       'spec/requests/{}_spec.rb',
-      \       'spec/controllers/{}_controller_spec.rb',
-      \       'test/controllers/{}_controller_test.rb'
-      \     ],
-      \   },
-      \   'app/services/*.rb': {
-      \     'command': 'service',
-      \     'test': [
-      \       'spec/services/{}_spec.rb',
-      \       'test/services/{}_test.rb'
-      \     ],
-      \   },
-      \   'app/graphql/*.rb': {
-      \     'command': 'graphql',
-      \     'test': [
-      \       'spec/graphql/{}_spec.rb',
-      \       'test/graphql/{}_test.rb'
-      \     ],
-      \   },
-      \   'config/routes.rb': { 'command': 'routes' },
-      \   'lib/tasks/*.rake': {
-      \     'command': 'task',
-      \     'test': [
-      \       'spec/lib/tasks/{}_spec.rb',
-      \       'test/lib/tasks/{}_test.rb',
-      \     ],
-      \   },
-      \   'spec/*_spec.rb': {
-      \     'dispatch': "rspec spec/{}_spec.rb`=v:lnum ? ':'.v:lnum : ''`",
-      \   },
-      \   'spec/lib/tasks/*_spec.rb': {
-      \     'alternate': 'lib/tasks/{}.rake',
-      \   },
-      \   'spec/requests/*_spec.rb': {
-      \     'command': 'request',
-      \     'alternate': 'app/controllers/{}_controller.rb'
-      \   },
-      \   'spec/factories/*.rb': {
-      \     'command': 'factory',
-      \     'related': [
-      \       'app/models/{singular}.rb'
-      \     ],
-      \   },
-      \ }
+let g:rails_projections = {
+      \ 'spec/*_spec.rb': {
+      \   'dispatch': "rspec spec/{}_spec.rb`=v:lnum ? ':'.v:lnum : ''`",
+      \ }}
 
 
 " projectionist.vim
