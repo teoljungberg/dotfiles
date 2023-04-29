@@ -1,7 +1,6 @@
+{ config, pkgs, ... }:
+
 let
-  pkgs = (
-    import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/refs/heads/release-22.11.tar.gz") { }
-  );
   lib = pkgs.lib;
 
   ipv4Address = "46.23.91.76";
