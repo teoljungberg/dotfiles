@@ -21,7 +21,6 @@ in
     _1password
     autoconf
     automake
-    comma
     dropbox-cli
     fzf
     git
