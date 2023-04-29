@@ -216,14 +216,13 @@ nmap cd <C-W>.
 augroup t_gui
   autocmd!
 
-  autocmd GUIEnter * let g:markdown_fenced_languages =
-          \ [
-          \   'bash=sh',
-          \   'diff',
-          \   'json',
-          \   'nix',
-          \   'ruby',
-          \   'sh',
+  autocmd GUIEnter * let g:markdown_fenced_languages = [
+          \ 'bash=sh',
+          \ 'diff',
+          \ 'json',
+          \ 'nix',
+          \ 'ruby',
+          \ 'sh',
           \ ]
   autocmd GUIEnter * setglobal
         \ title
@@ -442,11 +441,10 @@ else
 endif
 
 let g:fzf_command_prefix = 'FZF'
-let g:fzf_action =
-      \ {
-      \   'ctrl-s': 'split',
-      \   'ctrl-t': 'tab split',
-      \   'ctrl-v': 'vsplit',
+let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-v': 'vsplit',
       \ }
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ''
@@ -527,15 +525,13 @@ let g:rails_projections =
 " projectionist.vim
 " -----------------
 let g:projectionist_vim_enter = 0
-let g:projectionist_heuristics =
-      \ {
-      \   '.git/': {
-      \     'TODO.md': { 'command': 'todo' },
-      \     '*.gemspec': { 'command': 'gemspec' },
-      \     'shell.nix': { 'command': 'shell' },
-      \     'test/*.rb': { 'command': 'test' },
-      \   },
-      \ }
+let g:projectionist_heuristics = {
+      \ '.git/': {
+      \   'TODO.md': { 'command': 'todo' },
+      \   '*.gemspec': { 'command': 'gemspec' },
+      \   'shell.nix': { 'command': 'shell' },
+      \   'test/*.rb': { 'command': 'test' },
+      \ }}
 
 " splitjoin.vim
 " -------------
