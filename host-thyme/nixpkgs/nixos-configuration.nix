@@ -153,6 +153,7 @@ rec
   };
 
   programs.mosh.enable = true;
+  programs.zsh.enable = true;
 
   services.cron.enable = true;
   services.openssh.enable = true;
