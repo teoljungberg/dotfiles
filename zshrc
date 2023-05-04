@@ -46,7 +46,6 @@ fi
 alias b="bundle exec"
 alias j="jobs"
 alias ls="ls -F"
-alias p="projects"
 
 # Completion for `bin/git-changed-files`
 __git_changed_files() {
@@ -111,22 +110,6 @@ git() {
   else
     command git status -sb
   fi
-}
-
-projects() {
-  local result=$(
-    find \
-      -L \
-      "$HOME/src" \
-      -maxdepth 4 \
-      -type d \
-      -name .git \
-      -exec dirname '{}' \; \
-      | sed "s|$HOME/src/||" \
-      | fzf -q "$*"
-  )
-
-  [ -n "$result" ] && cd "$HOME/src/$result"
 }
 
 _source_if_available() { [ -e "$1" ] && source "$1" }
