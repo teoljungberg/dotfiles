@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   lib = pkgs.lib;
 
   ipv4Address = "46.23.91.76";
@@ -9,8 +11,7 @@ let
   ipv6Gateway = "2a03:6000:6a00:641::1";
 
   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8DmGnZmzOUOlg+gtKuGouRz6wCqy1pwNKvweJ4MCp0 teo@teoljungberg.com";
-in
-rec
+in rec
 {
   imports = [
     /etc/nixos/hardware-configuration.nix
@@ -28,27 +29,48 @@ rec
       '';
     };
     cleanTmpDir = true;
-    kernelParams = [ "console=ttyS0,115200n8" ];
+    kernelParams = ["console=ttyS0,115200n8"];
   };
 
   networking = {
     hostName = "thyme";
-    nameservers = [ "1.1.1.1" ];
+    nameservers = ["1.1.1.1"];
     usePredictableInterfaceNames = true;
 
     dhcpcd.enable = false;
 
     interfaces.eth0 = {
-      ipv4.addresses = [{ address = "${ipv4Address}"; prefixLength = 26; }];
-      ipv6.addresses = [{ address = "${ipv6Address}"; prefixLength = 64; }];
+      ipv4.addresses = [
+        {
+          address = "${ipv4Address}";
+          prefixLength = 26;
+        }
+      ];
+      ipv6.addresses = [
+        {
+          address = "${ipv6Address}";
+          prefixLength = 64;
+        }
+      ];
     };
-    defaultGateway = { address = "${ipv4Gateway}"; interface = "eth0"; };
-    defaultGateway6 = { address = "${ipv6Gateway}"; interface = "eth0"; };
+    defaultGateway = {
+      address = "${ipv4Gateway}";
+      interface = "eth0";
+    };
+    defaultGateway6 = {
+      address = "${ipv6Gateway}";
+      interface = "eth0";
+    };
 
     firewall = {
       allowPing = true;
-      allowedTCPPorts = [ 22 ];
-      allowedUDPPortRanges = [{ from = 60000; to = 60010; }];
+      allowedTCPPorts = [22];
+      allowedUDPPortRanges = [
+        {
+          from = 60000;
+          to = 60010;
+        }
+      ];
       enable = true;
     };
   };
@@ -63,8 +85,8 @@ rec
     name = "teo";
     description = "Teo Ljungberg";
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" ];
-    openssh.authorizedKeys.keys = [ key ];
+    extraGroups = ["wheel"];
+    openssh.authorizedKeys.keys = [key];
   };
 
   users.users.upload = {
@@ -73,11 +95,11 @@ rec
     description = "Upload";
     name = "upload";
     shell = pkgs.zsh;
-    extraGroups = [ "users" ];
-    openssh.authorizedKeys.keys = [ key ];
+    extraGroups = ["users"];
+    openssh.authorizedKeys.keys = [key];
   };
 
-  users.users.root.openssh.authorizedKeys.keys = [ key ];
+  users.users.root.openssh.authorizedKeys.keys = [key];
 
   services.journald.extraConfig = ''
     MaxRetentionSec=1month
@@ -86,33 +108,33 @@ rec
   systemd.services = {
     "serial-getty@ttyS0" = {
       enable = true;
-      wantedBy = [ "getty.target" ];
+      wantedBy = ["getty.target"];
       serviceConfig.Restart = "always";
     };
 
-    update-vim-plugins =
-      let
-        dotfilesDirectory = users.users.teo.home +
-          "/src/github.com/teoljungberg/dotfiles/";
-        updateVimPluginsEnabled = builtins.pathExists dotfilesDirectory;
-      in
+    update-vim-plugins = let
+      dotfilesDirectory =
+        users.users.teo.home
+        + "/src/github.com/teoljungberg/dotfiles/";
+      updateVimPluginsEnabled = builtins.pathExists dotfilesDirectory;
+    in
       lib.mkIf updateVimPluginsEnabled {
-        path = with pkgs; [ bash findutils git openssh ];
+        path = with pkgs; [bash findutils git openssh];
         script = builtins.readFile (dotfilesDirectory + "bin/update-vim-plugins");
-        serviceConfig = { User = users.users.teo.name; };
+        serviceConfig = {User = users.users.teo.name;};
         startAt = "daily";
       };
 
-    backups =
-      let
-        backupsDirectory = users.users.teo.home +
-          "/src/github.com/teoljungberg/backups/";
-        backupsEnabled = builtins.pathExists backupsDirectory;
-      in
+    backups = let
+      backupsDirectory =
+        users.users.teo.home
+        + "/src/github.com/teoljungberg/backups/";
+      backupsEnabled = builtins.pathExists backupsDirectory;
+    in
       lib.mkIf backupsEnabled {
-        path = with pkgs; [ bash findutils git nettools openssh ];
+        path = with pkgs; [bash findutils git nettools openssh];
         script = builtins.readFile (backupsDirectory + "run.sh");
-        serviceConfig = { User = users.users.teo.name; };
+        serviceConfig = {User = users.users.teo.name;};
         startAt = "daily";
       };
   };
@@ -124,7 +146,7 @@ rec
     vim
     zsh
   ];
-  environment.shells = [ pkgs.zsh ];
+  environment.shells = [pkgs.zsh];
 
   nix = {
     gc = {
@@ -137,7 +159,7 @@ rec
       keep-derivations = true
       keep-outputs = true
     '';
-    settings.trusted-users = [ "root" "teo" ];
+    settings.trusted-users = ["root" "teo"];
   };
 
   nixpkgs.config.allowUnfree = true;

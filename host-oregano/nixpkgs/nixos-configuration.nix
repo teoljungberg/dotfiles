@@ -1,13 +1,12 @@
 {
-  config,
   pkgs,
+  config,
   ...
 }: let
   lib = pkgs.lib;
 
   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8DmGnZmzOUOlg+gtKuGouRz6wCqy1pwNKvweJ4MCp0 teo@teoljungberg.com";
-in
-rec
+in rec
 {
   imports = [
     /etc/nixos/hardware-configuration.nix
@@ -19,13 +18,18 @@ rec
 
   networking = {
     hostName = "oregano";
-    nameservers = [ "1.1.1.1" ];
+    nameservers = ["1.1.1.1"];
     usePredictableInterfaceNames = true;
 
     firewall = {
       allowPing = true;
-      allowedTCPPorts = [ 22 ];
-      allowedUDPPortRanges = [{ from = 60000; to = 60010; }];
+      allowedTCPPorts = [22];
+      allowedUDPPortRanges = [
+        {
+          from = 60000;
+          to = 60010;
+        }
+      ];
       checkReversePath = "loose";
       enable = true;
     };
@@ -49,8 +53,8 @@ rec
     name = "teo";
     description = "Teo Ljungberg";
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" ];
-    openssh.authorizedKeys.keys = [ key ];
+    extraGroups = ["wheel"];
+    openssh.authorizedKeys.keys = [key];
   };
 
   users.users.upload = {
@@ -59,36 +63,34 @@ rec
     description = "Upload";
     name = "upload";
     shell = pkgs.zsh;
-    extraGroups = [ "users" ];
-    openssh.authorizedKeys.keys = [ key ];
+    extraGroups = ["users"];
+    openssh.authorizedKeys.keys = [key];
   };
 
-  users.users.root.openssh.authorizedKeys.keys = [ key ];
+  users.users.root.openssh.authorizedKeys.keys = [key];
 
   services.journald.extraConfig = ''
     MaxRetentionSec=1month
   '';
 
   systemd.services = {
-    update-vim-plugins =
-      let
-        dotfilesDirectory = "/home/teo/src/github.com/teoljungberg/dotfiles/";
-      in
+    update-vim-plugins = let
+      dotfilesDirectory = "/home/teo/src/github.com/teoljungberg/dotfiles/";
+    in
       lib.mkIf (builtins.pathExists dotfilesDirectory) {
-        path = with pkgs; [ bash findutils git openssh ];
+        path = with pkgs; [bash findutils git openssh];
         script = builtins.readFile (dotfilesDirectory + "bin/update-vim-plugins");
-        serviceConfig = { User = "teo"; };
+        serviceConfig = {User = "teo";};
         startAt = "daily";
       };
 
-    backups =
-      let
-        backupsDirectory = "/home/teo/src/github.com/teoljungberg/backups/";
-      in
+    backups = let
+      backupsDirectory = "/home/teo/src/github.com/teoljungberg/backups/";
+    in
       lib.mkIf (builtins.pathExists backupsDirectory) {
-        path = with pkgs; [ bash findutils git nettools openssh ];
+        path = with pkgs; [bash findutils git nettools openssh];
         script = builtins.readFile (backupsDirectory + "run.sh");
-        serviceConfig = { User = "teo"; };
+        serviceConfig = {User = "teo";};
         startAt = "daily";
       };
   };
@@ -104,7 +106,7 @@ rec
       keep-derivations = true
       keep-outputs = true
     '';
-    settings.trusted-users = [ "root" "teo" ];
+    settings.trusted-users = ["root" "teo"];
   };
 
   nixpkgs.config.allowUnfree = true;

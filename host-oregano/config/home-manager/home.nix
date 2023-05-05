@@ -1,16 +1,11 @@
-{ pkgs ? import <nixpkgs> { }
-, ...
-}:
-
-let
+{pkgs ? import <nixpkgs> {}, ...}: let
   overlays = ./../../../nixpkgs/overlays.nix;
   vim = pkgs.vim_configurable.override {
     ruby = pkgs.ruby_3_0;
 
     config.vim.gui = false;
   };
-in
-{
+in {
   nixpkgs.overlays = import overlays;
 
   programs.home-manager.enable = true;
@@ -21,6 +16,7 @@ in
 
   home.packages = with pkgs; [
     _1password
+    alejandra
     autoconf
     automake
     comma
@@ -38,7 +34,6 @@ in
     lim
     mosh
     neovim
-    nixpkgs-fmt
     pgformatter
     pkg-config
     rcm

@@ -1,9 +1,6 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   overlays = ./../../nixpkgs/overlays.nix;
-in
-{
+in {
   nixpkgs.overlays = import overlays;
 
   services.nix-daemon.enable = true;
@@ -14,19 +11,19 @@ in
     shell = pkgs.zsh;
   };
 
-  environment.systemPackages = with pkgs; [ hammerspoon ];
+  environment.systemPackages = with pkgs; [hammerspoon];
 
   fonts = {
-    fontDir = { enable = true; };
-    fonts = with pkgs; [ jetbrains-mono ];
+    fontDir = {enable = true;};
+    fonts = with pkgs; [jetbrains-mono];
   };
 
   environment = {
-    shells = with pkgs; [ zsh ];
+    shells = with pkgs; [zsh];
     loginShell = "/run/current-system/sw/bin/zsh";
   };
 
-  networking = { hostName = "Mint"; };
+  networking = {hostName = "Mint";};
 
   programs.zsh = {
     enable = true;

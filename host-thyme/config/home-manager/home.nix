@@ -1,14 +1,11 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   overlays = ./../../../nixpkgs/overlays.nix;
   vim = pkgs.vim_configurable.override {
     ruby = pkgs.ruby_3_0;
 
     config.vim.gui = false;
   };
-in
-{
+in {
   nixpkgs.overlays = import overlays;
 
   programs.home-manager.enable = true;

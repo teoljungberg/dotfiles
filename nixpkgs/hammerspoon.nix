@@ -1,10 +1,10 @@
 # Taken from Burke Libbey:
 # https://github.com/burke/b/blob/master/src/apps/hammerspoon.nix
-{ pkgs ? import <nixpkgs> { }
-, stdenv ? pkgs.stdenv
-, fetchzip ? pkgs.fetchzip
+{
+  pkgs ? import <nixpkgs> {},
+  stdenv ? pkgs.stdenv,
+  fetchzip ? pkgs.fetchzip,
 }:
-
 stdenv.mkDerivation {
   pname = "hammerspoon";
   version = "0.9.97";

@@ -1,9 +1,6 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   overlays = ./../../../nixpkgs/overlays.nix;
-in
-{
+in {
   nixpkgs.overlays = import overlays;
 
   programs.home-manager.enable = true;

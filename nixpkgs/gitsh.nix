@@ -1,10 +1,10 @@
-{ pkgs ? import <nixpkgs> { }
-, lib ? pkgs.lib
-, stdenv ? pkgs.stdenv
-, readline ? pkgs.readline
-, ruby ? pkgs.ruby
+{
+  pkgs ? import <nixpkgs> {},
+  lib ? pkgs.lib,
+  stdenv ? pkgs.stdenv,
+  readline ? pkgs.readline,
+  ruby ? pkgs.ruby,
 }:
-
 stdenv.mkDerivation rec {
   name = "gitsh-${version}";
   version = "0.14.0";
@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
     sha256 = "1rjvhz4bk0qvgc7s4j4fhwy5qa612z82bkxsjn982qxs4lky2m0g";
   };
 
-  buildInputs = [ readline ruby ];
+  buildInputs = [readline ruby];
 
   meta = {
     description = "interactive shell for git";

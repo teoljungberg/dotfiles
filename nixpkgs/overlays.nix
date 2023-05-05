@@ -1,8 +1,8 @@
 [
   (
     self: super: {
-      gitsh = super.callPackage ./gitsh.nix { };
-      hammerspoon = super.callPackage ./hammerspoon.nix { };
+      gitsh = super.callPackage ./gitsh.nix {};
+      hammerspoon = super.callPackage ./hammerspoon.nix {};
       heroku = super.heroku.overrideAttrs (
         oldAttrs: rec {
           version = "7.59.4";
@@ -13,9 +13,9 @@
           };
         }
       );
-      lim = super.callPackage ./lim.nix { };
-      ruby-install = super.callPackage ./ruby-install.nix { };
-      setrb = super.callPackage ./setrb.nix { };
+      lim = super.callPackage ./lim.nix {};
+      ruby-install = super.callPackage ./ruby-install.nix {};
+      setrb = super.callPackage ./setrb.nix {};
     }
   )
 ]

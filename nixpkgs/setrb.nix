@@ -1,8 +1,8 @@
-{ pkgs ? import <nixpkgs> { }
-, stdenv ? pkgs.stdenv
-, lib ? pkgs.lib
+{
+  pkgs ? import <nixpkgs> {},
+  stdenv ? pkgs.stdenv,
+  lib ? pkgs.lib,
 }:
-
 stdenv.mkDerivation rec {
   pname = "setrb";
   version = "0.3.2";
