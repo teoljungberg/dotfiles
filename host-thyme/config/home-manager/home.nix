@@ -18,7 +18,6 @@ in {
     _1password
     autoconf
     automake
-    dropbox-cli
     fzf
     git
     gitAndTools.gh
@@ -35,6 +34,7 @@ in {
     nixpkgs-fmt
     pgformatter
     pkg-config
+    rclone
     rcm
     ripgrep
     s3cmd

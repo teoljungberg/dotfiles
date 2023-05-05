@@ -20,7 +20,6 @@ in {
     autoconf
     automake
     comma
-    # dropbox-cli
     fzf
     git
     gitAndTools.gh
@@ -36,6 +35,7 @@ in {
     neovim
     pgformatter
     pkg-config
+    rclone
     rcm
     ripgrep
     s3cmd
