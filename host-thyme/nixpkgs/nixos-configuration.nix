@@ -113,28 +113,22 @@ in rec
     };
 
     update-vim-plugins = let
-      dotfilesDirectory =
-        users.users.teo.home
-        + "/src/github.com/teoljungberg/dotfiles/";
-      updateVimPluginsEnabled = builtins.pathExists dotfilesDirectory;
+      dotfilesDirectory = "/home/teo/src/github.com/teoljungberg/dotfiles/";
     in
-      lib.mkIf updateVimPluginsEnabled {
+      lib.mkIf (builtins.pathExists dotfilesDirectory) {
         path = with pkgs; [bash findutils git openssh];
         script = builtins.readFile (dotfilesDirectory + "bin/update-vim-plugins");
-        serviceConfig = {User = users.users.teo.name;};
+        serviceConfig = {User = "teo";};
         startAt = "daily";
       };
 
     backups = let
-      backupsDirectory =
-        users.users.teo.home
-        + "/src/github.com/teoljungberg/backups/";
-      backupsEnabled = builtins.pathExists backupsDirectory;
+      backupsDirectory = "/home/teo/src/github.com/teoljungberg/backups/";
     in
-      lib.mkIf backupsEnabled {
+      lib.mkIf (builtins.pathExists backupsDirectory) {
         path = with pkgs; [bash findutils git nettools openssh];
         script = builtins.readFile (backupsDirectory + "run.sh");
-        serviceConfig = {User = users.users.teo.name;};
+        serviceConfig = {User = "teo";};
         startAt = "daily";
       };
   };
