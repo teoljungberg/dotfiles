@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   lib = pkgs.lib;
 
   ipv4Address = "46.23.91.76";
