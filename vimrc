@@ -523,7 +523,7 @@ else
 endif
 nmap <expr> - line('.') == 1 ? '<Plug>Up' : '-'
 
-command! E Explore
+command! -nargs=* -complete=dir E Explore <args>
 
 " direnv.vim
 " ----------
