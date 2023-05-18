@@ -14,7 +14,7 @@ HOSTNAME="A_HOST"
 ```
 % nix-channel --list
 nixpkgs https://nixos.org/channels/nixpkgs-unstable
-home-manager https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz
+home-manager https://github.com/nix-community/home-manager/archive/master.tar.gz
 ```
 
 If on Darwin:
@@ -23,7 +23,7 @@ If on Darwin:
 % nix-channel --list
 nixpkgs https://nixos.org/channels/nixpkgs-unstable
 darwin https://github.com/LnL7/nix-darwin/archive/master.tar.gz
-home-manager https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz
+home-manager https://github.com/nix-community/home-manager/archive/master.tar.gz
 ```
 
 ### Darwin
