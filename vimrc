@@ -229,11 +229,7 @@ augroup t_gui
         \ icon
         \ lines=45
         \ columns=86
-        \ guioptions-=T
-        \ guioptions-=m
-        \ guioptions-=e
-        \ guioptions-=r
-        \ guioptions-=L
+        \ guioptions=
         \ visualbell
         \ t_vb=
 augroup END
