@@ -39,6 +39,7 @@ in rec
   environment.noXlibs = true;
   environment.systemPackages = with pkgs; [
     git
+    gnumake
     vim
     zsh
   ];

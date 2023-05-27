@@ -132,6 +132,7 @@ in rec
   environment.systemPackages = with pkgs; [
     binutils
     git
+    gnumake
     rcm
     vim
     zsh
