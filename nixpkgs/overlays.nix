@@ -4,12 +4,12 @@
       gitsh = super.callPackage ./gitsh.nix {};
       hammerspoon = super.callPackage ./hammerspoon.nix {};
       heroku = super.heroku.overrideAttrs (
-        oldAttrs: rec {
-          version = "7.59.4";
+        oldAttrs: {
+          version = "8.1.5";
 
           src = fetchTarball {
-            url = "https://cli-assets.heroku.com/heroku-v${version}/heroku-v${version}.tar.xz";
-            sha256 = "1jycndjkmvdn1hxx122krplgh4x9wnsqvq03gi24bb18bfl0dw78";
+            url = "https://cli-assets.heroku.com/channels/stable/heroku-darwin-arm64.tar.gz";
+            sha256 = "03vjz4663dv9a4kkfkv4x04dsidw6j0icxdp716ngl2k2w46f4ww";
           };
         }
       );
