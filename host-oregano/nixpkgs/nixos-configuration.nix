@@ -2,8 +2,7 @@
   lib = pkgs.lib;
 
   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8DmGnZmzOUOlg+gtKuGouRz6wCqy1pwNKvweJ4MCp0 teo@teoljungberg.com";
-in rec
-{
+in {
   imports = [
     /etc/nixos/hardware-configuration.nix
     <nixpkgs/nixos/modules/profiles/headless.nix>
