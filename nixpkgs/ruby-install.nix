@@ -33,8 +33,9 @@
     paths = paths;
     extraOutputsToInstall = ["bin" "include" "lib"];
   };
+  version = "0.9.0";
 in
-  stdenv.mkDerivation rec {
+  stdenv.mkDerivation {
     pname = "ruby-install";
     version = "0.9.0";
 
