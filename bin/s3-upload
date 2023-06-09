@@ -13,40 +13,31 @@ show_usage() {
 }
 
 set_acl() {
-  acl=""
   if [ "$1" = "--private" ]; then
-    acl="--acl-private"
+    echo "--acl-private"
   elif [ "$1" = "--public" ]; then
-    acl="--acl-public"
+    echo "--acl-public"
   else
     show_usage
   fi
-
-  echo "$acl"
 }
 
 set_filename() {
-  filename=""
   if [ -n "$1" ]; then
-    filename="$1"
+    echo "$1"
   else
     show_usage
   fi
-
-  echo "$filename"
 }
 
 set_remote_filename() {
-  remote_filename=""
   if [ -n "$1" ]; then
-    remote_filename="$1"
+    echo "$1"
   elif [ -n "$2" ]; then
-    remote_filename="$(basename "$2")"
+    basename "$2"
   else
     show_usage
   fi
-
-  echo "$remote_filename"
 }
 
 acl=$(set_acl "$1")
@@ -54,6 +45,7 @@ shift
 filename=$(set_filename "$1")
 shift
 remote_filename=$(set_remote_filename "$1" "$filename")
+shift
 
 s3cmd \
   --quiet \
