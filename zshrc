@@ -234,25 +234,15 @@ git_branch() {
   [ -n "$branch_name" ] && print -Pn "%32<...<% $branch_name %< "
 }
 
-git_branch_color() {
-  if [ "$THEME" = "light" ]; then
-    echo "%{$fg_bold[black]%}"
-  elif [ "$THEME" = "dark" ]; then
-    echo "%{$fg_bold[white]%}"
-  else
-    echo "%{$fg_bold[black]%}"
-  fi
-}
-
 prompt_directory() {
   echo "%20<..<%~%<<"
 }
 
 set_prompt() {
   if [ -n "$SSH_TTY" ]; then
-    PROMPT="$(prompt_directory) %n@%m $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
+    PROMPT="$(prompt_directory) %n@%m $(git_branch)%(1j.%j .)%# "
   else
-    PROMPT="$(prompt_directory) $(git_branch_color)$(git_branch)%{$reset_color%}%(1j.%j .)%# "
+    PROMPT="$(prompt_directory) $(git_branch)%(1j.%j .)%# "
   fi
 }
 
