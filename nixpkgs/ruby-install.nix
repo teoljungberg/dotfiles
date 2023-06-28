@@ -37,7 +37,7 @@
 in
   stdenv.mkDerivation {
     pname = "ruby-install";
-    version = "0.9.1";
+    inherit version;
 
     src = fetchTarball {
       url = "https://github.com/postmodern/ruby-install/archive/v${version}.tar.gz";

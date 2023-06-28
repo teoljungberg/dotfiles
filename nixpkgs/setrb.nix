@@ -7,7 +7,7 @@
 in
   stdenv.mkDerivation {
     pname = "setrb";
-    version = "0.3.2";
+    inherit version;
 
     src = fetchTarball {
       url = "https://mike-burns.com/project/setrb/setrb-${version}.tar.gz";

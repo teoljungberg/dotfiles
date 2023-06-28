@@ -9,7 +9,7 @@
 in
   stdenv.mkDerivation {
     name = "gitsh-${version}";
-    version = "0.14.0";
+    inherit version;
 
     src = fetchTarball {
       url = "https://github.com/thoughtbot/gitsh/releases/download/v0.14/gitsh-0.14.tar.gz";
