@@ -33,15 +33,15 @@
     paths = paths;
     extraOutputsToInstall = ["bin" "include" "lib"];
   };
-  version = "0.9.0";
+  version = "0.9.1";
 in
   stdenv.mkDerivation {
     pname = "ruby-install";
-    version = "0.9.0";
+    version = "0.9.1";
 
     src = fetchTarball {
       url = "https://github.com/postmodern/ruby-install/archive/v${version}.tar.gz";
-      sha256 = "07hy4dmq7cqwl4v2cmf1g072hlbl7z8iiwrlbk8ya7vjphpr8qpn";
+      sha256 = "0s0pzs7dk34lnlrjrmq9rdr4b209vck90qrpd59r1ykh7rwl8q8y";
     };
 
     buildInputs = paths;
