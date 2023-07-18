@@ -107,22 +107,22 @@ in {
       serviceConfig.Restart = "always";
     };
 
-    update-vim-plugins = let
-      dotfilesDirectory = "/home/teo/src/github.com/teoljungberg/dotfiles/";
-    in
-      lib.mkIf (builtins.pathExists dotfilesDirectory) {
-        path = with pkgs; [bash findutils git openssh];
-        script = builtins.readFile (dotfilesDirectory + "bin/update-vim-plugins");
-        serviceConfig = {User = "teo";};
-        startAt = "daily";
-      };
-
     backups = let
       backupsDirectory = "/home/teo/src/github.com/teoljungberg/backups/";
     in
       lib.mkIf (builtins.pathExists backupsDirectory) {
         path = with pkgs; [bash findutils git nettools openssh];
         script = builtins.readFile (backupsDirectory + "run.sh");
+        serviceConfig = {User = "teo";};
+        startAt = "daily";
+      };
+
+    update-vim-plugins = let
+      dotfilesDirectory = "/home/teo/src/github.com/teoljungberg/dotfiles/";
+    in
+      lib.mkIf (builtins.pathExists dotfilesDirectory) {
+        path = with pkgs; [bash findutils git openssh];
+        script = builtins.readFile (dotfilesDirectory + "bin/update-vim-plugins");
         serviceConfig = {User = "teo";};
         startAt = "daily";
       };
