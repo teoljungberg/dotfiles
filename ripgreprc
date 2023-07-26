@@ -1,8 +1,3 @@
 --hidden
 --with-filename
---colors=path:none
---colors=path:style:bold
---colors=line:none
---colors=match:none
---colors=match:style:bold
---colors=match:style:underline
+--color=never
