@@ -28,7 +28,6 @@ in {
     gitsh
     gnumake
     gnupg
-    heroku
     jq
     lim
     mosh
