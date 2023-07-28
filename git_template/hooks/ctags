@@ -3,19 +3,19 @@
 set -e
 [ -n "$DEBUG" ] && set -ex
 
-dir="$(git rev-parse --git-dir)"
+git_dir="$(git rev-parse --git-dir)"
+tmpfile=$(mktemp /tmp/ctags.XXXXXX)
 
-if [ -d "$dir/safe" ]; then
-  trap 'rm -f "$dir/$$.tags"' EXIT
+if [ -d "$git_dir/safe" ]; then
+  trap 'rm -f "$tmpfile"' EXIT INT TERM
 
   if [ -f Gemfile ] && which ripper-tags 1>/dev/null 2>/dev/null; then
-    ctags_command="ripper-tags"
+    git ls-files --cached --exclude-standard --others | \
+      ripper-tags -L - -f "$tmpfile"
   else
-    ctags_command="ctags"
+    git ls-files --cached --exclude-standard --others | \
+      ctags -L - -f "$tmpfile"
   fi
 
-  git ls-files --cached --exclude-standard --others |
-    "$ctags_command" --tag-relative -L - -f "$dir/$$.tags"
-
-  mv "$dir/$$.tags" "$dir/tags"
+  mv "$tmpfile" tags
 fi

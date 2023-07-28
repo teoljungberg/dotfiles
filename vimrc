@@ -21,7 +21,6 @@ setglobal showcmd
 setglobal sidescrolloff=5
 setglobal smartcase
 setglobal statusline=[%n]\ %<%f\ %h%m%r%w%=%-14.(%l,%c%V%)\ %P
-setglobal tags^=./.git/tags;tags
 setglobal ttimeout
 setglobal ttimeoutlen=50
 setglobal viminfo=!,'20,<50,s10,h
