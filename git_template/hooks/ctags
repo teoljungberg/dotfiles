@@ -12,6 +12,11 @@ if [ -d "$git_dir/safe" ]; then
   if [ -f Gemfile ] && which ripper-tags 1>/dev/null 2>/dev/null; then
     git ls-files --cached --exclude-standard --others | \
       ripper-tags -L - -f "$tmpfile"
+  elif [ -f Gemfile ] && which stree 1>/dev/null 2>/dev/null; then
+    # shellcheck disable=SC2046
+    stree ctags \
+      $(git ls-files --cached --exclude-standard --others | grep -E \\.rb) \
+      > "$tmpfile"
   else
     git ls-files --cached --exclude-standard --others | \
       ctags -L - -f "$tmpfile"
