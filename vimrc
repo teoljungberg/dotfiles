@@ -249,6 +249,7 @@ let s:filetypes_with_nonumber = [
       \ 'help',
       \ 'man',
       \ 'markdown',
+      \ 'netrw',
       \ 'text',
       \ ]
 augroup t_number
