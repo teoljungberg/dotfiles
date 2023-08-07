@@ -10,6 +10,7 @@ in {
   home.username = "teo";
 
   home.packages = with pkgs; [
+    alejandra
     autoconf
     automake
     bat
