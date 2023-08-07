@@ -379,7 +379,7 @@ augroup t_dispatch
           \ setlocal makeprg=darwin-rebuild\ build
   endif
   if has('linux')
-    autocmd BufReadPost */nixos-configuration.nix
+    autocmd BufReadPost */nixos-configuration.nix,/etc/nixos/configuration.nix
           \ let b:dispatch = 'nixos-rebuild dry-run' |
           \ setlocal makeprg=nixos-rebuild\ build
   endif
