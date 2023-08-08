@@ -134,21 +134,15 @@ theme() {
   esac
 
   if [ -n "$new_style" ]; then
-    ln -sf \
-      "$HOME/.config/kitty/${new_style}.conf" \
-      "$HOME/.config/kitty/theme.conf"
     export THEME="$new_style"
   fi
 
   if command -v kitty >/dev/null; then
+    kitty +kitten themes --reload-in=all "whitescale-$THEME"
+
     if [ -n "$TMUX" ]; then
-      kitty @ --to "$KITTY_LISTEN_ON" \
-        set-colors --all --configured "$HOME/.config/kitty/theme.conf"
       tmux set-environment THEME "$THEME"
       tmux source-file "$HOME/.tmux.conf"
-    else
-      kitty @ \
-        set-colors --all --configured "$HOME/.config/kitty/theme.conf"
     fi
   fi
 

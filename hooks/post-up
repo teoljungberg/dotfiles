@@ -3,8 +3,8 @@
 mkdir -p ~/.vim/pack/bundle/start
 mkdir -p ~/.psql_history
 
-if [ ! -f "$HOME/.config/kitty/theme.conf" ]; then
-  ln -fs \
-    "$HOME/.config/kitty/light.conf" \
-    "$HOME/.config/kitty/theme.conf"
+if [ ! -e "$HOME/.config/kitty/current-theme.conf" ]; then
+  cp \
+    "$HOME/.config/kitty/themes/whitescale-light.conf" \
+    "$HOME/.config/kitty/current-theme.conf"
 fi
