@@ -765,6 +765,10 @@ command! -bar -nargs=1 -complete=customlist,s:cd_complete Cd cd <args>
 command! -bar -nargs=1 -complete=customlist,s:cd_complete Lcd lcd <args>
 command! -bar -nargs=1 -complete=customlist,s:cd_complete Tcd tcd <args>
 
+if has('terminal')
+  tnoremap <S-Space> <Space>
+endif
+
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
