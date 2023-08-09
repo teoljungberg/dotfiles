@@ -114,21 +114,38 @@ else
   setglobal grepprg=grep\ -rnH\ --exclude-dir\ .git\ $*\ /dev/null
 endif
 
-noremap <Leader>d :bdelete<CR>
-
-noremap Y y$
-
-cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
-
-noremap Q @q
-
+cnoremap <C-P> <Up>
+cnoremap <C-R><C-L> <C-R>=substitute(getline('.'), '^\s*', '', '')<CR>
+cnoremap <C-R>W <C-R><C-A>
+noremap <Leader>d :bdelete<CR>
+noremap <silent> <C-L>
+      \ :nohlsearch <C-R>=has('diff') ? "<Bar>diffupdate" : ''<CR><CR><C-L>
 noremap <silent> <C-W>z
       \ :wincmd z<Bar>cclose<Bar>lclose<Bar>pclose<Bar>helpclose<Bar><CR>
-
+noremap Q @q
+noremap Y y$
 noremap gV V`]
-
 vnoremap D y'>p
+
+noremap gy "*y
+noremap gY "*y$
+noremap gp "*p
+noremap gP "*P
+vnoremap gy "*y
+vnoremap gp "*p
+vnoremap gP "*P
+
+noremap <silent> <C-w>.
+      \ :if exists(':Plcd')<Bar>
+      \   execute 'Plcd'<Bar>
+      \ elseif exists('*FugitiveGitDir') && !empty(FugitiveGitDir())<Bar>
+      \   execute 'Glcd'<Bar>
+      \ else<Bar>
+      \   lcd %:h<Bar>
+      \ endif<Bar>
+      \ <CR>
+nmap cd <C-W>.
 
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
 nmap <Leader>e :edit %%
@@ -156,36 +173,10 @@ noremap <C-W><C-]> :stag <C-R>=expand('<cword>')<CR><CR>
 noremap <C-W>] :stag <C-R>=expand('<cword>')<CR><CR>
 noremap g<C-T> :ptag <C-R>=expand('<cword>')<CR><CR>
 
-cnoremap <C-R><C-L> <C-R>=substitute(getline('.'), '^\s*', '', '')<CR>
-
-cnoremap <C-R>W <C-R><C-A>
-
 " Originally from: https://github.com/tpope/vim-rsi
 inoremap <expr> <C-E> col(".") > strlen(getline(".")) ? "<C-E>" : "<End>"
 inoremap <C-A> <Esc>I
 cnoremap <C-A> <Home>
-
-noremap gy "*y
-noremap gY "*y$
-noremap gp "*p
-noremap gP "*P
-vnoremap gy "*y
-vnoremap gp "*p
-vnoremap gP "*P
-
-noremap <silent> <C-L>
-      \ :nohlsearch <C-R>=has('diff') ? "<Bar>diffupdate" : ''<CR><CR><C-L>
-
-noremap <silent> <C-w>.
-      \ :if exists(':Plcd')<Bar>
-      \   execute 'Plcd'<Bar>
-      \ elseif exists('*FugitiveGitDir') && !empty(FugitiveGitDir())<Bar>
-      \   execute 'Glcd'<Bar>
-      \ else<Bar>
-      \   lcd %:h<Bar>
-      \ endif<Bar>
-      \ <CR>
-nmap cd <C-W>.
 
 augroup t_gui
   autocmd!
@@ -641,6 +632,10 @@ for s:i in range(1, 9)
   endif
 endfor
 
+if exists(':tnoremap')
+  tnoremap <S-Space> <Space>
+endif
+
 augroup t_release_swapfiles
   autocmd!
 
@@ -692,10 +687,6 @@ endfunction
 command! -bar -nargs=1 -complete=customlist,s:cd_complete Cd cd <args>
 command! -bar -nargs=1 -complete=customlist,s:cd_complete Lcd lcd <args>
 command! -bar -nargs=1 -complete=customlist,s:cd_complete Tcd tcd <args>
-
-if has('terminal')
-  tnoremap <S-Space> <Space>
-endif
 
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
