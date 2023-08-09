@@ -526,8 +526,8 @@ endfunction
 augroup t_qf
   autocmd!
 
-  autocmd FileType qf setlocal nobuflisted
   autocmd FileType qf call <SID>quickfix_title()
+  autocmd FileType qf setlocal nobuflisted
   autocmd FileType qf noremap <buffer> - -
 augroup END
 
