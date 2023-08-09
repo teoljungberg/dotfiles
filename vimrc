@@ -144,8 +144,6 @@ nmap <Leader>w :write %%
 " This is only done for files under `app`.
 cnoremap %t <C-R>=substitute(expand('%:r'), '^app[^/]*.', '', '')<CR>
 
-command! Only :silent only<Bar>silent tabonly
-
 " Given this situation:
 "     user.fo|o!
 " When entering <C-]> to go to the `foo!` tag, for some reason it acts as if
