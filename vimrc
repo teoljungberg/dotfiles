@@ -55,14 +55,10 @@ if has('vim_starting')
   endif
 endif
 
-" Set different cursors for insert, replace, and normal mode.
 let &t_SI = "\e[6 q"
 let &t_SR = "\e[4 q"
 let &t_EI = "\e[2 q"
 
-" When the type of shell script is /bin/sh, assume a POSIX-compatible shell
-" for syntax highlighting purposes.
-" More on why: https://github.com/thoughtbot/dotfiles/pull/471
 let g:is_posix = 1
 
 if exists('+undodir') && !has('nvim')
@@ -118,31 +114,22 @@ else
   setglobal grepprg=grep\ -rnH\ --exclude-dir\ .git\ $*\ /dev/null
 endif
 
-" Close current buffer
 noremap <Leader>d :bdelete<CR>
 
-" Yank to the end of the line, for consistency with `C` and `D`.
 noremap Y y$
 
-" Move Up and Down with `<C-P>` and `<C-N>` in command mode, for consitency
-" with `<C-P>` and `<C-N>` in normal mode.
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
-" Record macro with `qq`, replay with `Q`
 noremap Q @q
 
-" Close everything
 noremap <silent> <C-W>z
       \ :wincmd z<Bar>cclose<Bar>lclose<Bar>pclose<Bar>helpclose<Bar><CR>
 
-" Re-select the last pasted text
 noremap gV V`]
 
-" Duplicate the visually selected block
 vnoremap D y'>p
 
-" open files in directory of current file
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
 nmap <Leader>e :edit %%
 nmap <Leader>s :split %%
@@ -157,12 +144,11 @@ nmap <Leader>w :write %%
 " This is only done for files under `app`.
 cnoremap %t <C-R>=substitute(expand('%:r'), '^app[^/]*.', '', '')<CR>
 
-" Only have the current split and tab open
 command! Only :silent only<Bar>silent tabonly
 
 " Given this situation:
 "     user.fo|o!
-" When I press <C-]> to go to the `foo!` tag, for some reason it acts as if
+" When entering <C-]> to go to the `foo!` tag, for some reason it acts as if
 " the cursor is on `user` and goes to the `user` tag.
 "
 " To fix this, use `<cword>` to select the word under the cursor and go to it
@@ -170,24 +156,17 @@ command! Only :silent only<Bar>silent tabonly
 noremap <C-]> :tag <C-R>=expand('<cword>')<CR><CR>
 noremap <C-W><C-]> :stag <C-R>=expand('<cword>')<CR><CR>
 noremap <C-W>] :stag <C-R>=expand('<cword>')<CR><CR>
-
-" Call `:ptag` the word under the cursor. Navigate between the matches with
-" `:ptnext` or `:ptprevious`. Or using unimpaired.vim's `]<C-T>` and `[<C-T>`.
 noremap g<C-T> :ptag <C-R>=expand('<cword>')<CR><CR>
 
-" Get the current line
 cnoremap <C-R><C-L> <C-R>=substitute(getline('.'), '^\s*', '', '')<CR>
 
-" Add the current `WORD` (rather than `word`) under the cursor
 cnoremap <C-R>W <C-R><C-A>
 
-" Emacs movement
 " Originally from: https://github.com/tpope/vim-rsi
 inoremap <expr> <C-E> col(".") > strlen(getline(".")) ? "<C-E>" : "<End>"
 inoremap <C-A> <Esc>I
 cnoremap <C-A> <Home>
 
-" Global yank and paste
 noremap gy "*y
 noremap gY "*y$
 noremap gp "*p
@@ -196,11 +175,9 @@ vnoremap gy "*y
 vnoremap gp "*p
 vnoremap gP "*P
 
-" Enhanced <C-L>
 noremap <silent> <C-L>
       \ :nohlsearch <C-R>=has('diff') ? "<Bar>diffupdate" : ''<CR><CR><C-L>
 
-" :lcd into the current git, project, or local directory.
 noremap <silent> <C-w>.
       \ :if exists(':Plcd')<Bar>
       \   execute 'Plcd'<Bar>
@@ -303,7 +280,6 @@ augroup t_openbsd
         \ tabstop=8
 augroup END
 
-" Make gvim on macOS follow the appearance for light- and dark-mode.
 if exists('##OSAppearanceChanged')
   augroup t_follow_os_appearance
     autocmd!
@@ -317,8 +293,6 @@ if exists('##OSAppearanceChanged')
   augroup END
 endif
 
-" ale.vim
-" -------
 let g:ale_fixers_explicit = 1
 let g:ale_hover_cursor = 0
 let g:ale_lint_on_enter = 0
@@ -350,8 +324,6 @@ nmap `=<CR> <Plug>(ale_fix)
 nmap `== <Plug>(ale_lint)
 nmap `=? <Plug>(ale_hover)
 
-" dispatch.vim
-" ------------
 augroup t_dispatch
   autocmd!
 
@@ -405,8 +377,6 @@ augroup t_dispatch
         \ endif
 augroup END
 
-" fugitive.vim
-" ------------
 let g:fugitive_dynamic_colors = 0
 let g:fugitive_legacy_commands = 0
 
@@ -420,8 +390,6 @@ augroup t_fugitive
   autocmd FileType gitcommit setlocal shiftwidth=2 spell
 augroup END
 
-" fzf.vim
-" -------
 if executable('fzf')
   if isdirectory(expand('$HOME/.fzf'))
     setglobal runtimepath+=$HOME/.fzf
@@ -461,17 +429,12 @@ augroup t_fzf
         \ autocmd BufLeave <buffer> setlocal laststatus=2 showmode ruler
 augroup END
 
-" rails.vim
-" ---------
 let g:rails_vim_enter = 0
 let g:rails_projections = {
       \ 'spec/*_spec.rb': {
       \   'dispatch': "rspec spec/{}_spec.rb`=v:lnum ? ':'.v:lnum : ''`",
       \ }}
 
-
-" projectionist.vim
-" -----------------
 let g:projectionist_vim_enter = 0
 let g:projectionist_heuristics = {
       \ '.git/': {
@@ -481,8 +444,6 @@ let g:projectionist_heuristics = {
       \   'test/*.rb': { 'command': 'test' },
       \ }}
 
-" splitjoin.vim
-" -------------
 let g:splitjoin_trailing_comma = 1
 let g:splitjoin_ruby_hanging_args = 0
 let g:splitjoin_ruby_curly_braces = 0
@@ -506,12 +467,8 @@ noremap <silent> gS :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
 noremap <silent> S :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
 noremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', "r\015")<CR>
 
-" surround.vim
-" ------------
 let g:surround_{char2nr('#')} = "#{\<CR>}"
 
-" vinegar.vim
-" -----------
 if exists('<Plug>VinegarUp')
   noremap <silent> <Plug>Up <Plug>VinegarUp
 else
@@ -521,8 +478,6 @@ nmap <expr> - line('.') == 1 ? '<Plug>Up' : '-'
 
 command! -nargs=* -complete=dir E Explore <args>
 
-" direnv.vim
-" ----------
 if has('gui_running')
   let g:direnv_auto = 1
 else
@@ -531,8 +486,6 @@ endif
 
 let g:direnv_silent_load = 1
 
-" obsession.vim
-" -------------
 setglobal sessionoptions-=buffers,curdir sessionoptions+=sesdir,globals
 
 augroup t_obsession
@@ -549,12 +502,7 @@ augroup t_obsession
         \ endif
 augroup END
 
-" bundler.vim
-" -----------
 let g:bundler_edit_commands = 0
-
-" ruby
-" ----
 let g:ruby_indent_block_style = 'do'
 
 augroup t_ruby
@@ -568,8 +516,6 @@ augroup t_ruby
   autocmd Syntax ruby hi def link rubySorbetSig Comment
 augroup END
 
-" quickfix
-" --------
 function! s:quickfix_title()
   let title = get(w:, 'quickfix_title', '')
 
@@ -589,8 +535,6 @@ augroup t_qf
   autocmd FileType qf noremap <buffer> - -
 augroup END
 
-" markdown
-" --------
 augroup t_markdown
   autocmd!
 
@@ -604,9 +548,7 @@ augroup t_markdown
         \ wrap
 augroup END
 
-" Make list-like commands more intuitive.
 " Originally from:
-"
 " https://gist.github.com/romainl/047aca21e338df7ccf771f96858edb86
 function! s:ccr()
   if getcmdtype() !=# ':'
@@ -652,7 +594,6 @@ endfunction
 
 cnoremap <script> <expr> <CR> <SID>ccr()
 
-" Leverage s:ccr() for built-in :ilist and :dlist
 nmap [I :ilist /<C-R>=expand('<cword>')<CR><CR>
 nmap ]I :ilist /<C-R>=expand('<cword>')<CR><CR>
 nmap [D :dlist /<C-R>=expand('<cword>')<CR><CR>
@@ -660,9 +601,7 @@ nmap ]D :dlist /<C-R>=expand('<cword>')<CR><CR>
 
 nmap <Space>b :ls<CR>
 
-" Make <CR> more intuitive.
 " Originally from:
-"
 " https://github.com/tpope/dotfiles/blob/c31d6515e126ce2e52dbb11a7b01f4ac4cc2bd0c/.vimrc#L214
 function! s:ncr()
   if len(getcmdwintype())
@@ -685,7 +624,6 @@ function! s:ncr()
 endfunction
 nmap <silent> <script> <expr> <CR> <SID>ncr()
 
-" Setup common mapping to access command-mode from a running :terminal
 if exists('&termwinkey')
   tmap <script> <SID>: <C-W>:
   tmap <script> <C-\>: <C-W>:
@@ -694,15 +632,10 @@ elseif exists(':tmap')
   tmap <script> <C-\>: <C-\><C-N>:
 endif
 
-" Setup <M-{1,9}> to their supposed escape sequence
 for s:i in range(1, 9)
   silent! execute 'set <M-' . s:i . ">=\<Esc>" . s:i
 endfor
 
-" Switch :tab's with <{D,M}-{1,9}>
-"
-" D is for a running MacVim.
-" M is for everywhere else.
 let s:mod = (has('mac') && has('gui_running')) ? 'D' : 'M'
 for s:i in range(1, 9)
   execute 'noremap <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
@@ -734,8 +667,7 @@ augroup t_pager
   autocmd SourcePre */macros/less.vim setglobal laststatus=0
 augroup END
 
-" :cd, :lcd, and :tcd with tab-completion that supports the &cdpath. Exposed
-" as the commands :Cd, :Lcd, and :Tcd.
+" :cd, :lcd, and :tcd with tab-completion that supports the &cdpath.
 "
 " Inspired by Tim Pope's scriptease.vim[1] and its' :Vedit.
 "
