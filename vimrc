@@ -421,13 +421,13 @@ let g:rails_projections = {
       \ }}
 
 let g:projectionist_vim_enter = 0
-let g:projectionist_heuristics = {
-      \ '.git/': {
-      \   'TODO.md': { 'command': 'todo' },
-      \   '*.gemspec': { 'command': 'gemspec' },
-      \   'shell.nix': { 'command': 'shell' },
-      \   'test/*.rb': { 'command': 'test' },
-      \ }}
+let g:projectionist_heuristics = {}
+let g:projectionist_heuristics['.git/'] = {
+      \ 'TODO.md': { 'command': 'todo' },
+      \ '*.gemspec': { 'command': 'gemspec' },
+      \ 'shell.nix': { 'command': 'shell' },
+      \ 'test/*.rb': { 'command': 'test' },
+      \ }
 
 let g:splitjoin_trailing_comma = 1
 let g:splitjoin_ruby_hanging_args = 0
