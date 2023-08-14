@@ -118,7 +118,13 @@ noremap <Leader>d :bdelete<CR>
 noremap <silent> <C-L>
       \ :nohlsearch <C-R>=has('diff') ? "<Bar>diffupdate" : ''<CR><CR><C-L>
 noremap <silent> <C-W>z
-      \ :wincmd z<Bar>cclose<Bar>lclose<Bar>pclose<Bar>helpclose<Bar><CR>
+      \ :wincmd z
+      \ <Bar>cclose
+      \ <Bar>lclose
+      \ <Bar>pclose
+      \ <Bar>helpclose
+      \ <Bar>silent! bdelete fugitive://*
+      \ <CR>
 noremap Q @q
 noremap Y y$
 noremap gV V`]
