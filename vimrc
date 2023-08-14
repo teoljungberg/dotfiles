@@ -176,7 +176,7 @@ noremap <C-W>] :stag <C-R>=expand('<cword>')<CR><CR>
 noremap g<C-T> :ptag <C-R>=expand('<cword>')<CR><CR>
 
 " Originally from: https://github.com/tpope/vim-rsi
-inoremap <expr> <C-E> col(".") > strlen(getline(".")) ? "<C-E>" : "<End>"
+inoremap <expr> <C-E> col('.') > strlen(getline('.')) ? "<C-E>" : "<End>"
 inoremap <C-A> <Esc>I
 cnoremap <C-A> <Home>
 
