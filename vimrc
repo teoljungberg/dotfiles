@@ -16,6 +16,7 @@ setglobal nojoinspaces
 setglobal nowrap
 setglobal path=.,,
 setglobal scrolloff=1
+setglobal sessionoptions-=buffers,curdir sessionoptions+=sesdir,globals
 setglobal shiftround
 setglobal showcmd
 setglobal sidescrolloff=5
@@ -278,6 +279,199 @@ if exists('##OSAppearanceChanged')
   augroup END
 endif
 
+augroup t_ruby
+  autocmd!
+
+  autocmd FileType ruby iabbrev <buffer> ddebug require 'pry'; binding.pry
+  autocmd FileType ruby iabbrev <buffer> dinit def initialize
+  autocmd FileType ruby setlocal comments=:#\<Space> iskeyword+=?,!,=
+  autocmd Syntax ruby syntax region rubySorbetSig start='sig {' end='}'
+  autocmd Syntax ruby syntax region rubySorbetSig start='sig do' end="\<end\>"
+  autocmd Syntax ruby hi def link rubySorbetSig Comment
+augroup END
+
+function! s:quickfix_title()
+  let title = get(w:, 'quickfix_title', '')
+
+  if title =~# '^:' . &grepprg || title =~# '^:grep'
+    let w:quickfix_title = substitute(title, &grepprg, 'grep', '')
+  endif
+endfunction
+
+augroup t_qf
+  autocmd!
+
+  autocmd FileType qf call <SID>quickfix_title()
+  autocmd FileType qf setlocal nobuflisted
+  autocmd FileType qf noremap <buffer> - -
+augroup END
+
+augroup t_markdown
+  autocmd!
+
+  autocmd FileType markdown,gitcommit iabbrev <buffer> -. - [ ]
+  autocmd FileType markdown,gitcommit iabbrev <buffer> -x - [X]
+  autocmd FileType markdown setlocal
+        \ expandtab
+        \ linebreak
+        \ shiftwidth=2
+        \ spell
+        \ wrap
+augroup END
+
+" Originally from:
+" https://gist.github.com/romainl/047aca21e338df7ccf771f96858edb86
+function! s:ccr()
+  if getcmdtype() !=# ':'
+    return "\<CR>"
+  end
+  let cmdline = getcmdline()
+  let filter_stub = '\v\C^((filt|filte|filter) .+ )*'
+  command! -bar Z silent set more|delcommand Z
+
+  if cmdline =~# filter_stub . '(ls|files|buffers)'
+    return "\<CR>:buffer "
+  elseif cmdline =~# '\v\C/(#|nu|num|numb|numbe|number)$'
+    return "\<CR>:"
+  elseif cmdline =~# filter_stub . '(old|oldfiles)'
+    setlocal nomore
+    return "\<CR>:Z|edit #<"
+  elseif cmdline =~# '\C^changes'
+    setlocal nomore
+    return "\<CR>:Z|normal! g;\<S-Left>"
+  elseif cmdline =~# filter_stub . '(ju|jumps)'
+    setlocal nomore
+    return "\<CR>:Z|normal! \<C-O>\<S-Left>"
+  elseif cmdline =~# filter_stub . 'marks'
+    return "\<CR>:normal! `"
+  elseif cmdline =~# '\v\C^(undol|undolist)'
+    return "\<CR>:undo "
+  elseif cmdline =~# filter_stub . '(cli|clist|lli|llist)'
+    return
+          \ "\<CR>" .
+          \ ':silent ' .
+          \ repeat(matchlist(cmdline, '\v(cli|clist|lli|llist)')[0][0], 2) .
+          \ "\<Space>"
+    elseif cmdline =~# '\v\C(dli|dlist|il|ilist)\s.*'
+      return
+            \ "\<CR>:" .
+            \ cmdline[0] .
+            \ 'jump  ' . split(cmdline, ' ')[1] .
+            \ "\<S-Left>\<Left>"
+  else
+    return "\<CR>"
+  endif
+endfunction
+
+cnoremap <script> <expr> <CR> <SID>ccr()
+
+nmap [I :ilist /<C-R>=expand('<cword>')<CR><CR>
+nmap ]I :ilist /<C-R>=expand('<cword>')<CR><CR>
+nmap [D :dlist /<C-R>=expand('<cword>')<CR><CR>
+nmap ]D :dlist /<C-R>=expand('<cword>')<CR><CR>
+
+nmap <Space>b :ls<CR>
+
+" Originally from:
+" https://github.com/tpope/dotfiles/blob/c31d6515e126ce2e52dbb11a7b01f4ac4cc2bd0c/.vimrc#L214
+function! s:ncr()
+  if len(getcmdwintype())
+    return "\<CR>"
+  endif
+
+  if &buftype ==# 'quickfix'
+    return "\<CR>"
+  else
+    if &buftype !=# 'terminal'
+      return ":\025confirm " . (v:count ? 'write' : 'update') . "\<CR>"
+    elseif exists('*jobwait') && jobwait([&channel], 0)[0] == -1
+      return ':normal! i' . "\<CR>"
+    elseif &modified
+      return ':normal! i' . "\<CR>"
+    else
+      return "\<CR>"
+    endif
+  endif
+endfunction
+nmap <silent> <script> <expr> <CR> <SID>ncr()
+
+if exists('&termwinkey')
+  tmap <script> <SID>: <C-W>:
+  tmap <script> <C-\>: <C-W>:
+elseif exists(':tmap')
+  tmap <script> <SID>: <C-\><C-N>:
+  tmap <script> <C-\>: <C-\><C-N>:
+endif
+
+for s:i in range(1, 9)
+  silent! execute 'set <M-' . s:i . ">=\<Esc>" . s:i
+endfor
+
+let s:mod = (has('mac') && has('gui_running')) ? 'D' : 'M'
+for s:i in range(1, 9)
+  execute 'noremap <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
+  execute 'noremap! <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
+  if exists(':tmap')
+    execute 'tmap <' . s:mod . '-' . s:i . '> <SID>:' . s:i . 'tabnext<CR>'
+  endif
+endfor
+
+if exists(':tnoremap')
+  tnoremap <S-Space> <Space>
+endif
+
+augroup t_release_swapfiles
+  autocmd!
+
+  autocmd BufWritePost,BufReadPost,BufLeave *
+        \ if isdirectory(expand('<amatch>:h')) |
+        \   let &swapfile = &modified |
+        \ endif
+augroup END
+
+augroup t_write_on_focus_lost
+  autocmd!
+
+  autocmd FocusLost * silent! wall
+augroup END
+
+augroup t_pager
+  autocmd!
+
+  autocmd SourcePost */macros/less.vim nunmap <Space><Space>
+  autocmd SourcePre */macros/less.vim setglobal laststatus=0
+augroup END
+
+" :cd, :lcd, and :tcd with tab-completion that supports the &cdpath.
+"
+" Inspired by Tim Pope's scriptease.vim[1] and its' :Vedit.
+"
+" [1]: https://github.com/tpope/vim-scriptease
+function! s:cd_complete(A, L, P) abort
+  let pattern = substitute(a:A, '/\|\/', '*/', 'g').'*'
+  if &cdpath =~# '^,,'
+    let cdpaths = getcwd() . ',' . &cdpath
+  else
+    let cdpaths = &cdpath
+  endif
+  let found = {}
+  for glob in split(cdpaths, ',')
+    for path in map(split(glob(glob), "\n"), 'fnamemodify(v:val, ":p")')
+      let matches = split(glob(path . '/' . pattern), "\n")
+      call filter(matches, 'isdirectory(v:val)')
+      call map(matches, 'fnamemodify(v:val, ":p")[strlen(path)+1:-1]')
+      for match in matches
+        let found[match] = 1
+      endfor
+    endfor
+  endfor
+  return sort(keys(found))
+endfunction
+
+command! -bar -nargs=1 -complete=customlist,s:cd_complete Cd cd <args>
+command! -bar -nargs=1 -complete=customlist,s:cd_complete Lcd lcd <args>
+command! -bar -nargs=1 -complete=customlist,s:cd_complete Tcd tcd <args>
+
 let g:ale_fixers_explicit = 1
 let g:ale_hover_cursor = 0
 let g:ale_lint_on_enter = 0
@@ -471,8 +665,6 @@ endif
 
 let g:direnv_silent_load = 1
 
-setglobal sessionoptions-=buffers,curdir sessionoptions+=sesdir,globals
-
 augroup t_obsession
   autocmd!
 
@@ -489,199 +681,6 @@ augroup END
 
 let g:bundler_edit_commands = 0
 let g:ruby_indent_block_style = 'do'
-
-augroup t_ruby
-  autocmd!
-
-  autocmd FileType ruby iabbrev <buffer> ddebug require 'pry'; binding.pry
-  autocmd FileType ruby iabbrev <buffer> dinit def initialize
-  autocmd FileType ruby setlocal comments=:#\<Space> iskeyword+=?,!,=
-  autocmd Syntax ruby syntax region rubySorbetSig start='sig {' end='}'
-  autocmd Syntax ruby syntax region rubySorbetSig start='sig do' end="\<end\>"
-  autocmd Syntax ruby hi def link rubySorbetSig Comment
-augroup END
-
-function! s:quickfix_title()
-  let title = get(w:, 'quickfix_title', '')
-
-  if title =~# '^:' . &grepprg || title =~# '^:grep'
-    let w:quickfix_title = substitute(title, &grepprg, 'grep', '')
-  endif
-endfunction
-
-augroup t_qf
-  autocmd!
-
-  autocmd FileType qf call <SID>quickfix_title()
-  autocmd FileType qf setlocal nobuflisted
-  autocmd FileType qf noremap <buffer> - -
-augroup END
-
-augroup t_markdown
-  autocmd!
-
-  autocmd FileType markdown,gitcommit iabbrev <buffer> -. - [ ]
-  autocmd FileType markdown,gitcommit iabbrev <buffer> -x - [X]
-  autocmd FileType markdown setlocal
-        \ expandtab
-        \ linebreak
-        \ shiftwidth=2
-        \ spell
-        \ wrap
-augroup END
-
-" Originally from:
-" https://gist.github.com/romainl/047aca21e338df7ccf771f96858edb86
-function! s:ccr()
-  if getcmdtype() !=# ':'
-    return "\<CR>"
-  end
-  let cmdline = getcmdline()
-  let filter_stub = '\v\C^((filt|filte|filter) .+ )*'
-  command! -bar Z silent set more|delcommand Z
-
-  if cmdline =~# filter_stub . '(ls|files|buffers)'
-    return "\<CR>:buffer "
-  elseif cmdline =~# '\v\C/(#|nu|num|numb|numbe|number)$'
-    return "\<CR>:"
-  elseif cmdline =~# filter_stub . '(old|oldfiles)'
-    setlocal nomore
-    return "\<CR>:Z|edit #<"
-  elseif cmdline =~# '\C^changes'
-    setlocal nomore
-    return "\<CR>:Z|normal! g;\<S-Left>"
-  elseif cmdline =~# filter_stub . '(ju|jumps)'
-    setlocal nomore
-    return "\<CR>:Z|normal! \<C-O>\<S-Left>"
-  elseif cmdline =~# filter_stub . 'marks'
-    return "\<CR>:normal! `"
-  elseif cmdline =~# '\v\C^(undol|undolist)'
-    return "\<CR>:undo "
-  elseif cmdline =~# filter_stub . '(cli|clist|lli|llist)'
-    return
-          \ "\<CR>" .
-          \ ':silent ' .
-          \ repeat(matchlist(cmdline, '\v(cli|clist|lli|llist)')[0][0], 2) .
-          \ "\<Space>"
-    elseif cmdline =~# '\v\C(dli|dlist|il|ilist)\s.*'
-      return
-            \ "\<CR>:" .
-            \ cmdline[0] .
-            \ 'jump  ' . split(cmdline, ' ')[1] .
-            \ "\<S-Left>\<Left>"
-  else
-    return "\<CR>"
-  endif
-endfunction
-
-cnoremap <script> <expr> <CR> <SID>ccr()
-
-nmap [I :ilist /<C-R>=expand('<cword>')<CR><CR>
-nmap ]I :ilist /<C-R>=expand('<cword>')<CR><CR>
-nmap [D :dlist /<C-R>=expand('<cword>')<CR><CR>
-nmap ]D :dlist /<C-R>=expand('<cword>')<CR><CR>
-
-nmap <Space>b :ls<CR>
-
-" Originally from:
-" https://github.com/tpope/dotfiles/blob/c31d6515e126ce2e52dbb11a7b01f4ac4cc2bd0c/.vimrc#L214
-function! s:ncr()
-  if len(getcmdwintype())
-    return "\<CR>"
-  endif
-
-  if &buftype ==# 'quickfix'
-    return "\<CR>"
-  else
-    if &buftype !=# 'terminal'
-      return ":\025confirm " . (v:count ? 'write' : 'update') . "\<CR>"
-    elseif exists('*jobwait') && jobwait([&channel], 0)[0] == -1
-      return ':normal! i' . "\<CR>"
-    elseif &modified
-      return ':normal! i' . "\<CR>"
-    else
-      return "\<CR>"
-    endif
-  endif
-endfunction
-nmap <silent> <script> <expr> <CR> <SID>ncr()
-
-if exists('&termwinkey')
-  tmap <script> <SID>: <C-W>:
-  tmap <script> <C-\>: <C-W>:
-elseif exists(':tmap')
-  tmap <script> <SID>: <C-\><C-N>:
-  tmap <script> <C-\>: <C-\><C-N>:
-endif
-
-for s:i in range(1, 9)
-  silent! execute 'set <M-' . s:i . ">=\<Esc>" . s:i
-endfor
-
-let s:mod = (has('mac') && has('gui_running')) ? 'D' : 'M'
-for s:i in range(1, 9)
-  execute 'noremap <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
-  execute 'noremap! <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
-  if exists(':tmap')
-    execute 'tmap <' . s:mod . '-' . s:i . '> <SID>:' . s:i . 'tabnext<CR>'
-  endif
-endfor
-
-if exists(':tnoremap')
-  tnoremap <S-Space> <Space>
-endif
-
-augroup t_release_swapfiles
-  autocmd!
-
-  autocmd BufWritePost,BufReadPost,BufLeave *
-        \ if isdirectory(expand('<amatch>:h')) |
-        \   let &swapfile = &modified |
-        \ endif
-augroup END
-
-augroup t_write_on_focus_lost
-  autocmd!
-
-  autocmd FocusLost * silent! wall
-augroup END
-
-augroup t_pager
-  autocmd!
-
-  autocmd SourcePost */macros/less.vim nunmap <Space><Space>
-  autocmd SourcePre */macros/less.vim setglobal laststatus=0
-augroup END
-
-" :cd, :lcd, and :tcd with tab-completion that supports the &cdpath.
-"
-" Inspired by Tim Pope's scriptease.vim[1] and its' :Vedit.
-"
-" [1]: https://github.com/tpope/vim-scriptease
-function! s:cd_complete(A, L, P) abort
-  let pattern = substitute(a:A, '/\|\/', '*/', 'g').'*'
-  if &cdpath =~# '^,,'
-    let cdpaths = getcwd() . ',' . &cdpath
-  else
-    let cdpaths = &cdpath
-  endif
-  let found = {}
-  for glob in split(cdpaths, ',')
-    for path in map(split(glob(glob), "\n"), 'fnamemodify(v:val, ":p")')
-      let matches = split(glob(path . '/' . pattern), "\n")
-      call filter(matches, 'isdirectory(v:val)')
-      call map(matches, 'fnamemodify(v:val, ":p")[strlen(path)+1:-1]')
-      for match in matches
-        let found[match] = 1
-      endfor
-    endfor
-  endfor
-  return sort(keys(found))
-endfunction
-
-command! -bar -nargs=1 -complete=customlist,s:cd_complete Cd cd <args>
-command! -bar -nargs=1 -complete=customlist,s:cd_complete Lcd lcd <args>
-command! -bar -nargs=1 -complete=customlist,s:cd_complete Tcd tcd <args>
 
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
