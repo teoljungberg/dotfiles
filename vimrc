@@ -114,10 +114,10 @@ cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 cnoremap <C-R><C-L> <C-R>=substitute(getline('.'), '^\s*', '', '')<CR>
 cnoremap <C-R>W <C-R><C-A>
-noremap <Leader>d :bdelete<CR>
-noremap <silent> <C-L>
+nnoremap <Leader>d :bdelete<CR>
+nnoremap <silent> <C-L>
       \ :nohlsearch <C-R>=has('diff') ? "<Bar>diffupdate" : ''<CR><CR><C-L>
-noremap <silent> <C-W>z
+nnoremap <silent> <C-W>z
       \ :wincmd z
       \ <Bar>cclose
       \ <Bar>lclose
@@ -125,20 +125,17 @@ noremap <silent> <C-W>z
       \ <Bar>helpclose
       \ <Bar>silent! bdelete fugitive://*
       \ <CR>
-noremap Q @q
-noremap Y y$
-noremap gV V`]
+nnoremap Q @q
+nnoremap Y y$
+nnoremap gV V`]
 vnoremap D y'>p
 
 noremap gy "*y
 noremap gY "*y$
 noremap gp "*p
 noremap gP "*P
-vnoremap gy "*y
-vnoremap gp "*p
-vnoremap gP "*P
 
-noremap <silent> <C-w>.
+nnoremap <silent> <C-w>.
       \ :if exists(':Plcd')<Bar>
       \   execute 'Plcd'<Bar>
       \ elseif exists('*FugitiveGitDir') && !empty(FugitiveGitDir())<Bar>
@@ -170,10 +167,10 @@ cnoremap %t <C-R>=substitute(expand('%:r'), '^app[^/]*.', '', '')<CR>
 "
 " To fix this, use `<cword>` to select the word under the cursor and go to it
 " directly.
-noremap <C-]> :tag <C-R>=expand('<cword>')<CR><CR>
-noremap <C-W><C-]> :stag <C-R>=expand('<cword>')<CR><CR>
-noremap <C-W>] :stag <C-R>=expand('<cword>')<CR><CR>
-noremap g<C-T> :ptag <C-R>=expand('<cword>')<CR><CR>
+nnoremap <C-]> :tag <C-R>=expand('<cword>')<CR><CR>
+nnoremap <C-W><C-]> :stag <C-R>=expand('<cword>')<CR><CR>
+nnoremap <C-W>] :stag <C-R>=expand('<cword>')<CR><CR>
+nnoremap g<C-T> :ptag <C-R>=expand('<cword>')<CR><CR>
 
 " Originally from: https://github.com/tpope/vim-rsi
 inoremap <expr> <C-E> col('.') > strlen(getline('.')) ? "<C-E>" : "<End>"
@@ -308,7 +305,7 @@ augroup t_qf
 
   autocmd FileType qf call <SID>quickfix_title()
   autocmd FileType qf setlocal nobuflisted
-  autocmd FileType qf noremap <buffer> - -
+  autocmd FileType qf nnoremap <buffer> - -
 augroup END
 
 augroup t_markdown
@@ -566,7 +563,6 @@ let g:fugitive_legacy_commands = 0
 
 noremap g<CR> :Git<CR>
 noremap g<Space> :Git<Space>
-vnoremap g<Space> :Git<Space>
 
 augroup t_fugitive
   autocmd!
@@ -582,11 +578,11 @@ if executable('fzf')
     setglobal runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
   endif
 
-  noremap <Space><Space> :FZF<CR>
-  noremap <Space>] :FZFTags<CR>
+  nnoremap <Space><Space> :FZF<CR>
+  nnoremap <Space>] :FZFTags<CR>
 else
-  noremap <Space><Space> :find<Space>
-  noremap <Space>] :tjump /
+  nnoremap <Space><Space> :find<Space>
+  nnoremap <Space>] :tjump /
 endif
 
 let g:fzf_command_prefix = 'FZF'
@@ -603,9 +599,9 @@ augroup t_fzf
 
   autocmd FileType help
         \ if executable('fzf') |
-        \   noremap <buffer> <Space>] :FZFHelptags<CR> |
+        \   nnoremap <buffer> <Space>] :FZFHelptags<CR> |
         \ else |
-        \   noremap <buffer> <Space>] :tag<Space> |
+        \   nnoremap <buffer> <Space>] :tag<Space> |
         \ endif
   autocmd FileType fzf
         \ setlocal laststatus=0 noshowmode noruler
@@ -645,18 +641,18 @@ function! s:try(cmd, default)
   endif
 endfunction
 
-noremap <silent> gJ :<C-U>call <SID>try('SplitjoinJoin', 'gJ')<CR>
-noremap <silent> J :<C-U>call <SID>try('SplitjoinJoin', 'J')<CR>
-noremap <silent> gS :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
-noremap <silent> S :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
-noremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', "r\015")<CR>
+nnoremap <silent> gJ :<C-U>call <SID>try('SplitjoinJoin', 'gJ')<CR>
+nnoremap <silent> J :<C-U>call <SID>try('SplitjoinJoin', 'J')<CR>
+nnoremap <silent> gS :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
+nnoremap <silent> S :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
+nnoremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', "r\015")<CR>
 
 let g:surround_{char2nr('#')} = "#{\<CR>}"
 
 if exists('<Plug>VinegarUp')
-  noremap <silent> <Plug>Up <Plug>VinegarUp
+  nnoremap <silent> <Plug>Up <Plug>VinegarUp
 else
-  noremap <silent> <Plug>Up :Explore<CR>
+  nnoremap <silent> <Plug>Up :Explore<CR>
 endif
 nmap <expr> - line('.') == 1 ? '<Plug>Up' : '-'
 
