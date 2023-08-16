@@ -253,8 +253,7 @@ augroup END
 augroup t_filetypes
   autocmd!
 
-  autocmd BufReadPost */gitconfig,*/.gitconfig,*/.gitconfig.local
-        \ setfiletype gitconfig
+  autocmd BufReadPost gitconfig,.gitconfig.local setfiletype gitconfig
   autocmd BufReadPost */vintrc,*/.vintrc setfiletype yaml
   autocmd BufReadPost patch-* setfiletype diff
 augroup END
