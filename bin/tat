@@ -33,9 +33,9 @@ project_directory=$(
     -maxdepth 4 \
     -type d \
     -name .git \
-    -exec dirname '{}' \; \
-    | sed "s|$HOME/src/||" \
-    | fzf -q "$*"
+    -exec dirname '{}' \; |
+    sed "s|$HOME/src/||" |
+    fzf -q "$*"
 )
 
 if [ -n "$project_directory" ]; then
