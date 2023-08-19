@@ -1,5 +1,4 @@
 autoload -U compinit && compinit
-autoload -Uz colors && colors
 autoload -Uz add-zsh-hook
 
 setopt globdots
