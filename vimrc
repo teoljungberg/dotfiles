@@ -5,7 +5,7 @@ setglobal backupskip=/tmp/*,/private/tmp/*
 setglobal cmdheight=2
 setglobal display=lastline
 setglobal encoding=utf-8
-setglobal guifont=JetBrains\ Mono:h15
+setglobal guifont=JetBrains\ Mono\ NL:h15
 setglobal history=200
 setglobal incsearch
 setglobal laststatus=2
