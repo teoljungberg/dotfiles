@@ -8,6 +8,7 @@ setopt alwaystoend
 setopt hist_ignore_all_dups inc_append_history
 setopt prompt_sp
 setopt auto_cd
+setopt print_exit_value
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
