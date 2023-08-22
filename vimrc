@@ -123,7 +123,7 @@ nnoremap <silent> <C-W>z
       \ <Bar>lclose
       \ <Bar>pclose
       \ <Bar>helpclose
-      \ <Bar>silent! bdelete fugitive://*
+      \ <Bar>silent! $bdelete fugitive://
       \ <CR>
 nnoremap Q @q
 nnoremap Y y$
