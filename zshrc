@@ -231,7 +231,7 @@ git_branch() {
 }
 
 prompt_directory() {
-  echo "%20<..<%~%<<"
+  echo "%20<...<%~%<<"
 }
 
 set_prompt() {
