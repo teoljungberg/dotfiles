@@ -57,26 +57,16 @@ main() {
     -name ".git" |
     while read -r path; do
       path="${path%/.git}"
-      did_stash=""
 
       if git -C "$path" remote | grep -q origin; then
         git -C "$path" fetch -q origin
 
         display_new_commits "$path"
 
-        if [ -n "$(git -C "$path" status --porcelain)" ]; then
-          git -C "$path" stash push -q 1>/dev/null 2>/dev/null
-          did_stash="y"
-        fi
-
         upstream_branch=$(find_upstream "$path") || no_upstream_found "$path"
-        git -C "$path" rebase -q "origin/$upstream_branch" \
+        git -C "$path" rebase --autostash -q "origin/$upstream_branch" \
           1>/dev/null \
           2>/dev/null
-
-        if [ -n "$did_stash" ]; then
-          git -C "$path" stash pop -q 1>/dev/null 2>/dev/null
-        fi
       fi
     done
 
