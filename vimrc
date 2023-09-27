@@ -22,6 +22,8 @@ setglobal showcmd
 setglobal sidescrolloff=5
 setglobal smartcase
 setglobal statusline=[%n]\ %<%f\ %h%m%r%w%=%-14.(%l,%c%V%)\ %P
+setglobal title
+setglobal titlestring=%{v:progname}\ %{fnamemodify(getcwd(),':~')}
 setglobal ttimeout
 setglobal ttimeoutlen=50
 setglobal viminfo=!,'20,<50,s10,h
@@ -188,7 +190,6 @@ augroup t_gui
           \ 'sh',
           \ ]
   autocmd GUIEnter * setglobal
-        \ title
         \ icon
         \ lines=45
         \ columns=86
