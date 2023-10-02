@@ -18,7 +18,7 @@ typeset -U CDPATH
 export CDPATH
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
-export FZF_DEFAULT_OPTS=--color=bw
+export FZF_DEFAULT_OPTS="--color=bw"
 export VISUAL="vim"
 
 _source_if_available "$HOME/.zshenv.local"
