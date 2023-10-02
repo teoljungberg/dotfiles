@@ -79,31 +79,6 @@ clear() {
   fi
 }
 
-# Inside tmux(1) - run builtin ssh, rename the window to the hostname if it is a
-# known host in ssh_config(5)
-# Outside tmux(1) - run builtin ssh.
-ssh() {
-  local hostname="$@"
-  local previous_window_name=""
-  local known_hosts=""
-  if [ -e "$HOME/.ssh/config" ]; then
-    local known_hosts=$(grep -E "^Host" "$HOME/.ssh/config" | cut -d" " -f 2)
-  fi
-  local is_known_host=$(echo $known_hosts | grep -Fq -- "$hostname"; echo $?)
-
-  if [ -n "$TMUX" ] && [ "$is_known_host" = "0" ]; then
-    previous_window_name=$(tmux display-message -p "#W")
-    tmux rename-window -t "$TMUX_PANE" "$hostname"
-
-    command ssh "$@"
-  else
-    command ssh "$@"
-  fi
-
-  [ -n "$previous_window_name" ] && \
-    tmux rename-window -t "$TMUX_PANE" "$previous_window_name"
-}
-
 # No arguments: `git status`
 # With arguments: acts like `git`
 git() {
