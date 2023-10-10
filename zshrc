@@ -56,16 +56,16 @@ __git_changed_files() {
   eval "$cmd" | fzf --height 40% --reverse | while read item; do
     echo -n "${(q)item} "
   done
-  local ret=$?
+  local result=$?
   echo
-  return $ret
+  return $result
 }
 
 _git_changed_files() {
   LBUFFER="${LBUFFER}$(__git_changed_files)"
-  local ret=$?
+  local result=$?
   zle reset-prompt
-  return $ret
+  return $result
 }
 zle -N _git_changed_files
 
