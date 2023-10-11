@@ -1,5 +1,4 @@
 autoload -U compinit && compinit
-autoload -Uz add-zsh-hook
 
 setopt alwaystoend
 setopt auto_cd
