@@ -1,14 +1,15 @@
 autoload -U compinit && compinit
 autoload -Uz add-zsh-hook
 
-setopt globdots
-setopt nobeep
-setopt no_bg_nice
 setopt alwaystoend
-setopt hist_ignore_all_dups inc_append_history
-setopt prompt_sp
 setopt auto_cd
+setopt globdots
+setopt hist_ignore_all_dups
+setopt inc_append_history
+setopt no_bg_nice
+setopt nobeep
 setopt print_exit_value
+setopt prompt_sp
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
