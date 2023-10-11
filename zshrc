@@ -6,7 +6,6 @@ setopt globdots
 setopt hist_ignore_all_dups
 setopt inc_append_history
 setopt no_bg_nice
-setopt nobeep
 setopt print_exit_value
 setopt prompt_sp
 
@@ -14,9 +13,11 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+export VISUAL="vim"
+
 export DIRENV_LOG_FORMAT=
 export DISABLE_SPRING=1
-export EDITOR="vim"
+export EDITOR="$VISUAL"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent::1"
 export HEROKU_COLOR=0
 export HEROKU_LOGS_COLOR=0
