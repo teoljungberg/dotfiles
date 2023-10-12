@@ -183,6 +183,18 @@ zle -N edit-command-line
 # keybindings
 _source_if_available "$HOME/.nix-profile/share/fzf/key-bindings.zsh"
 
+if which fzf >/dev/null; then
+  for keymap in viins vicmd; do
+    bindkey -M "$keymap" -r "^R"
+    bindkey -M "$keymap" -r "^T"
+    bindkey -M "$keymap" -r "^[c"
+  done
+  unset keymap
+
+  bindkey -M viins '^T' fzf-file-widget
+  bindkey -M viins '^X^R' fzf-history-widget
+fi
+
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
@@ -206,8 +218,6 @@ bindkey -M viins '^X^G' _git_changed_files
 
 bindkey -M viins '^[[A' history-beginning-search-backward-end
 bindkey -M viins '^[[B' history-beginning-search-forward-end
-
-command -v fzf 1>/dev/null && bindkey -M viins '^X^R' fzf-history-widget
 
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-forward
