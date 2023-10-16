@@ -5,7 +5,7 @@
   stdenv ? pkgs.stdenv,
   fetchzip ? pkgs.fetchzip,
 }: let
-  version = "0.9.97";
+  version = "0.9.100";
 in
   stdenv.mkDerivation rec {
     pname = "hammerspoon";
@@ -13,7 +13,7 @@ in
 
     src = fetchzip {
       url = "https://github.com/Hammerspoon/hammerspoon/releases/download/${version}/Hammerspoon-${version}.zip";
-      sha256 = "13cGdXjWeig0hUTdiCmiQdq3wcnbPOjnRRAA7hMn690=";
+      sha256 = "Q14NBizKz7LysEFUTjUHCUnVd6+qEYPSgWwrOGeT9Q0=";
     };
 
     installPhase = ''
