@@ -11,15 +11,15 @@ in {
     shell = pkgs.zsh;
   };
 
-  environment.systemPackages = with pkgs; [hammerspoon];
+  environment.systemPackages = [pkgs.hammerspoon];
 
   fonts = {
     fontDir = {enable = true;};
-    fonts = with pkgs; [jetbrains-mono];
+    fonts = [pkgs.jetbrains-mono];
   };
 
   environment = {
-    shells = with pkgs; [zsh];
+    shells = [pkgs.zsh];
     loginShell = "/run/current-system/sw/bin/zsh";
   };
 
