@@ -658,11 +658,6 @@ nmap <expr> - line('.') == 1 ? '<Plug>Up' : '-'
 
 command! -nargs=* -complete=dir E Explore <args>
 
-if has('gui_running')
-  let g:direnv_auto = 1
-else
-  let g:direnv_auto = 0
-endif
 let g:direnv_silent_load = 1
 
 augroup t_obsession
