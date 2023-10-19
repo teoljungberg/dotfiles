@@ -677,6 +677,10 @@ augroup END
 let g:bundler_edit_commands = 0
 let g:ruby_indent_block_style = 'do'
 
+nnoremap <Space>r :source $MYVIMRC
+      \ <Bar>filetype detect
+      \ <Bar>doautocmd VimEnter -<CR>
+
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
