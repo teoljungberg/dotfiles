@@ -30,6 +30,7 @@ in {
     pkg-config
     rcm
     ripgrep
+    ripper-tags
     s3cmd
     setrb
     shellcheck

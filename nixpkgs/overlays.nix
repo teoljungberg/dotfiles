@@ -14,6 +14,7 @@
         }
       );
       lim = super.callPackage ./lim.nix {};
+      ripper-tags = super.callPackage ./ripper-tags {};
       ruby-install = super.callPackage ./ruby-install.nix {};
       setrb = super.callPackage ./setrb.nix {};
     }
