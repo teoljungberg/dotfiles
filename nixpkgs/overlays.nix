@@ -3,15 +3,20 @@
     self: super: {
       gitsh = super.callPackage ./gitsh.nix {};
       hammerspoon = super.callPackage ./hammerspoon.nix {};
-      heroku = super.heroku.overrideAttrs (
-        oldAttrs: {
-          version = "8.1.5";
+      herokuDarwinArm = super.heroku.overrideAttrs (
+        let
+          herokuVersion = "8.5.0";
+          herokuRef = "350fe16";
+        in
+          oldAttrs: {
+            version = herokuVersion;
 
-          src = fetchTarball {
-            url = "https://cli-assets.heroku.com/channels/stable/heroku-darwin-arm64.tar.gz";
-            sha256 = "03vjz4663dv9a4kkfkv4x04dsidw6j0icxdp716ngl2k2w46f4ww";
-          };
-        }
+            # https://github.com/heroku/homebrew-brew/commit/26afdc76a586ed3ed1a38f41a72133e2ff3a9a05
+            src = fetchTarball {
+              url = "https://cli-assets.heroku.com/versions/${herokuVersion}/${herokuRef}/heroku-v${herokuVersion}-${herokuRef}-darwin-x64.tar.xz";
+              sha256 = "0p0zywy28hpn6a78n4yl1yc44igalfprlhvfp8jx5b178lx6dmk8";
+            };
+          }
       );
       lim = super.callPackage ./lim.nix {};
       ripper-tags = super.callPackage ./ripper-tags {};

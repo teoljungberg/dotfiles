@@ -20,7 +20,7 @@ in {
     gitAndTools.hub
     gitsh
     gnupg
-    heroku
+    herokuDarwinArm
     jq
     lim
     mosh
