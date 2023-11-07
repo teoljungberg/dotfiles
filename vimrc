@@ -656,7 +656,9 @@ else
 endif
 nmap <expr> - line('.') == 1 ? '<Plug>Up' : '-'
 
-command! -nargs=* -complete=dir E Explore <args>
+if exists(':E') != 2
+  command! -nargs=* -complete=dir E Explore <args>
+end
 
 let g:direnv_silent_load = 1
 
