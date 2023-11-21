@@ -7,6 +7,8 @@ set -e
 #
 # fuzzy-finds to attach-or-create a session in a project directory
 
+PROJECT_ROOT="${PROJECT_ROOT:-$HOME/src}"
+
 attach_to_tmux_session() {
   if [ -z "$TMUX" ]; then
     tmux attach -d -t "$1"
@@ -29,12 +31,12 @@ connected_to() {
 project_directory=$(
   find \
     -L \
-    "$HOME/src" \
+    "$PROJECT_ROOT" \
     -maxdepth 4 \
     -type d \
     -name .git \
     -exec dirname '{}' \; |
-    sed "s|$HOME/src/||" |
+    sed "s|$PROJECT_ROOT/||" |
     fzf -q "$*"
 )
 
@@ -45,7 +47,7 @@ if [ -n "$project_directory" ]; then
     if tmux has-session -t "=$session_name" 2>/dev/null; then
       attach_to_tmux_session "$session_name"
     else
-      (cd "$HOME/src/$project_directory" && new_tmux_session_named "$session_name")
+      (cd "$PROJECT_ROOT/$project_directory" && new_tmux_session_named "$session_name")
     fi
   fi
 fi
