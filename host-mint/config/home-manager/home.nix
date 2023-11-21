@@ -25,7 +25,6 @@ in {
     lim
     mosh
     neovim
-    nixpkgs-fmt
     pgformatter
     pkg-config
     rcm
