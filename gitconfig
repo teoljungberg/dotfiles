@@ -50,11 +50,6 @@
 [commit]
   cleanup = scissors
   verbose = true
-[gitsh.color]
-  uninitialized = normal
-  untracked = normal
-  modified = normal
-  default = normal
 [hub]
   protocol = ssh
 [include]

@@ -25,7 +25,6 @@ in {
     gitAndTools.gh
     gitAndTools.hub
     gitAndTools.hut
-    gitsh
     gnumake
     gnupg
     jq

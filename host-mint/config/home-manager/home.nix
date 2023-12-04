@@ -18,7 +18,6 @@ in {
     git
     gitAndTools.gh
     gitAndTools.hub
-    gitsh
     gnupg
     herokuDarwinArm
     jq

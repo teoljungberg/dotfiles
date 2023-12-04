@@ -1,7 +1,6 @@
 [
   (
     self: super: {
-      gitsh = super.callPackage ./gitsh.nix {};
       hammerspoon = super.callPackage ./hammerspoon.nix {};
       herokuDarwinArm = super.heroku.overrideAttrs (
         let
