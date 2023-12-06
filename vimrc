@@ -23,13 +23,15 @@ setglobal sidescrolloff=5
 setglobal smartcase
 setglobal statusline=[%n]\ %<%f\ %h%m%r%w%=%-14.(%l,%c%V%)\ %P
 setglobal title
-setglobal titlestring=%{v:progname}\ %{fnamemodify(getcwd(),':~')}
 setglobal ttimeout
 setglobal ttimeoutlen=50
 setglobal viminfo=!,'20,<50,s10,h
 setglobal wildmenu
 setglobal wildmode=full
 syntax enable
+
+let s:titlestring_hostname = exists('$SSH_TTY') ? $LOGNAME . '@' . hostname() . ':' : ''
+let &g:titlestring = s:titlestring_hostname . '%{v:progname} %{fnamemodify(getcwd(),":~")}'
 
 if has('+macmeta')
   setglobal macmeta
