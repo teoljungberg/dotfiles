@@ -84,6 +84,8 @@ if has('nvim') || !has('packages')
 endif
 
 if has('packages')
+  let &g:packpath = &runtimepath
+
   packadd! cfilter
   if !has('nvim')
     packadd! matchit
