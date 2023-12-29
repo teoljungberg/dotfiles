@@ -21,6 +21,7 @@ in {
     gnupg
     herokuDarwinArm
     jq
+    knfmt
     lim
     mosh
     neovim
