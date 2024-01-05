@@ -478,6 +478,12 @@ command! -bar -nargs=1 -complete=customlist,s:cd_complete Cd cd <args>
 command! -bar -nargs=1 -complete=customlist,s:cd_complete Lcd lcd <args>
 command! -bar -nargs=1 -complete=customlist,s:cd_complete Tcd tcd <args>
 
+function! TKnfmt(buffer) abort
+  return { 'command': 'knfmt -s' }
+endfunction
+
+execute ale#fix#registry#Add('knfmt', 'TKnfmt', ['c'], 'knfmt for c')
+
 let g:ale_fixers_explicit = 1
 let g:ale_hover_cursor = 0
 let g:ale_lint_on_enter = 0
@@ -494,6 +500,7 @@ let g:ale_sh_shfmt_options = '--indent 2 --case-indent'
 let g:ale_sql_pgformatter_options = '--spaces 2 --comma-break'
 
 let g:ale_fixers = { '*': ['trim_whitespace'] }
+let g:ale_fixers.c = ['knfmt']
 let g:ale_fixers.json = ['jq']
 let g:ale_fixers.nix = ['alejandra']
 let g:ale_fixers.ruby = ['rubocop', 'sorbet']
