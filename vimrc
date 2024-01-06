@@ -695,6 +695,8 @@ nnoremap <Space>r :source $MYVIMRC
       \ <Bar>filetype detect
       \ <Bar>doautocmd VimEnter -<CR>
 
+command! DoasWrite execute 'silent! write !doas tee % > /dev/null'<Bar>edit!
+
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
