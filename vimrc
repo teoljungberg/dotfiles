@@ -265,6 +265,7 @@ augroup t_openbsd
   autocmd FileType c,cpp setlocal
         \ cindent
         \ cinoptions=:0,t0,+4,(4
+        \ complete+=i
         \ indentkeys=0{,0},0),:,0#,!^F,o,O,e
         \ listchars=tab:\ \ ,trail:-,extends:>,precedes:<,nbsp:+
         \ noexpandtab
