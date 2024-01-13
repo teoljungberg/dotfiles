@@ -127,11 +127,11 @@ theme() {
 
   if which kitty >/dev/null; then
     kitty +kitten themes --reload-in=all "whitescale-$THEME"
+  fi
 
-    if [ -n "$TMUX" ]; then
-      tmux set-environment THEME "$THEME"
-      tmux source-file "$HOME/.tmux.conf"
-    fi
+  if [ -n "$TMUX" ]; then
+    tmux set-environment THEME "$THEME"
+    tmux source-file "$HOME/.tmux.conf"
   fi
 
   if [ $(uname -s) = "Darwin" ]; then
