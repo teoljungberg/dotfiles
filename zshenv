@@ -1,15 +1,19 @@
 _source_if_available() { [ -e "$1" ] && source "$1" }
-_add_to_path_if_available() { [ -e "$1" ] && PATH="$1:$PATH" }
+_append_to_path_if_available() { [ -e "$1" ] && PATH="$PATH:$1" }
+_prepend_to_path_if_available() { [ -e "$1" ] && PATH="$1:$PATH" }
+
+_add_to_path_if_available() { _append_to_path_if_available "$1" }
 
 LANG="en_US.UTF-8"
 
-_add_to_path_if_available "/run/current-system/sw/bin"
-_add_to_path_if_available "/run/wrappers/bin"
-_add_to_path_if_available "/usr/sbin"
-_add_to_path_if_available "/usr/local/bin"
-_add_to_path_if_available "/Applications/kitty.app/Contents/MacOS"
-_add_to_path_if_available "$HOME/.nix-profile/bin"
-_add_to_path_if_available "$HOME/.bin"
+_prepend_to_path_if_available "$HOME/.bin"
+_prepend_to_path_if_available "$HOME/.nix-profile/bin"
+
+_append_to_path_if_available "/usr/local/bin"
+_append_to_path_if_available "/usr/sbin"
+_append_to_path_if_available "/run/current-system/sw/bin"
+_append_to_path_if_available "/Applications/kitty.app/Contents/MacOS"
+
 typeset -U PATH
 export PATH
 
