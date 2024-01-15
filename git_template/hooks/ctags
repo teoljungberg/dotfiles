@@ -4,9 +4,10 @@ set -e
 [ -n "$DEBUG" ] && set -ex
 
 git_dir="$(git rev-parse --git-dir)"
-tmpfile=$(mktemp /tmp/ctags.XXXXXX)
 
 if [ -d "$git_dir/safe" ]; then
+  tmpfile=$(mktemp /tmp/ctags.XXXXXX)
+
   trap 'rm -f "$tmpfile"' EXIT INT TERM
 
   if [ -f Gemfile ] && which ripper-tags 1>/dev/null 2>/dev/null; then
