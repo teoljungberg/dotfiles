@@ -597,14 +597,16 @@ else
   nnoremap <Space>] :tjump /
 endif
 
-let g:fzf_command_prefix = 'FZF'
-let g:fzf_action = {
+let g:fzf_vim = {}
+let g:fzf_vim.command_prefix = 'FZF'
+let g:fzf_vim.action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-t': 'tab split',
       \ 'ctrl-v': 'vsplit',
       \ }
+let g:fzf_vim.layout = { 'down': '40%' }
+let g:fzf_vim.preview_window = []
 let g:fzf_layout = { 'down': '40%' }
-let g:fzf_preview_window = ''
 
 augroup t_fzf
   autocmd!
