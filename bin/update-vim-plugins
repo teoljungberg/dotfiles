@@ -3,76 +3,6 @@
 set -e
 [ -n "$DEBUG" ] && set -ex
 
-main() {
-  bundles="
-    https://github.com/AndrewRadev/splitjoin.vim
-    https://github.com/LnL7/vim-nix
-    https://github.com/dense-analysis/ale
-    https://github.com/direnv/direnv.vim
-    https://github.com/junegunn/fzf.vim
-    https://github.com/teoljungberg/vim-whitescale
-    https://github.com/tommcdo/vim-exchange
-    https://github.com/vim-ruby/vim-ruby
-    https://tpope.io/vim/abolish
-    https://tpope.io/vim/bundler
-    https://tpope.io/vim/commentary
-    https://tpope.io/vim/dispatch
-    https://tpope.io/vim/endwise
-    https://tpope.io/vim/eunuch
-    https://tpope.io/vim/fugitive
-    https://tpope.io/vim/git
-    https://tpope.io/vim/markdown
-    https://tpope.io/vim/obsession
-    https://tpope.io/vim/projectionist
-    https://tpope.io/vim/rails
-    https://tpope.io/vim/rake
-    https://tpope.io/vim/repeat
-    https://tpope.io/vim/rhubarb
-    https://tpope.io/vim/scriptease
-    https://tpope.io/vim/sleuth
-    https://tpope.io/vim/surround
-    https://tpope.io/vim/unimpaired
-    https://tpope.io/vim/vinegar
-  "
-
-  for bundle in ${bundles}; do
-    bundle_name="$(basename "$bundle")"
-    vim_bundle="$HOME/.vim/pack/bundle/start/$bundle_name"
-
-    if [ ! -d "$vim_bundle" ]; then
-      git \
-        clone \
-        --template /dev/null \
-        "$bundle" \
-        "$vim_bundle" \
-        1>/dev/null \
-        2>/dev/null
-    fi
-  done
-
-  find \
-    "$HOME/.vim/pack/bundle" \
-    -maxdepth 3 \
-    -type d \
-    -name ".git" |
-    while read -r path; do
-      path="${path%/.git}"
-
-      if git -C "$path" remote | grep -q origin; then
-        git -C "$path" fetch -q origin
-
-        display_new_commits "$path"
-
-        upstream_branch=$(find_upstream "$path") || no_upstream_found "$path"
-        git -C "$path" rebase --autostash -q "origin/$upstream_branch" \
-          1>/dev/null \
-          2>/dev/null
-      fi
-    done
-
-  nohup vim -u NONE -c "helptags ALL" -cq 1>/dev/null 2>/dev/null &
-}
-
 find_upstream() {
   if git -C "$1" branch | grep -q "main"; then
     echo "main"
@@ -161,4 +91,70 @@ display_new_commits() {
   fi
 }
 
-main
+bundles="
+  https://github.com/AndrewRadev/splitjoin.vim
+  https://github.com/LnL7/vim-nix
+  https://github.com/dense-analysis/ale
+  https://github.com/direnv/direnv.vim
+  https://github.com/junegunn/fzf.vim
+  https://github.com/teoljungberg/vim-whitescale
+  https://github.com/tommcdo/vim-exchange
+  https://github.com/vim-ruby/vim-ruby
+  https://tpope.io/vim/abolish
+  https://tpope.io/vim/bundler
+  https://tpope.io/vim/commentary
+  https://tpope.io/vim/dispatch
+  https://tpope.io/vim/endwise
+  https://tpope.io/vim/eunuch
+  https://tpope.io/vim/fugitive
+  https://tpope.io/vim/git
+  https://tpope.io/vim/markdown
+  https://tpope.io/vim/obsession
+  https://tpope.io/vim/projectionist
+  https://tpope.io/vim/rails
+  https://tpope.io/vim/rake
+  https://tpope.io/vim/repeat
+  https://tpope.io/vim/rhubarb
+  https://tpope.io/vim/scriptease
+  https://tpope.io/vim/sleuth
+  https://tpope.io/vim/surround
+  https://tpope.io/vim/unimpaired
+  https://tpope.io/vim/vinegar
+"
+
+for bundle in ${bundles}; do
+  bundle_name="$(basename "$bundle")"
+  vim_bundle="$HOME/.vim/pack/bundle/start/$bundle_name"
+
+  if [ ! -d "$vim_bundle" ]; then
+    git \
+      clone \
+      --template /dev/null \
+      "$bundle" \
+      "$vim_bundle" \
+      1>/dev/null \
+      2>/dev/null
+  fi
+done
+
+find \
+  "$HOME/.vim/pack/bundle" \
+  -maxdepth 3 \
+  -type d \
+  -name ".git" |
+  while read -r path; do
+    path="${path%/.git}"
+
+    if git -C "$path" remote | grep -q origin; then
+      git -C "$path" fetch -q origin
+
+      display_new_commits "$path"
+
+      upstream_branch=$(find_upstream "$path") || no_upstream_found "$path"
+      git -C "$path" rebase --autostash -q "origin/$upstream_branch" \
+        1>/dev/null \
+        2>/dev/null
+    fi
+  done
+
+nohup vim -u NONE -c "helptags ALL" -cq 1>/dev/null 2>/dev/null &
