@@ -286,6 +286,9 @@ if exists('##OSAppearanceChanged')
   augroup END
 endif
 
+let g:bundler_edit_commands = 0
+let g:ruby_indent_block_style = 'do'
+
 augroup t_ruby
   autocmd!
 
@@ -689,9 +692,6 @@ augroup t_obsession
         \   source Session.vim |
         \ endif
 augroup END
-
-let g:bundler_edit_commands = 0
-let g:ruby_indent_block_style = 'do'
 
 nnoremap <Space>r :source $MYVIMRC
       \ <Bar>filetype detect
