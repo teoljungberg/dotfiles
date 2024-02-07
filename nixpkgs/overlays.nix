@@ -1,8 +1,8 @@
 [
   (
-    self: super: {
-      hammerspoon = super.callPackage ./hammerspoon.nix {};
-      herokuDarwinArm = super.heroku.overrideAttrs (
+    final: prev: {
+      hammerspoon = prev.callPackage ./hammerspoon.nix {};
+      herokuDarwinArm = prev.heroku.overrideAttrs (
         let
           herokuVersion = "8.5.0";
           herokuRef = "350fe16";
@@ -17,11 +17,11 @@
             };
           }
       );
-      knfmt = super.callPackage ./knfmt.nix {};
-      lim = super.callPackage ./lim.nix {};
-      ripper-tags = super.callPackage ./ripper-tags {};
-      ruby-install = super.callPackage ./ruby-install.nix {};
-      setrb = super.callPackage ./setrb.nix {};
+      knfmt = prev.callPackage ./knfmt.nix {};
+      lim = prev.callPackage ./lim.nix {};
+      ripper-tags = prev.callPackage ./ripper-tags {};
+      ruby-install = prev.callPackage ./ruby-install.nix {};
+      setrb = prev.callPackage ./setrb.nix {};
     }
   )
 ]
