@@ -4,6 +4,8 @@
 .Spotlight-V100
 Icon?
 
+result
+
 /.bundle/
 /.gem/
 
@@ -15,4 +17,3 @@ Session.vim
 
 /.rspec-local
 /TODO.md
-/result
