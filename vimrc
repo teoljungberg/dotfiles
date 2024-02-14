@@ -337,6 +337,7 @@ function! s:ccr()
   end
   let cmdline = getcmdline()
   let filter_stub = '\v\C^((filt|filte|filter) .+ )*'
+  let range_stub = '\v\C^((\d+|\.|\%)?,?(\$|\d+|\.)?)*'
   command! -bar Z silent set more|delcommand Z
 
   if cmdline =~# filter_stub . '(ls|files|buffers)'
@@ -356,18 +357,22 @@ function! s:ccr()
     return "\<CR>:normal! `"
   elseif cmdline =~# '\v\C^(undol|undolist)'
     return "\<CR>:undo\<Space>"
-  elseif cmdline =~# filter_stub . '(cli|clist|lli|llist)'
-    return
-          \ "\<CR>" .
-          \ ':silent ' .
-          \ repeat(matchlist(cmdline, '\v(cli|clist|lli|llist)')[0][0], 2) .
-          \ "\<Space>"
-    elseif cmdline =~# '\v\C(dli|dlist|il|ilist)\s.*'
-      return
-            \ "\<CR>:" .
-            \ cmdline[0] .
-            \ 'jump  ' . split(cmdline, ' ')[1] .
-            \ "\<S-Left>\<Left>"
+  elseif cmdline =~# filter_stub . '(cli|clist)'
+    return "\<CR>:silent cc\<Space>"
+  elseif cmdline =~# filter_stub . '(lli|llist)'
+    return "\<CR>:silent ll\<Space>"
+  elseif cmdline =~# range_stub . '(il|ilist)\s.*'
+    return "\<CR>:" .
+          \ matchlist(cmdline, range_stub)[0] .
+          \ "ijump\<Space>" .
+          \ split(cmdline, ' ')[1] .
+          \ "\<S-Left>\<Left>"
+  elseif cmdline =~# range_stub . '(dli|dlist)\s.*'
+    return "\<CR>:" .
+          \ matchlist(cmdline, range_stub)[0] .
+          \ "djump\<Space>" .
+          \ split(cmdline, ' ')[1] .
+          \ "\<S-Left>\<Left>"
   else
     return "\<CR>"
   endif
@@ -376,9 +381,9 @@ endfunction
 cnoremap <script> <expr> <CR> <SID>ccr()
 
 nmap [I :ilist /<C-R>=expand('<cword>')<CR><CR>
-nmap ]I :ilist /<C-R>=expand('<cword>')<CR><CR>
+nmap ]I :.,$ilist /<C-R>=expand('<cword>')<CR><CR>
 nmap [D :dlist /<C-R>=expand('<cword>')<CR><CR>
-nmap ]D :dlist /<C-R>=expand('<cword>')<CR><CR>
+nmap ]D :.,$dlist /<C-R>=expand('<cword>')<CR><CR>
 
 nmap <Space>b :ls<CR>
 
