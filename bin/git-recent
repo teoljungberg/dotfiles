@@ -28,7 +28,7 @@ git_branch_exists() {
   git rev-parse "$1" 1>/dev/null 2>/dev/null
 }
 
-git_branch() {
+git_initial_branch() {
   if git_branch_exists "master"; then
     echo "master"
   elif git_branch_exists "main"; then
@@ -44,5 +44,5 @@ if has_upstream && has_local_commits; then
 elif has_upstream && has_unpulled_commits; then
   git_log "HEAD..@{upstream}" "$@"
 else
-  git_log "origin/$(git_branch)..HEAD" "$@"
+  git_log "origin/$(git_initial_branch)..HEAD" "$@"
 fi
