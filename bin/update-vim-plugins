@@ -3,7 +3,7 @@
 set -e
 [ -n "$DEBUG" ] && set -ex
 
-find_upstream() {
+find_upstream_branch() {
   if git -C "$1" branch | grep -q "main"; then
     echo "main"
   elif git -C "$1" branch | grep -q "master"; then
@@ -15,7 +15,7 @@ find_upstream() {
   fi
 }
 
-no_upstream_found() {
+no_upstream_branch_found() {
   echo "No upstream can be found for '$1'"
   exit 1
 }
@@ -23,8 +23,8 @@ no_upstream_found() {
 git_sha_range() {
   work_tree_path="$1"
   current_sha="$(git -C "$work_tree_path" rev-parse --short HEAD)"
-  upstream_branch=$(find_upstream "$work_tree_path") ||
-    no_upstream_found "$work_tree_path"
+  upstream_branch=$(find_upstream_branch "$work_tree_path") ||
+    no_upstream_branch_found "$work_tree_path"
   new_sha="$(
     git -C "$work_tree_path" \
       rev-parse --short "origin/$upstream_branch"
@@ -36,8 +36,8 @@ git_sha_range() {
 on_upstream_branch() {
   work_tree_path="$1"
   current_branch="$(git -C "$work_tree_path" symbolic-ref --short HEAD)"
-  upstream_branch=$(find_upstream "$work_tree_path") ||
-    no_upstream_found "$work_tree_path"
+  upstream_branch=$(find_upstream_branch "$work_tree_path") ||
+    no_upstream_branch_found "$work_tree_path"
 
   [ "$current_branch" = "$upstream_branch" ]
 }
@@ -150,7 +150,8 @@ find \
 
       display_new_commits "$path"
 
-      upstream_branch=$(find_upstream "$path") || no_upstream_found "$path"
+      upstream_branch=$(find_upstream_branch "$path") ||
+        no_upstream_branch_found "$path"
       git -C "$path" rebase --autostash -q "origin/$upstream_branch" \
         1>/dev/null \
         2>/dev/null
