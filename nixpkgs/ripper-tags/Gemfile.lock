@@ -1,10 +1,11 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    ripper-tags (1.0.1)
+    ripper-tags (1.0.2)
 
 PLATFORMS
   arm64-darwin-22
+  ruby
 
 DEPENDENCIES
   ripper-tags
