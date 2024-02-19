@@ -6,8 +6,8 @@ Icon?
 
 result
 
-/.bundle/
-/.gem/
+.bundle/
+.gem/
 
 /doc/tags
 /tags
