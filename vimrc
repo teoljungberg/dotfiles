@@ -340,7 +340,7 @@ function! s:ccr()
   command! -bar Z silent set more|delcommand Z
 
   if cmdline =~# filter_stub . '(ls|files|buffers)'
-    return "\<CR>:buffer "
+    return "\<CR>:buffer\<Space>"
   elseif cmdline =~# '\v\C/(#|nu|num|numb|numbe|number)$'
     return "\<CR>:"
   elseif cmdline =~# filter_stub . '(old|oldfiles)'
@@ -355,7 +355,7 @@ function! s:ccr()
   elseif cmdline =~# filter_stub . 'marks'
     return "\<CR>:normal! `"
   elseif cmdline =~# '\v\C^(undol|undolist)'
-    return "\<CR>:undo "
+    return "\<CR>:undo\<Space>"
   elseif cmdline =~# filter_stub . '(cli|clist|lli|llist)'
     return
           \ "\<CR>" .
@@ -393,7 +393,7 @@ function! s:ncr()
     return "\<CR>"
   else
     if &buftype !=# 'terminal'
-      return ":\025confirm " . (v:count ? 'write' : 'update') . "\<CR>"
+      return ":\025confirm\<Space>" . (v:count ? 'write' : 'update') . "\<CR>"
     elseif exists('*jobwait') && jobwait([&channel], 0)[0] == -1
       return ':normal! i' . "\<CR>"
     elseif &modified
