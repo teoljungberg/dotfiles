@@ -41,6 +41,10 @@ if exists('+linebreak')
   setglobal showbreak=\ +
 endif
 
+if $TERM =~# '^screen\|^tmux' && empty($SSH_TTY) && !empty($TMUX) && exists('+ttymouse')
+  setglobal ttymouse=xterm2
+endif
+
 if has('vim_starting')
   set commentstring=#\ %s
   set complete+=kspell
