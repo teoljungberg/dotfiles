@@ -402,9 +402,9 @@ function! s:ncr()
     if &buftype !=# 'terminal'
       return ":\025confirm\<Space>" . (v:count ? 'write' : 'update') . "\<CR>"
     elseif exists('*jobwait') && jobwait([&channel], 0)[0] == -1
-      return ':normal! i' . "\<CR>"
+      return ":normal! i\<CR>"
     elseif &modified
-      return ':normal! i' . "\<CR>"
+      return ":normal! i\<CR>"
     else
       return "\<CR>"
     endif
