@@ -323,8 +323,6 @@ augroup END
 augroup t_markdown
   autocmd!
 
-  autocmd FileType markdown,gitcommit iabbrev <buffer> -. - [ ]
-  autocmd FileType markdown,gitcommit iabbrev <buffer> -x - [X]
   autocmd FileType markdown setlocal
         \ expandtab
         \ linebreak
