@@ -260,6 +260,7 @@ augroup t_filetypes
 
   autocmd BufReadPost gitconfig,.gitconfig.local setfiletype gitconfig
   autocmd BufReadPost patch-* setfiletype diff
+  autocmd BufReadPost psqlrc,.psqlrc setfiletype sql
   autocmd BufReadPost vintrc,.vintrc setfiletype yaml
 augroup END
 
