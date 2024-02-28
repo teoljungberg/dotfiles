@@ -11,3 +11,10 @@
 
 \pset pager off
 \pset null '(null)'
+
+-- From https://github.com/heroku/heroku-pg-extras/blob/main/commands
+-- via https://github.com/luax
+\set blocking 'SELECT bl.pid AS blocked_pid, ka.query AS blocking_statement, now() - ka.query_start AS blocking_duration, kl.pid AS blocking_pid, a.query AS blocked_statement, now() - a.query_start AS blocked_duration FROM pg_catalog.pg_locks bl JOIN pg_catalog.pg_stat_activity a ON bl.pid = a.pid JOIN pg_catalog.pg_locks kl JOIN pg_catalog.pg_stat_activity ka ON kl.pid = ka.pid ON bl.transactionid = kl.transactionid AND bl.pid != kl.pid WHERE NOT bl.granted;'
+\set connections 'SELECT usename AS username, COUNT(*) FROM pg_stat_activity GROUP BY username;'
+\set connections_by_application 'SELECT application_name, COUNT(*) FROM pg_stat_activity GROUP BY application_name ORDER by application_name;'
+\set long_running_queries 'SELECT pid, now() - pg_stat_activity.query_start AS duration, query AS query FROM pg_stat_activity WHERE pg_stat_activity.query <> ''::text'' AND state <> ''idle'' AND now() - pg_stat_activity.query_start > interval ''5 minutes'' ORDER BY now() - pg_stat_activity.query_start DESC;'
