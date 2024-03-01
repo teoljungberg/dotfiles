@@ -126,7 +126,7 @@ cnoremap <C-R><C-L> <C-R>=substitute(getline('.'), '^\s*', '', '')<CR>
 cnoremap <C-R>W <C-R><C-A>
 nnoremap <Leader>d :bdelete<CR>
 nnoremap <silent> <C-L>
-      \ :nohlsearch <C-R>=has('diff') ? "<Bar>diffupdate" : ''<CR><CR><C-L>
+      \ :nohlsearch <C-R>=has('diff') ? "\<Bar>diffupdate" : ''<CR><CR><C-L>
 nnoremap <silent> <C-W>z
       \ :wincmd z
       \ <Bar>cclose
@@ -182,7 +182,7 @@ nnoremap <C-W>] :stag <C-R>=expand('<cword>')<CR><CR>
 nnoremap g<C-T> :ptag <C-R>=expand('<cword>')<CR><CR>
 
 " Originally from: https://github.com/tpope/vim-rsi
-inoremap <expr> <C-E> col('.') > strlen(getline('.')) ? "<C-E>" : "<End>"
+inoremap <expr> <C-E> col('.') > strlen(getline('.')) ? "\<C-E>" : "\<End>"
 inoremap <C-A> <Esc>I
 cnoremap <C-A> <Home>
 
