@@ -127,7 +127,6 @@ end
 
 function M.reloadConfig()
   hs.reload()
-  hs.alert.show("Config reloaded")
 end
 
 function M.moveWindowToWestDisplay()
