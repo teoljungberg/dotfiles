@@ -1,6 +1,6 @@
 local M = {}
 local pixelDifference = 50
-local menuBarInPixles = 23
+local menuBarInPixles = 37
 local numberOfCells = 8
 
 local function getWindow()
