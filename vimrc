@@ -601,7 +601,7 @@ if executable('fzf')
     setglobal runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
   endif
 
-  nnoremap <Space><Space> :FZF<CR>
+  nnoremap <Space><Space> :FZFFiles<CR>
   nnoremap <Space>] :FZFTags<CR>
 else
   nnoremap <Space><Space> :find<Space>
