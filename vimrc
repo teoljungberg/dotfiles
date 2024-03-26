@@ -221,10 +221,8 @@ let s:filetypes_with_nonumber = [
       \ 'gitrebase',
       \ 'help',
       \ 'man',
-      \ 'markdown',
       \ 'netrw',
       \ 'qf',
-      \ 'text',
       \ ]
 augroup t_number
   autocmd!
