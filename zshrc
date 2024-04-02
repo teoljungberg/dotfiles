@@ -28,6 +28,7 @@ if [ -e "/nix" ]; then
   export NIX_PATH="darwin=$HOME/.nix-defexpr/channels/darwin:$NIX_PATH"
   export NIX_PATH="home-manager=$HOME/.nix-defexpr/channels/home-manager:$NIX_PATH"
 fi
+export NIX_SHELL_PRESERVE_PROMPT=1
 export NO_COLOR=1
 export PAGER="less -R"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
@@ -238,9 +239,9 @@ prompt_directory() {
 
 set_prompt() {
   if [ -n "$SSH_TTY" ]; then
-    PROMPT="$(prompt_directory) %n@%m $(git_branch)%(1j.%j .)%# "
+    PS1="$(prompt_directory) %n@%m $(git_branch)%(1j.%j .)%# "
   else
-    PROMPT="$(prompt_directory) $(git_branch)%(1j.%j .)%# "
+    PS1="$(prompt_directory) $(git_branch)%(1j.%j .)%# "
   fi
 }
 
