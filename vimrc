@@ -557,9 +557,6 @@ augroup t_dispatch
           \ let b:dispatch = 'nixos-rebuild dry-run' |
           \ setlocal makeprg=nixos-rebuild\ build
   endif
-  autocmd BufReadPost */home.nix
-        \ let b:dispatch = 'home-manager build --file %:S --no-out-link' |
-        \ setlocal makeprg=home-manager\ build\ --file\ %:S
   autocmd BufReadPost flake.nix
         \ let b:dispatch = 'nix build --no-link' |
         \ setlocal makeprg=nix\ build
