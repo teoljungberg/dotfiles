@@ -35,7 +35,6 @@ home-manager https://github.com/nix-community/home-manager/archive/RELEASE.tar.g
 
 ```
 % darwin-rebuild switch -I darwin-config=$(pwd)/nixpkgs/darwin-configuration.nix
-% home-manager switch -f $(pwd)/host-A_HOST/config/nixpkgs/home.nix
 ```
 
 ### NixOS
