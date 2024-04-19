@@ -492,7 +492,9 @@ function! TKnfmt(buffer) abort
   return { 'command': 'knfmt -s' }
 endfunction
 
-execute ale#fix#registry#Add('knfmt', 'TKnfmt', ['c'], 'knfmt for c')
+if exists('g:loaded_ale')
+  call ale#fix#registry#Add('knfmt', 'TKnfmt', ['c'], 'knfmt for c')
+endif
 
 let g:ale_fixers_explicit = 1
 let g:ale_hover_cursor = 0
