@@ -671,7 +671,7 @@ nnoremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', "r\015")<CR>
 
 let g:surround_{char2nr('#')} = "#{\<CR>}"
 
-if exists('<Plug>VinegarUp')
+if exists('g:loaded_vinegar')
   nnoremap <silent> <Plug>Up <Plug>VinegarUp
 else
   nnoremap <silent> <Plug>Up :Explore<CR>
