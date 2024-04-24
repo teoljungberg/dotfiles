@@ -1,6 +1,7 @@
 {pkgs, ...}: let
   lib = pkgs.lib;
 
+  overlays = ./../../nixpkgs/overlays.nix;
   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8DmGnZmzOUOlg+gtKuGouRz6wCqy1pwNKvweJ4MCp0 teo@teoljungberg.com";
 in {
   imports = [
@@ -108,6 +109,7 @@ in {
   };
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = import overlays;
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -139,7 +141,6 @@ in {
   system.stateVersion = "23.05"; # Did you read the comment?
 
   home-manager.users.teo = {pkgs, ...}: let
-    overlays = ./../../nixpkgs/overlays.nix;
     vim = pkgs.vim_configurable.override {
       ruby = pkgs.ruby_3_1;
 
