@@ -6,6 +6,7 @@ in {
   imports = [
     /etc/nixos/hardware-configuration.nix
     <nixpkgs/nixos/modules/profiles/headless.nix>
+    <home-manager/nixos>
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -136,4 +137,62 @@ in {
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
+
+  home-manager.users.teo = {pkgs, ...}: let
+    overlays = ./../../nixpkgs/overlays.nix;
+    vim = pkgs.vim_configurable.override {
+      ruby = pkgs.ruby_3_1;
+
+      config.vim.gui = false;
+    };
+  in {
+    nixpkgs.overlays = import overlays;
+    nixpkgs.config.allowUnfree = true;
+
+    programs.home-manager.enable = true;
+
+    home.homeDirectory = "/home/teo";
+    home.stateVersion = "21.11";
+    home.username = "teo";
+
+    home.packages = with pkgs; [
+      _1password
+      alejandra
+      autoconf
+      automake
+      comma
+      fzf
+      git
+      gitAndTools.gh
+      gitAndTools.hub
+      gitAndTools.hut
+      gnumake
+      gnupg
+      jq
+      lim
+      mosh
+      neovim
+      pgformatter
+      pkg-config
+      rclone
+      rcm
+      ripgrep
+      ripper-tags
+      s3cmd
+      setrb
+      shellcheck
+      shfmt
+      tmux
+      universal-ctags
+      vim
+      vim-vint
+      wget
+      zsh
+    ];
+
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+  };
 }
