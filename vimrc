@@ -549,16 +549,12 @@ augroup t_dispatch
         \ let b:dispatch = 'nix-build %:S --no-link' |
         \ let b:start = 'nix repl --file %:S' |
         \ setlocal makeprg=nix-build\ %:S
-  if has('mac')
-    autocmd BufReadPost */darwin-configuration.nix
-          \ let b:dispatch = 'darwin-rebuild check' |
-          \ setlocal makeprg=darwin-rebuild\ build
-  endif
-  if has('linux')
-    autocmd BufReadPost */nixos-configuration.nix,/etc/nixos/configuration.nix
-          \ let b:dispatch = 'nixos-rebuild dry-run' |
-          \ setlocal makeprg=nixos-rebuild\ build
-  endif
+  autocmd BufReadPost */darwin-configuration.nix
+        \ let b:dispatch = 'darwin-rebuild check' |
+        \ setlocal makeprg=darwin-rebuild\ build
+  autocmd BufReadPost */nixos-configuration.nix,/etc/nixos/configuration.nix
+        \ let b:dispatch = 'nixos-rebuild dry-run' |
+        \ setlocal makeprg=nixos-rebuild\ build
   autocmd BufReadPost flake.nix
         \ let b:dispatch = 'nix build --no-link' |
         \ setlocal makeprg=nix\ build
