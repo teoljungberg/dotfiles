@@ -20,10 +20,7 @@ in {
     fonts = [pkgs.jetbrains-mono];
   };
 
-  environment = {
-    shells = [pkgs.zsh];
-    loginShell = "/run/current-system/sw/bin/zsh";
-  };
+  environment.shells = [pkgs.zsh];
 
   networking = {hostName = "Mint";};
 
