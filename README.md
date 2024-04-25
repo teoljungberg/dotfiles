@@ -53,4 +53,3 @@ Add the `cron/crontab-teoljungberg` to your own `crontab(1)`:
 
 [nix]: https://determinate.systems/posts/determinate-nix-installer/
 [nix-darwin]: https://github.com/LnL7/nix-darwin
-[nixos-infect]: https://github.com/elitak/nixos-infect
