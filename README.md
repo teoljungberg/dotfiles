@@ -30,7 +30,6 @@ nixpkgs https://nixos.org/channels/nixpkgs-NIXPKGS_RELEASE-darwin
 
 1. Install [nix]
 1. Install [nix-darwin]
-1. Install [home-manager]
 1. Add nix channels.
 
 ```
@@ -54,5 +53,4 @@ Add the `cron/crontab-teoljungberg` to your own `crontab(1)`:
 
 [nix]: https://nixos.org/manual/nix/stable/installation/installing-binary.html
 [nix-darwin]: https://github.com/LnL7/nix-darwin
-[home-manager]: https://github.com/nix-community/home-manager
 [nixos-infect]: https://github.com/elitak/nixos-infect
