@@ -1,2 +1,2 @@
 DOTFILES_DIRS="$HOME/src/github.com/teoljungberg/dotfiles"
-EXCLUDES="*.md cron/* result rcrc Session.vim"
+EXCLUDES="*.md cron/* result rcrc Session.vim flake.* nixpkgs/darwin-configuration.nix nixpkgs/home.nix"
