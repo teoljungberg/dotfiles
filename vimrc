@@ -556,7 +556,7 @@ augroup t_dispatch
         \ let b:dispatch = 'nixos-rebuild dry-run' |
         \ setlocal makeprg=nixos-rebuild\ build
   autocmd BufReadPost flake.nix
-        \ let b:dispatch = 'nix build --no-link --file %:S' |
+        \ let b:dispatch = '-dir=%:p:h nix flake check --impure' |
         \ setlocal makeprg=nix\ build\ --file\ %:S
 
   autocmd FileType ruby let b:start = 'irb -r %:S:p'
