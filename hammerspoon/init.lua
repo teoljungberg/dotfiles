@@ -1,4 +1,5 @@
-local helper = require "helper"
+local helper = require("helper")
+local ipc = require("hs.ipc")
 
 hs.window.animationDuration = 0
 
@@ -25,3 +26,5 @@ for key, bundleID in pairs(helper.buildApplicationShortcutToBundleMapping()) do
     hs.hotkey.bind({"shift", "ctrl"}, tostring(key), helper.toggleApplication(bundleID))
   end
 end
+
+ipc.cliColors({error="", initial="", output="", input=""})
