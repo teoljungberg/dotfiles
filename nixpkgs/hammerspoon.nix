@@ -18,7 +18,11 @@ in
 
     installPhase = ''
       mkdir -p $out/Applications/Hammerspoon.app
+      mkdir -p $out/bin
+      mkdir -p $out/share/man/man1
       mv ./* $out/Applications/Hammerspoon.app
+      ln -s $out/Applications/Hammerspoon.app/Contents/Frameworks/hs/hs $out/bin/hs
+      ln -s $out/Applications/Hammerspoon.app/Contents/Resources/man/hs.man $out/share/man/man1/hs.1
       chmod +x "$out/Applications/Hammerspoon.app/Contents/MacOS/Hammerspoon"
     '';
   }
