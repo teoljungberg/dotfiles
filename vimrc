@@ -572,6 +572,10 @@ augroup t_dispatch
         \ elseif !exists('b:dispatch') |
         \   let b:dispatch = 'ruby -wc %:S' |
         \ endif
+
+  autocmd BufReadPost hammerspoon/*.lua
+        \ let b:dispatch = 'hs -q %:p:S' |
+        \ let b:start = 'hs'
 augroup END
 
 let g:fugitive_dynamic_colors = 0
