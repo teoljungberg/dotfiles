@@ -163,6 +163,8 @@ nmap <Leader>t :tabedit %%
 nmap <Leader>r :read %%
 nmap <Leader>w :write %%
 
+nmap <expr> - line('.') == 1 ? ':edit %%<CR>' : '-'
+
 " In the following file `app/services/foo_bar.rb`, `%t` is expanded to
 " `services/foo_bar`. Which useful for creating tests by i.e `:Vspec %t!`
 " (which is expanded to `:Vspec services/foo_bar!`.
@@ -670,13 +672,6 @@ nnoremap <silent> S :<C-U>call <SID>try('SplitjoinSplit', 'S')<CR>
 nnoremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', "r\015")<CR>
 
 let g:surround_{char2nr('#')} = "#{\<CR>}"
-
-if exists('g:loaded_vinegar')
-  nnoremap <silent> <Plug>Up <Plug>VinegarUp
-else
-  nnoremap <silent> <Plug>Up :Explore<CR>
-endif
-nmap <expr> - line('.') == 1 ? '<Plug>Up' : '-'
 
 if exists(':E') != 2
   command! -nargs=* -complete=dir E Explore <args>
