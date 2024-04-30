@@ -331,7 +331,7 @@ augroup t_markdown
 augroup END
 
 " Originally from:
-" https://gist.github.com/romainl/047aca21e338df7ccf771f96858edb86
+" https://gist.github.com/romainl/5b2cfb2b81f02d44e1d90b74ef555e31
 function! s:ccr()
   if getcmdtype() !=# ':'
     return "\<CR>"
