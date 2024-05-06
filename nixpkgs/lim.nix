@@ -15,5 +15,5 @@ in
   runCommand "lim" {} ''
     mkdir -p $out/bin
 
-    ln -s ${src} $out/bin/lim
+    cp ${src} $out/bin/lim
   ''
