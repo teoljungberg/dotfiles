@@ -16,7 +16,7 @@ HOSTNAME="A_HOST"
 1. Add [nix channels](#nix-channels)
 
 ```
-% darwin-rebuild switch -I darwin-config=$(pwd)/nixpkgs/darwin-configuration.nix
+% darwin-rebuild switch -I darwin-config=$(pwd)/host-A_HOST/nixpkgs/darwin-configuration.nix
 ```
 
 ### NixOS
