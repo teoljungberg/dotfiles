@@ -244,6 +244,16 @@ set_prompt() {
   fi
 }
 
+bell() {
+  if [ $# -eq 0 ]; then
+    cat
+    print -Pn "\a"
+  else
+    $@
+    print -Pn "\a"
+  fi
+}
+
 set_title() {
   if [ -n "$SSH_TTY" ]; then
     print -Pn "\e]2;%n@%m:$(prompt_directory)"
