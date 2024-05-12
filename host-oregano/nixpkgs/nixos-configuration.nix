@@ -180,7 +180,6 @@ in {
       ripgrep
       ripper-tags
       s3cmd
-      setrb
       shellcheck
       shfmt
       tmux

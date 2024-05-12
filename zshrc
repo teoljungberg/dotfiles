@@ -244,14 +244,6 @@ set_prompt() {
   fi
 }
 
-setup_setrb() {
-  command -v setrb >/dev/null && \
-    [ -z "$DISABLE_SETRB" ] && \
-    [ -z "$SETRB_PATH_ADDITIONS" ] &&
-    ([ -f .ruby-version ] || [ -f .tool-versions ]) && \
-    eval "$(setrb -w0 2>/dev/null)"
-}
-
 set_title() {
   if [ -n "$SSH_TTY" ]; then
     print -Pn "\e]2;%n@%m:$(prompt_directory)"
@@ -280,7 +272,6 @@ preexec() {
 precmd() {
   set_title "$@"
   set_prompt
-  setup_setrb
 }
 
 _source_if_available "$HOME/.zshrc.local"
