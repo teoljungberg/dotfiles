@@ -83,7 +83,7 @@ clear() {
 new-window() {
   if [ -n "$TMUX" ]; then
     tmux new-window "$@"
-  elif which kitty >/dev/null; then
+  elif command -v kitty >/dev/null; then
     kitty @ launch --type=tab zsh 1>/dev/null
   fi
 }
@@ -125,7 +125,7 @@ theme() {
     export THEME="$new_style"
   fi
 
-  if which kitty >/dev/null; then
+  if command -v kitty >/dev/null; then
     kitty +kitten themes --reload-in=all "whitescale-$THEME"
   fi
 
@@ -163,11 +163,11 @@ _source_if_available "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 _source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
 PATH=".git/safe/../../bin:$PATH"
 
-if which kitty >/dev/null; then
+if command -v kitty >/dev/null; then
   kitty + complete setup zsh | source /dev/stdin
 fi
 
-if which direnv >/dev/null; then
+if command -v direnv >/dev/null; then
   eval "$(direnv hook zsh)"
 fi
 
@@ -183,7 +183,7 @@ zle -N edit-command-line
 # keybindings
 _source_if_available "$HOME/.nix-profile/share/fzf/key-bindings.zsh"
 
-if which fzf >/dev/null; then
+if command -v fzf >/dev/null; then
   for keymap in viins vicmd; do
     bindkey -M "$keymap" -r "^R"
     bindkey -M "$keymap" -r "^T"
@@ -245,7 +245,7 @@ set_prompt() {
 }
 
 setup_setrb() {
-  which setrb >/dev/null && \
+  command -v setrb >/dev/null && \
     [ -z "$DISABLE_SETRB" ] && \
     [ -z "$SETRB_PATH_ADDITIONS" ] &&
     ([ -f .ruby-version ] || [ -f .tool-versions ]) && \

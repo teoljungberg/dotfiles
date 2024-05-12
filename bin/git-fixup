@@ -3,7 +3,7 @@
 set -e
 [ -n "$DEBUG" ] && set -ex
 
-which fzf 1>/dev/null 2>/dev/null || {
+command -v fzf 1>/dev/null 2>/dev/null || {
   echo >&2 "fzf(1) is not installed."
   exit 1
 }

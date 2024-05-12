@@ -10,10 +10,10 @@ if [ -d "$git_dir/safe" ]; then
 
   trap 'rm -f "$tmpfile"' EXIT INT TERM
 
-  if [ -f Gemfile ] && which ripper-tags 1>/dev/null 2>/dev/null; then
+  if [ -f Gemfile ] && command -v ripper-tags 1>/dev/null 2>/dev/null; then
     git ls-files --cached --exclude-standard --others | \
       ripper-tags -L - -f "$tmpfile"
-  elif [ -f Gemfile ] && which stree 1>/dev/null 2>/dev/null; then
+  elif [ -f Gemfile ] && command -v stree 1>/dev/null 2>/dev/null; then
     # shellcheck disable=SC2046
     stree ctags \
       $(git ls-files --cached --exclude-standard --others | grep -E \\.rb) \
