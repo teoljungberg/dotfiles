@@ -90,7 +90,7 @@ in {
       gitAndTools.gh
       gitAndTools.hub
       gnupg
-      herokuDarwinArm
+      heroku-aarch64-darwin
       jq
       knfmt
       lim
