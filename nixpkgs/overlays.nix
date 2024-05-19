@@ -4,17 +4,15 @@
       hammerspoon = prev.callPackage ./hammerspoon.nix {pkgs = prev;};
       herokuDarwinArm = prev.heroku.overrideAttrs (
         let
-          herokuVersion = "8.5.0";
-          herokuRef = "350fe16";
+          # https://github.com/heroku/homebrew-brew/commit/3b6ca6a88b49e47a0fd7625eff10a2475ac7e1a4
+          version = "8.11.5";
+          url = "https://cli-assets.heroku.com/versions/8.11.5/df5cd30/heroku-v8.11.5-df5cd30-darwin-x64.tar.xz";
+          sha256 = "1g6lbxgff3d3n05dwrdlm94kf5jsim6jxdxzf1qmhzq8agnc1wd0";
         in
           oldAttrs: {
-            version = herokuVersion;
+            inherit version;
 
-            # https://github.com/heroku/homebrew-brew/commit/26afdc76a586ed3ed1a38f41a72133e2ff3a9a05
-            src = fetchTarball {
-              url = "https://cli-assets.heroku.com/versions/${herokuVersion}/${herokuRef}/heroku-v${herokuVersion}-${herokuRef}-darwin-x64.tar.xz";
-              sha256 = "0p0zywy28hpn6a78n4yl1yc44igalfprlhvfp8jx5b178lx6dmk8";
-            };
+            src = fetchTarball {inherit url sha256;};
           }
       );
       knfmt = prev.callPackage ./knfmt.nix {pkgs = prev;};
