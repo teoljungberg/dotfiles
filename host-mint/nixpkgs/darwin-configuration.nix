@@ -95,7 +95,6 @@ in {
       knfmt
       lim
       mosh
-      neovim
       pgformatter
       pkg-config
       rcm
@@ -104,6 +103,7 @@ in {
       s3cmd
       shellcheck
       shfmt
+      t-neovim
       tailscale
       tmux
       universal-ctags
