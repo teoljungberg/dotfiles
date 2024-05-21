@@ -7,7 +7,10 @@
       lim = prev.callPackage ./lim.nix {pkgs = prev;};
       ripper-tags = prev.callPackage ./ripper-tags {pkgs = prev;};
       ruby-install = prev.callPackage ./ruby-install.nix {pkgs = prev;};
-      t-neovim = prev.callPackage ./t-neovim.nix {pkgs = prev;};
+      t-neovim = prev.callPackage ./t-neovim.nix {
+        pkgs = prev;
+        vimAlias = true;
+      };
       tmux = prev.callPackage ./tmux.nix {pkgs = prev;};
     }
   )

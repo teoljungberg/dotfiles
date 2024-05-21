@@ -2,15 +2,12 @@
   pkgs ? import <nixpkgs> {},
   lib ? pkgs.lib,
   runCommand ? pkgs.runCommand,
-  vim ? pkgs.vim,
-}:
-with lib; let
+  neovim ? pkgs.neovim,
+}: let
   src =
-    if versionAtLeast vim.version "9.0"
-    then "${vim}/share/vim/vim90/macros/less.sh"
-    else if versionAtLeast vim.version "8.2"
-    then "${vim}/share/vim/vim82/macros/less.sh"
-    else builtins.throw "No less macro found inside ${vim}";
+    if builtins.pathExists "${neovim}/share/nvim/runtime/macros/less.sh"
+    then "${neovim}/share/nvim/runtime/macros/less.sh"
+    else builtins.throw "No less macro found inside ${neovim}";
 in
   runCommand "lim" {} ''
     mkdir -p $out/bin

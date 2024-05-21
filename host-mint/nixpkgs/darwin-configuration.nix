@@ -108,7 +108,6 @@ in {
       tailscale
       tmux
       universal-ctags
-      vim
       vim-vint
       zsh
     ];
