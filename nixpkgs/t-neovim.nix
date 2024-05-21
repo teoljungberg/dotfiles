@@ -1,5 +1,9 @@
-{pkgs ? (import <nixpkgs> {})}: let
-  inherit (pkgs) stdenv;
+{
+  pkgs ? (import <nixpkgs> {}),
+  viAlias ? false,
+  vimAlias ? false,
+}: let
+  inherit (pkgs) stdenv lib;
 
   version = "0.10.0";
   src =
@@ -15,10 +19,17 @@ in
     inherit version src;
     name = "neovim";
 
-    installPhase = ''
-      mkdir -p $out/{bin,lib,share}
-      cp -R bin/* $out/bin
-      cp -R lib/* $out/lib
-      cp -R share/* $out/share
-    '';
+    installPhase =
+      ''
+        mkdir -p $out/{bin,lib,share}
+        cp -R bin/* $out/bin
+        cp -R lib/* $out/lib
+        cp -R share/* $out/share
+      ''
+      + lib.optionalString viAlias ''
+        ln -s $out/bin/nvim $out/bin/vi
+      ''
+      + lib.optionalString vimAlias ''
+        ln -s $out/bin/nvim $out/bin/vim
+      '';
   }
