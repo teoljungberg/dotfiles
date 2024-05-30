@@ -514,6 +514,7 @@ let g:ale_sql_pgformatter_options = '--spaces 2 --comma-break'
 let g:ale_fixers = { '*': ['trim_whitespace'] }
 let g:ale_fixers.c = ['knfmt']
 let g:ale_fixers.json = ['jq']
+let g:ale_fixers.lua = ['stylua']
 let g:ale_fixers.nix = ['alejandra']
 let g:ale_fixers.ruby = ['rubocop', 'sorbet']
 let g:ale_fixers.sh = ['shfmt']

@@ -103,6 +103,7 @@ in {
       s3cmd
       shellcheck
       shfmt
+      stylua
       t-neovim
       tailscale
       tmux
