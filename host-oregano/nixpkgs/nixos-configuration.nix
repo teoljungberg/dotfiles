@@ -128,7 +128,7 @@ in {
   programs.mosh.enable = true;
   programs.zsh.enable = true;
 
-  system.autoUpgrade.channel = "https://nixos.org/channels/nixos-23.11";
+  system.autoUpgrade.channel = "https://nixos.org/channels/nixos-24.05";
   system.autoUpgrade.enable = true;
   system.copySystemConfiguration = true;
 
