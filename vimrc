@@ -508,6 +508,7 @@ let g:ale_open_list = 1
 let g:ale_set_signs = 0
 let g:ale_virtualtext_cursor = 0
 
+let g:ale_lua_stylua_options = '--config-path ~/.stylua.toml'
 let g:ale_sh_shfmt_options = '--indent 2 --case-indent'
 let g:ale_sql_pgformatter_options = '--spaces 2 --comma-break'
 
