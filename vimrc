@@ -575,7 +575,7 @@ augroup t_dispatch
         \   let b:dispatch = 'ruby -wc %:S' |
         \ endif
 
-  autocmd BufReadPost hammerspoon/*.lua
+  autocmd BufReadPost *hammerspoon/*.lua
         \ let b:dispatch = 'hs -q %:p:S' |
         \ let b:start = 'hs'
 augroup END
