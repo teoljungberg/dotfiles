@@ -78,7 +78,7 @@ in {
     in
       lib.mkIf (builtins.pathExists backupsDirectory) {
         path = with pkgs; [bash findutils git nettools openssh];
-        script = builtins.readFile (backupsDirectory + "run.sh");
+        script = "sh ${backupsDirectory}/run.sh";
         serviceConfig = {User = "teo";};
         startAt = "daily";
       };
@@ -88,7 +88,7 @@ in {
     in
       lib.mkIf (builtins.pathExists dotfilesDirectory) {
         path = with pkgs; [bash findutils git openssh];
-        script = builtins.readFile (dotfilesDirectory + "bin/update-vim-plugins");
+        script = "sh ${dotfilesDirectory}/bin/update-vim-plugins";
         serviceConfig = {User = "teo";};
         startAt = "daily";
       };
