@@ -1,5 +1,5 @@
-local helper = require "helper"
-local ipc = require "hs.ipc"
+local helper = require("helper")
+local ipc = require("hs.ipc")
 
 hs.window.animationDuration = 0
 
@@ -31,4 +31,4 @@ for key, bundleID in pairs(helper.buildApplicationShortcutToBundleMapping()) do
   end
 end
 
-ipc.cliColors { error = "", initial = "", output = "", input = "" }
+ipc.cliColors({ error = "", initial = "", output = "", input = "" })
