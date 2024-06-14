@@ -22,6 +22,7 @@ setglobal showcmd
 setglobal sidescrolloff=5
 setglobal smartcase
 setglobal statusline=[%n]\ %<%f\ %h%m%r%w%=%-14.(%l,%c%V%)\ %P
+setglobal tags-=./tags tags-=./tags; tags^=./tags;
 setglobal title
 setglobal ttimeout
 setglobal ttimeoutlen=50
