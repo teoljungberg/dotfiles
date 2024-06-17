@@ -10,6 +10,8 @@ find_upstream_branch() {
     echo "master"
   elif git -C "$1" branch | grep -q "release"; then
     echo "release"
+  elif git -C "$1" branch | grep -q "canary"; then
+    echo "canary"
   else
     exit 1
   fi
