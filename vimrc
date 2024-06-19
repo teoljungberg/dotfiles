@@ -400,17 +400,21 @@ function! s:ncr()
 
   if &buftype ==# 'quickfix'
     return "\<CR>"
-  else
-    if &buftype !=# 'terminal'
-      return ":\025confirm\<Space>" . (v:count ? 'write' : 'update') . "\<CR>"
-    elseif exists('*jobwait') && jobwait([&channel], 0)[0] == -1
-      return ":normal! i\<CR>"
-    elseif &modified
-      return ":normal! i\<CR>"
-    else
-      return "\<CR>"
-    endif
   endif
+
+  if &buftype !=# 'terminal'
+    return ":\025confirm\<Space>" . (v:count ? 'write' : 'update') . "\<CR>"
+  endif
+
+  if exists('*jobwait') && jobwait([&channel], 0)[0] == -1
+    return ":normal! i\<CR>"
+  endif
+
+  if &modified
+    return ":normal! i\<CR>"
+  endif
+
+  return "\<CR>"
 endfunction
 nmap <silent> <script> <expr> <CR> <SID>ncr()
 
