@@ -4,14 +4,10 @@ set -e
 [ -n "$DEBUG" ] && set -ex
 
 find_upstream_branch() {
-  if git -C "$1" branch | grep -q "main"; then
-    echo "main"
-  elif git -C "$1" branch | grep -q "master"; then
-    echo "master"
-  elif git -C "$1" branch | grep -q "release"; then
-    echo "release"
-  elif git -C "$1" branch | grep -q "canary"; then
-    echo "canary"
+  branches="(master|main|release|canary)"
+
+  if git -C "$1" branch | grep -qEo "$branches"; then
+    git -C "$1" branch | grep -Eo "$branches" | head -n 1
   else
     exit 1
   fi
