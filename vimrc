@@ -712,6 +712,19 @@ command! DoasWrite
       \ s:elevate_privileges
       \ 'tee % > /dev/null'<Bar>edit!
 
+function s:colorscheme()
+  if get(g:, 'colors_name', '') !=# 'whitescale'
+    hi Comment cterm=italic gui=italic term=italic
+    hi String cterm=italic gui=italic term=italic
+  endif
+endfunction
+
+augroup t_colorscheme
+  autocmd!
+
+  autocmd ColorScheme * call <SID>colorscheme()
+augroup END
+
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
