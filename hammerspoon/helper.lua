@@ -199,7 +199,7 @@ function M.buildApplicationShortcutToBundleMapping()
     [7] = nil,
     [8] = nil,
     [9] = "com.google.Chrome",
-    ["m"] = "org.vim.MacVim",
+    ["m"] = "com.neovide.neovide",
     ["n"] = "com.apple.Notes",
   }
 end
