@@ -10,7 +10,6 @@
         pkgs = prev;
         vimAlias = true;
       };
-      tmux = prev.callPackage ./tmux.nix {pkgs = prev;};
     }
   )
 ]
