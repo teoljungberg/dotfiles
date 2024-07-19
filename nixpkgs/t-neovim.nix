@@ -2,18 +2,32 @@
   pkgs ? (import <nixpkgs> {}),
   viAlias ? false,
   vimAlias ? false,
+  useNightly ? false,
 }: let
   inherit (pkgs) stdenv lib;
 
-  version = "0.10.0";
+  version =
+    if useNightly
+    then "nightly"
+    else "0.10.0";
+
   src =
-    if stdenv.hostPlatform.system == "aarch64-darwin"
+    if useNightly
+    then
+      if stdenv.hostPlatform.system == "aarch64-darwin"
+      then
+        pkgs.fetchurl {
+          url = "https://github.com/neovim/neovim/releases/download/nightly/nvim-macos-x86_64.tar.gz";
+          sha256 = lib.fakeSha256;
+        }
+      else throw "Unsupported platform for nightly"
+    else if stdenv.hostPlatform.system == "aarch64-darwin"
     then
       pkgs.fetchurl {
         url = "https://github.com/neovim/neovim/releases/download/v${version}/nvim-macos-arm64.tar.gz";
         sha256 = "4ARSrb4ekPuMLZvUGFWz9YW/bi2zG5w1RW1iU7ChUt0=";
       }
-    else throw "Unsupported platform";
+    else throw "Unsupported platform for ${version}";
 in
   stdenv.mkDerivation {
     inherit version src;
