@@ -17,7 +17,7 @@ _append_to_path_if_available "/Applications/kitty.app/Contents/MacOS"
 typeset -U PATH
 export PATH
 
-CDPATH="$CDPATH:$HOME/src/git.sr.ht:$HOME/src/github.com"
+CDPATH="$CDPATH:$HOME/src:$HOME/src/git.sr.ht:$HOME/src/github.com"
 typeset -U CDPATH
 export CDPATH
 
