@@ -45,7 +45,7 @@ nixpkgs https://nixos.org/channels/nixpkgs-NIXPKGS_RELEASE-darwin
 
 ## Cron
 
-Add the `cron/crontab-teoljungberg` to your own `crontab(1)`:
+Add the `cron/crontab-teoljungberg` to your own `crontab(5)`:
 
 [nix]: https://determinate.systems/posts/determinate-nix-installer/
 [nix-darwin]: https://github.com/LnL7/nix-darwin
