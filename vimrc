@@ -568,7 +568,7 @@ augroup t_dispatch
 
   autocmd FileType ruby let b:start = 'irb -r %:S:p'
   autocmd FileType ruby
-        \ if expand('%') =~# '_test\.rb$' |
+        \ if expand('%') =~# '_test\.rb$' || expand('%') =~# 'test_.*\.rb$' |
         \   let b:dispatch = 'ruby -Itest %:S' |
         \ elseif expand('%') =~# '_spec\.rb$' |
         \   let b:dispatch = get(
