@@ -566,7 +566,7 @@ augroup t_dispatch
         \ let b:dispatch = '-dir=%:p:h nix flake check --impure' |
         \ setlocal makeprg=nix\ build\ --file\ %:S
 
-  autocmd FileType ruby let b:start = 'irb -r %:S:p'
+  autocmd FileType ruby let b:start = 'irb -r %:p:S'
   autocmd FileType ruby
         \ if expand('%') =~# '_test\.rb$' || expand('%') =~# 'test_.*\.rb$' |
         \   let b:dispatch = 'ruby -Itest %:S' |
