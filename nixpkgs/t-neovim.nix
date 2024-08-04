@@ -9,7 +9,7 @@
   version =
     if useNightly
     then "nightly"
-    else "0.10.0";
+    else "0.10.1";
 
   src =
     if useNightly
@@ -25,7 +25,7 @@
     then
       pkgs.fetchurl {
         url = "https://github.com/neovim/neovim/releases/download/v${version}/nvim-macos-arm64.tar.gz";
-        sha256 = "4ARSrb4ekPuMLZvUGFWz9YW/bi2zG5w1RW1iU7ChUt0=";
+        sha256 = "4b322a8da38f0bbdcdcc9a2b224a7b5267f0b1610b7345cb880d803e03bb860b";
       }
     else throw "Unsupported platform for ${version}";
 in
