@@ -54,6 +54,7 @@ if has('vim_starting')
   set nofoldenable
   set nohidden
   set omnifunc=syntaxcomplete#Complete
+  set spellfile=~/.vim/spell/en.utf-8.add
   set synmaxcol=500
 
   if exists('+breakindent')
