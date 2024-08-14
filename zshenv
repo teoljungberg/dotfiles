@@ -21,7 +21,11 @@ CDPATH="$CDPATH:$HOME/src:$HOME/src/git.sr.ht:$HOME/src/github.com"
 typeset -U CDPATH
 export CDPATH
 
-export VISUAL="vim"
+if command -v nvim 1>/dev/null 2>/dev/null; then
+  export VISUAL="nvim"
+else
+  export VISUAL="vim"
+fi
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_COMMAND="rg --files --hidden"

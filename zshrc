@@ -13,7 +13,11 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-export VISUAL="vim"
+if command -v nvim 1>/dev/null 2>/dev/null; then
+  export VISUAL="nvim"
+else
+  export VISUAL="vim"
+fi
 
 export DIRENV_LOG_FORMAT=
 export DISABLE_SPRING=1
