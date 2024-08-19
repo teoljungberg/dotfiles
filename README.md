@@ -12,11 +12,10 @@ HOSTNAME="A_HOST"
 ### Darwin
 
 1. Install [nix]
-1. Install [nix-darwin]
 1. Add [nix channels](#nix-channels)
 
 ```
-% darwin-rebuild switch -I darwin-config=$(pwd)/host-A_HOST/nixpkgs/darwin-configuration.nix
+% home-manager switch -f $(pwd)/host-A_HOST/config/home-manager/home.nix
 ```
 
 ### NixOS
@@ -38,7 +37,6 @@ If on Darwin:
 
 ```
 % nix-channel --list
-darwin https://github.com/LnL7/nix-darwin/archive/master.tar.gz
 home-manager https://github.com/nix-community/home-manager/archive/release-NIXPKGS_RELEASE.tar.gz
 nixpkgs https://nixos.org/channels/nixpkgs-NIXPKGS_RELEASE-darwin
 ```
@@ -48,4 +46,3 @@ nixpkgs https://nixos.org/channels/nixpkgs-NIXPKGS_RELEASE-darwin
 Add the `cron/crontab-teoljungberg` to your own `crontab(5)`:
 
 [nix]: https://determinate.systems/posts/determinate-nix-installer/
-[nix-darwin]: https://github.com/LnL7/nix-darwin

@@ -557,12 +557,12 @@ augroup t_dispatch
         \ let b:dispatch = 'nix-build %:S --no-link' |
         \ let b:start = 'nix repl --file %:S' |
         \ setlocal makeprg=nix-build\ %:S
-  autocmd BufReadPost */darwin-configuration.nix
-        \ let b:dispatch = 'darwin-rebuild check' |
-        \ setlocal makeprg=darwin-rebuild\ build
   autocmd BufReadPost */nixos-configuration.nix,/etc/nixos/configuration.nix
         \ let b:dispatch = 'nixos-rebuild dry-run' |
         \ setlocal makeprg=nixos-rebuild\ build
+  autocmd BufReadPost home.nix
+        \ let b:dispatch = 'home-manager build --file %:S --no-out-link' |
+        \ setlocal makeprg=home-manager\ build\ --file\ %:S
   autocmd BufReadPost flake.nix
         \ let b:dispatch = '-dir=%:p:h nix flake check --impure' |
         \ setlocal makeprg=nix\ build\ --file\ %:S
