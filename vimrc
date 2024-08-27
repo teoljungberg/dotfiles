@@ -652,6 +652,8 @@ let g:projectionist_heuristics['.git/'] = {
       \ '*.gemspec': { 'command': 'gemspec' },
       \ 'shell.nix': { 'command': 'shell' },
       \ 'test/*.rb': { 'command': 'test' },
+      \ '*.c': { 'alternate': '{}.h' },
+      \ '*.h': { 'alternate': '{}.c' },
       \ }
 
 let g:splitjoin_trailing_comma = 1
