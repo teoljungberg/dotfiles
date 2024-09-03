@@ -27,6 +27,7 @@ export HEROKU_COLOR=0
 export HEROKU_LOGS_COLOR=0
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
+export NIX_DIRENV_FALLBACK_NIX=
 export NIX_SHELL_PRESERVE_PROMPT=1
 export NO_COLOR=1
 export PAGER="less -R"
