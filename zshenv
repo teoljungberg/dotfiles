@@ -7,6 +7,7 @@ _add_to_path_if_available() { _append_to_path_if_available "$1" }
 LANG="en_US.UTF-8"
 
 _prepend_to_path_if_available "$HOME/.bin"
+_prepend_to_path_if_available "$HOME/.fzf/bin"
 _prepend_to_path_if_available "$HOME/.nix-profile/bin"
 
 _append_to_path_if_available "/usr/local/bin"

@@ -163,6 +163,7 @@ fi
 
 _source_if_available "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 _source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
+_source_if_available "$HOME/.fzf/shell/completion.zsh"
 PATH=".git/safe/../../bin:$PATH"
 
 if command -v kitty >/dev/null; then
@@ -184,6 +185,7 @@ zle -N edit-command-line
 
 # keybindings
 _source_if_available "$HOME/.nix-profile/share/fzf/key-bindings.zsh"
+_source_if_available "$HOME/.fzf/shell/key-bindings.zsh"
 
 if command -v fzf >/dev/null; then
   for keymap in viins vicmd; do

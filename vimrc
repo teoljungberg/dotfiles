@@ -599,11 +599,10 @@ augroup t_fugitive
 augroup END
 
 if executable('fzf')
-  if isdirectory(expand('$HOME/.fzf'))
-    setglobal runtimepath+=$HOME/.fzf
-  endif
-  if isdirectory(expand('$HOME/.nix-profile/share/vim-plugins/fzf/'))
-    setglobal runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
+  if isdirectory(expand('$HOME/.fzf/'))
+    setglobal runtimepath+=$HOME/.fzf/
+  elseif isdirectory(expand('$HOME/.nix-profile/share/vim-plugins/fzf/'))
+     setglobal runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
   endif
 
   nnoremap <Space><Space> :FZFFiles<CR>
