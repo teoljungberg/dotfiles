@@ -25,7 +25,7 @@ has_unpulled_commits() {
 }
 
 git_branch_exists() {
-  git rev-parse "$1" 1>/dev/null 2>/dev/null
+  git rev-parse "$1" > /dev/null 2>&1
 }
 
 git_initial_branch() {

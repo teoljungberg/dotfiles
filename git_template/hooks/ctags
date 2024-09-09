@@ -10,7 +10,7 @@ if [ -d "$git_dir/safe" ]; then
 
   trap 'rm -f "$tmpfile"' EXIT INT TERM
 
-  if [ -f Gemfile ] && command -v ripper-tags 1>/dev/null 2>/dev/null; then
+  if [ -f Gemfile ] && command -v ripper-tags > /dev/null 2>&1; then
     git ls-files --cached --exclude-standard --others | \
       ripper-tags -L - -f "$tmpfile"
   else

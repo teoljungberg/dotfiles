@@ -13,7 +13,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-if command -v nvim 1>/dev/null 2>/dev/null; then
+if command -v nvim > /dev/null 2>&1; then
   export VISUAL="nvim"
 else
   export VISUAL="vim"
@@ -85,7 +85,7 @@ clear() {
 new-window() {
   if [ -n "$TMUX" ]; then
     tmux new-window "$@"
-  elif command -v kitty >/dev/null; then
+  elif command -v kitty > /dev/null 2>&1; then
     kitty @ launch --type=tab zsh 1>/dev/null
   fi
 }
@@ -127,7 +127,7 @@ theme() {
     export THEME="$new_style"
   fi
 
-  if command -v kitty >/dev/null; then
+  if command -v kitty > /dev/null 2>&1; then
     kitty +kitten themes --reload-in=all "whitescale-$THEME"
   fi
 
@@ -166,11 +166,11 @@ _source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
 _source_if_available "$HOME/.fzf/shell/completion.zsh"
 PATH=".git/safe/../../bin:$PATH"
 
-if command -v kitty >/dev/null; then
+if command -v kitty > /dev/null 2>&1; then
   kitty + complete setup zsh | source /dev/stdin
 fi
 
-if command -v direnv >/dev/null; then
+if command -v direnv > /dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
@@ -187,7 +187,7 @@ zle -N edit-command-line
 _source_if_available "$HOME/.nix-profile/share/fzf/key-bindings.zsh"
 _source_if_available "$HOME/.fzf/shell/key-bindings.zsh"
 
-if command -v fzf >/dev/null; then
+if command -v fzf > /dev/null 2>&1; then
   for keymap in viins vicmd; do
     bindkey -M "$keymap" -r "^R"
     bindkey -M "$keymap" -r "^T"

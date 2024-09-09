@@ -22,7 +22,7 @@ CDPATH="$CDPATH:$HOME/src:$HOME/src/git.sr.ht:$HOME/src/github.com"
 typeset -U CDPATH
 export CDPATH
 
-if command -v nvim 1>/dev/null 2>/dev/null; then
+if command -v nvim > /dev/null 2>&1; then
   export VISUAL="nvim"
 else
   export VISUAL="vim"
@@ -30,7 +30,7 @@ fi
 
 export EDITOR="$VISUAL"
 
-if command -v rg 1>/dev/null 2>/dev/null; then
+if command -v rg > /dev/null 2>&1; then
   export FZF_DEFAULT_COMMAND="rg --files"
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
