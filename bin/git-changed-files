@@ -3,17 +3,12 @@
 set -e
 [ -n "$DEBUG" ] && set -ex
 
-git_branch_exists() {
-  git rev-parse "$1" > /dev/null 2>&1
-}
-
 git_initial_branch() {
-  if git_branch_exists "master"; then
-    echo "master"
-  elif git_branch_exists "main"; then
-    echo "main"
+  branches="(master|main)"
+
+  if git branch | grep -qEo "$branches"; then
+    git branch | grep -Eo "$branches" | head -n 1
   else
-    echo >&1 "Could not find a master or main branch"
     exit 1
   fi
 }
