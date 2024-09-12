@@ -5,7 +5,7 @@
 set -e
 [ -n "$DEBUG" ] && set -ex
 
-git_origin_or_fork() {
+remote() {
   if git remote 2>/dev/null | grep -q teoljungberg; then
     echo "teoljungberg"
   elif git remote 2>/dev/null | grep -q upstream; then
@@ -18,5 +18,5 @@ git_origin_or_fork() {
 if [ $# -gt 0 ]; then
   git push "$@"
 else
-  git push "$(git_origin_or_fork)" -u
+  git push "$(remote)" -u
 fi
