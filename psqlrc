@@ -1,4 +1,4 @@
-\x
+\x auto
 \set ON_ERROR_ROLLBACK interactive
 \set COMP_KEYWORD_CASE upper
 \set HISTFILE ~/.psql_history/:DBNAME
