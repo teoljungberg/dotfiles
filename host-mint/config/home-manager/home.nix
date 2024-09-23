@@ -1,6 +1,8 @@
-{ config, pkgs, ... }: let
+{ config, pkgs, ... }:
+let
   overlays = ./../../../nixpkgs/overlays.nix;
-in {
+in
+{
   nixpkgs.overlays = import overlays;
 
   programs.home-manager.enable = true;
@@ -10,7 +12,6 @@ in {
   home.username = "teo";
 
   home.packages = with pkgs; [
-    alejandra
     autoconf
     automake
     bat
@@ -23,6 +24,7 @@ in {
     knfmt
     lim
     mosh
+    nixfmt-rfc-style
     pgformatter
     pkg-config
     rcm

@@ -1,9 +1,11 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   lib = pkgs.lib;
 
   overlays = ./../../nixpkgs/overlays.nix;
   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8DmGnZmzOUOlg+gtKuGouRz6wCqy1pwNKvweJ4MCp0 teo@teoljungberg.com";
-in {
+in
+{
   imports = [
     /etc/nixos/hardware-configuration.nix
     <nixpkgs/nixos/modules/profiles/headless.nix>
@@ -17,12 +19,12 @@ in {
 
   networking = {
     hostName = "oregano";
-    nameservers = ["1.1.1.1"];
+    nameservers = [ "1.1.1.1" ];
     usePredictableInterfaceNames = true;
 
     firewall = {
       allowPing = true;
-      allowedTCPPorts = [22];
+      allowedTCPPorts = [ 22 ];
       allowedUDPPortRanges = [
         {
           from = 60000;
@@ -45,7 +47,7 @@ in {
     vim
     zsh
   ];
-  environment.shells = [pkgs.zsh];
+  environment.shells = [ pkgs.zsh ];
 
   users.users.teo = {
     isNormalUser = true;
@@ -53,8 +55,8 @@ in {
     name = "teo";
     description = "Teo Ljungberg";
     shell = pkgs.zsh;
-    extraGroups = ["wheel"];
-    openssh.authorizedKeys.keys = [key];
+    extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = [ key ];
   };
 
   users.users.upload = {
@@ -63,34 +65,51 @@ in {
     description = "Upload";
     name = "upload";
     shell = pkgs.zsh;
-    extraGroups = ["users"];
-    openssh.authorizedKeys.keys = [key];
+    extraGroups = [ "users" ];
+    openssh.authorizedKeys.keys = [ key ];
   };
 
-  users.users.root.openssh.authorizedKeys.keys = [key];
+  users.users.root.openssh.authorizedKeys.keys = [ key ];
 
   services.journald.extraConfig = ''
     MaxRetentionSec=1month
   '';
 
   systemd.services = {
-    backups = let
-      backupsDirectory = "/home/teo/src/github.com/teoljungberg/backups/";
-    in
+    backups =
+      let
+        backupsDirectory = "/home/teo/src/github.com/teoljungberg/backups/";
+      in
       lib.mkIf (builtins.pathExists backupsDirectory) {
-        path = with pkgs; [bash findutils git nettools openssh];
+        path = with pkgs; [
+          bash
+          findutils
+          git
+          nettools
+          openssh
+        ];
         script = "sh ${backupsDirectory}/run.sh";
-        serviceConfig = {User = "teo";};
+        serviceConfig = {
+          User = "teo";
+        };
         startAt = "daily";
       };
 
-    update-vim-plugins = let
-      dotfilesDirectory = "/home/teo/src/github.com/teoljungberg/dotfiles/";
-    in
+    update-vim-plugins =
+      let
+        dotfilesDirectory = "/home/teo/src/github.com/teoljungberg/dotfiles/";
+      in
       lib.mkIf (builtins.pathExists dotfilesDirectory) {
-        path = with pkgs; [bash findutils git openssh];
+        path = with pkgs; [
+          bash
+          findutils
+          git
+          openssh
+        ];
         script = "sh ${dotfilesDirectory}/bin/update-vim-plugins";
-        serviceConfig = {User = "teo";};
+        serviceConfig = {
+          User = "teo";
+        };
         startAt = "daily";
       };
   };
@@ -106,7 +125,10 @@ in {
       keep-derivations = true
       keep-outputs = true
     '';
-    settings.trusted-users = ["root" "teo"];
+    settings.trusted-users = [
+      "root"
+      "teo"
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -141,59 +163,62 @@ in {
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
-  home-manager.users.teo = {pkgs, ...}: let
-    vim = pkgs.vim_configurable.override {
-      ruby = pkgs.ruby_3_1;
+  home-manager.users.teo =
+    { pkgs, ... }:
+    let
+      vim = pkgs.vim_configurable.override {
+        ruby = pkgs.ruby_3_1;
 
-      config.vim.gui = false;
+        config.vim.gui = false;
+      };
+    in
+    {
+      nixpkgs.overlays = import overlays;
+      nixpkgs.config.allowUnfree = true;
+
+      programs.home-manager.enable = true;
+
+      home.homeDirectory = "/home/teo";
+      home.stateVersion = "21.11";
+      home.username = "teo";
+
+      home.packages = with pkgs; [
+        _1password
+        autoconf
+        automake
+        comma
+        fzf
+        git
+        gitAndTools.gh
+        gitAndTools.hub
+        gitAndTools.hut
+        gnumake
+        gnupg
+        jq
+        lim
+        mosh
+        neovim
+        nixfmt-rfc-style
+        pgformatter
+        pkg-config
+        rclone
+        rcm
+        ripgrep
+        ripper-tags
+        s3cmd
+        shellcheck
+        shfmt
+        tmux
+        universal-ctags
+        vim
+        vim-vint
+        wget
+        zsh
+      ];
+
+      programs.direnv = {
+        enable = true;
+        nix-direnv.enable = true;
+      };
     };
-  in {
-    nixpkgs.overlays = import overlays;
-    nixpkgs.config.allowUnfree = true;
-
-    programs.home-manager.enable = true;
-
-    home.homeDirectory = "/home/teo";
-    home.stateVersion = "21.11";
-    home.username = "teo";
-
-    home.packages = with pkgs; [
-      _1password
-      alejandra
-      autoconf
-      automake
-      comma
-      fzf
-      git
-      gitAndTools.gh
-      gitAndTools.hub
-      gitAndTools.hut
-      gnumake
-      gnupg
-      jq
-      lim
-      mosh
-      neovim
-      pgformatter
-      pkg-config
-      rclone
-      rcm
-      ripgrep
-      ripper-tags
-      s3cmd
-      shellcheck
-      shfmt
-      tmux
-      universal-ctags
-      vim
-      vim-vint
-      wget
-      zsh
-    ];
-
-    programs.direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-  };
 }

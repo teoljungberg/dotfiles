@@ -1,16 +1,17 @@
 {
-  pkgs ? import <nixpkgs> {},
+  pkgs ? import <nixpkgs> { },
   ruby ? pkgs.ruby_3_2,
-}: let
+}:
+let
   bundlerApp = pkgs.bundlerApp;
   bundlerUpdateScript = pkgs.bundlerUpdateScript;
 in
-  bundlerApp {
-    inherit ruby;
+bundlerApp {
+  inherit ruby;
 
-    pname = "ripper-tags";
-    gemdir = ./.;
-    exes = ["ripper-tags"];
+  pname = "ripper-tags";
+  gemdir = ./.;
+  exes = [ "ripper-tags" ];
 
-    passthru.updateScript = bundlerUpdateScript "ripper-tags";
-  }
+  passthru.updateScript = bundlerUpdateScript "ripper-tags";
+}
