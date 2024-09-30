@@ -241,10 +241,14 @@ prompt_directory() {
 }
 
 set_prompt() {
+  # OSC-133
+  local prompt_start=$'\e]133;A\e\\'
+  local prompt_end=$'\e]133;B\e\\'
+
   if [ -n "$SSH_TTY" ]; then
-    PS1="$(prompt_directory) %n@%m $(git_branch)%(1j.%j .)%# "
+    PS1="%{${prompt_start}%}$(prompt_directory) %n@%m $(git_branch)%(1j.%j .)%# %{${prompt_end}%}"
   else
-    PS1="$(prompt_directory) $(git_branch)%(1j.%j .)%# "
+    PS1="%{${prompt_start}%}$(prompt_directory) $(git_branch)%(1j.%j .)%# %{${prompt_end}%}"
   fi
 }
 
@@ -278,8 +282,14 @@ refresh_tmux_environment_variables() {
   fi
 }
 
+mark_prompt() {
+  print -n '\e]133;C\e\\'
+}
+
 preexec() {
   set_title "$@"
+  mark_prompt
+
   refresh_tmux_environment_variables
 }
 
