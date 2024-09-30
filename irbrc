@@ -5,7 +5,7 @@ ENV["TERM"] = "xterm"
 
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] =
-  if defined?(Rails) && Rails.root
+  if defined?(Rails) && Rails.respond_to?(:root)
     Rails.root.join("tmp", "history.rb")
   else
     File.expand_path("~/.history.rb")
