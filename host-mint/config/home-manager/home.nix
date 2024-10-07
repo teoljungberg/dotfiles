@@ -15,7 +15,6 @@ in
     autoconf
     automake
     bat
-    fzf
     git
     gitAndTools.gh
     gitAndTools.hub
