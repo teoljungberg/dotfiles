@@ -31,8 +31,8 @@ setglobal wildmenu
 setglobal wildmode=full
 syntax enable
 
-let s:titlestring_hostname = exists('$SSH_TTY') ? system('logname') . '@' . hostname() . ':' : ''
-let &g:titlestring = s:titlestring_hostname . '%{v:progname} %{fnamemodify(getcwd(),":~")}'
+let s:user_and_hostname_if_ssh = exists('$SSH_TTY') ? system('logname') . '@' . hostname() . ':' : ''
+let &g:titlestring = s:user_and_hostname_if_ssh . '%{v:progname} %{fnamemodify(getcwd(), ":~")}'
 
 if has('+macmeta')
   setglobal macmeta
