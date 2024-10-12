@@ -276,12 +276,6 @@ set_title() {
   print -Pn ' \a'
 }
 
-refresh_tmux_environment_variables() {
-  if [ -n "$TMUX" ]; then
-    export $(tmux show-environment | grep "^THEME") > /dev/null
-  fi
-}
-
 mark_prompt() {
   print -n '\e]133;C\e\\'
 }
@@ -289,8 +283,6 @@ mark_prompt() {
 preexec() {
   set_title "$@"
   mark_prompt
-
-  refresh_tmux_environment_variables
 }
 
 precmd() {
