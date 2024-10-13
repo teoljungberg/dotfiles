@@ -183,7 +183,7 @@ cnoremap %t <C-R>=substitute(expand('%:r'), '^app[^/]*.', '', '')<CR>
 nnoremap <C-]> :tag <C-R>=expand('<cword>')<CR><CR>
 nnoremap <C-W><C-]> :stag <C-R>=expand('<cword>')<CR><CR>
 nnoremap <C-W>] :stag <C-R>=expand('<cword>')<CR><CR>
-nnoremap g<C-T> :ptag <C-R>=expand('<cword>')<CR><CR>
+nnoremap <C-W>} :ptag <C-R>=expand('<cword>')<CR><CR>
 
 " Originally from: https://github.com/tpope/vim-rsi
 inoremap <expr> <C-E> col('.') > strlen(getline('.')) ? "\<C-E>" : "\<End>"
