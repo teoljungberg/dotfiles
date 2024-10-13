@@ -592,7 +592,7 @@ let g:fugitive_legacy_commands = 0
 noremap g<CR> :Git<CR>
 noremap g<Space> :Git<Space>
 
-augroup t_fugitive
+augroup t_git
   autocmd!
 
   autocmd FileType gitcommit setlocal shiftwidth=2 spell
