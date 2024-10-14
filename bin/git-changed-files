@@ -19,7 +19,5 @@ else
   git diff "origin/$(git_initial_branch)..HEAD" \
     --name-status \
     --diff-filter=d |
-    rev |
-    cut -f 1 |
-    rev
+    cut -f 2
 fi
