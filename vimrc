@@ -641,7 +641,7 @@ augroup END
 let g:rails_vim_enter = 0
 let g:rails_projections = {}
 let g:rails_projections['spec/*_spec.rb'] = {
-      \ 'dispatch': "rspec spec/{}_spec.rb`=v:lnum ? ':'.v:lnum : ''`",
+      \ 'dispatch': "rspec spec/{}_spec.rb`=v:lnum ? ':' . v:lnum : ''`",
       \ }
 
 let g:projectionist_vim_enter = 0
