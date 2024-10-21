@@ -1,3 +1,4 @@
 --hidden
 --with-filename
+--line-number
 --color=never
