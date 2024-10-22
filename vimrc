@@ -614,7 +614,6 @@ endif
 
 let g:fzf_vim = {}
 let g:fzf_vim.command_prefix = 'FZF'
-let g:fzf_vim.layout = { 'down': '40%' }
 let g:fzf_vim.preview_window = []
 let g:fzf_action = {
       \ 'ctrl-s': 'split',
