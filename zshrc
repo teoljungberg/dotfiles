@@ -37,8 +37,11 @@ export RPS1=""
 export RUBOCOP_OPTS="--no-color"
 export RUBY_DEBUG_NO_COLOR=1
 export SPEC_OPTS="--no-color"
-export TERM="xterm-256color"
 export THOR_SHELL="Basic"
+
+if [ -z "$TMUX" ]; then
+  export TERM="xterm-256color"
+fi
 
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' insert-tab pending
