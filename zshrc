@@ -152,10 +152,6 @@ theme() {
   fi
 }
 
-if [ -z "$THEME" ]; then
-  export THEME="light"
-fi
-
 if [ $(uname -s) = "Darwin" ]; then
   if [ "$(defaults read -g AppleInterfaceStyle 2> /dev/null)" = "Dark" ]; then
     export THEME="dark"
