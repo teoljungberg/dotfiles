@@ -137,7 +137,6 @@ theme() {
 
   if [ -n "$TMUX" ]; then
     tmux set-environment THEME "$THEME"
-    tmux source-file "$HOME/.tmux.conf"
   fi
 
   if [ $(uname -s) = "Darwin" ]; then
