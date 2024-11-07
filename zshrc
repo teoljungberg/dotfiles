@@ -173,16 +173,13 @@ if command -v direnv > /dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
-# to make vim behave under xterm
 stty -ixon
 
 bindkey -v
 
-# command line editing
 autoload edit-command-line
 zle -N edit-command-line
 
-# keybindings
 _source_if_available "$HOME/.nix-profile/share/fzf/key-bindings.zsh"
 _source_if_available "$HOME/.fzf/shell/key-bindings.zsh"
 
