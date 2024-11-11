@@ -436,6 +436,7 @@ endif
 for s:i in range(1, 9)
   silent! execute 'set <M-' . s:i . ">=\<Esc>" . s:i
 endfor
+unlet! s:i
 
 let s:mod = (has('mac') && has('gui_running')) ? 'D' : 'M'
 for s:i in range(1, 9)
@@ -445,6 +446,7 @@ for s:i in range(1, 9)
     execute 'tmap <' . s:mod . '-' . s:i . '> <SID>:' . s:i . 'tabnext<CR>'
   endif
 endfor
+unlet! s:i
 
 if exists(':tnoremap')
   tnoremap <S-Space> <Space>
