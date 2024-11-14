@@ -1,8 +1,6 @@
 require "irb"
 require "irb/completion"
 
-ENV["TERM"] = "xterm"
-
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] =
   if defined?(Rails) && Rails.respond_to?(:root)
