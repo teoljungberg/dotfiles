@@ -433,11 +433,6 @@ elseif exists(':tmap')
   tmap <script> <C-\>: <C-\><C-N>:
 endif
 
-for s:i in range(1, 9)
-  silent! execute 'set <M-' . s:i . ">=\<Esc>" . s:i
-endfor
-unlet! s:i
-
 let s:mod = (has('mac') && has('gui_running')) ? 'D' : 'M'
 for s:i in range(1, 9)
   execute 'noremap <' . s:mod . '-' . s:i . '> <C-\><C-N>' . s:i . 'gt'
@@ -445,6 +440,11 @@ for s:i in range(1, 9)
   if exists(':tmap')
     execute 'tmap <' . s:mod . '-' . s:i . '> <SID>:' . s:i . 'tabnext<CR>'
   endif
+endfor
+unlet! s:i
+
+for s:i in range(1, 9)
+  silent! execute 'set <M-' . s:i . ">=\<Esc>" . s:i
 endfor
 unlet! s:i
 
