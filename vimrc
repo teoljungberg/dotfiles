@@ -377,13 +377,13 @@ function! s:ccr()
           \ matchlist(cmdline, range_stub)[0] .
           \ "ijump\<Space>" .
           \ split(cmdline, ' ')[1] .
-          \ "\<S-Left>\<Left>"
+          \ "\<S-Left>\<Left>\<Space>"
   elseif cmdline =~# range_stub . '(dli|dlist)\s.*'
     return "\<CR>:" .
           \ matchlist(cmdline, range_stub)[0] .
           \ "djump\<Space>" .
           \ split(cmdline, ' ')[1] .
-          \ "\<S-Left>\<Left>"
+          \ "\<S-Left>\<Left>\<Space>"
   else
     return "\<CR>"
   endif
