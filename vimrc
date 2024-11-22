@@ -615,9 +615,6 @@ if executable('fzf')
 
   nnoremap <Space><Space> :FZFFiles<CR>
   nnoremap <Space>] :FZFTags<CR>
-else
-  nnoremap <Space><Space> :find<Space>
-  nnoremap <Space>] :tjump /
 endif
 
 let g:fzf_vim = {}
@@ -636,8 +633,6 @@ augroup t_fzf
   autocmd FileType help
         \ if executable('fzf') |
         \   nnoremap <buffer> <Space>] :FZFHelptags<CR> |
-        \ else |
-        \   nnoremap <buffer> <Space>] :tag<Space> |
         \ endif
   autocmd FileType fzf
         \ setlocal laststatus=0 noshowmode noruler
