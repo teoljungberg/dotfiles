@@ -7,7 +7,7 @@
 let
   inherit (pkgs) stdenv lib;
 
-  version = if useNightly then "nightly" else "0.10.1";
+  version = if useNightly then "nightly" else "0.10.2";
 
   src =
     if useNightly then
@@ -21,7 +21,7 @@ let
     else if stdenv.hostPlatform.system == "aarch64-darwin" then
       pkgs.fetchurl {
         url = "https://github.com/neovim/neovim/releases/download/v${version}/nvim-macos-arm64.tar.gz";
-        sha256 = "4b322a8da38f0bbdcdcc9a2b224a7b5267f0b1610b7345cb880d803e03bb860b";
+        sha256 = "zT4ul/7ihcQQFs7OUeZ+gXTfHcV3uJvAQGOyBozNrqA=";
       }
     else
       throw "Unsupported platform for ${version}";
