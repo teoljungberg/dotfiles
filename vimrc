@@ -729,6 +729,13 @@ augroup t_colorscheme
   autocmd ColorScheme * call <SID>colorscheme()
 augroup END
 
+if has('nvim')
+  cabbrev <expr> term
+        \ (getcmdtype() ==# ':' && getcmdline() ==# 'term') ?
+        \ "new\<Bar>terminal" :
+        \ 'term'
+endif
+
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
