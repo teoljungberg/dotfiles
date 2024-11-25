@@ -716,7 +716,7 @@ command! DoasWrite
       \ s:elevate_privileges
       \ 'tee % > /dev/null'<Bar>edit!
 
-function s:colorscheme()
+function! s:colorscheme()
   if get(g:, 'colors_name', '') !=# 'whitescale'
     hi Comment cterm=italic gui=italic term=italic
     hi String cterm=italic gui=italic term=italic
