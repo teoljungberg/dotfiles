@@ -19,7 +19,6 @@ in
     gitAndTools.gh
     gitAndTools.hub
     gnupg
-    heroku-aarch64-darwin
     jq
     knfmt
     lim
