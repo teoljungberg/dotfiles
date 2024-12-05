@@ -29,8 +29,8 @@ HOSTNAME="A_HOST"
 
 ```
 % nix-channel --list
-nixpkgs https://nixos.org/channels/nixos-NIXPKGS_RELEASE
 home-manager https://github.com/nix-community/home-manager/archive/NIXPKGS_RELEASE.tar.gz
+nixpkgs https://nixos.org/channels/nixos-NIXPKGS_RELEASE
 ```
 
 If on Darwin:
