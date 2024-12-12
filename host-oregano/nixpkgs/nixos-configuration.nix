@@ -40,7 +40,6 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "us";
 
-  environment.noXlibs = true;
   environment.systemPackages = with pkgs; [
     git
     gnumake
@@ -183,7 +182,7 @@ in
       home.username = "teo";
 
       home.packages = with pkgs; [
-        _1password
+        _1password-cli
         autoconf
         automake
         comma
