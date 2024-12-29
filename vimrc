@@ -222,26 +222,12 @@ augroup t_textwidth
   autocmd FileType * if !&textwidth | setlocal textwidth=80 | endif
 augroup END
 
-let s:filetypes_with_nonumber = [
-      \ 'ale-preview.message',
-      \ 'fugitive',
-      \ 'fzf',
-      \ 'git',
-      \ 'gitcommit',
-      \ 'gitrebase',
-      \ 'help',
-      \ 'man',
-      \ 'netrw',
-      \ 'qf',
-      \ ]
 augroup t_number
   autocmd!
 
   autocmd FileType * setlocal number
-  autocmd FileType *
-        \ if index(s:filetypes_with_nonumber, &filetype) >= 0 |
-        \   setlocal nonumber |
-        \ endif
+  autocmd FileType * if &readonly | setlocal nonumber | endif
+  autocmd FileType fzf,qf setlocal nonumber
 augroup END
 
 let s:filetypes_with_nolist = [
