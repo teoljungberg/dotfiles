@@ -120,10 +120,6 @@ theme() {
     export THEME="$new_style"
   fi
 
-  if command -v kitty > /dev/null 2>&1; then
-    kitty +kitten themes --reload-in=all "whitescale-$THEME"
-  fi
-
   if [ -n "$TMUX" ]; then
     tmux set-environment THEME "$THEME"
   fi
@@ -153,10 +149,6 @@ _source_if_available "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 _source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
 _source_if_available "$HOME/.fzf/shell/completion.zsh"
 PATH=".git/safe/../../bin:$PATH"
-
-if command -v kitty > /dev/null 2>&1; then
-  kitty + complete setup zsh | source /dev/stdin
-fi
 
 if command -v direnv > /dev/null 2>&1; then
   eval "$(direnv hook zsh)"

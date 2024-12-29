@@ -189,7 +189,7 @@ end
 --
 function M.buildApplicationShortcutToBundleMapping()
   return {
-    [0] = "net.kovidgoyal.kitty",
+    [0] = "com.mitchellh.ghostty",
     [1] = "org.mozilla.firefox",
     [2] = "com.apple.mail",
     [3] = "com.tinyspeck.slackmacgap",

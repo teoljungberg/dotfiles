@@ -13,7 +13,7 @@ _prepend_to_path_if_available "$HOME/.nix-profile/bin"
 _append_to_path_if_available "/usr/local/bin"
 _append_to_path_if_available "/usr/sbin"
 _append_to_path_if_available "/run/current-system/sw/bin"
-_append_to_path_if_available "/Applications/kitty.app/Contents/MacOS"
+_append_to_path_if_available "/Applications/Ghostty.app/Contents/MacOS"
 
 typeset -U PATH
 export PATH
