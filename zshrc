@@ -84,15 +84,6 @@ clear() {
   fi
 }
 
-new-window() {
-  if [ -n "$TMUX" ]; then
-    tmux new-window "$@"
-  elif command -v kitty > /dev/null 2>&1; then
-    kitty @ launch --type=tab zsh 1>/dev/null
-  fi
-}
-zle -N new-window
-
 # No arguments: `git status`
 # With arguments: acts like `git`
 git() {
@@ -219,11 +210,6 @@ bindkey -M viins '^[[B' history-beginning-search-forward-end
 
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-forward
-
-for keymap in viins vicmd; do
-  bindkey -M "$keymap" "$terminfo[kf12]" new-window
-done
-unset keymap
 
 git_branch() {
   local branch_name=$(git symbolic-ref --short HEAD 2>/dev/null)
