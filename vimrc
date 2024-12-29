@@ -692,7 +692,11 @@ command! DoasWrite
       \ 'tee % > /dev/null'<Bar>edit!
 
 function! s:colorscheme()
-  if get(g:, 'colors_name', '') != 'whitescale'
+  if get(g:, 'colors_name', '') !=# 'whitescale'
+    hi Todo
+          \ cterm=underline gui=underline term=underline
+          \ ctermfg=NONE ctermbg=NONE guifg=NONE
+          \ guibg=NONE
   endif
 endfunction
 
