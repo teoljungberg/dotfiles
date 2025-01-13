@@ -96,55 +96,6 @@ git() {
 
 _source_if_available() { [ -e "$1" ] && source "$1" }
 
-theme() {
-  local usage="theme <light|dark>"
-  local new_style=""
-
-  case "$1" in
-    dark)
-      new_style="dark"
-      ;;
-    light)
-      new_style="light"
-      ;;
-    --help|-h)
-      echo "$usage"
-      return 0
-      ;;
-    *)
-      echo >&2 "$usage"
-      return 1
-  esac
-
-  if [ -n "$new_style" ]; then
-    export THEME="$new_style"
-  fi
-
-  if [ -n "$TMUX" ]; then
-    tmux set-environment THEME "$THEME"
-  fi
-
-  if [ $(uname -s) = "Darwin" ]; then
-    if [ "$new_style" = "dark" ]; then
-      should_enable_darkmode="true"
-    else
-      should_enable_darkmode="false"
-    fi
-
-    osascript -e "tell application \"System Events\" \
-      to tell appearance preferences to set dark mode to \
-      $should_enable_darkmode"
-  fi
-}
-
-if [ $(uname -s) = "Darwin" ]; then
-  if [ "$(defaults read -g AppleInterfaceStyle 2> /dev/null)" = "Dark" ]; then
-    export THEME="dark"
-  else
-    export THEME="light"
-  fi
-fi
-
 _source_if_available "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 _source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
 _source_if_available "$HOME/.fzf/shell/completion.zsh"
