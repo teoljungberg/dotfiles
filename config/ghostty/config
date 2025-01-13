@@ -1,5 +1,26 @@
 font-family = JetBrains Mono NL
 font-size = 15
 macos-option-as-alt = right
-theme = light:Builtin Light,dark:Builtin Dark
 mouse-hide-while-typing = true
+
+palette = 0=#444444
+palette = 1=#835F60
+palette = 2=#89992E
+palette = 3=#AE8A2C
+palette = 4=#4638CC
+palette = 5=#C24381
+palette = 6=#51849D
+palette = 7=#D8D7CD
+palette = 8=#222222
+palette = 9=#BD543E
+palette = 10=#5C6E2D
+palette = 11=#694F35
+palette = 12=#865C6C
+palette = 13=#9E6A9F
+palette = 14=#969692
+palette = 15=#E9E3D1
+background = F2F0DD
+foreground = 444444
+cursor-color = 694F35
+selection-background = CDCA77
+selection-foreground = 111111

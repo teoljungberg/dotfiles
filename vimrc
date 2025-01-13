@@ -113,15 +113,6 @@ endif
 
 filetype plugin indent on
 
-silent! colorscheme whitescale
-if $THEME == 'light'
-  set background=light
-elseif $THEME == 'dark'
-  set background=dark
-else
-  set background=light
-end
-
 setglobal grepformat=%f:%l:%c:%m,%f:%l:%m,%f:%l%m,%f\ \ %l%m
 if executable('rg')
   setglobal grepprg=rg\ --hidden\ --vimgrep\ --with-filename
@@ -696,7 +687,7 @@ command! DoasWrite
       \ 'tee % > /dev/null'<Bar>edit!
 
 function! s:colorscheme()
-  if get(g:, 'colors_name', '') !=# 'whitescale'
+  if get(g:, 'colors_name', '') !=# 'ecru'
     hi Todo
           \ cterm=underline gui=underline term=underline
           \ ctermfg=NONE ctermbg=NONE guifg=NONE
@@ -709,6 +700,75 @@ augroup t_colorscheme
 
   autocmd ColorScheme * call <SID>colorscheme()
 augroup END
+
+let g:colors_name = 'ecru'
+
+hi ColorColumn term=NONE cterm=NONE gui=NONE ctermfg=15 ctermbg=0 guifg=#F2F0DD guibg=#444444
+hi Comment term=italic cterm=italic gui=italic ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
+hi Conceal term=italic cterm=italic gui=italic ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi Constant term=italic cterm=italic gui=italic ctermfg=NONE guifg=NONE
+hi CurSearch term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi CursorColumn term=NONE cterm=NONE gui=NONE ctermfg=15 ctermbg=0 guifg=#444444 guibg=#F2F0DD
+hi CursorLine term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi CursorLineNr term=italic,bold cterm=italic,bold gui=italic,bold ctermfg=NONE ctermbg=NONE guifg=NONE
+hi Delimiter term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi DiffAdd term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi DiffChange term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi DiffDelete term=NONE cterm=NONE gui=NONE ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
+hi DiffText term=italic cterm=italic gui=italic ctermfg=15 ctermbg=0 guifg=#F2F0DD guibg=#444444
+hi Directory term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi EndOfBuffer term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi Error term=underline,bold cterm=underline,bold gui=underline,bold ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+hi ErrorMsg term=bold,reverse cterm=bold,reverse gui=bold,reverse ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi FoldColumn term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi Folded term=italic cterm=italic gui=italic ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi Function term=bold,italic cterm=bold,italic gui=bold,italic ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi Identifier term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi Ignore term=NONE cterm=NONE gui=NONE ctermfg=NONE guifg=#969692
+hi LineNr term=italic cterm=italic gui=italic ctermfg=NONE ctermbg=NONE guifg=#969692 guibg=NONE
+hi MatchParen term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi ModeMsg term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi MoreMsg term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi NonText term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi Normal term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=#444444 guibg=#F2F0DD
+hi NormalFloat term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=#F2F0DD
+hi Operator term=bold cterm=bold gui=bold ctermfg=NONE guifg=NONE
+hi Pmenu term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=#444444 guibg=#F2F0DD
+hi PmenuSbar term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=#444444 guibg=#F2F0DD
+hi PmenuSel term=NONE cterm=NONE gui=NONE ctermfg=15 ctermbg=0 guifg=#F2F0DD guibg=#444444
+hi PmenuThumb term=NONE cterm=NONE gui=NONE ctermfg=15 ctermbg=0 guifg=#F2F0DD guibg=#444444
+hi PreProc term=bold cterm=bold gui=bold ctermfg=NONE guifg=NONE
+hi Question term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi QuickFixLine term=bold,underline cterm=bold,underline gui=bold,underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi Repeat term=bold cterm=bold gui=bold ctermfg=NONE guifg=NONE
+hi Search term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi SignColumn term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi Special term=NONE cterm=NONE gui=NONE ctermfg=NONE guifg=NONE
+hi SpecialKey term=NONE cterm=NONE gui=NONE ctermfg=NONE guifg=NONE
+hi SpellBad term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=NONE
+hi SpellCap term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=NONE
+hi SpellLocal term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=NONE
+hi SpellRare term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=NONE
+hi Statement term=bold cterm=bold gui=bold ctermfg=NONE guifg=NONE
+hi StatusLine term=bold cterm=bold gui=bold ctermfg=15 ctermbg=0 guifg=#F2F0DD guibg=#444444
+hi StatusLineNC term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi StatusLineTerm term=bold cterm=bold gui=bold ctermfg=15 ctermbg=0 guifg=#F2F0DD guibg=#444444
+hi StatusLineTermNC term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi String term=italic cterm=italic gui=italic ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi TabLine term=underline cterm=underline gui=underline ctermfg=0 ctermbg=NONE guifg=#444444 guibg=#F2F0DD
+hi TabLineFill term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=#F2F0DD
+hi TabLineSel term=bold,underline cterm=bold,underline gui=bold,underline ctermfg=NONE ctermbg=NONE guifg=#444444 guibg=#F2F0DD
+hi Title term=bold cterm=bold gui=bold ctermfg=NONE guifg=NONE
+hi Todo term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi Type term=bold,italic cterm=bold,italic gui=bold,italic ctermfg=NONE guifg=NONE
+hi Underlined term=underline cterm=underline gui=underline ctermfg=NONE guifg=NONE
+hi VertSplit term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi Visual term=NONE cterm=NONE gui=NONE ctermfg=15 ctermbg=0 guifg=#F2F0DD guibg=#444444
+hi WarningMsg term=reverse cterm=reverse gui=reverse ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi WildMenu term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi diffAdded term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi diffChanged term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi diffRemoved term=NONE cterm=NONE gui=NONE ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
 
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
