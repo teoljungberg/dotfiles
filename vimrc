@@ -91,6 +91,7 @@ if exists('+undodir') && !has('nvim')
 endif
 
 if has('nvim') || !has('packages')
+  setglobal runtimepath^=~/.vim/
   setglobal runtimepath^=~/.vim/pack/*/start/*
   setglobal runtimepath+=~/.vim/pack/*/start/*/after
 endif
