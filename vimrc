@@ -319,7 +319,7 @@ augroup END
 " Originally from:
 " https://gist.github.com/romainl/5b2cfb2b81f02d44e1d90b74ef555e31
 function! s:ccr()
-  if getcmdtype() != ':'
+  if getcmdtype() !=# ':'
     return "\<CR>"
   end
   let cmdline = getcmdline()
@@ -381,11 +381,11 @@ function! s:ncr()
     return "\<CR>"
   endif
 
-  if &buftype == 'quickfix'
+  if &buftype ==# 'quickfix'
     return "\<CR>"
   endif
 
-  if &buftype != 'terminal'
+  if &buftype !=# 'terminal'
     return ":\025confirm\<Space>" . (v:count ? 'write' : 'update') . "\<CR>"
   endif
 
