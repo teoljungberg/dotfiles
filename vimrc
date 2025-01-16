@@ -456,7 +456,7 @@ augroup END
 "
 " [1]: https://github.com/tpope/vim-scriptease
 function! s:cd_complete(A, L, P) abort
-  let pattern = substitute(a:A, '/\|\/', '*/', 'g').'*'
+  let pattern = substitute(a:A, '/\|\/', '*/', 'g') . '*'
   if &cdpath =~# '^,,'
     let cdpaths = getcwd() . ',' . &cdpath
   else
