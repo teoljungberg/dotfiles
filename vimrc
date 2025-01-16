@@ -452,7 +452,7 @@ augroup END
 
 " :cd, :lcd, and :tcd with tab-completion that supports the &cdpath.
 "
-" Inspired by Tim Pope's scriptease.vim[1] and its' :Vedit.
+" Inspired by Tim Pope's scriptease.vim[1] and its' scriptease#complete
 "
 " [1]: https://github.com/tpope/vim-scriptease
 function! s:cd_complete(A, L, P) abort
