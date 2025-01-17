@@ -576,6 +576,9 @@ let g:fugitive_legacy_commands = 0
 noremap g<CR> :Git<CR>
 noremap g<Space> :Git<Space>
 
+nnoremap <C-p> <C-p>
+nnoremap <C-n> <C-n>
+
 augroup t_git
   autocmd!
 
