@@ -1,5 +1,5 @@
 font-family = JetBrains Mono NL
 font-size = 15
-macos-option-as-alt = true
+macos-option-as-alt = right
 theme = light:Builtin Light,dark:Builtin Dark
 mouse-hide-while-typing = true
