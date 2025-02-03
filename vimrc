@@ -222,12 +222,23 @@ augroup t_number
   autocmd FileType fzf,qf setlocal nonumber
 augroup END
 
+let s:filetypes_with_nolist = [
+      \ 'fugitive',
+      \ 'fzf',
+      \ 'git',
+      \ 'gitcommit',
+      \ 'help',
+      \ 'man',
+      \ 'qf',
+      \ ]
 augroup t_list
   autocmd!
 
   autocmd FileType * setlocal list
-  autocmd FileType * if &readonly | setlocal nolist | endif
-  autocmd FileType fzf,qf setlocal nolist
+  autocmd FileType *
+        \ if index(s:filetypes_with_nolist, &filetype) >= 0 |
+        \   setlocal nolist |
+        \ endif
 augroup END
 
 augroup t_filetypes
