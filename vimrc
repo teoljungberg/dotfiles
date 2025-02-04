@@ -240,7 +240,6 @@ let s:filetypes_with_nolist = [
       \ 'fugitive',
       \ 'fzf',
       \ 'git',
-      \ 'gitcommit',
       \ 'help',
       \ 'man',
       \ 'qf',
