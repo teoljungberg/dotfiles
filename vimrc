@@ -237,7 +237,6 @@ augroup t_number
 augroup END
 
 let s:filetypes_with_nolist = [
-      \ 'fugitive',
       \ 'fzf',
       \ 'git',
       \ 'help',
