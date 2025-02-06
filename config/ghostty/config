@@ -3,6 +3,8 @@ font-size = 15
 macos-option-as-alt = right
 mouse-hide-while-typing = true
 
+keybind = alt+right=unbind
+
 palette = 0=#444444
 palette = 1=#835F60
 palette = 2=#89992E
