@@ -713,8 +713,8 @@ function! s:colorscheme()
   if get(g:, 'colors_name', '') !=# 'ecru'
     hi Todo
           \ cterm=underline gui=underline term=underline
-          \ ctermfg=NONE ctermbg=NONE guifg=NONE
-          \ guibg=NONE
+          \ ctermfg=NONE ctermbg=NONE
+          \ guifg=NONE guibg=NONE
   endif
 endfunction
 
