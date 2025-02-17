@@ -745,8 +745,8 @@ hi FoldColumn term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE
 hi Folded term=italic cterm=italic gui=italic ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi Function term=bold,italic cterm=bold,italic gui=bold,italic ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi Identifier term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
-hi Ignore term=NONE cterm=NONE gui=NONE ctermfg=NONE guifg=#969692
-hi LineNr term=italic cterm=italic gui=italic ctermfg=NONE ctermbg=NONE guifg=#969692 guibg=NONE
+hi Ignore term=NONE cterm=NONE gui=NONE ctermfg=14 guifg=#969692
+hi LineNr term=italic cterm=italic gui=italic ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
 hi MatchParen term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi ModeMsg term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi MoreMsg term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
