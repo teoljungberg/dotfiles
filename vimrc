@@ -247,6 +247,7 @@ augroup t_list
   autocmd!
 
   autocmd FileType * setlocal list
+  autocmd FileType * if &previewwindow | setlocal nolist | endif
   autocmd FileType *
         \ if index(s:filetypes_with_nolist, &filetype) >= 0 |
         \   setlocal nolist |
