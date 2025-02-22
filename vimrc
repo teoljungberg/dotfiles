@@ -711,7 +711,7 @@ command! DoasWrite
       \ 'tee % > /dev/null'<Bar>edit!
 
 function! s:colorscheme()
-  if get(g:, 'colors_name', '') !=# 'ecru'
+  if !empty(get(g:, 'colors_name', ''))
     hi Todo
           \ cterm=underline gui=underline term=underline
           \ ctermfg=NONE ctermbg=NONE
@@ -724,6 +724,15 @@ augroup t_colorscheme
 
   autocmd ColorScheme * call <SID>colorscheme()
 augroup END
+
+" ecru.vim
+" Copyright 2025 Teo Ljungberg
+" ISC license
+"
+" We do not set g:colors_name to the name of the colorscheme - 'ecru', as that
+" will make vim(1), mvim(1), etc try to lookup colors/ecru.vim in vim's
+" &runtimepath.
+let g:colors_name = ''
 
 hi ColorColumn term=NONE cterm=NONE gui=NONE ctermfg=15 ctermbg=0 guifg=#F2F0DD guibg=#444444
 hi Comment term=italic cterm=italic gui=italic ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
