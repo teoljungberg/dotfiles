@@ -304,18 +304,9 @@ augroup t_ruby
   autocmd Syntax ruby hi def link rubySorbetSig Comment
 augroup END
 
-function! s:quickfix_title()
-  let title = get(w:, 'quickfix_title', '')
-
-  if title =~# '^:' . &grepprg || title =~# '^:grep'
-    let w:quickfix_title = substitute(title, &grepprg, 'grep', '')
-  endif
-endfunction
-
 augroup t_qf
   autocmd!
 
-  autocmd FileType qf call <SID>quickfix_title()
   autocmd FileType qf setlocal nobuflisted
   autocmd FileType qf nnoremap <buffer> - -
 augroup END
