@@ -115,7 +115,7 @@ filetype plugin indent on
 
 setglobal grepformat=%f:%l:%c:%m,%f:%l:%m,%f:%l%m,%f\ \ %l%m
 if executable('rg')
-  setglobal grepprg=rg\ --hidden\ --vimgrep\ --with-filename
+  setglobal grepprg=rg\ --hidden\ --vimgrep
 else
   setglobal grepprg=grep\ -rnH\ --exclude-dir\ .git\ $*\ /dev/null
 endif
