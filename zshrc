@@ -19,6 +19,9 @@ else
   export VISUAL="vim"
 fi
 
+export BUNDLE_FORCE_RUBY_PLATFORM=1
+export BUNDLE_IGNORE_FUNDING_REQUESTS=1
+export BUNDLE_PATH=".bundle/"
 export DIRENV_LOG_FORMAT=
 export DISABLE_SPRING=1
 export EDITOR="$VISUAL"
