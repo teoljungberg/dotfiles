@@ -1,6 +1,11 @@
 source ~/.vimrc
 
-if has('nvim-0.5') && filereadable(expand('<sfile>:h') . '/local.lua')
-  " ~/.config/nvim/local.lua
-  source <sfile>:h/local.lua
+if has('nvim-0.5')
+  if filereadable($HOME . '/.config/nvim/local.lua')
+    source ~/.config/nvim/local.lua
+  endif
+
+  if filereadable($HOME . '/.config/nvim/localest.lua')
+    source ~/.config/nvim/localest.lua
+  endif
 endif
