@@ -1,7 +1,7 @@
 [user]
   name = Teo Ljungberg
   email = teo@teoljungberg.com
-  signingkey = B5D3178C
+  signingKey = B5D3178C
 [github]
   user = teoljungberg
 [alias]
@@ -25,22 +25,22 @@
   tool = vimdiff
 [core]
   editor = vim -f
-  excludesfile = ~/.gitignore
+  excludesFile = ~/.gitignore
   pager = less -S
 [push]
   default = current
 [help]
-  autocorrect = 1
+  autoCorrect = 1
 [branch]
-  autosetuprebase = always
+  autoSetupRebase = always
 [init]
-  templatedir = ~/.git_template
+  templateDir = ~/.git_template
 [grep]
-  linenumber = true
+  lineNumber = true
 [fetch]
   prune = true
 [rebase]
-  autosquash = true
+  autoSquash = true
 [pull]
   rebase = true
 [color]
