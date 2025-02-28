@@ -15,7 +15,7 @@
   l = log --oneline
   ls = ls-files
 
-  p = push-origin-or-fork
+  p = push-fork-or-origin
   r = recent
 
   ctags = "!sh -c '[ ! -e .git/hooks/ctags ] && git init; .git/hooks/ctags' git-ctags"
