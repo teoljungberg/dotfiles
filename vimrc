@@ -214,44 +214,13 @@ augroup t_textwidth
   autocmd FileType * if !&textwidth | setlocal textwidth=80 | endif
 augroup END
 
-let s:filetypes_with_nonumber = [
-      \ 'ale-preview.message',
-      \ 'fugitive',
-      \ 'fzf',
-      \ 'git',
-      \ 'gitcommit',
-      \ 'gitrebase',
-      \ 'help',
-      \ 'man',
-      \ 'netrw',
-      \ 'qf',
-      \ ]
-augroup t_number
+augroup t_list_number
   autocmd!
 
-  autocmd FileType * setlocal number
-  autocmd FileType *
-        \ if index(s:filetypes_with_nonumber, &filetype) >= 0 |
-        \   setlocal nonumber |
-        \ endif
-augroup END
-
-let s:filetypes_with_nolist = [
-      \ 'fzf',
-      \ 'git',
-      \ 'help',
-      \ 'man',
-      \ 'qf',
-      \ ]
-augroup t_list
-  autocmd!
-
-  autocmd FileType * setlocal list
-  autocmd FileType * if &previewwindow | setlocal nolist | endif
-  autocmd FileType *
-        \ if index(s:filetypes_with_nolist, &filetype) >= 0 |
-        \   setlocal nolist |
-        \ endif
+  autocmd FileType * setlocal list number
+  autocmd FileType * if !&modifiable | setlocal nolist nonumber | endif
+  autocmd FileType * if &readonly | setlocal nolist nonumber | endif
+  autocmd FileType * if &previewwindow | setlocal nolist nonumber | endif
 augroup END
 
 augroup t_filetypes
@@ -307,7 +276,7 @@ augroup END
 augroup t_qf
   autocmd!
 
-  autocmd FileType qf setlocal nobuflisted
+  autocmd FileType qf setlocal nobuflisted nolist nonumber
   autocmd FileType qf nnoremap <buffer> - -
 augroup END
 
@@ -620,7 +589,7 @@ augroup t_fzf
         \   nnoremap <buffer> <Space>] :FZFHelptags<CR> |
         \ endif
   autocmd FileType fzf
-        \ setlocal laststatus=0 noshowmode noruler
+        \ setlocal laststatus=0 noshowmode noruler nonumber nolist
         \ |
         \ autocmd BufLeave <buffer> setlocal laststatus=2 showmode ruler
 augroup END
