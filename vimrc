@@ -238,8 +238,6 @@ let g:ruby_indent_block_style = 'do'
 augroup t_ruby
   autocmd!
 
-  autocmd FileType ruby iabbrev <buffer> ddebug require 'pry'; binding.pry
-  autocmd FileType ruby iabbrev <buffer> dinit def initialize
   autocmd FileType ruby setlocal comments=:#\<Space> iskeyword+=?,!,=
   autocmd Syntax ruby syntax region rubySorbetSig start='sig {' end='}'
   autocmd Syntax ruby syntax region rubySorbetSig start='sig do' end="\<end\>"
