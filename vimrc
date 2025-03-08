@@ -246,19 +246,6 @@ augroup t_openbsd
         \ tabstop=8
 augroup END
 
-if exists('##OSAppearanceChanged')
-  augroup t_follow_os_appearance
-    autocmd!
-
-    autocmd OSAppearanceChanged *
-          \ if v:os_appearance == 1 |
-          \   set background=dark |
-          \ else |
-          \   set background=light |
-          \ endif
-  augroup END
-endif
-
 let g:bundler_edit_commands = 0
 let g:ruby_indent_block_style = 'do'
 
