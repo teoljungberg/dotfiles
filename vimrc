@@ -548,9 +548,9 @@ augroup t_git
 augroup END
 
 if executable('fzf')
-  if isdirectory(expand('$HOME/.fzf/'))
+  if isdirectory($HOME . '/.fzf/')
     setglobal runtimepath+=$HOME/.fzf/
-  elseif isdirectory(expand('$HOME/.nix-profile/share/vim-plugins/fzf/'))
+  elseif isdirectory($HOME . '/.nix-profile/share/vim-plugins/fzf/')
      setglobal runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
   endif
 
