@@ -192,7 +192,6 @@ in
         gnumake
         gnupg
         jq
-        lim
         mosh
         neovim
         nixfmt-rfc-style

@@ -21,7 +21,6 @@ in
     gnupg
     jq
     knfmt
-    lim
     mosh
     nixfmt-rfc-style
     pgformatter
