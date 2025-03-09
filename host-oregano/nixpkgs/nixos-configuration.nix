@@ -166,8 +166,6 @@ in
     { pkgs, ... }:
     let
       vim = pkgs.vim_configurable.override {
-        ruby = pkgs.ruby_3_1;
-
         config.vim.gui = false;
       };
     in
