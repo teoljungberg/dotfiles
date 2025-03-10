@@ -645,10 +645,7 @@ command! DoasWrite
 
 function! s:colorscheme()
   if !empty(get(g:, 'colors_name', ''))
-    hi Todo
-          \ cterm=underline gui=underline term=underline
-          \ ctermfg=NONE ctermbg=NONE
-          \ guifg=NONE guibg=NONE
+    hi Todo cterm=underline gui=underline term=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
   endif
 endfunction
 
