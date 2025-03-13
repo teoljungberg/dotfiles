@@ -129,8 +129,8 @@ for bundle in ${bundles}; do
 done
 
 find \
-  "$HOME/.vim/pack/bundle" \
-  -maxdepth 3 \
+  "$HOME/.vim/pack/bundle/start" \
+  -maxdepth 2 \
   -type d \
   -name ".git" |
   while read -r path; do
