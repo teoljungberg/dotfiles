@@ -23,10 +23,16 @@ if [ -n "$1" ]; then
   pull_request_number="$1"
 else
   current_branch=$(git rev-parse --abbrev-ref HEAD)
+  remote=$(git config "branch.$current_branch.remote")
   delimiter="|"
   format="%I$delimiter%t%n"
+  if [ "$remote" = "origin" ]; then
+    head="$current_branch"
+  else
+    head="$remote:$current_branch"
+  fi
   pull_request_number=$(
-    hub pr list -f "$format" -h "$current_branch" \  |
+    hub pr list -f "$format" -h "$head" |
       cut -d "$delimiter" -f 1
   )
 fi
