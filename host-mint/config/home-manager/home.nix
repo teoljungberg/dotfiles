@@ -22,6 +22,7 @@ in
     jq
     knfmt
     mosh
+    (neovim.override { vimAlias = true; })
     nixfmt-rfc-style
     pgformatter
     pkg-config
@@ -32,7 +33,6 @@ in
     shellcheck
     shfmt
     stylua
-    t-neovim
     tailscale
     tmux
     universal-ctags
