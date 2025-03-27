@@ -184,7 +184,6 @@ cnoremap <C-A> <Home>
 
 augroup t_gui
   autocmd!
-
   autocmd GUIEnter * setglobal
         \ icon
         \ lines=45
@@ -196,13 +195,11 @@ augroup END
 
 augroup t_textwidth
   autocmd!
-
   autocmd FileType * if !&textwidth | setlocal textwidth=80 | endif
 augroup END
 
 augroup t_list_number
   autocmd!
-
   autocmd FileType * setlocal list number
   autocmd FileType * if !&modifiable | setlocal nolist nonumber | endif
   autocmd FileType * if &readonly | setlocal nolist nonumber | endif
@@ -211,7 +208,6 @@ augroup END
 
 augroup t_filetypes
   autocmd!
-
   autocmd BufReadPost gitconfig,.gitconfig.local setfiletype gitconfig
   autocmd BufReadPost patch-* setfiletype diff
   autocmd BufReadPost psqlrc,.psqlrc setfiletype sql
@@ -220,7 +216,6 @@ augroup END
 
 augroup t_openbsd
   autocmd!
-
   autocmd FileType c,cpp setlocal
         \ cindent
         \ cinoptions=:0,t0,+4,(4
@@ -237,7 +232,6 @@ let g:ruby_indent_block_style = 'do'
 
 augroup t_ruby
   autocmd!
-
   autocmd FileType ruby setlocal comments=:#\<Space> iskeyword+=?,!,=
   autocmd Syntax ruby syntax region rubySorbetSig start='sig {' end='}'
   autocmd Syntax ruby syntax region rubySorbetSig start='sig do' end="\<end\>"
@@ -246,7 +240,6 @@ augroup END
 
 augroup t_qf
   autocmd!
-
   autocmd FileType qf setlocal nobuflisted nolist nonumber
   autocmd FileType qf nnoremap <buffer> - -
 augroup END
@@ -262,7 +255,6 @@ let g:markdown_fenced_languages = [
 
 augroup t_markdown
   autocmd!
-
   autocmd FileType markdown setlocal
         \ expandtab
         \ linebreak
@@ -385,7 +377,6 @@ endif
 
 augroup t_release_swapfiles
   autocmd!
-
   autocmd BufWritePost,BufReadPost,BufLeave *
         \ if isdirectory(expand('<amatch>:h')) |
         \   let &swapfile = &modified |
@@ -394,7 +385,6 @@ augroup END
 
 augroup t_write_on_focus_lost
   autocmd!
-
   autocmd FocusLost * silent! wall
 augroup END
 
@@ -470,7 +460,6 @@ nmap `=? <Plug>(ale_hover)
 
 augroup t_dispatch
   autocmd!
-
   autocmd BufReadPost *
         \ if getline(1) =~# '^#!' |
         \   let b:dispatch = matchstr(
@@ -529,7 +518,6 @@ nnoremap <C-n> <C-n>
 
 augroup t_git
   autocmd!
-
   autocmd FileType gitcommit setlocal shiftwidth=2 spell
 augroup END
 
@@ -556,7 +544,6 @@ let g:fzf_layout = { 'down': '40%' }
 
 augroup t_fzf
   autocmd!
-
   autocmd FileType help
         \ if executable('fzf') |
         \   nnoremap <buffer> <Space>] :FZFHelptags<CR> |
@@ -617,7 +604,6 @@ let g:direnv_silent_load = 1
 
 augroup t_obsession
   autocmd!
-
   autocmd VimEnter * nested
         \ if (
         \   !argc() &&
@@ -651,7 +637,6 @@ endfunction
 
 augroup t_colorscheme
   autocmd!
-
   autocmd ColorScheme * call <SID>colorscheme()
 augroup END
 
