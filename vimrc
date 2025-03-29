@@ -640,15 +640,15 @@ augroup t_colorscheme
   autocmd ColorScheme * call <SID>colorscheme()
 augroup END
 
+let macvim_skip_colorscheme = 1
+
 " ecru.vim
 " Copyright 2025 Teo Ljungberg
 " ISC license
 "
 " We do not set g:colors_name to the name of the colorscheme - 'ecru', as that
-" will make vim(1), mvim(1), etc try to lookup colors/ecru.vim in vim's
-" &runtimepath.
-let g:colors_name = ''
-
+" will make vim(1), and mvim(1) specifically, to try to lookup colors/ecru.vim
+" in vim's &runtimepath.
 hi ColorColumn term=NONE cterm=NONE gui=NONE ctermfg=15 ctermbg=0 guifg=#F2F0DD guibg=#444444
 hi Comment term=italic cterm=italic gui=italic ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
 hi Conceal term=italic cterm=italic gui=italic ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
