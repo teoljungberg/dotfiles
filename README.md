@@ -13,10 +13,11 @@ HOSTNAME="A_HOST"
 
 1. Install [nix]
 1. Add [nix channels](#nix-channels)
-
 ```
 % home-manager switch -f $(pwd)/host-A_HOST/config/home-manager/home.nix
 ```
+
+[nix]: https://determinate.systems/posts/determinate-nix-installer/
 
 ### NixOS
 
@@ -43,6 +44,9 @@ nixpkgs https://nixos.org/channels/nixpkgs-NIXPKGS_RELEASE-darwin
 
 ## Cron
 
-Add the `cron/crontab-teoljungberg` to your own `crontab(5)`:
+```
+LANG="en_US.UTF-8"
+PATH=$HOME/.nix-profile/bin:/usr/bin:/bin
 
-[nix]: https://determinate.systems/posts/determinate-nix-installer/
+30 9 * * *	$HOME/src/github.com/teoljungberg/dotfiles/bin/update-vim-plugins
+```
