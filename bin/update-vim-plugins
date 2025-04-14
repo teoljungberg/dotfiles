@@ -124,7 +124,7 @@ for bundle in ${bundles}; do
   vim_bundle="$HOME/.vim/pack/bundle/start/$bundle_name"
 
   if [ ! -d "$vim_bundle" ]; then
-    git clone --template /dev/null "$bundle" "$vim_bundle" > /dev/null 2>&1
+    git clone --template /dev/null "$bundle" "$vim_bundle" >/dev/null 2>&1
   fi
 done
 
@@ -144,8 +144,8 @@ find \
       upstream_branch=$(find_upstream_branch "$path") ||
         no_upstream_branch_found "$path"
       git -C "$path" rebase --autostash -q "origin/$upstream_branch" \
-        > /dev/null 2>&1
+        >/dev/null 2>&1
     fi
   done
 
-nohup vim -u NONE -c "helptags ALL" -cq > /dev/null 2>&1
+nohup vim -u NONE -c "helptags ALL" -cq >/dev/null 2>&1
