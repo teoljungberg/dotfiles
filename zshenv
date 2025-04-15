@@ -30,10 +30,8 @@ fi
 
 export EDITOR="$VISUAL"
 
-if command -v rg > /dev/null 2>&1; then
-  export FZF_DEFAULT_COMMAND="rg --files"
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-fi
+export FZF_DEFAULT_COMMAND="rg --files"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--color=bw"
 
 _source_if_available "$HOME/.zshenv.local"

@@ -6,6 +6,12 @@ set -e
 # tat
 #
 # fuzzy-finds to attach-or-create a session in a project directory
+#
+
+command -v fzf >/dev/null 2>&1 || {
+  echo >&2 "fzf(1) is not installed."
+  exit 1
+}
 
 PROJECT_ROOT="${PROJECT_ROOT:-$HOME/src}"
 

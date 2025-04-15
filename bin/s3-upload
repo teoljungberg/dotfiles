@@ -3,6 +3,11 @@
 set -e
 [ -n "$DEBUG" ] && set -ex
 
+command -v s3cmd >/dev/null 2>&1 || {
+  echo >&2 "s3cmd(1) is not installed."
+  exit 1
+}
+
 show_usage() {
   echo >&2 "s3-upload --private path/to/file"
   echo >&2 "s3-upload --private path/to/file [remote-name]"

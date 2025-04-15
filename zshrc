@@ -59,6 +59,10 @@ alias ls="ls -F"
 
 # Completion for `bin/git-changed-files`
 __git_changed_files() {
+  if ! command -v fzf >/dev/null 2>&1; then
+    echo >&2 "fzf(1) is not installed."
+    return 1
+  fi
   local cmd="git changed-files"
   setopt localoptions pipefail no_aliases 2> /dev/null
   eval "$cmd" | fzf --height 40% --reverse | while read item; do
