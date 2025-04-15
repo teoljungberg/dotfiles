@@ -1,9 +1,14 @@
 #!/bin/sh
+#
 # No arguments: `git push teoljungberg/upstream/origin CURRENT_BRANCH`
 # With arguments: acts like `git push`
 
 set -e
 [ -n "$DEBUG" ] && set -ex
+
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  exit 1
+fi
 
 remote() {
   if git remote 2>/dev/null | grep -q teoljungberg; then
