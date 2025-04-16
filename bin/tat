@@ -1,12 +1,10 @@
 #!/bin/sh
-
-set -e
-[ -n "$DEBUG" ] && set -ex
-
-# tat
 #
 # fuzzy-finds to attach-or-create a session in a project directory
 #
+
+set -e
+[ -n "$DEBUG" ] && set -ex
 
 command -v fzf >/dev/null 2>&1 || {
   echo >&2 "fzf(1) is not installed."
@@ -24,7 +22,7 @@ attach_to_tmux_session() {
 }
 
 new_tmux_session_named() {
-  tmux new-session -d -As "$1"
+  tmux new-session -d -As "$1" -c "$2"
   attach_to_tmux_session "$1"
 }
 
@@ -53,7 +51,7 @@ if [ -n "$project_directory" ]; then
     if tmux has-session -t "=$session_name" 2>/dev/null; then
       attach_to_tmux_session "$session_name"
     else
-      (cd "$PROJECT_ROOT/$project_directory" && new_tmux_session_named "$session_name")
+      new_tmux_session_named "$session_name" "$PROJECT_ROOT/$project_directory"
     fi
   fi
 fi
