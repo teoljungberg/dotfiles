@@ -620,14 +620,8 @@ nnoremap <Space>r :source $MYVIMRC
       \ <Bar>doautocmd VimEnter -<CR>
 
 if executable('doas')
-  let s:elevate_privileges = 'doas'
-else
-  let s:elevate_privileges = 'sudo'
+  command! DoasWrite :execute 'silent! write !doas tee % > /dev/null'
 endif
-command! DoasWrite
-      \ execute 'silent! write !'
-      \ s:elevate_privileges
-      \ 'tee % > /dev/null'<Bar>edit!
 
 function! s:colorscheme()
   if !empty(get(g:, 'colors_name', ''))
