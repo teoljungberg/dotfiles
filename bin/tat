@@ -11,8 +11,6 @@ command -v fzf >/dev/null 2>&1 || {
   exit 1
 }
 
-PROJECT_ROOT="${PROJECT_ROOT:-$HOME/src}"
-
 attach_to_tmux_session() {
   if [ -z "$TMUX" ]; then
     tmux attach -d -t "$1"
@@ -35,12 +33,12 @@ connected_to() {
 project_directory=$(
   find \
     -L \
-    "$PROJECT_ROOT" \
+    "$HOME/src" \
     -maxdepth 4 \
     -type d \
     -name .git \
     -exec dirname '{}' \; |
-    sed "s|$PROJECT_ROOT/||" |
+    sed "s|$HOME/src/||" |
     fzf -q "$*"
 )
 
@@ -51,7 +49,7 @@ if [ -n "$project_directory" ]; then
     if tmux has-session -t "=$session_name" 2>/dev/null; then
       attach_to_tmux_session "$session_name"
     else
-      new_tmux_session_named "$session_name" "$PROJECT_ROOT/$project_directory"
+      new_tmux_session_named "$session_name" "$HOME/src/$project_directory"
     fi
   fi
 fi
