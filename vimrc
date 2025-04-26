@@ -623,6 +623,17 @@ if executable('doas')
   command! DoasWrite :execute 'silent! write !doas tee % > /dev/null'
 endif
 
+augroup t_signs
+  autocmd!
+
+  autocmd BufWinEnter,FileType *
+        \ if &tagfunc =~# '^v:lua' |
+        \   setlocal signcolumn=yes |
+        \ else |
+        \   setlocal signcolumn=no |
+        \ endif
+augroup END
+
 function! s:colorscheme()
   if !empty(get(g:, 'colors_name', ''))
     hi Todo cterm=underline gui=underline term=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
