@@ -619,6 +619,8 @@ nnoremap <Space>r :source $MYVIMRC
       \ <Bar>filetype detect
       \ <Bar>doautocmd VimEnter -<CR>
 
+nnoremap <Space>e :confirm edit<CR>
+
 if executable('doas')
   command! DoasWrite :execute 'silent! write !doas tee % > /dev/null'
 endif
