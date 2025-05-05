@@ -174,14 +174,19 @@ set_prompt() {
   # OSC-133
   local prompt_start=$'\e]133;A\e\\'
   local prompt_end=$'\e]133;B\e\\'
+  # colors
+  local reverse_color=$'\e[7m'
+  local reset_color=$'\e[0m'
 
   PS1="%{${prompt_start}%}"          # Start with the prompt start sequence (OSC-133)
+  PS1+="%{${reverse_color}%}"        # Set reverse color
   PS1+=$(prompt_directory)           # Add the current directory
   PS1+=" "                           # Add a space
   [ -n "$SSH_TTY" ] && PS1+="%n@%m " # Add user@host, if in ssh(1)
   PS1+=$(git_branch)                 # Add the git(1) branch
   PS1+="%(1j.%j .)"                  # Add job count, if any
   PS1+="%#"                          # Add the prompt character
+  PS1+="%{${reset_color}%}"          # Reset color
   PS1+=" "                           # Add a space
   PS1+="%{${prompt_end}%}"           # End with the prompt end sequence (OSC-133)
 }
