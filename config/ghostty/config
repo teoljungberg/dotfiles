@@ -26,3 +26,5 @@ foreground = 444444
 cursor-color = 694F35
 selection-background = CDCA77
 selection-foreground = 111111
+
+config-file = ?config.local
