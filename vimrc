@@ -673,7 +673,7 @@ hi DiffChange term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE
 hi DiffDelete term=NONE cterm=NONE gui=NONE ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
 hi DiffText term=italic cterm=italic gui=italic ctermfg=15 ctermbg=0 guifg=#F2F0DD guibg=#444444
 hi Directory term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
-hi EndOfBuffer term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi EndOfBuffer term=italic cterm=italic gui=italic ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
 hi Error term=underline,bold cterm=underline,bold gui=underline,bold ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 hi ErrorMsg term=bold,reverse cterm=bold,reverse gui=bold,reverse ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi FoldColumn term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
@@ -685,7 +685,7 @@ hi LineNr term=italic cterm=italic gui=italic ctermfg=14 ctermbg=NONE guifg=#969
 hi MatchParen term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi ModeMsg term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi MoreMsg term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
-hi NonText term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi NonText term=italic cterm=italic gui=italic ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
 hi Normal term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=#444444 guibg=#F2F0DD
 hi NormalFloat term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=#F2F0DD
 hi Operator term=bold cterm=bold gui=bold ctermfg=NONE guifg=NONE
