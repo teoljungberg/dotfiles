@@ -42,7 +42,7 @@ if exists('+linebreak')
   setglobal showbreak=\ +
 endif
 
-if $TERM =~# '^screen\|^tmux' && empty($SSH_TTY) && !empty($TMUX) && exists('+ttymouse')
+if $TERM =~# '^screen\|^tmux' && empty($SSH_TTY) && len($TMUX) && exists('+ttymouse')
   setglobal ttymouse=xterm2
 endif
 
@@ -65,7 +65,7 @@ if has('vim_starting')
     set undofile
   endif
 
-  if $TERM =~# '^screen\|^tmux' && !empty($TMUX)
+  if $TERM =~# '^screen\|^tmux' && len($TMUX)
     if exists('&termguicolors')
       set notermguicolors
     endif
@@ -147,7 +147,7 @@ noremap gP "*P
 nnoremap <silent> <C-w>.
       \ :if exists(':Plcd')<Bar>
       \   execute 'Plcd'<Bar>
-      \ elseif exists('*FugitiveGitDir') && !empty(FugitiveGitDir())<Bar>
+      \ elseif exists('*FugitiveGitDir') && len(FugitiveGitDir())<Bar>
       \   execute 'Glcd'<Bar>
       \ else<Bar>
       \   lcd %:h<Bar>
@@ -637,7 +637,7 @@ augroup t_signs
 augroup END
 
 function! s:colorscheme()
-  if !empty(get(g:, 'colors_name', ''))
+  if len(get(g:, 'colors_name', ''))
     hi Todo cterm=underline gui=underline term=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
   endif
 endfunction
