@@ -1,0 +1,6 @@
+# This file only exists to make direnv silence its logging, as it needs to find
+# its configuration file[1] before respecting the environment variable
+# DIRENV_LOG_FORMAT. See [2] for more details.
+#
+# [1]: https://github.com/direnv/direnv/blob/dfdbc97a38cb72d3cf93e22ec4b573faafef30b5/internal/cmd/config.go#L130-L160
+# [2]: https://github.com/direnv/direnv/issues/1418
