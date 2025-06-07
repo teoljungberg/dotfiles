@@ -647,6 +647,8 @@ augroup t_colorscheme
   autocmd ColorScheme * call <SID>colorscheme()
 augroup END
 
+let macvim_skip_colorscheme=1
+
 " ecru.vim
 " Copyright 2025 Teo Ljungberg
 " ISC license
