@@ -388,6 +388,11 @@ augroup t_write_on_focus_lost
   autocmd FocusLost * silent! wall
 augroup END
 
+augroup t_resize
+  autocmd!
+  autocmd VimResized * if &equalalways | wincmd = | endif
+augroup END
+
 " :cd, :lcd, and :tcd with tab-completion that supports the &cdpath.
 "
 " Inspired by Tim Pope's scriptease.vim[1] and its' scriptease#complete
