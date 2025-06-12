@@ -720,6 +720,7 @@ hi String term=italic cterm=italic gui=italic ctermfg=NONE ctermbg=NONE guifg=NO
 hi TabLine term=underline cterm=underline gui=underline ctermfg=0 ctermbg=NONE guifg=#444444 guibg=#F2F0DD
 hi TabLineFill term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=#F2F0DD
 hi TabLineSel term=bold,underline cterm=bold,underline gui=bold,underline ctermfg=15 ctermbg=0 guifg=#F2F0DD guibg=#444444
+hi Terminal term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=#444444 guibg=#F2F0DD
 hi Title term=bold cterm=bold gui=bold ctermfg=NONE guifg=NONE
 hi Todo term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi Type term=bold,italic cterm=bold,italic gui=bold,italic ctermfg=NONE guifg=NONE
