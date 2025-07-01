@@ -125,6 +125,8 @@ cnoremap <C-P> <Up>
 cnoremap <C-R><C-L> <C-R>=substitute(getline('.'), '^\s*', '', '')<CR>
 cnoremap <C-R>W <C-R><C-A>
 nnoremap <Leader>d :bdelete<CR>
+nnoremap <C-J> <C-w>w
+nnoremap <C-K> <C-w>W
 nnoremap <silent> <C-L>
       \ :nohlsearch <C-R>=has('diff') ? "\<Bar>diffupdate" : ''<CR><CR><C-L>
 nnoremap <silent> <C-W>z
