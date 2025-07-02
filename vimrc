@@ -708,7 +708,7 @@ hi Repeat term=bold cterm=bold gui=bold ctermfg=NONE guifg=NONE
 hi Search term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi SignColumn term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi Special term=NONE cterm=NONE gui=NONE ctermfg=NONE guifg=NONE
-hi SpecialKey term=NONE cterm=NONE gui=NONE ctermfg=NONE guifg=NONE
+hi SpecialKey term=italic cterm=italic gui=italic ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
 hi SpellBad term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=NONE
 hi SpellCap term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=NONE
 hi SpellLocal term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE guisp=NONE
