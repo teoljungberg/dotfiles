@@ -14,3 +14,5 @@ result
 /.rspec-local
 /TODO.md
 Session.vim
+
+/.claude/
