@@ -135,14 +135,6 @@ in
 
   security.sudo.wheelNeedsPassword = false;
 
-  security.doas = {
-    enable = true;
-    wheelNeedsPassword = false;
-    extraConfig = ''
-      permit nopass keepenv teo as root
-    '';
-  };
-
   services.cron.enable = true;
   services.openssh.enable = true;
   services.tailscale.enable = true;
