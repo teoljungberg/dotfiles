@@ -13,7 +13,6 @@ setglobal listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 setglobal modelines=0
 setglobal mouse=nvi
 setglobal nojoinspaces
-setglobal nowrap
 setglobal path=.,,
 setglobal scrolloff=1
 setglobal sessionoptions-=buffers,curdir sessionoptions+=sesdir,globals
@@ -56,6 +55,7 @@ if has('vim_starting')
   set omnifunc=syntaxcomplete#Complete
   set spellfile=~/.vim/spell/en.utf-8.add
   set synmaxcol=500
+  set nowrap
 
   if exists('+breakindent')
     set breakindent
