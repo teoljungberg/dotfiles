@@ -33,7 +33,7 @@ syntax enable
 let s:user_and_hostname_if_ssh = exists('$SSH_TTY') ? system('logname') . '@' . hostname() . ':' : ''
 let &g:titlestring = s:user_and_hostname_if_ssh . '%{v:progname} %{fnamemodify(getcwd(), ":~")}'
 
-if has('+macmeta')
+if exists('+macmeta')
   setglobal macmeta
 endif
 
