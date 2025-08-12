@@ -33,9 +33,12 @@ syntax enable
 let s:user_and_hostname_if_ssh = exists('$SSH_TTY') ? system('logname') . '@' . hostname() . ':' : ''
 let &g:titlestring = s:user_and_hostname_if_ssh . '%{v:progname} %{fnamemodify(getcwd(), ":~")}'
 
-if exists('+macmeta')
+if has('gui_macvim')
   setglobal macmeta
-endif
+
+  let macvim_skip_cmd_opt_movement = 1
+  let macvim_skip_colorscheme = 1
+end
 
 if exists('+linebreak')
   setglobal showbreak=\ +
@@ -655,8 +658,6 @@ augroup t_colorscheme
   autocmd!
   autocmd ColorScheme * call <SID>colorscheme()
 augroup END
-
-let macvim_skip_colorscheme = 1
 
 " ecru.vim
 " Copyright 2025 Teo Ljungberg
