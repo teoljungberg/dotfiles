@@ -33,7 +33,6 @@ in
     shellcheck
     shfmt
     stylua
-    standard
     tailscale
     tmux
     universal-ctags
