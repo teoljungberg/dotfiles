@@ -146,6 +146,9 @@ noremap gY "*y$
 noremap gp "*p
 noremap gP "*P
 
+nnoremap <expr> j (&wrap && v:count == 0) ? 'gj' : 'j'
+nnoremap <expr> k (&wrap && v:count == 0) ? 'gk' : 'k'
+
 nnoremap <silent> <C-w>.
       \ :if exists(':Plcd')<Bar>
       \   execute 'Plcd'<Bar>
