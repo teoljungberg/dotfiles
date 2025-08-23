@@ -667,6 +667,8 @@ augroup END
 " will make vim(1), and mvim(1) specifically, to try to lookup colors/ecru.vim
 " in vim's &runtimepath.
 
+highlight clear
+
 if exists('g:colors_name')
   let g:colors_name = ''
 endif
