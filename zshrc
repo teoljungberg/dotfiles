@@ -1,4 +1,5 @@
 autoload -U compinit && compinit
+autoload -U add-zsh-hook
 
 setopt alwaystoend
 setopt auto_cd
@@ -202,11 +203,13 @@ bell() {
 }
 
 setup_setrb() {
-  command -v setrb >/dev/null && \
-    [ -z "$DISABLE_SETRB" ] && \
-    [ -z "$SETRB_PATH_ADDITIONS" ] &&
-    ([ -f .ruby-version ] || [ -f .tool-versions ]) && \
-    eval "$(setrb -w0 2>/dev/null)"
+  if command -v setrb >/dev/null; then
+    if [ -f .ruby-version ] || [ -f .tool-versions ]; then
+      eval "$(setrb -w0 2>/dev/null)"
+    elif [ -n "$SETRB_PATH_ADDITIONS" ]; then;
+      eval "$(setrb -y 2>/dev/null)"
+    fi
+  fi
 }
 
 set_title() {
@@ -235,7 +238,8 @@ preexec() {
 precmd() {
   set_title "$@"
   set_prompt
-  setup_setrb
 }
+
+add-zsh-hook chpwd setup_setrb
 
 _source_if_available "$HOME/.zshrc.local"
