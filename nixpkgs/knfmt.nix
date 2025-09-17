@@ -4,7 +4,7 @@
   lib ? pkgs.lib,
 }:
 let
-  version = "4.5.0";
+  version = "5.0.0";
 in
 stdenv.mkDerivation rec {
   pname = "knfmt";
@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
 
   src = fetchTarball {
     url = "https://github.com/mptre/knfmt/releases/download/v${version}/knfmt-${version}.tar.gz";
-    sha256 = "052p2nrrxf64fjdy9b840k2yw3kg0nsz57w18ih4wfs2dqdx8fs7";
+    sha256 = "0r0f4saafhvymhs7jclgc2rg18dwin6y9m0hhhkxbhwii6ggqjax";
   };
 
   buildPhase = ''
