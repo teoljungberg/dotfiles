@@ -195,10 +195,10 @@ set_prompt() {
 bell() {
   if [ $# -eq 0 ]; then
     cat
-    print -Pn "\a"
+    tput bel
   else
     $@
-    print -Pn "\a"
+    tput bel
   fi
 }
 
