@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Add ui.color=true to any git(1) command
+#
+
+set -e
+
+git -c color.ui=true "$@"
