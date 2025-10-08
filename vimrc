@@ -451,7 +451,7 @@ let g:ale_virtualtext_cursor = 0
 
 let g:ale_lua_stylua_options = '--config-path ~/.stylua.toml'
 let g:ale_sh_shfmt_options = '--indent 2 --case-indent'
-let g:ale_sql_pgformatter_options = '--spaces 2 --comma-break'
+let g:ale_sql_pgformatter_options = '--spaces 2 --comma-break --wrap-limit 80'
 
 let g:ale_fixers = { '*': ['trim_whitespace'] }
 let g:ale_fixers.c = ['knfmt']
