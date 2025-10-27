@@ -216,6 +216,7 @@ augroup END
 
 augroup t_filetypes
   autocmd!
+  autocmd BufReadPost *.mdc setfiletype markdown
   autocmd BufReadPost gitconfig,.gitconfig.local setfiletype gitconfig
   autocmd BufReadPost patch-* setfiletype diff
   autocmd BufReadPost psqlrc,.psqlrc setfiletype sql
