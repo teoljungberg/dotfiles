@@ -544,6 +544,8 @@ if executable('fzf')
 
   nnoremap <Space><Space> :FZFFiles<CR>
   nnoremap <Space>] :FZFTags<CR>
+  nnoremap <Space>g :FZFRG<CR>
+  nnoremap <Space>l :FZFLines<CR>
 endif
 
 let g:fzf_vim = {}
