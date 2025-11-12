@@ -19,6 +19,7 @@ in
     gitAndTools.gh
     gitAndTools.hub
     gnupg
+    fzf
     jq
     knfmt
     mosh
