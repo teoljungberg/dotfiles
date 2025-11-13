@@ -123,9 +123,24 @@ else
   setglobal grepprg=grep\ -rnH\ --exclude-dir\ .git\ $*\ /dev/null
 endif
 
+function! s:yank_file_path_with_line()
+  let path = expand('%') . ':' . line('.')
+  let register = has('clipboard') ? '*' : '"'
+  call setreg(register, path)
+endfunction
+
+function! s:yank_file_path_with_range() range
+  let lines = uniq([a:firstline, a:lastline])
+  let path = expand('%') . ':' . join(lines, '-')
+  let register = has('clipboard') ? '*' : '"'
+  call setreg(register, path)
+endfunction
+
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 cnoremap <C-R><C-L> <C-R>=substitute(getline('.'), '^\s*', '', '')<CR>
+nnoremap <silent> <Space>y :call <SID>yank_file_path_with_line()<CR>
+vnoremap <silent> <Space>y :call <SID>yank_file_path_with_range()<CR>gv
 cnoremap <C-R>W <C-R><C-A>
 nnoremap <Leader>d :bdelete<CR>
 nnoremap <C-J> <C-w>w
