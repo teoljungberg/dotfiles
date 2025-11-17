@@ -1,9 +1,8 @@
 # teoljungberg/dotfiles
 
-## rcm(1)
+## rcrc(5)
 
 ```
-% cat ~/.rcrc
 DOTFILES_DIRS="$HOME/src/github.com/teoljungberg/dotfiles"
 COPY_ALWAYS="git_template/info/projections.json"
 EXCLUDES="*.md result rcrc Session.vim"
@@ -43,7 +42,7 @@ home-manager https://github.com/nix-community/home-manager/archive/release-NIXPK
 nixpkgs https://nixos.org/channels/nixpkgs-NIXPKGS_RELEASE-darwin
 ```
 
-## Cron
+## crontab(5)
 
 ```
 LANG="en_US.UTF-8"
