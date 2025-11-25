@@ -4,6 +4,7 @@ macos-option-as-alt = right
 mouse-hide-while-typing = true
 
 keybind = alt+right=unbind
+keybind = shift+enter=text:\x1b\r
 
 palette = 0=#444444
 palette = 1=#835F60
