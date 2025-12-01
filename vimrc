@@ -284,6 +284,7 @@ augroup t_markdown
         \ linebreak
         \ shiftwidth=2
         \ spell
+        \ textwidth=0
         \ wrap
 augroup END
 
