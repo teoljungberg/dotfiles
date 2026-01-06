@@ -129,6 +129,7 @@ _source_if_available() { [ -e "$1" ] && source "$1" }
 
 _source_if_available "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 _source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
+_source_if_available "/opt/homebrew/opt/fzf/shell/completion.zsh"
 _source_if_available "$HOME/.fzf/shell/completion.zsh"
 _source_if_available "$HOME/.nix-profile/share/chruby/chruby.sh"
 _source_if_available "/opt/homebrew/opt/chruby/share/chruby/chruby.sh"
@@ -150,6 +151,7 @@ autoload edit-command-line
 zle -N edit-command-line
 
 _source_if_available "$HOME/.nix-profile/share/fzf/key-bindings.zsh"
+_source_if_available "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 _source_if_available "$HOME/.fzf/shell/key-bindings.zsh"
 
 if command -v fzf > /dev/null 2>&1; then
