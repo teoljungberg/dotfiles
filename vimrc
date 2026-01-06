@@ -332,6 +332,8 @@ function! s:ccr()
           \ "djump\<Space>" .
           \ split(cmdline, ' ')[1] .
           \ "\<S-Left>\<Left>\<Space>"
+  elseif has('nvim') && cmdline =~# '^\(term\|terminal\)\>'
+    return "\<C-U>aboveleft " . cmdline . "\<CR>"
   else
     return "\<CR>"
   endif
