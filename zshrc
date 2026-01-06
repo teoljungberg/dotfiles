@@ -130,6 +130,12 @@ _source_if_available() { [ -e "$1" ] && source "$1" }
 _source_if_available "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 _source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
 _source_if_available "$HOME/.fzf/shell/completion.zsh"
+_source_if_available "$HOME/.nix-profile/share/chruby/chruby.sh"
+_source_if_available "/opt/homebrew/opt/chruby/share/chruby/chruby.sh"
+
+if [ ! -d "$HOME/.nix-profile" ]; then
+  _source_if_available "/opt/homebrew/opt/chruby/share/chruby/auto.sh"
+fi
 PATH=".git/safe/../../bin:$PATH"
 
 if command -v direnv > /dev/null 2>&1; then
@@ -225,16 +231,6 @@ bell() {
   fi
 }
 
-setup_setrb() {
-  if command -v setrb >/dev/null; then
-    if [ -f .ruby-version ] || [ -f .tool-versions ]; then
-      eval "$(setrb -w0 2>/dev/null)"
-    elif [ -n "$SETRB_PATH_ADDITIONS" ]; then;
-      eval "$(setrb -y 2>/dev/null)"
-    fi
-  fi
-}
-
 set_title() {
   if [ -n "$SSH_TTY" ]; then
     print -Pn "\e]2;%n@%m:$(prompt_directory)"
@@ -263,6 +259,5 @@ precmd() {
   set_prompt
 }
 
-add-zsh-hook chpwd setup_setrb
 
 _source_if_available "$HOME/.zshrc.local"
