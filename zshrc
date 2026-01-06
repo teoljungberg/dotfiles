@@ -50,6 +50,8 @@ if [ -e "/opt/homebrew/bin/brew" ]; then
   if ! which brew 1>/dev/null; then
     eval "$(brew shellenv)"
   fi
+
+  export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 fi
 
 if [ -z "$TMUX" ]; then
