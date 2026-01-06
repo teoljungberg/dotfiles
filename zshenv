@@ -9,6 +9,7 @@ LANG="en_US.UTF-8"
 _prepend_to_path_if_available "$HOME/.bin"
 _prepend_to_path_if_available "$HOME/.fzf/bin"
 _prepend_to_path_if_available "$HOME/.nix-profile/bin"
+_prepend_to_path_if_available "/opt/homebrew/bin"
 
 _append_to_path_if_available "/usr/local/bin"
 _append_to_path_if_available "/usr/sbin"
