@@ -556,6 +556,8 @@ if executable('fzf')
     setglobal runtimepath+=$HOME/.fzf/
   elseif isdirectory($HOME . '/.nix-profile/share/vim-plugins/fzf/')
      setglobal runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
+  elseif isdirectory('/opt/homebrew/opt/fzf')
+     setglobal runtimepath+=/opt/homebrew/opt/fzf
   endif
 
   nnoremap <Space><Space> :FZFFiles<CR>
