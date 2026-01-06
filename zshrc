@@ -63,8 +63,11 @@ zstyle ':completion:*' insert-tab pending
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 zstyle ':completion:*' menu select
 zstyle ':completion:*:*:git:*' user-commands ${${(M)${(k)commands}:#git-*}/git-/}
+
 if [ -e "$HOME/.nix-profile/share/git/contrib/completion/git-completion.zsh" ]; then
   zstyle ':completion:*:*:git:*' script $HOME/.nix-profile/share/git/contrib/completion/git-completion.zsh
+elif [ -e "/opt/homebrew/share/zsh/site-functions/_git" ]; then
+  zstyle ':completion:*:*:git:*' script /opt/homebrew/share/zsh/site-functions/_git
 fi
 
 alias b="bundle exec"
