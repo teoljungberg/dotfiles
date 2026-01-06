@@ -31,23 +31,9 @@ if [ "$1" = "." ]; then
   current_directory=$(basename "$directory")
   session_name=$(echo "$parent_directory/$current_directory" | sed "s/\./-/g")
 else
-  command -v fzf >/dev/null 2>&1 || {
-    echo >&2 "fzf(1) is not installed."
-    exit 1
-  }
-
-  project=$(
-    find \
-      -L \
-      "$HOME/src" \
-      -maxdepth 4 \
-      -type d \
-      -name .git \
-      -exec dirname '{}' \; |
-      sed "s|$HOME/src/||" |
-      fzf -q "$*"
-  )
-  directory="$HOME/src/$project"
+  directory=$(projects "$@")
+  [ -z "$directory" ] && exit 0
+  project=$(echo "$directory" | sed "s|$HOME/src/||")
   session_name=$(echo "$project" | cut -d / -f 2- | sed "s/\./-/g")
 fi
 

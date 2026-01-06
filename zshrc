@@ -58,6 +58,8 @@ alias b="bundle exec"
 alias j="jobs"
 alias ls="ls -F"
 
+alias p="cd_projects"
+
 # Completion for `bin/git-changed-files`
 __git_changed_files() {
   if ! command -v fzf >/dev/null 2>&1; then
@@ -89,6 +91,14 @@ clear() {
     command clear && tmux clear-history
   else
     command clear
+  fi
+}
+
+cd_projects() {
+  local dir
+  dir=$(projects "$@")
+  if [ -n "$dir" ]; then
+    cd "$dir"
   fi
 }
 

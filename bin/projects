@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# fuzzy-finds a project directory and outputs its path
+#
+# Usage:
+#   cd "$(projects)"
+#   cd "$(projects rails)"
+#
+
+set -e
+[ -n "$DEBUG" ] && set -ex
+
+command -v fzf >/dev/null 2>&1 || {
+  echo >&2 "fzf(1) is not installed."
+  exit 1
+}
+
+project=$(
+  find \
+    -L \
+    "$HOME/src" \
+    -maxdepth 4 \
+    -type d \
+    -name .git \
+    -exec dirname '{}' \; |
+    sed "s|$HOME/src/||" |
+    fzf -q "$*"
+)
+
+if [ -n "$project" ]; then
+  echo "$HOME/src/$project"
+fi
