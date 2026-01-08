@@ -66,11 +66,11 @@ function M.fullScreenWindow()
 end
 
 function M.moveLeft()
-  moveWindowX(pixelDifference)
+  moveWindowX(-pixelDifference)
 end
 
 function M.moveRight()
-  moveWindowX(-pixelDifference)
+  moveWindowX(pixelDifference)
 end
 
 function M.moveUp()

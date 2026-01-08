@@ -3,8 +3,8 @@ local ipc = require("hs.ipc")
 
 hs.window.animationDuration = 0
 
-hs.hotkey.bind({ "shift", "ctrl" }, "l", helper.moveLeft)
-hs.hotkey.bind({ "shift", "ctrl" }, "h", helper.moveRight)
+hs.hotkey.bind({ "shift", "ctrl" }, "h", helper.moveLeft)
+hs.hotkey.bind({ "shift", "ctrl" }, "l", helper.moveRight)
 hs.hotkey.bind({ "shift", "ctrl" }, "k", helper.moveUp)
 hs.hotkey.bind({ "shift", "ctrl" }, "j", helper.moveDown)
 hs.hotkey.bind({ "cmd", "ctrl" }, "h", helper.moveWindowLeftHalfScreen)
