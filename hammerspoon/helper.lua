@@ -1,7 +1,8 @@
 local M = {}
 local pixelDifference = 50
-local menuBarInPixles = 37
 local numberOfCells = 8
+local minWindowWidth = 200
+local minWindowHeight = 120
 
 local function getWindow()
   local window = hs.window.focusedWindow()
@@ -13,6 +14,32 @@ local function getWindow()
   end
 end
 
+local function clamp(value, min, max)
+  if value < min then
+    return min
+  end
+  if value > max then
+    return max
+  end
+  return value
+end
+
+local function setClampedFrame(window, frame)
+  local screenFrame = window:screen():frame()
+  local maxWidth = screenFrame.w
+  local maxHeight = screenFrame.h
+
+  frame.w = clamp(frame.w, minWindowWidth, maxWidth)
+  frame.h = clamp(frame.h, minWindowHeight, maxHeight)
+
+  local maxX = screenFrame.x + screenFrame.w - frame.w
+  local maxY = screenFrame.y + screenFrame.h - frame.h
+  frame.x = clamp(frame.x, screenFrame.x, maxX)
+  frame.y = clamp(frame.y, screenFrame.y, maxY)
+
+  window:setFrame(frame)
+end
+
 local function moveWindowX(direction)
   local window = getWindow()
   if not window then
@@ -21,7 +48,7 @@ local function moveWindowX(direction)
   local frame = window:frame()
 
   frame.x = frame.x + direction
-  window:setFrame(frame)
+  setClampedFrame(window, frame)
 end
 
 local function moveWindowY(direction)
@@ -32,7 +59,7 @@ local function moveWindowY(direction)
   local frame = window:frame()
 
   frame.y = frame.y + direction
-  window:setFrame(frame)
+  setClampedFrame(window, frame)
 end
 
 local function resizeWindowX(direction)
@@ -43,7 +70,7 @@ local function resizeWindowX(direction)
   local frame = window:frame()
 
   frame.w = frame.w + direction
-  window:setFrame(frame)
+  setClampedFrame(window, frame)
 end
 
 local function resizeWindowY(direction)
@@ -54,7 +81,7 @@ local function resizeWindowY(direction)
   local frame = window:frame()
 
   frame.h = frame.h + direction
-  window:setFrame(frame)
+  setClampedFrame(window, frame)
 end
 
 function M.centralizeWindow()
@@ -65,14 +92,14 @@ function M.centralizeWindow()
   local frame = window:frame()
   local max = window:screen():frame()
   local cellX = max.w / numberOfCells
-  local cellY = (menuBarInPixles + max.h) / numberOfCells
+  local cellY = max.h / numberOfCells
 
   frame.w = cellX * (numberOfCells - 2)
   frame.h = cellY * (numberOfCells - 2)
   frame.x = cellX
   frame.y = cellY
 
-  window:setFrame(frame)
+  setClampedFrame(window, frame)
 end
 
 function M.fullScreenWindow()
@@ -113,7 +140,7 @@ function M.moveWindowLeftHalfScreen()
   windowFrame.w = max.w / 2
   windowFrame.h = max.h
 
-  window:setFrame(windowFrame)
+  setClampedFrame(window, windowFrame)
 end
 
 function M.moveWindowRightHalfScreen()
@@ -130,7 +157,7 @@ function M.moveWindowRightHalfScreen()
   windowFrame.w = max.w / 2
   windowFrame.h = max.h
 
-  window:setFrame(windowFrame)
+  setClampedFrame(window, windowFrame)
 end
 
 function M.resizeLeft()
