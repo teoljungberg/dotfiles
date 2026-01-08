@@ -15,6 +15,9 @@ end
 
 local function moveWindowX(direction)
   local window = getWindow()
+  if not window then
+    return
+  end
   local frame = window:frame()
 
   frame.x = frame.x + direction
@@ -23,6 +26,9 @@ end
 
 local function moveWindowY(direction)
   local window = getWindow()
+  if not window then
+    return
+  end
   local frame = window:frame()
 
   frame.y = frame.y + direction
@@ -31,6 +37,9 @@ end
 
 local function resizeWindowX(direction)
   local window = getWindow()
+  if not window then
+    return
+  end
   local frame = window:frame()
 
   frame.w = frame.w + direction
@@ -39,6 +48,9 @@ end
 
 local function resizeWindowY(direction)
   local window = getWindow()
+  if not window then
+    return
+  end
   local frame = window:frame()
 
   frame.h = frame.h + direction
@@ -47,6 +59,9 @@ end
 
 function M.centralizeWindow()
   local window = getWindow()
+  if not window then
+    return
+  end
   local frame = window:frame()
   local max = window:screen():frame()
   local cellX = max.w / numberOfCells
@@ -62,6 +77,9 @@ end
 
 function M.fullScreenWindow()
   local window = getWindow()
+  if not window then
+    return
+  end
   window:maximize(0)
 end
 
@@ -83,6 +101,9 @@ end
 
 function M.moveWindowLeftHalfScreen()
   local window = getWindow()
+  if not window then
+    return
+  end
   local windowFrame = window:frame()
   local screen = window:screen()
   local max = screen:frame()
@@ -97,6 +118,9 @@ end
 
 function M.moveWindowRightHalfScreen()
   local window = getWindow()
+  if not window then
+    return
+  end
   local windowFrame = window:frame()
   local screen = window:screen()
   local max = screen:frame()
@@ -130,19 +154,35 @@ function M.reloadConfig()
 end
 
 function M.moveWindowToWestDisplay()
-  hs.window.focusedWindow():moveOneScreenWest()
+  local window = getWindow()
+  if not window then
+    return
+  end
+  window:moveOneScreenWest()
 end
 
 function M.moveWindowToEastDisplay()
-  hs.window.focusedWindow():moveOneScreenEast()
+  local window = getWindow()
+  if not window then
+    return
+  end
+  window:moveOneScreenEast()
 end
 
 function M.moveWindowToNorthDisplay()
-  hs.window.focusedWindow():moveOneScreenNorth()
+  local window = getWindow()
+  if not window then
+    return
+  end
+  window:moveOneScreenNorth()
 end
 
 function M.moveWindowToSouthDisplay()
-  hs.window.focusedWindow():moveOneScreenSouth()
+  local window = getWindow()
+  if not window then
+    return
+  end
+  window:moveOneScreenSouth()
 end
 
 local function hideAlreadyRunningApplication(bundleID)
