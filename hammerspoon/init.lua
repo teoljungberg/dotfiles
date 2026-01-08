@@ -32,3 +32,7 @@ for key, bundleID in pairs(helper.buildApplicationShortcutToBundleMapping()) do
 end
 
 ipc.cliColors({ error = "", initial = "", output = "", input = "" })
+
+if hs.spoons.isInstalled("MouseFollowsFocus") then
+  hs.loadSpoon("MouseFollowsFocus"):start()
+end
