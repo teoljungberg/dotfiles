@@ -16,8 +16,8 @@ in
     automake
     bat
     git
-    gitAndTools.gh
-    gitAndTools.hub
+    gh
+    hub
     gnupg
     fzf
     jq
