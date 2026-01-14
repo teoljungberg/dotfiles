@@ -157,7 +157,7 @@ in
   home-manager.users.teo =
     { pkgs, ... }:
     let
-      vim = pkgs.vim_configurable.override {
+      vim = pkgs.vim-full.override {
         config.vim.gui = false;
       };
     in
@@ -178,9 +178,9 @@ in
         comma
         fzf
         git
-        gitAndTools.gh
-        gitAndTools.hub
-        gitAndTools.hut
+        gh
+        hub
+        hut
         gnumake
         gnupg
         jq
