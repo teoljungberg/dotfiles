@@ -45,4 +45,12 @@ in
     enable = true;
     nix-direnv.enable = true;
   };
+
+  nix.package = pkgs.nixVersions.stable;
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+    keep-derivations = true
+    keep-outputs = true
+    netrc-file = /Users/teo/.netrc
+  '';
 }
