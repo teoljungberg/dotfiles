@@ -27,6 +27,10 @@ export DIRENV_LOG_FORMAT=
 export DISABLE_SPRING=1
 export EDITOR="$VISUAL"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent::1"
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_COLOR=1
+export HOMEBREW_NO_EMOJI=1
+export HOMEBREW_NO_ENV_HINTS=1
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export MANWIDTH=80
@@ -40,6 +44,12 @@ export RUBOCOP_OPTS="--no-color"
 export RUBY_DEBUG_NO_COLOR=1
 export SPEC_OPTS="--no-color"
 export THOR_SHELL="Basic"
+
+if [ -e "/opt/homebrew/bin/brew" ]; then
+  if ! which brew 1>/dev/null; then
+    eval "$(brew shellenv)"
+  fi
+fi
 
 if [ -z "$TMUX" ]; then
   export TERM="xterm-256color"
