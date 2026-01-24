@@ -223,10 +223,10 @@ augroup END
 
 augroup t_list_number
   autocmd!
-  autocmd FileType * setlocal list number
-  autocmd FileType * if !&modifiable | setlocal nolist nonumber | endif
-  autocmd FileType * if &readonly | setlocal nolist nonumber | endif
-  autocmd FileType * if &previewwindow | setlocal nolist nonumber | endif
+  autocmd FileType * setlocal list number |
+        \ if !&modifiable || &readonly || &previewwindow |
+        \   setlocal nolist nonumber |
+        \ endif
 augroup END
 
 augroup t_filetypes
