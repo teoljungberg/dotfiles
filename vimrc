@@ -38,7 +38,7 @@ if has('gui_macvim')
 
   let macvim_skip_cmd_opt_movement = 1
   let macvim_skip_colorscheme = 1
-end
+endif
 
 if exists('+linebreak')
   setglobal showbreak=\ +
@@ -293,7 +293,7 @@ augroup END
 function! s:ccr()
   if getcmdtype() !=# ':'
     return "\<CR>"
-  end
+  endif
   let cmdline = getcmdline()
   let filter_stub = '\v\C^((filt|filte|filter) .+ )*'
   let range_stub = '\v\C^((\d+|\.|\%)?,?(\$|\d+|\.)?)*'
@@ -634,7 +634,7 @@ let g:surround_{char2nr('#')} = "#{\<CR>}"
 
 if exists(':E') != 2
   command! -nargs=* -complete=dir E Explore <args>
-end
+endif
 
 let g:direnv_silent_load = 1
 
