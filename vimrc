@@ -412,7 +412,7 @@ augroup END
 
 augroup t_write_on_focus_lost
   autocmd!
-  autocmd FocusLost * silent! wall
+  autocmd FocusLost * silent! update
 augroup END
 
 augroup t_resize
