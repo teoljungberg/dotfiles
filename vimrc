@@ -663,7 +663,7 @@ endif
 
 augroup t_signs
   autocmd!
-  autocmd BufWinEnter,FileType *
+  autocmd FileType *
         \ if &tagfunc =~# '^v:lua' |
         \   setlocal signcolumn=yes |
         \ else |
