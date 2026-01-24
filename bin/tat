@@ -6,6 +6,11 @@
 set -e
 [ -n "$DEBUG" ] && set -ex
 
+command -v fzf >/dev/null 2>&1 || {
+  echo >&2 "fzf(1) is not installed."
+  exit 1
+}
+
 attach_to_tmux_session() {
   if [ -z "$TMUX" ]; then
     tmux attach -d -t "$1"
@@ -25,15 +30,27 @@ connected_to() {
   [ "$1" = "$current_tmux_session" ]
 }
 
+find_project() {
+  find \
+    -L \
+    "$HOME/src" \
+    -maxdepth 4 \
+    -type d \
+    -name .git \
+    -exec dirname '{}' \; |
+    sed "s|$HOME/src/||" |
+    fzf -q "$*"
+}
+
 if [ "$1" = "." ]; then
   directory=$(pwd)
   parent_directory=$(basename "$(dirname "$directory")")
   current_directory=$(basename "$directory")
   session_name=$(echo "$parent_directory/$current_directory" | sed "s/\./-/g")
 else
-  directory=$(projects "$@")
-  [ -z "$directory" ] && exit 0
-  project=$(echo "$directory" | sed "s|$HOME/src/||")
+  project=$(find_project "$@")
+  [ -z "$project" ] && exit 0
+  directory="$HOME/src/$project"
   session_name=$(echo "$project" | cut -d / -f 2- | sed "s/\./-/g")
 fi
 
