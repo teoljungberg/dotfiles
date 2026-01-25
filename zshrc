@@ -128,6 +128,14 @@ git() {
   fi
 }
 
+# Set tmux window name to "claude" instead of version number
+claude() {
+  if [ -n "$TMUX" ]; then
+    tmux rename-window "claude"
+  fi
+  command claude "$@"
+}
+
 _source_if_available() { [ -e "$1" ] && source "$1" }
 
 _source_if_available "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
