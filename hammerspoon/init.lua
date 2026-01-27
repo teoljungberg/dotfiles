@@ -33,6 +33,4 @@ end
 
 ipc.cliColors({ error = "", initial = "", output = "", input = "" })
 
-if hs.spoons.isInstalled("MouseFollowsFocus") then
-  hs.loadSpoon("MouseFollowsFocus"):start()
-end
+helper.setupMouseFollowsFocus()
