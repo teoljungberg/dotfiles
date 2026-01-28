@@ -131,9 +131,16 @@ git() {
 # Set tmux window name to "claude" instead of version number
 claude() {
   if [ -n "$TMUX" ]; then
+    tmux set-window-option automatic-rename off
     tmux rename-window "claude"
+    {
+      command claude "$@"
+    } always {
+      tmux set-window-option automatic-rename on
+    }
+  else
+    command claude "$@"
   fi
-  command claude "$@"
 }
 
 _source_if_available() { [ -e "$1" ] && source "$1" }
