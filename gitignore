@@ -16,5 +16,6 @@ result
 Session.vim
 
 /.claude/settings.local.json
+/CLAUDE.local.md
 
 /tmp/
