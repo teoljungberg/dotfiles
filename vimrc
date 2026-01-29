@@ -701,7 +701,7 @@ hi Comment term=italic cterm=italic gui=italic ctermfg=14 ctermbg=NONE guifg=#96
 hi Conceal term=italic cterm=italic gui=italic ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi Constant term=italic cterm=italic gui=italic ctermfg=NONE guifg=NONE
 hi CurSearch term=reverse cterm=reverse gui=reverse ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
-hi CursorColumn term=NONE cterm=NONE gui=NONE ctermfg=15 ctermbg=0 guifg=#444444 guibg=#F2F0DD
+hi CursorColumn term=NONE cterm=NONE gui=NONE ctermfg=15 ctermbg=0 guifg=#F2F0DD guibg=#444444
 hi CursorLine term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi CursorLineNr term=italic,bold cterm=italic,bold gui=italic,bold ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi Delimiter term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
