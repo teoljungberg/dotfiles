@@ -17,5 +17,6 @@ Session.vim
 
 /.claude/settings.local.json
 /CLAUDE.local.md
+/PLAN.md
 
 /tmp/
