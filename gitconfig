@@ -20,6 +20,7 @@
 
   ctags = "!sh -c '[ ! -e .git/hooks/ctags ] && git init; .git/hooks/ctags' git-ctags"
   hub = !hub $@
+  ignore = "!f() { for p in \"$@\"; do echo \"$p\" >> \"$(git rev-parse --git-dir)/info/exclude\"; done; }; f"
   safe = !mkdir -p $(git rev-parse --git-dir)/safe
 [merge]
   tool = vimdiff
