@@ -1,72 +1,9 @@
 local M = {}
+local mouseFollowsFocus = require("mouse_follows_focus")
 local numberOfCells = 32
 
--- Mouse follows focus logic adapted from MouseFollowsFocus spoon
--- Original author: Jason Felice <jason.m.felice@gmail.com>
--- https://github.com/Hammerspoon/Spoons
--- License: MIT
-
--- Delay to allow window focus events to settle after hiding
-local SUPPRESS_DURATION = 0.15
--- Delay to ensure window is fully unhidden before moving mouse
-local FOCUS_DELAY = 0.05
-
-local suppressMouseFollowCount = 0
-local mouseFollowFilter = nil
-local focusTimer = nil
-
-local function updateMouse(window)
-  if not window then
-    return
-  end
-
-  local frame = window:frame()
-  if not frame then
-    return
-  end
-
-  local current_pos = hs.geometry(hs.mouse.absolutePosition())
-  if not current_pos:inside(frame) then
-    local current_screen = hs.mouse.getCurrentScreen()
-    local window_screen = window:screen()
-    if current_screen and window_screen and current_screen ~= window_screen then
-      hs.mouse.absolutePosition(current_screen:frame().center)
-      hs.mouse.absolutePosition(window_screen:frame().center)
-    end
-    hs.mouse.absolutePosition(frame.center)
-  end
-end
-
 function M.setupMouseFollowsFocus()
-  if focusTimer then
-    focusTimer:stop()
-    focusTimer = nil
-  end
-
-  if mouseFollowFilter then
-    mouseFollowFilter:unsubscribeAll()
-    mouseFollowFilter = nil
-  end
-
-  local handleWindowEvent = function(window, appName, event)
-    if suppressMouseFollowCount > 0 then
-      return
-    end
-    -- windowVisible fires for any window becoming visible (unhidden).
-    -- Only move mouse if this visible window is also the focused one,
-    -- otherwise we'd jump to background windows when they unhide.
-    if event == "windowVisible" and window ~= hs.window.focusedWindow() then
-      return
-    end
-    updateMouse(window)
-  end
-
-  mouseFollowFilter =
-    hs.window.filter.new():setDefaultFilter({ visible = true })
-  mouseFollowFilter:subscribe({
-    hs.window.filter.windowFocused,
-    hs.window.filter.windowVisible,
-  }, handleWindowEvent)
+  mouseFollowsFocus.setup()
 end
 
 hs.grid.setGrid(numberOfCells .. "x" .. numberOfCells)
@@ -173,34 +110,16 @@ function M.moveWindowToSouthDisplay()
 end
 
 function M.toggleApplication(bundleID)
-  local toggle = function()
+  return function()
     local front = hs.application.frontmostApplication()
     if front and front:bundleID() == bundleID then
-      local decrementSuppressCount = function()
-        suppressMouseFollowCount = math.max(0, suppressMouseFollowCount - 1)
-      end
-
-      suppressMouseFollowCount = suppressMouseFollowCount + 1
+      mouseFollowsFocus.suppress()
       front:hide()
-      hs.timer.doAfter(SUPPRESS_DURATION, decrementSuppressCount)
     else
-      local focusAndUpdateMouse = function()
-        local win = hs.window.focusedWindow()
-        if win then
-          updateMouse(win)
-        end
-        focusTimer = nil
-      end
-
       hs.application.launchOrFocusByBundleID(bundleID)
-      if focusTimer then
-        focusTimer:stop()
-      end
-      focusTimer = hs.timer.doAfter(FOCUS_DELAY, focusAndUpdateMouse)
+      mouseFollowsFocus.focusWindow()
     end
   end
-
-  return toggle
 end
 
 -- The bundle ID is fetched with the following AppleScript:
