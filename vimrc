@@ -141,7 +141,7 @@ cnoremap <C-P> <Up>
 cnoremap <C-R><C-L> <C-R>=substitute(getline('.'), '^\s*', '', '')<CR>
 cnoremap <C-R>W <C-R><C-A>
 nnoremap <silent> <Space>y :call <SID>yank_file_path_with_line()<CR>
-vnoremap <silent> <Space>y :call <SID>yank_file_path_with_range()<CR>gv
+vnoremap <silent> <Space>y :call <SID>yank_file_path_with_range()<CR>
 nnoremap <Leader>d :bdelete<CR>
 nnoremap <C-J> <C-w>w
 nnoremap <C-K> <C-w>W
