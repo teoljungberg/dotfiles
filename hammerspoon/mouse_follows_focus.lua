@@ -63,23 +63,27 @@ function M.setup()
 end
 
 function M.suppress()
-  suppressCount = suppressCount + 1
-  hs.timer.doAfter(SUPPRESS_DURATION, function()
+  local callback = function()
     suppressCount = math.max(0, suppressCount - 1)
-  end)
+  end
+
+  suppressCount = suppressCount + 1
+  hs.timer.doAfter(SUPPRESS_DURATION, callback)
 end
 
 function M.focusWindow()
-  if focusTimer then
-    focusTimer:stop()
-  end
-  focusTimer = hs.timer.doAfter(FOCUS_DELAY, function()
+  local callback = function()
     local window = hs.window.focusedWindow()
     if window then
       updateMouse(window)
     end
     focusTimer = nil
-  end)
+  end
+
+  if focusTimer then
+    focusTimer:stop()
+  end
+  focusTimer = hs.timer.doAfter(FOCUS_DELAY, callback)
 end
 
 return M
