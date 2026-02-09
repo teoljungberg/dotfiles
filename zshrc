@@ -155,6 +155,14 @@ _source_if_available "/opt/homebrew/opt/chruby/share/chruby/chruby.sh"
 if [ ! -d "$HOME/.nix-profile" ]; then
   _source_if_available "/opt/homebrew/opt/chruby/share/chruby/auto.sh"
 fi
+
+_prepend_binstubs() {
+  case "$PATH" in
+    .git/safe/../../bin:*) ;;
+    *) PATH=".git/safe/../../bin:$PATH" ;;
+  esac
+}
+preexec_functions+=("_prepend_binstubs")
 PATH=".git/safe/../../bin:$PATH"
 
 if command -v direnv > /dev/null 2>&1; then
