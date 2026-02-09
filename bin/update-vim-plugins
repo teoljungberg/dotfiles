@@ -7,7 +7,6 @@ bundles="
   https://github.com/AndrewRadev/splitjoin.vim
   https://github.com/LnL7/vim-nix
   https://github.com/dense-analysis/ale
-  https://github.com/direnv/direnv.vim
   https://github.com/junegunn/fzf.vim
   https://github.com/tommcdo/vim-exchange
   https://github.com/vim-ruby/vim-ruby

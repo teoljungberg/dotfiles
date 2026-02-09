@@ -636,8 +636,6 @@ if exists(':E') != 2
   command! -nargs=* -complete=dir E Explore <args>
 endif
 
-let g:direnv_silent_load = 1
-
 augroup t_obsession
   autocmd!
   autocmd VimEnter * nested
