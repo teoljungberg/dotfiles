@@ -139,6 +139,14 @@ in
   services.openssh.enable = true;
   services.tailscale.enable = true;
 
+  services.syncthing = {
+    enable = true;
+    user = "teo";
+    dataDir = "/home/teo";
+    configDir = "/home/teo/.config/syncthing";
+    openDefaultPorts = true;
+  };
+
   programs.mosh.enable = true;
   programs.zsh.enable = true;
 
