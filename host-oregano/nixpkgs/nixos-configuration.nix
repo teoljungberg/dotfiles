@@ -24,7 +24,7 @@ in
 
     firewall = {
       allowPing = true;
-      allowedTCPPorts = [ 22 ];
+      allowedTCPPorts = [ 22 80 443 ];
       allowedUDPPortRanges = [
         {
           from = 60000;
@@ -138,6 +138,28 @@ in
   services.cron.enable = true;
   services.openssh.enable = true;
   services.tailscale.enable = true;
+
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "teo@teoljungberg.com";
+  };
+
+  services.nginx = {
+    enable = true;
+    virtualHosts."oregano.teoljungberg.com" = {
+      enableACME = true;
+      forceSSL = true;
+      locations."= /ping" = {
+        return = "200 \"pong\\n\"";
+        extraConfig = ''
+          default_type text/plain;
+        '';
+      };
+      locations."/" = {
+        return = "404";
+      };
+    };
+  };
 
   services.syncthing = {
     enable = true;
