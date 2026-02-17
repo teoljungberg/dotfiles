@@ -164,6 +164,15 @@ noremap gY "*y$
 noremap gp "*p
 noremap gP "*P
 
+if has('nvim')
+  set mousescroll=ver:3,hor:0
+else
+  noremap <ScrollWheelLeft> <Nop>
+  noremap <ScrollWheelRight> <Nop>
+  inoremap <ScrollWheelLeft> <Nop>
+  inoremap <ScrollWheelRight> <Nop>
+endif
+
 nnoremap <expr> j (&wrap && v:count == 0) ? 'gj' : 'j'
 nnoremap <expr> k (&wrap && v:count == 0) ? 'gk' : 'k'
 
