@@ -149,8 +149,6 @@ _source_if_available "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 _source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
 _source_if_available "/opt/homebrew/opt/fzf/shell/completion.zsh"
 _source_if_available "$HOME/.fzf/shell/completion.zsh"
-_source_if_available "$HOME/.nix-profile/share/chruby/chruby.sh"
-_source_if_available "/opt/homebrew/opt/chruby/share/chruby/chruby.sh"
 
 if [ ! -d "$HOME/.nix-profile" ]; then
   _source_if_available "/opt/homebrew/opt/chruby/share/chruby/auto.sh"

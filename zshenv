@@ -3,6 +3,7 @@ _append_to_path_if_available() { [ -e "$1" ] && PATH="$PATH:$1" }
 _prepend_to_path_if_available() { [ -e "$1" ] && PATH="$1:$PATH" }
 
 _add_to_path_if_available() { _append_to_path_if_available "$1" }
+_call_if_available() { type "$1" > /dev/null 2>&1 && "$1" }
 
 LANG="en_US.UTF-8"
 
@@ -35,5 +36,9 @@ export EDITOR="$VISUAL"
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--color=bw"
+
+_source_if_available "/opt/homebrew/opt/chruby/share/chruby/chruby.sh"
+_source_if_available "/opt/homebrew/opt/chruby/share/chruby/auto.sh"
+_call_if_available "chruby_auto"
 
 _source_if_available "$HOME/.zshenv.local"
