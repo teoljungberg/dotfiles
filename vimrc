@@ -532,7 +532,11 @@ augroup t_dispatch
   autocmd FileType ruby let b:start = 'irb -r %:p:S'
   autocmd FileType ruby
         \ if expand('%') =~# '_test\.rb$' || expand('%') =~# 'test_.*\.rb$' |
-        \   let b:dispatch = 'ruby -Itest %:S' |
+        \   let b:dispatch = get(
+        \     b:,
+        \     'dispatch',
+        \     'ruby -Itest %:S',
+        \   ) |
         \ elseif expand('%') =~# '_spec\.rb$' |
         \   let b:dispatch = get(
         \     b:,
@@ -603,6 +607,9 @@ let g:rails_vim_enter = 0
 let g:rails_projections = {}
 let g:rails_projections['spec/*_spec.rb'] = {
       \ 'dispatch': "rspec spec/{}_spec.rb`=v:lnum ? ':' . v:lnum : ''`",
+      \ }
+let g:rails_projections['test/*_test.rb'] = {
+      \ 'dispatch': "rails test test/{}_test.rb`=v:lnum ? ':' . v:lnum : ''`",
       \ }
 
 let g:projectionist_vim_enter = 0
