@@ -149,10 +149,6 @@ _source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
 _source_if_available "/opt/homebrew/opt/fzf/shell/completion.zsh"
 _source_if_available "$HOME/.fzf/shell/completion.zsh"
 
-if [ ! -d "$HOME/.nix-profile" ]; then
-  _source_if_available "/opt/homebrew/opt/chruby/share/chruby/auto.sh"
-fi
-
 _prepend_binstubs() {
   case "$PATH" in
     .git/safe/../../bin:*) ;;
