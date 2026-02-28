@@ -113,8 +113,9 @@ function M.toggleApplication(bundleID)
   return function()
     local front = hs.application.frontmostApplication()
     if front and front:bundleID() == bundleID then
-      mouseFollowsFocus.suppress()
+      local unsuppress = mouseFollowsFocus.suppress()
       front:hide()
+      hs.timer.doAfter(0.15, unsuppress)
     else
       hs.application.launchOrFocusByBundleID(bundleID)
       mouseFollowsFocus.focusWindow()

@@ -5,7 +5,6 @@
 
 local M = {}
 
-local SUPPRESS_DURATION = 0.15
 local FOCUS_DELAY = 0.05
 
 local suppressCount = 0
@@ -63,12 +62,15 @@ function M.setup()
 end
 
 function M.suppress()
-  local callback = function()
-    suppressCount = math.max(0, suppressCount - 1)
-  end
-
+  local active = true
   suppressCount = suppressCount + 1
-  hs.timer.doAfter(SUPPRESS_DURATION, callback)
+
+  return function()
+    if active then
+      active = false
+      suppressCount = suppressCount - 1
+    end
+  end
 end
 
 function M.focusWindow()
