@@ -280,5 +280,4 @@ precmd() {
   set_prompt
 }
 
-
 _source_if_available "$HOME/.zshrc.local"
