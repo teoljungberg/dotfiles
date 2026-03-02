@@ -69,6 +69,13 @@ elif [ -e "/opt/homebrew/share/zsh/site-functions/_git" ]; then
   zstyle ':completion:*:*:git:*' script /opt/homebrew/share/zsh/site-functions/_git
 fi
 
+_gem_ctags() {
+  if [ -f Gemfile ]; then
+    compadd $(bundle list --name-only 2>/dev/null)
+  fi
+}
+compdef _gem_ctags gem-ctags
+
 alias b="bundle exec"
 alias j="jobs"
 alias ls="ls -F"

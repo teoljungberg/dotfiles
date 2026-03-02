@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -e
+
+if [ -z "$1" ]; then
+  echo "Usage: gem-ctags <gem-name>" >&2
+  exit 1
+fi
+
+if [ ! -f Gemfile ]; then
+  echo "No Gemfile found in current directory." >&2
+  exit 1
+fi
+
+gem_path=$(bundle info --path "$1" 2>/dev/null) || {
+  echo "Gem '$1' not found in bundle." >&2
+  exit 1
+}
+
+if command -v ripper-tags >/dev/null 2>&1; then
+  ripper-tags -R -f "$gem_path/tags" "$gem_path"
+else
+  ctags -R -f "$gem_path/tags" "$gem_path"
+fi
+
+echo "$gem_path/tags"
