@@ -83,6 +83,8 @@ function M.moveWindowToWestDisplay()
     return
   end
   window:moveOneScreenWest()
+  window:focus()
+  mouseFollowsFocus.focusWindow()
 end
 
 function M.moveWindowToEastDisplay()
@@ -91,6 +93,8 @@ function M.moveWindowToEastDisplay()
     return
   end
   window:moveOneScreenEast()
+  window:focus()
+  mouseFollowsFocus.focusWindow()
 end
 
 function M.moveWindowToNorthDisplay()
@@ -99,6 +103,8 @@ function M.moveWindowToNorthDisplay()
     return
   end
   window:moveOneScreenNorth()
+  window:focus()
+  mouseFollowsFocus.focusWindow()
 end
 
 function M.moveWindowToSouthDisplay()
@@ -107,6 +113,8 @@ function M.moveWindowToSouthDisplay()
     return
   end
   window:moveOneScreenSouth()
+  window:focus()
+  mouseFollowsFocus.focusWindow()
 end
 
 function M.toggleApplication(bundleID)
