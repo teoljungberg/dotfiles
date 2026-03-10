@@ -47,6 +47,7 @@ function M.moveWindowLeftHalfScreen()
     return
   end
   window:moveToUnit({ x = 0, y = 0, w = 1 / 2, h = 1 })
+  mouseFollowsFocus.focusWindow()
 end
 
 function M.moveWindowRightHalfScreen()
@@ -55,6 +56,7 @@ function M.moveWindowRightHalfScreen()
     return
   end
   window:moveToUnit({ x = 1 / 2, y = 0, w = 1 / 2, h = 1 })
+  mouseFollowsFocus.focusWindow()
 end
 
 function M.resizeLeft()
