@@ -83,6 +83,14 @@ display_new_commits_github() {
   echo "$url/compare/$sha_range"
 }
 
+display_new_commits_codeberg() {
+  work_tree_path="$1"
+  sha_range=$(git_sha_range "$1")
+  url=$(git -C "$work_tree_path" config remote.origin.url)
+
+  echo "$url/compare/$sha_range"
+}
+
 display_new_commits_tpope() {
   work_tree_path="$1"
   sha_range=$(git_sha_range "$1")
@@ -110,6 +118,8 @@ display_new_commits() {
   then
     if echo "$url" | grep -q github.com; then
       display_new_commits_github "$work_tree_path"
+    elif echo "$url" | grep -q codeberg.org; then
+      display_new_commits_codeberg "$work_tree_path"
     elif echo "$url" | grep -q tpope.io; then
       display_new_commits_tpope "$work_tree_path"
     else
