@@ -2,6 +2,7 @@ font-family = JetBrains Mono NL
 font-size = 15
 macos-option-as-alt = right
 mouse-hide-while-typing = true
+window-inherit-working-directory = false
 
 keybind = alt+right=unbind
 keybind = shift+enter=text:\x1b\r
