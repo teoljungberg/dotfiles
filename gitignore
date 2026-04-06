@@ -4,8 +4,8 @@
 
 result
 
-.bundle/
-.gem/
+.bundle
+.gem
 
 /doc/tags
 /tags
@@ -19,4 +19,4 @@ Session.vim
 /CLAUDE.local.md
 /PLAN.md
 
-/tmp/
+/tmp
