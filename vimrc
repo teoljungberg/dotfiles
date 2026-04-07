@@ -683,6 +683,11 @@ augroup t_signs
   autocmd FileType * if &tagfunc =~# '^v:lua' | setlocal signcolumn=yes | endif
 augroup END
 
+nmap <script> <Plug>(unimpaired-enable)g  :<C-U>setlocal signcolumn=auto<CR>
+nmap <script> <Plug>(unimpaired-disable)g :<C-U>setlocal signcolumn=no<CR>
+nmap <script> <Plug>(unimpaired-toggle)g
+      \ :<C-U>setlocal signcolumn=<C-R>=&signcolumn ==# "no" ? "auto" : "no"<CR><CR>
+
 function! s:colorscheme()
   if len(get(g:, 'colors_name', ''))
     hi Todo cterm=underline gui=underline term=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
