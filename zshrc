@@ -182,7 +182,6 @@ _prepend_binstubs() {
   esac
 }
 preexec_functions+=("_prepend_binstubs")
-PATH=".git/safe/../../bin:$PATH"
 
 if command -v direnv > /dev/null 2>&1; then
   eval "$(direnv hook zsh)"
