@@ -151,7 +151,7 @@ nnoremap <C-K> <C-w>W
 nnoremap <silent> <C-L>
       \ :nohlsearch <C-R>=has('diff') ? "\<Bar>diffupdate" : ''<CR><CR><C-L>
 nnoremap <silent> <C-W>z
-      \ :wincmd z
+      \ :<C-U>wincmd z
       \ <Bar>cclose
       \ <Bar>lclose
       \ <Bar>pclose
@@ -180,7 +180,7 @@ nnoremap <expr> j (&wrap && v:count == 0) ? 'gj' : 'j'
 nnoremap <expr> k (&wrap && v:count == 0) ? 'gk' : 'k'
 
 nnoremap <silent> <C-w>.
-      \ :if exists(':Plcd')<Bar>
+      \ :<C-U>if exists(':Plcd')<Bar>
       \   execute 'Plcd'<Bar>
       \ elseif exists('*FugitiveGitDir') && len(FugitiveGitDir())<Bar>
       \   execute 'Glcd'<Bar>
