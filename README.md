@@ -5,7 +5,7 @@
 ```
 DOTFILES_DIRS="$HOME/src/github.com/teoljungberg/dotfiles"
 COPY_ALWAYS="git_template/info/projections.json"
-EXCLUDES="*.md result rcrc Session.vim"
+EXCLUDES="README.md ./CLAUDE.md ./AGENTS.md *.local.md result rcrc Session.vim"
 HOSTNAME="A_HOST"
 ```
 
