@@ -49,6 +49,11 @@ if $TERM =~# '^screen\|^tmux' && empty($SSH_TTY) && len($TMUX) && exists('+ttymo
   setglobal ttymouse=xterm2
 endif
 
+" Re-run terminal init to restore any mangled key sequences.
+if !has('nvim')
+  let &term = &term
+endif
+
 if has('vim_starting')
   set commentstring=#\ %s
   set complete+=kspell
