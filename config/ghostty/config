@@ -6,6 +6,10 @@ window-inherit-working-directory = false
 window-new-tab-position = end
 
 keybind = alt+right=unbind
+# `scroll_to_selection` (the default) puts Ghostty into scrollback navigation
+# mode, which intercepts keypresses -- including C-J -- instead of forwarding
+# them to the running program.
+keybind = super+j=unbind
 keybind = shift+enter=text:\x1b\r
 
 palette = 0=#444444
