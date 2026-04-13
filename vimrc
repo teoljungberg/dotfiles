@@ -19,6 +19,7 @@ setglobal sessionoptions-=buffers,curdir sessionoptions+=sesdir,globals
 setglobal shiftround
 setglobal showcmd
 setglobal sidescrolloff=5
+setglobal signcolumn=no
 setglobal smartcase
 setglobal statusline=[%n]\ %<%f\ %h%m%r%w%=%-14.(%l,%c%V%)\ %P
 setglobal tags-=./tags tags-=./tags; tags^=./tags;
@@ -679,12 +680,7 @@ endif
 
 augroup t_signs
   autocmd!
-  autocmd FileType *
-        \ if &tagfunc =~# '^v:lua' |
-        \   setlocal signcolumn=yes |
-        \ else |
-        \   setlocal signcolumn=no |
-        \ endif
+  autocmd FileType * if &tagfunc =~# '^v:lua' | setlocal signcolumn=yes | endif
 augroup END
 
 function! s:colorscheme()
