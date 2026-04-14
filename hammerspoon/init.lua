@@ -23,7 +23,7 @@ hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "o", helper.moveWindowLeftTwoThirdsScre
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "p", helper.moveWindowRightTwoThirdsScreen)
 hs.hotkey.bind({ "cmd", "shift", "ctrl" }, "c", helper.centralizeWindow)
 
-for key, bundleID in pairs(helper.buildApplicationShortcutToBundleMapping()) do
+for key, bundleID in pairs(helper.applicationShortcutToBundleMapping) do
   if bundleID then
     hs.hotkey.bind(
       { "shift", "ctrl" },
