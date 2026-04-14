@@ -59,6 +59,24 @@ function M.moveWindowRightHalfScreen()
   mouseFollowsFocus.focusWindow()
 end
 
+function M.moveWindowLeftTwoThirdsScreen()
+  local window = hs.window.focusedWindow()
+  if not window then
+    return
+  end
+  window:moveToUnit({ x = 0, y = 0, w = 2 / 3, h = 1 })
+  mouseFollowsFocus.focusWindow()
+end
+
+function M.moveWindowRightTwoThirdsScreen()
+  local window = hs.window.focusedWindow()
+  if not window then
+    return
+  end
+  window:moveToUnit({ x = 1 / 3, y = 0, w = 2 / 3, h = 1 })
+  mouseFollowsFocus.focusWindow()
+end
+
 function M.resizeLeft()
   hs.grid.resizeWindowThinner(hs.window.focusedWindow())
 end

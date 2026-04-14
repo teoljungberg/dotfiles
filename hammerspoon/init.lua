@@ -19,6 +19,8 @@ hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "l", helper.moveWindowToEastDisplay)
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "k", helper.moveWindowToNorthDisplay)
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "j", helper.moveWindowToSouthDisplay)
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "f", helper.fullScreenWindow)
+hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "o", helper.moveWindowLeftTwoThirdsScreen)
+hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "p", helper.moveWindowRightTwoThirdsScreen)
 hs.hotkey.bind({ "cmd", "shift", "ctrl" }, "c", helper.centralizeWindow)
 
 for key, bundleID in pairs(helper.buildApplicationShortcutToBundleMapping()) do
