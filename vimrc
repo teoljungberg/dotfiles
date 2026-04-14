@@ -693,6 +693,23 @@ nmap <script> <Plug>(unimpaired-disable)g :<C-U>setlocal signcolumn=no<CR>
 nmap <script> <Plug>(unimpaired-toggle)g
       \ :<C-U>setlocal signcolumn=<C-R>=&signcolumn ==# "no" ? "auto" : "no"<CR><CR>
 
+if exists(':Browse') != 2
+  silent! packadd netrw
+  runtime autoload/netrw.vim
+
+  if exists('*netrw#BrowseX')
+    function! s:Browse(url) abort
+      try
+        call netrw#BrowseX(a:url)
+      catch /E119/
+        call netrw#BrowseX(a:url, 0)
+      endtry
+    endfunction
+
+    command! -nargs=1 Browse call s:Browse(<q-args>)
+  endif
+endif
+
 function! s:colorscheme()
   if len(get(g:, 'colors_name', ''))
     hi Todo cterm=underline gui=underline term=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
