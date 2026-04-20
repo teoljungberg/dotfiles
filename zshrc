@@ -134,21 +134,6 @@ git() {
   fi
 }
 
-# Claude Code enables the kitty keyboard protocol, modifyOtherKeys, and focus
-# event reporting but doesn't always clean them up on exit. This leaves Ctrl+key
-# sequences broken (e.g. Ctrl-C produces "9;5u").
-#
-# Running reset(1) fixes it because Ghostty's rs1 terminfo string sends RIS
-# (\ec) which clears everything, including the screen. Instead we send the
-# targeted resets:
-#
-#   \e[?1004l  - disable focus event reporting
-#   \e[>0m     - modifyOtherKeys -> legacy mode
-#   \e[=0u     - disable kitty keyboard protocol by setting flags to
-#                zero directly (\e[<u only pops one stack level and
-#                doesn't work through tmux)
-#
-# See https://github.com/anthropics/claude-code/issues/38761
 claude() {
   if [ -n "$TMUX" ]; then
     tmux set-window-option automatic-rename off
@@ -156,14 +141,13 @@ claude() {
     {
       command claude --allow-dangerously-skip-permissions "$@"
     } always {
-      printf '\e[?1004l\e[>0m\e[=0u' > /dev/tty
       tmux set-window-option automatic-rename on
     }
   else
     {
       command claude --allow-dangerously-skip-permissions "$@"
     } always {
-      printf '\e[?1004l\e[>0m\e[=0u' > /dev/tty
+      # no-op
     }
   fi
 }
