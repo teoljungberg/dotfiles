@@ -710,6 +710,8 @@ if exists(':Browse') != 2
   endif
 endif
 
+let g:netrw_banner = 0
+
 function! s:colorscheme()
   if len(get(g:, 'colors_name', ''))
     hi Todo cterm=underline gui=underline term=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
