@@ -776,7 +776,7 @@ hi Question term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE g
 hi QuickFixLine term=bold,underline cterm=bold,underline gui=bold,underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi Repeat term=bold cterm=bold gui=bold ctermfg=NONE guifg=NONE
 hi Search term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=7 guifg=#444444 guibg=#C0C0B0
-hi SignColumn term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi SignColumn term=italic cterm=italic gui=italic ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
 hi Special term=NONE cterm=NONE gui=NONE ctermfg=NONE guifg=NONE
 hi SpecialComment term=italic cterm=italic gui=italic ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
 hi SpecialKey term=italic cterm=italic gui=italic ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
