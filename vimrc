@@ -50,7 +50,7 @@ if $TERM =~# '^screen\|^tmux' && empty($SSH_TTY) && len($TMUX) && exists('+ttymo
 endif
 
 " Re-run terminal init to restore any mangled key sequences.
-if !has('nvim')
+if !has('nvim') && !has('gui_running')
   let &term = &term
 endif
 
