@@ -7,6 +7,10 @@ _call_if_available() { type "$1" > /dev/null 2>&1 && "$1" }
 
 LANG="en_US.UTF-8"
 
+_append_to_path_if_available "/usr/bin"
+_append_to_path_if_available "/bin"
+_append_to_path_if_available "/sbin"
+
 _prepend_to_path_if_available "$HOME/.bin"
 _prepend_to_path_if_available "$HOME/.fzf/bin"
 _prepend_to_path_if_available "$HOME/.nix-profile/bin"
