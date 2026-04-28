@@ -146,7 +146,7 @@ cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 cnoremap <C-R><C-L> <C-R>=substitute(getline('.'), '^\s*', '', '')<CR>
 cnoremap <C-R>W <C-R><C-A>
-nnoremap <silent> <Space>y :call <SID>yank_file_path_with_line()<CR>
+nnoremap <silent> <Space>y :<C-U>call <SID>yank_file_path_with_line()<CR>
 vnoremap <silent> <Space>y :call <SID>yank_file_path_with_range()<CR>
 nnoremap <silent> <Space>Y :.GBrowse!<CR>
 vnoremap <silent> <Space>Y :GBrowse!<CR>
@@ -154,7 +154,7 @@ nnoremap <Leader>d :bdelete<CR>
 nnoremap <C-J> <C-w>w
 nnoremap <C-K> <C-w>W
 nnoremap <silent> <C-L>
-      \ :nohlsearch <C-R>=has('diff') ? "\<Bar>diffupdate" : ''<CR><CR><C-L>
+      \ :<C-U>nohlsearch <C-R>=has('diff') ? "\<Bar>diffupdate" : ''<CR><CR><C-L>
 nnoremap <silent> <C-W>z
       \ :<C-U>wincmd z
       \ <Bar>cclose
@@ -196,12 +196,12 @@ nnoremap <silent> <C-w>.
 nmap cd <C-W>.
 
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
-nmap <Leader>e :edit %%
-nmap <Leader>s :split %%
-nmap <Leader>v :vsplit %%
-nmap <Leader>t :tabedit %%
-nmap <Leader>r :read %%
-nmap <Leader>w :write %%
+nmap <Leader>e :<C-U>edit %%
+nmap <Leader>s :<C-U>split %%
+nmap <Leader>v :<C-U>vsplit %%
+nmap <Leader>t :<C-U>tabedit %%
+nmap <Leader>r :<C-U>read %%
+nmap <Leader>w :<C-U>write %%
 
 nmap <expr> - line('.') == 1 ? ':edit %%<CR>' : '-'
 
@@ -673,11 +673,11 @@ augroup t_obsession
         \ endif
 augroup END
 
-nnoremap <Space>r :source $MYVIMRC
+nnoremap <Space>r :<C-U>source $MYVIMRC
       \ <Bar>filetype detect
       \ <Bar>doautocmd VimEnter -<CR>
 
-nnoremap <Space>e :confirm edit<CR>
+nnoremap <Space>e :<C-U>confirm edit<CR>
 
 if executable('doas')
   command! DoasWrite :execute 'silent! write !doas tee % > /dev/null'
