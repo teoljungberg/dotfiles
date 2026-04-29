@@ -142,6 +142,41 @@ function! s:yank_file_path_with_range() range
   call setreg(register, path)
 endfunction
 
+function! s:append_to_todo(path)
+  if exists('*FugitiveWorkTree')
+    let git_root = FugitiveWorkTree()
+  else
+    let git_root = system('git -C ' . shellescape(expand('%:p:h')) . ' rev-parse --show-toplevel')
+    let git_root = v:shell_error ? '' : substitute(git_root, '\n\+$', '', '')
+  endif
+  if empty(git_root)
+    return
+  endif
+  let todo_path = fnamemodify(git_root . '/TODO.md', ':p')
+  let todo_buf = bufnr(todo_path, 0)
+  if todo_buf > 0 && bufwinnr(todo_buf) > 0
+    execute bufwinnr(todo_buf) . 'wincmd w'
+  else
+    execute 'split ' . todo_path
+  endif
+  if line('$') == 1 && empty(getline(1))
+    call setline(1, a:path . ' - ')
+  else
+    call append(line('$'), a:path . ' - ')
+  endif
+  normal! G
+  call feedkeys('A', 'n')
+endfunction
+
+function! s:todo_with_line()
+  call s:append_to_todo(expand('%') . ':' . line('.'))
+endfunction
+
+function! s:todo_with_range() range
+  let lines = uniq([a:firstline, a:lastline])
+  call s:append_to_todo(expand('%') . ':' . join(lines, '-'))
+endfunction
+
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 cnoremap <C-R><C-L> <C-R>=substitute(getline('.'), '^\s*', '', '')<CR>
@@ -150,6 +185,8 @@ nnoremap <silent> <Space>y :<C-U>call <SID>yank_file_path_with_line()<CR>
 vnoremap <silent> <Space>y :call <SID>yank_file_path_with_range()<CR>
 nnoremap <silent> <Space>Y :.GBrowse!<CR>
 vnoremap <silent> <Space>Y :GBrowse!<CR>
+nnoremap <silent> <Space>t :<C-U>call <SID>todo_with_line()<CR>
+vnoremap <silent> <Space>t :call <SID>todo_with_range()<CR>
 nnoremap <Leader>d :bdelete<CR>
 nnoremap <C-J> <C-w>w
 nnoremap <C-K> <C-w>W
