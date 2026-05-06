@@ -129,17 +129,18 @@ else
   setglobal grepprg=grep\ -rnH\ --exclude-dir\ .git\ $*\ /dev/null
 endif
 
+function! s:file_with_lines(lines)
+  return expand('%') . ':' . join(uniq(a:lines), '-')
+endfunction
+
 function! s:yank_file_path_with_line()
-  let path = expand('%') . ':' . line('.')
   let register = has('clipboard') ? '*' : '"'
-  call setreg(register, path)
+  call setreg(register, s:file_with_lines([line('.')]))
 endfunction
 
 function! s:yank_file_path_with_range() range
-  let lines = uniq([a:firstline, a:lastline])
-  let path = expand('%') . ':' . join(lines, '-')
   let register = has('clipboard') ? '*' : '"'
-  call setreg(register, path)
+  call setreg(register, s:file_with_lines([a:firstline, a:lastline]))
 endfunction
 
 function! s:append_to_todo(path) abort
@@ -176,12 +177,11 @@ function! s:append_to_todo(path) abort
 endfunction
 
 function! s:todo_with_line()
-  call s:append_to_todo(expand('%') . ':' . line('.'))
+  call s:append_to_todo(s:file_with_lines([line('.')]))
 endfunction
 
 function! s:todo_with_range() range
-  let lines = uniq([a:firstline, a:lastline])
-  call s:append_to_todo(expand('%') . ':' . join(lines, '-'))
+  call s:append_to_todo(s:file_with_lines([a:firstline, a:lastline]))
 endfunction
 
 cnoremap <C-N> <Down>
