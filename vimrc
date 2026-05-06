@@ -142,30 +142,37 @@ function! s:yank_file_path_with_range() range
   call setreg(register, path)
 endfunction
 
-function! s:append_to_todo(path)
+function! s:append_to_todo(path) abort
   if exists('*FugitiveWorkTree')
     let git_root = FugitiveWorkTree()
   else
-    let git_root = system('git -C ' . shellescape(expand('%:p:h')) . ' rev-parse --show-toplevel')
-    let git_root = v:shell_error ? '' : substitute(git_root, '\n\+$', '', '')
+    let command = printf(
+          \ 'git -C %s rev-parse --show-toplevel',
+          \  shellescape(expand('%:p:h'))
+          \ )
+    let git_root = system(command)
+    if v:shell_error
+      return
+    endif
+    let git_root = substitute(git_root, '\n*$', '', '')
   endif
   if empty(git_root)
     return
   endif
   let todo_path = fnamemodify(git_root . '/TODO.md', ':p')
-  let todo_buf = bufnr(todo_path, 0)
-  if todo_buf > 0 && bufwinnr(todo_buf) > 0
-    execute bufwinnr(todo_buf) . 'wincmd w'
+  let todo_winnr = bufwinnr(bufnr(todo_path, 0))
+  if todo_winnr > 0
+    execute todo_winnr . 'wincmd w'
   else
     execute 'split ' . todo_path
   endif
   if line('$') == 1 && empty(getline(1))
     call setline(1, a:path . ' - ')
   else
-    call append(line('$'), a:path . ' - ')
+    call append('$', a:path . ' - ')
   endif
   normal! G
-  call feedkeys('A', 'n')
+  startinsert!
 endfunction
 
 function! s:todo_with_line()
