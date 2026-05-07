@@ -172,6 +172,7 @@ function! s:append_to_todo(path) abort
   else
     call append('$', a:path . ' - ')
   endif
+  execute 'resize ' . max([line('$'), 10])
   normal! G
   startinsert!
 endfunction
