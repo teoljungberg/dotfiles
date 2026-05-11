@@ -12,6 +12,11 @@ keybind = alt+right=unbind
 keybind = super+j=unbind
 keybind = shift+enter=text:\x1b\r
 
+keybind = cmd+shift+h=new_split:left
+keybind = cmd+shift+j=new_split:down
+keybind = cmd+shift+k=new_split:up
+keybind = cmd+shift+l=new_split:right
+
 palette = 0=#444444
 palette = 1=#835F60
 palette = 2=#89992E
