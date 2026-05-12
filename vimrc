@@ -738,20 +738,15 @@ nmap <script> <Plug>(unimpaired-disable)g :<C-U>setlocal signcolumn=no<CR>
 nmap <script> <Plug>(unimpaired-toggle)g
       \ :<C-U>setlocal signcolumn=<C-R>=&signcolumn ==# "no" ? "auto" : "no"<CR><CR>
 
+" Reference https://github.com/tpope/vim-fugitive/issues/2441
 if exists(':Browse') != 2
-  silent! packadd netrw
-  runtime autoload/netrw.vim
-
-  if exists('*netrw#BrowseX')
-    function! s:Browse(url) abort
-      try
-        call netrw#BrowseX(a:url)
-      catch /E119/
-        call netrw#BrowseX(a:url, 0)
-      endtry
-    endfunction
-
-    command! -nargs=1 Browse call s:Browse(<q-args>)
+  silent! runtime plugin/openPlugin.vim
+  if exists(':Open') == 2
+    command! -nargs=1 Browse execute 'Open' escape(<q-args>, '%#')
+  elseif has('mac')
+    command! -nargs=1 Browse silent execute '!open ' . shellescape(<q-args>, 1) | redraw!
+  else
+    command! -nargs=1 Browse echomsg <q-args>
   endif
 endif
 
