@@ -534,11 +534,17 @@ let g:ale_fixers.nix = ['nixfmt']
 let g:ale_fixers.ruby = ['standardrb', 'rubocop', 'sorbet']
 let g:ale_fixers.sh = ['shfmt']
 let g:ale_fixers.sql = ['pgformatter']
+let g:ale_fixers.typescript = ['biome', 'eslint']
+
 let g:ale_linters = {}
 let g:ale_linters.markdown = ['mdl']
 let g:ale_linters.ruby = ['standardrb', 'rubocop', 'sorbet']
 let g:ale_linters.sh = ['shellcheck']
+let g:ale_linters.typescript = ['biome', 'eslint', 'tsserver']
 let g:ale_linters.vim = ['vint']
+
+let g:ale_fixers.typescriptreact = g:ale_fixers.typescript
+let g:ale_linters.typescriptreact = g:ale_linters.typescript
 
 nmap `=<CR> <Plug>(ale_fix)
 nmap `== <Plug>(ale_lint)
@@ -546,6 +552,8 @@ nmap `=? <Plug>(ale_hover)
 
 let s:dispatch_compilers = {
       \ 'bundle exec': '',
+      \ 'npx': '',
+      \ 'yarn': '',
       \ }
 let g:dispatch_compilers = get(g:, 'dispatch_compilers', {})
 call extend(g:dispatch_compilers, s:dispatch_compilers, 'keep')
@@ -671,6 +679,37 @@ let g:projectionist_heuristics['.git/'] = {
 let g:projectionist_heuristics['Makefile'] = {
       \ '*.c': { 'alternate': '{}.h' },
       \ '*.h': { 'alternate': '{}.c' },
+      \ }
+let g:projectionist_heuristics['tsconfig.json'] = {
+      \ '*': { 'make': 'yarn tc' },
+      \ '*.ts': {
+      \   'alternate': ['{}.test.ts', '{}.test.tsx'],
+      \   'start': '-wait=always npx tsc --watch --noEmit',
+      \   'dispatch': 'npx tsc --noEmit',
+      \ },
+      \ '*.test.ts': { 'alternate': ['{}.ts', '{}.tsx'] },
+      \ '*.tsx': {
+      \   'alternate': ['{}.test.tsx', '{}.test.ts'],
+      \   'start': '-wait=always npx tsc --watch --noEmit',
+      \   'dispatch': 'npx tsc --noEmit',
+      \ },
+      \ '*.test.tsx': { 'alternate': ['{}.tsx', '{}.ts'] },
+      \ }
+let g:projectionist_heuristics['vitest.config.ts'] = {
+      \ '*.ts':  { 'dispatch': 'yarn vitest run {}.test.ts' },
+      \ '*.tsx': { 'dispatch': 'yarn vitest run {}.test.tsx' },
+      \ '*.test.ts': {
+      \   'dispatch': "yarn vitest run {file}`=v:lnum ? ':' . v:lnum : ''`",
+      \ },
+      \ '*.test.tsx': {
+      \   'dispatch': "yarn vitest run {file}`=v:lnum ? ':' . v:lnum : ''`",
+      \ },
+      \ }
+let g:projectionist_heuristics['jest.config.js'] = {
+      \ '*.ts':  { 'dispatch': 'yarn jest {}.test.ts' },
+      \ '*.tsx': { 'dispatch': 'yarn jest {}.test.tsx' },
+      \ '*.test.ts':  { 'dispatch': 'yarn jest {file}' },
+      \ '*.test.tsx': { 'dispatch': 'yarn jest {file}' },
       \ }
 
 let g:splitjoin_trailing_comma = 1

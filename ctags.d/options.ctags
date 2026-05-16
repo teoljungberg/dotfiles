@@ -2,6 +2,7 @@
 --exclude=.bundle
 --exclude=.git
 --exclude=node_modules
+--exclude=.yarn
 
 --languages=-json
 
