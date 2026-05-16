@@ -669,9 +669,6 @@ let g:projectionist_vim_enter = 0
 let g:projectionist_heuristics = {}
 let g:projectionist_heuristics['.git/'] = {
       \ 'TODO.md': { 'command': 'todo' },
-      \ '*.gemspec': { 'command': 'gemspec' },
-      \ 'shell.nix': { 'command': 'shell' },
-      \ 'test/*.rb': { 'command': 'test' },
       \ '*.c': { 'alternate': '{}.h' },
       \ '*.h': { 'alternate': '{}.c' },
       \ }
