@@ -229,11 +229,11 @@ endif
 nnoremap <expr> j (&wrap && v:count == 0) ? 'gj' : 'j'
 nnoremap <expr> k (&wrap && v:count == 0) ? 'gk' : 'k'
 
-nnoremap <silent> <C-w>.
-      \ :<C-U>if exists(':Plcd')<Bar>
-      \   execute 'Plcd'<Bar>
-      \ elseif exists('*FugitiveGitDir') && len(FugitiveGitDir())<Bar>
+nnoremap <silent> <C-W>.
+      \ :<C-U>if v:count && exists('*FugitiveGitDir') && len(FugitiveGitDir())<Bar>
       \   execute 'Glcd'<Bar>
+      \ elseif v:count == 0 && exists(':Plcd')<Bar>
+      \   execute 'Plcd'<Bar>
       \ else<Bar>
       \   lcd %:h<Bar>
       \ endif<Bar>
