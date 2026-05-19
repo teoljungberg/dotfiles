@@ -669,6 +669,8 @@ let g:projectionist_vim_enter = 0
 let g:projectionist_heuristics = {}
 let g:projectionist_heuristics['.git/'] = {
       \ 'TODO.md': { 'command': 'todo' },
+      \ }
+let g:projectionist_heuristics['Makefile'] = {
       \ '*.c': { 'alternate': '{}.h' },
       \ '*.h': { 'alternate': '{}.c' },
       \ }
