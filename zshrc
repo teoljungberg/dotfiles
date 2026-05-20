@@ -139,13 +139,13 @@ claude() {
     tmux set-window-option automatic-rename off
     tmux rename-window "claude"
     {
-      command claude --allow-dangerously-skip-permissions "$@"
+      command claude "$@"
     } always {
       tmux set-window-option automatic-rename on
     }
   else
     {
-      command claude --allow-dangerously-skip-permissions "$@"
+      command claude "$@"
     } always {
       # no-op
     }
