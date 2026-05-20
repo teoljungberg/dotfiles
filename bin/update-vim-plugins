@@ -8,6 +8,7 @@ bundles="
   https://github.com/LnL7/vim-nix
   https://github.com/dense-analysis/ale
   https://github.com/junegunn/fzf.vim
+  https://github.com/neovim/nvim-lspconfig
   https://github.com/tommcdo/vim-exchange
   https://github.com/vim-ruby/vim-ruby
   https://tpope.io/vim/abolish
@@ -139,6 +140,7 @@ done
 
 find \
   "$HOME/.vim/pack/bundle/start" \
+  "$HOME/.vim/pack/bundle/opt" \
   -maxdepth 2 \
   -type d \
   -name ".git" |
