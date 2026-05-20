@@ -528,6 +528,7 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_linters_explicit = 1
 let g:ale_open_list = 1
 let g:ale_set_signs = 0
+let g:ale_set_quickfix = 0
 let g:ale_virtualtext_cursor = 0
 
 let g:ale_lua_stylua_options = '--config-path ~/.stylua.toml'
