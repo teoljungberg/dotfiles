@@ -553,6 +553,12 @@ nmap `=<CR> <Plug>(ale_fix)
 nmap `== <Plug>(ale_lint)
 nmap `=? <Plug>(ale_hover)
 
+let s:dispatch_compilers = {
+      \ 'bundle exec': '',
+      \ }
+let g:dispatch_compilers = get(g:, 'dispatch_compilers', {})
+call extend(g:dispatch_compilers, s:dispatch_compilers, 'keep')
+
 augroup t_dispatch
   autocmd!
   autocmd BufReadPost *
