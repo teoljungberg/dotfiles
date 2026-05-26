@@ -774,6 +774,11 @@ nmap <script> <Plug>(unimpaired-disable)g :<C-U>setlocal signcolumn=no<CR>
 nmap <script> <Plug>(unimpaired-toggle)g
       \ :<C-U>setlocal signcolumn=<C-R>=&signcolumn ==# "no" ? "auto" : "no"<CR><CR>
 
+" Reference https://github.com/tpope/vim-unimpaired/pull/242
+nnoremap [ot :<C-U>setlocal colorcolumn=+1<CR>
+nnoremap ]ot :<C-U>setlocal colorcolumn=<CR>
+nnoremap yot :<C-U>setlocal colorcolumn=<C-R>=empty(&colorcolumn) ? "+1" : ""<CR><CR>
+
 " Reference https://github.com/tpope/vim-fugitive/issues/2441
 if exists(':Browse') != 2
   silent! runtime plugin/openPlugin.vim
