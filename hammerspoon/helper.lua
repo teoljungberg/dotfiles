@@ -2,8 +2,40 @@ local M = {}
 local mouseFollowsFocus = require("mouse_follows_focus")
 local numberOfCells = 32
 
+local visibleWindowFilter = nil
+
+-- `windowVisible` fires for every window that unhides, not just the focused
+-- one, and native-tabbed apps (Ghostty) fire it in bursts whose windows briefly
+-- report frames on the wrong screen, pinballing the mouse between displays.
+-- Follow only when the unhidden window is also focused and on the current
+-- screen; cross-screen follow stays with `windowFocused`.
+local function followOnVisible(window)
+  if not window or window ~= hs.window.focusedWindow() then
+    return
+  end
+
+  local currentScreen = hs.mouse.getCurrentScreen()
+  local windowScreen = window:screen()
+  if currentScreen and windowScreen and currentScreen ~= windowScreen then
+    return
+  end
+
+  mouseFollowsFocus.updateMouse(window)
+end
+
 function M.setupMouseFollowsFocus()
   mouseFollowsFocus.setup()
+
+  if visibleWindowFilter then
+    visibleWindowFilter:unsubscribeAll()
+    visibleWindowFilter = nil
+  end
+  visibleWindowFilter =
+    hs.window.filter.new():setDefaultFilter({ visible = true })
+  visibleWindowFilter:subscribe(
+    { hs.window.filter.windowVisible },
+    followOnVisible
+  )
 end
 
 hs.grid.setGrid(numberOfCells .. "x" .. numberOfCells)
