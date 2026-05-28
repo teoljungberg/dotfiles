@@ -330,15 +330,6 @@ augroup t_qf
   autocmd FileType qf nnoremap <buffer> - -
 augroup END
 
-let g:markdown_fenced_languages = [
-      \ 'bash=sh',
-      \ 'diff',
-      \ 'json',
-      \ 'nix',
-      \ 'ruby',
-      \ 'sh',
-      \ ]
-
 augroup t_markdown
   autocmd!
   autocmd FileType markdown setlocal
