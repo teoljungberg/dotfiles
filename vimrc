@@ -552,6 +552,7 @@ nmap `=? <Plug>(ale_hover)
 
 let s:dispatch_compilers = {
       \ 'bundle exec': '',
+      \ 'minitest': 'rubyunit',
       \ 'npx': '',
       \ 'yarn': '',
       \ }
@@ -594,7 +595,7 @@ augroup t_dispatch
         \   let b:dispatch = get(
         \     b:,
         \     'dispatch',
-        \     'ruby -Itest %:S',
+        \     "minitest %:S`=v:lnum ? ':'.v:lnum : ''`",
         \   ) |
         \ elseif expand('%') =~# '_spec\.rb$' |
         \   let b:dispatch = get(
