@@ -283,11 +283,23 @@ augroup t_textwidth
   autocmd FileType * if !&textwidth | setlocal textwidth=80 | endif
 augroup END
 
-augroup t_list_number
+augroup t_list
   autocmd!
-  autocmd FileType * setlocal list number |
-        \ if !&modifiable || &readonly || &previewwindow |
-        \   setlocal nolist nonumber |
+  autocmd FileType *
+        \ if !&previewwindow && index(['', 'acwrite'], &buftype) >= 0 |
+        \   setlocal list |
+        \ else |
+        \   setlocal nolist |
+        \ endif
+augroup END
+
+augroup t_number
+  autocmd!
+  autocmd FileType *
+        \ if !&previewwindow && index(['', 'acwrite', 'nowrite'], &buftype) >= 0 |
+        \   setlocal number |
+        \ else |
+        \   setlocal nonumber |
         \ endif
 augroup END
 
@@ -326,7 +338,7 @@ augroup END
 
 augroup t_qf
   autocmd!
-  autocmd FileType qf setlocal nobuflisted nolist nonumber
+  autocmd FileType qf setlocal nobuflisted
   autocmd FileType qf nnoremap <buffer> - -
 augroup END
 
@@ -658,7 +670,7 @@ augroup t_fzf
         \   nnoremap <buffer> <Space>] :FZFHelptags<CR> |
         \ endif
   autocmd FileType fzf
-        \ setlocal laststatus=0 noshowmode noruler nonumber nolist
+        \ setlocal laststatus=0 noshowmode noruler
         \ |
         \ autocmd BufLeave <buffer> setlocal laststatus=2 showmode ruler
 augroup END
