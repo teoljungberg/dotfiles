@@ -467,13 +467,15 @@ if exists(':tnoremap')
   tnoremap <S-Space> <Space>
 endif
 
-augroup t_release_swapfiles
-  autocmd!
-  autocmd BufWritePost,BufReadPost,BufLeave *
-        \ if isdirectory(expand('<amatch>:h')) |
-        \   let &swapfile = &modified |
-        \ endif
-augroup END
+if exists('##CursorHold')
+  augroup t_release_swapfiles
+    autocmd!
+    autocmd CursorHold,BufWritePost,BufReadPost,BufLeave *
+          \ if isdirectory(expand('<amatch>:h')) |
+          \   let &swapfile = &modified |
+          \ endif
+  augroup END
+endif
 
 augroup t_write_on_focus_lost
   autocmd!
