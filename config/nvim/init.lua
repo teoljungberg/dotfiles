@@ -19,6 +19,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 vim.diagnostic.config({
   virtual_text = true,
+  severity_sort = true,
 })
 
 vim.api.nvim_set_hl(0, "DiagnosticError", { link = "Comment" })
