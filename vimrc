@@ -630,6 +630,8 @@ let g:fugitive_legacy_commands = 0
 noremap g<CR> :Git<CR>
 noremap g<Space> :Git<Space>
 
+" Claim CTRL-N/CTRL-P so fugitive skips its deprecated buffer-local maps
+" Reference https://github.com/tpope/vim-fugitive/commit/f3e92c7721505a59738db15e3e80bc5ccff08e36
 nnoremap <C-p> <C-p>
 nnoremap <C-n> <C-n>
 
