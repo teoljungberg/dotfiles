@@ -19,14 +19,14 @@ keybind = cmd+shift+l=new_split:right
 
 palette = 0=#444444
 palette = 1=#835F60
-palette = 2=#89992E
-palette = 3=#AE8A2C
-palette = 4=#4638CC
-palette = 5=#C24381
+palette = 2=#7A8344
+palette = 3=#907D4A
+palette = 4=#625AAA
+palette = 5=#AA5B82
 palette = 6=#51849D
 palette = 7=#C0C0B0
 palette = 8=#222222
-palette = 9=#BD543E
+palette = 9=#A66355
 palette = 10=#5C6E2D
 palette = 11=#694F35
 palette = 12=#865C6C
