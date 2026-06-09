@@ -228,6 +228,8 @@ endif
 
 nnoremap <expr> j (&wrap && v:count == 0) ? 'gj' : 'j'
 nnoremap <expr> k (&wrap && v:count == 0) ? 'gk' : 'k'
+vnoremap <expr> j (&wrap && v:count == 0 && mode() !=# 'V') ? 'gj' : 'j'
+vnoremap <expr> k (&wrap && v:count == 0 && mode() !=# 'V') ? 'gk' : 'k'
 
 nnoremap <silent> <C-W>.
       \ :<C-U>if v:count && exists('*FugitiveGitDir') && len(FugitiveGitDir())<Bar>
