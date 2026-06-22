@@ -36,3 +36,14 @@ end
 ipc.cliColors({ error = "", initial = "", output = "", input = "" })
 
 helper.setupMouseFollowsFocus()
+
+local function file_exists(name)
+  local file = io.open(name, "r")
+  if file then io.close(file) end
+  return file ~= nil
+end
+
+local local_init = (os.getenv("HOME") or "~") .. "/.hammerspoon/init.local.lua"
+if file_exists(local_init) then
+  dofile(local_init)
+end
