@@ -142,7 +142,7 @@ in
   programs.mosh.enable = true;
   programs.zsh.enable = true;
 
-  system.autoUpgrade.channel = "https://nixos.org/channels/nixos-24.05";
+  system.autoUpgrade.channel = "https://nixos.org/channels/nixos-26.05";
   system.autoUpgrade.enable = true;
   system.copySystemConfiguration = true;
 
@@ -210,7 +210,6 @@ in
         nix-direnv.enable = true;
       };
 
-      nix.package = pkgs.nixVersions.stable;
       nix.extraOptions = ''
         experimental-features = nix-command flakes
         keep-derivations = true
