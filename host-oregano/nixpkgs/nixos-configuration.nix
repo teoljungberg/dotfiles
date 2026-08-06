@@ -216,7 +216,7 @@ in
         knfmt
         mosh
         neovim
-        nixfmt-rfc-style
+        nixfmt
         pgformatter
         pkg-config
         rclone
