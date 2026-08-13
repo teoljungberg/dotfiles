@@ -2,7 +2,11 @@
 #
 # Add ui.color=true to any git(1) command
 #
+# Shell history expansion (e.g. `git color !!`) leaves a redundant
+# leading "git" word from the previous command; drop it if present.
 
 set -e
+
+[ "$1" = "git" ] && shift
 
 git -c color.ui=true "$@"
