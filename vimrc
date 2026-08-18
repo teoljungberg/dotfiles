@@ -756,6 +756,19 @@ nnoremap <silent> r<CR> :<C-U>call <SID>try('SplitjoinSplit', "r\015")<CR>
 
 let g:surround_{char2nr('#')} = "#{\<CR>}"
 
+if has('nvim')
+  function! s:restore_surround_ctrl_s()
+    if len(maparg('<Plug>Isurround', 'i'))
+      imap <C-S> <Plug>Isurround
+    endif
+  endfunction
+
+  augroup t_restore_surround_ctrl_s
+    autocmd!
+    autocmd VimEnter * call s:restore_surround_ctrl_s()
+  augroup END
+endif
+
 if exists(':E') != 2
   command! -nargs=* -complete=dir E Explore <args>
 endif
