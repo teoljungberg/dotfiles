@@ -5,7 +5,6 @@ set -e
 
 bundles="
   https://github.com/AndrewRadev/splitjoin.vim
-  https://github.com/LnL7/vim-nix
   https://github.com/airblade/vim-gitgutter
   https://github.com/dense-analysis/ale
   https://github.com/junegunn/fzf.vim
