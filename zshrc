@@ -134,22 +134,28 @@ git() {
   fi
 }
 
-claude() {
+_run_and_rename_tmux_window() {
+  local name="$1"
+  shift
   if [ -n "$TMUX" ]; then
     tmux set-window-option automatic-rename off
-    tmux rename-window "claude"
+    tmux rename-window "$name"
     {
-      command claude "$@"
+      "$@"
     } always {
       tmux set-window-option automatic-rename on
     }
   else
-    {
-      command claude "$@"
-    } always {
-      # no-op
-    }
+    "$@"
   fi
+}
+
+claude() {
+  _run_and_rename_tmux_window "claude" command claude "$@"
+}
+
+pi() {
+  _run_and_rename_tmux_window "pi" command pi "$@"
 }
 
 _source_if_available() { [ -e "$1" ] && source "$1" }
