@@ -10,7 +10,7 @@ keybind = alt+right=unbind
 # mode, which intercepts keypresses -- including C-J -- instead of forwarding
 # them to the running program.
 keybind = super+j=unbind
-keybind = shift+enter=text:\x1b\r
+keybind = shift+enter=csi:13;2u
 
 keybind = cmd+shift+h=new_split:left
 keybind = cmd+shift+j=new_split:down
