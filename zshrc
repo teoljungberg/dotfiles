@@ -37,6 +37,7 @@ export MANWIDTH=80
 export NIX_DIRENV_FALLBACK_NIX=
 export NIX_SHELL_PRESERVE_PROMPT=1
 export NO_COLOR=1
+export NPM_CONFIG_FUND=false
 export PAGER="less -R"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export RPS1=""
