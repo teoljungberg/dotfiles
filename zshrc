@@ -54,7 +54,9 @@ if [ -e "/opt/homebrew/bin/brew" ]; then
   export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 fi
 
-if [ -z "$TMUX" ]; then
+# Ghostty sets TERM=xterm-ghostty itself; only override other terminals
+# https://ghostty.org/docs/help/terminfo
+if [ -z "$TMUX" ] && [ "$TERM" != "xterm-ghostty" ]; then
   export TERM="xterm-256color"
 fi
 
