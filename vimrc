@@ -26,6 +26,7 @@ setglobal tags-=./tags tags-=./tags; tags^=./tags;
 setglobal title
 setglobal ttimeout
 setglobal ttimeoutlen=50
+setglobal updatetime=100
 setglobal viminfo=!,'20,<50,s10,h
 setglobal wildmenu
 setglobal wildmode=full
