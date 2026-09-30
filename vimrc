@@ -12,6 +12,7 @@ setglobal laststatus=2
 setglobal listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 setglobal modelines=0
 setglobal mouse=nvi
+setglobal noequalalways
 setglobal nojoinspaces
 setglobal path=.,,
 setglobal scrolloff=1
