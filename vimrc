@@ -19,7 +19,6 @@ setglobal sessionoptions-=buffers,curdir sessionoptions+=sesdir,globals
 setglobal shiftround
 setglobal showcmd
 setglobal sidescrolloff=5
-setglobal signcolumn=auto
 setglobal smartcase
 setglobal statusline=[%n]\ %<%f\ %h%m%r%w%=%-14.(%l,%c%V%)\ %P
 setglobal tags-=./tags tags-=./tags; tags^=./tags;
@@ -62,10 +61,12 @@ if has('vim_starting')
   set completefunc=syntaxcomplete#Complete
   set nofoldenable
   set nohidden
+  set nowrap
+  set numberwidth=5
   set omnifunc=syntaxcomplete#Complete
+  set signcolumn=number
   set spellfile=~/.vim/spell/en.utf-8.add
   set synmaxcol=500
-  set nowrap
 
   if exists('+breakindent')
     set breakindent
@@ -795,15 +796,10 @@ if executable('doas')
   command! DoasWrite :execute 'silent! write !doas tee % > /dev/null'
 endif
 
-augroup t_signs
-  autocmd!
-  autocmd FileType * if &tagfunc =~# '^v:lua' | setlocal signcolumn=yes | endif
-augroup END
-
-nmap <script> <Plug>(unimpaired-enable)g  :<C-U>setlocal signcolumn=auto<CR>
+nmap <script> <Plug>(unimpaired-enable)g  :<C-U>setlocal signcolumn=number<CR>
 nmap <script> <Plug>(unimpaired-disable)g :<C-U>setlocal signcolumn=no<CR>
 nmap <script> <Plug>(unimpaired-toggle)g
-      \ :<C-U>setlocal signcolumn=<C-R>=&signcolumn ==# "no" ? "auto" : "no"<CR><CR>
+      \ :<C-U>setlocal signcolumn=<C-R>=&signcolumn ==# "no" ? "number" : "no"<CR><CR>
 
 " Reference https://github.com/tpope/vim-unimpaired/pull/242
 nnoremap [ot :<C-U>setlocal colorcolumn=+1<CR>
