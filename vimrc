@@ -364,20 +364,20 @@ function! s:ccr()
   let cmdline = getcmdline()
   let filter_stub = '\v\C^((filt|filte|filter) .+ )*'
   let range_stub = '\v\C^((\d+|\.|\%)?,?(\$|\d+|\.)?)*'
-  command! -bar Z silent set more|delcommand Z
+  command! -bar Z silent setglobal more|delcommand Z
 
   if cmdline =~# filter_stub . '(ls|files|buffers)'
     return "\<CR>:buffer\<Space>"
   elseif cmdline =~# '\v\C/(#|nu|num|numb|numbe|number)$'
     return "\<CR>:"
   elseif cmdline =~# filter_stub . '(old|oldfiles)'
-    setlocal nomore
+    setglobal nomore
     return "\<CR>:Z|edit #<"
   elseif cmdline =~# '\C^changes'
-    setlocal nomore
+    setglobal nomore
     return "\<CR>:Z|normal! g;\<S-Left>"
   elseif cmdline =~# filter_stub . '(ju|jumps)'
-    setlocal nomore
+    setglobal nomore
     return "\<CR>:Z|normal! \<C-O>\<S-Left>"
   elseif cmdline =~# filter_stub . 'marks'
     return "\<CR>:normal! `"
