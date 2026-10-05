@@ -153,7 +153,11 @@ _run_and_rename_tmux_window() {
   fi
 }
 
+# NO_COLOR strips every style from claude(1), selection highlights included.
+# A function-local NO_COLOR shadows the global one and is restored on return.
 claude() {
+  local NO_COLOR
+  unset NO_COLOR
   _run_and_rename_tmux_window "claude" command claude "$@"
 }
 
