@@ -218,7 +218,7 @@ noremap gp "*p
 noremap gP "*P
 
 if has('nvim')
-  set mousescroll=ver:3,hor:0
+  setglobal mousescroll=ver:3,hor:0
 else
   noremap <ScrollWheelLeft> <Nop>
   noremap <ScrollWheelRight> <Nop>
