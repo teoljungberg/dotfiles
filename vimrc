@@ -474,7 +474,7 @@ if exists('##CursorHold')
     autocmd!
     autocmd CursorHold,BufWritePost,BufReadPost,BufLeave *
           \ if isdirectory(expand('<amatch>:h')) |
-          \   let &swapfile = &modified |
+          \   let &l:swapfile = &modified |
           \ endif
   augroup END
 endif
