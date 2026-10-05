@@ -676,9 +676,9 @@ augroup t_fzf
         \   nnoremap <buffer> <Space>] :FZFHelptags<CR> |
         \ endif
   autocmd FileType fzf
-        \ setlocal laststatus=0 noshowmode noruler
+        \ setglobal laststatus=0 noshowmode noruler
         \ |
-        \ autocmd BufLeave <buffer> setlocal laststatus=2 showmode ruler
+        \ autocmd BufLeave <buffer> setglobal laststatus=2 showmode ruler
 augroup END
 
 let g:rails_vim_enter = 0
