@@ -236,6 +236,8 @@ bindkey -M viins '^P' history-beginning-search-backward-end
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M viins '^S' history-incremental-search-forward
 bindkey -M viins '^X^G' _git_changed_files
+bindkey -M viins  -s '^Y' '| yank '
+
 
 bindkey -M viins '^[[A' history-beginning-search-backward-end
 bindkey -M viins '^[[B' history-beginning-search-forward-end
