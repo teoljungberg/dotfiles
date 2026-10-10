@@ -1,0 +1,7 @@
+[tools]
+node = "26"
+"npm:@anthropic-ai/claude-code" = { version = "latest", auto_update = true, allow_builds = ["@anthropic-ai/claude-code"] }
+"npm:@earendil-works/pi-coding-agent" = { version = "latest", auto_update = true }
+# Consumers: nvim (ts_ls) and claude (typescript-lsp plugin)
+"npm:typescript" = { version = "latest", auto_update = true }
+"npm:typescript-language-server" = { version = "latest", auto_update = true }
