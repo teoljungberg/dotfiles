@@ -4,6 +4,7 @@ set -e
 [ -n "$DEBUG" ] && set -ex
 
 bundles="
+  https://codeberg.org/lifepillar/vim-solarized8
   https://github.com/AndrewRadev/splitjoin.vim
   https://github.com/airblade/vim-gitgutter
   https://github.com/dense-analysis/ale
