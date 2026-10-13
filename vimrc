@@ -75,12 +75,6 @@ if has('vim_starting')
   if exists('+undofile')
     set undofile
   endif
-
-  if $TERM =~# '^screen\|^tmux' && len($TMUX)
-    if exists('&termguicolors')
-      set notermguicolors
-    endif
-  endif
 endif
 
 let &t_SI = "\e[6 q"
