@@ -18,16 +18,16 @@ keybind = cmd+shift+k=new_split:up
 keybind = cmd+shift+l=new_split:right
 
 palette = 0=#444444
-palette = 1=#7D6566
-palette = 2=#72784F
+palette = 1=#9B6464
+palette = 2=#607C60
 palette = 3=#847756
 palette = 4=#6D689C
 palette = 5=#9C6982
 palette = 6=#5E7F90
 palette = 7=#C0C0B0
 palette = 8=#222222
-palette = 9=#986C63
-palette = 10=#576338
+palette = 9=#AB6051
+palette = 10=#4A6C43
 palette = 11=#604F3E
 palette = 12=#7F636E
 palette = 13=#957396
