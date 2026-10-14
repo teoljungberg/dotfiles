@@ -17,6 +17,11 @@ keybind = cmd+shift+j=new_split:down
 keybind = cmd+shift+k=new_split:up
 keybind = cmd+shift+l=new_split:right
 
+keybind = cmd+alt+h=goto_split:left
+keybind = cmd+alt+j=goto_split:down
+keybind = cmd+alt+k=goto_split:up
+keybind = cmd+alt+l=goto_split:right
+
 palette = 0=#444444
 palette = 1=#9B6464
 palette = 2=#607C60
