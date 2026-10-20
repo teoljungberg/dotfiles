@@ -41,4 +41,8 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--color=bw"
 
+_source_if_available "/opt/homebrew/opt/chruby/share/chruby/chruby.sh"
+_source_if_available "/opt/homebrew/opt/chruby/share/chruby/auto.sh"
+_call_if_available "chruby_auto"
+
 _source_if_available "$HOME/.zshenv.local"
