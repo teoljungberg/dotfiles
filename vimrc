@@ -361,7 +361,7 @@ function! s:ccr()
   let range_stub = '\v\C^((\d+|\.|\%)?,?(\$|\d+|\.)?)*'
   command! -bar Z silent setglobal more|delcommand Z
 
-  if cmdline =~# filter_stub . '(ls|files|buffers)'
+  if cmdline =~# filter_stub . '(ls|files|buffers)>'
     return "\<CR>:buffer\<Space>"
   elseif cmdline =~# '\v\C/(#|nu|num|numb|numbe|number)$'
     return "\<CR>:"
