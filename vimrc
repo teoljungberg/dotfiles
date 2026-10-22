@@ -378,7 +378,7 @@ function! s:ccr()
     return "\<CR>:normal! `"
   elseif cmdline =~# '\v\C^(undol|undolist)'
     return "\<CR>:undo\<Space>"
-  elseif cmdline =~# filter_stub . '(cli|clist)'
+  elseif cmdline =~# filter_stub . '(cli|clis|clist)>'
     return "\<CR>:silent cc\<Space>"
   elseif cmdline =~# filter_stub . '(lli|llist)'
     return "\<CR>:silent ll\<Space>"
