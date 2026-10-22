@@ -30,7 +30,6 @@ setglobal updatetime=100
 setglobal viminfo=!,'20,<50,s10,h
 setglobal wildmenu
 setglobal wildmode=full
-syntax enable
 
 let s:user_and_hostname_if_ssh = exists('$SSH_TTY') ? system('logname') . '@' . hostname() . ':' : ''
 let &g:titlestring = s:user_and_hostname_if_ssh . '%{v:progname} %{fnamemodify(getcwd(), ":~")}'
@@ -117,7 +116,11 @@ if !has('nvim')
   silent! runtime ftplugin/man.vim
 endif
 
+" `syntax enable` must come after :filetype. When run first, it runs filetype
+" detection while this file is still loading, and in Neovim the autocmds
+" below then never run for the file passed on the command line.
 filetype plugin indent on
+syntax enable
 
 setglobal grepformat=%f:%l:%c:%m,%f:%l:%m,%f:%l%m,%f\ \ %l%m
 if executable('rg')
