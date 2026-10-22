@@ -95,8 +95,10 @@ if exists('+undodir') && !has('nvim')
   if !isdirectory(&backupdir) | call mkdir(&backupdir, 'p') | endif
 endif
 
-if has('nvim') || !has('packages')
+if has('nvim')
   setglobal runtimepath^=~/.vim/
+  setglobal runtimepath+=~/.vim/after
+elseif !has('packages')
   setglobal runtimepath^=~/.vim/pack/*/start/*
   setglobal runtimepath+=~/.vim/pack/*/start/*/after
 endif
