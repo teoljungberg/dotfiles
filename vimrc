@@ -408,8 +408,10 @@ cnoremap <script> <expr> <CR> <SID>ccr()
 
 nmap [I :ilist /<C-R>=expand('<cword>')<CR><CR>
 nmap ]I :.,$ilist /<C-R>=expand('<cword>')<CR><CR>
-nmap [D :dlist /<C-R>=expand('<cword>')<CR><CR>
-nmap ]D :.,$dlist /<C-R>=expand('<cword>')<CR><CR>
+if !has('nvim')
+  nmap [D :dlist /<C-R>=expand('<cword>')<CR><CR>
+  nmap ]D :.,$dlist /<C-R>=expand('<cword>')<CR><CR>
+endif
 
 nmap <Space>b :ls<CR>
 
