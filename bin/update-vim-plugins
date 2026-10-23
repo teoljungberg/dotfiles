@@ -8,6 +8,7 @@ bundles="
   https://github.com/AndrewRadev/splitjoin.vim
   https://github.com/airblade/vim-gitgutter
   https://github.com/dense-analysis/ale
+  https://github.com/github/copilot.vim
   https://github.com/junegunn/fzf.vim
   https://github.com/neovim/nvim-lspconfig
   https://github.com/tommcdo/vim-exchange
