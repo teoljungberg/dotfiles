@@ -178,6 +178,12 @@ _source_if_available "$HOME/.nix-profile/share/fzf/completion.zsh"
 _source_if_available "/opt/homebrew/opt/fzf/shell/completion.zsh"
 _source_if_available "$HOME/.fzf/shell/completion.zsh"
 
+# Switch Ruby to the new directory's `.ruby-version`; zshenv covers startup
+if command -v rv > /dev/null 2>&1; then
+  _rv_env() { eval "$(rv shell env zsh)" }
+  add-zsh-hook chpwd _rv_env
+fi
+
 _prepend_binstubs() {
   case "$PATH" in
     .git/safe/../../bin:*) ;;
