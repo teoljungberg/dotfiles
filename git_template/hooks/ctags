@@ -3,7 +3,7 @@
 set -e
 [ -n "$DEBUG" ] && set -ex
 
-git_dir="$(git rev-parse --git-dir)"
+git_dir="$(git rev-parse --git-common-dir)"
 
 if [ -d "$git_dir/safe" ]; then
   tmpfile=$(mktemp /tmp/ctags.XXXXXX)

@@ -2,7 +2,7 @@
 
 set -e
 
-dir="$(git rev-parse --git-dir)"
+dir="$(git rev-parse --git-common-dir)"
 
 case "$1" in
   rebase) exec "$dir/hooks/post-merge" ;;

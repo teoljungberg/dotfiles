@@ -20,7 +20,7 @@
 
   ctags = "!sh -c '[ ! -e .git/hooks/ctags ] && git init; .git/hooks/ctags' git-ctags"
   hub = !hub $@
-  safe = !mkdir -p $(git rev-parse --git-dir)/safe
+  safe = !mkdir -p $(git rev-parse --git-common-dir)/safe
 [merge]
   tool = vimdiff
 [core]
