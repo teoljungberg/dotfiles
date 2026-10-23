@@ -28,7 +28,7 @@ nixpkgs https://nixos.org/channels/nixos-NIXPKGS_RELEASE
 
 ```
 LANG="en_US.UTF-8"
-PATH=$HOME/.nix-profile/bin:/usr/bin:/bin
+PATH="$HOME/.nix-profile/bin:/opt/homebrew/opt/node@24/bin:/usr/bin:/bin"
 
-30 9 * * *	$HOME/src/github.com/teoljungberg/dotfiles/bin/update-vim-plugins
+00 10 * * *	$HOME/src/github.com/teoljungberg/dotfiles/bin/update-vim-plugins
 ```
