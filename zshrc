@@ -1,4 +1,9 @@
-autoload -U compinit && compinit
+autoload -U compinit
+if [ -n "$(find ~/.zcompdump -mtime -1 2>/dev/null)" ]; then
+  compinit -C
+else
+  compinit
+fi
 autoload -U add-zsh-hook
 
 setopt alwaystoend
