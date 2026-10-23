@@ -25,17 +25,13 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 if command -v nvim > /dev/null 2>&1; then
-  export VISUAL="nvim"
   alias vim="nvim"
-else
-  export VISUAL="vim"
 fi
 
 export BUNDLE_IGNORE_FUNDING_REQUESTS=1
 export BUNDLE_PATH=".bundle/"
 export DIRENV_LOG_FORMAT=
 export DISABLE_SPRING=1
-export EDITOR="$VISUAL"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent::1"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_COLOR=1
