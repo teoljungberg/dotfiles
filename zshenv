@@ -1,3 +1,9 @@
+# macOS's /etc/zprofile runs path_helper, which reorders PATH after this
+# file, and nothing else in the global rc files is needed there.
+case "$OSTYPE" in
+  darwin*) setopt no_global_rcs ;;
+esac
+
 _source_if_available() { [ -e "$1" ] && source "$1" }
 _append_to_path_if_available() { [ -e "$1" ] && PATH="$PATH:$1" }
 _prepend_to_path_if_available() { [ -e "$1" ] && PATH="$1:$PATH" }
