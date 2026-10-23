@@ -863,6 +863,7 @@ hi ColorColumn term=NONE cterm=NONE gui=NONE ctermfg=15 ctermbg=0 guifg=#FDF6E3 
 hi Comment term=italic cterm=italic gui=italic ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
 hi Conceal term=italic cterm=italic gui=italic ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi Constant term=italic cterm=italic gui=italic ctermfg=NONE guifg=NONE
+hi CopilotSuggestion term=NONE cterm=NONE gui=NONE ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
 hi CurSearch term=reverse cterm=reverse gui=reverse ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi CursorColumn term=NONE cterm=NONE gui=NONE ctermfg=15 ctermbg=0 guifg=#FDF6E3 guibg=#444444
 hi CursorLine term=underline cterm=underline gui=underline ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
