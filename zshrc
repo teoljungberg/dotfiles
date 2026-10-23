@@ -1,9 +1,14 @@
 autoload -U compinit
-if [ -n "$(find ~/.zcompdump -mtime -1 2>/dev/null)" ]; then
+_fresh_zcompdump=(~/.zcompdump(N.mh-24))
+if [ -n "$_fresh_zcompdump" ]; then
   compinit -C
 else
   compinit
+  # compinit leaves an unchanged dump alone, so mark it as checked today
+  touch ~/.zcompdump
+  zcompile ~/.zcompdump
 fi
+unset _fresh_zcompdump
 autoload -U add-zsh-hook
 
 setopt alwaystoend
