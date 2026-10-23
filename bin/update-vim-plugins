@@ -160,4 +160,9 @@ find \
     fi
   done
 
+# copilot.vim runs this server instead of npx, see vimrc
+if command -v npm >/dev/null; then
+  npm install -g @github/copilot-language-server >/dev/null 2>&1
+fi
+
 nohup vim -u NONE -c "helptags ALL" -cq >/dev/null 2>&1

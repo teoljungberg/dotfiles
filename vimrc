@@ -569,6 +569,12 @@ nmap `=<CR> <Plug>(ale_fix)
 nmap `== <Plug>(ale_lint)
 nmap `=? <Plug>(ale_hover)
 
+" Skip copilot.vim's default `npx` launch, which every Vim start blocks on
+" while another holds the shared npx install lock.
+if executable('copilot-language-server')
+  let g:copilot_command = 'copilot-language-server'
+endif
+
 let s:dispatch_compilers = {
       \ 'bin/rake': 'rake',
       \ 'bundle exec': '',
