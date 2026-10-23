@@ -291,7 +291,9 @@ set_title() {
   fi
 
   if [ -n "$1" ]; then
-    print -Pnr " (%20>...>$1%>>)"
+    # Escape `%` for `print -P`, and keep newlines out of the escape sequence
+    local cmd="${1//\%/%%}"
+    print -Pnr " (%20>...>${cmd//[[:cntrl:]]/?}%>>)"
   fi
 
   print -Pn ' \a'
