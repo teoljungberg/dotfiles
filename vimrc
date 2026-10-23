@@ -814,7 +814,9 @@ nnoremap yot :<C-U>setlocal colorcolumn=<C-R>=empty(&colorcolumn) ? "+1" : ""<CR
 
 " Reference https://github.com/tpope/vim-fugitive/issues/2441
 if exists(':Browse') != 2
-  silent! runtime plugin/openPlugin.vim
+  if !has('nvim')
+    silent! runtime plugin/openPlugin.vim
+  endif
   if exists(':Open') == 2
     command! -nargs=1 Browse execute 'Open' escape(<q-args>, '%#')
   elseif has('mac')
