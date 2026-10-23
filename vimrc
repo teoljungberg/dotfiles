@@ -570,9 +570,12 @@ nmap `== <Plug>(ale_lint)
 nmap `=? <Plug>(ale_hover)
 
 let s:dispatch_compilers = {
+      \ 'bin/rake': 'rake',
       \ 'bundle exec': '',
       \ 'minitest': 'rubyunit',
       \ 'npx': '',
+      \ 'rake': 'rake',
+      \ 'tc': 'tsc',
       \ 'yarn': '',
       \ }
 let g:dispatch_compilers = get(g:, 'dispatch_compilers', {})
