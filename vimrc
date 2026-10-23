@@ -191,6 +191,7 @@ cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 cnoremap <C-R><C-L> <C-R>=substitute(getline('.'), '^\s*', '', '')<CR>
 cnoremap <C-R>W <C-R><C-A>
+nnoremap <silent> <Space> :<C-U>call getchar()<CR>
 nnoremap <silent> <Space>y :<C-U>call <SID>yank_file_path_with_line()<CR>
 vnoremap <silent> <Space>y :call <SID>yank_file_path_with_range()<CR>
 nnoremap <silent> <Space>t :<C-U>call <SID>todo_with_line()<CR>
