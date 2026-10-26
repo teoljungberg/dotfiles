@@ -159,17 +159,22 @@ _run_and_rename_tmux_window() {
   fi
 }
 
-# NO_COLOR strips every style from claude(1), selection highlights included.
-# A function-local NO_COLOR shadows the global one and is restored on return.
-claude() {
-  local NO_COLOR
-  unset NO_COLOR
-  _run_and_rename_tmux_window "claude" command claude "$@"
-}
+# Define only commands that exist on PATH.
+if command -v claude > /dev/null 2>&1; then
+  # NO_COLOR strips every style from claude(1), selection highlights included.
+  # A function-local NO_COLOR shadows the global one and is restored on return.
+  claude() {
+    local NO_COLOR
+    unset NO_COLOR
+    _run_and_rename_tmux_window "claude" command claude "$@"
+  }
+fi
 
-pi() {
-  _run_and_rename_tmux_window "pi" command pi "$@"
-}
+if command -v pi > /dev/null 2>&1; then
+  pi() {
+    _run_and_rename_tmux_window "pi" command pi "$@"
+  }
+fi
 
 _source_if_available() { [ -e "$1" ] && source "$1" }
 
