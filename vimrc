@@ -549,7 +549,6 @@ let g:ale_fixers = { '*': ['trim_whitespace'] }
 let g:ale_fixers.c = ['knfmt']
 let g:ale_fixers.json = ['jq']
 let g:ale_fixers.lua = ['stylua']
-let g:ale_fixers.nix = ['nixfmt']
 let g:ale_fixers.ruby = ['standardrb', 'rubocop', 'sorbet']
 let g:ale_fixers.sh = ['shfmt']
 let g:ale_fixers.sql = ['pgformatter']
@@ -603,20 +602,6 @@ augroup t_dispatch
         \   let b:start = 'bin/console' |
         \ endif
 
-  autocmd FileType nix
-        \ let b:dispatch = 'nix-build %:S --no-link' |
-        \ let b:start = 'nix repl --file %:S' |
-        \ setlocal makeprg=nix-build\ %:S
-  autocmd BufReadPost */nixos-configuration.nix,/etc/nixos/configuration.nix
-        \ let b:dispatch = 'nixos-rebuild dry-run' |
-        \ setlocal makeprg=nixos-rebuild\ build
-  autocmd BufReadPost home.nix
-        \ let b:dispatch = 'home-manager build --file %:S --no-out-link' |
-        \ setlocal makeprg=home-manager\ build\ --file\ %:S
-  autocmd BufReadPost flake.nix
-        \ let b:dispatch = '-dir=%:p:h nix flake check --impure' |
-        \ setlocal makeprg=nix\ build\ --file\ %:S
-
   autocmd FileType ruby let b:start = 'irb -r %:p:S'
   autocmd FileType ruby
         \ if expand('%') =~# '_test\.rb$' || expand('%') =~# 'test_.*\.rb$' |
@@ -659,8 +644,6 @@ augroup END
 if executable('fzf')
   if isdirectory($HOME . '/.fzf/')
     setglobal runtimepath+=$HOME/.fzf/
-  elseif isdirectory($HOME . '/.nix-profile/share/vim-plugins/fzf/')
-    setglobal runtimepath+=$HOME/.nix-profile/share/vim-plugins/fzf/
   elseif isdirectory('/opt/homebrew/opt/fzf')
     setglobal runtimepath+=/opt/homebrew/opt/fzf
   endif

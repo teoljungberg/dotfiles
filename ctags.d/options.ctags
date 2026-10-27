@@ -6,8 +6,4 @@
 
 --languages=-json
 
---langdef=NIX
---langmap=NIX:.nix
---regex-NIX=/([^ \t*]*)[ \t]*=/\1/f/
-
 --map-TypeScript=+.tsx
