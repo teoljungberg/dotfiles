@@ -30,7 +30,6 @@ fi
 
 export BUNDLE_IGNORE_FUNDING_REQUESTS=1
 export BUNDLE_PATH=".bundle/"
-export DIRENV_LOG_FORMAT=
 export DISABLE_SPRING=1
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent::1"
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -190,10 +189,6 @@ _prepend_binstubs() {
   esac
 }
 preexec_functions+=("_prepend_binstubs")
-
-if command -v direnv > /dev/null 2>&1; then
-  eval "$(direnv hook zsh)"
-fi
 
 if [ -t 0 ]; then
   stty -ixon
