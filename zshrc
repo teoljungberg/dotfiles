@@ -278,7 +278,7 @@ set_prompt() {
   PS1+="%{${reverse_color}%}"        # Set reverse color
   PS1+=$(prompt_directory)           # Add the current directory
   PS1+=" "                           # Add a space
-  [ -n "$SSH_TTY" ] && PS1+="%n@%m " # Add user@host, if in ssh(1)
+  [ -n "$SSH_TTY$REX_SESSION" ] && PS1+="%n@%m " # Add user@host, if in ssh(1) or rex(1)
   PS1+=$(git_branch)                 # Add the git(1) branch
   PS1+="%(1j.%j .)"                  # Add job count, if any
   PS1+="%#"                          # Add the prompt character
@@ -298,7 +298,7 @@ bell() {
 }
 
 set_title() {
-  if [ -n "$SSH_TTY" ]; then
+  if [ -n "$SSH_TTY$REX_SESSION" ]; then
     print -Pn "\e]2;%n@%m:$(prompt_directory)"
   else
     print -Pn "\e]2;%n:$(prompt_directory)"
