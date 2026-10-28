@@ -2,6 +2,7 @@ copy-on-select = clipboard
 font-family = JetBrains Mono NL
 font-size = 15
 macos-option-as-alt = right
+macos-titlebar-style = tabs
 mouse-hide-while-typing = true
 window-inherit-working-directory = false
 window-new-tab-position = end
