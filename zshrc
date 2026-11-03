@@ -306,7 +306,7 @@ set_title() {
 }
 
 mark_prompt() {
-  print -n '\e]133;C\e\\'
+  print -n '\e]133;C\e\\' # Start the command output (OSC-133)
 }
 
 mark_command_end() {
