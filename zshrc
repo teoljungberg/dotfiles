@@ -280,13 +280,12 @@ set_prompt() {
 }
 
 bell() {
-  if [ $# -eq 0 ]; then
+  if [ $# -gt 0 ]; then
+    "$@"
+  elif [ ! -t 0 ]; then
     cat
-    tput bel
-  else
-    $@
-    tput bel
   fi
+  print -n '\a'
 }
 
 set_title() {
