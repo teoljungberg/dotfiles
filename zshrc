@@ -309,12 +309,17 @@ mark_prompt() {
   print -n '\e]133;C\e\\'
 }
 
+mark_command_end() {
+  printf '\e]133;D;%s\e\\' "$1" # End the command with its exit status (OSC-133)
+}
+
 preexec() {
   set_title "$@"
   mark_prompt
 }
 
 precmd() {
+  mark_command_end $?
   set_title "$@"
   set_prompt
 }
