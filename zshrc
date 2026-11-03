@@ -247,7 +247,8 @@ bindkey -M vicmd '/' history-incremental-search-forward
 
 git_branch() {
   local branch_name=$(git symbolic-ref --short HEAD 2>/dev/null)
-  [ -n "$branch_name" ] && print -Pn "%32<...<% $branch_name %< "
+  # Escape `%` so `PS1` expands the branch name once, as literal text
+  [ -n "$branch_name" ] && print -rn -- "%32<...<${branch_name//\%/%%}%<< "
 }
 
 prompt_directory() {
