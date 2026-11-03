@@ -261,18 +261,21 @@ set_prompt() {
   # colors
   local reverse_color=$'\e[7m'
   local reset_color=$'\e[0m'
+  # where are we?
+  local is_remote=
+  [ -n "$SSH_TTY$REX_SESSION" ] && is_remote=1
 
-  PS1="%{${prompt_start}%}"          # Start with the prompt start sequence (OSC-133)
-  PS1+="%{${reverse_color}%}"        # Set reverse color
-  PS1+=$(prompt_directory)           # Add the current directory
-  PS1+=" "                           # Add a space
-  [ -n "$SSH_TTY$REX_SESSION" ] && PS1+="%n@%m " # Add user@host, if in ssh(1) or rex(1)
-  PS1+=$(git_branch)                 # Add the git(1) branch
-  PS1+="%(1j.%j .)"                  # Add job count, if any
-  PS1+="%#"                          # Add the prompt character
-  PS1+="%{${reset_color}%}"          # Reset color
-  PS1+=" "                           # Add a space
-  PS1+="%{${prompt_end}%}"           # End with the prompt end sequence (OSC-133)
+  PS1="%{${prompt_start}%}"            # Start with the prompt start sequence (OSC-133)
+  PS1+="%{${reverse_color}%}"          # Set reverse color
+  PS1+=$(prompt_directory)             # Add the current directory
+  PS1+=" "                             # Add a space
+  [ -n "$is_remote" ] && PS1+="%n@%m " # Add user@host, when remote
+  PS1+=$(git_branch)                   # Add the git(1) branch
+  PS1+="%(1j.%j .)"                    # Add job count, if any
+  PS1+="%#"                            # Add the prompt character
+  PS1+="%{${reset_color}%}"            # Reset color
+  PS1+=" "                             # Add a space
+  PS1+="%{${prompt_end}%}"             # End with the prompt end sequence (OSC-133)
 }
 
 bell() {
