@@ -11,6 +11,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "DiagnosticInfo", { link = "Comment" })
     vim.api.nvim_set_hl(0, "DiagnosticOk", { link = "Comment" })
     vim.api.nvim_set_hl(0, "DiagnosticWarn", { link = "Comment" })
+    local underline = { underline = true, sp = "#93A1A1" }
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", underline)
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", underline)
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", underline)
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineOk", underline)
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", underline)
   end,
 })
 
@@ -48,6 +54,31 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = "#217D76" })
     vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#2076B2" })
     vim.api.nvim_set_hl(0, "DiagnosticOk", { fg = "#687800" })
+    vim.api.nvim_set_hl(
+      0,
+      "DiagnosticUnderlineError",
+      { underline = true, sp = "#DA2825" }
+    )
+    vim.api.nvim_set_hl(
+      0,
+      "DiagnosticUnderlineWarn",
+      { underline = true, sp = "#8F6C00" }
+    )
+    vim.api.nvim_set_hl(
+      0,
+      "DiagnosticUnderlineInfo",
+      { underline = true, sp = "#217D76" }
+    )
+    vim.api.nvim_set_hl(
+      0,
+      "DiagnosticUnderlineHint",
+      { underline = true, sp = "#2076B2" }
+    )
+    vim.api.nvim_set_hl(
+      0,
+      "DiagnosticUnderlineOk",
+      { underline = true, sp = "#687800" }
+    )
     vim.api.nvim_set_hl(0, "NormalFloat", { link = "Pmenu" })
   end,
 })
