@@ -46,8 +46,8 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--color=bw"
 
-if command -v rv > /dev/null 2>&1; then
-  eval "$(rv shell env zsh)"
+if command -v mise > /dev/null 2>&1; then
+  eval "$(mise activate zsh)"
 fi
 
 _source_if_available "$HOME/.zshenv.local"
