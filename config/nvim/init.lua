@@ -37,7 +37,8 @@ vim.diagnostic.config({
 })
 
 -- solarized8 defines no Diagnostic* groups, so give them the terminal's
--- accents instead of nvim's defaults.
+-- accents instead of nvim's defaults. Floats take Pmenu's background
+-- instead of nvim's blue-grey.
 vim.api.nvim_create_autocmd("ColorScheme", {
   group = t_nvimrc,
   pattern = "solarized8*",
@@ -47,6 +48,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = "#217D76" })
     vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#2076B2" })
     vim.api.nvim_set_hl(0, "DiagnosticOk", { fg = "#687800" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { link = "Pmenu" })
   end,
 })
 
