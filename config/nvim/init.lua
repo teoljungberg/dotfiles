@@ -1,3 +1,19 @@
+local t_nvimrc = vim.api.nvim_create_augroup("nvimrc", { clear = true })
+
+-- vimrc's ecru block fires this after its `highlight clear`, at startup
+-- and whenever vimrc is re-sourced, so it must exist before vimrc runs.
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = t_nvimrc,
+  pattern = "ecru",
+  callback = function()
+    vim.api.nvim_set_hl(0, "DiagnosticError", { link = "Comment" })
+    vim.api.nvim_set_hl(0, "DiagnosticHint", { link = "Comment" })
+    vim.api.nvim_set_hl(0, "DiagnosticInfo", { link = "Comment" })
+    vim.api.nvim_set_hl(0, "DiagnosticOk", { link = "Comment" })
+    vim.api.nvim_set_hl(0, "DiagnosticWarn", { link = "Comment" })
+  end,
+})
+
 vim.cmd.source("~/.vimrc")
 
 vim.g.editorconfig = false
@@ -5,8 +21,6 @@ vim.g.editorconfig = false
 if vim.fn.exists("&winborder") == 1 then
   vim.o.winborder = "single"
 end
-
-local t_nvimrc = vim.api.nvim_create_augroup("nvimrc", { clear = true })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = t_nvimrc,
@@ -22,11 +36,19 @@ vim.diagnostic.config({
   severity_sort = true,
 })
 
-vim.api.nvim_set_hl(0, "DiagnosticError", { link = "Comment" })
-vim.api.nvim_set_hl(0, "DiagnosticHint", { link = "Comment" })
-vim.api.nvim_set_hl(0, "DiagnosticInfo", { link = "Comment" })
-vim.api.nvim_set_hl(0, "DiagnosticOk", { link = "Comment" })
-vim.api.nvim_set_hl(0, "DiagnosticWarn", { link = "Comment" })
+-- solarized8 defines no Diagnostic* groups, so give them the terminal's
+-- accents instead of nvim's defaults.
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = t_nvimrc,
+  pattern = "solarized8*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#DA2825" })
+    vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = "#8F6C00" })
+    vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = "#217D76" })
+    vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#2076B2" })
+    vim.api.nvim_set_hl(0, "DiagnosticOk", { fg = "#687800" })
+  end,
+})
 
 if vim.lsp and vim.lsp.config and vim.lsp.enable then
   local servers = {}

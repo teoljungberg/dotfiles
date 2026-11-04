@@ -915,6 +915,8 @@ hi diffAdded term=bold cterm=bold gui=bold ctermfg=NONE ctermbg=NONE guifg=NONE 
 hi diffChanged term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi diffRemoved term=NONE cterm=NONE gui=NONE ctermfg=14 ctermbg=NONE guifg=#969692 guibg=NONE
 
+doautocmd <nomodeline> ColorScheme ecru
+
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
