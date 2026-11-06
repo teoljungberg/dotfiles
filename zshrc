@@ -317,9 +317,22 @@ preexec() {
   mark_prompt
 }
 
+update_rex_session_title() {
+  [ -n "$REX_SESSION" ] || return
+
+  local dir title
+  dir=$(print -P '%~')
+  [ "$dir" = "$REX_SESSION_TITLE_DIR" ] && return
+  REX_SESSION_TITLE_DIR="$dir"
+
+  title="$(print -P '%n@%m'):$dir"
+  rex session rename "$REX_SESSION" "$title" >/dev/null 2>&1 &!
+}
+
 precmd() {
   mark_command_end $?
   set_title "$@"
+  update_rex_session_title
   set_prompt
 }
 
