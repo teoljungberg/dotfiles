@@ -325,6 +325,8 @@ update_rex_session_title() {
   [ "$dir" = "$REX_SESSION_TITLE_DIR" ] && return
   REX_SESSION_TITLE_DIR="$dir"
 
+  # Truncate like tmux's #{=/-20/...:session_name}
+  (( $#dir > 20 )) && dir="...${dir[-17,-1]}"
   title="$(print -P '%n@%m'):$dir"
   rex session rename "$REX_SESSION" "$title" >/dev/null 2>&1 &!
 }
