@@ -6,7 +6,8 @@ else
   compinit
   # compinit leaves an unchanged dump alone, so mark it as checked today
   touch ~/.zcompdump
-  zcompile ~/.zcompdump
+  zcompile ~/.zcompdump.$$.zwc ~/.zcompdump &&
+    mv -f ~/.zcompdump.$$.zwc ~/.zcompdump.zwc
 fi
 unset _fresh_zcompdump
 autoload -U add-zsh-hook
