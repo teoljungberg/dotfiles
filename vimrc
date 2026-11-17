@@ -64,7 +64,7 @@ if has('vim_starting')
   set nowrap
   set numberwidth=5
   set omnifunc=syntaxcomplete#Complete
-  set signcolumn=number
+  set signcolumn=auto
   set spellfile=~/.vim/spell/en.utf-8.add
   set synmaxcol=500
 
@@ -791,10 +791,10 @@ if executable('doas')
   command! DoasWrite :execute 'silent! write !doas tee % > /dev/null'
 endif
 
-nmap <script> <Plug>(unimpaired-enable)g  :<C-U>setlocal signcolumn=number<CR>
+nmap <script> <Plug>(unimpaired-enable)g  :<C-U>setlocal signcolumn=auto<CR>
 nmap <script> <Plug>(unimpaired-disable)g :<C-U>setlocal signcolumn=no<CR>
 nmap <script> <Plug>(unimpaired-toggle)g
-      \ :<C-U>setlocal signcolumn=<C-R>=&signcolumn ==# "no" ? "number" : "no"<CR><CR>
+      \ :<C-U>setlocal signcolumn=<C-R>=&signcolumn ==# "no" ? "auto" : "no"<CR><CR>
 
 " Reference https://github.com/tpope/vim-unimpaired/pull/242
 nnoremap [ot :<C-U>setlocal colorcolumn=+1<CR>
