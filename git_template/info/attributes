@@ -1,0 +1,6 @@
+*.rb diff=ruby
+*.c diff=c
+*.h diff=c
+*.sh diff=sh
+*.zsh diff=sh
+*.bash diff=sh

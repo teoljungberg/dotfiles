@@ -35,6 +35,12 @@
   autoSetupRebase = always
 [init]
   templateDir = ~/.git_template
+[diff "ruby"]
+  xfuncname = "^( *(def|class|module) .*)"
+[diff "c"]
+  xfuncname = "^([A-Za-z_][A-Za-z0-9_]*\\([^;]*$)"
+[diff "sh"]
+  xfuncname = "^([[:space:]]*(function[[:space:]]+)?[A-Za-z_][A-Za-z0-9_]*[[:space:]]*\\(\\)[[:space:]]*\\{?.*)"
 [grep]
   lineNumber = true
 [fetch]
