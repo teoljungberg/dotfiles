@@ -623,6 +623,9 @@ augroup t_dispatch
   autocmd BufReadPost *hammerspoon/*.lua
         \ let b:dispatch = 'hs -q %:p:S' |
         \ let b:start = 'hs'
+
+  autocmd BufWritePost *hammerspoon/*.lua
+        \ silent! execute 'hs -c "hs.reload()"'
 augroup END
 
 let g:fugitive_dynamic_colors = 0
