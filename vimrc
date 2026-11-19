@@ -775,6 +775,15 @@ augroup t_obsession
   autocmd!
   autocmd VimEnter * nested
         \ if (
+        \   argc() == 1 &&
+        \   argv(0) =~# '/$' &&
+        \   empty(v:this_session) &&
+        \   !&modified &&
+        \   filereadable(argv(0) . 'Session.vim')
+        \ ) |
+        \   bwipe |
+        \   execute 'source' fnameescape(argv(0) . 'Session.vim') |
+        \ elseif (
         \   !argc() &&
         \   empty(v:this_session) &&
         \   !&modified &&
